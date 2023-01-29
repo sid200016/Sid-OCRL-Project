@@ -25,14 +25,14 @@
      showgrid="false"
      units="px"
      inkscape:zoom="0.49071405"
-     inkscape:cx="754.00327"
-     inkscape:cy="578.74845"
+     inkscape:cx="829.4036"
+     inkscape:cy="482.96966"
      inkscape:window-width="2160"
      inkscape:window-height="1136"
      inkscape:window-x="-7"
      inkscape:window-y="-7"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="layer6" />
   <defs
      id="defs2">
     <rect
@@ -191,7 +191,7 @@
        x="1194.5684"
        y="162.8302"
        width="237.76091"
-       height="73.489738"
+       height="152.96576"
        id="rect22085-2" />
     <rect
        x="1194.5684"
@@ -215,6 +215,18 @@
        id="style82887">.cls-1{fill:#c41230;}</style>
     <style
        id="style83034">.cls-1{fill:#fff;}</style>
+    <rect
+       x="1194.5684"
+       y="162.8302"
+       width="237.76091"
+       height="73.489738"
+       id="rect22085-2-8" />
+    <rect
+       x="1194.5684"
+       y="162.8302"
+       width="237.76091"
+       height="73.489738"
+       id="rect22085-79-7" />
   </defs>
   <g
      inkscape:label="Object Locations"
@@ -246,7 +258,7 @@
        cy="77.641953"
        r="15.636228" />
     <circle
-       style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#ffcdbc;stroke-width:1.029;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#ffb200;fill-opacity:1;fill-rule:evenodd;stroke:#ffb200;stroke-width:1.029;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="path5107-1-8-3"
        cx="71.372055"
        cy="136.40173"
@@ -304,9 +316,9 @@
        transform="matrix(0.26458333,0,0,0.26458333,-65.508497,84.893955)"><tspan
          x="1194.5684"
          y="204.821"
-         id="tspan88475"><tspan
+         id="tspan35450"><tspan
            style="font-family:roboto;-inkscape-font-specification:'roboto Bold'"
-           id="tspan88473">Goal</tspan></tspan></text>
+           id="tspan35448">Goal</tspan></tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
@@ -476,6 +488,47 @@
        cx="71.641647"
        cy="77.372368"
        r="20.75844" />
+    <g
+       id="g10693"
+       style="display:inline"
+       transform="translate(19.050006)">
+      <text
+         xml:space="preserve"
+         id="text22083-8-3"
+         style="font-weight:bold;font-size:53.3333px;line-height:1;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';letter-spacing:1px;word-spacing:0px;white-space:pre;shape-inside:url(#rect22085-2-8);display:inline;fill:#ffcdbc;fill-opacity:1"
+         transform="matrix(0.10032012,0,0,0.10032012,-83.224573,89.822858)"><tspan
+           x="1194.5684"
+           y="204.821"
+           id="tspan35454"><tspan
+             style="font-family:roboto;-inkscape-font-specification:'roboto Bold'"
+             id="tspan35452">Force</tspan></tspan></text>
+      <rect
+         style="display:inline;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#ffcdbc;stroke-width:0.252692;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect42508-8"
+         width="16.444595"
+         height="5.8507071"
+         x="52.223179"
+         y="105.86366"
+         ry="1.4585398" />
+      <rect
+         style="display:inline;fill:#f5853f;fill-opacity:1;fill-rule:evenodd;stroke:#ffcdbc;stroke-width:0.211702;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect42508-9-2"
+         width="11.46185"
+         height="5.8916979"
+         x="52.202679"
+         y="105.84317"
+         ry="1.4687586" />
+      <text
+         xml:space="preserve"
+         id="text22083-9-8"
+         style="font-weight:bold;font-size:53.3333px;line-height:1;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';letter-spacing:1px;word-spacing:0px;white-space:pre;shape-inside:url(#rect22085-79-7);display:inline;fill:#34113f;fill-opacity:1;stroke:#f5853f;stroke-width:2.13543;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         transform="matrix(0.088031,0,0,0.088031,-48.326583,92.446934)"><tspan
+           x="1194.5684"
+           y="204.821"
+           id="tspan35458"><tspan
+             style="font-family:roboto;-inkscape-font-specification:'roboto Bold'"
+             id="tspan35456">63%</tspan></tspan></text>
+    </g>
   </g>
   <g
      inkscape:groupmode="layer"
@@ -552,11 +605,24 @@
   <g
      inkscape:groupmode="layer"
      id="layer2"
-     inkscape:label="Successful Grab" />
+     inkscape:label="Successful Grab"
+     style="display:inline">
+    <circle
+       style="fill:#ffb200;fill-opacity:1;fill-rule:evenodd;stroke:#ffb200;stroke-width:1.029;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path5107-1-8-3-9"
+       cx="71.372055"
+       cy="136.40173"
+       r="15.636228" />
+    <path
+       style="fill:#34113f;fill-opacity:1;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 62.736694,139.26437 0.711729,-1.11945 4.852622,4.44824 12.670737,-13.7491 0.539178,0.94357 -12.940326,14.28827 z"
+       id="path28999" />
+  </g>
   <g
      inkscape:groupmode="layer"
      id="layer3"
-     inkscape:label="Unsuccessful Attempt">
+     inkscape:label="Unsuccessful Attempt"
+     style="display:inline">
     <circle
        style="mix-blend-mode:normal;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#ff002a;stroke-width:9.61343;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter27861-9)"
        id="path27683-3"
@@ -757,35 +823,41 @@
          transform="matrix(0.26458333,0,0,0.26458333,5.3729094,172.07096)"><tspan
            x="1194.5684"
            y="204.821"
-           id="tspan88479"><tspan
+           id="tspan35462"><tspan
              style="font-family:roboto;-inkscape-font-specification:'roboto Bold'"
-             id="tspan88477">Force</tspan></tspan></text>
+             id="tspan35460">Contact
+</tspan></tspan><tspan
+           x="1194.5684"
+           y="260.14525"
+           id="tspan35466"><tspan
+             style="font-family:roboto;-inkscape-font-specification:'roboto Bold'"
+             id="tspan35464">Force</tspan></tspan></text>
       <rect
          style="display:inline;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#ffcdbc;stroke-width:1.13983;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="rect42508"
          width="130.88098"
          height="14.957217"
-         x="362.83823"
-         y="214.61354"
+         x="377.12595"
+         y="222.02177"
          ry="3.7287283" />
       <rect
-         style="display:inline;fill:#ffcdbc;fill-opacity:1;fill-rule:evenodd;stroke:#ffcdbc;stroke-width:0.98959;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         style="display:inline;fill:#f5853f;fill-opacity:1;fill-rule:evenodd;stroke:#ffcdbc;stroke-width:0.98959;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="rect42508-9"
          width="97.671143"
          height="15.107457"
-         x="362.76309"
-         y="214.53842"
+         x="377.05081"
+         y="221.94666"
          ry="3.7661822" />
       <text
          xml:space="preserve"
          id="text22083-9"
-         style="font-weight:bold;font-size:53.3333px;line-height:1;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';letter-spacing:1px;word-spacing:0px;white-space:pre;shape-inside:url(#rect22085-79);fill:#34113f;fill-opacity:1;stroke:#ffcdbc;stroke-width:2.13543;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         transform="matrix(0.26458333,0,0,0.26458333,86.590648,172.30169)"><tspan
+         style="font-weight:bold;font-size:53.3333px;line-height:1;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';letter-spacing:1px;word-spacing:0px;white-space:pre;shape-inside:url(#rect22085-79);fill:#34113f;fill-opacity:1;stroke:#f5853f;stroke-width:2.13543;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         transform="matrix(0.26458333,0,0,0.26458333,100.87816,179.71007)"><tspan
            x="1194.5684"
            y="204.821"
-           id="tspan88483"><tspan
+           id="tspan35470"><tspan
              style="font-family:roboto;-inkscape-font-specification:'roboto Bold'"
-             id="tspan88481">76%</tspan></tspan></text>
+             id="tspan35468">76%</tspan></tspan></text>
     </g>
     <g
        inkscape:groupmode="layer"
@@ -799,9 +871,9 @@
        transform="matrix(0.26458333,0,0,0.26458333,5.2916669,3.7041668)"><tspan
          x="1194.5684"
          y="204.821"
-         id="tspan88487"><tspan
+         id="tspan35474"><tspan
            style="font-family:roboto;-inkscape-font-specification:'roboto Bold'"
-           id="tspan88485">Grasper:</tspan></tspan></text>
+           id="tspan35472">Grasper:</tspan></tspan></text>
     <text
        xml:space="preserve"
        id="text22083-5"
@@ -809,9 +881,9 @@
        transform="matrix(0.26458333,0,0,0.26458333,-265.53442,205.57019)"><tspan
          x="1194.5684"
          y="204.821"
-         id="tspan88491"><tspan
+         id="tspan35478"><tspan
            style="font-family:roboto;-inkscape-font-specification:'roboto Bold'"
-           id="tspan88489"># of successful grasps: 0</tspan></tspan></text>
+           id="tspan35476"># of successful grasps: 1</tspan></tspan></text>
     <text
        xml:space="preserve"
        id="text22083-5-3"
@@ -819,9 +891,9 @@
        transform="matrix(0.26458333,0,0,0.26458333,-264.78345,223.14781)"><tspan
          x="1194.5684"
          y="204.821"
-         id="tspan88495"><tspan
+         id="tspan35482"><tspan
            style="font-family:roboto;-inkscape-font-specification:'roboto Bold'"
-           id="tspan88493"># of attempts remaining: 12</tspan></tspan></text>
+           id="tspan35480"># of attempts remaining: 10</tspan></tspan></text>
     <path
        style="fill:#000000;fill-opacity:0;stroke:#ffcdbc;stroke-width:1.565;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="M 312.40423,25.341472 V 288.46145"
@@ -833,11 +905,11 @@
        transform="matrix(0.26458333,0,0,0.26458333,-285.14512,-40.295999)"><tspan
          x="1194.5684"
          y="204.821"
-         id="tspan88501"><tspan
+         id="tspan35488"><tspan
            style="font-family:roboto;-inkscape-font-specification:'roboto Bold'"
-           id="tspan88497">J</tspan><tspan
+           id="tspan35484">J</tspan><tspan
            style="font-family:roboto;-inkscape-font-specification:'roboto Bold'"
-           id="tspan88499">an - 28 - 2023</tspan></tspan></text>
+           id="tspan35486">an - 28 - 2023</tspan></tspan></text>
     <text
        xml:space="preserve"
        id="text22083-54-2"
@@ -845,8 +917,8 @@
        transform="matrix(0.26458333,0,0,0.26458333,-169.36959,-40.549283)"><tspan
          x="1194.5684"
          y="204.821"
-         id="tspan88505"><tspan
+         id="tspan35492"><tspan
            style="font-family:roboto;-inkscape-font-specification:'roboto Bold'"
-           id="tspan88503">11:12 A.M.</tspan></tspan></text>
+           id="tspan35490">11:12 A.M.</tspan></tspan></text>
   </g>
 </svg>

@@ -58,7 +58,8 @@ ADDR_PRO_PRESENT_POSITION   = 132
 PROTOCOL_VERSION            = 2.0               # See which protocol version is used in the Dynamixel
 
 # Default setting
-DXL_ID                      = 1                 # Dynamixel ID : 1
+DXL_ID1                      = 1                 # Dynamixel ID : 1
+DXL_ID2                      = 2                 # Dynamixel ID : 1
 BAUDRATE                    = 57600             # Dynamixel default baudrate : 57600
 DEVICENAME                  = 'COM3'    # Check which port is being used on your controller
                                                 # ex) Windows: "COM1"   Linux: "/dev/ttyUSB0" Mac: "/dev/tty.usbserial-*"
@@ -67,7 +68,7 @@ TORQUE_ENABLE               = 1                 # Value for enabling the torque
 TORQUE_DISABLE              = 0                 # Value for disabling the torque
 DXL_MINIMUM_POSITION_VALUE  = 2000          # Dynamixel will rotate between this value
 DXL_MAXIMUM_POSITION_VALUE  = 1500        # and this value (note that the Dynamixel would not move when the position value is out of movable range. Check e-manual about the range of the Dynamixel you use.)
-DXL_MOVING_STATUS_THRESHOLD = 25               # Dynamixel moving status threshold
+DXL_MOVING_STATUS_THRESHOLD = 100               # Dynamixel moving status threshold
 
 OPERATING_MODE = 11
 CONTROL_MODE = 3
@@ -85,7 +86,8 @@ VELOCITY_I_GAIN = 0
 
 index = 0
 dxl_goal_position = [DXL_MAXIMUM_POSITION_VALUE,DXL_MINIMUM_POSITION_VALUE]         # Goal position
-
+dxl_goal_position_1 = [1500,2000]
+dxl_goal_position_2 = [2120,1620]
 
 # Initialize PortHandler instance
 # Set the port path
@@ -116,20 +118,47 @@ else:
     getch()
     quit()
 
+################### For Motor 1
 #set operating mode
-dxl_comm_result, dxl_error = packetHandler.write1ByteTxRx(portHandler, DXL_ID, OPERATING_MODE, CONTROL_MODE)
+dxl_comm_result, dxl_error = packetHandler.write1ByteTxRx(portHandler, DXL_ID1, OPERATING_MODE, CONTROL_MODE)
 
 # Enable Dynamixel Torque
-dxl_comm_result, dxl_error = packetHandler.write1ByteTxRx(portHandler, DXL_ID, ADDR_PRO_TORQUE_ENABLE, TORQUE_ENABLE)
+dxl_comm_result, dxl_error = packetHandler.write1ByteTxRx(portHandler, DXL_ID1, ADDR_PRO_TORQUE_ENABLE, TORQUE_ENABLE)
 
 
 
 #set gain
-dxl_comm_result, dxl_error = packetHandler.write2ByteTxRx(portHandler, DXL_ID, POSITION_PROP_BYTE, POSITION_PROP_GAIN)
+dxl_comm_result, dxl_error = packetHandler.write2ByteTxRx(portHandler, DXL_ID1, POSITION_PROP_BYTE, POSITION_PROP_GAIN)
 
 
-dxl_comm_result, dxl_error = packetHandler.write2ByteTxRx(portHandler, DXL_ID, VELOCITY_PROP_BYTE, VELOCITY_PROP_GAIN)
-dxl_comm_result, dxl_error = packetHandler.write2ByteTxRx(portHandler, DXL_ID, VELOCITY_I_BYTE, VELOCITY_I_GAIN)
+dxl_comm_result, dxl_error = packetHandler.write2ByteTxRx(portHandler, DXL_ID1, VELOCITY_PROP_BYTE, VELOCITY_PROP_GAIN)
+dxl_comm_result, dxl_error = packetHandler.write2ByteTxRx(portHandler, DXL_ID1, VELOCITY_I_BYTE, VELOCITY_I_GAIN)
+
+################## For Motor 2
+#set operating mode
+dxl_comm_result, dxl_error = packetHandler.write1ByteTxRx(portHandler, DXL_ID2, OPERATING_MODE, CONTROL_MODE)
+
+# Enable Dynamixel Torque
+dxl_comm_result, dxl_error = packetHandler.write1ByteTxRx(portHandler, DXL_ID2, ADDR_PRO_TORQUE_ENABLE, TORQUE_ENABLE)
+
+
+
+#set gain
+dxl_comm_result, dxl_error = packetHandler.write2ByteTxRx(portHandler, DXL_ID2, POSITION_PROP_BYTE, POSITION_PROP_GAIN)
+
+
+dxl_comm_result, dxl_error = packetHandler.write2ByteTxRx(portHandler, DXL_ID2, VELOCITY_PROP_BYTE, VELOCITY_PROP_GAIN)
+dxl_comm_result, dxl_error = packetHandler.write2ByteTxRx(portHandler, DXL_ID2, VELOCITY_I_BYTE, VELOCITY_I_GAIN)
+
+
+dxl_present_position1, dxl_comm_result, dxl_error = packetHandler.read4ByteTxRx(portHandler, DXL_ID1,
+                                                                                       ADDR_PRO_PRESENT_POSITION)
+
+dxl_present_position2, dxl_comm_result, dxl_error = packetHandler.read4ByteTxRx(portHandler, DXL_ID2,
+                                                                                       ADDR_PRO_PRESENT_POSITION)
+
+print("Initial Positions: %d, %d"%(dxl_present_position1,dxl_present_position2))
+
 
 
 if dxl_comm_result != COMM_SUCCESS:
@@ -144,28 +173,63 @@ while 1:
     if getch() == chr(0x1b):
         break
 
-    # Write goal position
-    dxl_comm_result, dxl_error = packetHandler.write4ByteTxRx(portHandler, DXL_ID, ADDR_PRO_GOAL_POSITION, dxl_goal_position[index])
+    # Write goal position for Motor 1
+    dxl_comm_result, dxl_error = packetHandler.write4ByteTxRx(portHandler, DXL_ID1, ADDR_PRO_GOAL_POSITION, dxl_goal_position_1[index])
     if dxl_comm_result != COMM_SUCCESS:
         print("%s\n" % packetHandler.getTxRxResult(dxl_comm_result))
     elif dxl_error != 0:
         print("%s\n" % packetHandler.getRxPacketError(dxl_error))
 
+    # Write goal position for Motor 2
+    dxl_comm_result, dxl_error = packetHandler.write4ByteTxRx(portHandler, DXL_ID2, ADDR_PRO_GOAL_POSITION,
+                                                              dxl_goal_position_2[index])
+    if dxl_comm_result != COMM_SUCCESS:
+        print("%s\n" % packetHandler.getTxRxResult(dxl_comm_result))
+    elif dxl_error != 0:
+        print("%s\n" % packetHandler.getRxPacketError(dxl_error))
+
+    Motor1_Fin = False
+    Motor2_Fin = False
+
     while 1:
-        # Read present position
-        dxl_present_position, dxl_comm_result, dxl_error = packetHandler.read4ByteTxRx(portHandler, DXL_ID, ADDR_PRO_PRESENT_POSITION)
-        if dxl_comm_result != COMM_SUCCESS:
-            print("%s\n" % packetHandler.getTxRxResult(dxl_comm_result))
-        elif dxl_error != 0:
-            print("%s\n" % packetHandler.getRxPacketError(dxl_error))
 
-        print("[ID:%03d] GoalPos:%03d  PresPos:%03d\n" % (DXL_ID, dxl_goal_position[index], dxl_present_position))
+        # Read present position of Motor 1
+        dxl_present_position1, dxl_comm_result, dxl_error = packetHandler.read4ByteTxRx(portHandler, DXL_ID1, ADDR_PRO_PRESENT_POSITION)
 
-        dxl_movingStatus, dxl_comm_result, dxl_error = packetHandler.read1ByteTxRx(portHandler, DXL_ID,
-                                                                                       123)
-        print("Moving Status: %s" % format(dxl_movingStatus,'08b'))
+        if abs(dxl_goal_position_1[index] - dxl_present_position1) > DXL_MOVING_STATUS_THRESHOLD:
+            if dxl_comm_result != COMM_SUCCESS:
+                print("%s\n" % packetHandler.getTxRxResult(dxl_comm_result))
+            elif dxl_error != 0:
+                print("%s\n" % packetHandler.getRxPacketError(dxl_error))
 
-        if not abs(dxl_goal_position[index] - dxl_present_position) > DXL_MOVING_STATUS_THRESHOLD:
+            print("[ID:%03d] GoalPos:%03d  PresPos:%03d\n" % (DXL_ID1, dxl_goal_position_1[index], dxl_present_position1))
+
+            dxl_movingStatus, dxl_comm_result, dxl_error = packetHandler.read1ByteTxRx(portHandler, DXL_ID1, 123)
+            print("Moving Status: %s" % format(dxl_movingStatus, '08b'))
+
+        else:
+            Motor1_Fin = True
+
+        # Read present position of Motor 2
+        dxl_present_position2, dxl_comm_result, dxl_error = packetHandler.read4ByteTxRx(portHandler, DXL_ID2,
+                                                                                       ADDR_PRO_PRESENT_POSITION)
+
+        if abs(dxl_goal_position_2[index] - dxl_present_position2) > DXL_MOVING_STATUS_THRESHOLD:
+            if dxl_comm_result != COMM_SUCCESS:
+                print("%s\n" % packetHandler.getTxRxResult(dxl_comm_result))
+            elif dxl_error != 0:
+                print("%s\n" % packetHandler.getRxPacketError(dxl_error))
+
+            print(
+                "[ID:%03d] GoalPos:%03d  PresPos:%03d\n" % (DXL_ID2, dxl_goal_position_2[index], dxl_present_position2))
+
+            dxl_movingStatus, dxl_comm_result, dxl_error = packetHandler.read1ByteTxRx(portHandler, DXL_ID2, 123)
+            print("Moving Status: %s" % format(dxl_movingStatus, '08b'))
+
+        else:
+            Motor2_Fin = True
+
+        if Motor1_Fin == True and Motor2_Fin == True:
             break
 
     # Change goal position
@@ -175,8 +239,15 @@ while 1:
         index = 0
 
 
-# Disable Dynamixel Torque
-dxl_comm_result, dxl_error = packetHandler.write1ByteTxRx(portHandler, DXL_ID, ADDR_PRO_TORQUE_ENABLE, TORQUE_DISABLE)
+# Disable Dynamixel Torque for Motor 1
+dxl_comm_result, dxl_error = packetHandler.write1ByteTxRx(portHandler, DXL_ID1, ADDR_PRO_TORQUE_ENABLE, TORQUE_DISABLE)
+if dxl_comm_result != COMM_SUCCESS:
+    print("%s\n" % packetHandler.getTxRxResult(dxl_comm_result))
+elif dxl_error != 0:
+    print("%s\n" % packetHandler.getRxPacketError(dxl_error))
+
+# Disable Dynamixel Torque For Motor 2
+dxl_comm_result, dxl_error = packetHandler.write1ByteTxRx(portHandler, DXL_ID2, ADDR_PRO_TORQUE_ENABLE, TORQUE_DISABLE)
 if dxl_comm_result != COMM_SUCCESS:
     print("%s\n" % packetHandler.getTxRxResult(dxl_comm_result))
 elif dxl_error != 0:

@@ -1,6 +1,9 @@
 import pygame
 import time
 import numpy as np
+# from .. Gantry import GantryController
+# from .. SoftGrasper import SoftGrasper
+# from .. RigidGrasper import RigidGrasper
 
 class JoyCon:
 
@@ -11,6 +14,11 @@ class JoyCon:
         self.buttonMapping = {"A": 1, "B": 3, "X": 0, "Y": 2, "SL": 9, "SR": 10, "+": 6, "Stick In": 7,
                                      "Home": 5, "R": 16, "ZR": 18} #For Joy-Con Right
 
+
+        self.functionMapping = {"A": self.buttonA, "B": self.buttonB, "X": self.buttonX, "Y": self.buttonY,
+                                "SL": self.buttonSL, "SR": self.buttonSR, "+": self.buttonPlus,
+                                "Stick In": self.buttonJoystickIn(),"Home": self.buttonHome,
+                                "R": self.buttonR, "ZR": self.buttonZR}
         self.initializeJoystick()
 
 
@@ -57,15 +65,92 @@ class JoyCon:
                 print("Analog Stick: horizontal, vertical")
                 print(str(horiz_move) + "," + str(vert_move))
                 #print(str(ax3) + "," + str(ax4))
-                return(buttonValues,[horiz_move,vert_move]) #return the button press values and the
+
+        return(buttonValues,[horiz_move,vert_move]) #return the button press values and the analog stick values
 
     def rumbleFeedback(self,lowIntensity,highIntensity,duration_ms):
         self.joysticks[self.JoyStick_JoyConID].rumble(lowIntensity,highIntensity,duration_ms)
 
 
 
-jc = JoyCon()
-jc.rumbleFeedback(0,1,5000)
-while(True):
-    [buttonVal,AxesPos] = jc.eventLoop()
-    time.sleep(0.01)
+    #Button Functions
+    def buttonA(self):
+        pass
+
+    def buttonB(self):
+        pass
+
+    def buttonX(self):
+        pass
+
+    def buttonY(self):
+        pass
+
+    def buttonHome(self):
+        pass
+
+    def buttonPlus(self):
+        pass
+
+    def buttonJoystickIn(self):
+        pass
+
+    def buttonSL(self):
+        pass
+
+    def buttonSR(self):
+        pass
+
+    def buttonR(self):
+        pass
+
+    def buttonZR(self):
+        pass
+
+
+class Joy_RigidGrasper(JoyCon):
+
+    def __init__(self,RG=None):
+        super().__init__()
+        self.grasper = RG
+        self.grasperIncrement = 100
+
+
+    def buttonA(self): #close right claw, assume position control
+        print("A")
+        CurrentPosition,dxl_comm_result,dxl_error = self.grasper.ReadCurrentPosition()
+        CurrentPosition=[CurrentPosition["1"],CurrentPosition["2"]]
+        CurrentPosition[0] = max(CurrentPosition[0]-self.grasperIncrement,self.grasper.GoalPosition["1"][0])
+        self.grasper.SetGoalPosition(CurrentPosition[0],CurrentPosition[1])
+
+    def buttonB(self): #open right claw, assume position control
+        CurrentPosition,dxl_comm_result,dxl_error = self.grasper.ReadCurrentPosition()
+        CurrentPosition = [CurrentPosition["1"], CurrentPosition["2"]]
+        CurrentPosition[0] = min(CurrentPosition[0]+self.grasperIncrement,self.grasper.GoalPosition["1"][1])
+        self.grasper.SetGoalPosition(CurrentPosition[0],CurrentPosition[1])
+
+    def buttonY(self): #close right claw, assume position control
+        CurrentPosition,dxl_comm_result,dxl_error = self.grasper.ReadCurrentPosition()
+        CurrentPosition=[CurrentPosition["1"],CurrentPosition["2"]]
+        CurrentPosition[1] = max(CurrentPosition[1]-self.grasperIncrement,self.grasper.GoalPosition["2"][1])
+        self.grasper.SetGoalPosition(CurrentPosition[0],CurrentPosition[1])
+
+    def buttonX(self): #open right claw, assume position control
+        CurrentPosition,dxl_comm_result,dxl_error = self.grasper.ReadCurrentPosition()
+        CurrentPosition = [CurrentPosition["1"], CurrentPosition["2"]]
+        CurrentPosition[1] = min(CurrentPosition[1]+self.grasperIncrement,self.grasper.GoalPosition["2"][0])
+        self.grasper.SetGoalPosition(CurrentPosition[0],CurrentPosition[1])
+
+
+
+
+
+
+
+
+
+# jc = JoyCon()
+# jc.rumbleFeedback(0,1,5000)
+# while(True):
+#     [buttonVal,AxesPos] = jc.eventLoop()
+#     time.sleep(0.01)

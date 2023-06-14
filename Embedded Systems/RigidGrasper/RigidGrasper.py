@@ -266,8 +266,9 @@ class RigidGrasper:
 
 
 
-RG = RigidGrasper()
-RG.CyclicTestGrasper()
+
+# RG = RigidGrasper()
+# RG.CyclicTestGrasper()
 
 
 

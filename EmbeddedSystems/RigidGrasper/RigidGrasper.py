@@ -16,6 +16,7 @@
 
 import os
 import numpy as np
+from enum import Enum
 
 if os.name == 'nt':
     import msvcrt
@@ -34,6 +35,11 @@ else:
         return ch
 
 from dynamixel_sdk import *                    # Uses Dynamixel SDK library
+
+class GrasperActions(Enum):
+    STAY = 0 #dont move
+    CLOSE = 1 #Move jaws closer together
+    OPEN = 2 #Move jaws apart
 
 class RigidGrasper:
 
@@ -190,11 +196,12 @@ class RigidGrasper:
         self.dxl_error = dxl_error
         return (value,dxl_comm_result, dxl_error)
 
-    def SetGoalPosition(self,goal_position1,goal_position2):
+    def SetGoalPosition(self,goal_position1=None,goal_position2=None):
         goal_position={"1":goal_position1,"2":goal_position2}
 
         for i,(k,DXL_ID) in enumerate(self.DXL_ID.items()):
-            dxl_comm_result,dxl_error = self.writeByte(4, DXL_ID, self.ADDR_PRO_GOAL_POSITION,goal_position[k])
+            if goal_position[k] is not None: #only send byte if it is not none
+                dxl_comm_result,dxl_error = self.writeByte(4, DXL_ID, self.ADDR_PRO_GOAL_POSITION,goal_position[k])
 
         return(dxl_comm_result,dxl_error)
 
@@ -220,6 +227,28 @@ class RigidGrasper:
 
         # Close port
         self.portHandler.closePort()
+
+    def IncrementalMove(self,moveIncrement1 = 100,moveIncrement2 = 100, action1 = GrasperActions.STAY,action2 = GrasperActions.STAY): #close claws, assume position control
+
+        CurrentPosition,dxl_comm_result,dxl_error = self.ReadCurrentPosition()
+        CurrentPosition=[CurrentPosition["1"],CurrentPosition["2"]]
+
+        #Claw 1
+        if action1.value == GrasperActions.CLOSE.value:
+            CurrentPosition[0] = max(CurrentPosition[0]-moveIncrement1,self.GoalPosition["1"][0])
+        elif action1.value == GrasperActions.OPEN.value:
+            CurrentPosition[0] = min(CurrentPosition[0] + moveIncrement1, self.GoalPosition["1"][1])
+
+        self.SetGoalPosition(goal_position1=CurrentPosition[0])  # move towards goal position for claw 1 only
+
+        #Claw 2
+        if action2.value == GrasperActions.CLOSE.value:
+            CurrentPosition[1] = min(CurrentPosition[1] + moveIncrement2, self.GoalPosition["2"][0])
+        elif action2.value == GrasperActions.OPEN.value:
+            CurrentPosition[1] = max(CurrentPosition[1] - moveIncrement2, self.GoalPosition["2"][1])
+        self.SetGoalPosition(goal_position2=CurrentPosition[1])  # move towards goal position for claw 2 only
+
+
 
     def CyclicTestGrasper(self):
 

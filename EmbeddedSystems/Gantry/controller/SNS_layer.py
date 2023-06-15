@@ -1,8 +1,8 @@
 import numpy as np
 import torch
 import torch.nn as nn
-import Gantry.controller.torchSNS as tSNS
-from Gantry.controller.torchSNS.torch import SNSCell
+import EmbeddedSystems.Gantry.controller.torchSNS as tSNS
+from EmbeddedSystems.Gantry.controller.torchSNS.torch import SNSCell
 
 #########################################################
 

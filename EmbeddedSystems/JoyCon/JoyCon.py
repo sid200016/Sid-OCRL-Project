@@ -5,12 +5,13 @@ from EmbeddedSystems.Gantry import GantryController as GC
 from EmbeddedSystems.SoftGrasper import SoftGrasper as SG
 from EmbeddedSystems.RigidGrasper import RigidGrasper as RG
 from enum import Enum
-
+from copy import deepcopy
 
 class Button:
 
-    def __init__(self,buttonNumber:int, excludeButtons:tuple, priority:int, fcn:None):
+    def __init__(self,buttonNumber:int,buttonName:str, excludeButtons:tuple, priority:int, fcn:None):
         self.buttonNumber = buttonNumber
+        self.buttonName = buttonName
         self.exclude = excludeButtons
         self.priority = priority #higher number means higher priority
         self.fcn = fcn
@@ -24,17 +25,17 @@ class JoyCon:
 
         self.joysticks = []
         self.JoyStick_JoyConID = None
-        self.buttonMapping = {"A": Button(1,(),1,self.buttonA), #arguments: Button Number, Exclusion buttons, priority, button press function
-                              "B": Button(3,(),1,self.buttonB),
-                              "X": Button(0,(),1,self.buttonX),
-                              "Y": Button(2,(),1,self.buttonY),
-                              "SL": Button(9,(),1,self.buttonSL),
-                              "SR": Button(10,(),1,self.buttonSR),
-                              "+": Button(6,(),1,self.buttonPlus),
-                              "Stick In": Button(7,(),1,self.buttonJoystickIn),
-                              "Home": Button(5,(),1,self.buttonHome),
-                              "R": Button(16,(),1,self.buttonR),
-                              "ZR": Button(18,(),1,self.buttonZR)} #For Joy-Con Right
+        self.buttonMapping = {"A": Button(1,"A",(),1,self.buttonA), #arguments: Button Number, Button Name, Exclusion buttons, priority, button press function
+                              "B": Button(3,"B",(),1,self.buttonB),
+                              "X": Button(0,"X",(),1,self.buttonX),
+                              "Y": Button(2,"Y",(),1,self.buttonY),
+                              "SL": Button(9,"SL",(),1,self.buttonSL),
+                              "SR": Button(10,"SR",(),1,self.buttonSR),
+                              "+": Button(6,"+",(),1,self.buttonPlus),
+                              "Stick In": Button(7,"Stick In",(),1,self.buttonJoystickIn),
+                              "Home": Button(5,"Home",(),1,self.buttonHome),
+                              "R": Button(16,"R",(),1,self.buttonR),
+                              "ZR": Button(18,"ZR",(),1,self.buttonZR)} #For Joy-Con Right
 
 
         # self.functionMapping = {"A": self.buttonA, "B": self.buttonB, "X": self.buttonX, "Y": self.buttonY,
@@ -71,7 +72,7 @@ class JoyCon:
 
             if joystick.get_name() == "Nintendo Switch Joy-Con (R)": #only look for Joy-Con (right)
 
-                buttonValues = {k: None for (k, v) in self.buttonMapping.items() if not isinstance(k,tuple)}
+                buttonValues = {k: None for (k, v) in self.buttonMapping.items() if not isinstance(k,tuple)} #only get button presses, not multiple maps.
                 for k, v in buttonValues.items():
                     buttonValues[k] = joystick.get_button(self.buttonMapping[k].buttonNumber)
 
@@ -90,10 +91,43 @@ class JoyCon:
 
         return(buttonValues,[horiz_move,vert_move]) #return the button press values and the analog stick values
 
+
+
     def sortButtonMapping(self):
         self.buttonMapping = dict(sorted(self.buttonMapping.items(),key=lambda x:x[1].priority,reverse = True))
 
-    # def ExecuteButtonFunctions(self,buttonValues,[horiz_move,vert_move]):
+    def ExecuteButtonFunctions(self,buttonValues,AnalogAxis):
+
+        self.sortButtonMapping()  # should be in order from highest priority to lowest priority.
+
+        #single buttons:
+        singleButtons = {k: v for (k,v) in self.buttonMapping.items() if not isinstance(k, tuple)}
+
+        #Process tuples first as these indicate simultaneous key presses
+        multipleButtons = {k: v for (k, v) in self.buttonMapping.items() if
+                           isinstance(k, tuple)}  # only get multiple button presses
+
+
+
+        for (k,v) in multipleButtons.items(): #k is a key like "A" or "X", v  is a button class object
+            buttonPressBool = np.all([buttonValues[x] for x in v.buttonName]) #Check if all the required buttons have been pressed. v.buttonNumber is a tuple with the buttons corresponding to the multi-button press.
+            if buttonPressBool == True: #if the buttons corresponding to the multiple button command were pressed, then execute the function and remove the buttons from the single execution list
+
+                func = [v.fcn for (k2,v) in multipleButtons.items() if frozenset(k2)==frozenset(k)][0] #get the function
+                func() #call the function
+
+                #remove  single buttons from the dictionary
+                for k3 in v.exclude:
+                    del singleButtons[k3] #remove buttons
+
+        for (k, v) in singleButtons.items():
+            if buttonValues[k] == 1:
+                v.fcn()
+
+
+
+
+
 
     def rumbleFeedback(self,lowIntensity,highIntensity,duration_ms):
         self.joysticks[self.JoyStick_JoyConID].rumble(lowIntensity,highIntensity,duration_ms)
@@ -143,11 +177,13 @@ class Joy_RigidGrasper(JoyCon):
         self.grasperIncrement = 100
 
         self.buttonMapping[("A", "X")] = Button((self.buttonMapping["A"].buttonNumber,self.buttonMapping["X"].buttonNumber),
+                                                ("A","X"),
                                                 ("A","X"),2,self.buttonAX) #situation where two buttons are pressed at once to close the grasper
         self.buttonMapping[("B", "Y")] = Button((self.buttonMapping["B"].buttonNumber,self.buttonMapping["Y"].buttonNumber),
+                                                ("B","Y"),
                                                 ("B","Y"),2,self.buttonBY) #situation where two buttons are pressed at once to open the grasper
 
-        self.sortButtonMapping()
+        self.sortButtonMapping() #should be in order from highest priority to lowest priority.
 
 
     def buttonA(self): #close right claw, assume position control
@@ -173,7 +209,7 @@ class Joy_RigidGrasper(JoyCon):
 
     def buttonBY(self):
         self.grasper.IncrementalMove(moveIncrement1=self.grasperIncrement, moveIncrement2=self.grasperIncrement,
-                                 action1=RG.GrasperActions.CLOSE, action2=RG.GrasperActions.CLOSE)
+                                 action1=RG.GrasperActions.OPEN, action2=RG.GrasperActions.OPEN)
 
 
 

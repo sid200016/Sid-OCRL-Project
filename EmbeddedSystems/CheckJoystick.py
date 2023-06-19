@@ -10,6 +10,7 @@ jcRG = JC.Joy_RigidGrasper(RGa)
 
 while(True):
     [buttonVal,AxesPos] = jcRG.eventLoop()
-    for i, (k,v) in enumerate(buttonVal.items()):
-        if v==1:
-            jcRG.buttonMapping[k].fcn()
+    jcRG.ExecuteButtonFunctions(buttonVal, AxesPos)
+    # for i, (k,v) in enumerate(buttonVal.items()):
+    #     if v==1:
+    #         jcRG.buttonMapping[k].fcn()

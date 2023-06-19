@@ -37,6 +37,7 @@ class JoyCon:
                               "R": Button(16,"R",(),1,self.buttonR),
                               "ZR": Button(18,"ZR",(),1,self.buttonZR)} #For Joy-Con Right
 
+        self.deadzone=[(-0.1,0.1),(-0.1,0.1)] #deadzone for x and y axes of the analog stick, respectively.
 
         # self.functionMapping = {"A": self.buttonA, "B": self.buttonB, "X": self.buttonX, "Y": self.buttonY,
         #                         "SL": self.buttonSL, "SR": self.buttonSR, "+": self.buttonPlus,
@@ -169,7 +170,71 @@ class JoyCon:
         pass
 
 
-class Joy_RigidGrasper(JoyCon):
+class Joy_Gantry(JoyCon):
+
+    def __init__(self,GantryS: GC.Gantry):
+        super().__init__()
+        self.Gantry = GantryS
+        self.MoveVelocity_mmps = [self.Gantry.MoveSpeed/60, self.Gantry.MoveSpeed/60, self.Gantry.MoveSpeed/60]
+        self.PeriodT_s = 0.02 #period over which to calculate movement of the gantry
+        self.JoystickPos = [] # joystick reading for x, y and z axes
+        self.GantryIncrement_mm = [] #for x, y and z axes, respectively, in mm
+
+
+
+
+
+
+    def getPositionIncrement(self, joystickPos=None, Velocity_mmps = None, PeriodT_s = None ):
+
+        #calculate the increment for the three axes
+        if Velocity_mmps is None:
+            Velocity_mmps=self.MoveVelocity_mmps
+
+        if PeriodT_s is None:
+            PeriodT_s = self.PeriodT_s
+
+        if joystickPos == None:
+            joystickPos = self.JoystickPos
+
+        #adjust value for whether in deadzone or not
+        joyVal = [(x-self.deadzone[i][2] if x>self.deadzone[i][2] else 0)+
+                  (x-self.deadzone[i][1] if x<self.deadzone[i][1] else 0)
+                  for (i,x) in enumerate(joystickPos[0:2])] #only x and y are analog
+        joyVal.append(joystickPos[2]) #z position is not analog, so just append directly
+
+        #get the increment in mm
+        posIncrement_mm = [joystickPos[i]*Velocity_mmps[i]*PeriodT_s*jV for (i,jV) in enumerate(joyVal) ]
+
+
+        self.GantryIncrement_mm = posIncrement_mm
+        return(posIncrement_mm)
+
+
+
+    def buttonR(self):
+        self.JoystickPos[2] = 1 #rase the gantry in z
+
+
+
+    def buttonZR(self):
+        self.JoystickPos[2] = -1 #lower the gantry in z
+
+
+
+    def buttonZR_Home(self):
+        pass
+
+
+    def MoveGantry(self,joy_horiz_axis,joy_vert_axis):
+        self.JoystickPos[0:2] = [joy_horiz_axis,joy_vert_axis] #modify x and y positions for the joystick pos.  the z-axis should be modified from buttonR and buttonZR calls
+        posInc = self.getPositionIncrement() # get the position increment
+        self.Gantry.incrementalMove(**{"move_x_mm":posInc[0],"move_y_mm":posInc[1],"move_z_mm":posInc[2]})
+
+
+
+
+class Joy_RigidGrasper(Joy_Gantry):
 
     def __init__(self,RGa:RG.RigidGrasper):
         super().__init__()

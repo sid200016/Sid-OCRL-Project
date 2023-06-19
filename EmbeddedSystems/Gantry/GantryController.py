@@ -12,33 +12,42 @@ from EmbeddedSystems.Gantry.controller.SNS_layer import SNS_layer, SENSORY_LAYER
 import serial
 import re
 from datetime import datetime
+from enum import Enum
+
+class GantryActions(Enum):
+    STAY = 0 #dont move
+    MOVE = 1 #Move jaws closer together
 
 class Gantry:
 
-    def __init__(self,comport='COM12',serialRate=115200,timeout=2,initPos=[220,220,315],MaxBufferSize = 10,MoveSpeed_mm_p_min = 50*60):
+    def __init__(self,comport='COM12',serialRate=115200,timeout=2,initPos=[220,220,315],MaxBufferSize = 10,MoveSpeed_mm_p_min = 50*60, homeSystem = True):
         self.ser = None
         self.initPos = initPos #position in [x,y,z] in mm. x is movement of the gantry head, y is the movement of the base plate and z is the movement up and down.
+        self.maxPos_mm = [505, 505, 505] #max position from the endstops in mm for x,y and z, respectively
         self.BufferLength = 0
         self.MaxBufferSize = MaxBufferSize #maximum number of commands to keep in the buffer
         self.MoveSpeed = MoveSpeed_mm_p_min #mm/min
         self.PositionArray = {"time":[],"x":[],"y":[],"z":[]}
 
         #Run Initialization routine:
-        self.SetupGantry(comport = comport, swerialRate = serialRate,timeout=timeout,initPos = initPos)
+        self.SetupGantry(comport = comport, serialRate = serialRate,timeout=timeout,initPos = initPos, homeSystem=homeSystem)
 
-    def SetupGantry(self,comport='COM12',serialRate=115200,timeout=2,initPos=[220,220,315]):
+    def SetupGantry(self,comport='COM12',serialRate=115200,timeout=2,initPos=[220,220,315], homeSystem = True):
         self.ser = serial.Serial(comport, serialRate, timeout=timeout)
         time.sleep(20)
-        self.sendCommand("G28 X0 Y0 Z0\r\n")
+
+        if homeSystem == True:
+            self.sendCommand("G28 X0 Y0 Z0\r\n")
         # sendCommand(ser,"G0 F15000 X0\r\n")
-        self.sendCommand("M400\r\n")
-        time.sleep(2)
+            self.sendCommand("M400\r\n")
+            time.sleep(2)
+
         self.sendCommand("G90\r\n")
         print("Finished Sending G90")
         time.sleep(1)
         self.sendCommand("G0 F15000\r\n")
         time.sleep(1)
-        self.sendCommand("G0 F15000 "+ 'X{0} Y{1} Z{2}'.format(*initPos)+"\r\n")
+        self.sendCommand("G0 F15000 "+ 'X{0} Y{1} Z{2}'.format(*initPos)+"\r\n") #move to offset position
         self.sendCommand("M400\r\n") #waits until all motions in the planning queue are completed
         time.sleep(1)
         self.sendCommand("M280 P0 S95\r\n") #make sure that the gripper is closed
@@ -120,6 +129,15 @@ class Gantry:
             self.sendCommand(commandStr)
 
 
+    def incrementalMove(self,move_x_mm = 0, move_y_mm = 0, move_z_mm = 0, moveSpeed_mmps =None): #x, y and z are increments to move, not absolute position
+
+        self.getPosition() #get current position
+
+        posVec = [move_x_mm, move_y_mm, move_z_mm]
+        newPos = [max(min(x+self.initPos[i], self.maxPos_mm[i]), 0)-self.initPos[i] for (i, x) in enumerate(posVec)] #limit the move to between 0 and the maximum, but first need to convert incremental move to absolute move, and then afterwards subtract the offset
+
+
+        self.setXYZ_Position(newPos[0], newPos[1], newPos[2], moveSpeed_mmps*60) #send commands to move to the new position
 
 
 

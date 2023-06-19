@@ -230,7 +230,7 @@ class RigidGrasper:
 
     def IncrementalMove(self,moveIncrement1 = 100,moveIncrement2 = 100, action1 = GrasperActions.STAY,action2 = GrasperActions.STAY): #close claws, assume position control
 
-        CurrentPosition,dxl_comm_result,dxl_error = self.ReadCurrentPosition()
+        CurrentPosition,dxl_comm_result,dxl_error = self.ReadCurrentPosition() #get current position and update member variable with the same.
         CurrentPosition=[CurrentPosition["1"],CurrentPosition["2"]]
 
         #Claw 1

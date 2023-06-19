@@ -6,9 +6,11 @@ import RigidGrasper.RigidGrasper as RG
 import JoyCon.JoyCon as JC
 import Gantry.GantryController as GC
 
-GCa = GC.Gantry()
-RGa = RG.RigidGrasper(GantryS = GCa)
-jcRG = JC.Joy_RigidGrasper(RGa)
+GCa = GC.Gantry(comport = "COM4", homeSystem = False,initPos=[0,0,0])
+#RGa = RG.RigidGrasper()
+#jcRG = JC.Joy_RigidGrasper(RGa, GantryS = GCa)
+jcRG = JC.Joy_Gantry(GantryS = GCa)
+
 
 while(True):
     [buttonVal,AxesPos] = jcRG.eventLoop()

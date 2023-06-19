@@ -42,16 +42,16 @@ class Gantry:
             self.sendCommand("M400\r\n")
             time.sleep(2)
 
-        self.sendCommand("G90\r\n")
-        print("Finished Sending G90")
-        time.sleep(1)
-        self.sendCommand("G0 F15000\r\n")
-        time.sleep(1)
-        self.sendCommand("G0 F15000 "+ 'X{0} Y{1} Z{2}'.format(*initPos)+"\r\n") #move to offset position
-        self.sendCommand("M400\r\n") #waits until all motions in the planning queue are completed
-        time.sleep(1)
-        self.sendCommand("M280 P0 S95\r\n") #make sure that the gripper is closed
-        self.sendCommand("M400\r\n")
+            self.sendCommand("G90\r\n")
+            print("Finished Sending G90")
+            time.sleep(1)
+            self.sendCommand("G0 F15000\r\n")
+            time.sleep(1)
+            self.sendCommand("G0 F15000 "+ 'X{0} Y{1} Z{2}'.format(*initPos)+"\r\n") #move to offset position
+            self.sendCommand("M400\r\n") #waits until all motions in the planning queue are completed
+            time.sleep(1)
+            self.sendCommand("M280 P0 S95\r\n") #make sure that the gripper is closed
+            self.sendCommand("M400\r\n")
 
 
     def sendCommand(self,commandstr,wait_for_ok = True):
@@ -61,7 +61,7 @@ class Gantry:
         # print(readval)
         line_hold=""
         while wait_for_ok:
-            line = ser.readline()
+            line = self.ser.readline()
             #print(line)
             line_hold = line_hold + str(line, 'utf-8') +"\n"
 
@@ -123,7 +123,7 @@ class Gantry:
                   z_mm + z_off]  # first element is the speed in mm/min
 
         commandStr = "G0 F{0:.2f} X{1:.2f} Y{2:.2f} Z{3:.2f} \r\n".format(*posvec)
-        if BufferLength < self.MaxBufferSize:  # only send commands when the buffer is small
+        if self.BufferLength < self.MaxBufferSize:  # only send commands when the buffer is small
             # print("Buffer "+str(BufferLength))
             # print(commandStr)
             self.sendCommand(commandStr)

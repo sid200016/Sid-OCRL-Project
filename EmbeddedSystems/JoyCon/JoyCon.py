@@ -176,8 +176,8 @@ class Joy_Gantry(JoyCon):
         super().__init__()
         self.Gantry = GantryS
         self.MoveVelocity_mmps = [self.Gantry.MoveSpeed/60, self.Gantry.MoveSpeed/60, self.Gantry.MoveSpeed/60]
-        self.PeriodT_s = 0.02 #period over which to calculate movement of the gantry
-        self.JoystickPos = [] # joystick reading for x, y and z axes
+        self.PeriodT_s = 1 #period over which to calculate movement of the gantry
+        self.JoystickPos = [0,0,0] # joystick reading for x, y and z axes
         self.GantryIncrement_mm = [] #for x, y and z axes, respectively, in mm
 
 
@@ -198,8 +198,8 @@ class Joy_Gantry(JoyCon):
             joystickPos = self.JoystickPos
 
         #adjust value for whether in deadzone or not
-        joyVal = [(x-self.deadzone[i][2] if x>self.deadzone[i][2] else 0)+
-                  (x-self.deadzone[i][1] if x<self.deadzone[i][1] else 0)
+        joyVal = [(x-self.deadzone[i][1] if x>self.deadzone[i][1] else 0)+
+                  (x-self.deadzone[i][0] if x<self.deadzone[i][0] else 0)
                   for (i,x) in enumerate(joystickPos[0:2])] #only x and y are analog
         joyVal.append(joystickPos[2]) #z position is not analog, so just append directly
 
@@ -229,7 +229,7 @@ class Joy_Gantry(JoyCon):
     def MoveGantry(self,joy_horiz_axis,joy_vert_axis):
         self.JoystickPos[0:2] = [joy_horiz_axis,joy_vert_axis] #modify x and y positions for the joystick pos.  the z-axis should be modified from buttonR and buttonZR calls
         posInc = self.getPositionIncrement() # get the position increment
-        self.Gantry.incrementalMove(**{"move_x_mm":posInc[0],"move_y_mm":posInc[1],"move_z_mm":posInc[2]})
+        self.Gantry.incrementalMove(moveSpeed_mmps=self.MoveVelocity_mmps[0], **{"move_x_mm":posInc[0],"move_y_mm":posInc[1],"move_z_mm":posInc[2]})
 
 
 

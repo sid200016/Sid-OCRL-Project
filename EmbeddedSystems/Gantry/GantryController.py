@@ -20,7 +20,7 @@ class GantryActions(Enum):
 
 class Gantry:
 
-    def __init__(self,comport='COM12',serialRate=115200,timeout=2,initPos=[220,220,315],MaxBufferSize = 10,MoveSpeed_mm_p_min = 50*60, homeSystem = True):
+    def __init__(self,comport='COM12',serialRate=115200,timeout=2,initPos=[220,220,315],MaxBufferSize = 4,MoveSpeed_mm_p_min = 50*60, homeSystem = True):
         self.ser = None
         self.initPos = initPos #position in [x,y,z] in mm. x is movement of the gantry head, y is the movement of the base plate and z is the movement up and down.
         self.maxPos_mm = [505, 505, 505] #max position from the endstops in mm for x,y and z, respectively
@@ -62,7 +62,7 @@ class Gantry:
         line_hold=""
         while wait_for_ok:
             line = self.ser.readline()
-            #print(line)
+            print(line)
             line_hold = line_hold + str(line, 'utf-8') +"\n"
 
             if line == b'ok\n':
@@ -92,14 +92,14 @@ class Gantry:
             z_off = self.initPos[2]
 
             x, y, z = (Xsteps / 80 - x_off) / 1000, (Ysteps / 80 - y_off) / 1000, (
-                    Zsteps / 400 - z_off) / 1000  # convert from steps to mm
+                    Zsteps / 400 - z_off) / 1000  # convert from steps to m
 
             #update the time and the positions
             positionArray =[x,y,z]
             self.PositionArray["time"].append(datetime.now())
-            self.PositionArray["x"].append(x)
-            self.PositionArray["y"].append(y)
-            self.PositionArray["z"].append(z)
+            self.PositionArray["x"].append(x*1000) #multiply by 1000 to convert from m to mm
+            self.PositionArray["y"].append(y*1000)
+            self.PositionArray["z"].append(z*1000)
 
 
             toc = time.perf_counter()
@@ -112,6 +112,7 @@ class Gantry:
             return([np.Inf,np.Inf,np.Inf]) #return Inf for all three axes
 
     def setXYZ_Position(self,x_mm,y_mm,z_mm,MoveSpeed=None):
+
         x_off = self.initPos[0]
         y_off = self.initPos[1]
         z_off = self.initPos[2]
@@ -134,11 +135,12 @@ class Gantry:
         self.getPosition() #get current position
 
         posVec = [move_x_mm, move_y_mm, move_z_mm]
-        newPos = [max(min(x+self.initPos[i], self.maxPos_mm[i]), 0)-self.initPos[i] for (i, x) in enumerate(posVec)] #limit the move to between 0 and the maximum, but first need to convert incremental move to absolute move, and then afterwards subtract the offset
+        curPos = [self.PositionArray["x"][-1], self.PositionArray["y"][-1], self.PositionArray["z"][-1]]
+        newPos = [max(min(x+self.initPos[i]+curPos[i], self.maxPos_mm[i]), 0)-self.initPos[i] for (i, x) in enumerate(posVec)] #limit the move to between 0 and the maximum, but first need to convert incremental move to absolute move, and then afterwards subtract the offset
 
 
         self.setXYZ_Position(newPos[0], newPos[1], newPos[2], moveSpeed_mmps*60) #send commands to move to the new position
-
+        self.getPosition()  # get current position
 
 
 

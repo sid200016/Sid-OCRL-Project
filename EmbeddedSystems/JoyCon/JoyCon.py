@@ -37,7 +37,7 @@ class JoyCon:
                               "R": Button(16,"R",(),1,self.buttonR),
                               "ZR": Button(18,"ZR",(),1,self.buttonZR)} #For Joy-Con Right
 
-        self.deadzone=[(-0.1,0.1),(-0.1,0.1)] #deadzone for x and y axes of the analog stick, respectively.
+        self.deadzone=[(-0.25,0.25),(-0.25,0.25)] #deadzone for x and y axes of the analog stick, respectively.
 
         # self.functionMapping = {"A": self.buttonA, "B": self.buttonB, "X": self.buttonX, "Y": self.buttonY,
         #                         "SL": self.buttonSL, "SR": self.buttonSR, "+": self.buttonPlus,
@@ -204,7 +204,7 @@ class Joy_Gantry(JoyCon):
         joyVal.append(joystickPos[2]) #z position is not analog, so just append directly
 
         #get the increment in mm
-        posIncrement_mm = [joystickPos[i]*Velocity_mmps[i]*PeriodT_s*jV for (i,jV) in enumerate(joyVal) ]
+        posIncrement_mm = [Velocity_mmps[i]*PeriodT_s*jV for (i,jV) in enumerate(joyVal) ]
 
 
         self.GantryIncrement_mm = posIncrement_mm
@@ -230,6 +230,11 @@ class Joy_Gantry(JoyCon):
         self.JoystickPos[0:2] = [joy_horiz_axis,joy_vert_axis] #modify x and y positions for the joystick pos.  the z-axis should be modified from buttonR and buttonZR calls
         posInc = self.getPositionIncrement() # get the position increment
         self.Gantry.incrementalMove(moveSpeed_mmps=self.MoveVelocity_mmps[0], **{"move_x_mm":posInc[0],"move_y_mm":posInc[1],"move_z_mm":posInc[2]})
+        print("Joystick Pos:{0},{1}".format(joy_horiz_axis, joy_vert_axis))
+        print("Position increment:{0},{1},{2}".format(posInc[0],posInc[1],posInc[2]))
+        print("Current Gantry Position:{0},{1},{2}".format(self.Gantry.PositionArray["x"][-1],
+                                                           self.Gantry.PositionArray["y"][-1],
+                                                           self.Gantry.PositionArray["z"][-1]))
 
 
 

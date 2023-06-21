@@ -13,6 +13,8 @@ import serial
 import re
 from datetime import datetime
 from enum import Enum
+from EmbeddedSystems.Support.Structures import Point,Velocity, Acceleration
+
 
 class GantryActions(Enum):
     STAY = 0 #dont move
@@ -20,19 +22,28 @@ class GantryActions(Enum):
 
 class Gantry:
 
-    def __init__(self,comport='COM12',serialRate=115200,timeout=2,initPos=[220,220,315],MaxBufferSize = 4,MoveSpeed_mm_p_min = 50*60, homeSystem = True):
+    def __init__(self,comport='COM12',serialRate=115200,timeout=2,initPos=Point(220,220,315),MaxBufferSize = 4,MoveSpeed_mm_p_min = 50*60, homeSystem = True):
         self.ser = None
         self.initPos = initPos #position in [x,y,z] in mm. x is movement of the gantry head, y is the movement of the base plate and z is the movement up and down.
-        self.maxPos_mm = [505, 505, 505] #max position from the endstops in mm for x,y and z, respectively
+
+        self.maxPos_mm = Point(505, 505, 505) #max position from the endstops in mm for x,y and z, respectively
         self.BufferLength = 0
         self.MaxBufferSize = MaxBufferSize #maximum number of commands to keep in the buffer
         self.MoveSpeed = MoveSpeed_mm_p_min #mm/min
-        self.PositionArray = {"time":[],"x":[],"y":[],"z":[]}
+        self.MaxSpeedRate_mmps = Velocity(300, 300 , 35) #mm/s.  Max feedrate for the x, y and z axes.
+        self.MaxAcceleration_mmps2 = Acceleration(500, 500, 100) #mm/s^2.  Max acceleration for the x, y and z axes
+        self.PositionArray = {"time":[0],"x":[0],"y":[0],"z":[0]} #indicates current position
+        self.goalPos = Point(0, 0, 0) #triad indicating goal position
+        self.inMotion = False #set to true if the gantry is executing a linear move, false otherwise
+        self.atGoal = False #set to true if the gantry head is at the goal, false otherwise
+        self.readyToInject = True #set to true if it is ready to take another command, false otherwise. it is ready to take a command when it is at goal and not in motion, or in motion and >75% of the distance from the starting pos to the goal position there.
+        self.GoalTolerance_mm = 0.5 #distance away from the goal in mm to be considered "at goal"
+        self.startMotionPos = Point(0, 0, 0) #triad indicating where the current motion was started from
 
         #Run Initialization routine:
         self.SetupGantry(comport = comport, serialRate = serialRate,timeout=timeout,initPos = initPos, homeSystem=homeSystem)
 
-    def SetupGantry(self,comport='COM12',serialRate=115200,timeout=2,initPos=[220,220,315], homeSystem = True):
+    def SetupGantry(self,comport='COM12',serialRate=115200,timeout=2,initPos=Point(220,220,315), homeSystem = True):
         self.ser = serial.Serial(comport, serialRate, timeout=timeout)
         time.sleep(20)
 
@@ -101,15 +112,65 @@ class Gantry:
             self.PositionArray["y"].append(y*1000)
             self.PositionArray["z"].append(z*1000)
 
+            #Check if still in motion
+            commandedPos = Point(Xcom*1000,Ycom*1000,Zcom*1000)
+            inMotionBool = self.inMotion(currentPosition=Point(*positionArray),commandedPosition = commandedPos)
+
+            #Check if at goal
+            atGoalBool = self.atGoalCheck(currentPosition= Point(*positionArray), goalPosition = self.goalPos)
+
+            #Update Inject status based on size of the buffer
+            injectBool = self.updateInjectStatus()
 
             toc = time.perf_counter()
             print("M114 Time " + str(toc - tic))
 
-            return(positionArray)
+            return(Point(*positionArray))
 
         except Exception as e:
             print(responseM114)
             return([np.Inf,np.Inf,np.Inf]) #return Inf for all three axes
+
+    def CheckPositionToReference(self, position1: Point, position2: Point, tolerance: float):  # true if points are within tolerance of each other , false if outside tolerance
+        distanceval = np.linalg.norm([np.abs(x - position2[i])  for (i, x) in
+                      enumerate(position1)])
+        truthValue = distanceval <= tolerance
+        return (truthValue,distanceval)
+
+    def InMotionCheck(self,currentPosition: Point, commandedPosition: Point): #true if still in motion, false if not moving
+        MotionBool, distanceval = not(self.CheckPositionToReference(currentPosition,commandedPosition,self.GoalTolerance_mm)) #negate result because if still in motion, it is outside the commanded
+        self.inMotion = MotionBool
+        return(MotionBool)
+
+        # truthArray = [np.abs(x-commandedPosition[i])<=self.GoalTolerance_mm for (i,x) in enumerate(currentPosition)]
+        # if np.all(truthArray) == True:
+        #     self.inMotion = False
+        #     return (False)
+        #
+        # else:
+        #     self.inMotion = True
+        #     return (True)
+
+
+    def atGoalCheck(self, currentPosition: Point, goalPosition: Point): #true if at goal within tolerance, false otherwise.  2nd argument returned is fraction of distance covered
+        GoalBool, distanceval = (self.CheckPositionToReference(currentPosition, goalPosition, self.GoalTolerance_mm))
+
+        distanceGoalToStart = np.linalg.norm([x-self.startMotionPos[i] for (i,x) for enumerate(goalPosition)]) #get distance from goal to start
+
+        fractionCovered = distanceval/distanceGoalToStart
+
+
+        self.atGoal = GoalBool
+        return (GoalBool,fractionCovered)
+
+    def updateInjectStatus(self):#fraction distance covered is fraction of the starting distance covered.  #threshold is the percentage covered
+        if self.BufferLength < self.MaxBufferSize:
+            self.readyToInject = True
+        else:
+            self.readyToInject = False
+
+        return(self.readyToInject)
+
 
     def setXYZ_Position(self,x_mm,y_mm,z_mm,MoveSpeed=None):
 
@@ -127,20 +188,28 @@ class Gantry:
         if self.BufferLength < self.MaxBufferSize:  # only send commands when the buffer is small
             # print("Buffer "+str(BufferLength))
             # print(commandStr)
+
             self.sendCommand(commandStr)
+
+
+
 
 
     def incrementalMove(self,move_x_mm = 0, move_y_mm = 0, move_z_mm = 0, moveSpeed_mmps =None): #x, y and z are increments to move, not absolute position
 
-        self.getPosition() #get current position
-
+        curPos = self.getPosition() #get current position
         posVec = [move_x_mm, move_y_mm, move_z_mm]
-        curPos = [self.PositionArray["x"][-1], self.PositionArray["y"][-1], self.PositionArray["z"][-1]]
-        newPos = [max(min(x+self.initPos[i]+curPos[i], self.maxPos_mm[i]), 0)-self.initPos[i] for (i, x) in enumerate(posVec)] #limit the move to between 0 and the maximum, but first need to convert incremental move to absolute move, and then afterwards subtract the offset
+
+        if self.readyToInject == True & np.any([x !=0 for x in posVec]): #only update startMotionPos if you are are ready to inject and one or more of the commanded axes increments is non zero
+            self.startMotionPos = curPos # note the starting position of the move so that later we can check how far into the move we are.
+            self.goalPos = [max(min(x+self.initPos[i]+self.goalPos[i], self.maxPos_mm[i]), 0)-self.initPos[i] for (i, x) in enumerate(posVec)] #Update the goal position. limit the move to between 0 and the maximum, but first need to convert incremental move to absolute move, and then afterwards subtract the offset
 
 
-        self.setXYZ_Position(newPos[0], newPos[1], newPos[2], moveSpeed_mmps*60) #send commands to move to the new position
-        self.getPosition()  # get current position
+        #newPos = [max(min(x+self.initPos[i]+curPos[i], self.maxPos_mm[i]), 0)-self.initPos[i] for (i, x) in enumerate(posVec)] #limit the move to between 0 and the maximum, but first need to convert incremental move to absolute move, and then afterwards subtract the offset
+
+
+        self.setXYZ_Position(*self.goalPos, moveSpeed_mmps*60) #send commands to move to the new position
+
 
 
 

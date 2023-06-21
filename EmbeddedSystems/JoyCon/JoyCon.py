@@ -175,8 +175,8 @@ class Joy_Gantry(JoyCon):
     def __init__(self,GantryS: GC.Gantry):
         super().__init__()
         self.Gantry = GantryS
-        self.MoveVelocity_mmps = [self.Gantry.MoveSpeed/60, self.Gantry.MoveSpeed/60, self.Gantry.MoveSpeed/60]
-        self.PeriodT_s = 1 #period over which to calculate movement of the gantry
+        self.MoveVelocity_mmps = self.Gantry.MaxSpeedRate_mmps
+        self.PeriodT_s = 0.06 #period over which to calculate movement of the gantry
         self.JoystickPos = [0,0,0] # joystick reading for x, y and z axes
         self.GantryIncrement_mm = [] #for x, y and z axes, respectively, in mm
 
@@ -201,19 +201,23 @@ class Joy_Gantry(JoyCon):
         joyVal = [(x-self.deadzone[i][1] if x>self.deadzone[i][1] else 0)+
                   (x-self.deadzone[i][0] if x<self.deadzone[i][0] else 0)
                   for (i,x) in enumerate(joystickPos[0:2])] #only x and y are analog
+
         joyVal.append(joystickPos[2]) #z position is not analog, so just append directly
+        self.JoystickPos[2] = 0 #reset to 0 after updating joyVal
 
         #get the increment in mm
-        posIncrement_mm = [Velocity_mmps[i]*PeriodT_s*jV for (i,jV) in enumerate(joyVal) ]
+        posIncrement_mm = [Velocity_mmps[i]*PeriodT_s*jV for (i,jV) in enumerate(joyVal)]
+
+        feedrate_mmps = np.linalg.norm(posIncrement_mm)/PeriodT_s #feedrate is the total incremental distance moved divided by the period of motion
 
 
         self.GantryIncrement_mm = posIncrement_mm
-        return(posIncrement_mm)
+        return(posIncrement_mm,feedrate_mmps)
 
 
 
     def buttonR(self):
-        self.JoystickPos[2] = 1 #rase the gantry in z
+        self.JoystickPos[2] = 1 #raise the gantry in z
 
 
 
@@ -228,8 +232,8 @@ class Joy_Gantry(JoyCon):
 
     def MoveGantry(self,joy_horiz_axis,joy_vert_axis):
         self.JoystickPos[0:2] = [joy_horiz_axis,joy_vert_axis] #modify x and y positions for the joystick pos.  the z-axis should be modified from buttonR and buttonZR calls
-        posInc = self.getPositionIncrement() # get the position increment
-        self.Gantry.incrementalMove(moveSpeed_mmps=self.MoveVelocity_mmps[0], **{"move_x_mm":posInc[0],"move_y_mm":posInc[1],"move_z_mm":posInc[2]})
+        posInc,feedrate_mmps = self.getPositionIncrement() # get the position increment
+        self.Gantry.incrementalMove(moveSpeed_mmps=feedrate_mmps, **{"move_x_mm":posInc[0],"move_y_mm":posInc[1],"move_z_mm":posInc[2]})
         print("Joystick Pos:{0},{1}".format(joy_horiz_axis, joy_vert_axis))
         print("Position increment:{0},{1},{2}".format(posInc[0],posInc[1],posInc[2]))
         print("Current Gantry Position:{0},{1},{2}".format(self.Gantry.PositionArray["x"][-1],

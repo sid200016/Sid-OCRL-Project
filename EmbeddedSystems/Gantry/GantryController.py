@@ -22,11 +22,11 @@ class GantryActions(Enum):
 
 class Gantry:
 
-    def __init__(self,comport='COM12',serialRate=115200,timeout=2,initPos=Point(220,220,315),MaxBufferSize = 4,MoveSpeed_mm_p_min = 50*60, homeSystem = True):
+    def __init__(self,comport='COM12',serialRate=115200,timeout=2,initPos=Point(220,220,315),MaxBufferSize = 3,MoveSpeed_mm_p_min = 50*60, homeSystem = True):
         self.ser = None
         self.initPos = initPos #position in [x,y,z] in mm. x is movement of the gantry head, y is the movement of the base plate and z is the movement up and down.
 
-        self.maxPos_mm = Point(505, 505, 505) #max position from the endstops in mm for x,y and z, respectively
+        self.maxPos_mm = Point(450, 480, 400) #max position from the endstops in mm for x,y and z, respectively
         self.BufferLength = 0
         self.MaxBufferSize = MaxBufferSize #maximum number of commands to keep in the buffer
         self.MoveSpeed = MoveSpeed_mm_p_min #mm/min
@@ -58,7 +58,7 @@ class Gantry:
             time.sleep(1)
             self.sendCommand("G0 F15000\r\n")
             time.sleep(1)
-            self.sendCommand("G0 F15000 "+ 'X{0} Y{1} Z{2}'.format(*initPos)+"\r\n") #move to offset position
+            self.sendCommand("G0 F5000 "+ 'X{0} Y{1} Z{2}'.format(*initPos)+"\r\n") #move to offset position
             self.sendCommand("M400\r\n") #waits until all motions in the planning queue are completed
             time.sleep(1)
             self.sendCommand("M280 P0 S95\r\n") #make sure that the gripper is closed
@@ -155,7 +155,7 @@ class Gantry:
     def atGoalCheck(self, currentPosition: Point, goalPosition: Point): #true if at goal within tolerance, false otherwise.  2nd argument returned is fraction of distance covered
         GoalBool, distanceval = (self.CheckPositionToReference(currentPosition, goalPosition, self.GoalTolerance_mm))
 
-        distanceGoalToStart = np.linalg.norm([x-self.startMotionPos[i] for (i,x) for enumerate(goalPosition)]) #get distance from goal to start
+        distanceGoalToStart = np.linalg.norm([x-self.startMotionPos[i] for (i,x) in enumerate(goalPosition)]) #get distance from goal to start
 
         fractionCovered = distanceval/distanceGoalToStart
 

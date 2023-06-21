@@ -6,6 +6,7 @@ from EmbeddedSystems.SoftGrasper import SoftGrasper as SG
 from EmbeddedSystems.RigidGrasper import RigidGrasper as RG
 from enum import Enum
 from copy import deepcopy
+from EmbeddedSystems.Support.Structures import Velocity
 
 class Button:
 
@@ -175,8 +176,8 @@ class Joy_Gantry(JoyCon):
     def __init__(self,GantryS: GC.Gantry):
         super().__init__()
         self.Gantry = GantryS
-        self.MoveVelocity_mmps = self.Gantry.MaxSpeedRate_mmps
-        self.PeriodT_s = 0.06 #period over which to calculate movement of the gantry
+        self.MoveVelocity_mmps = Velocity(*[0.2*x for x in self.Gantry.MaxSpeedRate_mmps])
+        self.PeriodT_s = 0.055 #period over which to calculate movement of the gantry
         self.JoystickPos = [0,0,0] # joystick reading for x, y and z axes
         self.GantryIncrement_mm = [] #for x, y and z axes, respectively, in mm
 
@@ -231,7 +232,7 @@ class Joy_Gantry(JoyCon):
 
 
     def MoveGantry(self,joy_horiz_axis,joy_vert_axis):
-        self.JoystickPos[0:2] = [joy_horiz_axis,joy_vert_axis] #modify x and y positions for the joystick pos.  the z-axis should be modified from buttonR and buttonZR calls
+        self.JoystickPos[0:2] = [-joy_horiz_axis,joy_vert_axis] #modify x and y positions for the joystick pos.  the z-axis should be modified from buttonR and buttonZR calls.  X axis on the joystick is inverted from +ve motion on the joystick so multiply by -1
         posInc,feedrate_mmps = self.getPositionIncrement() # get the position increment
         self.Gantry.incrementalMove(moveSpeed_mmps=feedrate_mmps, **{"move_x_mm":posInc[0],"move_y_mm":posInc[1],"move_z_mm":posInc[2]})
         print("Joystick Pos:{0},{1}".format(joy_horiz_axis, joy_vert_axis))

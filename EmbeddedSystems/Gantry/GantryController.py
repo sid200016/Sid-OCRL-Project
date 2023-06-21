@@ -22,11 +22,11 @@ class GantryActions(Enum):
 
 class Gantry:
 
-    def __init__(self,comport='COM12',serialRate=115200,timeout=2,initPos=Point(220,220,315),MaxBufferSize = 3,MoveSpeed_mm_p_min = 50*60, homeSystem = True):
+    def __init__(self,comport='COM12',serialRate=115200,timeout=2,initPos=Point(220,220,300),MaxBufferSize = 3,MoveSpeed_mm_p_min = 50*60, homeSystem = True):
         self.ser = None
         self.initPos = initPos #position in [x,y,z] in mm. x is movement of the gantry head, y is the movement of the base plate and z is the movement up and down.
 
-        self.maxPos_mm = Point(450, 480, 400) #max position from the endstops in mm for x,y and z, respectively
+        self.maxPos_mm = Point(450, 480, 300) #max position from the endstops in mm for x,y and z, respectively
         self.BufferLength = 0
         self.MaxBufferSize = MaxBufferSize #maximum number of commands to keep in the buffer
         self.MoveSpeed = MoveSpeed_mm_p_min #mm/min

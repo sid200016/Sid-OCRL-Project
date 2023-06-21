@@ -10,7 +10,7 @@ import cProfile
 
 
 def checkJoystick():
-    GCa = GC.Gantry(comport = "COM4", homeSystem = False,initPos=[0,0,0])
+    GCa = GC.Gantry(comport = "COM4")#, homeSystem = False,initPos=[0,0,0]  `````````````
     #RGa = RG.RigidGrasper()
     #jcRG = JC.Joy_RigidGrasper(RGa, GantryS = GCa)
     jcRG = JC.Joy_Gantry(GantryS = GCa)

@@ -77,7 +77,7 @@ def dual_grasper_participant():
         data[0] = mouse_to_mm(data[0])
         data[1] = mouse_to_mm(data[1])
 
-        print("mouseX: " + data[0] + ', mouseY: ' + data[1])
+        # print("mouseX: " + data[0] + ', mouseY: ' + data[1])
 
         # g_x, g_y = Gantry.GetPosition()
         # p_l, p_r = Grasper.GetPower()

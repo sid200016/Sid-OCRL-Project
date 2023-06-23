@@ -1,14 +1,18 @@
 from flask import Flask, render_template, request, url_for, flash, redirect
 from datetime import datetime
-from gantry import *
+#from gantry import *
+import EmbeddedSystems.Gantry.GantryController as GC
 import csv
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'ceff418fb561ebf2572221b1f28789a36e4e30f7da4df0a8'
 
 # Gantry / Grasper setup
-Gantry = Gantry()
-Grasper = Grasper()
+GCa = GC.Gantry(comport = "COM4", homeSystem = False,initPos=[0,0,0] )
+
+
+#Gantry = Gantry()
+#Grasper = Grasper()
 
 # date / time
 MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
@@ -17,7 +21,7 @@ now = datetime.now()
 date = f'{MONTHS[now.month - 1]} - {now.day} - {now.year}'
 
 hour = now.hour if now.hour <= 12 else now.hour - 12
-minute = now.minute if now.minute >= 10 else '0'+now.minute
+minute = now.minute if now.minute >= 10 else '0'+str(now.minute)
 ampm = 'A.M' if now.hour <= 12 else 'P.M'
 time = f'{hour}:{now.minute} {ampm}'
 
@@ -88,7 +92,8 @@ def dual_grasper_participant():
         #         # if user provides no data send back the measued data
         #         data[i] = real_data[i]
 
-        Gantry.SetPosition(data[0], data[1])
+        #GCa.setXYZ_Position(20,20,20) #absolute move
+        GCa.incrementalMove(20,20,0,GCa.MoveSpeed/60)
         # Grasper.SetPower(data[2], data[3])
 
     return render_template( "dual-grasper-PARTICIPANT.jinja", 
@@ -96,3 +101,6 @@ def dual_grasper_participant():
                             # power_l=data[2], power_r=data[3],
                             date=date, time=time
                             )
+
+#if __name__ == '__main__':
+#app.run(host='0.0.0.0', port = '5000', debug=True)

@@ -3,12 +3,12 @@ import pathlib
 import pandas as pd
 import numpy as np
 import time
-import torch
-import torch.nn as nn
-from EmbeddedSystems.Gantry.envs.GantrySimulation import GantrySimulation
-from EmbeddedSystems.Gantry.controller.SNS_layer import SNS_layer, SENSORY_LAYER_1_INPUT_SIZE, SENSORY_LAYER_1_SIZE, \
-    SENSORY_LAYER_2_INPUT_SIZE, SENSORY_LAYER_2_SIZE, THETA_MAX, THETA_MIN, F_MAX, F_MIN, sensory_layer_1, \
-    sensory_layer_2, R, perceptor, controller
+# import torch
+# import torch.nn as nn
+# from EmbeddedSystems.Gantry.envs.GantrySimulation import GantrySimulation
+# from EmbeddedSystems.Gantry.controller.SNS_layer import SNS_layer, SENSORY_LAYER_1_INPUT_SIZE, SENSORY_LAYER_1_SIZE, \
+#     SENSORY_LAYER_2_INPUT_SIZE, SENSORY_LAYER_2_SIZE, THETA_MAX, THETA_MIN, F_MAX, F_MIN, sensory_layer_1, \
+#     sensory_layer_2, R, perceptor, controller
 import serial
 import re
 from datetime import datetime
@@ -199,7 +199,7 @@ class Gantry:
 
         curPos = self.getPosition() #get current position
         posVec = [move_x_mm, move_y_mm, move_z_mm]
-
+        print("ReadyToInject: "+str(self.readyToInject))
         if self.readyToInject == True & np.any([x !=0 for x in posVec]): #only update startMotionPos if you are are ready to inject and one or more of the commanded axes increments is non zero
             self.startMotionPos = curPos # note the starting position of the move so that later we can check how far into the move we are.
             self.goalPos = [max(min(x+self.initPos[i]+self.goalPos[i], self.maxPos_mm[i]), 0)-self.initPos[i] for (i, x) in enumerate(posVec)] #Update the goal position. limit the move to between 0 and the maximum, but first need to convert incremental move to absolute move, and then afterwards subtract the offset

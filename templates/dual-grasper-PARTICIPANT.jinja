@@ -28,7 +28,7 @@
                 data: { 'data': value },
                 success: function(response) {
                     // document.getElementById('output').innerHTML = response;
-                    // console.log(mouseX + ', ' + mouseY);
+                    console.log(mouseX + ', ' + mouseY);
                     return;
                 },
                 error: function(error) {
@@ -45,9 +45,7 @@
   <body>
     <div class="dual-grasper-participant">
 
-      <div  class="dual-grasper-participant-child" 
-            onmousedown="send_gantry_data()"
-            onmousemove="send_gantry_data()">
+      <div class="dual-grasper-participant-child" onmousedown="send_gantry_data()">
       </div>
       
       <img 

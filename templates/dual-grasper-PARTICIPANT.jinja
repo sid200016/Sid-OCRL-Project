@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='dual-grasper-PARTICIPANT.css') }}" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Arial:wght@700&display=swap"
+    />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+      function send_gantry_data(){
+
+        let mouseX = event.clientX;
+        let mouseY = event.clientY;
+
+        let value = mouseX.toString() + ',' + mouseY.toString();
+
+        $.ajax({
+                url: '/participant/dual-grasper',
+                type: 'POST',
+                data: { 'data': value },
+                success: function(response) {
+                    // document.getElementById('output').innerHTML = response;
+                    // console.log(mouseX + ', ' + mouseY);
+                    return;
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
+      }
+
+      function send_grasper_data() {
+
+      }
+    </script>
+  </head>
+  <body>
+    <div class="dual-grasper-participant">
+
+      <div class="dual-grasper-participant-child" onmousedown="send_gantry_data()"></div>
+      <img 
+        class="path5107-1-icon3" 
+        alt="" 
+        src="{{ url_for('static', filename='/public/no-attempt.svg') }}" 
+      />
+
+      <img 
+        class="path5107-1-8-icon3" 
+        alt="" 
+        src="{{ url_for('static', filename='/public/no-attempt.svg') }}" 
+
+      <img
+        class="path5107-1-8-3-0-9-icon3"
+        alt=""
+        src="{{ url_for('static', filename='/public/no-attempt.svg') }}" 
+      />
+
+      <img
+        class="path5107-1-8-3-0-9-9-icon3"
+        alt=""
+        src="{{ url_for('static', filename='/public/no-attempt.svg') }}" 
+      />
+
+      <img
+        class="path5107-1-8-3-0-9-9-5-icon3"
+        alt=""
+        src="{{ url_for('static', filename='/public/no-attempt.svg') }}" 
+      />
+
+      <img
+        class="path5107-1-8-3-0-9-9-5-0-icon3"
+        alt=""
+        src="{{ url_for('static', filename='/public/no-attempt.svg') }}" 
+      />
+
+      <div class="dual-grasper-participant-item"></div>
+      <img 
+        class="rect5387-6-icon3" 
+        alt="" 
+        src="{{ url_for('static', filename='/public/goal.svg') }}" 
+      />
+
+      <div class="goal3">Goal</div>
+      <img 
+        class="layer7-icon3" 
+        alt="" 
+        src="{{ url_for('static', filename='/public/no-attempt.svg') }}" 
+      />
+
+      <img 
+        class="layer2-icon3" 
+        alt="" 
+        src="{{ url_for('static', filename='/public/no-attempt.svg') }}" 
+      />
+
+      <img 
+        class="layer3-icon3" 
+        alt="" 
+        src="{{ url_for('static', filename='/public/no-attempt.svg') }}" 
+      />
+
+      <img 
+        class="vector-icon10" 
+        alt="" 
+        src="{{ url_for('static', filename='/public/gantry.svg') }}" 
+      />
+
+      <div class="div9">63%</div>
+      <div class="grasper3">Grasper</div>
+      <div class="attempts-remaining3">10 attempts remaining</div>
+      <img
+        class="dual-grasper-participant-inner"
+        alt=""
+        src="{{ url_for('static', filename='/public/attempts.svg') }}" 
+      />
+
+      <img 
+        class="layer6-icon1" 
+        alt="" 
+        src="{{ url_for('static', filename='/public/dual-grasper.svg') }}" 
+      />
+
+      <div class="div10">76%</div>
+      <div class="power1">power</div>
+      <div class="div11">76%</div>
+      <div class="power2">power</div>
+      
+      <img 
+        class="g82826-icon4" 
+        alt="" 
+        src="{{ url_for('static', filename='/public/borg-logo.svg') }}" 
+      />
+
+      <img 
+        class="g83120-icon4" 
+        alt=""
+        src="{{ url_for('static', filename='/public/cmu-logo.svg') }}" 
+      />
+
+      <img 
+        class="rect79742-icon4" 
+        alt="" 
+        src="{{ url_for('static', filename='/public/rect797422.svg') }}"
+      />
+
+      <img 
+        class="rect79742-0-icon4" 
+        alt="" 
+        src="{{ url_for('static', filename='/public/rect7974203.svg') }}"
+      />
+
+      <img 
+        class="rect79742-0-2-icon4" 
+        alt="" 
+        src="{{ url_for('static', filename='/public/rect79742022.svg') }}"
+      />
+
+      <b class="jan-283">{{date}}</b>
+      <b class="am3">{{time}}</b>
+      <form method="post">
+        <div class="mybutton">
+          <div class="buttontemplate">
+            <div class="background"></div>
+            <div class="label4">On</div>
+          </div>
+        </div>
+        <div class="myslider3">
+          <div class="slidertemplate3">
+            <div class="slidertemplate3">
+              <div class="grooveback3"></div>
+            </div>
+            <div class="slidertrack3" style="width: {{ power_l }}%;">
+              <div class="trackback3"></div>
+            </div>
+          </div>
+        </div>
+        <div class="myslider4">
+          <div class="slidertemplate3">
+            <div class="slidertemplate3">
+              <div class="grooveback3"></div>
+            </div>
+            <div class="slidertrack3" style="width: {{ power_r }}%;">
+              <div class="trackback3"></div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

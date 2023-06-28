@@ -3,9 +3,9 @@ import pathlib
 import pandas as pd
 import numpy as np
 import time
-# import torch
-# import torch.nn as nn
-# from EmbeddedSystems.Gantry.envs.GantrySimulation import GantrySimulation
+#import torch
+#import torch.nn as nn
+#from EmbeddedSystems.Gantry.envs.GantrySimulation import GantrySimulation
 # from EmbeddedSystems.Gantry.controller.SNS_layer import SNS_layer, SENSORY_LAYER_1_INPUT_SIZE, SENSORY_LAYER_1_SIZE, \
 #     SENSORY_LAYER_2_INPUT_SIZE, SENSORY_LAYER_2_SIZE, THETA_MAX, THETA_MIN, F_MAX, F_MIN, sensory_layer_1, \
 #     sensory_layer_2, R, perceptor, controller
@@ -22,7 +22,7 @@ class GantryActions(Enum):
 
 class Gantry:
 
-    def __init__(self,comport='COM12',serialRate=115200,timeout=2,initPos=Point(220,220,300),MaxBufferSize = 3,MoveSpeed_mm_p_min = 50*60, homeSystem = True):
+    def __init__(self,comport='COM12',serialRate=115200,timeout=2,initPos=Point(220,220,200),MaxBufferSize = 3,MoveSpeed_mm_p_min = 50*60, homeSystem = True):
         self.ser = None
         self.initPos = initPos #position in [x,y,z] in mm. x is movement of the gantry head, y is the movement of the base plate and z is the movement up and down.
 
@@ -48,21 +48,24 @@ class Gantry:
         time.sleep(20)
 
         if homeSystem == True:
-            self.sendCommand("G28 X0 Y0 Z0\r\n")
-        # sendCommand(ser,"G0 F15000 X0\r\n")
-            self.sendCommand("M400\r\n")
-            time.sleep(2)
+            self.HomeGantry(initPos)
 
-            self.sendCommand("G90\r\n")
-            print("Finished Sending G90")
-            time.sleep(1)
-            self.sendCommand("G0 F15000\r\n")
-            time.sleep(1)
-            self.sendCommand("G0 F5000 "+ 'X{0} Y{1} Z{2}'.format(*initPos)+"\r\n") #move to offset position
-            self.sendCommand("M400\r\n") #waits until all motions in the planning queue are completed
-            time.sleep(1)
-            self.sendCommand("M280 P0 S95\r\n") #make sure that the gripper is closed
-            self.sendCommand("M400\r\n")
+    def HomeGantry(self,initPos:Point):
+        self.sendCommand("G28 X0 Y0 Z0\r\n")
+        # sendCommand(ser,"G0 F15000 X0\r\n")
+        self.sendCommand("M400\r\n")
+        time.sleep(2)
+
+        self.sendCommand("G90\r\n")
+        print("Finished Sending G90")
+        time.sleep(1)
+        self.sendCommand("G0 F15000\r\n")
+        time.sleep(1)
+        self.sendCommand("G0 F5000 " + 'X{0} Y{1} Z{2}'.format(*initPos) + "\r\n")  # move to offset position
+        self.sendCommand("M400\r\n")  # waits until all motions in the planning queue are completed
+        time.sleep(1)
+        self.sendCommand("M280 P0 S95\r\n")  # make sure that the gripper is closed
+        self.sendCommand("M400\r\n")
 
 
     def sendCommand(self,commandstr,wait_for_ok = True):
@@ -199,7 +202,7 @@ class Gantry:
 
         curPos = self.getPosition() #get current position
         posVec = [move_x_mm, move_y_mm, move_z_mm]
-        print("ReadyToInject: "+str(self.readyToInject))
+
         if self.readyToInject == True & np.any([x !=0 for x in posVec]): #only update startMotionPos if you are are ready to inject and one or more of the commanded axes increments is non zero
             self.startMotionPos = curPos # note the starting position of the move so that later we can check how far into the move we are.
             self.goalPos = [max(min(x+self.initPos[i]+self.goalPos[i], self.maxPos_mm[i]), 0)-self.initPos[i] for (i, x) in enumerate(posVec)] #Update the goal position. limit the move to between 0 and the maximum, but first need to convert incremental move to absolute move, and then afterwards subtract the offset

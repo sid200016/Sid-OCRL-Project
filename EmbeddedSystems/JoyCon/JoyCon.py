@@ -227,8 +227,8 @@ class Joy_Gantry(JoyCon):
 
 
 
-    def buttonZR_Home(self):
-        pass
+    def buttonHome(self):
+        self.Gantry.HomeGantry(initPos = self.Gantry.initPos) #home the gantry
 
 
     def MoveGantry(self,joy_horiz_axis,joy_vert_axis):
@@ -236,7 +236,7 @@ class Joy_Gantry(JoyCon):
         posInc,feedrate_mmps = self.getPositionIncrement() # get the position increment
         self.Gantry.incrementalMove(moveSpeed_mmps=feedrate_mmps, **{"move_x_mm":posInc[0],"move_y_mm":posInc[1],"move_z_mm":posInc[2]})
         print("Joystick Pos:{0},{1}".format(joy_horiz_axis, joy_vert_axis))
-        print("Position increment:{0},{1},{2}".format(posInc[0],posInc[1],posInc[2]))
+        print("Position increment:{0},{1},{2}".format(posInc[0], posInc[1], posInc[2]))
         print("Current Gantry Position:{0},{1},{2}".format(self.Gantry.PositionArray["x"][-1],
                                                            self.Gantry.PositionArray["y"][-1],
                                                            self.Gantry.PositionArray["z"][-1]))
@@ -246,8 +246,8 @@ class Joy_Gantry(JoyCon):
 
 class Joy_RigidGrasper(Joy_Gantry):
 
-    def __init__(self,RGa:RG.RigidGrasper):
-        super().__init__()
+    def __init__(self,RGa:RG.RigidGrasper, GantryS:GC.Gantry):
+        super().__init__(GantryS = GantryS)
         self.grasper = RGa
         self.grasperIncrement = 100
 
@@ -288,12 +288,43 @@ class Joy_RigidGrasper(Joy_Gantry):
 
 
 
+class Joy_SoftGrasper(Joy_Gantry):
+    def __init__(self, SGa: SG.SoftGrasper , GantryS:GC.Gantry):
+        super().__init__(GantryS = GantryS)
+        self.grasper = SGa
+        self.closureIncrement_mm = 0.5 #increment of position in mm
+        self.jawIncrement_psi = 0.05  # increment of jaw pressure in psi
+
+        self.buttonMapping[("A", "X")] = Button(
+            (self.buttonMapping["A"].buttonNumber, self.buttonMapping["X"].buttonNumber),
+            ("A", "X"),
+            ("A", "X"), 2, self.buttonAX)  # situation where two buttons are pressed at once to close the grasper
+        self.buttonMapping[("B", "Y")] = Button(
+            (self.buttonMapping["B"].buttonNumber, self.buttonMapping["Y"].buttonNumber),
+            ("B", "Y"),
+            ("B", "Y"), 2, self.buttonBY)  # situation where two buttons are pressed at once to open the grasper
+
+        self.sortButtonMapping()  # should be in order from highest priority to lowest priority.
+
+    def buttonA(self):  # close closure muscle
+        self.grasper.IncrementalMove(closureIncrement_mm = self.closureIncrement_mm, jawIncrement_psi = [0,0,0])
+
+    def buttonB(self):  # open closure muscle
+        self.grasper.IncrementalMove(closureIncrement_mm = -self.closureIncrement_mm, jawIncrement_psi = [0,0,0])
+
+    def buttonX(self):  # pressurize jaw
+        self.grasper.IncrementalMove(closureIncrement_mm = 0, jawIncrement_psi = [self.jawIncrement_psi for x in range([0,3])])
+
+    def buttonY(self):  # de-pressurize jaw
+        self.grasper.IncrementalMove(closureIncrement_mm = 0, jawIncrement_psi = [-self.jawIncrement_psi for x in range([0,3])])
 
 
+    def buttonAX(self):
+        pass
 
 
-
-
+    def buttonBY(self):
+        pass
 
 
 # jc = JoyCon()

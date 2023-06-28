@@ -65,6 +65,9 @@ class SoftGrasper:
         #Variables for keeping track of commanded position
         self.commandedPosition = {"ClosureChangeInRadius_mm":0, "Jaw1_psi":0, "Jaw2_psi":0, "Jaw3_psi":0}
 
+        #For GUI real-time control
+        self.isActive = False
+
         #------ Initialization -----#
         if self.controllerProfile == "Legacy":
             self.WaitForJawsToInflate()

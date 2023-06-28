@@ -30,11 +30,6 @@ class SoftGrasper:
     def __init__(self,COM_Port = 'COM7',BaudRate=115200,timeout=1,controllerProfile = "Legacy"):
         self.ser = serial.Serial(COM_Port, BaudRate, timeout=timeout)
 
-
-
-
-        self.PressureArray =[[] for x in range(0,12)] #to store pressure values
-
         self.numPorts = 12 #number of ports available
         self.PressurePorts = {0 : PressurePort(0),
                               1 : PressurePort(1),
@@ -50,15 +45,12 @@ class SoftGrasper:
                               11 : PressurePort(11)
                               } #to hold the pressure values and the status of the ports
 
-
-
-
-
-
+        #Variables for legacy protocol
+        self.PressureArray = [[] for x in range(0, 12)]  # to store pressure values
         self.PrevJawPress = None  # list to hold the original Jaw Press
         self.JawPos = [8, 9, 11]  # position of pressure values that the jaws are at
 
-        #Tx-Rx Information
+        #Tx-Rx Information for New Protocol
         self.startChar = ">" #indicates start of comm
         self.endChar = "<" #indicates end of comm
         self.messageStarted = False #true if you have received the startChar
@@ -70,6 +62,9 @@ class SoftGrasper:
 
         #What form of the controller  to use: Legacy or New
         self.controllerProfile = controllerProfile
+
+        #Variables for keeping track of commanded position
+        self.commandedPosition = {"ClosureChangeInRadius_mm":0, "Jaw1_psi":0, "Jaw2_psi":0, "Jaw3_psi":0}
 
         #------ Initialization -----#
         if self.controllerProfile == "Legacy":
@@ -138,6 +133,20 @@ class SoftGrasper:
             ChangeInPressure = (np.array(CurJawPress)-np.array(self.PrevJawPress)).tolist()
             #return(ChangeInPressure)
             return(ChangeInPressure)
+
+    def IncrementalMove(self, closureIncrement_mm = 0, jawIncrement_psi = [0,0,0]):
+        self.commandedPosition["ClosureChangeInRadius_mm"] = self.commandedPosition["ClosureChangeInRadius_mm"] + closureIncrement_mm
+        self.commandedPosition["Jaw1_psi"] = self.commandedPosition["Jaw1_psi"] + jawIncrement_psi[0]
+        self.commandedPosition["Jaw2_psi"] = self.commandedPosition["Jaw2_psi"] + jawIncrement_psi[1]
+        self.commandedPosition["Jaw3_psi"] = self.commandedPosition["Jaw3_psi"] + jawIncrement_psi[2]
+
+        PVal = self.GetPressureFromPosition(self.commandedPosition["ClosureChangeInRadius_mm"])
+        print(PVal)
+        self.SendPressureCommand(PVal)
+        self.ReadPressureVals()
+
+        #ChP = SG.getJawChangePressureVals()
+
 
     def sendCommunicationArray(self,startDelim = None,byteList = None, endDelim = None): #send list of bytearrays over serial with start and stop delim
         if startDelim is None:

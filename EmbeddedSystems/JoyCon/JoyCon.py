@@ -246,8 +246,8 @@ class Joy_Gantry(JoyCon):
 
 class Joy_RigidGrasper(Joy_Gantry):
 
-    def __init__(self,RGa:RG.RigidGrasper):
-        super().__init__()
+    def __init__(self,RGa:RG.RigidGrasper, GantryS:GC.Gantry):
+        super().__init__(GantryS = GantryS)
         self.grasper = RGa
         self.grasperIncrement = 100
 
@@ -288,13 +288,44 @@ class Joy_RigidGrasper(Joy_Gantry):
 
 
 
+class Joy_SoftGrasper(Joy_Gantry):
+    def __init__(self, SGa: SG.SoftGrasper , GantryS:GC.Gantry):
+        super().__init__(GantryS = GantryS)
+        self.grasper = SGa
+        self.closureIncrement_mm = 0.5 #increment of position in mm
+        self.jawIncrement_psi = 0.05  # increment of jaw pressure in psi
 
+        self.buttonMapping[("A", "X")] = Button(
+            (self.buttonMapping["A"].buttonNumber, self.buttonMapping["X"].buttonNumber),
+            ("A", "X"),
+            ("A", "X"), 2, self.buttonAX)  # situation where two buttons are pressed at once to close the grasper
+        self.buttonMapping[("B", "Y")] = Button(
+            (self.buttonMapping["B"].buttonNumber, self.buttonMapping["Y"].buttonNumber),
+            ("B", "Y"),
+            ("B", "Y"), 2, self.buttonBY)  # situation where two buttons are pressed at once to open the grasper
 
+        self.sortButtonMapping()  # should be in order from highest priority to lowest priority.
 
+    def buttonA(self):  # close closure muscle
+        self.grasper.IncrementalMove(closureIncrement_mm = self.closureIncrement_mm, jawIncrement_psi = [0,0,0])
 
+    def buttonB(self):  # open closure muscle
+        self.grasper.IncrementalMove(closureIncrement_mm = -self.closureIncrement_mm, jawIncrement_psi = [0,0,0])
 
+    def buttonX(self):  # pressurize jaw
+        self.grasper.IncrementalMove(closureIncrement_mm = 0, jawIncrement_psi = [self.jawIncrement_psi for x in range([0,3])])
 
+    def buttonY(self):  # de-pressurize jaw
+        self.grasper.IncrementalMove(moveIncrement1=self.grasperIncrement, moveIncrement2=self.grasperIncrement,
+                                     action1=RG.GrasperActions.STAY, action2=RG.GrasperActions.OPEN)
 
+    def buttonAX(self):
+        self.grasper.IncrementalMove(moveIncrement1=self.grasperIncrement, moveIncrement2=self.grasperIncrement,
+                                     action1=RG.GrasperActions.CLOSE, action2=RG.GrasperActions.CLOSE)
+
+    def buttonBY(self):
+        self.grasper.IncrementalMove(moveIncrement1=self.grasperIncrement, moveIncrement2=self.grasperIncrement,
+                                     action1=RG.GrasperActions.OPEN, action2=RG.GrasperActions.OPEN)
 
 # jc = JoyCon()
 # jc.rumbleFeedback(0,1,5000)

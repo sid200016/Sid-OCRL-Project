@@ -1,4 +1,4 @@
-from SoftGrasper import SoftGrasper
+from EmbeddedSystems.SoftGrasper import SoftGrasper
 
 SG = SoftGrasper(COM_Port = 'COM4',BaudRate=115200,controllerProfile="Legacy")
 

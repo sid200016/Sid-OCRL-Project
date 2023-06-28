@@ -1,4 +1,5 @@
-from SoftGrasper import SoftGrasper,PortActions
+from EmbeddedSystems.SoftGrasper.SoftGrasper import SoftGrasper
+from EmbeddedSystems.SoftGrasper.SoftGrasper import PortActions
 import time
 
 SG  = SoftGrasper(COM_Port = 'COM4',BaudRate=460800,timeout=1,controllerProfile="New")

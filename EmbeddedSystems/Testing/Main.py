@@ -1,6 +1,3 @@
-from CommunicateWGrasper import *
-import subprocess
-
 Goals for next two weeks:
 - translating Catherine's graphical elements
 - Skeleton of the logic: main.py -> main qt file that goes from frame 1 to frame 2. Click through and bypass. Logic would be a work in progress. Code/pseudocode in place, but no bridging between screens. Prioritize the action screen.

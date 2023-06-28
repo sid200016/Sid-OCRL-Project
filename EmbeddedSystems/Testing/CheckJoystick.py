@@ -1,20 +1,27 @@
 import pygame
 import time
 import numpy as np
-import SoftGrasper.SoftGrasper
-import RigidGrasper.RigidGrasper as RG
-import JoyCon.JoyCon as JC
-import Gantry.GantryController as GC
+
+from EmbeddedSystems.Gantry.GantryController import Gantry as GC
+from EmbeddedSystems.SoftGrasper.SoftGrasper import SoftGrasper as SG
+from EmbeddedSystems.RigidGrasper.RigidGrasper import RigidGrasper as RG
+import EmbeddedSystems.JoyCon.JoyCon as JC
 
 import cProfile
 
 
 def checkJoystick():
     GCa = GC.Gantry(comport = "COM4")#, homeSystem = False,initPos=[0,0,0]  `````````````
+
+    # Rigid Grasper Only
     #RGa = RG.RigidGrasper()
     #jcRG = JC.Joy_RigidGrasper(RGa, GantryS = GCa)
-    jcRG = JC.Joy_Gantry(GantryS = GCa)
 
+    # Gantry Only
+    #jcRG = JC.Joy_Gantry(GantryS = GCa)
+
+    # Soft Grasper Only
+    jcRG = JC.Joy_SoftGrasper(SGa=SGa, GantryS=GCa)
 
     for i in range(0,1000000):
         [buttonVal,AxesPos] = jcRG.eventLoop()

@@ -1,5 +1,5 @@
 from SoftGrasper import SoftGrasper,PortActions
-
+import time
 
 SG  = SoftGrasper(COM_Port = 'COM4',BaudRate=460800,timeout=1)
 while (True):
@@ -12,3 +12,4 @@ while (True):
     SG.sendCommunicationArray(byteList=byteList)
     vv=SG.readSerialData()
     print("BigLoop:"+str(vv))
+    time.sleep(0.001)

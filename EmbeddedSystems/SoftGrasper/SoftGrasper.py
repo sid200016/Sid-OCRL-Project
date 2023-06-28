@@ -215,6 +215,7 @@ class SoftGrasper:
 
             #Perform Analysis of data
             print(self.txData)
+            print('Got Payload')
 
         # if 1 or more bytes in buffer, check if message is complete
         if self.ser.inWaiting()>=1 and self.messageStarted == True and self.ProtocolSizeStarted == True and self.PayloadStarted == True:

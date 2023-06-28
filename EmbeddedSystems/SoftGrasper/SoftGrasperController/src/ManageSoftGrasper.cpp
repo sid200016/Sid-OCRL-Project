@@ -318,7 +318,7 @@ void loop()
     TransmitPressureReadings(&TransmissionData);
 
     
-    delayMicroseconds(100);
+    delayMicroseconds(1000);
 
 }
 
@@ -389,9 +389,13 @@ void processData()
 
         int idx = i%4;
         CommandData.CommandPressure[idx] = *((float*)(HoldValues));
-
+        TransmissionData.data[idx] = 16.3;// *((float*)(HoldValues));
         
     }
+
+
+
+    newData = false;
     
 }
 

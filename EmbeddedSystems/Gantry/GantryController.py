@@ -3,12 +3,12 @@ import pathlib
 import pandas as pd
 import numpy as np
 import time
-import torch
-import torch.nn as nn
-from EmbeddedSystems.Gantry.envs.GantrySimulation import GantrySimulation
-from EmbeddedSystems.Gantry.controller.SNS_layer import SNS_layer, SENSORY_LAYER_1_INPUT_SIZE, SENSORY_LAYER_1_SIZE, \
-    SENSORY_LAYER_2_INPUT_SIZE, SENSORY_LAYER_2_SIZE, THETA_MAX, THETA_MIN, F_MAX, F_MIN, sensory_layer_1, \
-    sensory_layer_2, R, perceptor, controller
+#import torch
+#import torch.nn as nn
+#from EmbeddedSystems.Gantry.envs.GantrySimulation import GantrySimulation
+# from EmbeddedSystems.Gantry.controller.SNS_layer import SNS_layer, SENSORY_LAYER_1_INPUT_SIZE, SENSORY_LAYER_1_SIZE, \
+#     SENSORY_LAYER_2_INPUT_SIZE, SENSORY_LAYER_2_SIZE, THETA_MAX, THETA_MIN, F_MAX, F_MIN, sensory_layer_1, \
+#     sensory_layer_2, R, perceptor, controller
 import serial
 import re
 from datetime import datetime

@@ -116,6 +116,7 @@ class SoftGrasper:
             else:
                 for count,val in enumerate(pVal):
                     self.PressureArray[count].append(pVal[count])
+
         except Exception as e:
             print("Error during read")
 
@@ -134,15 +135,20 @@ class SoftGrasper:
             return(ChangeInPressure)
 
     def IncrementalMove(self, closureIncrement_mm = 0, jawIncrement_psi = [0,0,0]):
-        self.commandedPosition["ClosureChangeInRadius_mm"] = self.commandedPosition["ClosureChangeInRadius_mm"] + closureIncrement_mm
-        self.commandedPosition["Jaw1_psi"] = self.commandedPosition["Jaw1_psi"] + jawIncrement_psi[0]
-        self.commandedPosition["Jaw2_psi"] = self.commandedPosition["Jaw2_psi"] + jawIncrement_psi[1]
-        self.commandedPosition["Jaw3_psi"] = self.commandedPosition["Jaw3_psi"] + jawIncrement_psi[2]
+        self.commandedPosition["ClosureChangeInRadius_mm"] = min(max(0,self.commandedPosition["ClosureChangeInRadius_mm"] + closureIncrement_mm),23)
+        self.commandedPosition["Jaw1_psi"] = min(max(0,self.commandedPosition["Jaw1_psi"] + jawIncrement_psi[0]),2)
+        self.commandedPosition["Jaw2_psi"] = min(max(0,self.commandedPosition["Jaw2_psi"] + jawIncrement_psi[1]),2)
+        self.commandedPosition["Jaw3_psi"] = min(max(0,self.commandedPosition["Jaw3_psi"] + jawIncrement_psi[2]),2)
 
+    def MoveGrasper(self):
         PVal = self.GetPressureFromPosition(self.commandedPosition["ClosureChangeInRadius_mm"])
         print(PVal)
         self.SendPressureCommand(PVal)
         self.ReadPressureVals()
+
+        if len(self.PressureArray[0]) > 0:
+            print("Pressure val: " + str(self.PressureArray[0][-1]))
+
 
         #ChP = SG.getJawChangePressureVals()
 

@@ -11,7 +11,8 @@ import cProfile
 
 
 def checkJoystick():
-    GCa = GC.Gantry(comport = "COM4")#, homeSystem = False,initPos=[0,0,0]  `````````````
+    SGa = SG(COM_Port='COM5', BaudRate=115200, controllerProfile="Legacy")
+    GCa = GC(comport = "COM4",homeSystem = False, initPos = [0,0,0])#, homeSystem = False,initPos=[0,0,0]  `````````````
 
     # Rigid Grasper Only
     #RGa = RG.RigidGrasper()
@@ -21,16 +22,19 @@ def checkJoystick():
     #jcRG = JC.Joy_Gantry(GantryS = GCa)
 
     # Soft Grasper Only
+
     jcRG = JC.Joy_SoftGrasper(SGa=SGa, GantryS=GCa)
 
     for i in range(0,1000000):
         [buttonVal,AxesPos] = jcRG.eventLoop()
         jcRG.ExecuteButtonFunctions(buttonVal, AxesPos)
         jcRG.MoveGantry(AxesPos[0], AxesPos[1])
+        SGa.MoveGrasper() #program is expecting 4 bytes every loop so need to continually send move command
+
         # for i, (k,v) in enumerate(buttonVal.items()):
         #     if v==1:
         #         jcRG.buttonMapping[k].fcn()
-        time.sleep(0.01)
+        time.sleep(0.001)
 
 
 

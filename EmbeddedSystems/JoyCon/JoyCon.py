@@ -316,16 +316,16 @@ class Joy_SoftGrasper(Joy_Gantry):
         self.grasper.IncrementalMove(closureIncrement_mm = 0, jawIncrement_psi = [self.jawIncrement_psi for x in range([0,3])])
 
     def buttonY(self):  # de-pressurize jaw
-        self.grasper.IncrementalMove(moveIncrement1=self.grasperIncrement, moveIncrement2=self.grasperIncrement,
-                                     action1=RG.GrasperActions.STAY, action2=RG.GrasperActions.OPEN)
+        self.grasper.IncrementalMove(closureIncrement_mm = 0, jawIncrement_psi = [-self.jawIncrement_psi for x in range([0,3])])
+
 
     def buttonAX(self):
-        self.grasper.IncrementalMove(moveIncrement1=self.grasperIncrement, moveIncrement2=self.grasperIncrement,
-                                     action1=RG.GrasperActions.CLOSE, action2=RG.GrasperActions.CLOSE)
+        pass
+
 
     def buttonBY(self):
-        self.grasper.IncrementalMove(moveIncrement1=self.grasperIncrement, moveIncrement2=self.grasperIncrement,
-                                     action1=RG.GrasperActions.OPEN, action2=RG.GrasperActions.OPEN)
+        pass
+
 
 # jc = JoyCon()
 # jc.rumbleFeedback(0,1,5000)

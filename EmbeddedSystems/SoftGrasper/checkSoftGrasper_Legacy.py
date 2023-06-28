@@ -1,6 +1,6 @@
 from SoftGrasper import SoftGrasper
 
-SG = SoftGrasper(COM_Port = 'COM4',BaudRate=115200,controllerProfile="Legacy")
+SG = SoftGrasper(COM_Port = 'COM5',BaudRate=115200,controllerProfile="Legacy")
 
 while (True):
     #SendPressureCommand(ser,10.0)

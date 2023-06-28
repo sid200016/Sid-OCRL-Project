@@ -8,7 +8,7 @@ const int G_ENABLE = 15;
 
 
 //#define PressureCycle
-//#define debug
+#define debug
 #define DeflateALL
 //#define ReadSingle
 //#define DebugSingle
@@ -43,6 +43,10 @@ unsigned long previousTime = 0;  //ms
 unsigned long LoopTime = 1000;   //us
 unsigned long t_init = 0;        //time when the loop starts to begin calculating sinusoid
 
+
+void runActivationPattern();
+void read_Commands();
+
 IntervalTimer PressureControlTimer;
 
 int count = 0;  //how many times through pressure control loop
@@ -68,44 +72,10 @@ long HoldOverride = 0;  // read over serial if should override the pressure modu
 // int JawCommand3 = false;
 byte HoldValues[4]={0,0,0,0};
 
-//-------------  Pressure Value -------------//
-const int holdByteSize= numPressurePorts*4;
-
-boolean newData = false; //set to true when new data has been received and not processed, false when all data has been processed
-byte holdByteArr[holdByteSize];
-struct Command_Data_Structure
-{
-    float CommandPressure[numPressurePorts];
-    int action[numPressurePorts];
-
-};
-
-struct Transmission_Data_Structure
-{
-    char start = '>';
-    byte protocol = 0;
-    byte sizePayload = 48;
-    float data[numPressurePorts];
-    char end = '<';
-
-
-};
-int size_TransmissionData = sizeof(struct Transmission_Data_Structure);
-
-struct Command_Data_Structure CommandData; 
-struct Transmission_Data_Structure TransmissionData;
-
-
-//-------Function defs:
-void runActivationPattern();
-void read_Commands();
-void ReadSerial_StartEnd();
-void processData();
-void TransmitPressureReadings(const Transmission_Data_Structure* tdata);
 
 void setup() {
   // put your setup code here, to run once:
-    Serial.begin(460800);  //apparently can communicate at 1 MBaud 
+    Serial.begin(115200);  //apparently can communicate at 1 MBaud 
     SPI.begin();
     pinMode(RCK, OUTPUT);
 
@@ -288,120 +258,107 @@ void setup() {
 
     #endif
 
-    Serial.println("Teensy Ready!");
-    delay(10);
+    // Cycle through Jaws until pressure is at setpoint
+    bool KeepLooping=true;
+    int JawNumber[3] = {8,9,11};
+    float JawPressure[3] ={0,0,0};
+    float JawPressureSetpoint[3] = {1,1,1};
+    float JawPressureTolerance[3]={0.05,0.05,0.05};
+    bool lockJawValves[3]={0,0,0};
+    
+    String waitf = Serial.readStringUntil('\n');
+    Serial.println("Begin Jaw Inflate");
+
+    while(KeepLooping)
+    {
+        String outputs="";
+        for (int i = 0; i < numPressurePorts; i++)
+        {
+
+            Pa[i].setValve_state(PressurePort::HOLD,bitArray,MaxNumShiftRegisters, ArrayElementSize);  //keep valves closed
+            float rawPress = Pa[i].readPressure(false);  //without moving average
+            char buffer[80];
+            char pressure_s[10];
+            dtostrf(rawPress, 3, 4, pressure_s);
+            dtostrf(rawPress, 3, 4, pressure_s);
+            outputs = outputs + "," + pressure_s ;
+            
+        }
+        Serial.println(outputs);
+
+        for(int i=0;i<3;i++)
+        {
+            JawPressure[i] = Pa[JawNumber[i]].readPressure(false);
+            
+            float JawPressErr = abs(JawPressure[i]-JawPressureSetpoint[i]);
+            if (JawPressErr>=JawPressureTolerance[i] & lockJawValves[i]==0)
+            {
+                float activation = JawPressureSetpoint[i]/30;
+                Serial.println(activation);
+                Pa[JawNumber[i]].modulatePressure_Activation(activation, bitArray, MaxNumShiftRegisters, ArrayElementSize  );  //writes to bitArray which valves to open or close
+
+                
+            }
+            else
+            {
+                lockJawValves[i] = 1;
+
+            }
+
+        }
+
+        if (lockJawValves[0]==1 & lockJawValves[1]==1 & lockJawValves[2]==1)
+        {
+            KeepLooping=false;
+
+        }        
+
+        PressurePort::WriteToShiftRegister(PressurePort::RCK, PressurePort::G_ENABLE, bitArray, MaxNumShiftRegisters); //executes the bitArray to the shift registers to actually open or close the valves 
+        
+       
+
+
+
+
+    }
+
+     Serial.println("Jaws finished!");
+
+
+
+    // -- Run the interval timer -- //
+    //PressureControlTimer.begin(runActivationPattern, 1000);
 
 
 }
 
 void loop()
 {
-    // //Serial.println(endTime-startTime);
-    // long fval = 0;
-    // while (Serial.available()<=4)
-    // {
+    //Serial.println(endTime-startTime);
+    long fval = 0;
+    while (Serial.available()<=4)
+    {
 
-    //   continue;
+      continue;
 
-    // }  
+    }  
 
-    // for (int i=0;i<4;i++)
-    // {
-    //   HoldValues[i]= Serial.read();
+    for (int i=0;i<4;i++)
+    {
+      HoldValues[i]= Serial.read();
       
-    // }
-    // float val = *((float*)(HoldValues));
-    // CommandValues[3] = val;
-    // runActivationPattern();
-    ReadSerial_StartEnd();
-    processData();
-    TransmitPressureReadings(&TransmissionData);
+    }
+    float val = *((float*)(HoldValues));
+    CommandValues[3] = val;
+    runActivationPattern();
+    delayMicroseconds(100);
+    
 
     
-    delayMicroseconds(1000);
-
-}
-
-void ReadSerial_StartEnd()
-{
-    // inspired by: https://forum.arduino.cc/t/serial-input-basics-updated/382007/2
-    static boolean recvInProgress = false;
-    static int idx = 0;
-    char startMarker = '>';
-    char endMarker = '<';
-    char rc;
-
-
-    while (Serial.available() > 0 && newData == false)
-    {
-
-        rc = Serial.read();
-
-        if (recvInProgress == true)
-        {
-            if (rc != endMarker)
-            {
-
-                holdByteArr[idx] = rc;
-                idx++;
-
-                idx = min(idx,holdByteSize-1);
-
-
-            }
-
-            else
-            {
-                recvInProgress = false; //received the ending marker so indicate that don't need to continue reading the serial port
-                idx = 0; 
-                newData = true;
-
-            }
-
-
-        }
-
-        else if (rc == startMarker) //if you receive the start marker, then indicate that the receiving has started.
-        {
-            recvInProgress = true;
-        }
-
-    }
+     
 
 
 
-
-
-
-}
-
-void processData()
-{
-
-    for(int i = 0; i<holdByteSize; i=i+4)
-    {
-        byte HoldValues[4] = {0,0,0,0};
-        for (int j=0;j<4;j++)
-        {
-            HoldValues[j] = holdByteArr[i+j];
-
-        }
-
-        int idx = i%4;
-        CommandData.CommandPressure[idx] = *((float*)(HoldValues));
-        TransmissionData.data[idx] = 16.3;// *((float*)(HoldValues));
-        
-    }
-
-
-
-    newData = false;
-    
-}
-
-void TransmitPressureReadings(const Transmission_Data_Structure* tdata)
-{
-    Serial.write((const char*)tdata, size_TransmissionData); //https://arduino.stackexchange.com/questions/72138/send-structure-through-serial
 }
 
 

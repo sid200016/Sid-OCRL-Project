@@ -27,7 +27,7 @@ class PressurePort:
 
 class SoftGrasper:
 
-    def __init__(self,COM_Port = 'COM7',BaudRate=115200,timeout=1):
+    def __init__(self,COM_Port = 'COM7',BaudRate=115200,timeout=1,controllerProfile = "Legacy"):
         self.ser = serial.Serial(COM_Port, BaudRate, timeout=timeout)
 
 
@@ -68,10 +68,14 @@ class SoftGrasper:
         self.payload_size = 0 #size of the payload
         self.txData = None #data read
 
+        #What form of the controller  to use: Legacy or New
+        self.controllerProfile = controllerProfile
 
         #------ Initialization -----#
-        # self.WaitForJawsToInflate()
-        self.WaitForTeensyInitialization()
+        if self.controllerProfile == "Legacy":
+            self.WaitForJawsToInflate()
+        else:
+            self.WaitForTeensyInitialization()
 
     def GetPressureFromPosition(self,position_mm,coeffs=[3.034e-6,-1.251e-4,9.3731e-4,0.0217,-0.3659,2.0752,0]):
         b = coeffs

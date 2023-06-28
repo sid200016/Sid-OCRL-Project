@@ -1,7 +1,7 @@
 from SoftGrasper import SoftGrasper,PortActions
 import time
 
-SG  = SoftGrasper(COM_Port = 'COM4',BaudRate=460800,timeout=1)
+SG  = SoftGrasper(COM_Port = 'COM4',BaudRate=460800,timeout=1,controllerProfile="New")
 while (True):
     for i,(k,v) in enumerate(SG.PressurePorts.items()):
         SG.PressurePorts[k].commandedPressure=i

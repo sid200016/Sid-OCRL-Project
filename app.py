@@ -1,15 +1,17 @@
 from flask import Flask, render_template, request, url_for, flash, redirect
 from datetime import datetime
 #from gantry import *
-# import EmbeddedSystems.Gantry.GantryController as GC
-# import EmbeddedSystems.RigidGrasper.RigidGrasper as RG
+import EmbeddedSystems.Gantry.GantryController as GC
+#import EmbeddedSystems.RigidGrasper.RigidGrasper as RG
+import EmbeddedSystems.SoftGrasper.SoftGrasper as SG
 import csv
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'ceff418fb561ebf2572221b1f28789a36e4e30f7da4df0a8'
 
 # Gantry / Grasper setup
-# GCa = GC.Gantry(comport = "COM4", homeSystem = False, initPos=[0,0,0] )
+SGa = SG.SoftGrasper(COM_Port='COM5', BaudRate=115200, controllerProfile="Legacy") #soft grasper initialization
+GCa = GC.Gantry(comport = "COM4", homeSystem = False, initPos=[0,0,0] )
 # RGa = RG.RigidGrasper(BAUDRATE = 57600, DEVICEPORT = "COM3", GoalPosition1=[1500,2000], GoalPosition2 = [2120,1620])
 
 # date / time
@@ -100,6 +102,7 @@ def dual_grasper_participant():
 
     if grasper_l_data:
         grasper_l_data = round(float(grasper_l_data), 2)
+        SGa.IncrementalMove(closureIncrement_mm = grasper_l_data*20/100, jawIncrement_psi = [0,0,0])
         # RGa.SetGoalPosition(goal_position1=grasper_l_data,goal_position2=None)
         # print('left: ' + str(grasper_l_data))
     if grasper_r_data:
@@ -108,11 +111,14 @@ def dual_grasper_participant():
         # print('right: ' + str(grasper_r_data))
     if grasper_on_data:
         print(grasper_on_data)
-        if (grasper_on_data == "1"):
-            pass
-        elif (grasper_on_data == "-1"):
-            pass
+        SGa.isActive = not SGa.isActive
+
         # RGa.setGoalPosition()
+
+    if SGa.isActive:
+        SGa.MoveGrasper() #program is expecting 4 bytes every loop so need to continually send move command
+    
+    
 
 
 

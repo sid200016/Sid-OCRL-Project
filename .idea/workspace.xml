@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9000fda-c46c-4831-bc0e-a6276d0a902a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/EmbeddedSystems/Gantry/GantryController.py" beforeDir="false" afterPath="$PROJECT_DIR$/EmbeddedSystems/Gantry/GantryController.py" afterDir="false" />
+    <list default="true" id="bfd83e2d-ab31-4129-8c0e-ce5b016d6614" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmbeddedSystems/SoftGrasper/SoftGrasper.py" beforeDir="false" afterPath="$PROJECT_DIR$/EmbeddedSystems/SoftGrasper/SoftGrasper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmbeddedSystems/SoftGrasper/SoftGrasperController/.vscode/extensions.json" beforeDir="false" afterPath="$PROJECT_DIR$/EmbeddedSystems/SoftGrasper/SoftGrasperController/.vscode/extensions.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -24,14 +26,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/SmorgasBORG/Documents/GitHub/FRR-Software-Interface",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/SmorgasBORG/Documents/GitHub/FRR-Software-Interface&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="PyDebuggerOptionsProvider">
     <option name="myPyQtBackend" value="pyside2" />
   </component>

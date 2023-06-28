@@ -227,8 +227,8 @@ class Joy_Gantry(JoyCon):
 
 
 
-    def buttonZR_Home(self):
-        pass
+    def buttonHome(self):
+        self.Gantry.HomeGantry(initPos = self.Gantry.initPos) #home the gantry
 
 
     def MoveGantry(self,joy_horiz_axis,joy_vert_axis):
@@ -236,7 +236,7 @@ class Joy_Gantry(JoyCon):
         posInc,feedrate_mmps = self.getPositionIncrement() # get the position increment
         self.Gantry.incrementalMove(moveSpeed_mmps=feedrate_mmps, **{"move_x_mm":posInc[0],"move_y_mm":posInc[1],"move_z_mm":posInc[2]})
         print("Joystick Pos:{0},{1}".format(joy_horiz_axis, joy_vert_axis))
-        print("Position increment:{0},{1},{2}".format(posInc[0],posInc[1],posInc[2]))
+        print("Position increment:{0},{1},{2}".format(posInc[0], posInc[1], posInc[2]))
         print("Current Gantry Position:{0},{1},{2}".format(self.Gantry.PositionArray["x"][-1],
                                                            self.Gantry.PositionArray["y"][-1],
                                                            self.Gantry.PositionArray["z"][-1]))

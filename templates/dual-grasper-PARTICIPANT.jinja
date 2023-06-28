@@ -14,33 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=Arial:wght@700&display=swap"
     />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script>
-      function send_gantry_data(){
-
-        let mouseX = event.clientX;
-        let mouseY = event.clientY;
-
-        let value = mouseX.toString() + ',' + mouseY.toString();
-
-        $.ajax({
-                url: '/participant/dual-grasper',
-                type: 'POST',
-                data: { 'data': value },
-                success: function(response) {
-                    // document.getElementById('output').innerHTML = response;
-                    console.log(mouseX + ', ' + mouseY);
-                    return;
-                },
-                error: function(error) {
-                    console.log(error);
-                }
-            });
-      }
-
-      function send_grasper_data() {
-
-      }
-    </script>
+    <script type="text/javascript" src="{{ url_for('static', filename='/send.js') }}"></script>
   </head>
   <body>
     <div class="dual-grasper-participant">
@@ -130,9 +104,9 @@
         src="{{ url_for('static', filename='/public/dual-grasper.svg') }}" 
       />
 
-      <div class="div10">76%</div>
+      <div class="div10">{{power_l}}%</div>
       <div class="power1">power</div>
-      <div class="div11">76%</div>
+      <div class="div11">{{power_r}}%</div>
       <div class="power2">power</div>
       
       <img 
@@ -168,14 +142,14 @@
       <b class="jan-283">{{date}}</b>
       <b class="am3">{{time}}</b>
       <form method="post">
-        <div class="mybutton">
+        <div class="mybutton" onmousedown="activate_grasper()">
           <div class="buttontemplate">
             <div class="background"></div>
             <div class="label4">On</div>
           </div>
         </div>
         <div class="myslider3">
-          <div class="slidertemplate3">
+          <div class="slidertemplate3" onmousedown="send_grasper_data_left()">
             <div class="slidertemplate3">
               <div class="grooveback3"></div>
             </div>
@@ -185,11 +159,11 @@
           </div>
         </div>
         <div class="myslider4">
-          <div class="slidertemplate3">
+          <div class="slidertemplate3" onmousedown="send_grasper_data_right()">
             <div class="slidertemplate3">
               <div class="grooveback3"></div>
             </div>
-            <div class="slidertrack3" style="width: {{ power_r }}%;">
+            <div class="slidertrack3" style="width: {{ power_r }}%;"">
               <div class="trackback3"></div>
             </div>
           </div>

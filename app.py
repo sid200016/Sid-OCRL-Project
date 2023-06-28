@@ -1,29 +1,30 @@
 from flask import Flask, render_template, request, url_for, flash, redirect
 from datetime import datetime
 #from gantry import *
-import EmbeddedSystems.Gantry.GantryController as GC
+# import EmbeddedSystems.Gantry.GantryController as GC
+# import EmbeddedSystems.RigidGrasper.RigidGrasper as RG
 import csv
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'ceff418fb561ebf2572221b1f28789a36e4e30f7da4df0a8'
 
 # Gantry / Grasper setup
-GCa = GC.Gantry(comport = "COM4", homeSystem = False,initPos=[0,0,0] )
-
-
-#Gantry = Gantry()
-#Grasper = Grasper()
+# GCa = GC.Gantry(comport = "COM4", homeSystem = False, initPos=[0,0,0] )
+# RGa = RG.RigidGrasper(BAUDRATE = 57600, DEVICEPORT = "COM3", GoalPosition1=[1500,2000], GoalPosition2 = [2120,1620])
 
 # date / time
 MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
-now = datetime.now()
-date = f'{MONTHS[now.month - 1]} - {now.day} - {now.year}'
+def get_date_time():
+    now = datetime.now()
+    date = f'{MONTHS[now.month - 1]} - {now.day} - {now.year}'
 
-hour = now.hour if now.hour <= 12 else now.hour - 12
-minute = now.minute if now.minute >= 10 else '0'+str(now.minute)
-ampm = 'A.M' if now.hour <= 12 else 'P.M'
-time = f'{hour}:{now.minute} {ampm}'
+    hour = now.hour if now.hour <= 12 else now.hour - 12
+    minute = now.minute if now.minute >= 10 else '0'+str(now.minute)
+    ampm = 'A.M' if now.hour <= 12 else 'P.M'
+    time = f'{hour}:{minute} {ampm}'
+
+    return date, time
 
 def log_participant_data(id_code, age, gender, types):
     with open(f'{id_code}.csv', 'w', newline='') as file:
@@ -38,17 +39,22 @@ def log_participant_data(id_code, age, gender, types):
 def log_trial_data(timestamp, gantry_x, gantry_y, objects):
     pass
 
+def map(val, ilo, ihi, flo, fhi):
+    return flo + ((fhi - flo) / (ihi - ilo)) * (val - ilo)
+
 def mouse_to_mm(mouse_position):
-    # fix this
-    return mouse_position
+    mouse_position = float(mouse_position)
+    return int(map(mouse_position, 0, 860, 0, 510));
 
 def mm_to_mouse(mm):
-    # fix this
-    return mm
+    mm = float(mm)
+    return int(map(mm, 0, 510, 0, 860));
 
 @app.route("/", methods=('GET', 'POST'))
 @app.route("/home", methods=('GET', 'POST'))
 def index():
+    date, time = get_date_time()
+
     if request.method == 'POST':
         types = []
         for i in range(9):
@@ -72,33 +78,47 @@ def index():
 
 @app.route("/participant/dual-grasper", methods=('GET', 'POST'))
 def dual_grasper_participant():
+    date, time = get_date_time()
+
     # read user inputs from GUI
-    data_string = request.form.get('data')
+    gantry_data = request.form.get('gantry')
+    grasper_l_data = request.form.get('grasper_l')
+    grasper_r_data = request.form.get('grasper_r')
+    grasper_on_data = request.form.get('grasper_on')
+
     # data_string: 'mouse_x,mouse_y,power_l,power_r'
-    if data_string:
-        data = data_string.split(',')
+    if gantry_data:
+        gantry_data = gantry_data.split(',')
 
-        data[0] = mouse_to_mm(data[0])
-        data[1] = mouse_to_mm(data[1])
+        gantry_data[0] = mouse_to_mm(gantry_data[0])
+        gantry_data[1] = mouse_to_mm(gantry_data[1])
 
-        # print("mouseX: " + data[0] + ', mouseY: ' + data[1])
+        # GCa.getPosition()
+        # curr_z = GCa.PositionArray["z"]
+        # GCa.setXYZ_Position(gantry_data[0], gantry_data[1], curr_z) #absolute move
+        # GCa.incrementalMove(20,20,0,GCa.MoveSpeed/60) # relative move
 
-        # g_x, g_y = Gantry.GetPosition()
-        # p_l, p_r = Grasper.GetPower()
-        # real_data = [g_x, g_y, p_l, p_r]
+    if grasper_l_data:
+        grasper_l_data = round(float(grasper_l_data), 2)
+        # RGa.SetGoalPosition(goal_position1=grasper_l_data,goal_position2=None)
+        # print('left: ' + str(grasper_l_data))
+    if grasper_r_data:
+        grasper_r_data = round(float(grasper_r_data), 2)
+        # RGa.SetGoalPosition(goal_position1=None,goal_position2=grasper_r_data)
+        # print('right: ' + str(grasper_r_data))
+    if grasper_on_data:
+        print(grasper_on_data)
+        if (grasper_on_data == "1"):
+            pass
+        elif (grasper_on_data == "-1"):
+            pass
+        # RGa.setGoalPosition()
 
-        # for i in range(len(data)):
-        #     if data[i] == 'null':
-        #         # if user provides no data send back the measued data
-        #         data[i] = real_data[i]
 
-        #GCa.setXYZ_Position(20,20,20) #absolute move
-        GCa.incrementalMove(20,20,0,GCa.MoveSpeed/60)
-        # Grasper.SetPower(data[2], data[3])
 
     return render_template( "dual-grasper-PARTICIPANT.jinja", 
                             # mouseX=mm_to_mouse(data[0]), mouseY=mm_to_mouse(data[1]),
-                            # power_l=data[2], power_r=data[3],
+                            power_l=grasper_l_data, power_r=grasper_r_data,
                             date=date, time=time
                             )
 

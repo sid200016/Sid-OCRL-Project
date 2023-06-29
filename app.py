@@ -46,11 +46,8 @@ def map(val, ilo, ihi, flo, fhi):
 
 def mouse_to_mm(mouse_position):
     mouse_position = float(mouse_position)
-<<<<<<< Updated upstream
     return int(map(mouse_position, 0, 860, -255, 255))
-=======
-    return int(map(mouse_position, 0, 860, -255, 255));
->>>>>>> Stashed changes
+
 
 def mm_to_mouse(mm):
     mm = float(mm)
@@ -117,7 +114,6 @@ def dual_grasper_participant():
         # print('right: ' + str(grasper_r_data))
     if grasper_on_data:
         print(grasper_on_data)
-<<<<<<< Updated upstream
         #SGa.isActive = not SGa.isActive
 
         # RGa.setGoalPosition()
@@ -125,18 +121,6 @@ def dual_grasper_participant():
     # if SGa.isActive:
     #     SGa.MoveGrasper() #program is expecting 4 bytes every loop so need to continually send move command
     
-    
-
-=======
-    #     soft_wrapper.isActive = !soft_grasper.isActive
-    #     # RGa.setGoalPosition()
-
-    # if soft_wrapper.isActive:
-    #     SGa.MoveGrasper()
-
-    
->>>>>>> Stashed changes
-
 
     return render_template( "dual-grasper-PARTICIPANT.jinja", 
                             # mouseX=mm_to_mouse(data[0]), mouseY=mm_to_mouse(data[1]),

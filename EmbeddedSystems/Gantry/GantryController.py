@@ -184,8 +184,11 @@ class Gantry:
         if MoveSpeed is None:
             MoveSpeed = self.MoveSpeed
 
-        posvec = [MoveSpeed, x_mm + x_off, y_mm + y_off,
-                  z_mm + z_off]  # first element is the speed in mm/min
+        posvec_positions = [x_mm + x_off, y_mm + y_off,
+                  z_mm + z_off] 
+
+        posvec_positions = [max(min(x, self.maxPos_mm[i]), 0) for (i, x) in enumerate(posvec_positions)] #limit between 0 and maximum allowable move for that axis
+        posvec = [MoveSpeed,*posvec_positions]  # first element is the speed in mm/min
 
         commandStr = "G0 F{0:.2f} X{1:.2f} Y{2:.2f} Z{3:.2f} \r\n".format(*posvec)
         if self.BufferLength < self.MaxBufferSize:  # only send commands when the buffer is small

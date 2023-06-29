@@ -25,6 +25,7 @@ function send_gantry_data(){
     });
 }
 
+// mouse position is off
 function send_grasper_data_left() {
     let mouseY = event.clientY;
     let rect = event.target.getBoundingClientRect();

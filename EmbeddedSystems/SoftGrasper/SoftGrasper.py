@@ -50,14 +50,17 @@ class SoftGrasper:
         self.JawPos = [8, 9, 11]  # position of pressure values that the jaws are at
 
         #Tx-Rx Information for New Protocol
-        self.startChar = ">" #indicates start of comm
-        self.endChar = "<" #indicates end of comm
+        self.startChar = ">>" #indicates start of comm
+        self.endChar = "<<" #indicates end of comm
         self.messageStarted = False #true if you have received the startChar
         self.ProtocolSizeStarted = False #true if you have received the protocol type and size
         self.PayloadStarted = False # true if you have received the payload
         self.protocol_type = None #type of message received
         self.payload_size = 0 #size of the payload
         self.txData = None #data read
+
+        #Tx-Rx Information for the modified protocol:
+        self.prevBuffer = bytearray() #empty byte array that unprocessed data at the end of the buffer will be processed with
 
         #What form of the controller  to use: Legacy or New
         self.controllerProfile = controllerProfile
@@ -167,6 +170,7 @@ class SoftGrasper:
         byteArr = bytearray()
 
         val = startDelim.encode('utf-8')
+        #other possibility: byteArr.append(bytes.fromhex("ff"))
         byteArr.extend(val)
         numBytesSent += len(val)
 
@@ -178,6 +182,8 @@ class SoftGrasper:
         numBytesSent += len(val)
 
         self.ser.write(byteArr)
+
+        #format(int.from_bytes(byteArr,sys.byteorder),"b")
 
         return(numBytesSent)
 
@@ -207,7 +213,65 @@ class SoftGrasper:
         BytesToSend.extend(floatPressure)
         return(BytesToSend)
 
-    def readSerialData(self): #inspired by: https://forum.arduino.cc/t/pc-arduino-comms-using-python-updated/574496
+
+    def readSerialData(self): #inspired by: https://be189.github.io/lessons/14/asynchronous_streaming.html
+        # protocol is: > PROTOCOL_BYTE SIZE_BYTE |PAYLOAD of SIZE BYTES| < #https://forum.arduino.cc/t/sending-raw-binary-data/694724
+        if self.ser.inWaiting()>0: #if there is data to read
+
+            xd,numBytes = self.ser.read() #read the entire buffer
+
+            totalBuffer = bytearray()
+            totalBuffer.extend(self.prevBuffer)
+            totalBuffer.extend(xd) #total buffer is the unprocessed data from last round with the new data from this round
+
+            #check to see if the byte(s) representing the start of the communication is present and if the byte(s) representing the end of the communication is present
+            rePayload = re.compile(b'.*?>>(?P<Payload>.*?)<<.*?') #replace >> and << with the start and end indicator pos
+            payload = rePayload.finditer(totalBuffer)
+            index_StartStop = {"start":[],"stop":[]}
+
+            for m in payload: #iterate through matches representing the payload
+                payload_m = m.group('Payload')
+                index_StartStop["start"].append(m.start('Payload'))
+                index_StartStop["stop"].append(m.stop('Payload')) #store index of the start and stop of the match.  Will use later to see if there are unprocessed data at the end of the string
+
+                #To DO: sanity check to determine if the number of bytes is correct
+
+
+
+
+                self.processData(payload_m)
+
+                #To DO: if stop index is shorter than the length of the total payload, then need to store that for processing in the next time step
+
+                #To DO: If the last stop index is exactly at the end of the total payload, reset self.prevBuffer to be empty.  
+
+
+                
+            
+
+
+            # startpos = totalBuffer.find(self.startChar.encode('utf-8'))
+            # endpos = totalBuffer.find(self.endChar.encode('utf-8'))
+            #
+            # if startpos ~= -1 and endpos ~= -1:
+            #     #If both the start and end indicators are present, then process the data.
+            #     self.processData(xd)
+
+            #If the start is present but not the end, then add that data to the buffer
+
+    
+    def processData(self,dataB):
+
+
+
+        
+        
+
+    def readBuffer(self):
+        numBytes = self.ser.inWaiting()
+        xd = self.ser.read(numBytes)
+        return(xd,numBytes)
+    def readSerialData_option2(self): #inspired by: https://forum.arduino.cc/t/pc-arduino-comms-using-python-updated/574496
         #protocol is: > PROTOCOL_BYTE SIZE_BYTE |PAYLOAD of SIZE BYTES| < #https://forum.arduino.cc/t/sending-raw-binary-data/694724
         print(self.ser.inWaiting())
         dataStr = None

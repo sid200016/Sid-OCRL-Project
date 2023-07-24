@@ -3,6 +3,7 @@ import serial
 import struct
 import sys
 from enum import Enum
+import re
 
 
 #########################################################
@@ -17,11 +18,12 @@ class PortActions(Enum):
     IGNORE = 7 #keep executing previous command
 class PressurePort:
 
-    def __init__(self,portNumber=0,portStatus=PortActions.HOLD, commandedPressure = 0.0, readPressure = 0.0):
+    def __init__(self,portNumber=0,portStatus=PortActions.HOLD, commandedPressure = 0.0, readPressure = 0.0, maxPressure = 15):
         self.portNumber = portNumber
         self.portStatus = portStatus
         self.commandedPressure = commandedPressure
         self.readPressure = readPressure
+        self.maxPressure = maxPressure
 
 
 class SoftGrasper:
@@ -71,11 +73,11 @@ class SoftGrasper:
         #For GUI real-time control
         self.isActive = False
 
-        #------ Initialization -----#
-        if self.controllerProfile == "Legacy":
-            self.WaitForJawsToInflate()
-        else:
-            self.WaitForTeensyInitialization()
+        # #------ Initialization -----#
+        # if self.controllerProfile == "Legacy":
+        #     self.WaitForJawsToInflate()
+        # else:
+        #     self.WaitForTeensyInitialization()
 
     def GetPressureFromPosition(self,position_mm,coeffs=[3.034e-6,-1.251e-4,9.3731e-4,0.0217,-0.3659,2.0752,0]):
         b = coeffs
@@ -187,7 +189,7 @@ class SoftGrasper:
 
         return(numBytesSent)
 
-    def ConstructPortCommand(self): #ByteStructure: [<hold_and_actuate_array: ----0001 00010001><INFLATE_AND_STOP, INFLATE_AND_MODULATE, OPEN for ports 11, 4 and 0, respectively: 0x0, 0x5 (port 11), 0x6 (port 4), 0x4 (port 0)>
+    def ConstructPortCommand_DEPRECATED(self): #ByteStructure: [<hold_and_actuate_array: ----0001 00010001><INFLATE_AND_STOP, INFLATE_AND_MODULATE, OPEN for ports 11, 4 and 0, respectively: 0x0, 0x5 (port 11), 0x6 (port 4), 0x4 (port 0)>
                 # <float pressure for port 11 (4 bytes)><float pressure for port 4 (4 bytes)><float pressure for port 0 (4 bytes)>]
         hold_and_actuate_array = bytearray() #two bytes of : <x,x,x,x,11,10,9,8><7,6,5,4,3,2,1,0> where if value is 0, then it sends a hold, if 1 then it will execute an actuation command
         numBytes = np.ceil(self.numPorts * 4 / 8)
@@ -214,11 +216,38 @@ class SoftGrasper:
         return(BytesToSend)
 
 
+    def ConstructPortCommand(self):
+
+        hold_and_actuate_array = bytearray()  # six bytes of  : <aaaabbbb><ccccdddd>...<kkkkllll> where aaaa corresponds to a value between 0 and 15 in the PortActions class above for port 0, bbbb corresponds to port 1, kkkk corresponds to port 10 and llll corresponds to port 11
+        numBytes = np.ceil(self.numPorts * 4 / 8) #should be 6
+
+        type_of_action_array = bytearray(int(numBytes))  # get the number of bytes to hold a 4 bit value for each of the ports which will be actuated
+        PressureVal = bytearray()  # empty array to fill in with values for the ports later where the value sent is between 0 and 127, and corresponds to the following psi value: max_pressure_psi/floatPressure
+
+        numActuate = 0
+
+        for i, (k, v) in enumerate(self.PressurePorts.items()):
+
+
+            tempAct = int.from_bytes(type_of_action_array, sys.byteorder) | (v.portStatus.value << (self.numPorts-1-i) * 4)
+            type_of_action_array = tempAct.to_bytes(numBytes, byteorder=sys.byteorder)  # windows is little endian , so x[0] is the least significant byte
+
+            if v.portStatus.value == PortActions.INFLATE_AND_MODULATE.value or v.portStatus.value == PortActions.INFLATE_AND_STOP.value:
+                numActuate += 1  # increment the number of ports that will be actuated
+                PressureVal = PressureVal.extend(  struct.pack("i", v.commandedPressure*127/v.maxPressure))  # send in the pressure value
+
+
+        BytesToSend = bytearray()
+        BytesToSend.extend(type_of_action_array)
+        BytesToSend.extend(PressureVal)
+        return (BytesToSend)
+
+
     def readSerialData(self): #inspired by: https://be189.github.io/lessons/14/asynchronous_streaming.html
         # protocol is: > PROTOCOL_BYTE SIZE_BYTE |PAYLOAD of SIZE BYTES| < #https://forum.arduino.cc/t/sending-raw-binary-data/694724
         if self.ser.inWaiting()>0: #if there is data to read
-
-            xd,numBytes = self.ser.read() #read the entire buffer
+            numBytes = self.ser.inWaiting()
+            xd = self.ser.read(numBytes) #read the entire buffer
 
             totalBuffer = bytearray()
             totalBuffer.extend(self.prevBuffer)
@@ -232,18 +261,33 @@ class SoftGrasper:
             for m in payload: #iterate through matches representing the payload
                 payload_m = m.group('Payload')
                 index_StartStop["start"].append(m.start('Payload'))
-                index_StartStop["stop"].append(m.stop('Payload')) #store index of the start and stop of the match.  Will use later to see if there are unprocessed data at the end of the string
+                index_StartStop["stop"].append(m.end('Payload')) #store index of the start and stop of the match.  Will use later to see if there are unprocessed data at the end of the string
 
                 #To DO: sanity check to determine if the number of bytes is correct
+                payloadRE = re.compile(b'(?P<ProtocolByte>\D)(?P<PayloadSize>\D)(?P<Payload>\D+)')
+                payloadRes = payloadRE.search(payload_m)
+
+                protocolType = None
+                numBytes = None
+                payload = None
+                
+                if payloadRes is not None: #if the structure of the payload is in the expected form, then extract the number of bytes etc.
+                    protocolType = int.from_bytes(payloadRes.group('ProtocolByte'),sys.byteorder)
+                    numBytes = int.from_bytes(payloadRes.group('PayloadSize'),sys.byteorder)
+                    payload = payloadRes.group('Payload') #need to check this
+                    
+                if numBytes == len(payload):
+                    print('Payload matches the expected number of bytes')
+
+                else:
+                    print('Warning: Payload size does not match the expected number of bytes')
 
 
-
-
-                self.processData(payload_m)
+                self.processData(protocolType,numBytes,payload)
 
                 #To DO: if stop index is shorter than the length of the total payload, then need to store that for processing in the next time step
 
-                #To DO: If the last stop index is exactly at the end of the total payload, reset self.prevBuffer to be empty.  
+                #To DO: If the last stop index is exactly at the end of the total payload, reset self.prevBuffer to be empty.
 
 
                 
@@ -260,7 +304,22 @@ class SoftGrasper:
             #If the start is present but not the end, then add that data to the buffer
 
     
-    def processData(self,dataB):
+    def processData(self,protocolType=None, numBytes=None, payload=None):
+
+        if protocolType is not None:
+            match protocolType:
+                case 0:
+                    len_payload = math.floor((len(payload))/4)
+                    data=[struct.unpack('f', newByte2[x:x + 4]) for x in (range(0, len_payload) % 4)] #for floats representing pressure values of each port
+
+                case 1:
+                    #for strings
+                    print(payload.decode())
+
+
+                case _:
+                    #action - default
+                    pass
 
 
 

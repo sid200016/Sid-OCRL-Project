@@ -69,38 +69,83 @@ long HoldOverride = 0;  // read over serial if should override the pressure modu
 byte HoldValues[4]={0,0,0,0};
 
 //-------------  Pressure Value -------------//
-const int holdByteSize= numPressurePorts*4;
+// rxBuffer: https://forum.arduino.cc/t/proper-method-of-receiving-uart-packet-data-far-exceeding-rx-buffer-size/611982/8
 
-boolean newData = false; //set to true when new data has been received and not processed, false when all data has been processed
-byte holdByteArr[holdByteSize];
-struct Command_Data_Structure
-{
-    float CommandPressure[numPressurePorts];
-    int action[numPressurePorts];
 
-};
 
 struct Transmission_Data_Structure
 {
-    char start = '>';
+    char start[3] = ">>";
     byte protocol = 0;
     byte sizePayload = 48;
     float data[numPressurePorts];
-    char end = '<';
+    char end[3] = "<<";
 
 
-};
+}; 
 int size_TransmissionData = sizeof(struct Transmission_Data_Structure);
 
 struct Command_Data_Structure CommandData; 
 struct Transmission_Data_Structure TransmissionData;
 
 
+//-------------  Reading from Python -------------//
+//Message Structure Lengths
+#define MSG_HDR_LEN 2
+#define MSG_TRLR_LEN 2
+#define MSG_PAYLOAD_LEN_MAX 36 
+
+//state names
+#define ST_Header 0
+#define ST_Payload 1
+#define ST_Trailer 2
+
+const char HeaderStr[MSG_HDR_LEN] = {'>', '>'};
+const char TrailerStr[MSG_TRLR_LEN] = {'<', '<'};
+
+byte Payload[MSG_PAYLOAD_LEN_MAX];
+
+
+enum PortAction_ENUM
+{
+    HOLD = 0,
+    INFLATE = 1,
+    VACUUM = 2,
+    START = 3,
+    OPEN = 4,
+    INFLATE_AND_STOP = 5,
+    INFLATE_AND_MODULATE = 6,
+    IGNORE = 7,
+
+};
+
+
+struct PortActions
+{
+    int port = 0;
+    PortAction_ENUM action = IGNORE;
+    float pressure = 0.0;
+};
+
+struct PortActions PortA[numPressurePorts] = { {0, IGNORE, 0.0},
+                                            {1, IGNORE, 0.0},
+                                            {2, IGNORE, 0.0},
+                                            {3, IGNORE, 0.0},
+                                            {4, IGNORE, 0.0},
+                                            {5, IGNORE, 0.0},
+                                            {6, IGNORE, 0.0},
+                                            {7, IGNORE, 0.0},
+                                            {8, IGNORE, 0.0},
+                                            {9, IGNORE, 0.0},
+                                            {10, IGNORE, 0.0},
+                                            {11, IGNORE, 0.0}}; 
+
+
 //-------Function defs:
 void runActivationPattern();
 void read_Commands();
-void ReadSerial_StartEnd();
-void processData();
+void ReadSerial();
+void executePressurePortActions();
 void TransmitPressureReadings(const Transmission_Data_Structure* tdata);
 
 void setup() {
@@ -313,100 +358,137 @@ void loop()
     // float val = *((float*)(HoldValues));
     // CommandValues[3] = val;
     // runActivationPattern();
-    ReadSerial_StartEnd();
-    processData();
+    readSerial();
+    executePressurePortActions();
     TransmitPressureReadings(&TransmissionData);
 
     
-    delayMicroseconds(1000);
+    //delayMicroseconds(1000);
 
 }
 
-void ReadSerial_StartEnd()
-{
-    // inspired by: https://forum.arduino.cc/t/serial-input-basics-updated/382007/2
-    static boolean recvInProgress = false;
-    static int idx = 0;
-    char startMarker = '>';
-    char endMarker = '<';
-    char rc;
+void ReadSerial()
+{ //inspired by: https://forum.arduino.cc/t/proper-method-of-receiving-uart-packet-data-far-exceeding-rx-buffer-size/611982/8
 
 
-    while (Serial.available() > 0 && newData == false)
+    byte cByte;
+
+    static int nIdx = 0;
+    static int numPressure = 0;
+    static int PressVal_ind [numPressurePorts] = {0,0,0,0,0,0,0,0,0,0,0,0};
+
+    static byte stateRx = ST_Header; 
+
+    if(Serial.available()>0)
     {
-
-        rc = Serial.read();
-
-        if (recvInProgress == true)
+        while(Serial.available())
         {
-            if (rc != endMarker)
+            cByte=Serial.read();
+
+            switch( stateRx)
             {
+                case ST_Header:
 
-                holdByteArr[idx] = rc;
-                idx++;
+                    if(cByte == HeaderStr[nIdx])
+                    {
+                        nIdx++;
+                        if(nIdx == MSG_HDR_LEN-1) //reached end of the handler length
+                        {
+                            stateRx = ST_Payload;
+                            nIdx = 0; //reset idx to 0 for use in the ST_Payload
+                        }
+                    }
 
-                idx = min(idx,holdByteSize-1);
+                    else
+                    {
+                        nIdx = 0;
+                    }
 
+                break;
+
+                case ST_Payload: //check Payload
+
+                    Payload[nIdx] = cByte;
+
+                    
+
+                    if (nIdx<6)
+                    {
+
+                        PortA[2*nIdx].action = (int) (Payload[nIdx] >>4);
+                        if (PortA[2*nIdx].action == INFLATE_AND_MODULATE or PortA[2*nIdx].action == INFLATE_AND_STOP)
+                        {
+                            PressVal_ind[numPressure] = 2*nIdx; 
+                            numPressure++; //increment how many pressure bytes to expect
+                        }  
+
+
+                        PortA[2*nIdx+1].action = (int) (Payload[nIdx] & 0b00001111 );
+                        if (PortA[2*nIdx+1].action == INFLATE_AND_MODULATE or PortA[2*nIdx].action == INFLATE_AND_STOP)
+                        {
+                            PressVal_ind[numPressure] = 2*nIdx + 1; 
+                            numPressure++; //increment how many pressure bytes to expect
+                        }
+
+                        
+                    }
+
+                    else if (nIdx>=6 and nIdx< (6+numPressure))
+                    {
+
+                        int pressportIdx = PressVal_ind[nIdx-6]; //get the pressure value
+                        PortA[pressportIdx].pressure = 12*Payload[nIdx]/255; //convert to a pressure value
+
+
+                    }
+
+                    nIdx++;
+
+                    if (nIdx == 6+numPressure) //if you get the number of bytes you expected, then move on to the next step
+                    {
+
+                        numPressure = 0;
+                        nIdx = 0;
+                        stateRx = ST_Trailer;
+                    }
+
+                    //update the pressure port actions.
+
+                break;
+
+                case ST_Trailer: //check to see if Trailer has been received properly
+
+                    if (cByte == TrailerStr[nIdx])
+                    {
+                        nIdx++;
+                        if( nIdx == MSG_TRLR_LEN-1)
+                        {
+                            stateRx = ST_Header;
+                            nIdx = 0;
+                        }
+                    }
+
+                    else
+                    {
+                        nIdx = 0;
+                        stateRx = ST_Header;
+                    }
+
+                break;
 
             }
 
-            else
-            {
-                recvInProgress = false; //received the ending marker so indicate that don't need to continue reading the serial port
-                idx = 0; 
-                newData = true;
+            //execute the pressure port actions in case you are stuck in the Serial.available()
+            executePressurePortActions();
 
-            }
-
-
-        }
-
-        else if (rc == startMarker) //if you receive the start marker, then indicate that the receiving has started.
-        {
-            recvInProgress = true;
         }
 
     }
 
-
-
-
-
-
-}
-
-void processData()
-{
-
-    for(int i = 0; i<holdByteSize; i=i+4)
-    {
-        byte HoldValues[4] = {0,0,0,0};
-        for (int j=0;j<4;j++)
-        {
-            HoldValues[j] = holdByteArr[i+j];
-
-        }
-
-        int idx = i%4;
-        CommandData.CommandPressure[idx] = *((float*)(HoldValues));
-        TransmissionData.data[idx] = 16.3;// *((float*)(HoldValues));
-        
-    }
-
-
-
-    newData = false;
-    
-}
-
-void TransmitPressureReadings(const Transmission_Data_Structure* tdata)
-{
-    Serial.write((const char*)tdata, size_TransmissionData); //https://arduino.stackexchange.com/questions/72138/send-structure-through-serial
 }
 
 
-
-void runActivationPattern()
+void executePressurePortActions()
 {
     //get commanded pressure values
     startTime = micros();
@@ -434,35 +516,55 @@ void runActivationPattern()
 
     //-----------------------------
 
-    float activation[numPressurePorts] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-
-    float highflowPress = 12;
-    float lowflowPress = 8;
-
-    P_Jaw1 = CommandValues[0];
-    P_Jaw2 = CommandValues[1];
-    P_Jaw3 = CommandValues[2];
-    P_I3 = CommandValues[3];
-    P_I1_1 = CommandValues[4];
-    P_I1_2 = CommandValues[5];
-    P_I1_3 = CommandValues[6];
-
-
-    activation[0] = P_I3/30;
-    activation[8] = P_Jaw1/30;
-    activation[9] = P_Jaw2/30;
-    activation[11] = P_Jaw3/30;
-    activation[3] = P_I1_1/30;
-    activation[4] = P_I1_2/30;
-    activation[6] = P_I1_3/30;
-
-
     
     String outputs = "";
     for (int i = 0; i < numPressurePorts; i++)
     {
 
-        Pa[i].setValve_state(PressurePort::HOLD,bitArray,MaxNumShiftRegisters, ArrayElementSize);  //keep valves closed
+        PressurePort::PressureState PAction = PressurePort::HOLD;
+
+        switch (PortA[i].action)
+        {
+            case HOLD:
+                Pa[i].setValve_state(PressurePort::HOLD,bitArray,MaxNumShiftRegisters, ArrayElementSize);  //keep valves closed
+
+
+            break;
+
+            case INFLATE:
+                Pa[i].setValve_state(PressurePort::INFLATE,bitArray,MaxNumShiftRegisters, ArrayElementSize);  //keep valves closed
+
+            break;
+
+            case VACUUM:
+                Pa[i].setValve_state(PressurePort::VACUUM,bitArray,MaxNumShiftRegisters, ArrayElementSize);  //keep valves closed
+
+            break;
+
+            case START:
+                Pa[i].setValve_state(PressurePort::START,bitArray,MaxNumShiftRegisters, ArrayElementSize);  //keep valves closed
+
+            break;
+
+            case OPEN:
+                Pa[i].setValve_state(PressurePort::OPEN,bitArray,MaxNumShiftRegisters, ArrayElementSize);  //keep valves closed
+            break;
+
+            case INFLATE_AND_STOP:
+            break;
+            
+            case INFLATE_AND_MODULATE:
+                float activation = PortA[i].pressure/30;
+                Pa[i].modulatePressure_Activation(activation, bitArray, MaxNumShiftRegisters, ArrayElementSize);  //writes to bitArray which valves to open or close
+            break;
+
+            case IGNORE:
+            break;
+
+            
+            
+        }
+
         float rawPress = Pa[i].readPressure(false);  //without moving average
         char buffer[80];
         char pressure_s[10];
@@ -473,81 +575,41 @@ void runActivationPattern()
        
     }
 
-    Pa[0].modulatePressure_Activation(activation[0], bitArray, MaxNumShiftRegisters, ArrayElementSize  );  //writes to bitArray which valves to open or close
-    Serial.println(outputs);
+    char str[outputs.length() + 1] = {};
+    strcpy(str, outputs.c_str()); //convert to c_string
 
-
-
-
-
-
-
+    
     PressurePort::WriteToShiftRegister(PressurePort::RCK, PressurePort::G_ENABLE, bitArray, MaxNumShiftRegisters); //executes the bitArray to the shift registers to actually open or close the valves 
     endTime = micros();
-    
+
+    TransmitPayload(HeaderStr,1,strlen(str),str,TrailerStr);
+
 }
 
-
-
-
-
-
-
-
-void read_Commands() 
+void TransmitPressureReadings(const Transmission_Data_Structure* tdata)
 {
-    while (Serial.available()<=4)
-    {
-        continue;
-    }
-    byte HoldValues[4] = {0,0,0,0};
-    for (int i=0;i<4;i++)
-    {
-        HoldValues[i]= Serial.read();
-                    
-    }
-
-    float val = *((float*)(HoldValues));
-    CommandValues[3] = val;
+    Serial.write((const char*)tdata, size_TransmissionData); //https://arduino.stackexchange.com/questions/72138/send-structure-through-serial
 }
 
-void read_Commands2() {
-    while (Serial.available()<=28)
+
+void TransmitPayload(char startChar[], byte protocolType,byte numBytes,  byte payload[], char endChar[] )
+{
+
+    unsigned char buffer[255];
+    buffer[0]=startChar[0];
+    buffer[1]=startChar[1];
+    buffer[2]=protocolType;
+    buffer[3] = numBytes;
+    for (int i = 0;i<numBytes;i++)
     {
-        Serial.println(Serial.available());
-    continue;
+        buffer[4+i] = payload[i];
     }
+    buffer[numBytes+4] = endChar[0];
+    buffer[numBytes+5] = endchar[1];
+
+    unsigned int len = 6+numBytes;
 
 
+    Serial.write(buffer,len);
 
-    for (int j=0;j<7;j++)
-    {
-        byte HoldValues[4] = {0,0,0,0};
-        for (int i=0;i<4;i++)
-        {
-            HoldValues[i]= Serial.read();
-                        
-        }
-
-        CommandValues[j] = *((float*)(HoldValues));
-    }
-
-
-    // Get Pressure readings
-    String outputs = "";
-    for (int i=0;i<12;i++)
-    {
-        float rawPress = Pa[i].readPressure(false); //without moving average
-        char buffer[80];
-        char pressure_s[10];
-        dtostrf(rawPress, 3, 4, pressure_s);
-        outputs = outputs + pressure_s +"," ;
-        
-    }
-    Serial.println(outputs);
-    
-Serial.println("ok");
-
-
-  
 }

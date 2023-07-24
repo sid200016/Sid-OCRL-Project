@@ -264,7 +264,7 @@ class SoftGrasper:
                 index_StartStop["stop"].append(m.end('Payload')) #store index of the start and stop of the match.  Will use later to see if there are unprocessed data at the end of the string
 
                 #To DO: sanity check to determine if the number of bytes is correct
-                payloadRE = re.compile(b'(?P<ProtocolByte>\D)(?P<PayloadSize>\D)(?P<Payload>\D+)')
+                payloadRE = re.compile(b'(?P<ProtocolByte>\D)(?P<PayloadSize>\D)(?P<Payload>.+)')
                 payloadRes = payloadRE.search(payload_m)
 
                 protocolType = None

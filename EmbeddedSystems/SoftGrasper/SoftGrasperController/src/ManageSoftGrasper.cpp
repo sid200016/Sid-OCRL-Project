@@ -448,6 +448,8 @@ void ReadSerial()
                         {
                             stateRx = ST_Header;
                             nIdx = 0;
+                            char finishstr[50] = "Finished";
+                            TransmitPayload(HeaderStr,1,strlen(finishstr),finishstr,TrailerStr);
                         }
                     }
 
@@ -455,6 +457,7 @@ void ReadSerial()
                     {
                         nIdx = 0;
                         stateRx = ST_Header;
+                        //trailer not received propertly
                     }
 
                 break;

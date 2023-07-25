@@ -3,7 +3,9 @@ import torch
 import torch.nn as nn
 import torch.utils.data as data
 from tqdm import tqdm
-from .SNS_layer import SNS_layer, SENSORY_LAYER_1_INPUT_SIZE, SENSORY_LAYER_1_SIZE, SENSORY_LAYER_2_INPUT_SIZE, SENSORY_LAYER_2_SIZE, THETA_MAX, THETA_MIN, F_MAX, F_MIN, sensory_layer_1, R
+
+from .SNS_layer import SNS_layer, SENSORY_LAYER_1_INPUT_SIZE, SENSORY_LAYER_1_SIZE, SENSORY_LAYER_2_INPUT_SIZE, \
+    SENSORY_LAYER_2_SIZE, THETA_MAX, THETA_MIN, F_MAX, F_MIN, sensory_layer_1, R
 
 #########################################################
 

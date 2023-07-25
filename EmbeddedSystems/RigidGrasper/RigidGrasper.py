@@ -15,8 +15,9 @@
 #
 
 import os
-import numpy as np
 from enum import Enum
+
+import numpy as np
 
 if os.name == 'nt':
     import msvcrt

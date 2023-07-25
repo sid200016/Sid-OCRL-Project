@@ -1,13 +1,9 @@
-import pygame
-import time
-import numpy as np
-
-from EmbeddedSystems.Gantry.GantryController import Gantry as GC
-from EmbeddedSystems.SoftGrasper.SoftGrasper import SoftGrasper as SG
-from EmbeddedSystems.RigidGrasper.RigidGrasper import RigidGrasper as RG
-import EmbeddedSystems.JoyCon.JoyCon as JC
-
 import cProfile
+import time
+
+import JoyCon.JoyCon as JC
+from Gantry.GantryController import Gantry as GC
+from SoftGrasper.SoftGrasper import SoftGrasper as SG
 
 
 def checkJoystick():

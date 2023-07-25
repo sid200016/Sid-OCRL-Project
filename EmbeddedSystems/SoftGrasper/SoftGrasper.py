@@ -1,9 +1,10 @@
-import numpy as np
-import serial
+import re
 import struct
 import sys
 from enum import Enum
-import re
+
+import numpy as np
+import serial
 
 
 #########################################################
@@ -148,7 +149,7 @@ class SoftGrasper:
         self.commandedPosition["Jaw2_psi"] = min(max(0,self.commandedPosition["Jaw2_psi"] + jawIncrement_psi[1]),2)
         self.commandedPosition["Jaw3_psi"] = min(max(0,self.commandedPosition["Jaw3_psi"] + jawIncrement_psi[2]),2)
 
-    def MoveGrasper(self):
+    def MoveGrasper_DEPRECATED(self):
         PVal = self.GetPressureFromPosition(self.commandedPosition["ClosureChangeInRadius_mm"])
         print(PVal)
         self.SendPressureCommand(PVal)
@@ -156,6 +157,37 @@ class SoftGrasper:
 
         if len(self.PressureArray[0]) > 0:
             print("Pressure val: " + str(self.PressureArray[0][-1]))
+
+
+        #ChP = SG.getJawChangePressureVals()
+
+
+    def MoveGrasper(self):
+        PVal = self.GetPressureFromPosition(self.commandedPosition["ClosureChangeInRadius_mm"]) #get the pressure value in psi
+
+        print(PVal)
+
+        self.PressurePorts[0].portStatus = PortActions.INFLATE_AND_MODULATE
+        self.PressurePorts[0].commandedPressure = PVal #value in psi
+
+        self.PressurePorts[8].portStatus = PortActions.INFLATE_AND_STOP
+        self.PressurePorts[8].commandedPressure = self.commandedPosition["Jaw1_psi"]  # value in psi
+        self.PressurePorts[9].portStatus = PortActions.INFLATE_AND_STOP
+        self.PressurePorts[9].commandedPressure = self.commandedPosition["Jaw2_psi"]  # value in psi
+        self.PressurePorts[11].portStatus = PortActions.INFLATE_AND_STOP
+        self.PressurePorts[11].commandedPressure = self.commandedPosition["Jaw3_psi"]  # value in psi
+
+
+        byteList = self.ConstructPortCommand()
+        numBytes = self.sendCommunicationArray(byteList=byteList)
+        print("Bytes sent:%i" % (numBytes))
+
+        # read serial data
+        self.readSerialData()
+
+
+
+
 
 
         #ChP = SG.getJawChangePressureVals()
@@ -188,32 +220,6 @@ class SoftGrasper:
         #format(int.from_bytes(byteArr,sys.byteorder),"b")
 
         return(numBytesSent)
-
-    def ConstructPortCommand_DEPRECATED(self): #ByteStructure: [<hold_and_actuate_array: ----0001 00010001><INFLATE_AND_STOP, INFLATE_AND_MODULATE, OPEN for ports 11, 4 and 0, respectively: 0x0, 0x5 (port 11), 0x6 (port 4), 0x4 (port 0)>
-                # <float pressure for port 11 (4 bytes)><float pressure for port 4 (4 bytes)><float pressure for port 0 (4 bytes)>]
-        hold_and_actuate_array = bytearray() #two bytes of : <x,x,x,x,11,10,9,8><7,6,5,4,3,2,1,0> where if value is 0, then it sends a hold, if 1 then it will execute an actuation command
-        numBytes = np.ceil(self.numPorts * 4 / 8)
-        type_of_action_array = bytearray(int(numBytes)) #get the number of bytes to hold a 4 bit value for each of ports which will be actuated
-        floatPressure = bytearray() #empty array to fill in with float values for the ports later
-
-        numActuate = 0
-
-        for i,(k,v) in enumerate(self.PressurePorts.items()):
-            if v.portStatus.value == PortActions.HOLD.value:
-                tempHold = int.from_bytes(hold_and_actuate_array,sys.byteorder) | 0 << v.portNumber #setup whether to actuate or not
-                hold_and_actuate_array = tempHold.to_bytes(tempHold,byteorder = sys.byteorder)
-            else:
-                hold_and_actuate_array = hold_and_actuate_array | 1 << v.portNumber
-                numActuate += 1 #increment the number of ports that will be actuated
-                tempAct = int.from_bytes(type_of_action_array,sys.byteorder) | v.portStatus.value << numActuate*4
-                type_of_action_array = tempAct.to_bytes(numBytes,byteorder = sys.byteorder) #windows is little endian , so x[0] is the least significant byte
-                floatPressure =floatPressure.extend(struct.pack("f",v.commandedPressure)) #send in the pressure value
-
-        BytesToSend = bytearray()
-        BytesToSend.extend(hold_and_actuate_array)
-        BytesToSend.extend(type_of_action_array)
-        BytesToSend.extend(floatPressure)
-        return(BytesToSend)
 
 
     def ConstructPortCommand(self):
@@ -320,62 +326,6 @@ class SoftGrasper:
                 case _:
                     #action - default
                     pass
-
-
-
-        
-        
-
-    def readBuffer(self):
-        numBytes = self.ser.inWaiting()
-        xd = self.ser.read(numBytes)
-        return(xd,numBytes)
-    def readSerialData_option2(self): #inspired by: https://forum.arduino.cc/t/pc-arduino-comms-using-python-updated/574496
-        #protocol is: > PROTOCOL_BYTE SIZE_BYTE |PAYLOAD of SIZE BYTES| < #https://forum.arduino.cc/t/sending-raw-binary-data/694724
-        print(self.ser.inWaiting())
-        dataStr = None
-        if self.ser.inWaiting() > 0 and self.messageStarted == False: #if there is data to read
-            xd = self.ser.read().decode("utf-8")
-
-            if xd == self.startChar:
-                self.messageStarted = True
-
-            else:
-                print(xd)
-
-
-
-        # if two or more bytes in the buffer, read the protocol type and payload size
-        if self.ser.inWaiting()>=2 and self.messageStarted == True and self.ProtocolSizeStarted == False:
-            self.protocol_type = self.ser.read()
-            self.payload_size = int.from_bytes(self.ser.read(), sys.byteorder)
-            self.ProtocolSizeStarted = True
-
-        # if payload_size or more in buffer, read the payload
-        if self.ser.inWaiting()>=self.payload_size and self.messageStarted == True and self.ProtocolSizeStarted == True and self.PayloadStarted == False:
-
-            self.txData =self.ser.read(self.payload_size)
-            self.PayloadStarted = True
-
-            #Perform Analysis of data
-            print(self.txData)
-            print('Got Payload')
-
-        # if 1 or more bytes in buffer, check if message is complete
-        if self.ser.inWaiting()>=1 and self.messageStarted == True and self.ProtocolSizeStarted == True and self.PayloadStarted == True:
-
-            xd = self.ser.read().decode("utf-8")
-
-            if xd == self.endChar:
-                self.messageStarted = False
-                self.ProtocolSizeStarted = False
-                self.PayloadStarted = False
-                self.protocol_type = None
-                self.payload_size = 0
-                dataStr = self.txData
-                self.txData = None
-
-        return dataStr
 
 
 

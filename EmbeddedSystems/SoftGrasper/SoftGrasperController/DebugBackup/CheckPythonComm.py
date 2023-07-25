@@ -1,9 +1,8 @@
-import serial
 import time
-import struct
 from collections import deque
-import numpy as np
 
+import numpy as np
+import serial
 
 ser = serial.Serial('COM7', 115200, timeout=1)
 time.sleep(4)

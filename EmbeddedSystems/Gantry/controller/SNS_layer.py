@@ -1,7 +1,7 @@
+import EmbeddedSystems.Gantry.controller.torchSNS as tSNS
 import numpy as np
 import torch
 import torch.nn as nn
-import EmbeddedSystems.Gantry.controller.torchSNS as tSNS
 from EmbeddedSystems.Gantry.controller.torchSNS.torch import SNSCell
 
 #########################################################

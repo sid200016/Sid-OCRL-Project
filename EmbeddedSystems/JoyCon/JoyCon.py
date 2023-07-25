@@ -1,12 +1,10 @@
-import pygame
-import time
 import numpy as np
+import pygame
 from EmbeddedSystems.Gantry import GantryController as GC
-from EmbeddedSystems.SoftGrasper import SoftGrasper as SG
 from EmbeddedSystems.RigidGrasper import RigidGrasper as RG
-from enum import Enum
-from copy import deepcopy
+from EmbeddedSystems.SoftGrasper import SoftGrasper as SG
 from EmbeddedSystems.Support.Structures import Velocity
+
 
 class Button:
 

@@ -5,6 +5,19 @@ import time
 SG  = SoftGrasper(COM_Port = 'COM4',BaudRate=460800,timeout=1,controllerProfile="New")
 
 while (True):
+
+    # construct port commands and send to Teensy
+    SG.PressurePorts[1].portStatus = PortActions.INFLATE
+    SG.PressurePorts[4].portStatus = PortActions.INFLATE_AND_MODULATE
+    SG.PressurePorts[4].commandedPressure = 12
+
+    byteList = SG.ConstructPortCommand()
+    numBytes = SG.sendCommunicationArray(byteList=byteList)
+    print("Bytes sent:%i" % (numBytes))
+
+    # read serial data
     SG.readSerialData()
+    print('New')
+
     #print("BigLoop:"+str(vv))
     time.sleep(0.001)

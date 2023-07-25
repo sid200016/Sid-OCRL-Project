@@ -84,10 +84,13 @@ byte HoldValues[4]={0,0,0,0};
 #define ST_Payload 1
 #define ST_Trailer 2
 
-const char HeaderStr[MSG_HDR_LEN] = {'>', '>'};
-const char TrailerStr[MSG_TRLR_LEN] = {'<', '<'};
+const char HeaderStr[MSG_HDR_LEN+1] = {'>', '>'};
+const char TrailerStr[MSG_TRLR_LEN+1] = {'<', '<'};
 
 byte Payload[MSG_PAYLOAD_LEN_MAX];
+
+String PressureCommand;
+String PortCommand;
 
 
 enum PortAction_ENUM
@@ -362,20 +365,27 @@ void ReadSerial()
 
     static byte stateRx = ST_Header; 
 
+    char debugstr[50] = "Header";
+
     if(Serial.available()>0)
     {
         while(Serial.available())
         {
             cByte=Serial.read();
 
+
             switch( stateRx)
             {
                 case ST_Header:
 
+                    strcpy(debugstr,"Header");
+                    TransmitPayload(HeaderStr,1,strlen(debugstr),debugstr,TrailerStr);
+
                     if(cByte == HeaderStr[nIdx])
                     {
                         nIdx++;
-                        if(nIdx == MSG_HDR_LEN-1) //reached end of the handler length
+
+                        if(nIdx == MSG_HDR_LEN) //reached end of the handler length
                         {
                             stateRx = ST_Payload;
                             nIdx = 0; //reset idx to 0 for use in the ST_Payload
@@ -392,6 +402,9 @@ void ReadSerial()
                 case ST_Payload: //check Payload
 
                     Payload[nIdx] = cByte;
+
+                    strcpy(debugstr,"In Payload");
+                    TransmitPayload(HeaderStr,1,strlen(debugstr),debugstr,TrailerStr);
 
                     
 
@@ -413,6 +426,15 @@ void ReadSerial()
                             numPressure++; //increment how many pressure bytes to expect
                         }
 
+                        // for communication
+                        strcpy(debugstr,"Inside Assignment");
+                        TransmitPayload(HeaderStr,1,strlen(debugstr),debugstr,TrailerStr);
+
+                        
+                        PortCommand = PortCommand + "," + String(PortA[2*nIdx].action) + "," + String(PortA[2*nIdx+1].action) ;
+                        
+
+
                         
                     }
 
@@ -422,6 +444,13 @@ void ReadSerial()
                         int pressportIdx = PressVal_ind[nIdx-6]; //get the pressure value
                         PortA[pressportIdx].pressure = 12*Payload[nIdx]/255; //convert to a pressure value
 
+                        // for communication
+                        char pressure_s[10];
+                        dtostrf(PortA[pressportIdx].pressure, 3, 4, pressure_s);
+                        PressureCommand = PressureCommand + "," + pressure_s ;
+
+                        strcpy(debugstr,"Inside Pressure Assignment");
+                        TransmitPayload(HeaderStr,1,strlen(debugstr),debugstr,TrailerStr);
 
                     }
 
@@ -433,6 +462,9 @@ void ReadSerial()
                         numPressure = 0;
                         nIdx = 0;
                         stateRx = ST_Trailer;
+
+                        strcpy(debugstr,"Reset after Pressure Assignment");
+                        TransmitPayload(HeaderStr,1,strlen(debugstr),debugstr,TrailerStr);
                     }
 
                     //update the pressure port actions.
@@ -441,15 +473,52 @@ void ReadSerial()
 
                 case ST_Trailer: //check to see if Trailer has been received properly
 
+                    strcpy(debugstr,"Inside Trailer");
+                    TransmitPayload(HeaderStr,1,strlen(debugstr),debugstr,TrailerStr);
+                    
+
                     if (cByte == TrailerStr[nIdx])
                     {
                         nIdx++;
-                        if( nIdx == MSG_TRLR_LEN-1)
+
+                        strcpy(debugstr,"Recognize Trailer char");
+                        TransmitPayload(HeaderStr,1,strlen(debugstr),debugstr,TrailerStr);
+
+                        // char val[3];
+                        // val[0] = (char) (cByte);
+                        // val[1] = "\0";
+
+                        //TransmitPayload(HeaderStr,1,strlen(val),val,TrailerStr);
+
+                        if( nIdx == MSG_TRLR_LEN)
                         {
                             stateRx = ST_Header;
                             nIdx = 0;
-                            char finishstr[50] = "Finished";
-                            TransmitPayload(HeaderStr,1,strlen(finishstr),finishstr,TrailerStr);
+
+                            //Communicate the commanded pressures
+
+                            strcpy(debugstr,"Ready to Transmit");
+                            TransmitPayload(HeaderStr,1,strlen(debugstr),debugstr,TrailerStr);
+
+
+                            char str[PressureCommand.length() + 1] = {};
+                            strcpy(str, PressureCommand.c_str()); //convert to c_string
+                            TransmitPayload(HeaderStr,1,strlen(str),str,TrailerStr);
+
+
+                            char strPort[PortCommand.length() + 1] = {};
+                            strcpy(strPort, PortCommand.c_str()); //convert to c_string
+                            TransmitPayload(HeaderStr,1,strlen(strPort),strPort,TrailerStr);
+
+                            PortCommand ="";
+
+
+                            PressureCommand="";
+                        
+
+                            //Communicate that we are finished
+                            strcpy(debugstr,"Finished");
+                            TransmitPayload(HeaderStr,1,strlen(debugstr),debugstr,TrailerStr);
                         }
                     }
 
@@ -458,6 +527,9 @@ void ReadSerial()
                         nIdx = 0;
                         stateRx = ST_Header;
                         //trailer not received propertly
+
+                        strcpy(debugstr,"Trailer not received properly");
+                        TransmitPayload(HeaderStr,1,strlen(debugstr),debugstr,TrailerStr);
                     }
 
                 break;

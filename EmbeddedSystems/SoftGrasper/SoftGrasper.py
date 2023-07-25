@@ -219,7 +219,7 @@ class SoftGrasper:
     def ConstructPortCommand(self):
 
         hold_and_actuate_array = bytearray()  # six bytes of  : <aaaabbbb><ccccdddd>...<kkkkllll> where aaaa corresponds to a value between 0 and 15 in the PortActions class above for port 0, bbbb corresponds to port 1, kkkk corresponds to port 10 and llll corresponds to port 11
-        numBytes = np.ceil(self.numPorts * 4 / 8) #should be 6
+        numBytes = int(np.ceil(self.numPorts * 4 / 8)) #should be 6
 
         type_of_action_array = bytearray(int(numBytes))  # get the number of bytes to hold a 4 bit value for each of the ports which will be actuated
         PressureVal = bytearray()  # empty array to fill in with values for the ports later where the value sent is between 0 and 127, and corresponds to the following psi value: max_pressure_psi/floatPressure
@@ -234,7 +234,7 @@ class SoftGrasper:
 
             if v.portStatus.value == PortActions.INFLATE_AND_MODULATE.value or v.portStatus.value == PortActions.INFLATE_AND_STOP.value:
                 numActuate += 1  # increment the number of ports that will be actuated
-                PressureVal = PressureVal.extend(  struct.pack("i", v.commandedPressure*127/v.maxPressure))  # send in the pressure value
+                PressureVal.extend( round(v.commandedPressure*127/v.maxPressure).to_bytes(1,sys.byteorder))  # send in the pressure value #only the first byte, i.e. PressureVal[0], contains information
 
 
         BytesToSend = bytearray()

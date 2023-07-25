@@ -411,20 +411,22 @@ void ReadSerial()
                     if (nIdx<6)
                     {
 
-                        PortA[2*nIdx].action = (int) (Payload[nIdx] >>4);
+                        PortA[2*nIdx].action = (int) (Payload[nIdx] & 0b00001111 );
                         if (PortA[2*nIdx].action == INFLATE_AND_MODULATE or PortA[2*nIdx].action == INFLATE_AND_STOP)
                         {
                             PressVal_ind[numPressure] = 2*nIdx; 
                             numPressure++; //increment how many pressure bytes to expect
-                        }  
+                        }
 
-
-                        PortA[2*nIdx+1].action = (int) (Payload[nIdx] & 0b00001111 );
-                        if (PortA[2*nIdx+1].action == INFLATE_AND_MODULATE or PortA[2*nIdx].action == INFLATE_AND_STOP)
+                        PortA[2*nIdx+1].action = (int) (Payload[nIdx] >>4);
+                        if (PortA[2*nIdx+1].action == INFLATE_AND_MODULATE or PortA[2*nIdx+1].action == INFLATE_AND_STOP)
                         {
                             PressVal_ind[numPressure] = 2*nIdx + 1; 
                             numPressure++; //increment how many pressure bytes to expect
-                        }
+                        }  
+
+
+                        
 
                         // for communication
                         strcpy(debugstr,"Inside Assignment");

@@ -8,8 +8,8 @@ while (True):
 
     # construct port commands and send to Teensy
     SG.PressurePorts[1].portStatus = PortActions.INFLATE
-    SG.PressurePorts[4].portStatus = PortActions.INFLATE_AND_MODULATE
-    SG.PressurePorts[4].commandedPressure = 12
+    SG.PressurePorts[5].portStatus = PortActions.INFLATE_AND_MODULATE
+    SG.PressurePorts[5].commandedPressure = 12
 
     byteList = SG.ConstructPortCommand()
     numBytes = SG.sendCommunicationArray(byteList=byteList)

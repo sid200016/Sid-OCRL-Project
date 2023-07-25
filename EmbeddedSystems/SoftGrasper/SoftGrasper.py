@@ -229,12 +229,12 @@ class SoftGrasper:
         for i, (k, v) in enumerate(self.PressurePorts.items()):
 
 
-            tempAct = int.from_bytes(type_of_action_array, sys.byteorder) | (v.portStatus.value << (self.numPorts-1-i) * 4)
+            tempAct = int.from_bytes(type_of_action_array, sys.byteorder) | (v.portStatus.value << (i) * 4)
             type_of_action_array = tempAct.to_bytes(numBytes, byteorder=sys.byteorder)  # windows is little endian , so x[0] is the least significant byte
 
             if v.portStatus.value == PortActions.INFLATE_AND_MODULATE.value or v.portStatus.value == PortActions.INFLATE_AND_STOP.value:
                 numActuate += 1  # increment the number of ports that will be actuated
-                PressureVal.extend( round(v.commandedPressure*127/v.maxPressure).to_bytes(1,sys.byteorder))  # send in the pressure value #only the first byte, i.e. PressureVal[0], contains information
+                PressureVal.extend( round(v.commandedPressure*127/v.maxPressure).to_bytes(1,sys.byteorder) )  # send in the pressure value #only the first byte, i.e. PressureVal[0], contains information
 
 
         BytesToSend = bytearray()

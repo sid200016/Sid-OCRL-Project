@@ -83,7 +83,7 @@ class RigidGrasper:
 
         # Goal Positions for the Grasper:
         self.NumMotors = 2 #one Dynamixel each for left and right
-        self.GoalPosition = {"1":[1500,2000], "2":[2120,1620]}
+        self.GoalPosition_Limits = {"1":GoalPosition1, "2":GoalPosition2} #limits of motion
 
         # Current position of the grasper:
         self.CurrentPosition ={"1":[], "2":[]}
@@ -235,17 +235,17 @@ class RigidGrasper:
 
         #Claw 1
         if action1.value == GrasperActions.CLOSE.value:
-            CurrentPosition[0] = max(CurrentPosition[0]-moveIncrement1,self.GoalPosition["1"][0])
+            CurrentPosition[0] = max(CurrentPosition[0]-moveIncrement1,self.GoalPosition_Limits["1"][0])
         elif action1.value == GrasperActions.OPEN.value:
-            CurrentPosition[0] = min(CurrentPosition[0] + moveIncrement1, self.GoalPosition["1"][1])
+            CurrentPosition[0] = min(CurrentPosition[0] + moveIncrement1, self.GoalPosition_Limits["1"][1])
 
         self.SetGoalPosition(goal_position1=CurrentPosition[0])  # move towards goal position for claw 1 only
 
         #Claw 2
         if action2.value == GrasperActions.CLOSE.value:
-            CurrentPosition[1] = min(CurrentPosition[1] + moveIncrement2, self.GoalPosition["2"][0])
+            CurrentPosition[1] = min(CurrentPosition[1] + moveIncrement2, self.GoalPosition_Limits["2"][0])
         elif action2.value == GrasperActions.OPEN.value:
-            CurrentPosition[1] = max(CurrentPosition[1] - moveIncrement2, self.GoalPosition["2"][1])
+            CurrentPosition[1] = max(CurrentPosition[1] - moveIncrement2, self.GoalPosition_Limits["2"][1])
         self.SetGoalPosition(goal_position2=CurrentPosition[1])  # move towards goal position for claw 2 only
 
 
@@ -259,7 +259,7 @@ class RigidGrasper:
                 break
 
             # Write goal position for Motor 1
-            self.SetGoalPosition(self.GoalPosition["1"][index],self.GoalPosition["2"][index])
+            self.SetGoalPosition(self.GoalPosition_Limits["1"][index],self.GoalPosition_Limits["2"][index])
 
 
             MotorFin = {"1":False,"2":False}
@@ -272,14 +272,14 @@ class RigidGrasper:
 
                 for i,(k,currPos) in enumerate(CurrentPosition.items()):
 
-                    if abs(self.GoalPosition[k][index] - currPos) > self.DXL_MOVING_STATUS_THRESHOLD:
+                    if abs(self.GoalPosition_Limits[k][index] - currPos) > self.DXL_MOVING_STATUS_THRESHOLD:
                         if dxl_comm_result != COMM_SUCCESS:
                             print("%s\n" % packetHandler.getTxRxResult(dxl_comm_result))
                         elif dxl_error != 0:
                             print("%s\n" % packetHandler.getRxPacketError(dxl_error))
 
                         print("[ID:%03d] GoalPos:%03d  PresPos:%03d\n" % (self.DXL_ID[k],
-                                                                          self.GoalPosition[k][index], currPos))
+                                                                          self.GoalPosition_Limits[k][index], currPos))
 
                     else:
                         MotorFin[k] =True

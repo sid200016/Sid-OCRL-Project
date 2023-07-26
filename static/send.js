@@ -25,18 +25,20 @@ function send_gantry_data(){
     });
 }
 
+// mouse position is off
 function send_grasper_data_left() {
     let mouseY = event.clientY;
     let rect = event.target.getBoundingClientRect();
 
     let y = rect.bottom - mouseY
 
-    let value = (100*(y/rect.height)).toString(); // need to convert to percent
+    let value = (100*(y/rect.height)) // need to convert to percent
+    let value_str = value.toString();
 
     $.ajax({
             url: '/participant/dual-grasper',
             type: 'POST',
-            data: { 'grasper_l': value },
+            data: { 'grasper_l': value_str },
             success: function(response) {
                 // document.getElementById('output').innerHTML = response;
                 console.log(value);
@@ -46,6 +48,11 @@ function send_grasper_data_left() {
                 console.log(error);
             }
     });
+
+    let display_value = Math.round(value, 2) + '%';
+
+    document.getElementById('grasper_l').innerHTML=display_value;
+    document.getElementById('grasper_l_slider').style.width=value_str + '%';
 }
 
 function send_grasper_data_right() {
@@ -54,7 +61,8 @@ function send_grasper_data_right() {
 
     let y = rect.bottom - mouseY
 
-    let value = (100*(y/rect.height)).toString(); // convert to percent
+    let value = (100*(y/rect.height)) // need to convert to percent
+    let value_str = value.toString();
 
     $.ajax({
             url: '/participant/dual-grasper',
@@ -69,6 +77,12 @@ function send_grasper_data_right() {
                 console.log(error);
             }
     });
+
+    let display_value = Math.round(value, 2) + '%';
+
+    document.getElementById('grasper_r').innerHTML=display_value;
+    document.getElementById('grasper_r_slider').style.width=value_str + '%';
+
 }
 
 let graspser_on = -1;

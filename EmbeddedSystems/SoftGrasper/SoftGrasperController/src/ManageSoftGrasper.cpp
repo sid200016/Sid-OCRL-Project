@@ -582,6 +582,7 @@ void executePressurePortActions()
     {
 
         PressurePort::PressureState PAction = PressurePort::HOLD;
+        float activation = 0;
 
         switch (PortA[i].action)
         {
@@ -611,10 +612,12 @@ void executePressurePortActions()
             break;
 
             case INFLATE_AND_STOP:
+                activation = PortA[i].pressure/30;
+                Pa[i].modulatePressure_Activation_STOP(activation, bitArray, MaxNumShiftRegisters, ArrayElementSize,true);  //writes to bitArray which valves to open or close
             break;
             
             case INFLATE_AND_MODULATE:
-                float activation = PortA[i].pressure/30;
+                activation = PortA[i].pressure/30;
                 Pa[i].modulatePressure_Activation(activation, bitArray, MaxNumShiftRegisters, ArrayElementSize);  //writes to bitArray which valves to open or close
             break;
 

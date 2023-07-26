@@ -25,7 +25,7 @@ def checkJoystick():
         [buttonVal,AxesPos] = jcRG.eventLoop() #run event loop to determine what values and axes to execute
         jcRG.ExecuteButtonFunctions(buttonVal, AxesPos) #execute Button functions defined by the button values and axes positions
         jcRG.MoveGantry(AxesPos[0], AxesPos[1]) #move the axes according to the axes
-        SGa.MoveGrasper() #program is expecting 4 bytes every loop so need to continually send move command
+        SGa.MoveGrasper() #jcRG.executeButtonFunctions should update SGa with the the pressures, this command sends the appropriate commands to the grasper over serial
 
         # for i, (k,v) in enumerate(buttonVal.items()):
         #     if v==1:

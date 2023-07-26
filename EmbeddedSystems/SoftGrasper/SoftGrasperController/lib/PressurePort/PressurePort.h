@@ -26,6 +26,7 @@ protected:
 	static const unsigned long TEMPERATURE = 0x7FF; //mask to extract bits for temperature sensor
 	
 	float setpoint = 0;				//target pressure.  (PSI)
+	bool reachedSetpoint = false;	// true if you've reached the setpoint, false if you haven't reached it.
 	
 	static const int ShiftRegisterLength = 8;  //8 outputs for shift register
 	static const int MaxNumShiftRegisters = 4;  //accomodate up to 32 outputs total: 8*4
@@ -68,6 +69,7 @@ public:
 	float pressure_arr[max_size]={0,0,0,0,0,0,0,0,0,0};			//array of 3 pressure values: n-2, n-1 and n
 	float alpha = 1; 					//alpha for exponential moving average
 	String Muscle;				//indicator for which muscle this pressure port is regulating 
+	  
 	
 	PressurePort();
 
@@ -91,6 +93,7 @@ public:
 	void modulatePressure(float newSetpoint); //function to modulate pressure.  By default, it will update PressurePort.pressure, PressurePort.setpoint and PressurePort.state
 	void modulatePressure_Activation(float activation);
 	float ActivationToSetpoint(float activation);
+	void modulatePressure_Activation_STOP(float activation, byte bitArray[], byte MaxNumShiftRegisters, byte ArrayElementSize, bool Modulate_And_Stop );
 	void modulatePressure_Activation(float activation, byte bitArray[], byte MaxNumShiftRegisters, byte ArrayElementSize  );
 	
 	void setValves(PressureState state);

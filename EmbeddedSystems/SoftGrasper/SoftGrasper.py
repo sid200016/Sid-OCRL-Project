@@ -19,7 +19,7 @@ class PortActions(Enum):
     IGNORE = 7 #keep executing previous command
 class PressurePort:
 
-    def __init__(self,portNumber=0,portStatus=PortActions.HOLD, commandedPressure = 0.0, readPressure = 0.0, maxPressure = 15):
+    def __init__(self,portNumber=0,portStatus=PortActions.HOLD, commandedPressure = 0.0, readPressure = 0.0, maxPressure = 12):
         self.portNumber = portNumber
         self.portStatus = portStatus
         self.commandedPressure = commandedPressure
@@ -165,7 +165,7 @@ class SoftGrasper:
     def MoveGrasper(self):
         PVal = self.GetPressureFromPosition(self.commandedPosition["ClosureChangeInRadius_mm"]) #get the pressure value in psi
 
-        print(PVal)
+        print("CommandedPressure: "+str(PVal))
 
         self.PressurePorts[0].portStatus = PortActions.INFLATE_AND_MODULATE
         self.PressurePorts[0].commandedPressure = PVal #value in psi
@@ -240,7 +240,7 @@ class SoftGrasper:
 
             if v.portStatus.value == PortActions.INFLATE_AND_MODULATE.value or v.portStatus.value == PortActions.INFLATE_AND_STOP.value:
                 numActuate += 1  # increment the number of ports that will be actuated
-                PressureVal.extend( round(v.commandedPressure*127/v.maxPressure).to_bytes(1,sys.byteorder) )  # send in the pressure value #only the first byte, i.e. PressureVal[0], contains information
+                PressureVal.extend( round(v.commandedPressure*255/v.maxPressure).to_bytes(1,sys.byteorder) )  # send in the pressure value #only the first byte, i.e. PressureVal[0], contains information
 
 
         BytesToSend = bytearray()

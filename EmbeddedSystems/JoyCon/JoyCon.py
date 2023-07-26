@@ -1,9 +1,9 @@
 import numpy as np
 import pygame
-from EmbeddedSystems.Gantry import GantryController as GC
-from EmbeddedSystems.RigidGrasper import RigidGrasper as RG
-from EmbeddedSystems.SoftGrasper import SoftGrasper as SG
-from EmbeddedSystems.Support.Structures import Velocity
+from Gantry import GantryController as GC
+from RigidGrasper import RigidGrasper as RG
+from SoftGrasper import SoftGrasper as SG
+from Support.Structures import Velocity
 
 
 class Button:
@@ -311,10 +311,10 @@ class Joy_SoftGrasper(Joy_Gantry):
         self.grasper.IncrementalMove(closureIncrement_mm = -self.closureIncrement_mm, jawIncrement_psi = [0,0,0])
 
     def buttonX(self):  # pressurize jaw
-        self.grasper.IncrementalMove(closureIncrement_mm = 0, jawIncrement_psi = [self.jawIncrement_psi for x in range([0,3])])
+        self.grasper.IncrementalMove(closureIncrement_mm = 0, jawIncrement_psi = [self.jawIncrement_psi for x in range(0,3)])
 
     def buttonY(self):  # de-pressurize jaw
-        self.grasper.IncrementalMove(closureIncrement_mm = 0, jawIncrement_psi = [-self.jawIncrement_psi for x in range([0,3])])
+        self.grasper.IncrementalMove(closureIncrement_mm = 0, jawIncrement_psi = [-self.jawIncrement_psi for x in range(0,3)])
 
 
     def buttonAX(self):

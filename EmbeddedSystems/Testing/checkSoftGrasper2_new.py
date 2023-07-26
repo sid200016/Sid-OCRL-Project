@@ -3,14 +3,14 @@ import time
 from SoftGrasper.SoftGrasper import PortActions
 from SoftGrasper.SoftGrasper import SoftGrasper
 
-SG  = SoftGrasper(COM_Port = 'COM4',BaudRate=460800,timeout=1,controllerProfile="New")
+SG  = SoftGrasper(COM_Port = 'COM5',BaudRate=460800,timeout=1,controllerProfile="New")
 
 while (True):
 
     # construct port commands and send to Teensy
-    SG.PressurePorts[1].portStatus = PortActions.INFLATE
-    SG.PressurePorts[5].portStatus = PortActions.INFLATE_AND_MODULATE
-    SG.PressurePorts[5].commandedPressure = 12
+    SG.PressurePorts[1].portStatus = PortActions.HOLD
+    SG.PressurePorts[0].portStatus = PortActions.INFLATE_AND_MODULATE
+    SG.PressurePorts[0].commandedPressure = 10.3
 
     byteList = SG.ConstructPortCommand()
     numBytes = SG.sendCommunicationArray(byteList=byteList)

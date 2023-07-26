@@ -7,7 +7,7 @@ from SoftGrasper.SoftGrasper import SoftGrasper as SG
 
 
 def checkJoystick():
-    SGa = SG(COM_Port = 'COM4',BaudRate=460800,timeout=1,controllerProfile="New")
+    SGa = SG(COM_Port = 'COM5',BaudRate=460800,timeout=1,controllerProfile="New")
     GCa = GC(comport = "COM4",homeSystem = False, initPos = [0,0,0])#, homeSystem = False,initPos=[0,0,0]  `````````````
 
     # Rigid Grasper Only

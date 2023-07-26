@@ -186,7 +186,7 @@
   bottom: 56.57%;
   left: 67.65%;
 }
-.div10 {
+.grasper_l {
   position: absolute;
   height: 7.08%;
   width: 4.03%;
@@ -200,13 +200,13 @@
   left: 61.81%;
   font-size: var(--font-size-5xl);
 }
-.div11,
+.grasper_r,
 .power1,
 .power2 {
   position: absolute;
   font-weight: 600;
 }
-.div11 {
+.grasper_r {
   height: 7.08%;
   width: 4.03%;
   top: 47.03%;
@@ -331,13 +331,9 @@
   left: 0;
   border-radius: var(--br-5xs);
 }
-.trackback3 {
-  width: 100%;
-  right: 0;
-  background-color: var(--color-peachpuff);
-}
 .slidertrack3 {
   width: 150px;
+  background-color: var(--color-peachpuff);
 }
 .sliderhandle3,
 .slidertemplate3 {

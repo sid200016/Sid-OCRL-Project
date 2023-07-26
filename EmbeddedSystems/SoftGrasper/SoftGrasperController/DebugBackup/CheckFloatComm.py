@@ -1,7 +1,7 @@
-import serial
-import time
 import struct
+import time
 
+import serial
 
 ser = serial.Serial('COM7', 1000000, timeout=1)
 time.sleep(8)

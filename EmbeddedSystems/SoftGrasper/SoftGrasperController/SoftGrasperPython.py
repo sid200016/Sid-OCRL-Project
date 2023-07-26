@@ -1,8 +1,7 @@
-import serial
-import time
 import struct
-from collections import deque
-import numpy as np
+
+import serial
+
 
 class SoftGrasper:
 

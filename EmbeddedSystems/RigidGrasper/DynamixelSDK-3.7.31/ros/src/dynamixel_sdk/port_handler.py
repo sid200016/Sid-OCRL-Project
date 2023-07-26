@@ -19,10 +19,11 @@
 
 # Author: Ryu Woon Jung (Leon)
 
-import time
-import serial
-import sys
 import platform
+import sys
+import time
+
+import serial
 
 LATENCY_TIMER = 16
 DEFAULT_BAUDRATE = 1000000

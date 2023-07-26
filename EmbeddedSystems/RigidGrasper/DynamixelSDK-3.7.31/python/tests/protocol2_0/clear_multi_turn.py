@@ -30,6 +30,7 @@
 #
 
 from __future__ import print_function
+
 import os
 
 if os.name == 'nt':
@@ -37,7 +38,7 @@ if os.name == 'nt':
     def getch():
         return msvcrt.getch().decode()
 else:
-    import termios, fcntl, sys, os
+    import termios, sys, os
     from select import select
     fd = sys.stdin.fileno()
     old_term = termios.tcgetattr(fd)

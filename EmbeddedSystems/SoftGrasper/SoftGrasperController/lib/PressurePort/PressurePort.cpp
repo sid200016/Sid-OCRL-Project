@@ -118,6 +118,48 @@ void PressurePort::modulatePressure_Activation(float activation)
 
 
 
+
+
+/*! modulatePressure_Activation_STOP
+ *  @brief  Converts Activation value (0 to 1) to a pressure setpoint in psi.  It calls modulatePressure after converting the activation, and stops if you've reached the setpoint if Modulate_And_Stop is set to true
+ *  @param  activation
+ *          Neural activation value (0 to 1)
+ *  @param 	Modulate_And_Stop: Set to true to stop modulating pressure as soon as you reach the setpoint within tolerance.  Set to false to continuously modulate.  
+ */
+void PressurePort::modulatePressure_Activation_STOP(float activation, byte bitArray[], byte MaxNumShiftRegisters, byte ArrayElementSize, bool Modulate_And_Stop )
+{
+	float newSetpoint = ActivationToSetpoint(activation);
+	this->pressure = readPressure(true); 
+	
+	newSetpoint = min(max(newSetpoint, this->min_pressure),this->max_pressure); //check commanded setpoint to make sure it is within bounds
+
+	if (this->reachedSetpoint == true and this->setpoint == newSetpoint and Modulate_And_Stop == true) //just hold the current pressure if you've reached the setpoint within tolerance and there hasn't been a change in the commanded setpoint and the functionality is set to Modulate and stop
+	{
+		setValve_state(HOLD,bitArray,MaxNumShiftRegisters, ArrayElementSize);
+		return;
+
+	}
+
+	this->setpoint = newSetpoint; 
+	float pressure_diff = (this->pressure)-(this->setpoint);
+	if (abs(pressure_diff)<=pressure_tolerance)
+	{
+		setValve_state(HOLD,bitArray,MaxNumShiftRegisters, ArrayElementSize);
+		this->reachedSetpoint = true;
+	}
+	
+	else if (pressure_diff<0) //means that actual pressure is less than commanded.  Need to inflate
+	{
+		setValve_state(INFLATE,bitArray,MaxNumShiftRegisters, ArrayElementSize);
+		this->reachedSetpoint = false;
+	}
+	else if (pressure_diff>0) //means that actual pressure is less than commanded.  Need to vacuum
+	{
+		setValve_state(VACUUM,bitArray,MaxNumShiftRegisters, ArrayElementSize);
+		this->reachedSetpoint= false;
+	}
+}
+
 /*! modulatePressure_Activation
  *  @brief  Converts Activation value (0 to 1) to a pressure setpoint in psi.  It calls modulatePressure after converting the activation.
  *  @param  activation
@@ -125,26 +167,7 @@ void PressurePort::modulatePressure_Activation(float activation)
  */
 void PressurePort::modulatePressure_Activation(float activation, byte bitArray[], byte MaxNumShiftRegisters, byte ArrayElementSize  )
 {
-	float newSetpoint = ActivationToSetpoint(activation);
-	this->pressure = readPressure(true); 
-	
-	newSetpoint = min(max(newSetpoint, this->min_pressure),this->max_pressure); //check commanded setpoint to make sure it is within bounds
-	this->setpoint = newSetpoint; 
-	float pressure_diff = (this->pressure)-(this->setpoint);
-	
-	if (abs(pressure_diff)<=pressure_tolerance)
-	{
-		setValve_state(HOLD,bitArray,MaxNumShiftRegisters, ArrayElementSize);
-	}
-	
-	else if (pressure_diff<0) //means that actual pressure is less than commanded.  Need to inflate
-	{
-		setValve_state(INFLATE,bitArray,MaxNumShiftRegisters, ArrayElementSize);
-	}
-	else if (pressure_diff>0) //means that actual pressure is less than commanded.  Need to vacuum
-	{
-		setValve_state(VACUUM,bitArray,MaxNumShiftRegisters, ArrayElementSize);
-	}
+	modulatePressure_Activation_STOP(activation,bitArray,MaxNumShiftRegisters,ArrayElementSize,false); //don't run the modulate and stop function.
 }
 
 

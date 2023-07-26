@@ -1,16 +1,16 @@
-import pybullet as p
-import time
-import pybullet_data
-import math
 import pathlib
+import re
+import time
 import warnings
+
+import matplotlib.pyplot as plt
 import numpy as np
+import pybullet as p
+import pybullet_data
 from pybullet_utils import bullet_client as bc
 from pybullet_utils import urdfEditor as ed
-import matplotlib.pyplot as plt
-import re
-from matplotlib.animation import FuncAnimation
 from scipy.optimize import fsolve
+
 
 class GantrySimulation:
     """

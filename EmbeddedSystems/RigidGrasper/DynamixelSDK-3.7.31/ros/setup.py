@@ -2,6 +2,7 @@
 ## See http://ros.org/doc/api/catkin/html/user_guide/setup_dot_py.html
 
 from distutils.core import setup
+
 from catkin_pkg.python_setup import generate_distutils_setup
 
 # fetch values from package.xml

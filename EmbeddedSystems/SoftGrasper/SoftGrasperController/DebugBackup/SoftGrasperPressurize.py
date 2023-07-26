@@ -1,8 +1,9 @@
-import serial
-import time
 import struct
+import time
 from collections import deque
-import numpy as np
+
+import serial
+
 
 def SendPressureCommand(ser,PressureDict):
     BArr = bytearray(0) #empty byte array

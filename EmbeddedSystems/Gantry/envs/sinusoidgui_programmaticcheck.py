@@ -1,11 +1,8 @@
-from .GantrySimulation import GantrySimulation
-import pybullet as p
-import time
-import math
 import pathlib
+
 import numpy as np
-import matplotlib.pyplot as plt
-from matplotlib.animation import FuncAnimation
+
+from .GantrySimulation import GantrySimulation
 
 gS=GantrySimulation()
 #add object to the simulation at the center of the plate

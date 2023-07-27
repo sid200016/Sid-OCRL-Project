@@ -1,9 +1,9 @@
 from flask import Flask, render_template, request, url_for, flash, redirect
 from datetime import datetime
 #from gantry import *
-# import EmbeddedSystems.Gantry.GantryController as GC
+#import EmbeddedSystems.Gantry.GantryController as GC
 # import EmbeddedSystems.RigidGrasper.RigidGrasper as RG
-# import EmbeddedSystems.SoftGrasper.SoftGrasper as SG
+import EmbeddedSystems.SoftGrasper.SoftGrasper as SG
 from state import State
 import csv
 
@@ -11,7 +11,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'ceff418fb561ebf2572221b1f28789a36e4e30f7da4df0a8'
 
 # Gantry / Grasper setup
-#SGa = SG.SoftGrasper(COM_Port='COM5', BaudRate=115200, controllerProfile="Legacy") #soft grasper initialization
+SGa = SG.SoftGrasper(COM_Port='COM5', BaudRate=460800, controllerProfile="New") #soft grasper initialization
 # GCa = GC.Gantry(comport = "COM4", homeSystem = True) #homeSystem = False, initPos=[0,0,0] )
 # RGa = RG.RigidGrasper(BAUDRATE = 57600, DEVICEPORT = "COM6", GoalPosition1=[1500,2000], GoalPosition2 = [2120,1620])
 
@@ -108,14 +108,16 @@ def dual_grasper_participant():
     if grasper_l:
         grasper_l = round(float(grasper_l), 2)
         state.grasper_l = grasper_l
-        #SGa.IncrementalMove(closureIncrement_mm = grasper_l*20/100, jawIncrement_psi = [0,0,0])
+        print(state.grasper_l)
+        SGa.AbsoluteMove(closureIncrement_mm = grasper_l*20/100, jawIncrement_psi = [0,0,0])
+        SGa.MoveGrasper()
         # RG_GoalPosition = int((RGa.GoalPosition_Limits["1"][1]-RGa.GoalPosition_Limits["1"][0])*grasper_l/100 + RGa.GoalPosition_Limits["1"][0])
         # print(RG_GoalPosition)
         # RGa.SetGoalPosition(goal_position1=RG_GoalPosition,goal_position2=None)
     else:
-        grasper_l = 'no input received';
+        grasper_l = 'no input received'
     
-    print('left: ' + str(grasper_l))
+    #print('left: ' + str(grasper_l))
 
     if grasper_r:
         grasper_r = round(float(grasper_r), 2)

@@ -145,9 +145,18 @@ class SoftGrasper:
 
     def IncrementalMove(self, closureIncrement_mm = 0, jawIncrement_psi = [0,0,0]):
         self.commandedPosition["ClosureChangeInRadius_mm"] = min(max(0,self.commandedPosition["ClosureChangeInRadius_mm"] + closureIncrement_mm),23)
+        print("Commanded Position in mm: "+str(self.commandedPosition["ClosureChangeInRadius_mm"] )) #for debug
         self.commandedPosition["Jaw1_psi"] = min(max(0,self.commandedPosition["Jaw1_psi"] + jawIncrement_psi[0]),2)
         self.commandedPosition["Jaw2_psi"] = min(max(0,self.commandedPosition["Jaw2_psi"] + jawIncrement_psi[1]),2)
         self.commandedPosition["Jaw3_psi"] = min(max(0,self.commandedPosition["Jaw3_psi"] + jawIncrement_psi[2]),2)
+
+    def AbsoluteMove(self, closureIncrement_mm = 0, jawIncrement_psi = [0,0,0]):
+        self.commandedPosition["ClosureChangeInRadius_mm"] = min(max(0, closureIncrement_mm),23)
+        print("Commanded Position in mm: "+str(self.commandedPosition["ClosureChangeInRadius_mm"] )) #for debug
+        self.commandedPosition["Jaw1_psi"] = min(max(0, jawIncrement_psi[0]),2)
+        self.commandedPosition["Jaw2_psi"] = min(max(0,jawIncrement_psi[1]),2)
+        self.commandedPosition["Jaw3_psi"] = min(max(0, jawIncrement_psi[2]),2)
+
 
     def MoveGrasper_DEPRECATED(self):
         PVal = self.GetPressureFromPosition(self.commandedPosition["ClosureChangeInRadius_mm"])
@@ -183,7 +192,7 @@ class SoftGrasper:
         print("Bytes sent:%i" % (numBytes))
 
         # read serial data
-        self.readSerialData()
+        #self.readSerialData()
 
 
 

@@ -5,6 +5,7 @@ from enum import Enum
 
 import numpy as np
 import serial
+import math
 
 
 #########################################################
@@ -279,7 +280,7 @@ class SoftGrasper:
                 index_StartStop["stop"].append(m.end('Payload')) #store index of the start and stop of the match.  Will use later to see if there are unprocessed data at the end of the string
 
                 #To DO: sanity check to determine if the number of bytes is correct
-                payloadRE = re.compile(b'(?P<ProtocolByte>\D)(?P<PayloadSize>\D)(?P<Payload>.+)')
+                payloadRE = re.compile(b'(?P<ProtocolByte>.)(?P<PayloadSize>.)(?P<Payload>.+)')
                 payloadRes = payloadRE.search(payload_m)
 
                 protocolType = None
@@ -289,7 +290,7 @@ class SoftGrasper:
                 if payloadRes is not None: #if the structure of the payload is in the expected form, then extract the number of bytes etc.
                     protocolType = int.from_bytes(payloadRes.group('ProtocolByte'),sys.byteorder)
                     numBytes = int.from_bytes(payloadRes.group('PayloadSize'),sys.byteorder)
-                    payload = payloadRes.group('Payload') #need to check this
+                    payload = payloadRes.group('Payload')
                     
                 if numBytes == len(payload):
                     print('Payload matches the expected number of bytes')
@@ -324,8 +325,15 @@ class SoftGrasper:
         if protocolType is not None:
             match protocolType:
                 case 0:
-                    len_payload = math.floor((len(payload))/4)
-                    data=[struct.unpack('f', newByte2[x:x + 4]) for x in (range(0, len_payload) % 4)] #for floats representing pressure values of each port
+                    len_payload = math.floor((len(payload)))
+                    data=[struct.unpack('f', payload[x:x + 4])[0] for x in range(0, len_payload,4)] #for floats representing pressure values of each port
+
+
+                    for count, val in enumerate(data):
+                        self.PressureArray[count].append(data[count])
+
+                    print(data)
+
 
                 case 1:
                     #for strings

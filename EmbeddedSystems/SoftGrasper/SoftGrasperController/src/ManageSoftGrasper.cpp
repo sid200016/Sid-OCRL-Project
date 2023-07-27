@@ -7,12 +7,15 @@ const int RCK = 14;
 const int G_ENABLE = 15;
 
 
-//#define PressureCycle
+//#define PressureCycle //define if you want to do the pressure cycle
 //#define debug
 #define DeflateALL
 //#define ReadSingle
 //#define DebugSingle
 //#define ReadMultiple
+//#define DebugPrint //define if you want to send all the debug print statements
+
+
 
 
 // ------------- Initial Pressure Controller ---------------- //
@@ -52,21 +55,6 @@ byte bitArray[4] = { 0 };
 byte MaxNumShiftRegisters = 4;
 byte ArrayElementSize = 8;
 
-// -------------  Pressure values for the muscle -----------------// 
-float CommandValues[7]={0,0,0,0,0,0,0};
-float P_I3=0;           // pressure for the I3-like circumferential muscle
-float P_Jaw1=1;         // pressure for Soft Jaw 1
-float P_Jaw2=1;         // pressure for Soft Jaw 2
-float P_Jaw3=1;         // pressure for Soft Jaw 3
-float P_I1_1=0;         // pressure for I1-like muscle for tilt control 
-float P_I1_2=0;         // pressure for I1-like muscle for tilt control 
-float P_I1_3=0;         // pressure for I1-like muscle for tilt control 
-
-long HoldOverride = 0;  // read over serial if should override the pressure modulation function
-// int JawCommand1 = false;
-// int JawCommand2 = false;
-// int JawCommand3 = false;
-byte HoldValues[4]={0,0,0,0};
 
 //-------------  Pressure Value -------------//
 // rxBuffer: https://forum.arduino.cc/t/proper-method-of-receiving-uart-packet-data-far-exceeding-rx-buffer-size/611982/8
@@ -111,29 +99,31 @@ struct PortActions
 {
     int port = 0;
     PortAction_ENUM action = IGNORE;
-    float pressure = 0.0;
+    float pressure = 0.0; //commanded pressure
+    float readPressure_psi = 0.0; //read pressure
 };
 
-struct PortActions PortA[numPressurePorts] = { {0, IGNORE, 0.0},
-                                            {1, IGNORE, 0.0},
-                                            {2, IGNORE, 0.0},
-                                            {3, IGNORE, 0.0},
-                                            {4, IGNORE, 0.0},
-                                            {5, IGNORE, 0.0},
-                                            {6, IGNORE, 0.0},
-                                            {7, IGNORE, 0.0},
-                                            {8, IGNORE, 0.0},
-                                            {9, IGNORE, 0.0},
-                                            {10, IGNORE, 0.0},
-                                            {11, IGNORE, 0.0}}; 
+struct PortActions PortA[numPressurePorts] = { {0, IGNORE, 0.0, 0.0},
+                                            {1, IGNORE, 0.0, 0.0},
+                                            {2, IGNORE, 0.0, 0.0},
+                                            {3, IGNORE, 0.0, 0.0},
+                                            {4, IGNORE, 0.0, 0.0},
+                                            {5, IGNORE, 0.0, 0.0},
+                                            {6, IGNORE, 0.0, 0.0},
+                                            {7, IGNORE, 0.0, 0.0},
+                                            {8, IGNORE, 0.0, 0.0},
+                                            {9, IGNORE, 0.0, 0.0},
+                                            {10, IGNORE, 0.0, 0.0},
+                                            {11, IGNORE, 0.0, 0.0}}; 
 
 
-//-------Function defs:
+//-------Function defs---------:
 void runActivationPattern();
 void read_Commands();
 void ReadSerial();
 void executePressurePortActions();
 void TransmitPayload(char startChar[], byte protocolType,byte numBytes,  byte payload[], char endChar[] );
+void TransmitPressureReadings();
 
 void setup() {
   // put your setup code here, to run once:
@@ -320,7 +310,10 @@ void setup() {
 
     #endif
 
-    Serial.println("Teensy Ready!");
+    char initstr[50] = "";
+    strcpy(initstr,"Teensy Ready!");
+    TransmitPayload(HeaderStr,1,strlen(initstr),initstr,TrailerStr);
+    
     delay(10);
 
 
@@ -365,7 +358,11 @@ void ReadSerial()
 
     static byte stateRx = ST_Header; 
 
-    char debugstr[50] = "Header";
+    #ifdef DebugPrint
+
+        char debugstr[50] = "Header";
+
+    #endif
 
     if(Serial.available()>0)
     {
@@ -378,8 +375,10 @@ void ReadSerial()
             {
                 case ST_Header:
 
-                    strcpy(debugstr,"Header");
-                    TransmitPayload(HeaderStr,1,strlen(debugstr),debugstr,TrailerStr);
+                    #ifdef DebugPrint
+                        strcpy(debugstr,"Header");
+                        TransmitPayload(HeaderStr,1,strlen(debugstr),debugstr,TrailerStr);
+                    #endif
 
                     if(cByte == HeaderStr[nIdx])
                     {
@@ -403,8 +402,10 @@ void ReadSerial()
 
                     Payload[nIdx] = cByte;
 
-                    strcpy(debugstr,"In Payload");
-                    TransmitPayload(HeaderStr,1,strlen(debugstr),debugstr,TrailerStr);
+                    #ifdef DebugPrint
+                        strcpy(debugstr,"In Payload");
+                        TransmitPayload(HeaderStr,1,strlen(debugstr),debugstr,TrailerStr);
+                    #endif
 
                     
 
@@ -427,10 +428,11 @@ void ReadSerial()
 
 
                         
-
-                        // for communication
-                        strcpy(debugstr,"Inside Assignment");
-                        TransmitPayload(HeaderStr,1,strlen(debugstr),debugstr,TrailerStr);
+                        #ifdef DebugPrint
+                            // for communication
+                            strcpy(debugstr,"Inside Assignment");
+                            TransmitPayload(HeaderStr,1,strlen(debugstr),debugstr,TrailerStr);
+                        #endif
 
                         
                         PortCommand = PortCommand + "," + String(PortA[2*nIdx].action) + "," + String(PortA[2*nIdx+1].action) ;
@@ -446,13 +448,15 @@ void ReadSerial()
                         int pressportIdx = PressVal_ind[nIdx-6]; //get the pressure value
                         PortA[pressportIdx].pressure = 12*Payload[nIdx]/255; //convert to a pressure value
 
-                        // for communication
-                        char pressure_s[10];
-                        dtostrf(PortA[pressportIdx].pressure, 3, 4, pressure_s);
-                        PressureCommand = PressureCommand + "," + pressure_s ;
+                        #ifdef DebugPrint
+                            // for communication
+                            char pressure_s[10];
+                            dtostrf(PortA[pressportIdx].pressure, 3, 4, pressure_s);
+                            PressureCommand = PressureCommand + "," + pressure_s ;
 
-                        strcpy(debugstr,"Inside Pressure Assignment");
-                        TransmitPayload(HeaderStr,1,strlen(debugstr),debugstr,TrailerStr);
+                            strcpy(debugstr,"Inside Pressure Assignment");
+                            TransmitPayload(HeaderStr,1,strlen(debugstr),debugstr,TrailerStr);
+                        #endif
 
                     }
 
@@ -465,8 +469,10 @@ void ReadSerial()
                         nIdx = 0;
                         stateRx = ST_Trailer;
 
-                        strcpy(debugstr,"Reset after Pressure Assignment");
-                        TransmitPayload(HeaderStr,1,strlen(debugstr),debugstr,TrailerStr);
+                        #ifdef DebugPrint
+                            strcpy(debugstr,"Reset after Pressure Assignment");
+                            TransmitPayload(HeaderStr,1,strlen(debugstr),debugstr,TrailerStr);
+                        #endif
                     }
 
                     //update the pressure port actions.
@@ -474,17 +480,20 @@ void ReadSerial()
                 break;
 
                 case ST_Trailer: //check to see if Trailer has been received properly
-
-                    strcpy(debugstr,"Inside Trailer");
-                    TransmitPayload(HeaderStr,1,strlen(debugstr),debugstr,TrailerStr);
+                    #ifdef DebugPrint
+                        strcpy(debugstr,"Inside Trailer");
+                        TransmitPayload(HeaderStr,1,strlen(debugstr),debugstr,TrailerStr);
+                    #endif
                     
 
                     if (cByte == TrailerStr[nIdx])
                     {
                         nIdx++;
 
-                        strcpy(debugstr,"Recognize Trailer char");
-                        TransmitPayload(HeaderStr,1,strlen(debugstr),debugstr,TrailerStr);
+                        #ifdef DebugPrint
+                            strcpy(debugstr,"Recognize Trailer char");
+                            TransmitPayload(HeaderStr,1,strlen(debugstr),debugstr,TrailerStr);
+                        #endif
 
                         // char val[3];
                         // val[0] = (char) (cByte);
@@ -497,30 +506,37 @@ void ReadSerial()
                             stateRx = ST_Header;
                             nIdx = 0;
 
-                            //Communicate the commanded pressures
+                            //Send the read pressure values
+                            TransmitPressureReadings();
 
-                            strcpy(debugstr,"Ready to Transmit");
-                            TransmitPayload(HeaderStr,1,strlen(debugstr),debugstr,TrailerStr);
+                            #ifdef DebugPrint
 
+                                //Communicate the commanded pressures
 
-                            char str[PressureCommand.length() + 1] = {};
-                            strcpy(str, PressureCommand.c_str()); //convert to c_string
-                            TransmitPayload(HeaderStr,1,strlen(str),str,TrailerStr);
-
-
-                            char strPort[PortCommand.length() + 1] = {};
-                            strcpy(strPort, PortCommand.c_str()); //convert to c_string
-                            TransmitPayload(HeaderStr,1,strlen(strPort),strPort,TrailerStr);
-
-                            PortCommand ="";
+                                strcpy(debugstr,"Ready to Transmit");
+                                TransmitPayload(HeaderStr,1,strlen(debugstr),debugstr,TrailerStr);
 
 
-                            PressureCommand="";
-                        
+                                char str[PressureCommand.length() + 1] = {};
+                                strcpy(str, PressureCommand.c_str()); //convert to c_string
+                                TransmitPayload(HeaderStr,1,strlen(str),str,TrailerStr);
 
-                            //Communicate that we are finished
-                            strcpy(debugstr,"Finished");
-                            TransmitPayload(HeaderStr,1,strlen(debugstr),debugstr,TrailerStr);
+
+                                char strPort[PortCommand.length() + 1] = {};
+                                strcpy(strPort, PortCommand.c_str()); //convert to c_string
+                                TransmitPayload(HeaderStr,1,strlen(strPort),strPort,TrailerStr);
+
+                                PortCommand ="";
+
+
+                                PressureCommand="";
+                            
+
+                                //Communicate that we are finished
+                                strcpy(debugstr,"Finished");
+                                TransmitPayload(HeaderStr,1,strlen(debugstr),debugstr,TrailerStr);
+
+                            #endif
                         }
                     }
 
@@ -530,8 +546,10 @@ void ReadSerial()
                         stateRx = ST_Header;
                         //trailer not received propertly
 
-                        strcpy(debugstr,"Trailer not received properly");
-                        TransmitPayload(HeaderStr,1,strlen(debugstr),debugstr,TrailerStr);
+                        #ifdef DebugPrint
+                            strcpy(debugstr,"Trailer not received properly");
+                            TransmitPayload(HeaderStr,1,strlen(debugstr),debugstr,TrailerStr);
+                        #endif
                     }
 
                 break;
@@ -627,26 +645,56 @@ void executePressurePortActions()
             
             
         }
-
+        
         float rawPress = Pa[i].readPressure(false);  //without moving average
-        char buffer[80];
-        char pressure_s[10];
-        dtostrf(rawPress, 3, 4, pressure_s);
-        dtostrf(rawPress, 3, 4, pressure_s);
-        outputs = outputs + "," + pressure_s ;
+        PortA[i].readPressure_psi = rawPress; //update the struct with the pressure value
+
+        #ifdef DebugPrint
+            char buffer[80];
+            char pressure_s[10];
+            dtostrf(rawPress, 3, 4, pressure_s);
+            dtostrf(rawPress, 3, 4, pressure_s);
+            outputs = outputs + "," + pressure_s ;
+        #endif
         
        
     }
 
-    char str[outputs.length() + 1] = {};
-    strcpy(str, outputs.c_str()); //convert to c_string
+    
 
     
     PressurePort::WriteToShiftRegister(PressurePort::RCK, PressurePort::G_ENABLE, bitArray, MaxNumShiftRegisters); //executes the bitArray to the shift registers to actually open or close the valves 
     endTime = micros();
+    
+    #ifdef DebugPrint
+        char str[outputs.length() + 1] = {};
+        strcpy(str, outputs.c_str()); //convert to c_string
+        TransmitPayload(HeaderStr,1,strlen(str),str,TrailerStr);
+    #endif
 
-    TransmitPayload(HeaderStr,1,strlen(str),str,TrailerStr);
+}
 
+void TransmitPressureReadings()
+{
+    byte bytePressure[numPressurePorts*4];
+
+    for (int i=0;i<numPressurePorts;i++)
+    {
+        union byteUnion {  
+            float f;  
+            byte fByte[sizeof(float)];  
+        };
+        
+        byteUnion bU;  
+         
+        bU.f = PortA[i].readPressure_psi;  
+        for(int j=0;j<sizeof(float);j++)  
+        {
+            bytePressure[i*4+j] = bU.fByte[j]; 
+        }
+    }
+
+    TransmitPayload(HeaderStr,0,numPressurePorts*4,bytePressure,TrailerStr); //protocol 0, i.e. expects floats
 }
 
 void TransmitPayload(char startChar[], byte protocolType,byte numBytes,  byte payload[], char endChar[] )

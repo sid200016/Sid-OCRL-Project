@@ -27,6 +27,10 @@ def checkJoystick():
         jcRG.MoveGantry(AxesPos[0], AxesPos[1]) #move the axes according to the axes
         SGa.MoveGrasper() #jcRG.executeButtonFunctions should update SGa with the the pressures, this command sends the appropriate commands to the grasper over serial
 
+        # Rumble feedback based on pressure change
+        pressureThreshold = [0.4, 0.4, 0.4] #change in pressure threshold in psi above which to register changes in pressure
+        rumbleValue =[(x-pressureThreshold[i])/1.5 if x >= pressureThreshold[i] else 0 for (i,x) in enumerate(SGa.changeInPressure)]
+        jcRG.rumbleFeedback(max(rumbleValue), max(rumbleValue), 1000)
         # for i, (k,v) in enumerate(buttonVal.items()):
         #     if v==1:
         #         jcRG.buttonMapping[k].fcn()

@@ -48,10 +48,11 @@ class SoftGrasper:
                               11 : PressurePort(11)
                               } #to hold the pressure values and the status of the ports
 
-        #Variables for legacy protocol
+
         self.PressureArray = [[] for x in range(0, 12)]  # to store pressure values
         self.PrevJawPress = None  # list to hold the original Jaw Press
         self.JawPos = [8, 9, 11]  # position of pressure values that the jaws are at
+        self.changeInPressure = [0, 0, 0] # change in pressure in psi for the three jaws
 
         #Tx-Rx Information for New Protocol
         self.startChar = ">>" #indicates start of comm
@@ -180,12 +181,12 @@ class SoftGrasper:
         self.PressurePorts[0].portStatus = PortActions.INFLATE_AND_MODULATE
         self.PressurePorts[0].commandedPressure = PVal #value in psi
 
-        self.PressurePorts[8].portStatus = PortActions.INFLATE_AND_STOP
-        self.PressurePorts[8].commandedPressure = self.commandedPosition["Jaw1_psi"]  # value in psi
-        self.PressurePorts[9].portStatus = PortActions.INFLATE_AND_STOP
-        self.PressurePorts[9].commandedPressure = self.commandedPosition["Jaw2_psi"]  # value in psi
-        self.PressurePorts[11].portStatus = PortActions.INFLATE_AND_STOP
-        self.PressurePorts[11].commandedPressure = self.commandedPosition["Jaw3_psi"]  # value in psi
+        self.PressurePorts[self.JawPos[0]].portStatus = PortActions.INFLATE_AND_STOP
+        self.PressurePorts[self.JawPos[0]].commandedPressure = self.commandedPosition["Jaw1_psi"]  # value in psi
+        self.PressurePorts[self.JawPos[1]].portStatus = PortActions.INFLATE_AND_STOP
+        self.PressurePorts[self.JawPos[1]].commandedPressure = self.commandedPosition["Jaw2_psi"]  # value in psi
+        self.PressurePorts[self.JawPos[2]].portStatus = PortActions.INFLATE_AND_STOP
+        self.PressurePorts[self.JawPos[2]].commandedPressure = self.commandedPosition["Jaw3_psi"]  # value in psi
 
 
         byteList = self.ConstructPortCommand()
@@ -193,14 +194,15 @@ class SoftGrasper:
         print("Bytes sent:%i" % (numBytes))
 
         # read serial data
-        #self.readSerialData()
+        self.readSerialData()
+
+        ChP = self.getJawChangePressureVals()
+        self.changeInPressure = ChP
+        print("Change in pressure: "+','.join([str(x) for x in ChP]))
 
 
 
-
-
-
-        #ChP = SG.getJawChangePressureVals()
+        #force_vec=[x*5 if x>0.2 else 0 for x in ChP] #threshold for contact
 
 
     def sendCommunicationArray(self,startDelim = None,byteList = None, endDelim = None): #send list of bytearrays over serial with start and stop delim
@@ -294,12 +296,17 @@ class SoftGrasper:
                     
                 if numBytes == len(payload):
                     print('Payload matches the expected number of bytes')
+                    self.processData(protocolType, numBytes, payload)
 
                 else:
                     print('Warning: Payload size does not match the expected number of bytes')
+                    print(payload)
+                    print('ProtocolType '+str(protocolType))
+                    print('NumBytes Expected: '+str(numBytes))
+                    print('Length of payload: ' + str(len(payload)))
 
 
-                self.processData(protocolType,numBytes,payload)
+
 
                 #To DO: if stop index is shorter than the length of the total payload, then need to store that for processing in the next time step
 

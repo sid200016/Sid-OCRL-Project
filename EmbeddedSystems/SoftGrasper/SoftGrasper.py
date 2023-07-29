@@ -48,10 +48,11 @@ class SoftGrasper:
                               11 : PressurePort(11)
                               } #to hold the pressure values and the status of the ports
 
-        #Variables for legacy protocol
+
         self.PressureArray = [[] for x in range(0, 12)]  # to store pressure values
         self.PrevJawPress = None  # list to hold the original Jaw Press
         self.JawPos = [8, 9, 11]  # position of pressure values that the jaws are at
+        self.changeInPressure = [0, 0, 0] # change in pressure in psi for the three jaws
 
         #Tx-Rx Information for New Protocol
         self.startChar = ">>" #indicates start of comm
@@ -196,7 +197,10 @@ class SoftGrasper:
         self.readSerialData()
 
         ChP = self.getJawChangePressureVals()
-        print("Change in pressure: "+','.join(ChP))
+        self.changeInPressure = ChP
+        print("Change in pressure: "+','.join([str(x) for x in ChP]))
+
+
 
         #force_vec=[x*5 if x>0.2 else 0 for x in ChP] #threshold for contact
 
@@ -292,12 +296,17 @@ class SoftGrasper:
                     
                 if numBytes == len(payload):
                     print('Payload matches the expected number of bytes')
+                    self.processData(protocolType, numBytes, payload)
 
                 else:
                     print('Warning: Payload size does not match the expected number of bytes')
+                    print(payload)
+                    print('ProtocolType '+str(protocolType))
+                    print('NumBytes Expected: '+str(numBytes))
+                    print('Length of payload: ' + str(len(payload)))
 
 
-                self.processData(protocolType,numBytes,payload)
+
 
                 #To DO: if stop index is shorter than the length of the total payload, then need to store that for processing in the next time step
 

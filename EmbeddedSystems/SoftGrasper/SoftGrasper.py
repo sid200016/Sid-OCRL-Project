@@ -180,12 +180,12 @@ class SoftGrasper:
         self.PressurePorts[0].portStatus = PortActions.INFLATE_AND_MODULATE
         self.PressurePorts[0].commandedPressure = PVal #value in psi
 
-        self.PressurePorts[8].portStatus = PortActions.INFLATE_AND_STOP
-        self.PressurePorts[8].commandedPressure = self.commandedPosition["Jaw1_psi"]  # value in psi
-        self.PressurePorts[9].portStatus = PortActions.INFLATE_AND_STOP
-        self.PressurePorts[9].commandedPressure = self.commandedPosition["Jaw2_psi"]  # value in psi
-        self.PressurePorts[11].portStatus = PortActions.INFLATE_AND_STOP
-        self.PressurePorts[11].commandedPressure = self.commandedPosition["Jaw3_psi"]  # value in psi
+        self.PressurePorts[self.JawPos[0]].portStatus = PortActions.INFLATE_AND_STOP
+        self.PressurePorts[self.JawPos[0]].commandedPressure = self.commandedPosition["Jaw1_psi"]  # value in psi
+        self.PressurePorts[self.JawPos[1]].portStatus = PortActions.INFLATE_AND_STOP
+        self.PressurePorts[self.JawPos[1]].commandedPressure = self.commandedPosition["Jaw2_psi"]  # value in psi
+        self.PressurePorts[self.JawPos[2]].portStatus = PortActions.INFLATE_AND_STOP
+        self.PressurePorts[self.JawPos[2]].commandedPressure = self.commandedPosition["Jaw3_psi"]  # value in psi
 
 
         byteList = self.ConstructPortCommand()
@@ -193,14 +193,12 @@ class SoftGrasper:
         print("Bytes sent:%i" % (numBytes))
 
         # read serial data
-        #self.readSerialData()
+        self.readSerialData()
 
+        ChP = self.getJawChangePressureVals()
+        print("Change in pressure: "+','.join(ChP))
 
-
-
-
-
-        #ChP = SG.getJawChangePressureVals()
+        #force_vec=[x*5 if x>0.2 else 0 for x in ChP] #threshold for contact
 
 
     def sendCommunicationArray(self,startDelim = None,byteList = None, endDelim = None): #send list of bytearrays over serial with start and stop delim

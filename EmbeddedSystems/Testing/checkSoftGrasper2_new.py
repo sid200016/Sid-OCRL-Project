@@ -18,6 +18,7 @@ while (True):
 
     # read serial data
     SG.readSerialData()
+    SG.getJawChangePressureVals()
     print('New')
 
     #print("BigLoop:"+str(vv))

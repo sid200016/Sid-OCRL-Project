@@ -1,5 +1,4 @@
 import asyncio
-import time
 import socketio
 
 import time
@@ -10,10 +9,10 @@ from EmbeddedSystems.Gantry.GantryController import Gantry as GantryController
 import EmbeddedSystems.JoyCon.JoyCon as JC
 
 SG  = None #soft grasper
-GCa = None #gantry controller
+GC = None #gantry controller
 jcSG = None #joystick
-curr_z = 0 #current z value based on joystick
-closureIncrement_mm = 0
+
+updatedSoftGrasper = False
 
 
 #loop = asyncio.get_event_loop()
@@ -53,37 +52,40 @@ async def pong_from_server(data):
 @sio.on('gantry position commands')
 async def gantryPosition(data):
     print('gantry')
-    global GCa, curr_z
+    global GC
     latency = time.time()
     print('Time is {0:.2f} ms'.format(latency * 1000))
     print(data)
-
-    # GCa.setXYZ_Position(data[0], data[1], curr_z) #absolute move
-
-    # if sio.connected:
-    #     print('Ping')
-    #     await send_ping()
+    GC.goalPos = [data['x'], data['y'], GC.goalPos[2]] #x and y positions come from screen, z position is kept from the joystick
+    print("GoalPos changed in Gantry Position: " + ','.join([str(x) for x in GC.goalPos]))
 
 @sio.on('soft grasper commands')
 async def softGrasperCommands(data):
     print('softGrasper')
-    global SG
+    global SG, updatedSoftGrasper
 
-    closureIncrement_mm = data['grasper_l']*20/100
-    print(closureIncrement_mm)
-    #SG.AbsoluteMove(closureIncrement_mm=closureIncrement_mm, jawIncrement_psi=[0, 0, 0])
+    closure_mm = data['grasper_l']*20/100
+    print(closure_mm)
+    SG.commandedPosition["ClosureChangeInRadius_mm"] = closure_mm
+    SG.commandedPosition["Jaw1_psi"] = 0
+    SG.commandedPosition["Jaw2_psi"] = 0
+    SG.commandedPosition["Jaw3_psi"] = 0
+
+    updatedSoftGrasper = True
+
+    #SG.AbsoluteMove(closureIncrement_mm=closureIncrement_mm, jawIncrement_psi=[0, 0, 0]) #setup internal variables to actuate at MoveGrasper
     #SG.MoveGrasper()  # actuate soft grasper
 
 
 
 async def HardwareInitialize():
     global SG, GC, jcSG
-    SG = SoftGrasper(COM_Port='COM4', BaudRate=460800, timeout=1, controllerProfile="New") #initialize soft grasper
-    GC = GantryController(comport = "COM4",homeSystem = False, initPos = [0,0,0], initializeSystem = False)#, homeSystem = False,initPos=[0,0,0]  #initialize gantry controller
+    SG = SoftGrasper(COM_Port='COM5', BaudRate=460800, timeout=1, controllerProfile="New") #initialize soft grasper
+    GC = GantryController(comport = "COM4",homeSystem = False, initPos=[0,0,0])#, homeSystem = False,initPos=[0,0,0]  #initialize gantry controller
     jcSG = JC.Joy_SoftGrasper(SGa=SG, GantryS=GC) #initialize joystick control of soft grasper and gantry controller
 
 async def program_loop():
-    global SG, GC, jcSG
+    global SG, GC, jcSG, updatedSoftGrasper
     #await sio.emit('gantry position commands', 'Gantry pos')
     #await sio.emit('soft grasper commands', 'Soft Grasper Commands')
     try:
@@ -91,10 +93,16 @@ async def program_loop():
             [buttonVal, AxesPos] = jcSG.eventLoop()  # run event loop to determine what values and axes to execute
             jcSG.ExecuteButtonFunctions(buttonVal,
                                         AxesPos)  # execute Button functions defined by the button values and axes positions
-            #jcSG.MoveGantry(AxesPos[0], AxesPos[1])  # move the axes according to the axes
+            posInc,feedrate_mmps = jcSG.calcPositionIncrement(AxesPos[0], AxesPos[1])  # get the joystick position for x, y and z, corrected for the flip on the x axis
+            GC.calculateIncrementalMove(*posInc) #will set the GC.goalPos with the appropriate increments
+            GC.setXYZ_Position(*GC.goalPos,feedrate_mmps*60)  # absolute move of the gantry
 
             SG.MoveGrasper()  # jcRG.executeButtonFunctions should update SGa with the the pressures, this command sends the appropriate commands to the grasper over serial
 
+
+            if updatedSoftGrasper == True:
+                print("UPDATED Soft Grasper has happened")
+                updatedSoftGrasper = False
             # Rumble feedback based on pressure change
             pressureThreshold = [0.4, 0.4,
                                  0.4]  # change in pressure threshold in psi above which to register changes in pressure

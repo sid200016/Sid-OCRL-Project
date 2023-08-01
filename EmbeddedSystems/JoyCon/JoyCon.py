@@ -228,10 +228,13 @@ class Joy_Gantry(JoyCon):
     def buttonHome(self):
         self.Gantry.HomeGantry(initPos = self.Gantry.initPos) #home the gantry
 
+    def calcPositionIncrement(self,joy_horiz_axis,joy_vert_axis):
+        self.JoystickPos[0:2] = [-joy_horiz_axis,joy_vert_axis]  # modify x and y positions for the joystick pos.  the z-axis should be modified from buttonR and buttonZR calls.  X axis on the joystick is inverted from +ve motion on the joystick so multiply by -1
+        posInc, feedrate_mmps = self.getPositionIncrement()  # get the position increment
+        return (posInc,feedrate_mmps) #return all three x,y and z positions
+    def MoveGantry_Incremental(self,joy_horiz_axis,joy_vert_axis):
+        posInc, feedrate_mmps = self.calcPositionIncrement(joy_horiz_axis,joy_vert_axis) #modify x and y positions for the joystick pos.  the z-axis should be modified from buttonR and buttonZR calls.  X axis on the joystick is inverted from +ve motion on the joystick so multiply by -1
 
-    def MoveGantry(self,joy_horiz_axis,joy_vert_axis):
-        self.JoystickPos[0:2] = [-joy_horiz_axis,joy_vert_axis] #modify x and y positions for the joystick pos.  the z-axis should be modified from buttonR and buttonZR calls.  X axis on the joystick is inverted from +ve motion on the joystick so multiply by -1
-        posInc,feedrate_mmps = self.getPositionIncrement() # get the position increment
         self.Gantry.incrementalMove(moveSpeed_mmps=feedrate_mmps, **{"move_x_mm":posInc[0],"move_y_mm":posInc[1],"move_z_mm":posInc[2]})
         print("Joystick Pos:{0},{1}".format(joy_horiz_axis, joy_vert_axis))
         print("Position increment:{0},{1},{2}".format(posInc[0], posInc[1], posInc[2]))

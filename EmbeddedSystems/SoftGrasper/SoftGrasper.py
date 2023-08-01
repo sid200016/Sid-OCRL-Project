@@ -293,17 +293,18 @@ class SoftGrasper:
                     protocolType = int.from_bytes(payloadRes.group('ProtocolByte'),sys.byteorder)
                     numBytes = int.from_bytes(payloadRes.group('PayloadSize'),sys.byteorder)
                     payload = payloadRes.group('Payload')
-                    
-                if numBytes == len(payload):
-                    print('Payload matches the expected number of bytes')
-                    self.processData(protocolType, numBytes, payload)
 
-                else:
-                    print('Warning: Payload size does not match the expected number of bytes')
-                    print(payload)
-                    print('ProtocolType '+str(protocolType))
-                    print('NumBytes Expected: '+str(numBytes))
-                    print('Length of payload: ' + str(len(payload)))
+                if payload is not None:
+                    if numBytes == len(payload):
+                        print('Payload matches the expected number of bytes')
+                        self.processData(protocolType, numBytes, payload)
+
+                    else:
+                        print('Warning: Payload size does not match the expected number of bytes')
+                        print(payload)
+                        print('ProtocolType '+str(protocolType))
+                        print('NumBytes Expected: '+str(numBytes))
+                        print('Length of payload: ' + str(len(payload)))
 
 
 

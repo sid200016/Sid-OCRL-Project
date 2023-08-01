@@ -202,6 +202,16 @@ class Gantry:
 
 
 
+    def calculateIncrementalMove(self,move_x_mm = 0, move_y_mm = 0, move_z_mm = 0): #x, y and z are increments to move, not absolute position
+
+        curPos = self.getPosition() #get current position
+        posVec = [move_x_mm, move_y_mm, move_z_mm]
+
+        if self.readyToInject == True & np.any([x !=0 for x in posVec]): #only update startMotionPos if you are are ready to inject and one or more of the commanded axes increments is non zero
+            self.startMotionPos = curPos # note the starting position of the move so that later we can check how far into the move we are.
+            self.goalPos = [max(min(x+self.initPos[i]+self.goalPos[i], self.maxPos_mm[i]), 0)-self.initPos[i] for (i, x) in enumerate(posVec)] #Update the goal position. limit the move to between 0 and the maximum, but first need to convert incremental move to absolute move, and then afterwards subtract the offset
+
+
 
     def incrementalMove(self,move_x_mm = 0, move_y_mm = 0, move_z_mm = 0, moveSpeed_mmps =None): #x, y and z are increments to move, not absolute position
 

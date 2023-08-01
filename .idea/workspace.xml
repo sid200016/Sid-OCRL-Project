@@ -6,8 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="bfd83e2d-ab31-4129-8c0e-ce5b016d6614" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmbeddedSystems/Gantry/GantryController.py" beforeDir="false" afterPath="$PROJECT_DIR$/EmbeddedSystems/Gantry/GantryController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmbeddedSystems/JoyCon/JoyCon.py" beforeDir="false" afterPath="$PROJECT_DIR$/EmbeddedSystems/JoyCon/JoyCon.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmbeddedSystems/SoftGrasper/SoftGrasperController/platformio.ini" beforeDir="false" afterPath="$PROJECT_DIR$/EmbeddedSystems/SoftGrasper/SoftGrasperController/platformio.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Hardware.py" beforeDir="false" afterPath="$PROJECT_DIR$/Hardware.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -293,7 +295,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/EmbeddedSystems/Gantry/GantryController.py</url>
-          <line>203</line>
+          <line>205</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>

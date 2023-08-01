@@ -13,7 +13,7 @@ import numpy as np
 #     SENSORY_LAYER_2_INPUT_SIZE, SENSORY_LAYER_2_SIZE, THETA_MAX, THETA_MIN, F_MAX, F_MIN, sensory_layer_1, \
 #     sensory_layer_2, R, perceptor, controller
 import serial
-from Support.Structures import Point, Velocity, Acceleration
+from EmbeddedSystems.Support.Structures import Point, Velocity, Acceleration
 
 
 class GantryActions(Enum):
@@ -22,7 +22,7 @@ class GantryActions(Enum):
 
 class Gantry:
 
-    def __init__(self,comport='COM12',serialRate=115200,timeout=2,initPos=Point(220,220,200),MaxBufferSize = 3,MoveSpeed_mm_p_min = 50*60, homeSystem = True):
+    def __init__(self,comport='COM12',serialRate=115200,timeout=2,initPos=Point(220,220,200),MaxBufferSize = 3,MoveSpeed_mm_p_min = 50*60, homeSystem = True, initializeSystem = True):
         self.ser = None
         self.initPos = initPos #position in [x,y,z] in mm. x is movement of the gantry head, y is the movement of the base plate and z is the movement up and down.
 
@@ -40,8 +40,10 @@ class Gantry:
         self.GoalTolerance_mm = 0.5 #distance away from the goal in mm to be considered "at goal"
         self.startMotionPos = Point(0, 0, 0) #triad indicating where the current motion was started from
 
+
         #Run Initialization routine:
-        self.SetupGantry(comport = comport, serialRate = serialRate,timeout=timeout,initPos = initPos, homeSystem=homeSystem)
+        if initializeSystem == True:
+            self.SetupGantry(comport = comport, serialRate = serialRate,timeout=timeout,initPos = initPos, homeSystem=homeSystem)
 
     def SetupGantry(self,comport='COM12',serialRate=115200,timeout=2,initPos=Point(220,220,315), homeSystem = True):
         self.ser = serial.Serial(comport, serialRate, timeout=timeout)

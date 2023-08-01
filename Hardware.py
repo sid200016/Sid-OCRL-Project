@@ -86,25 +86,34 @@ async def program_loop():
     global SG, GC, jcSG
     #await sio.emit('gantry position commands', 'Gantry pos')
     #await sio.emit('soft grasper commands', 'Soft Grasper Commands')
-    while(True):
-        [buttonVal, AxesPos] = jcSG.eventLoop()  # run event loop to determine what values and axes to execute
-        jcSG.ExecuteButtonFunctions(buttonVal,
-                                    AxesPos)  # execute Button functions defined by the button values and axes positions
-        #jcSG.MoveGantry(AxesPos[0], AxesPos[1])  # move the axes according to the axes
+    try:
+        while(True):
+            [buttonVal, AxesPos] = jcSG.eventLoop()  # run event loop to determine what values and axes to execute
+            jcSG.ExecuteButtonFunctions(buttonVal,
+                                        AxesPos)  # execute Button functions defined by the button values and axes positions
+            #jcSG.MoveGantry(AxesPos[0], AxesPos[1])  # move the axes according to the axes
 
-        SG.MoveGrasper()  # jcRG.executeButtonFunctions should update SGa with the the pressures, this command sends the appropriate commands to the grasper over serial
+            SG.MoveGrasper()  # jcRG.executeButtonFunctions should update SGa with the the pressures, this command sends the appropriate commands to the grasper over serial
 
-        # Rumble feedback based on pressure change
-        pressureThreshold = [0.4, 0.4,
-                             0.4]  # change in pressure threshold in psi above which to register changes in pressure
-        rumbleValue = [(x - pressureThreshold[i]) / 1.5 if x >= pressureThreshold[i] else 0 for (i, x) in
-                       enumerate(SG.changeInPressure)]
-        jcSG.rumbleFeedback(max(rumbleValue), max(rumbleValue), 1000)
+            # Rumble feedback based on pressure change
+            pressureThreshold = [0.4, 0.4,
+                                 0.4]  # change in pressure threshold in psi above which to register changes in pressure
+            rumbleValue = [(x - pressureThreshold[i]) / 1.5 if x >= pressureThreshold[i] else 0 for (i, x) in
+                           enumerate(SG.changeInPressure)]
+            jcSG.rumbleFeedback(max(rumbleValue), max(rumbleValue), 1000)
 
 
 
-        await asyncio.sleep(0.001) #allow other tasks to run
-        print('ProgramLoop')
+            await asyncio.sleep(0.001) #allow other tasks to run
+            print('ProgramLoop')
+
+
+    except KeyboardInterrupt:
+        print('Exiting loop')
+        return
+
+
+
 
 
 
@@ -117,8 +126,12 @@ async def start_Program():
 
 
 
+
 if __name__ == '__main__':
-    asyncio.run(start_Program())
+    try:
+        asyncio.run(start_Program())
+    except KeyboardInterrupt:
+        "Exiting Program.  Thank you."
 
     # executor = ProcessPoolExecutor(2) #https://stackoverflow.com/questions/29269370/how-to-properly-create-and-run-concurrent-tasks-using-pythons-asyncio-module
     # loop = asyncio.new_event_loop()

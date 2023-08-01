@@ -13,6 +13,13 @@ def add(a: int, b: int) -> int:
 def block() -> None:
     time.sleep(5)
 
+@shared_task()
+def init() -> None:
+    print("I'm drowsy, can I sleep some more?...")
+
+    print("Maybe just a little more...")
+    time.sleep(300)
+    print('Done sleeping, I am awake')
 
 @shared_task(bind=True, ignore_result=False)
 def process(self: Task, total: int) -> object:

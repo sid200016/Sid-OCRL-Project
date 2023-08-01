@@ -6,6 +6,13 @@ from . import tasks
 
 bp = Blueprint("tasks", __name__, url_prefix="/tasks")
 
+def initFunc():
+    print('Init func')
+    res = tasks.init.delay()
+    return
+
+
+
 
 @bp.get("/result/<id>")
 def result(id: str) -> dict[str, object]:

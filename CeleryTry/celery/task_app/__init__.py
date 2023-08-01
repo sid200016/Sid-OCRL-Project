@@ -23,6 +23,9 @@ def create_app() -> Flask:
     from . import views
 
     app.register_blueprint(views.bp)
+    views.bp.record_once(views.initFunc)
+    with app.app_context():
+        views.initFunc()
     return app
 
 

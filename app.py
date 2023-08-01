@@ -6,14 +6,34 @@ from datetime import datetime
 #import EmbeddedSystems.SoftGrasper.SoftGrasper as SG
 from state import State
 import csv
+import time
+import flask_socketio as fsio
+
+class StoreVal:
+    def __init__(self):
+        self.x = 0
+        print('Initialized')
+
+    def runningCommand(self):
+        i=0
+        while(i<10000):
+            print(self.x)
+            i=i+1
+            time.sleep(0.001)
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'ceff418fb561ebf2572221b1f28789a36e4e30f7da4df0a8'
+
+
 
 # Gantry / Grasper setup
 #SGa = SG.SoftGrasper(COM_Port='COM5', BaudRate=460800, controllerProfile="New") #soft grasper initialization
 # GCa = GC.Gantry(comport = "COM4", homeSystem = True) #homeSystem = False, initPos=[0,0,0] )
 # RGa = RG.RigidGrasper(BAUDRATE = 57600, DEVICEPORT = "COM6", GoalPosition1=[1500,2000], GoalPosition2 = [2120,1620])
+
+
+socketio = fsio.SocketIO(app)
+
 
 state = State('rigid')
 
@@ -109,6 +129,8 @@ def dual_grasper_participant():
         grasper_l = round(float(grasper_l), 2)
         state.grasper_l = grasper_l
         print(state.grasper_l)
+
+
         #SGa.AbsoluteMove(closureIncrement_mm = grasper_l*20/100, jawIncrement_psi = [0,0,0])
         #SGa.MoveGrasper()
         # RG_GoalPosition = int((RGa.GoalPosition_Limits["1"][1]-RGa.GoalPosition_Limits["1"][0])*grasper_l/100 + RGa.GoalPosition_Limits["1"][0])
@@ -140,5 +162,16 @@ def dual_grasper_participant():
                             date=date, time=time
                             )
 
+
+@socketio.on('my event')
+def handle_my_custom_event(json):
+    print('received json: ' + str(json))
+    fsio.emit('SendInfo', 'Received')
+
+
 #if __name__ == '__main__':
 #app.run(host='0.0.0.0', port = '5000', debug=True)
+
+if __name__=='__main__':
+    print('Main')
+    socketio.run(app)

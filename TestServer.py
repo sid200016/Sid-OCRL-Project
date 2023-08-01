@@ -2,12 +2,13 @@ import asyncio
 import time
 import socketio
 
-loop = asyncio.get_event_loop()
+#loop = asyncio.get_event_loop()
 sio = socketio.AsyncClient()
 start_timer = None
 
 
 async def send_ping():
+    print('Sending ping')
     global start_timer
     start_timer = time.time()
     await sio.emit('my event','New Data')
@@ -37,4 +38,4 @@ async def start_server():
 
 
 if __name__ == '__main__':
-    loop.run_until_complete(start_server())
+    asyncio.run(start_server())

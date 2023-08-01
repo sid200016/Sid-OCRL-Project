@@ -121,6 +121,7 @@ def dual_grasper_participant():
         gantry_data[0] = -mouse_to_mm(gantry_data[0])
         gantry_data[1] = mouse_to_mm(gantry_data[1])
 
+
         # GCa.getPosition()
         # curr_z = GCa.PositionArray["z"][0]
         # GCa.setXYZ_Position(gantry_data[0], gantry_data[1], curr_z) #absolute move
@@ -129,6 +130,9 @@ def dual_grasper_participant():
         grasper_l = round(float(grasper_l), 2)
         state.grasper_l = grasper_l
         print(state.grasper_l)
+
+
+
 
 
         #SGa.AbsoluteMove(closureIncrement_mm = grasper_l*20/100, jawIncrement_psi = [0,0,0])
@@ -162,11 +166,23 @@ def dual_grasper_participant():
                             date=date, time=time
                             )
 
+@socketio.on('gantry position commands')
+def sendGantryPosition():
+    fsio.emit('gantry position commands', {'x': gantry_data[0], 'y': gantry_data[1]})
+
+@socketio.on('soft grasper commands')
+def sendGantryPosition():
+    fsio.emit('soft grasper commands', {'grasper_l': state.grasper_l})
 
 @socketio.on('my event')
 def handle_my_custom_event(json):
     print('received json: ' + str(json))
     fsio.emit('SendInfo', 'Received')
+
+@socketio.on('start event')
+def handle_start_event(string):
+    print('received string: ' + str(string))
+
 
 
 #if __name__ == '__main__':

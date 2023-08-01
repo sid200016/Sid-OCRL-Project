@@ -49,6 +49,7 @@ async def pong_from_server(data):
 
 @sio.on('gantry position commands')
 async def gantryPosition(data):
+    print('gantry')
     global GCa, curr_z
     latency = time.time()
     print('Time is {0:.2f} ms'.format(latency * 1000))
@@ -62,10 +63,11 @@ async def gantryPosition(data):
 
 @sio.on('soft grasper commands')
 async def softGrasperCommands(data):
+    print('softGrasper')
     global SG
 
     closureIncrement_mm = data['grasper_l']*20/100
-
+    print(closureIncrement_mm)
     #SG.AbsoluteMove(closureIncrement_mm=closureIncrement_mm, jawIncrement_psi=[0, 0, 0])
     #SG.MoveGrasper()  # actuate soft grasper
 
@@ -75,12 +77,29 @@ async def HardwareInitialize():
     global SG
     SG = SoftGrasper(COM_Port='COM4', BaudRate=460800, timeout=1, controllerProfile="New")
 
+async def program_loop():
+
+    await sio.emit('gantry position commands', 'Gantry pos')
+    await sio.emit('soft grasper commands', 'Soft Grasper Commands')
+    print('ProgramLoop')
+
+
 
 async def start_Program():
     await HardwareInitialize()
     await sio.connect('http://localhost:5000')
+    await program_loop()
     await sio.wait()
+
+
 
 
 if __name__ == '__main__':
     asyncio.run(start_Program())
+
+    # executor = ProcessPoolExecutor(2) #https://stackoverflow.com/questions/29269370/how-to-properly-create-and-run-concurrent-tasks-using-pythons-asyncio-module
+    # loop = asyncio.new_event_loop()
+    # boo = loop.run_in_executor(executor, say_boo)
+    # baa = loop.run_in_executor(executor, say_baa)
+    #
+    # loop.run_forever()

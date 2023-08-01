@@ -21,6 +21,9 @@ class StoreVal:
             i=i+1
             time.sleep(0.001)
 
+
+
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'ceff418fb561ebf2572221b1f28789a36e4e30f7da4df0a8'
 
@@ -39,6 +42,9 @@ state = State('rigid')
 
 # date / time
 MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+
+SID = None
+socket_NAMESPACE = None
 
 def get_date_time():
     now = datetime.now()
@@ -102,24 +108,28 @@ def index():
 
     return render_template("index.jinja", date=date, time=time)
 
+@socketio.on('Dual Participant')
 @app.route("/participant/dual-grasper", methods=('GET', 'POST'))
 def dual_grasper_participant():
+
     date, time = get_date_time()
 
     # read user inputs from GUI
-    gantry_data = request.form.get('gantry')
+    gantry_str = request.form.get('gantry')
     grasper_l = request.form.get('grasper_l')
     grasper_r = request.form.get('grasper_r')
     grasper_on = request.form.get('grasper_on')
 
     # data_string: 'mouse_x,mouse_y,power_l,power_r'
-    if gantry_data:
-        gantry_data = gantry_data.split(',')
+    if gantry_str:
+        gantry_data = gantry_str.split(',')
 
         state.gantry = gantry_data
 
         gantry_data[0] = -mouse_to_mm(gantry_data[0])
         gantry_data[1] = mouse_to_mm(gantry_data[1])
+
+        socketio.emit('gantry position commands', {'x': gantry_data[0], 'y': gantry_data[1]},namespace = socket_NAMESPACE)
 
 
         # GCa.getPosition()
@@ -130,7 +140,7 @@ def dual_grasper_participant():
         grasper_l = round(float(grasper_l), 2)
         state.grasper_l = grasper_l
         print(state.grasper_l)
-
+        socketio.emit('soft grasper commands', {'grasper_l': state.grasper_l},  namespace = socket_NAMESPACE)
 
 
 
@@ -167,12 +177,15 @@ def dual_grasper_participant():
                             )
 
 @socketio.on('gantry position commands')
-def sendGantryPosition():
-    fsio.emit('gantry position commands', {'x': gantry_data[0], 'y': gantry_data[1]})
+def sendGantryPosition(string):
+    print('gantry')
+
 
 @socketio.on('soft grasper commands')
-def sendGantryPosition():
-    fsio.emit('soft grasper commands', {'grasper_l': state.grasper_l})
+def sendGantryPosition(string):
+    print('softGrasper')
+
+
 
 @socketio.on('my event')
 def handle_my_custom_event(json):
@@ -182,6 +195,10 @@ def handle_my_custom_event(json):
 @socketio.on('start event')
 def handle_start_event(string):
     print('received string: ' + str(string))
+    SID = request.sid
+    socket_NAMESPACE = request.namespace
+
+
 
 
 

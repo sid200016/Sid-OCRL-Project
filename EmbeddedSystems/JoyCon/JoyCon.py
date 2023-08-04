@@ -1,9 +1,9 @@
 import numpy as np
 import pygame
-from EmbeddedSystems.Gantry import GantryController as GC
-from EmbeddedSystems.RigidGrasper import RigidGrasper as RG
-from EmbeddedSystems.SoftGrasper import SoftGrasper as SG
-from EmbeddedSystems.Support.Structures import Velocity
+from ..Gantry import GantryController as GC
+from ..RigidGrasper import RigidGrasper as RG
+from ..SoftGrasper import SoftGrasper as SG
+from ..Support.Structures import Velocity
 
 
 class Button:

@@ -6,14 +6,18 @@ from datetime import datetime
 from enum import Enum
 
 import numpy as np
-# import torch
-# import torch.nn as nn
-# from EmbeddedSystems.Gantry.envs.GantrySimulation import GantrySimulation
-# from EmbeddedSystems.Gantry.controller.SNS_layer import SNS_layer, SENSORY_LAYER_1_INPUT_SIZE, SENSORY_LAYER_1_SIZE, \
-#     SENSORY_LAYER_2_INPUT_SIZE, SENSORY_LAYER_2_SIZE, THETA_MAX, THETA_MIN, F_MAX, F_MIN, sensory_layer_1, \
-#     sensory_layer_2, R, perceptor, controller
+
+
+import torch
+import torch.nn as nn
+from .envs.GantrySimulation import GantrySimulation
+from .controller.SNS_layer import SNS_layer, SENSORY_LAYER_1_INPUT_SIZE, SENSORY_LAYER_1_SIZE, \
+    SENSORY_LAYER_2_INPUT_SIZE, SENSORY_LAYER_2_SIZE, THETA_MAX, THETA_MIN, F_MAX, F_MIN, sensory_layer_1, \
+    sensory_layer_2, R, perceptor, controller
+
+
 import serial
-from EmbeddedSystems.Support.Structures import Point, Velocity, Acceleration
+from ..Support.Structures import Point, Velocity, Acceleration
 
 
 class GantryActions(Enum):

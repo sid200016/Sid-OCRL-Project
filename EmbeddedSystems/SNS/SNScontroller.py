@@ -22,6 +22,8 @@ class SNScontroller:
             "lift_after_release":0
         }
 
+        self.lift_after_release_done = False #set to true when lifted after release neuron exceeds 10.  Necessary to set the object pos to 0,0,0 to trigger the final phases of motion
+
         self.object_position = torch.Tensor(list(objectPos_m)).unsqueeze(dim=0)
         self.target_position = torch.Tensor(list(targetPos_m)).unsqueeze(dim=0)
 
@@ -46,8 +48,15 @@ class SNScontroller:
 
         """
 
-        if objectPos_m is not None:
+        if objectPos_m is not None and self.lift_after_release_done == False:
             self.object_position = torch.Tensor(list(objectPos_m)).unsqueeze(dim=0) #update the object pos
+
+        if self.neuronset["lift_after_release"]>10:
+            self.lift_after_release_done = True
+
+        if self.lift_after_release_done == True:
+            self.object_position = torch.Tensor([0, 0, 0]).unsqueeze(dim=0)
+
 
         if targetPos_m is not None:
             self.target_position = torch.Tensor(list(targetPos_m)).unsqueeze(dim=0) #update the target pos
@@ -63,10 +72,9 @@ class SNScontroller:
          move_to_release, release, lift_after_release] = commands.squeeze(dim=0).numpy()
 
         [x_d, y_d, z_d, JawRadialPos_m] = controller.forward(
-            object_position, target_position, commands).numpy()
+            self.object_position, self.target_position, commands).numpy()
 
-        if lift_after_release > 10:
-            self.object_position = torch.Tensor([0, 0, 0]).unsqueeze(dim=0)
+
 
 
         cmd_grasperPos_m=Point(x_d,y_d,z_d) #note that this is in meters, and doesn't account for the offset that is considered 0,0,0 on the gantry.  Need to correct for that afterwards

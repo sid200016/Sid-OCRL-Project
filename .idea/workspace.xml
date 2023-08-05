@@ -5,27 +5,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfd83e2d-ab31-4129-8c0e-ce5b016d6614" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/EmbeddedSystems/SNS/SNScontroller.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EmbeddedSystems/SNS/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EmbeddedSystems/SNS/controller/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Testing/TCP_SocketTry/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Testing/TestSNS_sim.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Testing/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmbeddedSystems/Gantry/GantryController.py" beforeDir="false" afterPath="$PROJECT_DIR$/EmbeddedSystems/Gantry/GantryController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmbeddedSystems/Gantry/controller/SNS_layer.py" beforeDir="false" afterPath="$PROJECT_DIR$/EmbeddedSystems/SNS/controller/SNS_layer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmbeddedSystems/Gantry/controller/output_mu_param" beforeDir="false" afterPath="$PROJECT_DIR$/EmbeddedSystems/SNS/controller/output_mu_param" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmbeddedSystems/Gantry/controller/output_sigma_param" beforeDir="false" afterPath="$PROJECT_DIR$/EmbeddedSystems/SNS/controller/output_sigma_param" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmbeddedSystems/Gantry/controller/sensory_layer_2_param" beforeDir="false" afterPath="$PROJECT_DIR$/EmbeddedSystems/SNS/controller/sensory_layer_2_param" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmbeddedSystems/Gantry/controller/torchSNS/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/EmbeddedSystems/SNS/controller/torchSNS/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmbeddedSystems/Gantry/controller/torchSNS/torch/CTRNN_cell.py" beforeDir="false" afterPath="$PROJECT_DIR$/EmbeddedSystems/SNS/controller/torchSNS/torch/CTRNN_cell.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmbeddedSystems/Gantry/controller/torchSNS/torch/NODE_cell.py" beforeDir="false" afterPath="$PROJECT_DIR$/EmbeddedSystems/SNS/controller/torchSNS/torch/NODE_cell.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmbeddedSystems/Gantry/controller/torchSNS/torch/RNN_cell.py" beforeDir="false" afterPath="$PROJECT_DIR$/EmbeddedSystems/SNS/controller/torchSNS/torch/RNN_cell.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmbeddedSystems/Gantry/controller/torchSNS/torch/SNS_cell.py" beforeDir="false" afterPath="$PROJECT_DIR$/EmbeddedSystems/SNS/controller/torchSNS/torch/SNS_cell.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmbeddedSystems/Gantry/controller/torchSNS/torch/SNS_cell_original.py" beforeDir="false" afterPath="$PROJECT_DIR$/EmbeddedSystems/SNS/controller/torchSNS/torch/SNS_cell_original.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmbeddedSystems/Gantry/controller/torchSNS/torch/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/EmbeddedSystems/SNS/controller/torchSNS/torch/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmbeddedSystems/Gantry/controller/torchSNS/torch/ltc_cell.py" beforeDir="false" afterPath="$PROJECT_DIR$/EmbeddedSystems/SNS/controller/torchSNS/torch/ltc_cell.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmbeddedSystems/Gantry/controller/torchSNS/wirings/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/EmbeddedSystems/SNS/controller/torchSNS/wirings/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmbeddedSystems/Gantry/controller/torchSNS/wirings/wirings.py" beforeDir="false" afterPath="$PROJECT_DIR$/EmbeddedSystems/SNS/controller/torchSNS/wirings/wirings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmbeddedSystems/Gantry/controller/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/EmbeddedSystems/SNS/controller/train.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmbeddedSystems/Support/Structures.py" beforeDir="false" afterPath="$PROJECT_DIR$/EmbeddedSystems/Support/Structures.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CeleryTry/celery/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CeleryTry/celery/.idea/CeleryTry.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CeleryTry/celery/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CeleryTry/celery/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CeleryTry/celery/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CeleryTry/celery/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CeleryTry/celery/make_celery.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CeleryTry/celery/pyproject.toml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CeleryTry/celery/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CeleryTry/celery/task_app/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CeleryTry/celery/task_app/tasks.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CeleryTry/celery/task_app/templates/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CeleryTry/celery/task_app/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmbeddedSystems/Gantry/envs/GantrySimulation.py" beforeDir="false" afterPath="$PROJECT_DIR$/EmbeddedSystems/Gantry/envs/GantrySimulation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmbeddedSystems/SNS/SNScontroller.py" beforeDir="false" afterPath="$PROJECT_DIR$/EmbeddedSystems/SNS/SNScontroller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmbeddedSystems/SNS/controller/SNS_layer.py" beforeDir="false" afterPath="$PROJECT_DIR$/EmbeddedSystems/SNS/controller/SNS_layer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmbeddedSystems/Testing/CheckJoystickTiming.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/CheckJoystickTiming.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmbeddedSystems/Testing/CheckJoystick_OldSoftGrasper.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/CheckJoystick_OldSoftGrasper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmbeddedSystems/Testing/CheckJoystick_SoftGrasper.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/CheckJoystick_SoftGrasper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmbeddedSystems/Testing/CommunicateWGrasper.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/CommunicateWGrasper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmbeddedSystems/Testing/JoyConCheck.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/JoyConCheck.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmbeddedSystems/Testing/JoyCon_Vibration.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/JoyCon_Vibration.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmbeddedSystems/Testing/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmbeddedSystems/Testing/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/SocketIO/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmbeddedSystems/Testing/checkSoftGrasper2_new.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/checkSoftGrasper2_new.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmbeddedSystems/Testing/checkSoftGrasper_Legacy.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/checkSoftGrasper_Legacy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmbeddedSystems/Testing/checkSoftGrasper_New.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/checkSoftGrasper_New.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmbeddedSystems/Testing/read_write_Try.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/read_write_Try.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SocketIO/Client.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/SocketIO/Client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SocketIO/Server.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/SocketIO/Server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TCP_SocketTry/Client.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/TCP_SocketTry/Client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TCP_SocketTry/tcp_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/TCP_SocketTry/tcp_server.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,31 +83,13 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Ravesh\Desktop\Research\FRR\FRR Software Interface\FRR-Software-Interface\Testing" />
+      <recent name="C:\Users\Ravesh\Desktop\Research\FRR\FRR Software Interface\FRR-Software-Interface\EmbeddedSystems\SNS\controller" />
+      <recent name="C:\Users\Ravesh\Desktop\Research\FRR\FRR Software Interface\FRR-Software-Interface" />
       <recent name="C:\Users\Ravesh\Desktop\Research\FRR\FRR Software Interface\FRR-Software-Interface\EmbeddedSystems\SNS" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Hardware">
-    <configuration name="Client (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="FRR-Software-Interface" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/SocketIO" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SocketIO/Client.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.TestSNS_sim (1)">
     <configuration name="Hardware" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="FRR-Software-Interface" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -114,7 +111,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Server" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="TestSNS_sim (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="FRR-Software-Interface" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -122,11 +119,32 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/SocketIO" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Testing" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SocketIO/Server.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Testing/TestSNS_sim.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestSNS_sim" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="FRR-Software-Interface" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/EmbeddedSystems/Testing" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/EmbeddedSystems/Testing/TestSNS_sim.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -281,11 +299,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.TestSNS_sim (1)" />
+        <item itemvalue="Python.TestSNS_sim" />
         <item itemvalue="Python.Hardware" />
         <item itemvalue="Python.app" />
         <item itemvalue="Python.TestServer" />
-        <item itemvalue="Python.Client (1)" />
-        <item itemvalue="Python.Server" />
       </list>
     </recent_temporary>
   </component>
@@ -328,6 +346,16 @@
           <url>file://$PROJECT_DIR$/Hardware.py</url>
           <line>111</line>
           <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/EmbeddedSystems/SNS/SNScontroller.py</url>
+          <line>54</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/EmbeddedSystems/SNS/SNScontroller.py</url>
+          <line>51</line>
+          <option name="timeStamp" value="31" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

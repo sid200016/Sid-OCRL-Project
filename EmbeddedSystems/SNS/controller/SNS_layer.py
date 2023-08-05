@@ -216,9 +216,8 @@ sensory_layer_2 = SNS_layer(layer_input_size=SENSORY_LAYER_2_INPUT_SIZE,
 
 
 p = Path(__file__).with_name("sensory_layer_2_param")
-with p.open('r') as f:
-    sensory_layer_2.load_state_dict(
-        torch.load(f))
+sensory_layer_2.load_state_dict(
+    torch.load(p))
 # sensory_layer_2.load_state_dict(
 #     torch.load("C:\\Users\\Yanjun\\Documents\\MATLAB\\FRR_SoftGrasper\\PyBullet Model\\Gantry\\Controller\\sensory_layer_2_param_2"))
 
@@ -255,12 +254,10 @@ command_layer = SNS_layer(layer_input_size=COMMAND_LAYER_INPUT_SIZE,
 
 
 p = Path(__file__).with_name("output_mu_param")
-with p.open('r') as f:
-    command_layer._params["sensory_mu"].data = torch.load(f).data.reshape(-1,1).repeat(1,COMMAND_LAYER_SIZE)
+command_layer._params["sensory_mu"].data = torch.load(p).data.reshape(-1,1).repeat(1,COMMAND_LAYER_SIZE)
 
 p = Path(__file__).with_name("output_sigma_param")
-with p.open('r') as f:
-    command_layer._params["sensory_sigma"].data = torch.load(f).data.reshape(-1,1).repeat(1,COMMAND_LAYER_SIZE)
+command_layer._params["sensory_sigma"].data = torch.load(p).data.reshape(-1,1).repeat(1,COMMAND_LAYER_SIZE)
 
 command_layer._params["sensory_mu"].requires_grad = False
 command_layer._params["sensory_sigma"].requires_grad = False

@@ -1,4 +1,5 @@
 import pathlib
+from pathlib import Path
 import re
 import time
 import warnings
@@ -41,10 +42,10 @@ class GantrySimulation:
     """
     def __init__(self, bulletClient: p = None, lengthScale: float = 1, massScale: float = 1, gravity_m_s2: float = -9.81,
                  timeStep = 1/240 ,
-                 gantryURDFfile = str(pathlib.Path.cwd()/"Gantry\\envs\\URDF\\GantryAssembly_NoGrasper\\urdf\\GantryAssembly_NoGrasper.urdf"),
+                 gantryURDFfile = str(Path(__file__).parent/"URDF\\GantryAssembly_NoGrasper\\urdf\\GantryAssembly_NoGrasper.urdf"),
                  gantryURDFstartPos = [0,0,0], gantryURDFstartOrientation_quat = p.getQuaternionFromEuler([0,0,0]),
                  GantryLinkIndex_dict={"BasePositionIndex":12,"ZAxisBarIndex":1,"GantryHeadIndex":2,"CenterPlatformIndex":13},
-                 grasperURDFfile: str = str("Grasper/SoftGrasper/URDF/SoftGrasperAssembly_SimplifiedTilt/urdf/SoftGrasperAssembly_SimplifiedTilt.urdf"),
+                 grasperURDFfile: str = str(Path(__file__).parent/"URDF\\SoftGrasperAssembly_SimplifiedTilt\\urdf\\SoftGrasperAssembly_SimplifiedTilt.urdf"),
                  MergeGrasperURDF: bool = True,GrasperType : str ="SoftGrasper"):
         """
         Constructor for the Gantry Simulation
@@ -533,7 +534,12 @@ class GantrySimulation:
 
 class SoftGrasper:
 
-    def __init__(self,bulletClient=None,GrasperID=None,location=[0, 0, 0.52816],URDFpath = "URDF/SoftGrasperAssembly_SimplifiedTilt/urdf/SoftGrasperAssembly_SimplifiedTilt.urdf",lengthScale=1,massScale=1):
+    def __init__(self,bulletClient=None,
+                 GrasperID=None,
+                 location=[0, 0, 0.52816],
+                 URDFpath = "URDF/SoftGrasperAssembly_SimplifiedTilt/urdf/SoftGrasperAssembly_SimplifiedTilt.urdf",
+                 lengthScale=1,
+                 massScale=1):
         self.bulletClient = bulletClient
         self.lengthScale = lengthScale
         self.massScale = massScale

@@ -295,6 +295,7 @@ class Joy_SoftGrasper(Joy_Gantry):
         self.grasper = SGa
         self.closureIncrement_mm = 0.5 #increment of position in mm
         self.jawIncrement_psi = 0.05  # increment of jaw pressure in psi
+        self.SNS_control = False
 
         self.buttonMapping[("A", "X")] = Button(
             (self.buttonMapping["A"].buttonNumber, self.buttonMapping["X"].buttonNumber),
@@ -305,7 +306,14 @@ class Joy_SoftGrasper(Joy_Gantry):
             ("B", "Y"),
             ("B", "Y"), 2, self.buttonBY)  # situation where two buttons are pressed at once to open the grasper
 
+        self.buttonMapping[("SR", "+")] = Button(
+            (self.buttonMapping["SR"].buttonNumber, self.buttonMapping["+"].buttonNumber),
+            ("SR", "+"),
+            ("SR", "+"), 2, self.buttonSR_Plus)  # situation where two buttons are pressed at once to open the grasper
+
         self.sortButtonMapping()  # should be in order from highest priority to lowest priority.
+
+
 
     def buttonA(self):  # close closure muscle
         self.grasper.IncrementalMove(closureIncrement_mm = self.closureIncrement_mm, jawIncrement_psi = [0,0,0])
@@ -326,6 +334,10 @@ class Joy_SoftGrasper(Joy_Gantry):
 
     def buttonBY(self):
         pass
+
+    def buttonSR_Plus(self):
+        self.SNS_control = not(self.SNS_control)
+
 
 
 # jc = JoyCon()

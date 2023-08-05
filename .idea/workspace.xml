@@ -5,10 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfd83e2d-ab31-4129-8c0e-ce5b016d6614" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/EmbeddedSystems/SNS/SNScontroller.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EmbeddedSystems/SNS/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EmbeddedSystems/SNS/controller/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EmbeddedSystems/Gantry/GantryController.py" beforeDir="false" afterPath="$PROJECT_DIR$/EmbeddedSystems/Gantry/GantryController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmbeddedSystems/Gantry/controller/SNS_layer.py" beforeDir="false" afterPath="$PROJECT_DIR$/EmbeddedSystems/Gantry/controller/SNS_layer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmbeddedSystems/JoyCon/JoyCon.py" beforeDir="false" afterPath="$PROJECT_DIR$/EmbeddedSystems/JoyCon/JoyCon.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmbeddedSystems/Gantry/controller/SNS_layer.py" beforeDir="false" afterPath="$PROJECT_DIR$/EmbeddedSystems/SNS/controller/SNS_layer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmbeddedSystems/Gantry/controller/output_mu_param" beforeDir="false" afterPath="$PROJECT_DIR$/EmbeddedSystems/SNS/controller/output_mu_param" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmbeddedSystems/Gantry/controller/output_sigma_param" beforeDir="false" afterPath="$PROJECT_DIR$/EmbeddedSystems/SNS/controller/output_sigma_param" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmbeddedSystems/Gantry/controller/sensory_layer_2_param" beforeDir="false" afterPath="$PROJECT_DIR$/EmbeddedSystems/SNS/controller/sensory_layer_2_param" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmbeddedSystems/Gantry/controller/torchSNS/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/EmbeddedSystems/SNS/controller/torchSNS/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmbeddedSystems/Gantry/controller/torchSNS/torch/CTRNN_cell.py" beforeDir="false" afterPath="$PROJECT_DIR$/EmbeddedSystems/SNS/controller/torchSNS/torch/CTRNN_cell.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmbeddedSystems/Gantry/controller/torchSNS/torch/NODE_cell.py" beforeDir="false" afterPath="$PROJECT_DIR$/EmbeddedSystems/SNS/controller/torchSNS/torch/NODE_cell.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmbeddedSystems/Gantry/controller/torchSNS/torch/RNN_cell.py" beforeDir="false" afterPath="$PROJECT_DIR$/EmbeddedSystems/SNS/controller/torchSNS/torch/RNN_cell.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmbeddedSystems/Gantry/controller/torchSNS/torch/SNS_cell.py" beforeDir="false" afterPath="$PROJECT_DIR$/EmbeddedSystems/SNS/controller/torchSNS/torch/SNS_cell.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmbeddedSystems/Gantry/controller/torchSNS/torch/SNS_cell_original.py" beforeDir="false" afterPath="$PROJECT_DIR$/EmbeddedSystems/SNS/controller/torchSNS/torch/SNS_cell_original.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmbeddedSystems/Gantry/controller/torchSNS/torch/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/EmbeddedSystems/SNS/controller/torchSNS/torch/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmbeddedSystems/Gantry/controller/torchSNS/torch/ltc_cell.py" beforeDir="false" afterPath="$PROJECT_DIR$/EmbeddedSystems/SNS/controller/torchSNS/torch/ltc_cell.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmbeddedSystems/Gantry/controller/torchSNS/wirings/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/EmbeddedSystems/SNS/controller/torchSNS/wirings/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmbeddedSystems/Gantry/controller/torchSNS/wirings/wirings.py" beforeDir="false" afterPath="$PROJECT_DIR$/EmbeddedSystems/SNS/controller/torchSNS/wirings/wirings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmbeddedSystems/Gantry/controller/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/EmbeddedSystems/SNS/controller/train.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmbeddedSystems/Support/Structures.py" beforeDir="false" afterPath="$PROJECT_DIR$/EmbeddedSystems/Support/Structures.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +65,11 @@
 }</component>
   <component name="PyDebuggerOptionsProvider">
     <option name="myPyQtBackend" value="pyside2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Ravesh\Desktop\Research\FRR\FRR Software Interface\FRR-Software-Interface\EmbeddedSystems\SNS" />
+    </key>
   </component>
   <component name="RunManager" selected="Python.Hardware">
     <configuration name="Client (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -294,7 +316,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/EmbeddedSystems/Gantry/GantryController.py</url>
-          <line>209</line>
+          <line>206</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">

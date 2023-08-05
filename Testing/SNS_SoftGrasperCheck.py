@@ -1,4 +1,5 @@
 import time
+import asyncio
 
 from EmbeddedSystems.SoftGrasper.SoftGrasper import PortActions
 from EmbeddedSystems.SoftGrasper.SoftGrasper import SoftGrasper
@@ -12,13 +13,13 @@ GC = None #gantry controller
 jcSG = None #joystick
 SNSc = None #SNS controller
 
-SG = SoftGrasper(COM_Port='COM5', BaudRate=460800, timeout=1, controllerProfile="New") #initialize soft grasper
-GC = GantryController(comport = "COM4",homeSystem = False, initPos=[0,0,0])#, homeSystem = False,initPos=[0,0,0]  #initialize gantry controller
-jcSG = JC.Joy_SoftGrasper(SGa=SG, GantryS=GC) #initialize joystick control of soft grasper and gantry controller
-
+# SG = SoftGrasper(COM_Port='COM5', BaudRate=460800, timeout=1, controllerProfile="New") #initialize soft grasper
+# GC = GantryController(comport = "COM4",homeSystem = False, initPos=[0,0,0])#, homeSystem = False,initPos=[0,0,0]  #initialize gantry controller
+# jcSG = JC.Joy_SoftGrasper(SGa=SG, GantryS=GC) #initialize joystick control of soft grasper and gantry controller
+#
 
 async def HardwareInitialize():
-    global SG, GC, jcSG
+    global SG, GC, jcSG, SNSc
     SG = SoftGrasper(COM_Port='COM5', BaudRate=460800, timeout=1, controllerProfile="New") #initialize soft grasper
     GC = GantryController(comport = "COM4",homeSystem = False, initPos=[0,0,0])#, homeSystem = False,initPos=[0,0,0]  #initialize gantry controller
     jcSG = JC.Joy_SoftGrasper(SGa=SG, GantryS=GC) #initialize joystick control of soft grasper and gantry controller
@@ -38,8 +39,8 @@ async def program_loop():
                 GC.calculateIncrementalMove(*posInc) #will set the GC.goalPos with the appropriate increments
 
             else: #SNS control
-                object_position_list=[0,0,-0.305]
-                target_position_list = [0,0,-0.310]
+                object_position_list=[0,0,-0.185]
+                target_position_list = [0,0,-0.190]
                 curPos = GC.getPosition() #get current position, in millimeters relative to offset
 
                 grasperPosition = Point(curPos.x/1000,curPos.y/1000,curPos.z/1000) #convert to meters
@@ -48,7 +49,7 @@ async def program_loop():
                 grasperContact = [(x - pressureThreshold[i])*5 if x >= pressureThreshold[i] else 0 for (i, x) in
                                enumerate(SG.changeInPressure)]
 
-                grasperContact = GrasperContactForce(grasperContact)
+                grasperContact = GrasperContactForce(*grasperContact)
 
 
                 commandPosition_m, JawRadialPos_m = SNSc.SNS_forward(grasperPos_m=grasperPosition,
@@ -95,7 +96,7 @@ async def program_loop():
 async def start_Program():
     await HardwareInitialize()
     await program_loop()
-    await sio.wait()
+    #await sio.wait()
 
 
 

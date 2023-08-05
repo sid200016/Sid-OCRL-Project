@@ -120,7 +120,7 @@ class Gantry:
 
             #Check if still in motion
             commandedPos = Point(Xcom*1000,Ycom*1000,Zcom*1000)
-            inMotionBool = self.inMotion(currentPosition=Point(*positionArray),commandedPosition = commandedPos)
+            inMotionBool = self.InMotionCheck(currentPosition=Point(*positionArray),commandedPosition = commandedPos)
 
             #Check if at goal
             atGoalBool = self.atGoalCheck(currentPosition= Point(*positionArray), goalPosition = self.goalPos)
@@ -144,7 +144,8 @@ class Gantry:
         return (truthValue,distanceval)
 
     def InMotionCheck(self,currentPosition: Point, commandedPosition: Point): #true if still in motion, false if not moving
-        MotionBool, distanceval = not(self.CheckPositionToReference(currentPosition,commandedPosition,self.GoalTolerance_mm)) #negate result because if still in motion, it is outside the commanded
+        MotionBool, distanceval = (self.CheckPositionToReference(currentPosition,commandedPosition,self.GoalTolerance_mm)) #negate result because if still in motion, it is outside the commanded
+        MotionBool = not(MotionBool)
         self.inMotion = MotionBool
         return(MotionBool)
 

@@ -1,0 +1,113 @@
+.attempts-remaining {
+  top: 83.06%;
+  left: 58.28%;
+}
+
+.attempts {
+  position: absolute;
+  height: 4.78%;
+  width: 35.48%;
+  top: 88.87%;
+  right: 6.27%;
+  bottom: 6.36%;
+  left: 58.25%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.attempt {
+  width: 8.3%;
+  height: 100%;
+  background: #775489;
+}
+
+.grasper-icon {
+  position: absolute;
+  top: 11.85%;
+}
+
+.slider-l-label {
+  position: absolute;
+  top: 49%;
+  left: 10%;
+
+  display: flex;
+  justify-content: right;
+}
+
+.slider-r-label {
+  position: absolute;
+  top: 49%;
+  right: 10%;
+
+  display: flex;
+  justify-content: left;
+}
+
+.background {
+  right: 0;
+  bottom: 0;
+  border-radius: 12px;
+  background-color: var(--color-peachpuff);
+}
+
+.mybutton {
+  position: absolute;
+  top: 725px;
+  left: 1394px;
+  width: 121px;
+  height: 74px;
+  text-align: center;
+  color: var(--color-darkslateblue);
+}
+
+.sliders {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  width: 94%;
+
+  position: absolute;
+  bottom: 0;
+}
+
+.slider-l,
+.slider-r {
+  position: absolute;
+  top: 47.7%;
+  width: 341px;
+  height: 171px;
+}
+
+.slider-l {
+  left: 10.4%;
+}
+
+.slider-l .value {
+  left: 0;
+}
+
+.slider-r {
+  right: 10.4%;
+}
+
+.slider-l .value {
+  right: 0;
+}
+
+.dual-grasper-participant {
+  position: relative;
+  width: 100%;
+  height: 1080px;
+  overflow: hidden;
+  text-align: left;
+  font-size: var(--font-size-17xl);
+  color: var(--color-white);
+  font-family: var(--font-inter);
+}

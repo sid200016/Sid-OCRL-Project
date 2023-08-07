@@ -5,8 +5,8 @@ import time
 
 from GUI.EmbeddedSystems.SoftGrasper.SoftGrasper import PortActions
 from GUI.EmbeddedSystems.SoftGrasper.SoftGrasper import SoftGrasper
-from GUI.EmbeddedSystems.Gantry.GantryController import Gantry as GantryController
-import GUI.EmbeddedSystems.JoyCon.JoyCon as JC
+#from GUI.EmbeddedSystems.Gantry.GantryController import Gantry as GantryController
+#import GUI.EmbeddedSystems.JoyCon.JoyCon as JC
 
 SG  = None #soft grasper
 GC = None #gantry controller
@@ -56,8 +56,8 @@ async def gantryPosition(data):
     latency = time.time()
     print('Time is {0:.2f} ms'.format(latency * 1000))
     print(data)
-    GC.goalPos = [data['x'], data['y'], GC.goalPos[2]] #x and y positions come from screen, z position is kept from the joystick
-    print("GoalPos changed in Gantry Position: " + ','.join([str(x) for x in GC.goalPos]))
+    #GC.goalPos = [data['x'], data['y'], GC.goalPos[2]] #x and y positions come from screen, z position is kept from the joystick
+    #print("GoalPos changed in Gantry Position: " + ','.join([str(x) for x in GC.goalPos]))
 
 @sio.on('soft grasper commands')
 async def softGrasperCommands(data):
@@ -80,9 +80,9 @@ async def softGrasperCommands(data):
 
 async def HardwareInitialize():
     global SG, GC, jcSG
-    SG = SoftGrasper(COM_Port='COM5', BaudRate=460800, timeout=1, controllerProfile="New") #initialize soft grasper
-    GC = GantryController(comport = "COM4",homeSystem = False, initPos=[0,0,0])#, homeSystem = False,initPos=[0,0,0]  #initialize gantry controller
-    jcSG = JC.Joy_SoftGrasper(SGa=SG, GantryS=GC) #initialize joystick control of soft grasper and gantry controller
+    SG = SoftGrasper(COM_Port='COM4', BaudRate=460800, timeout=1, controllerProfile="New") #initialize soft grasper
+    #GC = GantryController(comport = "COM4",homeSystem = False, initPos=[0,0,0])#, homeSystem = False,initPos=[0,0,0]  #initialize gantry controller
+    #jcSG = JC.Joy_SoftGrasper(SGa=SG, GantryS=GC) #initialize joystick control of soft grasper and gantry controller
 
 async def program_loop():
     global SG, GC, jcSG, updatedSoftGrasper
@@ -90,12 +90,12 @@ async def program_loop():
     #await sio.emit('soft grasper commands', 'Soft Grasper Commands')
     try:
         while(True):
-            [buttonVal, AxesPos] = jcSG.eventLoop()  # run event loop to determine what values and axes to execute
-            jcSG.ExecuteButtonFunctions(buttonVal,
-                                        AxesPos)  # execute Button functions defined by the button values and axes positions
-            posInc,feedrate_mmps = jcSG.calcPositionIncrement(AxesPos[0], AxesPos[1])  # get the joystick position for x, y and z, corrected for the flip on the x axis
-            GC.calculateIncrementalMove(*posInc) #will set the GC.goalPos with the appropriate increments
-            GC.setXYZ_Position(*GC.goalPos,feedrate_mmps*60)  # absolute move of the gantry
+            # [buttonVal, AxesPos] = jcSG.eventLoop()  # run event loop to determine what values and axes to execute
+            # jcSG.ExecuteButtonFunctions(buttonVal,
+            #                             AxesPos)  # execute Button functions defined by the button values and axes positions
+            # posInc,feedrate_mmps = jcSG.calcPositionIncrement(AxesPos[0], AxesPos[1])  # get the joystick position for x, y and z, corrected for the flip on the x axis
+            # GC.calculateIncrementalMove(*posInc) #will set the GC.goalPos with the appropriate increments
+            # GC.setXYZ_Position(*GC.goalPos,feedrate_mmps*60)  # absolute move of the gantry
 
             SG.MoveGrasper()  # jcRG.executeButtonFunctions should update SGa with the the pressures, this command sends the appropriate commands to the grasper over serial
 
@@ -104,11 +104,12 @@ async def program_loop():
                 print("UPDATED Soft Grasper has happened")
                 updatedSoftGrasper = False
             # Rumble feedback based on pressure change
-            pressureThreshold = [0.4, 0.4,
-                                 0.4]  # change in pressure threshold in psi above which to register changes in pressure
-            rumbleValue = [(x - pressureThreshold[i]) / 1.5 if x >= pressureThreshold[i] else 0 for (i, x) in
-                           enumerate(SG.changeInPressure)]
-            jcSG.rumbleFeedback(max(rumbleValue), max(rumbleValue), 1000)
+
+            # pressureThreshold = [0.4, 0.4,
+            #                      0.4]  # change in pressure threshold in psi above which to register changes in pressure
+            # rumbleValue = [(x - pressureThreshold[i]) / 1.5 if x >= pressureThreshold[i] else 0 for (i, x) in
+            #                enumerate(SG.changeInPressure)]
+            # jcSG.rumbleFeedback(max(rumbleValue), max(rumbleValue), 1000)
 
 
 

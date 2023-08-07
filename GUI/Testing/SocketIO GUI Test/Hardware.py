@@ -3,10 +3,10 @@ import socketio
 
 import time
 
-from GUI.EmbeddedSystems.SoftGrasper.SoftGrasper import PortActions
-from GUI.EmbeddedSystems.SoftGrasper.SoftGrasper import SoftGrasper
-from GUI.EmbeddedSystems.Gantry.GantryController import Gantry as GantryController
-import GUI.EmbeddedSystems.JoyCon.JoyCon as JC
+from EmbeddedSystems.SoftGrasper.SoftGrasper import PortActions
+from EmbeddedSystems.SoftGrasper.SoftGrasper import SoftGrasper
+from EmbeddedSystems.Gantry.GantryController import Gantry as GantryController
+import EmbeddedSystems.JoyCon.JoyCon as JC
 
 SG  = None #soft grasper
 GC = None #gantry controller
@@ -127,7 +127,7 @@ async def program_loop():
 
 async def start_Program():
     await HardwareInitialize()
-    await sio.connect('http://localhost:8000')
+    await sio.connect('http://localhost:5000')
     await program_loop()
     await sio.wait()
 

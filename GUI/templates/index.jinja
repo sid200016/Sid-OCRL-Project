@@ -5,7 +5,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
         <script>
             let users = {};
-            let attempts = []
+            let attempts = [];
 
             const attempt_colors = {
                 'success': '#159F20',
@@ -622,6 +622,11 @@
             }) 
 
             // *************************************
+            function choose_random_object(target, test){
+                let n = Math.floor(9 * Math.random());
+                let item = document.getElementById('item' + n.toString() + '-' + target + '-' + test);
+                item.src = "static/public/attempt-target.svg";
+            }
 
             function item_event_selection(test){
                 for (let row = 0; row < 3; row++){

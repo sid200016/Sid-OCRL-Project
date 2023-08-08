@@ -592,6 +592,7 @@
                 socket.emit("gantry-move", {x: gx, y: gy});
             }
             gantry.addEventListener("mousedown", function() {
+                emit_gantry_data();
                 gantry.addEventListener("mousemove", emit_gantry_data)
             }) 
             gantry.addEventListener("mouseup", function() {

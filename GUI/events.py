@@ -96,7 +96,7 @@ def handle_stiffness_change(val):
 
 @socketio.on("power-change")
 def handle_power_change(val):
-    print(val)
+    print('power: ' + str(val))
     socketio.emit('soft grasper commands', {'grasper_l': val})
     #SGa.AbsoluteMove(closureIncrement_mm = float(val)*20/100, jawIncrement_psi = [0,0,0])
     #SGa.MoveGrasper()

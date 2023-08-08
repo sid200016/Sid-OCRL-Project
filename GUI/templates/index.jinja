@@ -319,21 +319,21 @@
 
                 <div class="sliders">
                 <div class="h-slider">
-                    <input type="range" id="range" orient="horizontal" step="0.1"/>
+                    <input class="range" type="range" id="slider-damping" orient="horizontal" step="0.1"/>
                     <div class="label">
                     <h1 class="value">76%</h1>
                     <h2>Damping</h2>
                     </div>
                 </div>
                 <div class="h-slider">
-                    <input type="range" id="range" orient="horizontal" step="0.1"/>
+                    <input class="range" type="range" id="slider-stiffness" orient="horizontal" step="0.1"/>
                     <div class="label">
                     <h1 class="value">76%</h1>
                     <h2>Stiffness</h2>
                     </div>
                 </div>
                 <div class="h-slider">
-                    <input type="range" id="range" orient="horizontal" step="0.1"/>
+                    <input class="range" type="range" id="slider-power" orient="horizontal" step="0.1"/>
                     <div class="label">
                     <h1 class="value">76%</h1>
                     <h2>Power</h2>
@@ -606,7 +606,7 @@
             let slider_stiffness = document.getElementById("slider-stiffness")
             let slider_power = document.getElementById("slider-power")
 
-            /*slider_damping.addEventListener("change", function() {
+            slider_damping.addEventListener("change", function() {
                 socket.emit("damping-change", slider_damping.value);
                 console.log(slider_damping.value)
             })
@@ -618,7 +618,7 @@
             slider_power.addEventListener("change", function() {
                 socket.emit("power-change", slider_power.value);
                 console.log(slider_power.value)
-            }) */
+            }) 
 
             // *************************************
 

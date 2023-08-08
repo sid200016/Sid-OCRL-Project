@@ -596,6 +596,7 @@
                 gantry.addEventListener("mousemove", emit_gantry_data)
             }) 
             gantry.addEventListener("mouseup", function() {
+                emit_gantry_data();
                 gantry.removeEventListener("mousemove", emit_gantry_data)
             })
             gantry.addEventListener("mouseout", function() {

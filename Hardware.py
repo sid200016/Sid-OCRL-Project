@@ -81,7 +81,7 @@ async def softGrasperCommands(data):
 async def HardwareInitialize():
     global SG, GC, jcSG
     SG = SoftGrasper(COM_Port='COM5', BaudRate=460800, timeout=1, controllerProfile="New") #initialize soft grasper
-    GC = GantryController(comport = "COM4",homeSystem = False, initPos=[0,0,0])#, homeSystem = False,initPos=[0,0,0]  #initialize gantry controller
+    GC = GantryController(comport = "COM4",homeSystem = True)#, homeSystem = False,initPos=[0,0,0]  #initialize gantry controller
     jcSG = JC.Joy_SoftGrasper(SGa=SG, GantryS=GC) #initialize joystick control of soft grasper and gantry controller
 
 async def program_loop():

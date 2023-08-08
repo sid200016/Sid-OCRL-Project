@@ -21,6 +21,7 @@
             }
             
         </style>
+        <link rel="stylesheet" href="{{ url_for('static', filename='waiting-to-proceed.css') }}" />
         <link rel="stylesheet" href="{{ url_for('static', filename='survey-link-PARTICIPANT.css') }}" />
         <link rel="stylesheet" href="{{ url_for('static', filename='landing-PROCTOR.css') }}" />
         <link rel="stylesheet" href="{{ url_for('static', filename='dual-grasper-PARTICIPANT.css') }}" />
@@ -196,7 +197,7 @@
         </div>
 
         {# *** soft grasper *** #}
-        <div class="soft-grasper-proctor" id="soft-grasper-PROCTOR" style="display: none">
+        <div class="soft-grasper-proctor" id="soft-grasper-proc" style="display: none">
             <div class="gantry-space">
 
                 {# gantry curr position #}
@@ -216,13 +217,13 @@
                 {% for row in range(3) %}
                     {% for col in range(3) %}
                         {% set n = row * 3 + col %}
-                        {% set name = 'item' + n|string + '-proc' %}
-                        {% set menu_name = 'item-menu' + n|string %}
+                        {% set name = 'item' + n|string + '-proc-soft' %}
+                        {% set menu_name = 'item-menu' + n|string + '-soft' %}
 
-                        {% set success = 'success' + n|string %}
-                        {% set fail = 'fail' + n|string %}
-                        {% set inprogress = 'inprogress' + n|string %}
-                        {% set broken = 'broken' + n|string %}
+                        {% set success = 'success' + n|string + '-soft' %}
+                        {% set fail = 'fail' + n|string + '-soft' %}
+                        {% set inprogress = 'inprogress' + n|string + '-soft' %}
+                        {% set broken = 'broken' + n|string + '-soft' %}
 
                         <div class="item" style="grid-row: {{row+1}} / {{row+2}}; grid-column: {{col+1}} / {{col+2}}">
                             <img class="item-icon" id="{{ name }}" alt="" src="{{ url_for('static', filename='public/no-attempt.svg') }}" />
@@ -262,17 +263,17 @@
                 </div>
             </div>
 
-            <h class="attempts-remaining" id="attempts-remaining-proc">12 attempts remaining</h>
+            <h class="attempts-remaining" id="attempts-remaining-proc-soft">10 attempts remaining</h>
             <div class="attempts">
                 {% for i in range(10) %}
-                    {% set attempt = 'attempt' + i|string + '-proc' %}
+                    {% set attempt = 'attempt' + i|string + '-proc-soft' %}
                     <div class="attempt" id="{{ attempt }}" style="left: {{ 8.33 * i }}%;"></div>
                 {% endfor %}
             </div>
 
         </div>
 
-        <div class="soft-grasper-participant" id="soft-grasper-PARTICIPANT" style="display: none">
+        <div class="soft-grasper-participant" id="soft-grasper-part" style="display: none">
 
             <div class="gantry-space">
 
@@ -293,7 +294,7 @@
                 {% for row in range(3) %}
                     {% for col in range(3) %}
                     {% set n = row * 3 + col %}
-                    {% set name = 'item' + n|string  + '-part'%}
+                    {% set name = 'item' + n|string  + '-part-soft'%}
                     <div class="item" style="grid-row: {{row+1}} / {{row+2}}; grid-column: {{col+1}} / {{col+2}}">
                         <img class="item-icon" id="{{ name }}" alt="" src="{{ url_for('static', filename='public/no-attempt.svg') }}" />
                     </div>
@@ -341,14 +342,181 @@
                 </div>
             </div>
 
-            <h class="attempts-remaining" id="attempts-remaining-part">12 attempts remaining</h>
+            <h class="attempts-remaining" id="attempts-remaining-part-soft">10 attempts remaining</h>
             <div class="attempts">
                 {% for i in range(10) %}
-                    {% set attempt = 'attempt' + i|string + '-part'%}
+                    {% set attempt = 'attempt' + i|string + '-part-soft'%}
                     <div class="attempt" id="{{ attempt }}" style="left: {{ 8.33 * i }}%;"></div>
                 {% endfor %}
             </div>
 
+        </div>
+
+        {# waiting to procees #}
+
+        <div class="waiting-proctor" id="waiting-proc" style="display: none">
+            <div class="text"></div>
+            <div class="waiting-to-proceed-child"></div>
+            <div class="you-have-completed">
+                Click anywhere on the screen to begin Test 2
+            </div>
+            <div class="congratulations">Test 1 Has Ended</div>
+        </div>
+
+        <div class="waiting-participant" id="waiting-part" style="display: none">
+            <div class="text"></div>
+            <div class="waiting-to-proceed-child"></div>
+            <div class="you-have-completed">
+                You have completed Test 1, please wait for further instructions.
+            </div>
+            <div class="congratulations">Congratulations</div>
+        </div>
+
+
+        {# rigid grasper #}
+
+        <div class="rigid-grasper-proctor" id="rigid-grasper-proc" style="display: none">
+            <div class="gantry-space">
+
+                {# gantry curr position #}
+                <img 
+                id="gantry-marker" 
+                alt="" 
+                src="{{ url_for('static', filename='/public/gantry.svg') }}" 
+                />
+
+                <img 
+                class="goal"
+                alt=""
+                src="{{ url_for('static', filename='/public/goal.png') }}" 
+                />
+
+                <div class="item-grid">
+                {% for row in range(3) %}
+                    {% for col in range(3) %}
+                        {% set n = row * 3 + col %}
+                        {% set name = 'item' + n|string + '-proc-rigid' %}
+                        {% set menu_name = 'item-menu' + n|string + '-rigid' %}
+
+                        {% set success = 'success' + n|string + '-rigid' %}
+                        {% set fail = 'fail' + n|string + '-rigid' %}
+                        {% set inprogress = 'inprogress' + n|string + '-rigid' %}
+                        {% set broken = 'broken' + n|string + '-rigid' %}
+
+                        <div class="item" style="grid-row: {{row+1}} / {{row+2}}; grid-column: {{col+1}} / {{col+2}}">
+                            <img class="item-icon" id="{{ name }}" alt="" src="{{ url_for('static', filename='public/no-attempt.svg') }}" />
+                        </div>
+
+                        <div class="item-menu" id="{{ menu_name }}" style="grid-row: {{row+1}} / {{row+2}}; grid-column: {{col+1}} / {{col+2}}; z-index: 100; display: none">
+                            <button><img id="{{ success }}" src="{{ url_for('static', filename='public/attempt-success.svg') }}"/></button>
+                            <button><img id="{{ fail }}" src="{{ url_for('static', filename='public/attempt-fail.svg') }}"/></button>
+                            <button><img id="{{ inprogress }}" src="{{ url_for('static', filename='public/attempt-inprogress.svg') }}"/></button>
+                            <button><img id="{{ broken }}" src="{{ url_for('static', filename='public/attempt-broken.svg') }}"/></button>
+                        </div>
+
+                    {% endfor %}
+                {% endfor %}
+                </div>
+
+            </div>
+
+            <div class="grasper-controls">
+                <h style="top: 3%;">Grasper</h>
+
+                <img 
+                class="grasper-icon" 
+                alt="" 
+                src="{{ url_for('static', filename='/public/rigid-grasper.svg') }}" 
+                style="width: 63%"
+                />
+
+                <div class="sliders" style="bottom: 7%">
+                    <div class="h-slider">
+                        <input type="range" id="range" orient="horizontal" step="0.1"/>
+                        <div class="label">
+                        <h1 class="value">76%</h1>
+                        <h2>Contact Force</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h class="attempts-remaining" id="attempts-remaining-proc-rigid">10 attempts remaining</h>
+            <div class="attempts">
+                {% for i in range(10) %}
+                    {% set attempt = 'attempt' + i|string + '-proc-rigid' %}
+                    <div class="attempt" id="{{ attempt }}" style="left: {{ 8.33 * i }}%;"></div>
+                {% endfor %}
+            </div>
+
+        </div>
+
+
+        <div class="rigid-grasper-part" id="rigid-grasper-part" style="display: none">
+            <div class="gantry-space" id="gantry-space-rigid">
+
+            {# gantry curr position #}
+            <img 
+            id="gantry-marker" 
+            alt="" 
+            src="{{ url_for('static', filename='/public/gantry.svg') }}" 
+            />
+
+            <img 
+            class="goal"
+            alt=""
+            src="{{ url_for('static', filename='/public/goal.png') }}" 
+            />
+
+            <div class="item-grid">
+                {% for row in range(3) %}
+                    {% for col in range(3) %}
+                    {% set n = row * 3 + col %}
+                    {% set name = 'item' + n|string  + '-part'%}
+                    <div class="item" style="grid-row: {{row+1}} / {{row+2}}; grid-column: {{col+1}} / {{col+2}}">
+                        <img class="item-icon" id="{{ name }}-rigid" alt="" src="{{ url_for('static', filename='public/no-attempt.svg') }}" />
+                    </div>
+                    {% endfor %}
+                {% endfor %}
+             </div>
+       
+            <svg class="slider-2d" width="840" height="840" style="z-index: 100"></svg>
+
+            </div>
+        
+            <div class="grasper-controls">
+                <h style="top: 3%;">Grasper</h>
+
+                <img 
+                class="grasper-icon" 
+                alt="" 
+                src="{{ url_for('static', filename='/public/rigid-grasper.svg') }}" 
+                />
+
+                <div class="v-slider slider-l">
+                <input type="range" id="range" orient="vertical" step="0.1"/>
+                <div class="label">
+                    <h1 class="value">76%</h1>
+                    <h2>power</h2>
+                </div>
+                </div>
+                <div class="v-slider slider-r">
+                <input type="range" id="range" orient="vertical" step="0.1"/>
+                <div class="label">
+                    <h1 class="value">76%</h1>
+                    <h2>power</h2>
+                </div>
+                </div>
+            </div>
+
+
+            <h class="attempts-remaining" id="attempts-remaining-part-rigid">10 attempts remaining</h>
+            <div class="attempts">
+                {% for i in range(10) %}
+                    {% set attempt = 'attempt' + i|string + '-part-rigid' %}
+                    <div class="attempt" id="{{ attempt }}" style="left: {{ 8.33 * i }}%;"></div>
+                {% endfor %}
+            </div>
         </div>
 
         <script>
@@ -388,28 +556,49 @@
             /**** landing -> soft grasper ****/
             document.getElementById("done").addEventListener("click", function() {
 
+                let id_code = document.getElementById('id-code').value
+                let age = document.getElementById('age').value
+                let gender = document.getElementById('gender').value
+
+                let item_types = [];
+                for (let i = 0; i < 9; i++){
+                    let item_type = document.getElementsByName('type' + i.toString())[0].value;
+                    item_types.push(item_type);
+                }
+
+                let user_data = {id_code: id_code, age: age, gender: gender, item_types: item_types};
+
                 document.getElementById("landing-PROCTOR").style.display = "none";
-                document.getElementById("soft-grasper-PARTICIPANT").style.display = "none";
-                document.getElementById("soft-grasper-PROCTOR").style.display = "block";
+                document.getElementById("soft-grasper-part").style.display = "none";
+                document.getElementById("soft-grasper-proc").style.display = "block";
 
                 document.getElementById("range").disabled = true; 
 
-                socket.emit("info-done");
+                socket.emit("info-done", user_data);
 
             })
 
             socket.on("goto-action", function(){
                 document.getElementById("landing-PARTICIPANT").style.display = "none";
-                document.getElementById("soft-grasper-PARTICIPANT").style.display = "block";
+                document.getElementById("soft-grasper-part").style.display = "block";
             })
             
 
             let gantry = document.getElementById("slider-2d")
-            gantry.addEventListener("mousedown", function() {
+            function emit_gantry_data() {
                 console.log('slider-2d');
                 let gx = gantry.lastChild.getAttribute("cx")
                 let gy = gantry.lastChild.getAttribute("cy")
                 socket.emit("gantry-move", {x: gx, y: gy});
+            }
+            gantry.addEventListener("mousedown", function() {
+                gantry.addEventListener("mousemove", emit_gantry_data)
+            }) 
+            gantry.addEventListener("mouseup", function() {
+                gantry.removeEventListener("mousemove", emit_gantry_data)
+            })
+            gantry.addEventListener("mouseout", function() {
+                gantry.removeEventListener("mousemove", emit_gantry_data)
             })
 
             let slider_damping = document.getElementById("slider-damping")
@@ -432,50 +621,55 @@
 
             // *************************************
 
-            for (let row = 0; row < 3; row++){
-                for (let col = 0; col < 3; col++){
-                    (function () {
-                        let n = row * 3 + col;
-                        let curr_item = document.getElementById("item" + n.toString() + '-proc');
-                        let curr_menu = document.getElementById("item-menu" + n.toString());
-                        curr_item.addEventListener("mouseover", function() {
-                            curr_menu.style.display = "flex";
-                        })
+            function item_event_selection(test){
+                for (let row = 0; row < 3; row++){
+                    for (let col = 0; col < 3; col++){
+                        (function () {
+                            let n = row * 3 + col;
+                            let curr_item = document.getElementById("item" + n.toString() + '-proc' + '-' + test);
+                            let curr_menu = document.getElementById("item-menu" + n.toString() + '-' + test);
+                            curr_item.addEventListener("mouseover", function() {
+                                curr_menu.style.display = "flex";
+                            })
 
-                        let success = document.getElementById("success" + n.toString());
-                        let fail = document.getElementById("fail" + n.toString());
-                        let inprogress = document.getElementById("inprogress" + n.toString());
-                        let broken = document.getElementById("broken" + n.toString());
+                            let success = document.getElementById("success" + n.toString() + '-' + test);
+                            let fail = document.getElementById("fail" + n.toString() + '-' + test);
+                            let inprogress = document.getElementById("inprogress" + n.toString() + '-' + test);
+                            let broken = document.getElementById("broken" + n.toString() + '-' + test);
 
-                        success.addEventListener("click", function() {
-                            socket.emit("item-event", {'n': n, 'typ': 'success', att: attempts});
-                        })
-                        fail.addEventListener("click", function() {
-                            socket.emit("item-event", {'n': n, 'typ': 'fail', att: attempts});
-                        })
-                        inprogress.addEventListener("click", function() {
-                            socket.emit("item-event", {'n': n, 'typ': 'inprogress', att: attempts});
-                        })
-                        broken.addEventListener("click", function() {
-                            socket.emit("item-event", {'n': n, 'typ': 'broken', att: attempts});
-                        })
+                            success.addEventListener("click", function() {
+                                socket.emit("item-event", {'n': n, 'typ': 'success', att: attempts, test: test});
+                            })
+                            fail.addEventListener("click", function() {
+                                socket.emit("item-event", {'n': n, 'typ': 'fail', att: attempts, test: test});
+                            })
+                            inprogress.addEventListener("click", function() {
+                                socket.emit("item-event", {'n': n, 'typ': 'inprogress', att: attempts, test: test});
+                            })
+                            broken.addEventListener("click", function() {
+                                socket.emit("item-event", {'n': n, 'typ': 'broken', att: attempts, test: test});
+                            })
 
-                        curr_menu.addEventListener("mouseleave", function() {
-                            curr_menu.style.display = "none";
-                        })
-                    }());
+                            curr_menu.addEventListener("mouseleave", function() {
+                                curr_menu.style.display = "none";
+                            })
+                        }());
 
+                    }
                 }
             }
 
-            function update_events(data, target) {
+            item_event_selection('soft');
+            item_event_selection('rigid');
+
+            function update_events(data, target, test) {
                 console.log(target);
 
                 let att = data['att'];
                 let typ = data['typ'];
                 let n = data['n'];
 
-                document.getElementById("item" + n.toString() + '-' + target).src = "static/public/attempt-" + typ + ".svg";
+                document.getElementById("item" + n.toString() + '-' + target + '-' + test).src = "static/public/attempt-" + typ + ".svg";
 
                 if (att.length > 0 && att[att.length-1] == 'inprogress'){
                     attempts[attempts.length-1] = typ;
@@ -484,24 +678,79 @@
                 }
 
                 let attempts_made = attempts.length;
-                let attempt_marker = document.getElementById('attempt'+(attempts_made-1).toString()+ '-' + target);
+                let attempt_marker = document.getElementById('attempt'+(attempts_made-1).toString()+ '-' + target + '-' + test);
                 attempt_marker.style.background = attempt_colors[typ];
 
-                attempts_remaining = document.getElementById("attempts-remaining-" + target);
-                attempts_remaining.innerHTML = (12 - attempts_made).toString() + ' attempts remaining';
+                attempts_remaining = document.getElementById("attempts-remaining-" + target + '-' + test);
+                attempts_remaining.innerHTML = (10 - attempts_made).toString() + ' attempts remaining';
+
+                let all_success = false;
+                if (attempts.length >= 9) {
+                    all_success = true;
+                    for (let i = 0; i < attempts.length; i++){
+                        if (attempts[i] != 'success'){
+                            all_success = false;
+                        }
+                    }
+                }
+                if (10 - attempts_made == 0 || all_success) {
+                    if (test == 'soft'){
+                        document.getElementById("soft-grasper-" + target).style.display = "none";
+                        document.getElementById("waiting-" + target).style.display = "block";
+                        let soft_attempts = attempts;
+                        attempts = [];
+                    } else if (test == 'rigid') {
+                        document.getElementById("rigid-grasper-" + target).style.display = "none";
+                        document.getElementById("results-" + target).style.display = "block";
+
+                    }
+                }
 
             }
 
-            function update_event_proc(data){
-                update_events(data, 'proc');
+            /*socket.on("goto-waiting", function() {
+                document.getElementById("soft-grasper-" + target).style.display = "none";
+                document.getElementById("waiting-" + target).style.display = "block";
+            })*/
+
+            function update_event_proc_soft(data){
+                update_events(data, 'proc', 'soft');
             }
 
-            function update_event_part(data){
-                update_events(data, 'part');
+            function update_event_part_soft(data){
+                update_events(data, 'part', 'soft');
             }
 
-            socket.on("update-events-proctor", update_event_proc);
-            socket.on("update-events-participant", update_event_part);
+            function update_event_proc_rigid(data){
+                update_events(data, 'proc', 'rigid');
+            }
+
+            function update_event_part_rigid(data){
+                update_events(data, 'part', 'rigid');
+            }
+
+            socket.on("update-events-proctor-soft", update_event_proc_soft);
+            socket.on("update-events-participant-soft", update_event_part_soft);
+            socket.on("update-events-proctor-rigid", update_event_proc_rigid);
+            socket.on("update-events-participant-rigid", update_event_part_rigid);
+
+            /**** waiting -> rigid grasper ****/
+            document.getElementById("waiting-proc").addEventListener("click", function() {
+
+                document.getElementById("waiting-proc").style.display = "none";
+                document.getElementById("rigid-grasper-proc").style.display = "block";
+
+                document.getElementById("range").disabled = true; 
+
+                socket.emit("waiting-done");
+
+            })
+
+            socket.on("goto-rigid", function() {
+                document.getElementById("waiting-part").style.display = "none";
+                document.getElementById("rigid-grasper-part").style.display = "block";
+
+            })
             
         </script>
     </body>

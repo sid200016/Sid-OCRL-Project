@@ -1,5 +1,6 @@
 from flask import request, redirect, url_for, session
 from flask_socketio import emit, join_room
+import csv
 
 # import EmbeddedSystems.Gantry.GantryController as GC
 # import EmbeddedSystems.RigidGrasper.RigidGrasper as RG
@@ -9,7 +10,6 @@ from .extensions import socketio
 
 users = {}
 page = 'setup'
-print('events ran')
 
 # Gantry / Grasper setup
 #SGa = SG.SoftGrasper(COM_Port = 'COM5',BaudRate=460800,timeout=1,controllerProfile="New") #soft grasper initialization
@@ -27,8 +27,8 @@ def mouse_to_mm(mouse_position):
 
 @socketio.on("proc-join")
 def handle_proc_join():
-    if 'proctor' in users:
-        return
+    # if 'proctor' in users:
+    #     return
     
     print("proctor joined")
     join_room('proctor')
@@ -36,18 +36,42 @@ def handle_proc_join():
 
 @socketio.on("part-join")
 def handle_part_join():
-    if 'participant' in users:
-        return
+    # if 'participant' in users:
+    #     return
     
     print("participant joined")
     join_room('participant')
-    page = 'landing'
 
 @socketio.on("info-done")
+def handle_info_done(user_data):
+
+    id_code = user_data['id_code'];
+    age = user_data['age'];
+    gender = user_data['gender'];
+    types = user_data['item_types'];
+
+    with open(f'./data_logs/{id_code}.csv', 'w', newline='') as file:
+        writer = csv.writer(file)
+        
+        writer.writerow(["id code", "age", "gender"])
+        writer.writerow([id_code, age, gender])
+        writer.writerow([])
+        writer.writerow([f'type{i}' for i in range(len(types))])
+        writer.writerow(types)
+
+    emit("goto-action", room='participant')
+
+# @socketio.on("test1-done")
+# def handle_info_done():
+#     # emit("goto-action-proc", to='proctor')
+#     emit("goto-waiting", room='participant')
+
+
+@socketio.on("waiting-done")
 def handle_info_done():
     # emit("goto-action-proc", to='proctor')
-    emit("goto-action", room='participant')
-    page = 'action-soft'
+    emit("goto-rigid", room='participant')
+
 
 @socketio.on("gantry-move")
 def handle_gantry_move(vals):
@@ -83,10 +107,11 @@ def handle_item_event_proctor(data):
     n = data['n']
     typ = data['typ']
     attempt = data['att']
+    test = data['test']
 
     print(f'item {n} is {typ}')
-    emit("update-events-proctor", {'n':n, 'typ': typ, 'att':attempt}, room="proctor")
-    emit("update-events-participant", {'n':n, 'typ': typ, 'att':attempt}, room="participant")
+    emit(f"update-events-proctor-{test}", {'n':n, 'typ': typ, 'att':attempt}, room="proctor")
+    emit(f"update-events-participant-{test}", {'n':n, 'typ': typ, 'att':attempt}, room="participant")
 
 
 # For hardware and grasper communication

@@ -5,6 +5,30 @@ from ..RigidGrasper import RigidGrasper as RG
 from ..SoftGrasper import SoftGrasper as SG
 from ..Support.Structures import Velocity
 
+import logging
+from datetime import datetime
+import sys
+
+
+##### Set up logging ####
+logger = logging.getLogger(__name__)
+fname = str(__name__)+datetime.now().strftime("_%d_%m_%Y_%H_%M_%S")
+
+fh = logging.FileHandler(fname) #file handler
+fh.setLevel(logging.DEBUG)
+
+ch = logging.StreamHandler(sys.stdout) #stream handler
+ch.setLevel(logging.ERROR)
+
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
+fh.setFormatter(formatter)
+ch.setFormatter(formatter)
+# add the handlers to the logger
+logger.addHandler(fh)
+logger.addHandler(ch)
+
+
 
 class Button:
 
@@ -83,10 +107,10 @@ class JoyCon:
                 #ax4 = joystick.get_axis(5)
 
 
-                print(",".join(buttonValues.keys()))
-                print(",".join([str(k) for k in buttonValues.values()]))
-                print("Analog Stick: horizontal, vertical")
-                print(str(horiz_move) + "," + str(vert_move))
+                logger.debug(",".join(buttonValues.keys()))
+                logger.debug(",".join([str(k) for k in buttonValues.values()]))
+                logger.debug("Analog Stick: horizontal, vertical")
+                logger.debug(str(horiz_move) + "," + str(vert_move))
                 #print(str(ax3) + "," + str(ax4))
 
         return(buttonValues,[horiz_move,vert_move]) #return the button press values and the analog stick values
@@ -236,9 +260,9 @@ class Joy_Gantry(JoyCon):
         posInc, feedrate_mmps = self.calcPositionIncrement(joy_horiz_axis,joy_vert_axis) #modify x and y positions for the joystick pos.  the z-axis should be modified from buttonR and buttonZR calls.  X axis on the joystick is inverted from +ve motion on the joystick so multiply by -1
 
         self.Gantry.incrementalMove(moveSpeed_mmps=feedrate_mmps, **{"move_x_mm":posInc[0],"move_y_mm":posInc[1],"move_z_mm":posInc[2]})
-        print("Joystick Pos:{0},{1}".format(joy_horiz_axis, joy_vert_axis))
-        print("Position increment:{0},{1},{2}".format(posInc[0], posInc[1], posInc[2]))
-        print("Current Gantry Position:{0},{1},{2}".format(self.Gantry.PositionArray["x"][-1],
+        logger.debug("Joystick Pos:{0},{1}".format(joy_horiz_axis, joy_vert_axis))
+        logger.debug("Position increment:{0},{1},{2}".format(posInc[0], posInc[1], posInc[2]))
+        logger.debug("Current Gantry Position:{0},{1},{2}".format(self.Gantry.PositionArray["x"][-1],
                                                            self.Gantry.PositionArray["y"][-1],
                                                            self.Gantry.PositionArray["z"][-1]))
 

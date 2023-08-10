@@ -7,8 +7,35 @@ import numpy as np
 import serial
 import math
 
+import logging
+from datetime import datetime
+import sys
+
 
 #########################################################
+
+##### Set up logging ####
+logger = logging.getLogger(__name__)
+fname = str(__name__)+datetime.now().strftime("_%d_%m_%Y_%H_%M_%S")
+
+fh = logging.FileHandler(fname) #file handler
+fh.setLevel(logging.DEBUG)
+
+ch = logging.StreamHandler(sys.stdout) #stream handler
+ch.setLevel(logging.ERROR)
+
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
+fh.setFormatter(formatter)
+ch.setFormatter(formatter)
+# add the handlers to the logger
+logger.addHandler(fh)
+logger.addHandler(ch)
+
+
+
+
+
 class PortActions(Enum):
     HOLD = 0 #Don't open any valves, maintain current pressure
     INFLATE = 1 #Open inflation valve and close vacuum valve. This will increase pressure in the Artificial Muscle.
@@ -52,6 +79,7 @@ class SoftGrasper:
         self.PressureArray = [[] for x in range(0, 12)]  # to store pressure values
         self.PrevJawPress = None  # list to hold the original Jaw Press
         self.JawPos = [8, 9, 11]  # position of pressure values that the jaws are at
+        self.closureMuscle_idx = 0 #index for the closure muscle
         self.changeInPressure = [0, 0, 0] # change in pressure in psi for the three jaws
 
         #Tx-Rx Information for New Protocol
@@ -94,14 +122,14 @@ class SoftGrasper:
         self.ser.write(byteFval)
 
     def WaitForTeensyInitialization(self):
-        print("Waiting for Arduino to initialize")
+        logger.info("Waiting for Arduino to initialize")
 
         FinishedInitialization = False
         while (not FinishedInitialization):
             msg = self.ser.readline()
             msg = msg.decode().rstrip()
             if msg == 'Teensy Ready!':
-                print("Soft Grasper Teensy Initialized!")
+                logger.info("Soft Grasper Teensy Initialized!")
                 FinishedInitialization = True
 
         return (FinishedInitialization)
@@ -114,7 +142,7 @@ class SoftGrasper:
             line = self.ser.readline()
             if line.decode().rstrip() == 'Jaws finished!':
                 WaitForJawsToInflate = False
-            print(line)
+            logger.debug(line)
 
 
     def ReadPressureVals(self):
@@ -122,14 +150,14 @@ class SoftGrasper:
         try:
             pVal = [float(x) for x in line.split(",")[1:]]
             if len(pVal)!=12:
-                print("Not enough pressure values:")
-                print(line)
+                logger.error("Not enough pressure values:")
+                logger.error(line)
             else:
                 for count,val in enumerate(pVal):
                     self.PressureArray[count].append(pVal[count])
 
         except Exception as e:
-            print("Error during read")
+            logger.exception("Error during read")
 
     def getJawChangePressureVals(self):
         if (len(self.PressureArray[self.JawPos[0]])<=2):
@@ -140,6 +168,7 @@ class SoftGrasper:
             #PrevJawPress= [self.PressureArray[x][-2] for x in self.JawPos]
             if self.PrevJawPress is None:
                 self.PrevJawPress=CurJawPress
+                logging.info('baseline Jaw pressure is '+str(self.PrevJawPress))
 
             ChangeInPressure = (np.array(CurJawPress)-np.array(self.PrevJawPress)).tolist()
             #return(ChangeInPressure)
@@ -147,14 +176,14 @@ class SoftGrasper:
 
     def IncrementalMove(self, closureIncrement_mm = 0, jawIncrement_psi = [0,0,0]):
         self.commandedPosition["ClosureChangeInRadius_mm"] = min(max(0,self.commandedPosition["ClosureChangeInRadius_mm"] + closureIncrement_mm),23)
-        print("Commanded Position in mm: "+str(self.commandedPosition["ClosureChangeInRadius_mm"] )) #for debug
+        logger.debug("Commanded Position in mm: "+str(self.commandedPosition["ClosureChangeInRadius_mm"] )) #for debug
         self.commandedPosition["Jaw1_psi"] = min(max(0,self.commandedPosition["Jaw1_psi"] + jawIncrement_psi[0]),2)
         self.commandedPosition["Jaw2_psi"] = min(max(0,self.commandedPosition["Jaw2_psi"] + jawIncrement_psi[1]),2)
         self.commandedPosition["Jaw3_psi"] = min(max(0,self.commandedPosition["Jaw3_psi"] + jawIncrement_psi[2]),2)
 
     def AbsoluteMove(self, closureIncrement_mm = 0, jawIncrement_psi = [0,0,0]):
         self.commandedPosition["ClosureChangeInRadius_mm"] = min(max(0, closureIncrement_mm),23)
-        print("Commanded Position in mm: "+str(self.commandedPosition["ClosureChangeInRadius_mm"] )) #for debug
+        logger.debug("Commanded Position in mm: "+str(self.commandedPosition["ClosureChangeInRadius_mm"] )) #for debug
         self.commandedPosition["Jaw1_psi"] = min(max(0, jawIncrement_psi[0]),2)
         self.commandedPosition["Jaw2_psi"] = min(max(0,jawIncrement_psi[1]),2)
         self.commandedPosition["Jaw3_psi"] = min(max(0, jawIncrement_psi[2]),2)
@@ -162,12 +191,12 @@ class SoftGrasper:
 
     def MoveGrasper_DEPRECATED(self):
         PVal = self.GetPressureFromPosition(self.commandedPosition["ClosureChangeInRadius_mm"])
-        print(PVal)
+        logger.debug(PVal)
         self.SendPressureCommand(PVal)
         self.ReadPressureVals()
 
         if len(self.PressureArray[0]) > 0:
-            print("Pressure val: " + str(self.PressureArray[0][-1]))
+            logger.debug("Pressure val: " + str(self.PressureArray[0][-1]))
 
 
         #ChP = SG.getJawChangePressureVals()
@@ -176,10 +205,10 @@ class SoftGrasper:
     def MoveGrasper(self):
         PVal = self.GetPressureFromPosition(self.commandedPosition["ClosureChangeInRadius_mm"]) #get the pressure value in psi
 
-        print("CommandedPressure: "+str(PVal))
+        logger.debug("CommandedPressure: "+str(PVal))
 
-        self.PressurePorts[0].portStatus = PortActions.INFLATE_AND_MODULATE
-        self.PressurePorts[0].commandedPressure = PVal #value in psi
+        self.PressurePorts[self.closureMuscle_idx].portStatus = PortActions.INFLATE_AND_MODULATE
+        self.PressurePorts[self.closureMuscle_idx].commandedPressure = PVal #value in psi
 
         self.PressurePorts[self.JawPos[0]].portStatus = PortActions.INFLATE_AND_STOP
         self.PressurePorts[self.JawPos[0]].commandedPressure = self.commandedPosition["Jaw1_psi"]  # value in psi
@@ -191,14 +220,14 @@ class SoftGrasper:
 
         byteList = self.ConstructPortCommand()
         numBytes = self.sendCommunicationArray(byteList=byteList)
-        print("Bytes sent:%i" % (numBytes))
+        logger.debug("Bytes sent:%i" % (numBytes))
 
         # read serial data
         self.readSerialData()
 
         ChP = self.getJawChangePressureVals()
         self.changeInPressure = ChP
-        print("Change in pressure: "+','.join([str(x) for x in ChP]))
+        logger.debug("Change in pressure: "+','.join([str(x) for x in ChP]))
 
 
 
@@ -296,15 +325,13 @@ class SoftGrasper:
 
                 if payload is not None:
                     if numBytes == len(payload):
-                        print('Payload matches the expected number of bytes')
+                        logger.info('Payload matches the expected number of bytes')
                         self.processData(protocolType, numBytes, payload)
 
                     else:
-                        print('Warning: Payload size does not match the expected number of bytes')
-                        print(payload)
-                        print('ProtocolType '+str(protocolType))
-                        print('NumBytes Expected: '+str(numBytes))
-                        print('Length of payload: ' + str(len(payload)))
+                        logger.error('Warning: Payload size does not match the expected number of bytes\n Protocol Type %s, Numbytes expected %s, Length of payload %s '%(str(protocolType),str(numBytes),str(len(payload))))
+                        logger.debug(payload)
+
 
 
 
@@ -332,7 +359,7 @@ class SoftGrasper:
 
         if protocolType is not None:
             match protocolType:
-                case 0:
+                case 0: #pressure values
                     len_payload = math.floor((len(payload)))
                     data=[struct.unpack('f', payload[x:x + 4])[0] for x in range(0, len_payload,4)] #for floats representing pressure values of each port
 
@@ -340,12 +367,12 @@ class SoftGrasper:
                     for count, val in enumerate(data):
                         self.PressureArray[count].append(data[count])
 
-                    print(data)
+                    logging.debug("Data for Case 0 (pressure values): " + ','.join([str(x) for x in data]))
 
 
-                case 1:
+                case 1: #strings
                     #for strings
-                    print(payload.decode())
+                    logging.debug("Payload Case 1 (strings): " + payload.decode())
 
 
                 case _:

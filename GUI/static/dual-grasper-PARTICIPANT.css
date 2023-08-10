@@ -20,9 +20,10 @@
   justify-content: space-between;
 }
 .attempt {
-  width: 8.3%;
+  width: inherit;
   height: 100%;
   background: #775489;
+  
 }
 
 .grasper-icon {

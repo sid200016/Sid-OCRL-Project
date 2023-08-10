@@ -1,29 +1,26 @@
-from flask import request, redirect, url_for, session
+from flask import request
 from flask_socketio import emit, join_room
 import csv
-
-# import EmbeddedSystems.Gantry.GantryController as GC
-# import EmbeddedSystems.RigidGrasper.RigidGrasper as RG
-#import GUI.EmbeddedSystems.SoftGrasper.SoftGrasper as SG
 
 from .extensions import socketio
 
 users = {}
 page = 'setup'
 
-# Gantry / Grasper setup
-#SGa = SG.SoftGrasper(COM_Port = 'COM5',BaudRate=460800,timeout=1,controllerProfile="New") #soft grasper initialization
-# GCa = GC.Gantry(comport = "COM4", homeSystem = True) #homeSystem = False, initPos=[0,0,0] )
-# RGa = RG.RigidGrasper(BAUDRATE = 57600, DEVICEPORT = "COM6", GoalPosition1=[1500,2000], GoalPosition2 = [2120,1620])
-
 def map(val, ilo, ihi, flo, fhi):
     return flo + ((fhi - flo) / (ihi - ilo)) * (val - ilo)
 
 def mouse_to_mm(mouse_position):
-    if mouse_position == None: return 0;
+    if mouse_position == None: return 0
 
     mouse_position = float(mouse_position)
     return int(map(mouse_position, 0, 860, -255, 255))
+
+def mm_to_mouse(mm_position):
+    if mm_position == None: return 0
+
+    mm_position = float(mm_position)
+    return int(map(mm_position, -255, 255, 0, 860))
 
 @socketio.on("proc-join")
 def handle_proc_join():
@@ -43,12 +40,15 @@ def handle_part_join():
     join_room('participant')
 
 @socketio.on("info-done")
-def handle_info_done(user_data):
+def handle_info_done(user_data, trial_data):
 
     id_code = user_data['id_code'];
     age = user_data['age'];
     gender = user_data['gender'];
     types = user_data['item_types'];
+
+    test = trial_data['test'];
+    num_attempts = trial_data['num_attempts']
 
     with open(f'./data_logs/{id_code}.csv', 'w', newline='') as file:
         writer = csv.writer(file)
@@ -59,18 +59,12 @@ def handle_info_done(user_data):
         writer.writerow([f'type{i}' for i in range(len(types))])
         writer.writerow(types)
 
-    emit("goto-action", room='participant')
+    emit(f"goto-{test}", room='participant')
 
-# @socketio.on("test1-done")
-# def handle_info_done():
-#     # emit("goto-action-proc", to='proctor')
-#     emit("goto-waiting", room='participant')
-
-
-@socketio.on("waiting-done")
-def handle_info_done():
-    # emit("goto-action-proc", to='proctor')
-    emit("goto-rigid", room='participant')
+@socketio.on("goto-action")
+def handle_goto_action(test):
+    emit(f'goto-{test}', room='participant')
+    emit(f'new-target-item-{test}')
 
 
 @socketio.on("gantry-move")
@@ -106,13 +100,24 @@ def handle_item_event_proctor(data):
 
     n = data['n']
     typ = data['typ']
-    attempt = data['att']
+    attempts = data['att']
     test = data['test']
 
+    emit(f"update-events-proctor-{test}", {'n':n, 'typ': typ, 'att':attempts}, room="proctor")
+    emit(f"update-events-participant-{test}", {'n':n, 'typ': typ, 'att':attempts}, room="participant")
     print(f'item {n} is {typ}')
-    emit(f"update-events-proctor-{test}", {'n':n, 'typ': typ, 'att':attempt}, room="proctor")
-    emit(f"update-events-participant-{test}", {'n':n, 'typ': typ, 'att':attempt}, room="participant")
 
+    attempted_non_target = False;
+    for attempt in attempts:
+        if attempt['n'] == n and attempt['typ'] != 'inprogress': 
+            attempted_non_target = True;
+
+    if (typ != 'inprogress' and not attempted_non_target):
+        emit(f'new-target-item-{test}')
+
+@socketio.on("send-target-item")
+def handle_new_target_item(n):
+    emit("update-target-item-soft", n, room="participant")
 
 # For hardware and grasper communication
 @socketio.on('gantry position commands')

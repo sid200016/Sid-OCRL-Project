@@ -1,14 +1,24 @@
-.items-form {
+.gantry-form {
+
   position: absolute;
-  top: 28%;
-  left: 5.8%;
+  height: 67.3%;
   width: 29.4%;
-  height: 57%;
+  top: 17.9%;
+  left: 5.8%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.items-form {
+  width: 100%;
 
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr;
   justify-content: space-between;
+
+  margin-top: 5.7%;
 
 }
 
@@ -27,6 +37,89 @@
 
   height: 55px;
   margin-top: 10px;
+}
+
+.user-form {
+  height: 70.5%;
+  width: 46.4%;
+
+  position: absolute;
+  top: 17.9%;
+  right: 6.4%;
+}
+
+.info-button,
+.info-input {
+  cursor: pointer;
+  position: absolute;
+  background-color: #775489;
+  border-radius: var(--br-7xl);
+  border: none;
+
+  height: 69px;
+}
+
+.text-inputs {
+  height: 34.4%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  margin-top: 5.7%;
+}
+
+.headed-input input {
+  width: inherit;
+}
+
+.grasper-selection {
+  height: 15.5%;
+  margin-top: 12.2%;
+
+  /* display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; */
+}
+
+.grasper-selectors {
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 2.5%;
+}
+
+.info-button {
+  cursor: pointer;
+  /* position: absolute; */
+  background-color: #775489;
+  border-radius: var(--br-7xl);
+  width: 100%;
+
+  height: 69px;
+}
+
+.info-button-wrapper {
+  height: 59.5%;
+  width: 32%;
+}
+
+.info-button-wrapper button {
+  width: inherit;
+}
+
+.info-button:hover {
+  background-color: #70CA68;
+}
+
+.done-button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+  width: 25%;
+  height: 10%;
 }
 
 .path5107-1-2-icon,
@@ -113,7 +206,6 @@
   bottom: 20.86%;
 }
 .id-code,
-.please-specify-the,
 .type,
 .type1,
 .type2,
@@ -132,7 +224,6 @@
   display: inline-block;
 }
 .id-code,
-.please-specify-the,
 .type1,
 .type2,
 .type3,
@@ -144,7 +235,6 @@
   top: 61.15%;
 }
 .id-code,
-.please-specify-the,
 .type2,
 .type3,
 .type4,
@@ -155,7 +245,6 @@
   top: 80.68%;
 }
 .id-code,
-.please-specify-the,
 .type3,
 .type4,
 .type5,
@@ -166,7 +255,6 @@
   left: 18.03%;
 }
 .id-code,
-.please-specify-the,
 .type4,
 .type5,
 .type6,
@@ -175,7 +263,6 @@
   top: 61.12%;
 }
 .id-code,
-.please-specify-the,
 .type5,
 .type6,
 .type7,
@@ -183,7 +270,6 @@
   top: 80.66%;
 }
 .id-code,
-.please-specify-the,
 .type6,
 .type7,
 .type8 {
@@ -191,19 +277,16 @@
   left: 29.66%;
 }
 .id-code,
-.please-specify-the,
 .type7,
 .type8 {
   top: 61.18%;
 }
 .id-code,
-.please-specify-the,
 .type8 {
   top: 80.74%;
   left: 29.69%;
 }
-.id-code,
-.please-specify-the {
+.id-code {
   height: 3.25%;
   width: 26.46%;
   top: 17.83%;
@@ -445,17 +528,7 @@
   width: 6.81%;
   left: 78.78%;
 }
-.group-child {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  border-radius: var(--br-7xl);
-  background-color: var(--color-darkslateblue);
-}
+
 .group-child:active,
 .group-child:hover {
   background-color: var(--color-lightgreen);
@@ -471,19 +544,7 @@
   color: var(--color-white);
   text-align: center;
 }
-.rectangle-parent {
-  cursor: pointer;
-  border: 0;
-  padding: 0;
-  background-color: transparent;
-  position: absolute;
-  height: 6.39%;
-  width: 11.67%;
-  top: 82.04%;
-  right: 6.25%;
-  bottom: 11.57%;
-  left: 82.08%;
-}
+
 .soft-grasper {
   position: absolute;
   height: 98.55%;
@@ -500,22 +561,7 @@
   align-items: center;
   justify-content: center;
 }
-.rectangle-group {
-  cursor: pointer;
-  border: 0;
-  padding: 0;
-  background-color: transparent;
-  position: absolute;
-  height: 6.39%;
-  width: 14.9%;
-  top: 66.39%;
-  right: 37.86%;
-  bottom: 27.22%;
-  left: 47.24%;
-}
-.rectangle-group:hover {
-  background-color: var(--color-white);
-}
+
 .dual-grasper {
   position: absolute;
   height: 98.55%;
@@ -532,19 +578,7 @@
   align-items: center;
   justify-content: center;
 }
-.rectangle-container {
-  cursor: pointer;
-  border: 0;
-  padding: 0;
-  background-color: transparent;
-  position: absolute;
-  height: 6.39%;
-  width: 14.9%;
-  top: 66.39%;
-  right: 21.82%;
-  bottom: 27.22%;
-  left: 63.28%;
-}
+
 .info-screen-proctor-child,
 .info-screen-proctor-inner,
 .info-screen-proctor-item {

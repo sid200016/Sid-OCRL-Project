@@ -137,16 +137,19 @@ let slider_damping = document.getElementById("slider-damping")
 let slider_stiffness = document.getElementById("slider-stiffness")
 let slider_power = document.getElementById("slider-power")
 
-slider_damping.addEventListener("change", function() {
+slider_damping.addEventListener("input", function() {
+    console.log(slider_damping.value);
+    document.getElementById("damping-soft-value").innerHTML = Math.round(slider_damping.value).toString() + '%'
     socket.emit("damping-change", slider_damping.value);
     console.log(slider_damping.value)
 })
-slider_stiffness.addEventListener("change", function() {
-    socket.emit("stiffness-change", slider_stiffness.value);
+slider_stiffness.addEventListener("input", function() {
+    document.getElementById("stiffness-soft-value").innerHTML = Math.round(slider_stiffness.value).toString() + '%'
     socket.emit("stiffness-change", slider_stiffness.value);
     console.log(slider_stiffness.value)
 })
-slider_power.addEventListener("change", function() {
+slider_power.addEventListener("input", function() {
+    document.getElementById("power-soft-value").innerHTML = Math.round(slider_power.value).toString() + '%'
     socket.emit("power-change", slider_power.value);
     console.log(slider_power.value)
 }) 
@@ -314,10 +317,12 @@ document.getElementById("waiting-proc").addEventListener("click", function() {
 
 socket.on("set-contact-force-soft", function(val) {
     document.getElementById("contact-force-soft").value = Number(val);
+    document.getElementById("contact-force-soft-value").innerHTML = Math.round(Number(val));
 })
 
 socket.on("set-contact-force-rigid", function(val) {
     document.getElementById("contact-force-rigid").value = Number(val);
+    document.getElementById("contact-force-rigid-value").innerHTML = Math.round(Number(val));
 })
 
 socket.on("set-gantry-marker", function(data){

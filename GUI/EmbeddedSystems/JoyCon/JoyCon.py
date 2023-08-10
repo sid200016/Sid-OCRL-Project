@@ -12,6 +12,7 @@ import sys
 
 ##### Set up logging ####
 logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
 fname = str(__name__)+datetime.now().strftime("_%d_%m_%Y_%H_%M_%S")
 
 fh = logging.FileHandler(fname) #file handler

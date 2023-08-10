@@ -112,7 +112,7 @@ def handle_item_event_proctor(data):
     print(f'item {n} is {typ}')
     emit(f"update-events-proctor-{test}", {'n':n, 'typ': typ, 'att':attempt}, room="proctor")
     emit(f"update-events-participant-{test}", {'n':n, 'typ': typ, 'att':attempt}, room="participant")
-
+    socketio.emit('item-event_emit',data)
 
 # For hardware and grasper communication
 @socketio.on('gantry position commands')

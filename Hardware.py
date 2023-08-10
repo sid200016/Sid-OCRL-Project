@@ -50,7 +50,7 @@ datalogger.addHandler(fh)
 datalogger.addHandler(ch)
 
 
-
+logger.setLevel(logging.INFO)
 
 
 SG  = None #soft grasper
@@ -150,7 +150,7 @@ async def HardwareInitialize():
 
     logger.info('Initializing Soft Grasper...')
     SG = SoftGrasper(COM_Port='COM5', BaudRate=460800, timeout=1, controllerProfile="New") #initialize soft grasper
-    logger.info('Finished initializing Soft Grasper'!)
+    logger.info('Finished initializing Soft Grasper')
 
     logger.info('Initializing Gantry...')
     GC = GantryController(comport = "COM4",homeSystem = True)#, homeSystem = False,initPos=[0,0,0]  #initialize gantry controller
@@ -162,6 +162,7 @@ async def HardwareInitialize():
     
     logger.info('Finished Initialization')
 
+@sio.on('program_loop')
 async def program_loop():
     global SG, GC, jcSG, updatedSoftGrasper, logger, datalogger
     #await sio.emit('gantry position commands', 'Gantry pos')
@@ -189,7 +190,7 @@ async def program_loop():
                            enumerate(SG.changeInPressure)]
             jcSG.rumbleFeedback(max(rumbleValue), max(rumbleValue), 1000)
 
-
+            sio.emit('set-contact-force-soft', max(rumbleValue))
 
             await asyncio.sleep(0.001) #allow other tasks to run
             logger.debug('ProgramLoop')

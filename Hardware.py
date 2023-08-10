@@ -194,7 +194,9 @@ async def program_loop():
                            enumerate(SG.changeInPressure)]
             jcSG.rumbleFeedback(max(rumbleValue), max(rumbleValue), 1000)
 
-            sio.emit('set-contact-force-soft', max(rumbleValue))
+            await sio.emit('set-contact-force-soft_hardware', max(rumbleValue)*100)
+            await sio.emit('set-gantry-marker_hardware', {'x': GC.PositionArray['x'][-1],'y': GC.PositionArray['y'][-1]})
+
 
             await asyncio.sleep(0.001) #allow other tasks to run
             loggerR.debug('ProgramLoop')

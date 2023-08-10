@@ -5,13 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfd83e2d-ab31-4129-8c0e-ce5b016d6614" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/FRR-Software-Interface.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/FRR-Software-Interface.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/Gantry/GantryController.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/Gantry/GantryController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI.EmbeddedSystems.Gantry.GantryController_10_08_2023_13_01_59" beforeDir="false" afterPath="$PROJECT_DIR$/GUI.EmbeddedSystems.Gantry.GantryController_10_08_2023_13_01_59" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI.EmbeddedSystems.JoyCon.JoyCon_10_08_2023_13_02_00" beforeDir="false" afterPath="$PROJECT_DIR$/GUI.EmbeddedSystems.JoyCon.JoyCon_10_08_2023_13_02_00" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI.EmbeddedSystems.SoftGrasper.SoftGrasper_10_08_2023_13_01_59" beforeDir="false" afterPath="$PROJECT_DIR$/GUI.EmbeddedSystems.SoftGrasper.SoftGrasper_10_08_2023_13_01_59" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/events.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/events.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/static/helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/static/helpers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/static/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/static/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/templates/index.jinja" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/templates/index.jinja" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Hardware.py" beforeDir="false" afterPath="$PROJECT_DIR$/Hardware.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_logs/.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_logs/.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HardwareDatalog_10_08_2023_13_02_00" beforeDir="false" afterPath="$PROJECT_DIR$/HardwareDatalog_10_08_2023_13_02_00" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hardware_10_08_2023_13_02_00" beforeDir="false" afterPath="$PROJECT_DIR$/Hardware_10_08_2023_13_02_00" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +65,7 @@
       <recent name="C:\Users\Ravesh\Desktop\Research\FRR\FRR Software Interface\FRR-Software-Interface\EmbeddedSystems\SNS" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Hardware (1)">
+  <component name="RunManager" selected="Python.run">
     <configuration name="Hardware (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="FRR-Software-Interface" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -271,8 +275,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Hardware (1)" />
         <item itemvalue="Python.run" />
+        <item itemvalue="Python.Hardware (1)" />
         <item itemvalue="Python.TestHardwareComm" />
         <item itemvalue="Python.TestSNS_sim (1)" />
         <item itemvalue="Python.TestSNS_sim" />
@@ -341,7 +345,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Hardware.py</url>
-          <line>209</line>
+          <line>211</line>
           <option name="timeStamp" value="37" />
         </line-breakpoint>
       </breakpoints>

@@ -80,6 +80,16 @@ def handle_gantry_move(vals):
     # curr_z = GCa.PositionArray["z"][0]
     # GCa.setXYZ_Position(x, y, curr_z) #absolute move
 
+
+@socketio.on("set-contact-force-soft_hardware")
+def handle_setContactForceSoft(data):
+    emit("set-contact-force-soft",data,room='proctor')
+    print('Emitted %f'%(data))
+
+@socketio.on('set-gantry-marker_hardware')
+def handle_getGantryMarker(data):
+    emit("set-gantry-marker",data,room='participant')
+    print('Gantry position update sent %f %f'%(data['x'],data['y']))
 @socketio.on("damping-change")
 def handle_damping_change(val):
     print('damping: ' + str(val))

@@ -318,6 +318,7 @@ document.getElementById("waiting-proc").addEventListener("click", function() {
 socket.on("set-contact-force-soft", function(val) {
     document.getElementById("contact-force-soft").value = Number(val);
     document.getElementById("contact-force-soft-value").innerHTML = Math.round(Number(val)).toString() + '%';
+    console.log('Received')
 })
 
 socket.on("set-contact-force-rigid", function(val) {
@@ -330,5 +331,6 @@ socket.on("set-gantry-marker", function(data){
     let r = marker.getBoundingClientRect().width;
     marker.style.left = -mm_to_mouse(data['x']) - r/2;
     marker.style.top = mm_to_mouse(data['y']) - r/2;
+    console.log("Set gantry marker")
 
 })

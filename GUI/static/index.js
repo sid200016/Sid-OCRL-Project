@@ -317,7 +317,7 @@ document.getElementById("waiting-proc").addEventListener("click", function() {
 
 socket.on("set-contact-force-soft", function(val) {
     document.getElementById("contact-force-soft").value = Number(val);
-    document.getElementById("contact-force-soft-value").innerHTML = Math.round(Number(val));
+    document.getElementById("contact-force-soft-value").innerHTML = Math.round(Number(val)).toString() + '%';
 })
 
 socket.on("set-contact-force-rigid", function(val) {

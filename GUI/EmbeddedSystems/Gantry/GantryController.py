@@ -109,7 +109,7 @@ class Gantry:
         line_hold=""
         while wait_for_ok:
             line = self.ser.readline()
-            logger.debug('Wait for ok: '+line)
+            logger.debug('Wait for ok: '+str(line,'utf-8'))
             line_hold = line_hold + str(line, 'utf-8') +"\n"
 
             if line == b'ok\n':

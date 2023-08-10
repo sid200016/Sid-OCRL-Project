@@ -110,7 +110,7 @@ async def gantryPosition(data):
     global GC, loggerR
     loggerR.info('Received gantry position command')
     loggerR.debug(data)
-    # GC.goalPos = [data['x'], data['y'], GC.goalPos[2]] #x and y positions come from screen, z position is kept from the joystick
+    GC.goalPos = [data['x'], data['y'], GC.goalPos[2]] #x and y positions come from screen, z position is kept from the joystick
     loggerR.debug("GoalPos changed in Gantry Position: " + ','.join([str(x) for x in GC.goalPos]))
 
 @sio.on('soft grasper commands')
@@ -153,16 +153,16 @@ async def HardwareInitialize():
     global SG, GC, jcSG, loggerR
 
     loggerR.info('Initializing Soft Grasper...')
-    SG = SoftGrasper(COM_Port='COM4', BaudRate=460800, timeout=1, controllerProfile="New") #initialize soft grasper
+    SG = SoftGrasper(COM_Port='COM5', BaudRate=460800, timeout=1, controllerProfile="New") #initialize soft grasper
     loggerR.info('Finished initializing Soft Grasper')
 
-    # loggerR.info('Initializing Gantry...')
-    # GC = GantryController(comport = "COM4",homeSystem = True)#, homeSystem = False,initPos=[0,0,0]  #initialize gantry controller
-    # loggerR.info('Finished initializing Gantry'!)
+    loggerR.info('Initializing Gantry...')
+    GC = GantryController(comport = "COM4",homeSystem = False, initPos = [0,0,0])#, homeSystem = False,initPos=[0,0,0]  #initialize gantry controller
+    loggerR.info('Finished initializing Gantry!')
 
-    # loggerR.info('Initializing Joystick...')
-    # jcSG = JC.Joy_SoftGrasper(SGa=SG, GantryS=GC) #initialize joystick control of soft grasper and gantry controller
-    # loggerR.info('Finished initializing Joystick!')
+    loggerR.info('Initializing Joystick...')
+    jcSG = JC.Joy_SoftGrasper(SGa=SG, GantryS=GC) #initialize joystick control of soft grasper and gantry controller
+    loggerR.info('Finished initializing Joystick!')
     
     loggerR.info('Finished Initialization')
 
@@ -173,12 +173,12 @@ async def program_loop():
     #await sio.emit('soft grasper commands', 'Soft Grasper Commands')
     try:
         while(True):
-            # [buttonVal, AxesPos] = jcSG.eventLoop()  # run event loop to determine what values and axes to execute
-            # jcSG.ExecuteButtonFunctions(buttonVal,
-            #                             AxesPos)  # execute Button functions defined by the button values and axes positions
-            # posInc,feedrate_mmps = jcSG.calcPositionIncrement(AxesPos[0], AxesPos[1])  # get the joystick position for x, y and z, corrected for the flip on the x axis
-            # GC.calculateIncrementalMove(*posInc) #will set the GC.goalPos with the appropriate increments
-            # GC.setXYZ_Position(*GC.goalPos,feedrate_mmps*60)  # absolute move of the gantry
+            [buttonVal, AxesPos] = jcSG.eventLoop()  # run event loop to determine what values and axes to execute
+            jcSG.ExecuteButtonFunctions(buttonVal,
+                                        AxesPos)  # execute Button functions defined by the button values and axes positions
+            posInc,feedrate_mmps = jcSG.calcPositionIncrement(AxesPos[0], AxesPos[1])  # get the joystick position for x, y and z, corrected for the flip on the x axis
+            GC.calculateIncrementalMove(*posInc) #will set the GC.goalPos with the appropriate increments
+            GC.setXYZ_Position(*GC.goalPos,feedrate_mmps*60)  # absolute move of the gantry
 
             SG.MoveGrasper()  # jcRG.executeButtonFunctions should update SGa with the the pressures, this command sends the appropriate commands to the grasper over serial
 
@@ -192,7 +192,7 @@ async def program_loop():
                                  0.4]  # change in pressure threshold in psi above which to register changes in pressure
             rumbleValue = [(x - pressureThreshold[i]) / 1.5 if x >= pressureThreshold[i] else 0 for (i, x) in
                            enumerate(SG.changeInPressure)]
-            # jcSG.rumbleFeedback(max(rumbleValue), max(rumbleValue), 1000)
+            jcSG.rumbleFeedback(max(rumbleValue), max(rumbleValue), 1000)
 
             sio.emit('set-contact-force-soft', max(rumbleValue))
 
@@ -213,7 +213,7 @@ def datalogFcn():
     ds = ''
 
     # GCvals = [x[-1] if len(x)>0 else 1000 for k,x in GC.PositionArray.items()]
-    # ds="%f , %f , %f,"%(GCvals)
+    # ds="%f , %f , %f,"%(*GCvals,)
 
     SGPressurevals = [SG.PressureArray[i][-1] if len(SG.PressureArray[i])>0 else 1000 for i in range(0,SG.numPorts)  ]
     ds = ds + "%f , %f , %f , %f,"%(SGPressurevals[SG.closureMuscle_idx],

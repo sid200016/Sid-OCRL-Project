@@ -17,6 +17,34 @@ import serial
 from ..Support.Structures import Point, Velocity, Acceleration
 
 
+import logging
+from datetime import datetime
+import sys
+
+
+##### Set up logging ####
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+fname = str(__name__)+datetime.now().strftime("_%d_%m_%Y_%H_%M_%S")
+
+fh = logging.FileHandler(fname) #file handler
+fh.setLevel(logging.DEBUG)
+
+ch = logging.StreamHandler(sys.stdout) #stream handler
+ch.setLevel(logging.ERROR)
+
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
+fh.setFormatter(formatter)
+ch.setFormatter(formatter)
+# add the handlers to the logger
+logger.addHandler(fh)
+logger.addHandler(ch)
+
+
+
+
+
 class GantryActions(Enum):
     STAY = 0 #dont move
     MOVE = 1 #Move jaws closer together
@@ -54,13 +82,14 @@ class Gantry:
             self.HomeGantry(initPos)
 
     def HomeGantry(self,initPos:Point):
+        logger.info("Homing gantry ...")
         self.sendCommand("G28 X0 Y0 Z0\r\n")
         # sendCommand(ser,"G0 F15000 X0\r\n")
         self.sendCommand("M400\r\n")
         time.sleep(2)
 
         self.sendCommand("G90\r\n")
-        print("Finished Sending G90")
+        logger.debug("Finished Sending G90")
         time.sleep(1)
         self.sendCommand("G0 F15000\r\n")
         time.sleep(1)
@@ -69,6 +98,7 @@ class Gantry:
         time.sleep(1)
         self.sendCommand("M280 P0 S95\r\n")  # make sure that the gripper is closed
         self.sendCommand("M400\r\n")
+        logger.info("Finished homing gantry ...")
 
 
     def sendCommand(self,commandstr,wait_for_ok = True):
@@ -79,7 +109,7 @@ class Gantry:
         line_hold=""
         while wait_for_ok:
             line = self.ser.readline()
-            print(line)
+            logger.debug('Wait for ok: '+line)
             line_hold = line_hold + str(line, 'utf-8') +"\n"
 
             if line == b'ok\n':
@@ -129,12 +159,12 @@ class Gantry:
             injectBool = self.updateInjectStatus()
 
             toc = time.perf_counter()
-            print("M114 Time " + str(toc - tic))
+            logger.debug("M114 Time " + str(toc - tic))
 
             return(Point(*positionArray))
 
         except Exception as e:
-            print(responseM114)
+            logger.exception(responseM114)
             return([np.Inf,np.Inf,np.Inf]) #return Inf for all three axes
 
     def CheckPositionToReference(self, position1: Point, position2: Point, tolerance: float):  # true if points are within tolerance of each other , false if outside tolerance

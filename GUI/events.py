@@ -59,12 +59,14 @@ def handle_info_done(user_data, trial_data):
         writer.writerow([f'type{i}' for i in range(len(types))])
         writer.writerow(types)
 
-    emit(f"goto-{test}", room='participant')
+    emit("goto-action", test, room='participant')
+    emit("new-target-item", test, room='proctor')
 
-@socketio.on("goto-action")
-def handle_goto_action(test):
-    emit(f'goto-{test}', room='participant')
-    emit(f'new-target-item-{test}')
+
+@socketio.on("sendto-action")
+def handle_sendto_action(test):
+    emit('goto-action', test, room='participant')
+    emit('new-target-item', test)
 
 
 @socketio.on("gantry-move")
@@ -90,6 +92,7 @@ def handle_setContactForceSoft(data):
 def handle_getGantryMarker(data):
     emit("set-gantry-marker",data,room='participant')
     print('Gantry position update sent %f %f'%(data['x'],data['y']))
+
 @socketio.on("damping-change")
 def handle_damping_change(val):
     print('damping: ' + str(val))
@@ -123,11 +126,11 @@ def handle_item_event_proctor(data):
             attempted_non_target = True;
 
     if (typ != 'inprogress' and not attempted_non_target):
-        emit(f'new-target-item-{test}')
+        emit(f'new-target-item', test)
 
 @socketio.on("send-target-item")
-def handle_new_target_item(n):
-    emit("update-target-item-soft", n, room="participant")
+def handle_new_target_item(n, test):
+    emit("update-target-item", {'n': n, 'test': test}, room="participant")
 
 # For hardware and grasper communication
 @socketio.on('gantry position commands')

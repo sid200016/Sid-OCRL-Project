@@ -3,7 +3,8 @@
 const socket = io({autoConnect: false});
 let users = {};
 let attempts = [];
-let NUM_ATTEMPTS = 12;
+let trial_logs = {};
+const NUM_ATTEMPTS = 12;
 
 const attempt_colors = {
     'success': '#159F20',
@@ -67,6 +68,8 @@ function toggle_grasper(){
         soft_select.style.background = "#775489";
         rigid_select.style.background = "#70CA68";
     }
+
+    console.log(soft_first);
 }
 
 
@@ -102,18 +105,12 @@ document.getElementById("done").addEventListener("click", function() {
 
 })
 
-socket.on("goto-soft", function(){
+socket.on("goto-action", function(test){
+    console.log(test)
     document.getElementById("landing-part").style.display = "none";
     document.getElementById("waiting-part").style.display = "none";
-    document.getElementById("soft-grasper-part").style.display = "block";
+    document.getElementById(test + "-grasper-part").style.display = "block";
 })
-
-socket.on("goto-rigid", function(){
-    document.getElementById("landing-part").style.display = "none";
-    document.getElementById("waiting-part").style.display = "none";
-    document.getElementById("rigid-grasper-part").style.display = "block";
-})
-
 
 let gantry = document.getElementById("slider-2d")
 function emit_gantry_data() {
@@ -197,39 +194,17 @@ function item_event_selection(test){
 item_event_selection('soft');
 item_event_selection('rigid');
 
-function choose_random_item(target, test){
-    let attempted_items = [];
-    for (let i = 0; i < attempts.length; i++) {
-        attempted_items.push(attempts[i]['n']);
-    }
-
-    let n = Math.floor(9 * Math.random());
-    while (attempted_items.includes(n) || attempted_items.length == 9) {
-        n = Math.floor(9 * Math.random());
-    }
-    let item = document.getElementById('item' + n.toString() + '-' + target + '-' + test);
-    item.src = "static/public/attempt-target.svg";
-
-    return n;
-}
-
-socket.on("new-target-item-soft", function() {
-    let n = choose_random_item('proc', 'soft');
-    socket.emit("send-target-item", n)
+socket.on("new-target-item", function(test) {
+    let n = choose_random_item('proc', test);
+    socket.emit("send-target-item", n, test);
 })
 
-socket.on("update-target-item-soft", function(n) {
-    let item = document.getElementById('item' + n.toString() + '-part-soft');
-    item.src = "static/public/attempt-target.svg";
-})
+socket.on("update-target-item", function(data) {
 
-socket.on("new-target-item-rigid", function() {
-    let n = choose_random_item('proc', 'rigid');
-    socket.emit("send-target-item", n)
-})
+    let n = data['n'];
+    let test = data['test'];
 
-socket.on("update-target-item-rigid", function(n) {
-    let item = document.getElementById('item' + n.toString() + '-part-rigid');
+    let item = document.getElementById('item' + n.toString() + '-part-' + test);
     item.src = "static/public/attempt-target.svg";
 })
 
@@ -254,27 +229,35 @@ function update_events(data, target, test) {
     attempts_remaining = document.getElementById("attempts-remaining-" + target + '-' + test);
     attempts_remaining.innerHTML = (NUM_ATTEMPTS - attempts_made).toString() + ' attempts remaining';
 
-    let all_success = false;
-    if (attempts.length >= 9) {
-        all_success = true;
-        for (let i = 0; i < attempts.length; i++){
-            if (attempts[i]['typ'] != 'success'){
-                all_success = false;
-            }
-        }
+    let player_won;
+    if (includes_all(attempts)) {
+        if (count_successes(attempts) == 9) player_won = true;
+        else player_won = false;
     }
-    if (NUM_ATTEMPTS == attempts_made || all_success) {
-        if (test == 'soft'){
-            document.getElementById("soft-grasper-" + target).style.display = "none";
+
+    let player_lost = (NUM_ATTEMPTS == attempts_made) && !player_won;
+
+    let trial_over = player_won || player_lost;
+
+    let first_test = 'rigid';
+    if (soft_first) first_test = 'soft';
+
+    if (trial_over) {
+        console.log("soft_first: " + soft_first);
+        console.log("first_test: " + first_test);
+        console.log("test: " + test);
+
+        document.getElementById(test + "-grasper-" + target).style.display = "none";
+        trial_logs[test] = attempts;
+        attempts = [];
+
+        // BUG: results page dne, always tries to go to results page from rigid action screen
+        // if (test == first_test){
             document.getElementById("waiting-" + target).style.display = "block";
-            let soft_attempts = attempts;
-            attempts = [];
-        } else if (test == 'rigid') {
-            document.getElementById("rigid-grasper-" + target).style.display = "none";
-            document.getElementById("results-" + target).style.display = "block";
-            let rigid_attempts = attempts;
-            attempts = [];
-        }
+
+        // } else {
+            // document.getElementById("results" + target).style.display = "block";
+        // }
     }
 
 }
@@ -303,15 +286,15 @@ socket.on("update-events-participant-rigid", update_event_part_rigid);
 /**** waiting -> action ****/
 document.getElementById("waiting-proc").addEventListener("click", function() {
 
-    if (soft_first == true) test = 'rigid';
-    else test = 'soft';
+    let test = 'soft';
+    if (soft_first) test = 'rigid';
 
     document.getElementById("waiting-proc").style.display = "none";
     document.getElementById(test + "-grasper-proc").style.display = "block";
 
     document.getElementById("range").disabled = true; 
 
-    socket.emit("goto-action", test);
+    socket.emit("sendto-action", test);
 
 })
 

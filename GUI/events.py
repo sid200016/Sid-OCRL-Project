@@ -5,7 +5,7 @@ import csv
 from .extensions import socketio
 
 users = {}
-page = 'setup'
+curr_test = None;
 
 def map(val, ilo, ihi, flo, fhi):
     return flo + ((fhi - flo) / (ihi - ilo)) * (val - ilo)
@@ -48,6 +48,8 @@ def handle_info_done(user_data, trial_data):
     types = user_data['item_types'];
 
     test = trial_data['test'];
+    global curr_test
+    curr_test = test
     num_attempts = trial_data['num_attempts']
 
     with open(f'./data_logs/{id_code}.csv', 'w', newline='') as file:
@@ -65,6 +67,9 @@ def handle_info_done(user_data, trial_data):
 
 @socketio.on("sendto-action")
 def handle_sendto_action(test):
+
+    global curr_test
+    curr_test = test
     emit('goto-action', test, room='participant')
     emit('new-target-item', test)
 
@@ -90,8 +95,16 @@ def handle_setContactForceSoft(data):
 
 @socketio.on('set-gantry-marker_hardware')
 def handle_getGantryMarker(data):
-    emit("set-gantry-marker",data,room='participant')
+
+    global curr_test
+    data['test'] = curr_test
+    data['target'] = 'proc'
+    emit("set-gantry-marker", data, room='participant')
+
+    data['target'] = 'part'
+    emit("set-gantry-marker", data, room='proctor')
     print('Gantry position update sent %f %f'%(data['x'],data['y']))
+
 
 @socketio.on("damping-change")
 def handle_damping_change(val):

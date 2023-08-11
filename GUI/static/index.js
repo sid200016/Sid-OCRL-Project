@@ -310,10 +310,10 @@ socket.on("set-contact-force-rigid", function(val) {
 })
 
 socket.on("set-gantry-marker", function(data){
-    let marker = document.getElementById("gantry-marker")
+    let marker = document.getElementById("gantry-marker-" + data['target'] + '-' + data['test']);
     let r = marker.getBoundingClientRect().width;
     marker.style.left = -mm_to_mouse(data['x']) - r/2;
     marker.style.top = mm_to_mouse(data['y']) - r/2;
-    console.log("Set gantry marker")
+    console.log("Set gantry marker");
 
 })

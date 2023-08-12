@@ -5,33 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfd83e2d-ab31-4129-8c0e-ce5b016d6614" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Testing/TestSoftGrasperPressureMeasurements.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Testing/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/Testing/CheckJoystickTiming.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/CheckJoystickTiming.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/Testing/CheckJoystick_OldSoftGrasper.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/CheckJoystick_OldSoftGrasper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/Testing/CheckJoystick_SoftGrasper.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/CheckJoystick_SoftGrasper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/Testing/CommunicateWGrasper.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/CommunicateWGrasper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/Testing/JoyConCheck.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/JoyConCheck.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/Testing/JoyCon_Vibration.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/JoyCon_Vibration.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/Testing/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/Testing/SNS_SoftGrasperCheck.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/SNS_SoftGrasperCheck.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/Testing/SocketIO GUI Test/Hardware.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/SocketIO GUI Test/Hardware.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/Testing/SocketIO GUI Test/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/SocketIO GUI Test/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/Testing/SocketIO/Client.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/SocketIO/Client.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/Testing/SocketIO/Server.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/SocketIO/Server.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/Testing/SocketIO/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/SocketIO GUI Test/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/Testing/TCP_SocketTry/Client.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/TCP_SocketTry/Client.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/Testing/TCP_SocketTry/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/SocketIO/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/Testing/TCP_SocketTry/tcp_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/TCP_SocketTry/tcp_server.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/Testing/TestLogging.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/TestLogging.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/Testing/TestSNS_sim.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/TestSNS_sim.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/Testing/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/TCP_SocketTry/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/Testing/checkSoftGrasper2_new.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/checkSoftGrasper2_new.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/Testing/checkSoftGrasper_Legacy.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/checkSoftGrasper_Legacy.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/Testing/checkSoftGrasper_New.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/checkSoftGrasper_New.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/Testing/combined.urdf" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/combined.urdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/Testing/read_write_Try.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/read_write_Try.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/SoftGrasper/SoftGrasperController/.vscode/extensions.json" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SoftGrasper/SoftGrasperController/.vscode/extensions.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/SoftGrasper/SoftGrasperController/src/ManageSoftGrasper.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SoftGrasper/SoftGrasperController/src/ManageSoftGrasper.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Testing/TestSoftGrasperPressureMeasurements.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/TestSoftGrasperPressureMeasurements.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Testing/checkSoftGrasper2_new.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/checkSoftGrasper2_new.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +59,7 @@
       <recent name="C:\Users\Ravesh\Desktop\Research\FRR\FRR Software Interface\FRR-Software-Interface" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Hardware (1)">
+  <component name="RunManager" selected="Python.checkSoftGrasper2_new">
     <configuration name="Hardware (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="FRR-Software-Interface" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -103,7 +81,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="TestLogging" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="SoftGrasper" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="FRR-Software-Interface" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -111,11 +89,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/GUI/Testing" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/GUI/EmbeddedSystems/SoftGrasper" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GUI/Testing/TestLogging.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GUI/EmbeddedSystems/SoftGrasper/SoftGrasper.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -145,27 +123,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="TestSoftGrasperPressureMeasurements" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="FRR-Software-Interface" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/GUI/Testing" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GUI/Testing/TestSoftGrasperPressureMeasurements.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -179,6 +136,27 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="" />
       <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="checkSoftGrasper2_new" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="FRR-Software-Interface" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Testing" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Testing/checkSoftGrasper2_new.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -291,11 +269,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Hardware (1)" />
+        <item itemvalue="Python.checkSoftGrasper2_new" />
         <item itemvalue="Python.TestSoftGrasperPressureMeasurements (1)" />
-        <item itemvalue="Python.TestSoftGrasperPressureMeasurements" />
+        <item itemvalue="Python.SoftGrasper" />
+        <item itemvalue="Python.Hardware (1)" />
         <item itemvalue="Python.run" />
-        <item itemvalue="Python.TestLogging" />
       </list>
     </recent_temporary>
   </component>
@@ -366,13 +344,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI/EmbeddedSystems/SoftGrasper/SoftGrasper.py</url>
-          <line>339</line>
-          <option name="timeStamp" value="53" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Testing/TestSoftGrasperPressureMeasurements.py</url>
-          <line>15</line>
-          <option name="timeStamp" value="61" />
+          <line>335</line>
+          <option name="timeStamp" value="65" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

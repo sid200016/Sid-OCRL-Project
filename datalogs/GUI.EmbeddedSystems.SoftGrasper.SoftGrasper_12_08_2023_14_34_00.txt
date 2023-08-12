@@ -1,0 +1,7 @@
+2023-08-12 14:34:00,723 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - CommandedPressure: 0.0
+2023-08-12 14:34:00,724 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Bytes sent:14
+2023-08-12 14:34:00,725 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Change in pressure: 0,0,0
+2023-08-12 14:34:05,187 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - CommandedPressure: 0.0
+2023-08-12 14:34:05,188 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Bytes sent:14
+2023-08-12 14:34:13,997 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2023-08-12 14:34:44,475 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Data for Case 0 (pressure values): 33.74656677246094,-0.0045773983001708984,-3.7488555908203125,-3.7488555908203125,-3.7488555908203125,-3.7488555908203125,33.74656677246094,33.74656677246094,33.74656677246094,33.74656677246094,33.74656677246094,-0.0022885799407958984

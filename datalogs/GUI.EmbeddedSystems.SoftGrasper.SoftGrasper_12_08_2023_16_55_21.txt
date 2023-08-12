@@ -1,0 +1,15 @@
+2023-08-12 16:55:21,819 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - CommandedPressure: 0.0
+2023-08-12 16:55:21,820 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Bytes sent:14
+2023-08-12 16:55:21,820 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Change in pressure: 0,0,0
+2023-08-12 16:55:32,351 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - CommandedPressure: 0.0
+2023-08-12 16:55:32,352 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Bytes sent:14
+2023-08-12 16:55:32,355 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - ERROR - Warning: Payload size does not match the expected number of bytes
+ Protocol Type 0, Numbytes expected 48, Length of payload 47 
+2023-08-12 16:55:32,356 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - b'\x00}\xbb\xbc@\xedo\xc0@\xedo\xc0@\xedo\xc0@\xedo\xc0@\xedo\xc0@\xedo\xc0@\xedo\xc0@\xedo\xc0\x00\x00\x16;\x00}\xbb<\x00>\x83'
+2023-08-12 16:55:32,356 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Change in pressure: 0,0,0
+2023-08-12 16:55:39,274 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - CommandedPressure: 0.0
+2023-08-12 16:55:39,274 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Bytes sent:14
+2023-08-12 16:55:39,275 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - ERROR - Warning: Payload size does not match the expected number of bytes
+ Protocol Type 0, Numbytes expected 48, Length of payload 47 
+2023-08-12 16:55:39,275 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - b'\x00}\xbb\xbc@\xedo\xc0@\xedo\xc0@\xedo\xc0@\xedo\xc0@\xedo\xc0@\xedo\xc0@\xedo\xc0@\xedo\xc0\x00\xfe\xe0;\x00\xfe\x95<\x80\xbd\xa8'
+2023-08-12 16:55:39,275 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Change in pressure: 0,0,0

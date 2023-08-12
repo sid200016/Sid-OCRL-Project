@@ -13,7 +13,7 @@ const int G_ENABLE = 15;
 //#define ReadSingle
 //#define DebugSingle
 //#define ReadMultiple
-//#define DebugPrint //define if you want to send all the debug print statements
+#define DebugPrint //define if you want to send all the debug print statements
 
 
 
@@ -673,6 +673,7 @@ void executePressurePortActions()
     #endif
 
 }
+
 
 void TransmitPressureReadings()
 {

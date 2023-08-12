@@ -1,0 +1,10 @@
+2023-08-12 09:46:41,504 - __main__ - INFO - Initializing Soft Grasper...
+2023-08-12 09:46:41,507 - __main__ - INFO - Finished initializing Soft Grasper
+2023-08-12 09:46:41,507 - __main__ - INFO - Initializing Gantry...
+2023-08-12 09:47:01,518 - __main__ - INFO - Finished initializing Gantry!
+2023-08-12 09:47:01,518 - __main__ - INFO - Initializing Joystick...
+2023-08-12 09:47:02,357 - __main__ - INFO - Finished initializing Joystick!
+2023-08-12 09:47:02,357 - __main__ - INFO - Finished Initialization
+2023-08-12 09:47:02,357 - __main__ - INFO - Triggering connection to http://localhost:8000
+2023-08-12 09:47:04,404 - __main__ - DEBUG - connected to socket
+2023-08-12 09:47:04,404 - __main__ - DEBUG - Sending Start

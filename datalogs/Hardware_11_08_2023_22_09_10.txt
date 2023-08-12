@@ -1,0 +1,11 @@
+2023-08-11 22:09:10,395 - Hardware - INFO - Initializing Soft Grasper...
+2023-08-11 22:09:10,397 - Hardware - INFO - Finished initializing Soft Grasper
+2023-08-11 22:09:10,397 - Hardware - INFO - Initializing Gantry...
+2023-08-11 22:09:30,426 - Hardware - INFO - Finished initializing Gantry!
+2023-08-11 22:09:30,426 - Hardware - INFO - Initializing Joystick...
+2023-08-11 22:09:31,339 - Hardware - INFO - Finished initializing Joystick!
+2023-08-11 22:09:31,339 - Hardware - INFO - Finished Initialization
+2023-08-11 22:09:31,339 - Hardware - INFO - Triggering connection to http://localhost:8000
+2023-08-11 22:09:33,412 - Hardware - DEBUG - connected to socket
+2023-08-11 22:09:33,412 - Hardware - DEBUG - Sending Start
+2023-08-11 22:09:33,451 - Hardware - DEBUG - ProgramLoop

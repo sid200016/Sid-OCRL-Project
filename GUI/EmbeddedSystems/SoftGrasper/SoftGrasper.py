@@ -11,27 +11,10 @@ import logging
 from datetime import datetime
 import sys
 
+from pathlib import Path
 
 #########################################################
 
-##### Set up logging ####
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.DEBUG)
-fname = str(__name__)+datetime.now().strftime("_%d_%m_%Y_%H_%M_%S")
-
-fh = logging.FileHandler(fname) #file handler
-fh.setLevel(logging.DEBUG)
-
-ch = logging.StreamHandler(sys.stdout) #stream handler
-ch.setLevel(logging.ERROR)
-
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-
-fh.setFormatter(formatter)
-ch.setFormatter(formatter)
-# add the handlers to the logger
-logger.addHandler(fh)
-logger.addHandler(ch)
 
 
 
@@ -60,6 +43,10 @@ class SoftGrasper:
 
     def __init__(self,COM_Port = 'COM7',BaudRate=115200,timeout=1,controllerProfile = "Legacy"):
         self.ser = serial.Serial(COM_Port, BaudRate, timeout=timeout)
+
+        # setup Logger
+        self.logger = None
+        self.setupLogger()
 
         self.numPorts = 12 #number of ports available
         self.PressurePorts = {0 : PressurePort(0),
@@ -105,11 +92,37 @@ class SoftGrasper:
         #For GUI real-time control
         self.isActive = False
 
+
+
         # #------ Initialization -----#
         # if self.controllerProfile == "Legacy":
         #     self.WaitForJawsToInflate()
         # else:
         #     self.WaitForTeensyInitialization()
+
+    def setupLogger(self):
+        ##### Set up logging ####
+        logger_soft = logging.getLogger(__name__)
+
+        fname = Path(__file__).parents[3].joinpath('datalogs', str(__name__) + datetime.now().strftime(
+            "_%d_%m_%Y_%H_%M_%S") + ".txt")
+
+        fh = logging.FileHandler(fname)  # file handler
+        fh.setLevel(logging.DEBUG)
+
+        ch = logging.StreamHandler(sys.stdout)  # stream handler
+        ch.setLevel(logging.ERROR)
+
+        formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
+        fh.setFormatter(formatter)
+        ch.setFormatter(formatter)
+
+        logger_soft.setLevel(logging.DEBUG)
+        # add the handlers to the logger_soft
+        logger_soft.addHandler(fh)
+        logger_soft.addHandler(ch)
+        self.logger = logger_soft
 
     def GetPressureFromPosition(self,position_mm,coeffs=[3.034e-6,-1.251e-4,9.3731e-4,0.0217,-0.3659,2.0752,0]):
         b = coeffs
@@ -123,14 +136,14 @@ class SoftGrasper:
         self.ser.write(byteFval)
 
     def WaitForTeensyInitialization(self):
-        logger.info("Waiting for Arduino to initialize")
+        self.logger.info("Waiting for Arduino to initialize")
 
         FinishedInitialization = False
         while (not FinishedInitialization):
             msg = self.ser.readline()
             msg = msg.decode().rstrip()
             if msg == 'Teensy Ready!':
-                logger.info("Soft Grasper Teensy Initialized!")
+                self.logger.info("Soft Grasper Teensy Initialized!")
                 FinishedInitialization = True
 
         return (FinishedInitialization)
@@ -143,7 +156,7 @@ class SoftGrasper:
             line = self.ser.readline()
             if line.decode().rstrip() == 'Jaws finished!':
                 WaitForJawsToInflate = False
-            logger.debug(line)
+            self.logger.debug(line)
 
 
     def ReadPressureVals(self):
@@ -151,14 +164,14 @@ class SoftGrasper:
         try:
             pVal = [float(x) for x in line.split(",")[1:]]
             if len(pVal)!=12:
-                logger.error("Not enough pressure values:")
-                logger.error(line)
+                self.logger.error("Not enough pressure values:")
+                self.logger.error(line)
             else:
                 for count,val in enumerate(pVal):
                     self.PressureArray[count].append(pVal[count])
 
         except Exception as e:
-            logger.exception("Error during read")
+            self.logger.exception("Error during read")
 
     def getJawChangePressureVals(self):
         if (len(self.PressureArray[self.JawPos[0]])<=2):
@@ -169,7 +182,7 @@ class SoftGrasper:
             #PrevJawPress= [self.PressureArray[x][-2] for x in self.JawPos]
             if self.PrevJawPress is None:
                 self.PrevJawPress=CurJawPress
-                logging.info('baseline Jaw pressure is '+str(self.PrevJawPress))
+                self.logger.info('baseline Jaw pressure is '+str(self.PrevJawPress))
 
             ChangeInPressure = (np.array(CurJawPress)-np.array(self.PrevJawPress)).tolist()
             #return(ChangeInPressure)
@@ -177,14 +190,14 @@ class SoftGrasper:
 
     def IncrementalMove(self, closureIncrement_mm = 0, jawIncrement_psi = [0,0,0]):
         self.commandedPosition["ClosureChangeInRadius_mm"] = min(max(0,self.commandedPosition["ClosureChangeInRadius_mm"] + closureIncrement_mm),23)
-        logger.debug("Commanded Position in mm: "+str(self.commandedPosition["ClosureChangeInRadius_mm"] )) #for debug
+        self.logger.debug("Commanded Position in mm: "+str(self.commandedPosition["ClosureChangeInRadius_mm"] )) #for debug
         self.commandedPosition["Jaw1_psi"] = min(max(0,self.commandedPosition["Jaw1_psi"] + jawIncrement_psi[0]),2)
         self.commandedPosition["Jaw2_psi"] = min(max(0,self.commandedPosition["Jaw2_psi"] + jawIncrement_psi[1]),2)
         self.commandedPosition["Jaw3_psi"] = min(max(0,self.commandedPosition["Jaw3_psi"] + jawIncrement_psi[2]),2)
 
     def AbsoluteMove(self, closureIncrement_mm = 0, jawIncrement_psi = [0,0,0]):
         self.commandedPosition["ClosureChangeInRadius_mm"] = min(max(0, closureIncrement_mm),23)
-        logger.debug("Commanded Position in mm: "+str(self.commandedPosition["ClosureChangeInRadius_mm"] )) #for debug
+        self.logger.debug("Commanded Position in mm: "+str(self.commandedPosition["ClosureChangeInRadius_mm"] )) #for debug
         self.commandedPosition["Jaw1_psi"] = min(max(0, jawIncrement_psi[0]),2)
         self.commandedPosition["Jaw2_psi"] = min(max(0,jawIncrement_psi[1]),2)
         self.commandedPosition["Jaw3_psi"] = min(max(0, jawIncrement_psi[2]),2)
@@ -192,12 +205,12 @@ class SoftGrasper:
 
     def MoveGrasper_DEPRECATED(self):
         PVal = self.GetPressureFromPosition(self.commandedPosition["ClosureChangeInRadius_mm"])
-        logger.debug(PVal)
+        self.logger.debug(PVal)
         self.SendPressureCommand(PVal)
         self.ReadPressureVals()
 
         if len(self.PressureArray[0]) > 0:
-            logger.debug("Pressure val: " + str(self.PressureArray[0][-1]))
+            self.logger.debug("Pressure val: " + str(self.PressureArray[0][-1]))
 
 
         #ChP = SG.getJawChangePressureVals()
@@ -206,7 +219,7 @@ class SoftGrasper:
     def MoveGrasper(self):
         PVal = self.GetPressureFromPosition(self.commandedPosition["ClosureChangeInRadius_mm"]) #get the pressure value in psi
 
-        logger.debug("CommandedPressure: "+str(PVal))
+        self.logger.debug("CommandedPressure: "+str(PVal))
 
         self.PressurePorts[self.closureMuscle_idx].portStatus = PortActions.INFLATE_AND_MODULATE
         self.PressurePorts[self.closureMuscle_idx].commandedPressure = PVal #value in psi
@@ -221,14 +234,14 @@ class SoftGrasper:
 
         byteList = self.ConstructPortCommand()
         numBytes = self.sendCommunicationArray(byteList=byteList)
-        logger.debug("Bytes sent:%i" % (numBytes))
+        self.logger.debug("Bytes sent:%i" % (numBytes))
 
         # read serial data
         self.readSerialData()
 
         ChP = self.getJawChangePressureVals()
         self.changeInPressure = ChP
-        logger.debug("Change in pressure: "+','.join([str(x) for x in ChP]))
+        self.logger.debug("Change in pressure: "+','.join([str(x) for x in ChP]))
 
 
 
@@ -326,12 +339,12 @@ class SoftGrasper:
 
                 if payload is not None:
                     if numBytes == len(payload):
-                        logger.info('Payload matches the expected number of bytes')
+                        self.logger.info('Payload matches the expected number of bytes')
                         self.processData(protocolType, numBytes, payload)
 
                     else:
-                        logger.error('Warning: Payload size does not match the expected number of bytes\n Protocol Type %s, Numbytes expected %s, Length of payload %s '%(str(protocolType),str(numBytes),str(len(payload))))
-                        logger.debug(payload)
+                        self.logger.error('Warning: Payload size does not match the expected number of bytes\n Protocol Type %s, Numbytes expected %s, Length of payload %s '%(str(protocolType),str(numBytes),str(len(payload))))
+                        self.logger.debug(payload)
 
 
 
@@ -368,12 +381,12 @@ class SoftGrasper:
                     for count, val in enumerate(data):
                         self.PressureArray[count].append(data[count])
 
-                    logging.debug("Data for Case 0 (pressure values): " + ','.join([str(x) for x in data]))
+                    self.logger.debug("Data for Case 0 (pressure values): " + ','.join([str(x) for x in data]))
 
 
                 case 1: #strings
                     #for strings
-                    logging.debug("Payload Case 1 (strings): " + payload.decode())
+                    self.logger.debug("Payload Case 1 (strings): " + payload.decode())
 
 
                 case _:

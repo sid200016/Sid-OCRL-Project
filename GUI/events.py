@@ -52,7 +52,7 @@ def handle_info_done(user_data, trial_data):
     curr_test = test
     num_attempts = trial_data['num_attempts']
 
-    with open(f'./data_logs/{id_code}.csv', 'w', newline='') as file:
+    with open(f'./datalogs/{id_code}.csv', 'w', newline='') as file:
         writer = csv.writer(file)
         
         writer.writerow(["id code", "age", "gender"])

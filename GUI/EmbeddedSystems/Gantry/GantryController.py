@@ -21,28 +21,7 @@ import logging
 from datetime import datetime
 import sys
 
-
-##### Set up logging ####
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.DEBUG)
-fname = str(__name__)+datetime.now().strftime("_%d_%m_%Y_%H_%M_%S")
-
-fh = logging.FileHandler(fname) #file handler
-fh.setLevel(logging.DEBUG)
-
-ch = logging.StreamHandler(sys.stdout) #stream handler
-ch.setLevel(logging.ERROR)
-
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-
-fh.setFormatter(formatter)
-ch.setFormatter(formatter)
-# add the handlers to the logger
-logger.addHandler(fh)
-logger.addHandler(ch)
-
-
-
+from pathlib import Path
 
 
 class GantryActions(Enum):
@@ -52,6 +31,11 @@ class GantryActions(Enum):
 class Gantry:
 
     def __init__(self,comport='COM12',serialRate=115200,timeout=2,initPos=Point(220,220,200),MaxBufferSize = 3,MoveSpeed_mm_p_min = 50*60, homeSystem = True, initializeSystem = True):
+
+        self.loggerGC = None
+        self.setupLogger()
+
+
         self.ser = None
         self.initPos = initPos #position in [x,y,z] in mm. x is movement of the gantry head, y is the movement of the base plate and z is the movement up and down.
 
@@ -74,6 +58,30 @@ class Gantry:
         if initializeSystem == True:
             self.SetupGantry(comport = comport, serialRate = serialRate,timeout=timeout,initPos = initPos, homeSystem=homeSystem)
 
+    def setupLogger(self):
+        ##### Set up logging ####
+        loggerGC = logging.getLogger(__name__)
+        fname = Path(__file__).parents[3].joinpath('datalogs', str(__name__) + datetime.now().strftime(
+            "_%d_%m_%Y_%H_%M_%S") + ".txt")
+
+        fh = logging.FileHandler(fname)  # file handler
+        fh.setLevel(logging.DEBUG)
+
+        ch = logging.StreamHandler(sys.stdout)  # stream handler
+        ch.setLevel(logging.ERROR)
+
+        formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
+        fh.setFormatter(formatter)
+        ch.setFormatter(formatter)
+
+        loggerGC.setLevel(logging.DEBUG)
+
+        # add the handlers to the loggerGC
+        loggerGC.addHandler(fh)
+        loggerGC.addHandler(ch)
+
+        self.loggerGC = loggerGC
     def SetupGantry(self,comport='COM12',serialRate=115200,timeout=2,initPos=Point(220,220,315), homeSystem = True):
         self.ser = serial.Serial(comport, serialRate, timeout=timeout)
         time.sleep(20)
@@ -82,14 +90,14 @@ class Gantry:
             self.HomeGantry(initPos)
 
     def HomeGantry(self,initPos:Point):
-        logger.info("Homing gantry ...")
+        self.loggerGC.info("Homing gantry ...")
         self.sendCommand("G28 X0 Y0 Z0\r\n")
         # sendCommand(ser,"G0 F15000 X0\r\n")
         self.sendCommand("M400\r\n")
         time.sleep(2)
 
         self.sendCommand("G90\r\n")
-        logger.debug("Finished Sending G90")
+        self.loggerGC.debug("Finished Sending G90")
         time.sleep(1)
         self.sendCommand("G0 F15000\r\n")
         time.sleep(1)
@@ -98,7 +106,7 @@ class Gantry:
         time.sleep(1)
         self.sendCommand("M280 P0 S95\r\n")  # make sure that the gripper is closed
         self.sendCommand("M400\r\n")
-        logger.info("Finished homing gantry ...")
+        self.loggerGC.info("Finished homing gantry ...")
 
 
     def sendCommand(self,commandstr,wait_for_ok = True):
@@ -109,7 +117,7 @@ class Gantry:
         line_hold=""
         while wait_for_ok:
             line = self.ser.readline()
-            logger.debug('Wait for ok: '+str(line,'utf-8'))
+            self.loggerGC.debug('Wait for ok: '+str(line,'utf-8'))
             line_hold = line_hold + str(line, 'utf-8') +"\n"
 
             if line == b'ok\n':
@@ -159,12 +167,12 @@ class Gantry:
             injectBool = self.updateInjectStatus()
 
             toc = time.perf_counter()
-            logger.debug("M114 Time " + str(toc - tic))
+            self.loggerGC.debug("M114 Time " + str(toc - tic))
 
             return(Point(*positionArray))
 
         except Exception as e:
-            logger.exception(responseM114)
+            self.loggerGC.exception(responseM114)
             return([np.Inf,np.Inf,np.Inf]) #return Inf for all three axes
 
     def CheckPositionToReference(self, position1: Point, position2: Point, tolerance: float):  # true if points are within tolerance of each other , false if outside tolerance
@@ -194,7 +202,11 @@ class Gantry:
 
         distanceGoalToStart = np.linalg.norm([x-self.startMotionPos[i] for (i,x) in enumerate(goalPosition)]) #get distance from goal to start
 
-        fractionCovered = distanceval/distanceGoalToStart
+        if distanceGoalToStart ==0 and distanceval == 0:
+            fractionCovered = 1
+
+        else:
+            fractionCovered = distanceval/distanceGoalToStart
 
 
         self.atGoal = GoalBool

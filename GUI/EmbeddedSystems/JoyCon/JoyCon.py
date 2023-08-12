@@ -9,25 +9,7 @@ import logging
 from datetime import datetime
 import sys
 
-
-##### Set up logging ####
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.DEBUG)
-fname = str(__name__)+datetime.now().strftime("_%d_%m_%Y_%H_%M_%S")
-
-fh = logging.FileHandler(fname) #file handler
-fh.setLevel(logging.DEBUG)
-
-ch = logging.StreamHandler(sys.stdout) #stream handler
-ch.setLevel(logging.ERROR)
-
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-
-fh.setFormatter(formatter)
-ch.setFormatter(formatter)
-# add the handlers to the logger
-logger.addHandler(fh)
-logger.addHandler(ch)
+from pathlib import Path
 
 
 
@@ -46,6 +28,10 @@ class Button:
 class JoyCon:
 
     def __init__(self):
+
+        #setup logger
+        self.loggerJoy = None
+        self.setupLogger()
 
         self.joysticks = []
         self.JoyStick_JoyConID = None
@@ -69,7 +55,27 @@ class JoyCon:
         #                         "R": self.buttonR, "ZR": self.buttonZR}
         self.initializeJoystick()
 
+    def setupLogger(self):
+        ##### Set up logging ####
+        loggerJoy = logging.getLogger(__name__)
+        fname = Path(__file__).parents[3].joinpath('datalogs', str(__name__) + datetime.now().strftime(
+            "_%d_%m_%Y_%H_%M_%S") + ".txt")
 
+        fh = logging.FileHandler(fname)  # file handler
+        fh.setLevel(logging.DEBUG)
+
+        ch = logging.StreamHandler(sys.stdout)  # stream handler
+        ch.setLevel(logging.ERROR)
+
+        formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
+        fh.setFormatter(formatter)
+        ch.setFormatter(formatter)
+        loggerJoy.setLevel(logging.DEBUG)
+        # add the handlers to the loggerJoy
+        loggerJoy.addHandler(fh)
+        loggerJoy.addHandler(ch)
+        self.loggerJoy = loggerJoy
     def initializeJoystick(self):
         pygame.init()
 
@@ -108,10 +114,10 @@ class JoyCon:
                 #ax4 = joystick.get_axis(5)
 
 
-                logger.debug(",".join(buttonValues.keys()))
-                logger.debug(",".join([str(k) for k in buttonValues.values()]))
-                logger.debug("Analog Stick: horizontal, vertical")
-                logger.debug(str(horiz_move) + "," + str(vert_move))
+                self.loggerJoy.debug(",".join(buttonValues.keys()))
+                self.loggerJoy.debug(",".join([str(k) for k in buttonValues.values()]))
+                self.loggerJoy.debug("Analog Stick: horizontal, vertical")
+                self.loggerJoy.debug(str(horiz_move) + "," + str(vert_move))
                 #print(str(ax3) + "," + str(ax4))
 
         return(buttonValues,[horiz_move,vert_move]) #return the button press values and the analog stick values
@@ -261,9 +267,9 @@ class Joy_Gantry(JoyCon):
         posInc, feedrate_mmps = self.calcPositionIncrement(joy_horiz_axis,joy_vert_axis) #modify x and y positions for the joystick pos.  the z-axis should be modified from buttonR and buttonZR calls.  X axis on the joystick is inverted from +ve motion on the joystick so multiply by -1
 
         self.Gantry.incrementalMove(moveSpeed_mmps=feedrate_mmps, **{"move_x_mm":posInc[0],"move_y_mm":posInc[1],"move_z_mm":posInc[2]})
-        logger.debug("Joystick Pos:{0},{1}".format(joy_horiz_axis, joy_vert_axis))
-        logger.debug("Position increment:{0},{1},{2}".format(posInc[0], posInc[1], posInc[2]))
-        logger.debug("Current Gantry Position:{0},{1},{2}".format(self.Gantry.PositionArray["x"][-1],
+        self.loggerJoy.debug("Joystick Pos:{0},{1}".format(joy_horiz_axis, joy_vert_axis))
+        self.loggerJoy.debug("Position increment:{0},{1},{2}".format(posInc[0], posInc[1], posInc[2]))
+        self.loggerJoy.debug("Current Gantry Position:{0},{1},{2}".format(self.Gantry.PositionArray["x"][-1],
                                                            self.Gantry.PositionArray["y"][-1],
                                                            self.Gantry.PositionArray["z"][-1]))
 

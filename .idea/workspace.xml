@@ -6,10 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="bfd83e2d-ab31-4129-8c0e-ce5b016d6614" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/SoftGrasper/SoftGrasperController/.vscode/extensions.json" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SoftGrasper/SoftGrasperController/.vscode/extensions.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/SoftGrasper/SoftGrasper.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SoftGrasper/SoftGrasper.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/SoftGrasper/SoftGrasperController/src/ManageSoftGrasper.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SoftGrasper/SoftGrasperController/src/ManageSoftGrasper.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Testing/TestSoftGrasperPressureMeasurements.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/TestSoftGrasperPressureMeasurements.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Testing/checkSoftGrasper2_new.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/checkSoftGrasper2_new.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +58,7 @@
       <recent name="C:\Users\Ravesh\Desktop\Research\FRR\FRR Software Interface\FRR-Software-Interface" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.checkSoftGrasper2_new">
+  <component name="RunManager" selected="Python.TestSoftGrasperPressureMeasurements (1)">
     <configuration name="Hardware (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="FRR-Software-Interface" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -269,8 +268,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.checkSoftGrasper2_new" />
         <item itemvalue="Python.TestSoftGrasperPressureMeasurements (1)" />
+        <item itemvalue="Python.checkSoftGrasper2_new" />
         <item itemvalue="Python.SoftGrasper" />
         <item itemvalue="Python.Hardware (1)" />
         <item itemvalue="Python.run" />
@@ -287,6 +286,17 @@
       <updated>1687208602614</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

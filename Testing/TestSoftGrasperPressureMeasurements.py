@@ -25,4 +25,4 @@ while True:
 
     #print(','.join(SGPressurevals))
     print(SGPressurevals[SG.closureMuscle_idx]+","+SGPressurevals[SG.JawPos[0]]+","+SGPressurevals[SG.JawPos[1]]+","+SGPressurevals[SG.JawPos[2]])
-    #time.sleep(0.0001)
+    time.sleep(0.001)

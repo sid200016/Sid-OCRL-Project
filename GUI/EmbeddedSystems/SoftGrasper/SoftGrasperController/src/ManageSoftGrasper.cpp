@@ -7,13 +7,13 @@ const int RCK = 14;
 const int G_ENABLE = 15;
 
 
-//#define PressureCycle //define if you want to do the pressure cycle
+#define PressureCycle //define if you want to do the pressure cycle
 //#define debug
 #define DeflateALL
 //#define ReadSingle
 //#define DebugSingle
 //#define ReadMultiple
-#define DebugPrint //define if you want to send all the debug print statements
+//#define DebugPrint //define if you want to send all the debug print statements
 
 
 
@@ -22,20 +22,12 @@ const int G_ENABLE = 15;
 
 // Controller arguments:
 // int NumValveInflation, int NumValveVacuum, int pressureSensor_SS, PressureState state, float pressure_tolerance, float min_pressure, float max_pressure, String Muscle, float alpha
-const int numPressurePorts = 12;  
-const int numActivePorts = 7;
+const int numPressurePorts = 4;  
+const int numActivePorts = 4;
 PressurePort Pa[numPressurePorts] = { PressurePort(1, 2, 28, PressurePort::START, 0.1, 0, 30, "I3", 0.01), //actuator 0 h
-                                      PressurePort(3, 4, 25, PressurePort::START, 0.4, 0, 30, "Not Used", 0.12),//actuator 1 h
-                                      PressurePort(7, 8, 24, PressurePort::START, 0.4, 0, 30, "Not Used", 0.12),  //broken //actuator 2
-                                      PressurePort(6, 5, 10, PressurePort::START, 0.1, 0, 30, "I1_1", 0.12), //actuator 3 h
-                                      PressurePort(9, 10, 9, PressurePort::START, 0.1, 0, 30, "I1_2", 0.12), //actuator 4 h
-                                      PressurePort(11, 12, 8, PressurePort::START, 0.4, 0, 30, "Not Used", 0.5), //actuator 5 h
-                                      PressurePort(13, 14, 7, PressurePort::START, 0.1, 0, 30, "I1_3", 0.12), //actuator 6 h
-                                      PressurePort(15, 16, 6, PressurePort::START, 0.05, 0, 30, "Not Used", 0.4), //actuator 7 l
-                                      PressurePort(17, 18, 5, PressurePort::START, 0.05, 0, 30, "JAW1", 0.35), //actuator 8 l 
-                                      PressurePort(19, 20, 4, PressurePort::START, 0.05, 0, 30, "JAW2", 0.35), //actuator 9 l 
-                                      PressurePort(24, 23, 3, PressurePort::START, 0.05, 0, 30, "Not Used", 0.5), //broken //actuator 10 h
-                                      PressurePort(22, 21, 2, PressurePort::START, 0.05, 0, 30, "JAW3", 0.35) }; //actuator 11 l
+                                      PressurePort(3, 4, 4, PressurePort::START, 0.05, 0, 30, "JAW1", 0.35), //actuator 8 l
+                                      PressurePort(5, 6, 3, PressurePort::START, 0.05, 0, 30, "JAW2", 0.35), //actuator 8 l 
+                                      PressurePort(7, 8, 2, PressurePort::START, 0.05, 0, 30, "JAW3", 0.35)}; //actuator 11 l
 
 
 //--------------Loop Timing--------------- //
@@ -72,13 +64,15 @@ byte ArrayElementSize = 8;
 #define ST_Payload 1
 #define ST_Trailer 2
 
-const char HeaderStr[MSG_HDR_LEN+1] = {'>', '>'};
-const char TrailerStr[MSG_TRLR_LEN+1] = {'<', '<'};
+const char HeaderStr[MSG_HDR_LEN+1] = {'>', '!'};
+const char TrailerStr[MSG_TRLR_LEN+1] = {'!', '<'};
+const int numExpectedBytes = numPressurePorts/2;
 
 byte Payload[MSG_PAYLOAD_LEN_MAX];
 
 String PressureCommand;
 String PortCommand;
+
 
 
 enum PortAction_ENUM
@@ -106,15 +100,7 @@ struct PortActions
 struct PortActions PortA[numPressurePorts] = { {0, IGNORE, 0.0, 0.0},
                                             {1, IGNORE, 0.0, 0.0},
                                             {2, IGNORE, 0.0, 0.0},
-                                            {3, IGNORE, 0.0, 0.0},
-                                            {4, IGNORE, 0.0, 0.0},
-                                            {5, IGNORE, 0.0, 0.0},
-                                            {6, IGNORE, 0.0, 0.0},
-                                            {7, IGNORE, 0.0, 0.0},
-                                            {8, IGNORE, 0.0, 0.0},
-                                            {9, IGNORE, 0.0, 0.0},
-                                            {10, IGNORE, 0.0, 0.0},
-                                            {11, IGNORE, 0.0, 0.0}}; 
+                                            {3, IGNORE, 0.0, 0.0}}; 
 
 
 //-------Function defs---------:
@@ -264,10 +250,10 @@ void setup() {
 
     #ifdef ReadMultiple
         
-        const int FRR_Test_Port [12] = {0,1,2,3,4,5,6,7,8,9,10,11};  //Bank of 4 low pressure
+        const int FRR_Test_Port [numPressurePorts] = {0,1,2,3};  //Bank of 4 low pressure
             while (true) {
                 String outputs ="";
-                for (int j=0;j<12;j++)
+                for (int j=0;j<numPressurePorts;j++)
                 {
                     int muscleToTest = FRR_Test_Port[j];
                     float rawPress = Pa[muscleToTest].readPressure(false);  //without moving average
@@ -354,13 +340,13 @@ void ReadSerial()
 
     static int nIdx = 0;
     static int numPressure = 0;
-    static int PressVal_ind [numPressurePorts] = {0,0,0,0,0,0,0,0,0,0,0,0};
+    static int PressVal_ind [numPressurePorts] = {0,0,0,0};
 
     static byte stateRx = ST_Header; 
 
     #ifdef DebugPrint
 
-        char debugstr[50] = "Header";
+        char debugstr[100] = "Header";
 
     #endif
 
@@ -409,7 +395,7 @@ void ReadSerial()
 
                     
 
-                    if (nIdx<6)
+                    if (nIdx<numExpectedBytes)
                     {
 
                         PortA[2*nIdx].action = (int) (Payload[nIdx] & 0b00001111 );
@@ -442,10 +428,10 @@ void ReadSerial()
                         
                     }
 
-                    else if (nIdx>=6 and nIdx< (6+numPressure))
+                    else if (nIdx>=numExpectedBytes and nIdx< (numExpectedBytes+numPressure))
                     {
 
-                        int pressportIdx = PressVal_ind[nIdx-6]; //get the pressure value
+                        int pressportIdx = PressVal_ind[nIdx-numExpectedBytes]; //get the pressure value
                         PortA[pressportIdx].pressure = 12*Payload[nIdx]/255; //convert to a pressure value
 
                         #ifdef DebugPrint
@@ -462,7 +448,7 @@ void ReadSerial()
 
                     nIdx++;
 
-                    if (nIdx == 6+numPressure) //if you get the number of bytes you expected, then move on to the next step
+                    if (nIdx == numExpectedBytes+numPressure) //if you get the number of bytes you expected, then move on to the next step
                     {
 
                         numPressure = 0;

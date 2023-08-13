@@ -48,7 +48,7 @@ class SoftGrasper:
         self.logger = None
         self.setupLogger()
 
-        self.numPorts = 12 #number of ports available
+        self.numPorts = 4 #number of ports available
         self.PressurePorts = {0 : PressurePort(0),
                               1 : PressurePort(1),
                               2 : PressurePort(2),
@@ -64,15 +64,15 @@ class SoftGrasper:
                               } #to hold the pressure values and the status of the ports
 
 
-        self.PressureArray = [[] for x in range(0, 12)]  # to store pressure values
+        self.PressureArray = [[] for x in range(0, self.numPorts)]  # to store pressure values
         self.PrevJawPress = None  # list to hold the original Jaw Press
-        self.JawPos = [8, 9, 11]  # position of pressure values that the jaws are at
+        self.JawPos = [1, 2, 3]  # position of pressure values that the jaws are at
         self.closureMuscle_idx = 0 #index for the closure muscle
         self.changeInPressure = [0, 0, 0] # change in pressure in psi for the three jaws
 
         #Tx-Rx Information for New Protocol
-        self.startChar = ">>" #indicates start of comm
-        self.endChar = "<<" #indicates end of comm
+        self.startChar = ">!" #indicates start of comm
+        self.endChar = "!<" #indicates end of comm
         self.messageStarted = False #true if you have received the startChar
         self.ProtocolSizeStarted = False #true if you have received the protocol type and size
         self.PayloadStarted = False # true if you have received the payload
@@ -163,7 +163,7 @@ class SoftGrasper:
         line = self.ser.readline().decode()
         try:
             pVal = [float(x) for x in line.split(",")[1:]]
-            if len(pVal)!=12:
+            if len(pVal)!=self.numPorts:
                 self.logger.error("Not enough pressure values:")
                 self.logger.error(line)
             else:
@@ -315,7 +315,7 @@ class SoftGrasper:
             totalBuffer.extend(xd) #total buffer is the unprocessed data from last round with the new data from this round
 
             #check to see if the byte(s) representing the start of the communication is present and if the byte(s) representing the end of the communication is present
-            rePayload = re.compile(b'.*?>>(?P<Payload>.*?)<<.*?') #replace >> and << with the start and end indicator pos
+            rePayload = re.compile(b'.*?>!(?P<Payload>.*?)!<.*?') #replace >> and << with the start and end indicator pos
             payload = rePayload.finditer(totalBuffer)
             index_StartStop = {"start":[],"stop":[]}
 

@@ -6,9 +6,9 @@ from pathlib import Path
 import numpy as np
 
 
-from EmbeddedSystems.Support.Structures import Point,GrasperContactForce
-from EmbeddedSystems.Gantry.envs.GantrySimulation import GantrySimulation
-from EmbeddedSystems.SNS.SNScontroller import SNScontroller
+from GUI.EmbeddedSystems.Support.Structures import Point,GrasperContactForce
+from GUI.EmbeddedSystems.Gantry.envs.GantrySimulation import GantrySimulation
+from GUI.EmbeddedSystems.SNS.SNScontroller import SNScontroller
 #########################################################
 
 def pick_and_place():
@@ -16,7 +16,7 @@ def pick_and_place():
     # add object to the simulation at the center of the plate
     gS.addObjectsToSim("PickupCube", startPos=[0, 0, (0.063 + 0.02)], mass_kg=1, sizeScaling=0.6,
                        sourceFile=str(
-                           Path(__file__).parent.parent/"EmbeddedSystems\\Gantry\\envs\\URDF\\PickUpObject_URDF\\urdf\\PickUpObject_URDF.urdf"))
+                           Path(__file__).parent.parent/"GUI\\EmbeddedSystems\\Gantry\\envs\\URDF\\PickUpObject_URDF\\urdf\\PickUpObject_URDF.urdf"))
     # SoftSupportInit = p.loadURDF("URDF/SoftGrasperAssembly_SimplifiedTilt/urdf/SoftGrasperAssembly_SimplifiedTilt.urdf",
     #                              [0, 0, 0.52816* gS.lengthScale], globalScaling=gS.lengthScale, useFixedBase=False,
     #                              flags=p.URDF_USE_SELF_COLLISION_INCLUDE_PARENT | p.URDF_USE_MATERIAL_COLORS_FROM_MTL)

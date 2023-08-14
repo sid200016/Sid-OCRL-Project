@@ -69,6 +69,7 @@ class SoftGrasper:
         self.JawPos = [1, 2, 3]  # position of pressure values that the jaws are at
         self.closureMuscle_idx = 0 #index for the closure muscle
         self.changeInPressure = [0, 0, 0] # change in pressure in psi for the three jaws
+        self.maxClosurePressure_psi = 11.4 #maximum pressure for the closure muscle in psi
 
         #Tx-Rx Information for New Protocol
         self.startChar = ">!" #indicates start of comm
@@ -129,7 +130,7 @@ class SoftGrasper:
         x = position_mm
         x=min(x,19)  #limit to maximum 19 mm contraction
         pressV = b[0]*(x**6) + b[1]*(x**5) + b[2]*(x**4) + b[3]*(x**3) + b[4]*(x**2) + b[5]*(x) + b[6]*1
-        pressV=min(pressV,12)  #limit pressure
+        pressV=min(pressV,self.maxClosurePressure_psi)  #limit pressure
         return(pressV)
     def SendPressureCommand(self,PressureVal):
         byteFval = bytearray(struct.pack("f", PressureVal))

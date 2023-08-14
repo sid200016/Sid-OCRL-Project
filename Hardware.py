@@ -7,6 +7,8 @@ from GUI.EmbeddedSystems.SoftGrasper.SoftGrasper import PortActions
 from GUI.EmbeddedSystems.SoftGrasper.SoftGrasper import SoftGrasper
 from GUI.EmbeddedSystems.Gantry.GantryController import Gantry as GantryController
 import GUI.EmbeddedSystems.JoyCon.JoyCon as JC
+from GUI.EmbeddedSystems.SNS.SNScontroller import SNScontroller
+from GUI.EmbeddedSystems.Support.Structures import GrasperContactForce,Point
 
 import logging
 from datetime import datetime
@@ -174,7 +176,7 @@ async def HardwareInitialize():
 
     if useSG == True:
         loggerR.info('Initializing Soft Grasper...')
-        SG = SoftGrasper(COM_Port='COM5', BaudRate=460800, timeout=1, controllerProfile="New") #initialize soft grasper
+        SG = SoftGrasper(COM_Port='COM7', BaudRate=460800, timeout=1, controllerProfile="New") #initialize soft grasper
         loggerR.info('Finished initializing Soft Grasper')
 
     if useGC == True:

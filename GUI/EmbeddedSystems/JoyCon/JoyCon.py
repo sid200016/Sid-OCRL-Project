@@ -205,7 +205,7 @@ class Joy_Gantry(JoyCon):
     def __init__(self,GantryS: GC.Gantry):
         super().__init__()
         self.Gantry = GantryS
-        self.MoveVelocity_mmps = Velocity(*[0.2*x for x in self.Gantry.MaxSpeedRate_mmps])
+        self.MoveVelocity_mmps = Velocity(*[0.6*x for x in self.Gantry.MaxSpeedRate_mmps])
         self.PeriodT_s = 0.055 #period over which to calculate movement of the gantry
         self.JoystickPos = [0,0,0] # joystick reading for x, y and z axes
         self.GantryIncrement_mm = [] #for x, y and z axes, respectively, in mm

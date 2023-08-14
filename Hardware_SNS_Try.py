@@ -230,8 +230,8 @@ async def program_loop():
 
                     grasperPosition = Point(curPos.x, curPos.y, curPos.z)  # convert to meters
 
-                    grasperThreshold = [0.4, 0.4, 0.4]
-                    grasperContact = [(x - pressureThreshold[i]) * 5 if x >= grasperThreshold[i] else 0 for (i, x) in
+                    grasperThreshold = [0.2, 0.2, 0.2]
+                    grasperContact = [(x - pressureThreshold[i]) * 6 if x >= grasperThreshold[i] else 0 for (i, x) in
                                       enumerate(SG.changeInPressure)]
 
                     grasperContact = GrasperContactForce(*grasperContact)

@@ -30,7 +30,7 @@ class GantryActions(Enum):
 
 class Gantry:
 
-    def __init__(self,comport='COM12',serialRate=115200,timeout=2,initPos=Point(220,220,200),MaxBufferSize = 3,MoveSpeed_mm_p_min = 50*60, homeSystem = True, initializeSystem = True):
+    def __init__(self,comport='COM12',serialRate=115200,timeout=2,initPos=Point(226,252,200),MaxBufferSize = 3,MoveSpeed_mm_p_min = 50*60, homeSystem = True, initializeSystem = True):
 
         self.loggerGC = None
         self.setupLogger()

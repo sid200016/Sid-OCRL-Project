@@ -5,12 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfd83e2d-ab31-4129-8c0e-ce5b016d6614" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Hardware_SNS_Try.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/SoftGrasper/SoftGrasper.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SoftGrasper/SoftGrasper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hardware.py" beforeDir="false" afterPath="$PROJECT_DIR$/Hardware.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Testing/TestSNS_sim.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/TestSNS_sim.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Testing/combined.urdf" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/combined.urdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.Gantry.GantryController_13_08_2023_22_33_27.txt" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.Gantry.GantryController_13_08_2023_22_33_27.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.JoyCon.JoyCon_13_08_2023_22_34_16.txt" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.JoyCon.JoyCon_13_08_2023_22_34_16.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.SoftGrasper.SoftGrasper_13_08_2023_22_33_27.txt" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.SoftGrasper.SoftGrasper_13_08_2023_22_33_27.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/HardwareDatalog_13_08_2023_22_33_27.csv" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/HardwareDatalog_13_08_2023_22_33_27.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Hardware_13_08_2023_22_33_27.txt" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Hardware_13_08_2023_22_33_27.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +60,7 @@
       <recent name="C:\Users\Ravesh\Desktop\Research\FRR\FRR Software Interface\FRR-Software-Interface" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Hardware_SNS_Try (1)">
+  <component name="RunManager" selected="Python.TestSNS_sim">
     <configuration name="GantrySimulation" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="FRR-Software-Interface" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -270,8 +270,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Hardware_SNS_Try (1)" />
         <item itemvalue="Python.TestSNS_sim" />
+        <item itemvalue="Python.Hardware_SNS_Try (1)" />
         <item itemvalue="Python.GantrySimulation" />
         <item itemvalue="Python.run" />
         <item itemvalue="Python.Hardware_SNS_Try" />

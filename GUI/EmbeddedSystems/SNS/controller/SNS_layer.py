@@ -249,8 +249,9 @@ sparsity_mask[[2, 3, 7], 5] = [-1, 1, 1]
 sparsity_mask[[3, 7], 6] = [-1, 1]
 # far away from the target position + no force = move to the postrelease position
 sparsity_mask[[2, 7], 7] = -1
+tau = torch.Tensor([0,0,0,0.5,0,0,0,1.1])
 command_layer = SNS_layer(layer_input_size=COMMAND_LAYER_INPUT_SIZE,
-                          layer_size=COMMAND_LAYER_SIZE, sparsity_mask=sparsity_mask, R=R)
+                          layer_size=COMMAND_LAYER_SIZE, sparsity_mask=sparsity_mask, R=R, tau=tau)
 
 
 p = Path(__file__).with_name("output_mu_param")
@@ -353,7 +354,7 @@ sparsity_mask[10, 2] = -1  # lift the gripper up = decrease z joint command
 sparsity_mask[11, 3] = 1
 theta_max_out = torch.Tensor(THETA_MAX)
 theta_min_out = torch.Tensor(THETA_MIN)
-tau = torch.Tensor([0.1, 0.3, 0.1, 0.3])
+tau = torch.Tensor([0.1, 0.1, 0.1, 1.1])
 motor_layer = SNS_layer(layer_input_size=MOTOR_LAYER_INPUT_SIZE, layer_size=MOTOR_LAYER_SIZE,
                         sparsity_mask=sparsity_mask, tau=tau, theta_min_out=theta_min_out, theta_max_out=theta_max_out, R=R)
 motor_layer._params["sensory_erev"].data[10, 2] = -R / 10

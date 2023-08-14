@@ -14,7 +14,7 @@ from GUI.EmbeddedSystems.SNS.SNScontroller import SNScontroller
 def pick_and_place():
     gS = GantrySimulation()  # gantryURDFfile = "URDF//GrasperAndGantry//urdf//GrasperAndGantry.urdf"
     # add object to the simulation at the center of the plate
-    gS.addObjectsToSim("PickupCube", startPos=[0, 0, (0.063 + 0.02)], mass_kg=1, sizeScaling=0.6,
+    gS.addObjectsToSim("PickupCube", startPos=[0, 0, (0.063 + 0.02)], mass_kg=0.5, sizeScaling=0.6,
                        sourceFile=str(
                            Path(__file__).parent.parent/"GUI\\EmbeddedSystems\\Gantry\\envs\\URDF\\PickUpObject_URDF\\urdf\\PickUpObject_URDF.urdf"))
     # SoftSupportInit = p.loadURDF("URDF/SoftGrasperAssembly_SimplifiedTilt/urdf/SoftGrasperAssembly_SimplifiedTilt.urdf",

@@ -6,11 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="bfd83e2d-ab31-4129-8c0e-ce5b016d6614" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.Gantry.GantryController_13_08_2023_22_33_27.txt" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.Gantry.GantryController_13_08_2023_22_33_27.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.JoyCon.JoyCon_13_08_2023_22_34_16.txt" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.JoyCon.JoyCon_13_08_2023_22_34_16.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.SoftGrasper.SoftGrasper_13_08_2023_22_33_27.txt" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.SoftGrasper.SoftGrasper_13_08_2023_22_33_27.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/HardwareDatalog_13_08_2023_22_33_27.csv" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/HardwareDatalog_13_08_2023_22_33_27.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Hardware_13_08_2023_22_33_27.txt" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Hardware_13_08_2023_22_33_27.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller/SNS_layer.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller/SNS_layer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Testing/TestSNS_sim.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/TestSNS_sim.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +100,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Hardware_SNS_Try" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="SNS_layer" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="FRR-Software-Interface" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -111,11 +108,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Testing" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Users\SmorgasBORG\Documents\GitHub\FRR-Software-Interface\Hardware_SNS_Try.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller/SNS_layer.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -271,10 +268,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.TestSNS_sim" />
+        <item itemvalue="Python.SNS_layer" />
         <item itemvalue="Python.Hardware_SNS_Try (1)" />
         <item itemvalue="Python.GantrySimulation" />
         <item itemvalue="Python.run" />
-        <item itemvalue="Python.Hardware_SNS_Try" />
       </list>
     </recent_temporary>
   </component>

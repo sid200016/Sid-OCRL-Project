@@ -22,7 +22,7 @@
 
 }
 
-.items-form .item {
+.items-form .form-item {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -30,7 +30,7 @@
   width: 123px;
 }
 
-.items-form .item .item-input{
+.items-form .form-item .item-input{
   border: 0;
   background-color: var(--color-darkslateblue);
   border-radius: var(--br-8xl-5);

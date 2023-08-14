@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='waiting-to-proceed.css') }}" />
         <link rel="stylesheet" href="{{ url_for('static', filename='survey-link-PARTICIPANT.css') }}" />
         <link rel="stylesheet" href="{{ url_for('static', filename='landing-PROCTOR.css') }}" />
-        <link rel="stylesheet" href="{{ url_for('static', filename='dual-grasper-PARTICIPANT.css') }}" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='action.css') }}" />
         <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}" />
         <link rel="stylesheet" href="{{ url_for('static', filename='components.css') }}" />
     </head>
@@ -88,16 +88,16 @@
                         {% for col in range(3) %}
                             {% set n = row * 3 + col %}
                             {% set type = 'type' + n|string %}
-                            <div class="item" style="grid-row: {{row+1}} / {{row+2}}; grid-column: {{col+1}} / {{col+2}}">
-                            <img class="item-icon" alt="" src="{{ url_for('static', filename='public/gantry-circle.svg') }}" />
-                            <input
-                                class="item-input"
-                                type="text"
-                                defaultvalue="Type"
-                                placeholder="Type"
-                                name="{{ type }}"
-                                value="{{ request.form[type] }}"
-                            />
+                            <div class="form-item" style="grid-row: {{row+1}} / {{row+2}}; grid-column: {{col+1}} / {{col+2}}">
+                                <img class="item-icon" alt="" src="{{ url_for('static', filename='public/gantry-circle.svg') }}" />
+                                <input
+                                    class="item-input"
+                                    type="text"
+                                    defaultvalue="Type"
+                                    placeholder="Type"
+                                    name="{{ type }}"
+                                    value="{{ request.form[type] }}"
+                                />
                             </div>
                         {% endfor %}
                     {% endfor %}
@@ -157,61 +157,7 @@
                         <h1>Done</h1>
                     </button>
                 </div>
-
                 
-                {# <img class="vector-icon" alt="" src="{{ url_for('static', filename='public/vector.svg') }}" />
-
-                
-                <div class="select-grasper-type">Select grasper type:</div>
-                <img class="vector-icon1" alt="" src="{{ url_for('static', filename='public/vector1.svg') }}" />
-
-                
-                <img class="vector-icon2" alt="" src="{{ url_for('static', filename='public/vector2.svg') }}" />
-
-                <img class="vector-icon5" alt="" src="{{ url_for('static', filename='public/vector5.svg') }}" />
-
-                
-
-                <p class="jan-28" id="start-date">{{date}}</p>
-                <p class="am" id="time-log">{{time}}</p>
-                
-                <button class="info-button" id="done" type="submit">
-                    <div class="done">Done</div>
-                </button>
-                <button class="info-button" id="soft-select">
-                    <div class="soft-grasper">Soft Grasper</div>
-                </button>
-                <button class="info-button" id="rigid-select">
-                    <div class="dual-grasper">Dual Grasper</div>
-                </button> #}
-
-                {# <input
-                    class="info-screen-proctor-child"
-                    type="text"
-                    placeholder="e.g. 123456"
-                    required
-                    id="id-code"
-                    name="id-code"
-                    value="{{ request.form['id-code'] }}"
-                />
-
-                <input 
-                    class="info-screen-proctor-item" 
-                    type="number" 
-                    required 
-                    id="age" 
-                    name="age"
-                    value="{{ request.form['age'] }}"
-                />
-
-                <input
-                    class="info-screen-proctor-inner"
-                    type="text"
-                    required
-                    id="gender"
-                    name="gender"
-                    value="{{ request.form['gender'] }}"
-                /> #}
             </div>
 
         </div>
@@ -228,12 +174,15 @@
         </div>
 
         {# *** soft grasper *** #}
+        {% set allignments = { 0: 'start', 1: 'center', 2: 'end' } %}
+
         <div class="soft-grasper-proctor" id="soft-grasper-proc" style="display: none">
             <div class="gantry-space">
 
                 {# gantry curr position #}
                 <img 
-                id="gantry-marker-rigid" 
+                class="gantry-marker"
+                id="gantry-marker-soft-proc" 
                 alt="" 
                 src="{{ url_for('static', filename='/public/gantry.svg') }}" 
                 />
@@ -249,6 +198,9 @@
                     {% for col in range(3) %}
                         {% set n = row * 3 + col %}
                         {% set name = 'item' + n|string + '-proc-soft' %}
+                        {% set align = allignments[row] %}
+                        {% set justify = allignments[col] %}
+
                         {% set menu_name = 'item-menu' + n|string + '-soft' %}
 
                         {% set success = 'success' + n|string + '-soft' %}
@@ -256,11 +208,17 @@
                         {% set inprogress = 'inprogress' + n|string + '-soft' %}
                         {% set broken = 'broken' + n|string + '-soft' %}
 
-                        <div class="item" style="grid-row: {{row+1}} / {{row+2}}; grid-column: {{col+1}} / {{col+2}}">
-                            <img class="item-icon" id="{{ name }}" alt="" src="{{ url_for('static', filename='public/no-attempt.svg') }}" />
+                        <div class="item" style="justify-self: {{ justify }}; align-self: {{ align }};">
+                            <img 
+                                class="item-icon" 
+                                id="{{ name }}" 
+                                alt="" 
+                                src="{{ url_for('static', filename='public/no-attempt.svg') }}" 
+                                style="grid-column: {{ col+1 }}; grid-row: {{ row+1 }}; "
+                            />
                         </div>
 
-                        <div class="item-menu" id="{{ menu_name }}" style="grid-row: {{row+1}} / {{row+2}}; grid-column: {{col+1}} / {{col+2}}; z-index: 100; display: none">
+                        <div class="item-menu" id="{{ menu_name }}" style="grid-row: {{row+1}} / {{row+2}}; grid-column: {{col+1}} / {{col+2}}; z-index: 100; justify-self: {{ justify }}; align-self: {{ align }}; display: none">
                             <button><img id="{{ success }}" src="{{ url_for('static', filename='public/attempt-success.svg') }}"/></button>
                             <button><img id="{{ fail }}" src="{{ url_for('static', filename='public/attempt-fail.svg') }}"/></button>
                             <button><img id="{{ inprogress }}" src="{{ url_for('static', filename='public/attempt-inprogress.svg') }}"/></button>
@@ -310,24 +268,29 @@
 
                 {# gantry curr position #}
                 <img 
-                id="gantry-marker" 
-                alt="" 
-                src="{{ url_for('static', filename='/public/gantry.svg') }}" 
+                    class="gantry-marker"
+                    id="gantry-marker-soft-part" 
+                    alt="" 
+                    src="{{ url_for('static', filename='/public/gantry.svg') }}" 
                 />
 
-                <img 
-                class="goal"
-                alt=""
-                src="{{ url_for('static', filename='/public/goal.png') }}" 
-                />
+                <div class="goal">Goal</div>
 
                 <div class="item-grid">
                 {% for row in range(3) %}
                     {% for col in range(3) %}
                     {% set n = row * 3 + col %}
                     {% set name = 'item' + n|string  + '-part-soft'%}
-                    <div class="item" style="grid-row: {{row+1}} / {{row+2}}; grid-column: {{col+1}} / {{col+2}}">
-                        <img class="item-icon" id="{{ name }}" alt="" src="{{ url_for('static', filename='public/no-attempt.svg') }}" />
+                    {% set align = allignments[row] %}
+                    {% set justify = allignments[col] %}
+                    <div class="item" style="justify-self: {{ justify }}; align-self: {{ align }};">
+                        <img 
+                            class="item-icon" 
+                            id="{{ name }}" 
+                            alt="" 
+                            src="{{ url_for('static', filename='public/no-attempt.svg') }}" 
+                            style="grid-column: {{ col+1 }}; grid-row: {{ row+1 }}; "
+                        />
                     </div>
                     {% endfor %}
                 {% endfor %}
@@ -411,7 +374,8 @@
 
                 {# gantry curr position #}
                 <img 
-                id="gantry-marker" 
+                class="gantry-marker"
+                id="gantry-marker-rigid-proc" 
                 alt="" 
                 src="{{ url_for('static', filename='/public/gantry.svg') }}" 
                 />
@@ -427,18 +391,26 @@
                     {% for col in range(3) %}
                         {% set n = row * 3 + col %}
                         {% set name = 'item' + n|string + '-proc-rigid' %}
+                        {% set align = allignments[row] %}
+                        {% set justify = allignments[col] %}
+
                         {% set menu_name = 'item-menu' + n|string + '-rigid' %}
 
                         {% set success = 'success' + n|string + '-rigid' %}
                         {% set fail = 'fail' + n|string + '-rigid' %}
                         {% set inprogress = 'inprogress' + n|string + '-rigid' %}
                         {% set broken = 'broken' + n|string + '-rigid' %}
-
-                        <div class="item" style="grid-row: {{row+1}} / {{row+2}}; grid-column: {{col+1}} / {{col+2}}">
-                            <img class="item-icon" id="{{ name }}" alt="" src="{{ url_for('static', filename='public/no-attempt.svg') }}" />
+                        <div class="item" style="justify-self: {{ justify }}; align-self: {{ align }};">
+                            <img 
+                                class="item-icon" 
+                                id="{{ name }}" 
+                                alt="" 
+                                src="{{ url_for('static', filename='public/no-attempt.svg') }}" 
+                                style="grid-column: {{ col+1 }}; grid-row: {{ row+1 }}; "
+                            />
                         </div>
 
-                        <div class="item-menu" id="{{ menu_name }}" style="grid-row: {{row+1}} / {{row+2}}; grid-column: {{col+1}} / {{col+2}}; z-index: 100; display: none">
+                        <div class="item-menu" id="{{ menu_name }}" style="grid-row: {{row+1}} / {{row+2}}; grid-column: {{col+1}} / {{col+2}}; z-index: 100; justify-self: {{ justify }}; align-self: {{ align }}; display: none">
                             <button><img id="{{ success }}" src="{{ url_for('static', filename='public/attempt-success.svg') }}"/></button>
                             <button><img id="{{ fail }}" src="{{ url_for('static', filename='public/attempt-fail.svg') }}"/></button>
                             <button><img id="{{ inprogress }}" src="{{ url_for('static', filename='public/attempt-inprogress.svg') }}"/></button>
@@ -488,7 +460,8 @@
 
             {# gantry curr position #}
             <img 
-            id="gantry-marker" 
+            class="gantry-marker"
+            id="gantry-marker-rigid-part" 
             alt="" 
             src="{{ url_for('static', filename='/public/gantry.svg') }}" 
             />
@@ -503,9 +476,17 @@
                 {% for row in range(3) %}
                     {% for col in range(3) %}
                     {% set n = row * 3 + col %}
-                    {% set name = 'item' + n|string  + '-part'%}
-                    <div class="item" style="grid-row: {{row+1}} / {{row+2}}; grid-column: {{col+1}} / {{col+2}}">
-                        <img class="item-icon" id="{{ name }}-rigid" alt="" src="{{ url_for('static', filename='public/no-attempt.svg') }}" />
+                    {% set name = 'item' + n|string  + '-part-rigid'%}
+                    {% set align = allignments[row] %}
+                    {% set justify = allignments[col] %}
+                    <div class="item" style="justify-self: {{ justify }}; align-self: {{ align }};">
+                        <img 
+                            class="item-icon" 
+                            id="{{ name }}" 
+                            alt="" 
+                            src="{{ url_for('static', filename='public/no-attempt.svg') }}" 
+                            style="grid-column: {{ col+1 }}; grid-row: {{ row+1 }}; "
+                        />
                     </div>
                     {% endfor %}
                 {% endfor %}

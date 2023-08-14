@@ -69,7 +69,7 @@ class SoftGrasper:
         self.JawPos = [1, 2, 3]  # position of pressure values that the jaws are at
         self.closureMuscle_idx = 0 #index for the closure muscle
         self.changeInPressure = [0, 0, 0] # change in pressure in psi for the three jaws
-        self.maxClosurePressure_psi = 11.4 #maximum pressure for the closure muscle in psi
+        self.maxClosurePressure_psi = 11.2 #maximum pressure for the closure muscle in psi
 
         #Tx-Rx Information for New Protocol
         self.startChar = ">!" #indicates start of comm

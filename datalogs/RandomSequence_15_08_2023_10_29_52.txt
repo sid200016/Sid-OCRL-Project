@@ -1,0 +1,53 @@
+2023-08-15 10:29:56,851 - __main__ - INFO - ID:2
+2023-08-15 10:29:56,852 - __main__ - INFO - Sequence of control type experiments: 1) SNS, 2) full-human, 3) SNS, 4) full-human, 5) full-human, 6) SNS
+
+
+2023-08-15 10:29:56,852 - __main__ - INFO - Generating object type distribution...
+2023-08-15 10:29:56,852 - __main__ - INFO - Trial 1, control type SNS
+2023-08-15 10:29:56,852 - __main__ - INFO - Random sequence: graspable,graspable,graspable,fixed,fixed,breakable,fixed,breakable,breakable 
+ As positioned on the grip: 
+ breakable fixed breakable 
+ breakable graspable fixed 
+ graspable graspable fixed
+
+
+2023-08-15 10:29:56,852 - __main__ - INFO - Trial 2, control type full-human
+2023-08-15 10:29:56,853 - __main__ - INFO - Random sequence: fixed,fixed,breakable,breakable,graspable,fixed,breakable,graspable,graspable 
+ As positioned on the grip: 
+ breakable fixed breakable 
+ breakable graspable fixed 
+ graspable graspable fixed
+
+
+2023-08-15 10:29:56,853 - __main__ - INFO - Trial 3, control type SNS
+2023-08-15 10:29:56,853 - __main__ - INFO - Random sequence: graspable,graspable,breakable,fixed,fixed,breakable,breakable,fixed,graspable 
+ As positioned on the grip: 
+ breakable fixed breakable 
+ breakable graspable fixed 
+ graspable graspable fixed
+
+
+2023-08-15 10:29:56,853 - __main__ - INFO - Trial 4, control type full-human
+2023-08-15 10:29:56,853 - __main__ - INFO - Random sequence: fixed,graspable,graspable,graspable,fixed,breakable,breakable,breakable,fixed 
+ As positioned on the grip: 
+ breakable fixed breakable 
+ breakable graspable fixed 
+ graspable graspable fixed
+
+
+2023-08-15 10:29:56,853 - __main__ - INFO - Trial 5, control type full-human
+2023-08-15 10:29:56,853 - __main__ - INFO - Random sequence: fixed,breakable,fixed,breakable,graspable,graspable,fixed,graspable,breakable 
+ As positioned on the grip: 
+ breakable fixed breakable 
+ breakable graspable fixed 
+ graspable graspable fixed
+
+
+2023-08-15 10:29:56,853 - __main__ - INFO - Trial 6, control type SNS
+2023-08-15 10:29:56,853 - __main__ - INFO - Random sequence: fixed,graspable,breakable,fixed,breakable,fixed,breakable,graspable,graspable 
+ As positioned on the grip: 
+ breakable fixed breakable 
+ breakable graspable fixed 
+ graspable graspable fixed
+
+

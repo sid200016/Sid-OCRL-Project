@@ -1,5 +1,5 @@
 id code,age,gender
-test,,
+test,31,Male
 
 type0,type1,type2,type3,type4,type5,type6,type7,type8
-,,,,,,,,
+breakable,fixed,breakable,breakable,graspable,fixed,graspable,graspable,fixed

@@ -2,6 +2,7 @@ import asyncio
 import socketio
 
 import time
+from enum import Enum
 
 from GUI.EmbeddedSystems.SoftGrasper.SoftGrasper import PortActions
 from GUI.EmbeddedSystems.SoftGrasper.SoftGrasper import SoftGrasper
@@ -77,15 +78,36 @@ useSNS = True #set to true if you want to use the SNS to control
 buttonVal = None #read from joystick
 AxesPos = None #joystick axes position
 
-ObjectVal = {"1":"Not Started",
-             "2":"Not Started",
-             "3":"Not Started",
-             "4": "Not Started",
-             "5": "Not Started",
-             "6": "Not Started",
-             "7": "Not Started",
-             "8": "Not Started",
-             "9": "Not Started"
+fragileThreshold = 0.5 #scale of 0 to 1.  Forces above this are considered broken for fragile objects
+class itemStatus(str,Enum):
+    notstarted = 'notstarted'
+    inprogress = 'inprogress'
+    fail = 'fail'
+    success = 'success'
+    broken = 'broken'
+
+class itemClass(Enum):
+    fixed= 'fixed'
+    breakable = 'breakable'
+    graspable = 'graspable'
+    notspecified = 'notspecified'
+
+class itemTrack:
+    def __init__(self,objectID, status = itemStatus.notstarted,itemClass=itemClass.graspable):
+        self.objectID = objectID
+        self.status = status #Not started, inprogress, fail, broken, success
+        self.itemClass = itemClass #fixed, breakable, graspable
+
+#object 1 is top left, object 9 is bottom right.
+ObjectVal = {"1": itemTrack(1, itemStatus.notstarted, itemClass.notspecified),
+             "2": itemTrack(1, itemStatus.notstarted, itemClass.notspecified),
+             "3": itemTrack(1, itemStatus.notstarted, itemClass.notspecified),
+             "4": itemTrack(1, itemStatus.notstarted, itemClass.notspecified),
+             "5": itemTrack(1, itemStatus.notstarted, itemClass.notspecified),
+             "6": itemTrack(1, itemStatus.notstarted, itemClass.notspecified),
+             "7": itemTrack(1, itemStatus.notstarted, itemClass.notspecified),
+             "8": itemTrack(1, itemStatus.notstarted, itemClass.notspecified),
+             "9": itemTrack(1, itemStatus.notstarted, itemClass.notspecified)
              }
 
 localHostName = 'http://localhost:8000'
@@ -166,8 +188,33 @@ def handle_item_event_hardware(data):
     attempt = data['att']
     test = data['test']
     loggerR.info('Item event: item %s is %s.  Attempt %s, test %s)'%(n,typ,attempt,test) )
-    ObjectVal[str(int(n)+1)] = typ
+    ObjectVal[str(int(n)+1)].status = itemStatus[typ]
 
+
+@sio.on('TestInfo')
+def handle_TestInfo(user_data, trial_data):
+
+    global loggerR, ObjectVal
+    id_code = user_data['id_code']
+    age = user_data['age']
+    gender = user_data['gender']
+    types = user_data['item_types']
+
+    test = trial_data['test']
+
+    num_attempts = trial_data['num_attempts']
+
+    loggerR.info("ID code %s, age: %s, gender: %s, types: %s, test: %s, num_attempts: %s"%(id_code, age,
+                                                                                           gender, types,
+                                                                                           test, num_attempts))
+
+    for k,v in enumerate(types):
+        v = v.lower()
+        if v in [str(x.name) for x in itemClass]:
+            ObjectVal[str(k+1)].itemClass = itemClass[v] #assign object Type
+
+        else:
+            ObjectVal[str(k + 1)].itemClass = itemClass.notspecified
 
 
 
@@ -183,7 +230,7 @@ async def HardwareInitialize():
 
     if useGC == True:
         loggerR.info('Initializing Gantry...')
-        GC = GantryController(comport = "COM4")#, homeSystem = False,initPos=[0,0,0]  #initialize gantry controller
+        GC = GantryController(comport = "COM4", homeSystem = False,initPos=[0,0,0])#, homeSystem = False,initPos=[0,0,0]  #initialize gantry controller
         loggerR.info('Finished initializing Gantry!')
 
     if usejcSG == True:
@@ -260,15 +307,13 @@ async def program_loop():
                     updatedSoftGrasper = False
 
                 # Rumble feedback based on pressure change
-                pressureThreshold = [0.4, 0.4,
-                                     0.4]  # change in pressure threshold in psi above which to register changes in pressure
-                rumbleValue = [(x - pressureThreshold[i]) / 1.5 if x >= pressureThreshold[i] else 0 for (i, x) in
-                               enumerate(SG.changeInPressure)]
+                pressureThreshold = [0.2,0.2,0.2]
+                rumbleValue = calculateRumble(pressureThreshold)
 
             if usejcSG == True:
-                jcSG.rumbleFeedback(max(rumbleValue), max(rumbleValue), 1000)
+                jcSG.rumbleFeedback(rumbleValue, rumbleValue, 1000)
 
-                await sio.emit('set-contact-force-soft_hardware', max(rumbleValue)*100)
+                await sio.emit('set-contact-force-soft_hardware', rumbleValue*100)
                 await sio.emit('set-gantry-marker_hardware', {'x': GC.PositionArray['x'][-1],'y': GC.PositionArray['y'][-1]})
 
 
@@ -281,6 +326,32 @@ async def program_loop():
         loggerR.debug('Exiting loop')
         return
 
+def calculateRumble(pressureThreshold = [0.2,0.2,0.2]):
+    global SG, ObjectVal, fragileThreshold, loggerR
+    #pressureThreshold:  change in pressure threshold in psi above which to register changes in pressure
+    rumbleValue_arr = [min((x - pressureThreshold[i]) / 1.75, 1) if x >= pressureThreshold[i] else 0 for (i, x) in
+                   enumerate(SG.changeInPressure)]
+
+    rumbleValue = max(rumbleValue_arr)
+    # if the current attempt is on a breakable item, check to see if the rumble value is greater than the threshold
+
+    idx = [k for k,x in ObjectVal.items() if x.status == itemStatus.inprogress] #find the key which in progress
+
+    try:
+        if len(idx) > 0:
+            idx = idx[0]
+            if ObjectVal[idx].itemClass == itemClass.breakable and rumbleValue > fragileThreshold:
+                rumbleValue = 0
+                loggerR.warning('Force exceeded on item %s.  Threshold %f, rumble value %f'%
+                                (idx, fragileThreshold, rumbleValue))
+
+
+    except Exception as e:
+        loggerR.error(e)
+        loggerR.error('Error during fragile object check')
+        rumbleValue = 0
+
+    return (rumbleValue)
 
 def datalogFcn():
     global SG, GC, jcSG,  datalogger, buttonVal, AxesPos, useSG, useGC, usejcSG
@@ -303,7 +374,7 @@ def datalogFcn():
         ds = ds +"%i , %i , %i , %i , %i , %i , %i , %i , %i , %i , %i ,  %f , %f," % (*list(buttonVal.values()),*AxesPos)
 
 
-    ds = ds + "%s , %s , %s , %s , %s , %s , %s , %s , %s"% ( *ObjectVal.values(), )
+    ds = ds + "%s , %s , %s , %s , %s , %s , %s , %s , %s"% ( *[x.status.name for k,x in ObjectVal.items()], )
 
 
 

@@ -42,15 +42,17 @@ def handle_part_join():
 @socketio.on("info-done")
 def handle_info_done(user_data, trial_data):
 
-    id_code = user_data['id_code'];
-    age = user_data['age'];
-    gender = user_data['gender'];
-    types = user_data['item_types'];
+    id_code = user_data['id_code']
+    age = user_data['age']
+    gender = user_data['gender']
+    types = user_data['item_types']
 
-    test = trial_data['test'];
+    test = trial_data['test']
     global curr_test
     curr_test = test
     num_attempts = trial_data['num_attempts']
+
+    socketio.emit('TestInfo', (user_data,trial_data))
 
     with open(f'./datalogs/{id_code}.csv', 'w', newline='') as file:
         writer = csv.writer(file)
@@ -132,6 +134,8 @@ def handle_item_event_proctor(data):
     emit(f"update-events-proctor-{test}", {'n':n, 'typ': typ, 'att':attempts}, room="proctor")
     emit(f"update-events-participant-{test}", {'n':n, 'typ': typ, 'att':attempts}, room="participant")
     print(f'item {n} is {typ}')
+
+    socketio.emit('item-event_emit',data)
 
     attempted_non_target = False;
     for attempt in attempts:

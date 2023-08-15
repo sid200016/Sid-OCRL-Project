@@ -6,8 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="bfd83e2d-ab31-4129-8c0e-ce5b016d6614" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/SoftGrasper/SoftGrasper.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SoftGrasper/SoftGrasper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/events.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/events.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Hardware_SNS_Try.py" beforeDir="false" afterPath="$PROJECT_DIR$/Hardware_SNS_Try.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.Gantry.GantryController_14_08_2023_18_40_47.txt" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.Gantry.GantryController_14_08_2023_18_40_47.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.JoyCon.JoyCon_14_08_2023_18_41_34.txt" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.JoyCon.JoyCon_14_08_2023_18_41_34.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.SoftGrasper.SoftGrasper_14_08_2023_18_40_47.txt" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.SoftGrasper.SoftGrasper_14_08_2023_18_40_47.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/HardwareDatalog_14_08_2023_18_40_47.csv" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/HardwareDatalog_14_08_2023_18_40_47.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Hardware_14_08_2023_18_40_47.txt" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Hardware_14_08_2023_18_40_47.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -337,11 +342,6 @@
           <option name="timeStamp" value="31" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/run.py</url>
-          <line>2</line>
-          <option name="timeStamp" value="32" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Hardware.py</url>
           <line>162</line>
           <option name="timeStamp" value="33" />
@@ -357,6 +357,13 @@
           <option name="timeStamp" value="77" />
         </line-breakpoint>
       </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
     </breakpoint-manager>
   </component>
 </project>

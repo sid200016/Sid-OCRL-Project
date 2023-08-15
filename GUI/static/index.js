@@ -26,7 +26,7 @@ document.getElementById("proc-join").addEventListener("click", function() {
 
     document.getElementById("setup").style.display = "none";
     document.getElementById("landing-proc").style.display = "block";
-    document.getElementById("header-bar-proc").style.display = "block";
+    document.getElementById("header-bar-proc").style.display = "flex";
 
 })
 
@@ -42,7 +42,7 @@ document.getElementById("part-join").addEventListener("click", function() {
 
     document.getElementById("setup").style.display = "none";
     document.getElementById("landing-part").style.display = "block";
-    document.getElementById("header-bar-part").style.display = "block";
+    document.getElementById("header-bar-part").style.display = "flex";
 })
 
 /**** landing ****/
@@ -316,4 +316,82 @@ socket.on("set-gantry-marker", function(data){
     marker.style.top = mm_to_mouse(data['y']) - r/2;
     console.log("Set gantry marker");
 
+})
+
+document.getElementById("pause").addEventListener("click", function() {
+    if (document.getElementById("pause-label").innerHTML == "Pause"){
+        socket.emit("pause");
+        document.getElementById("pause-symbol").src = "/static/public/continue-symbol.svg";
+        document.getElementById("pause-label").innerHTML = "Continue";
+    } else {
+        socket.emit("continue");
+        document.getElementById("pause-symbol").src = "/static/public/pause-symbol.svg";
+        document.getElementById("pause-label").innerHTML = "Pause";
+    }
+
+});
+
+document.getElementById("cancel").addEventListener("click", function() {
+    socket.emit("pause")
+    document.getElementById("confirm-cancel").style.display = 'flex';
+    document.getElementById("cancel-trial").addEventListener("click", function() {
+        socket.emit("cancel");
+
+        document.getElementById("rigid-grasper-proc").style.display = "none";
+        document.getElementById("soft-grasper-proc").style.display = "none";
+        document.getElementById("confirm-cancel").style.display = 'none';
+        document.getElementById("landing-proc").style.display = "block";
+    });
+
+    document.getElementById("continue-trial").addEventListener("click", function() {
+        socket.emit("continue");
+        document.getElementById("confirm-cancel").style.display = "none";
+    });
+
+});
+
+socket.on("pause-trial", function(test) {
+    if (test == 'soft') {
+        let slider_damping = document.getElementById("slider-damping");
+        let slider_stiffness = document.getElementById("slider-stiffness");
+        let slider_power = document.getElementById("slider-power");
+
+        slider_damping.disabled = true;
+        console.log(slider_damping);
+        slider_stiffness.disabled = true;
+        slider_power.disabled = true;
+    } else {
+        let slider_l = document.getElementById("slider-l");
+        let slider_r = document.getElementById("slider-r");
+
+        slider_l.disabled = true;
+        slider_r.disabled = true;
+    }
+
+    document.getElementById("proctor-paused").style.display = "block";
+});
+
+socket.on("continue-trial", function(test) {
+    if (test == 'soft') {
+        let slider_damping = document.getElementById("slider-damping");
+        let slider_stiffness = document.getElementById("slider-stiffness");
+        let slider_power = document.getElementById("slider-power");
+
+        slider_damping.disabled = false;
+        slider_stiffness.disabled = false;
+        slider_power.disabled = false;
+    } else {
+        let slider_l = document.getElementById("slider-l");
+        let slider_r = document.getElementById("slider-r");
+
+        slider_l.disabled = false;
+        slider_r.disabled = false;
+    }
+
+    document.getElementById("proctor-paused").style.display = "none";
+});
+
+socket.on("cancel-trial", function(test) {
+    document.getElementById(test + "-grasper-part").style.display = "none";
+    document.getElementById("landing-part").style.display = "block";
 })

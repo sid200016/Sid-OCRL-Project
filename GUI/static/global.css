@@ -39,6 +39,23 @@ h2 {
   align-items: center;
 }
 
+.header-button {
+  color: white;
+  font-size: 32px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+}
+
+.header-button img {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 .header-bar-proctor .header-left {
   display: flex;
   align-items: center;
@@ -67,11 +84,6 @@ h2 {
   border-radius: 25px;
 
   margin-right: 25px;
-}
-
-.header-bar-proctor .header-right button .text {
-  color: #FFFFFF;
-  font-size: 32px;
 }
 
 .header-bar-proctor .header-right .pause {

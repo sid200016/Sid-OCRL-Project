@@ -240,3 +240,71 @@
   font-family: var(--font-inter);
 }
 
+.confirm-cancel {
+
+  width: 40%;
+  height: 50%;
+
+  position: absolute;
+  top: 25%;
+  left: 30%;
+
+  background: #f0f0f0bc;
+  border-radius: 42px;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+}
+
+.confirm-text {
+  color: black;
+  font-size: 52px;
+
+  width: 90%;
+  text-align: center;
+  margin-top: 17%;
+}
+
+.confirm-button {
+  color: white;
+  font-size: 32px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  width: 25%;
+  height: 16.8%;
+
+  text-wrap: wrap;
+  margin: 5%;
+
+  border: none;
+  border-radius: 25px;
+}
+
+#cancel-trial {
+  background: #E24D4D
+}
+
+#continue-trial {
+  background: #E2954D;
+}
+
+.proctor-paused {
+  position: absolute;
+  width: 20%;
+  left: 40%;
+  top: 15%;
+
+  overflow: hidden;
+}
+
+.proctor-paused img {
+  min-width: 100%;
+}

@@ -35,12 +35,14 @@
             </div>
 
             <div class="header-right">
-                <button class="pause" id="pause" type="submit">
-                <div class="text">Pause</div>
+                <button class="header-button pause" id="pause" type="submit">
+                    <img id="pause-symbol" src="{{ url_for('static', filename='/public/pause-symbol.svg')}}"/>
+                    <div id="pause-label">Pause</div>
                 </button>
 
-                <button class="cancel" id="cancel" type="submit">
-                <div class="text">Cancel</div>
+                <button class="header-button cancel" id="cancel" type="submit">
+                    <img id="cancel-symbol" src="{{ url_for('static', filename='/public/cancel-symbol.svg')}}"/>
+                    <div id="cancel-label">Cancel</div>
                 </button>
 
                 <img 
@@ -506,14 +508,14 @@
                 />
 
                 <div class="v-slider slider-l">
-                <input type="range" id="range" orient="vertical" step="0.1"/>
+                <input type="range" id="slider-l" orient="vertical" step="0.1"/>
                 <div class="label">
                     <h1 class="value">76%</h1>
                     <h2>power</h2>
                 </div>
                 </div>
                 <div class="v-slider slider-r">
-                <input type="range" id="range" orient="vertical" step="0.1"/>
+                <input type="range" id="slider-r" orient="vertical" step="0.1"/>
                 <div class="label">
                     <h1 class="value">76%</h1>
                     <h2>power</h2>
@@ -529,6 +531,18 @@
                     <div class="attempt" id="{{ attempt }}" "></div>
                 {% endfor %}
             </div>
+        </div>
+
+        {# cancel confirmation #}
+
+        <div class="confirm-cancel" id="confirm-cancel" style="display: none">
+            <div class="confirm-text">Are you sure you would like to cancel the trial?</div>
+            <button class="confirm-button" id="continue-trial">Continue Trial</button>
+            <button class="confirm-button" id="cancel-trial">Cancel Trial</button>
+        </div>
+
+        <div class="proctor-paused" id="proctor-paused" style="display: none">
+            <img src="{{ url_for('static', filename='/public/pause-symbol.svg')}}" />
         </div>
 
         <script src="{{ url_for('static', filename='index.js') }}"></script>

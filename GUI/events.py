@@ -149,6 +149,19 @@ def handle_item_event_proctor(data):
 def handle_new_target_item(n, test):
     emit("update-target-item", {'n': n, 'test': test}, room="participant")
 
+@socketio.on("pause")
+def handle_pause():
+    emit("pause-trial", curr_test, room="participant")
+
+@socketio.on("continue")
+def handle_continue():
+    emit("continue-trial", curr_test, room="participant")
+
+@socketio.on("cancel")
+def handle_cancel():
+    emit("cancel-trial", curr_test, room="participant")
+
+
 # For hardware and grasper communication
 @socketio.on('gantry position commands')
 def sendGantryPosition(string):

@@ -149,7 +149,7 @@ async def gantryPosition(data):
     loggerR.info('Received gantry position command')
     loggerR.debug(data)
     if useGC == True:
-        GC.goalPos = [data['x'], data['y'], GC.goalPos[2]] #x and y positions come from screen, z position is kept from the joystick
+        GC.goalPos = [data['x']-20, data['y']-20, GC.goalPos[2]] #x and y positions come from screen, z position is kept from the joystick
     else:
         loggerR.debug("Gantry disabled")
     loggerR.debug("GoalPos changed in Gantry Position: " + ','.join([str(x) for x in GC.goalPos]))
@@ -230,7 +230,7 @@ async def HardwareInitialize():
 
     if useGC == True:
         loggerR.info('Initializing Gantry...')
-        GC = GantryController(comport = "COM4", homeSystem = False,initPos=[0,0,0])#, homeSystem = False,initPos=[0,0,0]  #initialize gantry controller
+        GC = GantryController(comport = "COM4")#, homeSystem = False,initPos=[0,0,0]  #initialize gantry controller
         loggerR.info('Finished initializing Gantry!')
 
     if usejcSG == True:

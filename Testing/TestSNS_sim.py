@@ -55,8 +55,8 @@ def pick_and_place():
         if GUIcontrolTarget % 2 == 0 and GUI_control is True:
             GUI_control = False
             gS.simCounter = 0
-            object_position_list = [0, 0, -0.316]
-            target_position_list = [0.15, 0.15, -0.34]
+            object_position_list = [0, 0, -0.315]
+            target_position_list = [1.5, 1.5, -0.34]
 
         if GUI_control is False:
             x = gS.bulletClient.getJointState(

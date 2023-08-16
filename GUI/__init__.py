@@ -1,4 +1,5 @@
 from flask import Flask 
+import socket
 
 from .events import socketio
 from .routes import main 
@@ -11,5 +12,8 @@ def create_app():
     app.register_blueprint(main)
 
     socketio.init_app(app)
+
+    ip = socket.gethostbyname(socket.gethostname())
+    print(f'serving GUI on http://{ip}:8000/')
 
     return app

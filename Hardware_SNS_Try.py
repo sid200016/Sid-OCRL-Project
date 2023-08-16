@@ -352,10 +352,25 @@ async def program_loop():
                         jcSG.SNS_control = False #reset to false to give control back to the user
                         loggerR.info('Reset the SNS controller after lift after release complete')
 
-                    if SNSc.num_grasp_attempts >5 or SNSc.lift_after_grasp_done == True:
-                        SNSc = SNScontroller()
-                        jcSG.SNS_control = False  # reset to false to give control back to the user
-                        loggerR.info('Reset the SNS controller after lift after grasp complete')
+                    loggerR.info('Number of grasp attempts %i' % SNSc.num_grasp_attempts)
+                    if SNSc.num_grasp_attempts >=1 or SNSc.lift_after_grasp_done == True:
+
+                        if (SNSc.num_grasp_attempts>=1
+                                and
+                                (SNSc.neuronset["move_to_grasp"]>=20 or SNSc.neuronset["move_to_pre_grasp"]>=20)): #if about to attempt a regrasp
+                            GC.goalPos = [curPos_orig.x*1000, curPos_orig.y*1000, curPos_orig.z*1000+70] #move object up
+                            loggerR.info('Failed grasp, exceeded number of attempts')
+                            SNSc.lift_after_grasp_done = True #set to true to trigger the next statement
+
+
+                        if SNSc.num_grasp_attempts>=1 and SNSc.lift_after_grasp_done == True:
+                            jcSG.SNS_control = False  # reset to false to give control back to the user
+
+                            SNSc = SNScontroller()
+                            loggerR.info('Reset the SNS controller after lift after grasp complete')
+
+
+
 
 
                 GC.setXYZ_Position(*GC.goalPos,feedrate_mmps*60)  # absolute move of the gantry

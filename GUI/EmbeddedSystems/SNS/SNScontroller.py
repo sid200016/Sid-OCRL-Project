@@ -26,8 +26,10 @@ class SNScontroller:
             "lift_after_release":0
         }
 
-        self.logger = None
-        self.setupLogger()
+        #self.logger = None
+        #self.setupLogger()
+
+        self.first_attempt = True
 
         self.lift_after_release_done = False #set to true when lifted after release neuron exceeds 10.  Necessary to set the object pos to 0,0,0 to trigger the final phases of motion
         self.lift_after_grasp_done = False
@@ -144,7 +146,7 @@ class SNScontroller:
                 if self.neuronset["lift_after_release"]>=20:
                     JawRadialPos_m = 0
                     cmd_grasperPos_m = self.cmd_position_m #use the last commanded position, don't return to home
-                    self.logger.debug('Lift after release triggered, stay at this position')
+                    #self.logger.debug('Lift after release triggered, stay at this position')
 
                 if move_to_pre_release>=20:
                     self.lift_after_grasp_done = True
@@ -153,7 +155,7 @@ class SNScontroller:
             else: #if more than 1 grasp attempted
                 JawRadialPos_m = 0
                 cmd_grasperPos_m = self.cmd_position_m #use the last commanded position, don't return to home
-                self.logger.debug('More than 1 grasp attempted')
+                #self.logger.debug('More than 1 grasp attempted')
 
 
 
@@ -173,7 +175,7 @@ class SNScontroller:
         self.neuronset['release'] = release
         self.neuronset['lift_after_release'] = lift_after_release
 
-        self.logger.debug(','.join([k + ":" + str(v) for k, v in self.neuronset.items()]))
+
 
 
 

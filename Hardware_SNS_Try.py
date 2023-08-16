@@ -82,6 +82,7 @@ fragileThreshold = 0.5 #scale of 0 to 1.  Forces above this are considered broke
 
 SNS_object_pos_m = [0,0,-0.189]
 SNS_target_pos_m = [0,-0.25,-0.189]
+z_offset = 0
 class itemStatus(str,Enum):
     notstarted = 'notstarted'
     inprogress = 'inprogress'
@@ -159,7 +160,7 @@ async def gantryPosition(data):
 
     #if using the SNS control, update the object position x, y to be the goal pos.  the Z is a fixed height of -0.189 m
     if useSNS == True:
-        SNS_fixed_height_z = -0.189 #height of object in meters relative to start position. z height offset is 0.2 m.
+        SNS_fixed_height_z = -0.191 #height of object in meters relative to start position. z height offset is 0.2 m.
         SNS_object_pos_m = [GC.goalPos[0]/1000, GC.goalPos[1]/1000, SNS_fixed_height_z]
         SNS_target_pos_m = [0.09, 0.05, SNS_fixed_height_z]
         loggerR.info('Commanded object pos in m: %f, %f %f'%(*SNS_object_pos_m,))
@@ -232,7 +233,7 @@ def handle_TestInfo(user_data, trial_data):
 
 
 async def HardwareInitialize():
-    global SG, GC, jcSG, loggerR, useSG, useGC, usejcSG, SNSc
+    global SG, GC, jcSG, loggerR, useSG, useGC, usejcSG, SNSc, z_offset
 
     if useSG == True:
         loggerR.info('Initializing Soft Grasper...')
@@ -278,19 +279,36 @@ async def program_loop():
                 # SNS Control
                 if useSNS == True and jcSG.SNS_control == False:
                     SNSc = SNScontroller()
+                    #logger.info('Reset controller')
 
 
                 elif jcSG.SNS_control == True and useSNS == True: # if the user presses the SR button and you want to have the option to switch to SNS, then use SNS to calculate the next commands
-                    object_position_list = [0,0,SNS_object_pos_m[2]]#[0, 0, -0.185] #calculate move relative to the object position.
-                    target_position_list = [SNS_target_pos_m[0]-SNS_object_pos_m[0],
-                                            SNS_target_pos_m[1]-SNS_object_pos_m[1],
-                                            SNS_target_pos_m[2]]#[-0.15, -0.15, -0.190]
-
 
                     loggerR.info('Inside SNS control')
 
                     curPos = GC.getPosition()  # get current position, in meters relative to offset
-                    curPos = Point(-SNS_object_pos_m[0]+curPos.x, -SNS_object_pos_m[1]+curPos.y,curPos.z) #get where the current position is relative to where the object is
+
+
+                    if SNSc.first_attempt == True:
+                        z_offset = curPos.z
+                        # will adjust height relative to object position
+
+                        loggerR.info("Z offset %f"%z_offset)
+                        object_position_list = [0, 0, SNS_object_pos_m[2] - z_offset]  # [0, 0, -0.185] #calculate move relative to the object position.
+                        # [-0.15, -0.15, -0.190]
+
+                        target_position_list = [SNS_target_pos_m[0] - SNS_object_pos_m[0],
+                                                SNS_target_pos_m[1] - SNS_object_pos_m[1],
+                                                SNS_target_pos_m[2] - z_offset]
+
+
+
+                        SNSc.first_attempt = False
+
+
+                    curPos_orig = curPos
+                    curPos = Point(-SNS_object_pos_m[0]+curPos.x, -SNS_object_pos_m[1]+curPos.y,
+                                   -z_offset + curPos.z) #get where the current position is relative to where the object is
 
 
 
@@ -299,8 +317,8 @@ async def program_loop():
                     loggerR.info('GrasperPos in m:%f %f %f' % (*grasperPosition,))
                     loggerR.info('ObjectPos in m:%f %f %f' % (*object_position_list,))
 
-                    grasperThreshold = [0.1, 0.1, 0.1]
-                    grasperContact = [(x - pressureThreshold[i]) * 25 if x >= grasperThreshold[i] else 0 for (i, x) in
+                    grasperThreshold = [0.05, 0.05, 0.05]
+                    grasperContact = [(x - pressureThreshold[i]) * 30 if x >= grasperThreshold[i] else 0 for (i, x) in
                                       enumerate(SG.changeInPressure)]
 
                     grasperContact = GrasperContactForce(*grasperContact)
@@ -315,12 +333,17 @@ async def program_loop():
                     # command position is absolute move in m relative to the offset.
                     commandPosition_m = Point(SNS_object_pos_m[0] + commandPosition_m.x,
                                               SNS_object_pos_m[1] + commandPosition_m.y,
-                                              commandPosition_m.z)#calculate the move relative to the object position
+                                              z_offset+commandPosition_m.z)#calculate the move relative to the object position
 
                     GC.goalPos = [x * 1000 for x in list(commandPosition_m)]
 
                     loggerR.info('SNS commanded goal position (mm):%f,%f,%f'%(*GC.goalPos,))
                     loggerR.debug('SNS commanded change in radius (mm):%f' % (JawRadialPos_m*1000))
+                    loggerR.debug(','.join([k + ":" + str(v) for k, v in SNSc.neuronset.items()]))
+
+                    if (abs(curPos_orig.z-SNS_target_pos_m[2])>0.02 and
+                            (SNSc.neuronset["move_to_grasp"]>=20 or SNSc.neuronset["move_to_pre_grasp"]>=20)): #don't inflate when far from the object in z
+                        JawRadialPos_m = 0
 
                     SG.commandedPosition["ClosureChangeInRadius_mm"] = min(JawRadialPos_m * 1000,14) #limit the radial position change to prevent overinflation
 
@@ -329,7 +352,7 @@ async def program_loop():
                         jcSG.SNS_control = False #reset to false to give control back to the user
                         loggerR.info('Reset the SNS controller after lift after release complete')
 
-                    if SNSc.num_grasp_attempts >1 or SNSc.lift_after_grasp_done == True:
+                    if SNSc.num_grasp_attempts >5 or SNSc.lift_after_grasp_done == True:
                         SNSc = SNScontroller()
                         jcSG.SNS_control = False  # reset to false to give control back to the user
                         loggerR.info('Reset the SNS controller after lift after grasp complete')
@@ -346,7 +369,7 @@ async def program_loop():
                     updatedSoftGrasper = False
 
                 # Rumble feedback based on pressure change
-                pressureThreshold = [0.2,0.2,0.2]
+                pressureThreshold = [0.05,0.05,0.05]
                 rumbleValue = calculateRumble(pressureThreshold)
 
             if usejcSG == True:

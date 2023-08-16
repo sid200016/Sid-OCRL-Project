@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="bfd83e2d-ab31-4129-8c0e-ce5b016d6614" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/SNScontroller.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/SNScontroller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hardware_SNS_Try.py" beforeDir="false" afterPath="$PROJECT_DIR$/Hardware_SNS_Try.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/templates/index.jinja" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/templates/index.jinja" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/templates/survey-link-PARTICIPANT.jinja" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/templates/survey-link-PARTICIPANT.jinja" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +57,7 @@
       <recent name="C:\Users\Ravesh\Desktop\Research\FRR\FRR Software Interface\FRR-Software-Interface" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Hardware_SNS_Try (1)">
+  <component name="RunManager" selected="Python.run">
     <configuration name="GenerateRandomSequence" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="FRR-Software-Interface" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -267,9 +267,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.run" />
         <item itemvalue="Python.Hardware_SNS_Try (1)" />
         <item itemvalue="Python.SNScontroller" />
-        <item itemvalue="Python.run" />
         <item itemvalue="Python.TestSNS_sim" />
         <item itemvalue="Python.GenerateRandomSequence" />
       </list>

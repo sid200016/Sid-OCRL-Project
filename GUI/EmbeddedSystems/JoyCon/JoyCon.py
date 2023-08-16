@@ -205,7 +205,7 @@ class Joy_Gantry(JoyCon):
     def __init__(self,GantryS: GC.Gantry):
         super().__init__()
         self.Gantry = GantryS
-        self.MoveVelocity_mmps = Velocity(*[0.6*x for x in self.Gantry.MaxSpeedRate_mmps])
+        self.MoveVelocity_mmps = Velocity(*[0.8*x for x in self.Gantry.MaxSpeedRate_mmps])
         self.PeriodT_s = 0.055 #period over which to calculate movement of the gantry
         self.JoystickPos = [0,0,0] # joystick reading for x, y and z axes
         self.GantryIncrement_mm = [] #for x, y and z axes, respectively, in mm
@@ -337,10 +337,11 @@ class Joy_SoftGrasper(Joy_Gantry):
             ("B", "Y"),
             ("B", "Y"), 2, self.buttonBY)  # situation where two buttons are pressed at once to open the grasper
 
-        self.buttonMapping[("SR", "+")] = Button(
-            (self.buttonMapping["SR"].buttonNumber, self.buttonMapping["+"].buttonNumber),
-            ("SR", "+"),
-            ("SR", "+"), 2, self.buttonSR_Plus)  # situation where two buttons are pressed at once to open the grasper
+        # self.buttonMapping[("SR", "+")] = Button(
+        #     (self.buttonMapping["SR"].buttonNumber, self.buttonMapping["+"].buttonNumber),
+        #     ("SR", "+"),
+        #     ("SR", "+"), 2, self.buttonSR_Plus)  # trigger SNS, deprecated
+
 
         self.sortButtonMapping()  # should be in order from highest priority to lowest priority.
 
@@ -358,6 +359,11 @@ class Joy_SoftGrasper(Joy_Gantry):
     def buttonY(self):  # de-pressurize jaw
         self.grasper.IncrementalMove(closureIncrement_mm = 0, jawIncrement_psi = [-self.jawIncrement_psi for x in range(0,3)])
 
+    def buttonSR(self):
+        self.SNS_control = True #use SNS control
+
+    def buttonSL(self):
+        self.SNS_control = False #don't use SNS control
 
     def buttonAX(self):
         pass

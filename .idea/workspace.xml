@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfd83e2d-ab31-4129-8c0e-ce5b016d6614" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/SoftGrasper/SoftGrasperController/.vscode/extensions.json" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SoftGrasper/SoftGrasperController/.vscode/extensions.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/static/components.css" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/static/components.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/static/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/static/global.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/static/slider_2d.js" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/static/slider_2d.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/templates/index.jinja" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/templates/index.jinja" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/templates/survey-link-PARTICIPANT.jinja" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/templates/survey-link-PARTICIPANT.jinja" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

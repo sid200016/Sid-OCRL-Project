@@ -6,11 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="bfd83e2d-ab31-4129-8c0e-ce5b016d6614" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/JoyCon/JoyCon.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/JoyCon/JoyCon.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/SNScontroller.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/SNScontroller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/SoftGrasper/SoftGrasper.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SoftGrasper/SoftGrasper.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Hardware_SNS_Try.py" beforeDir="false" afterPath="$PROJECT_DIR$/Hardware_SNS_Try.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Testing/TestSNS_sim.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/TestSNS_sim.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.Gantry.GantryController_16_08_2023_00_19_29.txt" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.Gantry.GantryController_16_08_2023_00_19_29.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.JoyCon.JoyCon_16_08_2023_00_20_24.txt" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.JoyCon.JoyCon_16_08_2023_00_20_24.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.SoftGrasper.SoftGrasper_16_08_2023_00_19_29.txt" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.SoftGrasper.SoftGrasper_16_08_2023_00_19_29.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/HardwareDatalog_16_08_2023_00_19_29.csv" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/HardwareDatalog_16_08_2023_00_19_29.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Hardware_16_08_2023_00_19_29.txt" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Hardware_16_08_2023_00_19_29.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -271,9 +274,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.Hardware_SNS_Try (1)" />
-        <item itemvalue="Python.TestSNS_sim" />
         <item itemvalue="Python.SNScontroller" />
         <item itemvalue="Python.run" />
+        <item itemvalue="Python.TestSNS_sim" />
         <item itemvalue="Python.GenerateRandomSequence" />
       </list>
     </recent_temporary>
@@ -348,11 +351,6 @@
           <url>file://$PROJECT_DIR$/Hardware.py</url>
           <line>241</line>
           <option name="timeStamp" value="37" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Hardware_SNS_Try.py</url>
-          <line>326</line>
-          <option name="timeStamp" value="83" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

@@ -1,0 +1,13 @@
+2023-08-16 00:39:34,723 - __main__ - INFO - Initializing Soft Grasper...
+2023-08-16 00:39:34,726 - __main__ - INFO - Finished initializing Soft Grasper
+2023-08-16 00:39:34,726 - __main__ - INFO - Initializing Gantry...
+2023-08-16 00:40:31,161 - __main__ - INFO - Finished initializing Gantry!
+2023-08-16 00:40:31,161 - __main__ - INFO - Initializing Joystick...
+2023-08-16 00:40:32,115 - __main__ - INFO - Finished initializing Joystick!
+2023-08-16 00:40:32,115 - __main__ - INFO - Initializing SNS controller
+2023-08-16 00:40:32,116 - __main__ - INFO - Finished initializing the SNS.
+2023-08-16 00:40:32,118 - __main__ - INFO - Finished Initialization
+2023-08-16 00:40:32,119 - __main__ - INFO - Triggering connection to http://localhost:8000
+2023-08-16 00:40:34,193 - __main__ - DEBUG - connected to socket
+2023-08-16 00:40:34,193 - __main__ - DEBUG - Sending Start
+2023-08-16 00:40:34,225 - __main__ - INFO - Reset the SNS controller after lift complete

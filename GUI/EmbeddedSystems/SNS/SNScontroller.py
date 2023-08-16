@@ -30,6 +30,7 @@ class SNScontroller:
         self.setupLogger()
 
         self.lift_after_release_done = False #set to true when lifted after release neuron exceeds 10.  Necessary to set the object pos to 0,0,0 to trigger the final phases of motion
+        self.lift_after_grasp_done = False
 
         self.object_position = torch.Tensor(list(objectPos_m)).unsqueeze(dim=0)
         self.target_position = torch.Tensor(list(targetPos_m)).unsqueeze(dim=0)
@@ -37,6 +38,9 @@ class SNScontroller:
         self.cmd_position_m = Point(0,0,0)
         self.JawRadialPos_m = 0
         self.z_offset = 0
+
+        self.num_grasp_attempts = 0
+
 
     def setupLogger(self):
         ##### Set up logging ####
@@ -63,7 +67,7 @@ class SNScontroller:
         self.logger = logger_soft
 
     def SNS_forward(self,grasperPos_m:Point, grasperContact:GrasperContactForce,objectPos_m:Point = None,
-                    targetPos_m:Point = None):
+                    targetPos_m:Point = None, useRealGantry = False):
         """
         Class to forward SNS
 
@@ -107,27 +111,51 @@ class SNScontroller:
         [move_to_pre_grasp, move_to_grasp, grasp, lift_after_grasp, move_to_pre_release,
          move_to_release, release, lift_after_release] = commands.squeeze(dim=0).numpy()
 
-        if lift_after_release>=20 or move_to_pre_release>=20:
-            self.z_offset = 0.07 #add offset to the z so it lifts the object higher
+        [x_d, y_d, z_d, JawRadialPos_m] = controller.forward(
+            self.object_position, self.target_position, commands).numpy()
 
-        if move_to_release>=20 or release >= 20:
-            self.z_offset = -0.07
-
-        if lift_after_release>=20:
-            self.z_offset = 0
+        cmd_grasperPos_m = Point(x_d, y_d,
+                                 z_d + self.z_offset)  # note that this is in meters, and doesn't account for the offset that is considered 0,0,0 on the gantry.  Need to correct for that afterwards
 
 
-        if self.neuronset["lift_after_release"]>=20:
-            JawRadialPos_m = 0
-            cmd_grasperPos_m = self.cmd_position_m #use the last commanded position, don't return to home
-            self.logger.debug('Lift afte release triggered, stay at this position')
 
-        else:
-            [x_d, y_d, z_d, JawRadialPos_m] = controller.forward(
-                self.object_position, self.target_position, commands).numpy()
 
-            cmd_grasperPos_m = Point(x_d, y_d,
-                                     z_d+self.z_offset)  # note that this is in meters, and doesn't account for the offset that is considered 0,0,0 on the gantry.  Need to correct for that afterwards
+        #if using the real gantry, stop after one grasp attempt
+        if useRealGantry == True:
+
+            if self.neuronset["grasp"]<20 and grasp>=20:
+                self.num_grasp_attempts = self.num_grasp_attempts+1
+                print(self.num_grasp_attempts)
+
+
+
+
+            if lift_after_release>=20 or move_to_pre_release>=20:
+                self.z_offset = 0.07 #add offset to the z so it lifts the object higher
+
+            if move_to_release>=20 or release >= 20:
+                self.z_offset = -0.07
+
+            if lift_after_release>=20:
+                self.z_offset = 0
+
+            if self.num_grasp_attempts<=1:
+
+                if self.neuronset["lift_after_release"]>=20:
+                    JawRadialPos_m = 0
+                    cmd_grasperPos_m = self.cmd_position_m #use the last commanded position, don't return to home
+                    self.logger.debug('Lift after release triggered, stay at this position')
+
+                if move_to_pre_release>=20:
+                    self.lift_after_grasp_done = True
+
+
+            else: #if more than 1 grasp attempted
+                JawRadialPos_m = 0
+                cmd_grasperPos_m = self.cmd_position_m #use the last commanded position, don't return to home
+                self.logger.debug('More than 1 grasp attempted')
+
+
 
 
         self.cmd_position_m = cmd_grasperPos_m

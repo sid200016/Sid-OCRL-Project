@@ -161,7 +161,7 @@ async def gantryPosition(data):
     if useSNS == True:
         SNS_fixed_height_z = -0.189 #height of object in meters relative to start position. z height offset is 0.2 m.
         SNS_object_pos_m = [GC.goalPos[0]/1000, GC.goalPos[1]/1000, SNS_fixed_height_z]
-        SNS_target_pos_m = [0.09, -0.25, SNS_fixed_height_z]
+        SNS_target_pos_m = [0.09, 0.05, SNS_fixed_height_z]
         loggerR.info('Commanded object pos in m: %f, %f %f'%(*SNS_object_pos_m,))
         loggerR.debug("Modified the SNS object and target positions")
 
@@ -308,9 +308,10 @@ async def program_loop():
                     commandPosition_m, JawRadialPos_m = SNSc.SNS_forward(grasperPos_m=grasperPosition,
                                                                          grasperContact=grasperContact,
                                                                          objectPos_m=Point(*object_position_list),
-                                                                         targetPos_m=Point(*target_position_list))
+                                                                         targetPos_m=Point(*target_position_list),useRealGantry=True)
 
                     loggerR.info('Jaw radial pos in m:%f'%(JawRadialPos_m))
+                    loggerR.info('Command Position: %f %f %f'%(*list(commandPosition_m),))
                     # command position is absolute move in m relative to the offset.
                     commandPosition_m = Point(SNS_object_pos_m[0] + commandPosition_m.x,
                                               SNS_object_pos_m[1] + commandPosition_m.y,
@@ -321,12 +322,17 @@ async def program_loop():
                     loggerR.info('SNS commanded goal position (mm):%f,%f,%f'%(*GC.goalPos,))
                     loggerR.debug('SNS commanded change in radius (mm):%f' % (JawRadialPos_m*1000))
 
-                    SG.commandedPosition["ClosureChangeInRadius_mm"] = min(JawRadialPos_m * 1000,15) #limit the radial position change to prevent overinflation
+                    SG.commandedPosition["ClosureChangeInRadius_mm"] = min(JawRadialPos_m * 1000,14) #limit the radial position change to prevent overinflation
 
                     if SNSc.lift_after_release_done == True:
                         SNSc = SNScontroller() #reinitialize the SNS controller
                         jcSG.SNS_control = False #reset to false to give control back to the user
-                        loggerR.info('Reset the SNS controller after lift complete')
+                        loggerR.info('Reset the SNS controller after lift after release complete')
+
+                    if SNSc.num_grasp_attempts >1 or SNSc.lift_after_grasp_done == True:
+                        SNSc = SNScontroller()
+                        jcSG.SNS_control = False  # reset to false to give control back to the user
+                        loggerR.info('Reset the SNS controller after lift after grasp complete')
 
 
                 GC.setXYZ_Position(*GC.goalPos,feedrate_mmps*60)  # absolute move of the gantry

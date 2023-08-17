@@ -1,15 +1,12 @@
+let w = 840;
+let h = 840;
+
 function constrain(val, lo, hi){
     if (val < lo) return lo;
     if (val > hi) return hi;
     return val;
 }
 function main(){
-
-  let w = window.innerWidth * 0.4479;
-  let h = window.innerHeight * 0.7963;
-
-  console.log(w + ', ' + h);
-
   const xScale = d3.scaleLinear()
     .domain([-5 , 5])
     .range([0, w]);

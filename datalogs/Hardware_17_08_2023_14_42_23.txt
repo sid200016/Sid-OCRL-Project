@@ -1,0 +1,28 @@
+2023-08-17 14:42:23,353 - __main__ - INFO - Initializing Soft Grasper...
+2023-08-17 14:42:23,356 - __main__ - INFO - Finished initializing Soft Grasper
+2023-08-17 14:42:23,356 - __main__ - INFO - Initializing Gantry...
+2023-08-17 14:43:13,317 - __main__ - INFO - Finished initializing Gantry!
+2023-08-17 14:43:13,318 - __main__ - INFO - Initializing Joystick...
+2023-08-17 14:43:13,612 - __main__ - INFO - Finished initializing Joystick!
+2023-08-17 14:43:13,612 - __main__ - INFO - Initializing SNS controller
+2023-08-17 14:43:13,612 - __main__ - INFO - Finished initializing the SNS.
+2023-08-17 14:43:13,613 - __main__ - INFO - Finished Initialization
+2023-08-17 14:43:13,613 - __main__ - INFO - Triggering connection to http://localhost:8000
+2023-08-17 14:43:15,646 - __main__ - DEBUG - connected to socket
+2023-08-17 14:43:15,646 - __main__ - DEBUG - Sending Start
+2023-08-17 14:43:15,690 - __main__ - DEBUG - ProgramLoop
+2023-08-17 14:43:15,734 - __main__ - DEBUG - ProgramLoop
+2023-08-17 14:43:15,776 - __main__ - DEBUG - ProgramLoop
+2023-08-17 14:43:15,817 - __main__ - DEBUG - ProgramLoop
+2023-08-17 14:43:15,858 - __main__ - DEBUG - ProgramLoop
+2023-08-17 14:43:15,898 - __main__ - DEBUG - ProgramLoop
+2023-08-17 14:43:15,939 - __main__ - DEBUG - ProgramLoop
+2023-08-17 14:43:15,979 - __main__ - DEBUG - ProgramLoop
+2023-08-17 14:43:16,035 - __main__ - DEBUG - ProgramLoop
+2023-08-17 14:43:16,097 - __main__ - DEBUG - ProgramLoop
+2023-08-17 14:43:16,137 - __main__ - DEBUG - ProgramLoop
+2023-08-17 14:43:16,178 - __main__ - DEBUG - ProgramLoop
+2023-08-17 14:43:16,218 - __main__ - DEBUG - ProgramLoop
+2023-08-17 14:43:16,259 - __main__ - DEBUG - ProgramLoop
+2023-08-17 14:43:16,299 - __main__ - DEBUG - ProgramLoop
+2023-08-17 14:43:16,339 - __main__ - DEBUG - ProgramLoop

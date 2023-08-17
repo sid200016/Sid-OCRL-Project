@@ -1,0 +1,24 @@
+2023-08-17 12:33:07,216 - __main__ - INFO - ID: 3
+2023-08-17 12:33:07,217 - __main__ - INFO - Random ID: L9PS5R
+2023-08-17 12:33:07,217 - __main__ - INFO - Sequence of control type experiments: 1) full-human, 2) SNS
+
+
+2023-08-17 12:33:07,217 - __main__ - INFO - Generating object type distribution...
+2023-08-17 12:33:07,217 - __main__ - INFO - Trial 1, control type full-human
+2023-08-17 12:33:07,217 - __main__ - INFO - Random sequence: graspable,fixed,fixed,breakable,fixed,graspable,graspable,breakable,breakable 
+ As positioned on the grid: 
+
+ graspable fixed fixed 
+ breakable fixed graspable 
+ graspable breakable breakable
+
+----------
+2023-08-17 12:33:07,219 - __main__ - INFO - Trial 2, control type SNS
+2023-08-17 12:33:07,219 - __main__ - INFO - Random sequence: fixed,breakable,fixed,graspable,breakable,breakable,graspable,fixed,graspable 
+ As positioned on the grid: 
+
+ fixed breakable fixed 
+ graspable breakable breakable 
+ graspable fixed graspable
+
+----------

@@ -33,12 +33,12 @@ loggerR.info("ID: %s"%pName)
 #generate random ID
 randID = ''.join(random.choices(string.ascii_uppercase + string.digits, k=6))
 loggerR.info("Random ID: %s",randID)
-numExperiments = 6
+numExperiments = 2
 
 #Generate which of the SNS or full-human control should be done in the six trials
-controltype = ['SNS','full-human','SNS','full-human','full-human','SNS']
+controltype = ['SNS','full-human']
 randControl = random.sample(controltype,numExperiments)
-loggerR.info("Sequence of control type experiments: 1) %s, 2) %s, 3) %s, 4) %s, 5) %s, 6) %s\n\n"%(*randControl,))
+loggerR.info("Sequence of control type experiments: 1) %s, 2) %s\n\n"%(*randControl,))
 
 
 #Generate which of the nine objects fixed, graspable, breakable
@@ -51,6 +51,6 @@ for i in range(0,numExperiments):
     randTypes= random.sample(objectTypes, 9)
     randstr = ','.join(randTypes)
     loggerR.info("Random sequence: %s \n As positioned on the grid: \n\n %s %s %s \n %s %s %s \n %s %s %s\n\n----------"
-                 %(randstr,*objectTypes[0:3],*objectTypes[3:6],*objectTypes[6:9]))
+                 %(randstr,*randTypes[0:3],*randTypes[3:6],*randTypes[6:9]))
 
 

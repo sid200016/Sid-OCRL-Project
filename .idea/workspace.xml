@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfd83e2d-ab31-4129-8c0e-ce5b016d6614" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/SoftGrasper/SoftGrasperController/.vscode/extensions.json" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SoftGrasper/SoftGrasperController/.vscode/extensions.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/static/components.css" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/static/components.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/static/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/static/global.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/static/slider_2d.js" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/static/slider_2d.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/templates/index.jinja" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/templates/index.jinja" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
+    <list id="07289dac-ad4d-4853-a5fa-1a2b9bebcd9a" name="Didn't merge correctly" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -60,7 +56,7 @@
       <recent name="C:\Users\Ravesh\Desktop\Research\FRR\FRR Software Interface\FRR-Software-Interface" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.run">
+  <component name="RunManager" selected="Python.Hardware_SNS_Try (1)">
     <configuration name="GenerateRandomSequence" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="FRR-Software-Interface" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -270,11 +266,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.run" />
         <item itemvalue="Python.Hardware_SNS_Try (1)" />
+        <item itemvalue="Python.GenerateRandomSequence" />
+        <item itemvalue="Python.run" />
         <item itemvalue="Python.SNScontroller" />
         <item itemvalue="Python.TestSNS_sim" />
-        <item itemvalue="Python.GenerateRandomSequence" />
       </list>
     </recent_temporary>
   </component>

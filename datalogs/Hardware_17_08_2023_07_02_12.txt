@@ -1,0 +1,274 @@
+2023-08-17 07:02:12,820 - __main__ - INFO - Initializing Soft Grasper...
+2023-08-17 07:02:12,823 - __main__ - INFO - Finished initializing Soft Grasper
+2023-08-17 07:02:12,823 - __main__ - INFO - Initializing Gantry...
+2023-08-17 07:03:01,147 - __main__ - INFO - Finished initializing Gantry!
+2023-08-17 07:03:01,147 - __main__ - INFO - Initializing Joystick...
+2023-08-17 07:03:01,509 - __main__ - INFO - Finished initializing Joystick!
+2023-08-17 07:03:01,509 - __main__ - INFO - Initializing SNS controller
+2023-08-17 07:03:01,509 - __main__ - INFO - Finished initializing the SNS.
+2023-08-17 07:03:01,511 - __main__ - INFO - Finished Initialization
+2023-08-17 07:03:01,511 - __main__ - INFO - Triggering connection to http://localhost:8000
+2023-08-17 07:03:03,564 - __main__ - DEBUG - connected to socket
+2023-08-17 07:03:03,564 - __main__ - DEBUG - Sending Start
+2023-08-17 07:03:03,591 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:03,606 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:03,632 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:03,649 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:03,673 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:03,688 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:03,713 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:03,729 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:03,752 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:03,768 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:03,806 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:03,838 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:03,863 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:03,878 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:03,902 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:03,918 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:03,943 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:03,958 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:03,983 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:03,998 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:04,023 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:04,038 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:04,062 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:04,079 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:04,103 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:04,118 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:04,142 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:04,158 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:04,182 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:04,198 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:04,222 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:04,238 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:04,262 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:04,278 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:04,302 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:04,318 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:04,342 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:04,357 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:04,382 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:04,398 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:04,422 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:04,437 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:04,462 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:04,478 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:04,501 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:04,517 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:04,541 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:04,558 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:04,582 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:04,598 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:04,621 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:04,637 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:04,662 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:04,677 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:04,702 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:04,717 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:04,742 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:04,758 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:04,782 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:04,798 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:04,822 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:04,854 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:04,885 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:04,901 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:04,925 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:04,941 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:04,965 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:04,981 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:05,005 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:05,021 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:05,045 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:05,060 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:05,086 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:05,102 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:05,125 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:05,141 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:05,165 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:05,181 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:05,205 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:05,222 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:05,245 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:05,262 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:05,285 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:05,302 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:05,325 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:05,341 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:05,365 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:05,381 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:05,405 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:05,421 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:05,446 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:05,462 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:05,486 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:05,502 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:05,526 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:05,542 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:05,566 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:05,582 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:05,606 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:05,622 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:05,646 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:05,661 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:05,686 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:05,702 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:05,726 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:05,741 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:05,766 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:05,782 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:05,805 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:05,822 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:05,846 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:05,861 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:05,886 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:05,917 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:05,948 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:05,964 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:05,987 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:06,003 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:06,027 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:06,043 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:06,067 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:06,083 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:06,107 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:06,123 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:06,147 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:06,163 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:06,187 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:06,203 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:06,227 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:06,243 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:06,267 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:06,283 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:06,308 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:06,323 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:06,348 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:06,363 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:06,388 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:06,403 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:06,427 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:06,443 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:06,468 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:06,483 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:06,508 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:06,524 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:06,547 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:06,563 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:06,587 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:06,603 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:06,627 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:06,643 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:06,667 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:06,683 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:06,708 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:06,722 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:06,748 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:06,763 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:06,787 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:06,803 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:06,827 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:06,843 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:06,867 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:06,882 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:06,907 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:06,923 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:06,947 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:06,979 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:07,009 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:07,024 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:07,049 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:07,064 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:07,088 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:07,104 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:07,129 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:07,144 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:07,168 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:07,184 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:07,208 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:07,224 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:07,248 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:07,264 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:07,288 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:07,304 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:07,328 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:07,344 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:07,368 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:07,384 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:07,408 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:07,424 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:07,448 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:07,464 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:07,488 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:07,504 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:07,528 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:07,544 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:07,569 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:07,584 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:07,608 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:07,624 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:07,649 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:07,664 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:07,689 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:07,704 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:07,730 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:07,746 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:07,769 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:07,786 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:07,809 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:07,825 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:07,849 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:07,865 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:07,889 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:07,905 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:07,930 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:07,946 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:07,971 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:07,986 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:08,010 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:08,042 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:08,072 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:08,088 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:08,112 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:08,128 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:08,153 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:08,168 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:08,193 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:08,209 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:08,233 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:08,249 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:08,273 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:08,288 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:08,312 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:08,328 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:08,353 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:08,368 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:08,393 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:08,409 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:08,432 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:08,448 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:08,473 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:08,488 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:08,513 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:08,528 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:08,554 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:08,569 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:08,593 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:08,609 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:08,634 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:08,649 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:08,673 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:08,689 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:08,714 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:08,730 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:08,754 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:08,770 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:08,794 - __main__ - INFO - Current Z: 0.000000
+2023-08-17 07:03:08,809 - __main__ - INFO - Received gantry position command
+2023-08-17 07:03:08,809 - __main__ - DEBUG - {'x': -3, 'y': 206}
+2023-08-17 07:03:08,809 - __main__ - DEBUG - GoalPos changed in Gantry Position: -23,186,0
+2023-08-17 07:03:08,809 - __main__ - INFO - Commanded object pos in m: -0.023000, 0.186000 -0.184000
+2023-08-17 07:03:08,809 - __main__ - DEBUG - Modified the SNS object and target positions
+2023-08-17 07:03:08,810 - __main__ - DEBUG - ProgramLoop
+2023-08-17 07:03:08,835 - __main__ - INFO - Current Z: 0.000000

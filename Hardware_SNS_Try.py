@@ -80,9 +80,15 @@ AxesPos = None #joystick axes position
 
 fragileThreshold = 0.5 #scale of 0 to 1.  Forces above this are considered broken for fragile objects
 
-SNS_object_pos_m = [0,0,-0.189]
-SNS_target_pos_m = [0,-0.25,-0.189]
+max_z_height = -0.184
+SNS_object_pos_m = [0,0,max_z_height]
+SNS_target_pos_m = [0,-0.25,max_z_height]
 z_offset = 0
+
+pressureThreshold = [0.05,0.05,0.05] #threshold above which to trigger the rumble, psi
+pressureScaling = 1 #100% pressure value for fumble.  In psi. formula is (max change in pressure - pressurethreshold)/PressureScaling
+
+
 class itemStatus(str,Enum):
     notstarted = 'notstarted'
     inprogress = 'inprogress'
@@ -149,7 +155,7 @@ async def connect():
 @sio.on('gantry position commands')
 async def gantryPosition(data):
 
-    global GC, loggerR, useGC, useSNS, SNS_object_pos_m, SNS_target_pos_m
+    global GC, loggerR, useGC, useSNS, SNS_object_pos_m, SNS_target_pos_m, max_z_height
     loggerR.info('Received gantry position command')
     loggerR.debug(data)
     if useGC == True:
@@ -160,7 +166,7 @@ async def gantryPosition(data):
 
     #if using the SNS control, update the object position x, y to be the goal pos.  the Z is a fixed height of -0.189 m
     if useSNS == True:
-        SNS_fixed_height_z = -0.191 #height of object in meters relative to start position. z height offset is 0.2 m.
+        SNS_fixed_height_z = max_z_height #height of object in meters relative to start position. z height offset is 0.2 m.
         SNS_object_pos_m = [GC.goalPos[0]/1000, GC.goalPos[1]/1000, SNS_fixed_height_z]
         SNS_target_pos_m = [0.09, 0.05, SNS_fixed_height_z]
         loggerR.info('Commanded object pos in m: %f, %f %f'%(*SNS_object_pos_m,))
@@ -260,7 +266,8 @@ async def HardwareInitialize():
 
 @sio.on('program_loop')
 async def program_loop():
-    global SG, GC, jcSG, updatedSoftGrasper, loggerR, datalogger, buttonVal, AxesPos, useSG, useGC, usejcSG, SNSc, SNS_object_pos_m, SNS_target_pos_m
+    global SG, GC, jcSG, updatedSoftGrasper, loggerR, datalogger, buttonVal, AxesPos, useSG, useGC, usejcSG, SNSc, SNS_object_pos_m, SNS_target_pos_m, pressureScaling, pressureThreshold, max_z_height
+
     #await sio.emit('gantry position commands', 'Gantry pos')
     #await sio.emit('soft grasper commands', 'Soft Grasper Commands')
     try:
@@ -275,7 +282,7 @@ async def program_loop():
                     posInc,feedrate_mmps = jcSG.calcPositionIncrement(AxesPos[0], AxesPos[1])  # get the joystick position for x, y and z, corrected for the flip on the x axis
                     GC.calculateIncrementalMove(*posInc) #will set the GC.goalPos with the appropriate increments
 
-
+                #loggerR.info("Current Z: %f"%(GC.PositionArray["z"][-1]))
                 # SNS Control
                 if useSNS == True and jcSG.SNS_control == False:
                     SNSc = SNScontroller()
@@ -341,7 +348,7 @@ async def program_loop():
                     loggerR.debug('SNS commanded change in radius (mm):%f' % (JawRadialPos_m*1000))
                     loggerR.debug(','.join([k + ":" + str(v) for k, v in SNSc.neuronset.items()]))
 
-                    if (abs(curPos_orig.z-SNS_target_pos_m[2])>0.02 and
+                    if (abs(curPos_orig.z-SNS_target_pos_m[2])>0.03 and
                             (SNSc.neuronset["move_to_grasp"]>=20 or SNSc.neuronset["move_to_pre_grasp"]>=20)): #don't inflate when far from the object in z
                         JawRadialPos_m = 0
 
@@ -371,7 +378,7 @@ async def program_loop():
 
 
 
-
+                GC.goalPos=Point(GC.goalPos[0],GC.goalPos[1],max(GC.goalPos[2],max_z_height*1000))
 
                 GC.setXYZ_Position(*GC.goalPos,feedrate_mmps*60)  # absolute move of the gantry
 
@@ -384,8 +391,7 @@ async def program_loop():
                     updatedSoftGrasper = False
 
                 # Rumble feedback based on pressure change
-                pressureThreshold = [0.05,0.05,0.05]
-                rumbleValue = calculateRumble(pressureThreshold)
+                rumbleValue = calculateRumble(pressureThreshold,pressureScaling)
 
             if usejcSG == True:
                 jcSG.rumbleFeedback(rumbleValue, rumbleValue, 1000)
@@ -403,11 +409,11 @@ async def program_loop():
         loggerR.debug('Exiting loop')
         return
 
-def calculateRumble(pressureThreshold = [0.2,0.2,0.2]):
+def calculateRumble(pressureThreshold = [0.2,0.2,0.2],pressureScaling=1):
     global SG, ObjectVal, fragileThreshold, loggerR
     #pressureThreshold:  change in pressure threshold in psi above which to register changes in pressure
-    rumbleValue_arr = [min((x - pressureThreshold[i]) / 1.75, 1) if x >= pressureThreshold[i] else 0 for (i, x) in
-                   enumerate(SG.changeInPressure)]
+    rumbleValue_arr = [min((x - pressureThreshold[i]) / pressureScaling, 1) if x >= pressureThreshold[i] else 0 for (i, x) in
+                   enumerate(SG.changeInPressure)] #was divide by 1.75, changed to 1
 
     rumbleValue = max(rumbleValue_arr)
     # if the current attempt is on a breakable item, check to see if the rumble value is greater than the threshold

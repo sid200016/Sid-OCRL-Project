@@ -8,10 +8,10 @@ from datetime import datetime
 
 from pathlib import Path
 
-usePickle = True
+usePickle = False
 
-#datalogName = "..\\HardwareDatalog_17_08_2023_10_37_29.csv"
-datalogName = "..\\HardwareDatalog_17_08_2023_11_15_43.csv"
+datalogName = "..\\HardwareDatalog_17_08_2023_10_37_29.csv"
+#datalogName = "..\\HardwareDatalog_17_08_2023_11_15_43.csv"
 datalogHeader = ["Date Time", "Milliseconds", "Program", "Status",
                  "x", "y", "z",
                  "closure muscle pressure (psi)", "Jaw pressure 1 (psi)", "Jaw pressure 2 (psi)",
@@ -20,10 +20,11 @@ datalogHeader = ["Date Time", "Milliseconds", "Program", "Status",
                  "Object 1", "Object 2", "Object 3", "Object 4", "Object 5", "Object 6", "Object 7", "Object 8",
                  "Object 9"]
 
-#eventLogName = "..\\Hardware_17_08_2023_10_37_29.txt"
-eventLogName = "..\\Hardware_17_08_2023_11_15_43.txt"
+eventLogName = "..\\Hardware_17_08_2023_10_37_29.txt"
+#eventLogName = "..\\Hardware_17_08_2023_11_15_43.txt"
 
-controlType = "Manual"
+controlType = "SNS"
+#controlType = "Manual"
 
 #### Strings for regex for parsing the event log
 programLoopString = "\s*(?P<DateTime>.*).*?- __main__.*?(?P<ProgramLoop>ProgramLoop)"
@@ -416,26 +417,28 @@ for k, tstamp in enumerate(ItemSequence['DateTime']):
 
             ZR_dep_idx = np.where(dN.loc[withinGoal.index, 'ZR'] == 1)[0]
 
+            ZR_StartTime = datetime.max
             if len(ZR_dep_idx) < 1:
                 print('Could not find ZR press for deposit')
 
 
 
             else:
-                dstart_idx = idx[ZR_dep_idx[0]]
+                ZR_StartTime = dN_datetime[idx[ZR_dep_idx[0]]]
                 print('Found ZR press for deposit')
 
             # check to see when they start to open the grasper
             OpenGrasper_idx = np.where((Power_datetime >= GraspTimeEnd) & (Power_datetime <= EndSearchTime))[0]
 
+            Grasper_StartTime = datetime.max
             if len(OpenGrasper_idx) < 1:
                 print('Could not find Grasper Open during Deposit')
 
             else:
-                dstart_idx = min(idx[OpenGrasper_idx[0]], dstart_idx)
+                Grasper_StartTime = Power_datetime[OpenGrasper_idx[0]]
                 print('Found Grasper open during deposit')
 
-            DepositTimeStart = dN_datetime[dstart_idx]
+            DepositTimeStart = min(Grasper_StartTime,ZR_StartTime)
             print("Deposit Time Start: " + datetime.strftime(DepositTimeStart, "%H-%M-%S,%f"))
 
             ### when the last R press that happened within the goal location, or the last open command to the grasper, whichever came last.  This is the deposit finish time
@@ -443,26 +446,32 @@ for k, tstamp in enumerate(ItemSequence['DateTime']):
             dend_idx = np.Inf
             idx = np.where((dN_datetime >= DepositTimeStart) & (dN_datetime <= EndSearchTime))[0]
             R_dep_idx = np.where(dN.loc[idx, 'R'] == 1)[0]
-
+            LiftEndTime = datetime.min
             if len(R_dep_idx) < 1:
                 print('Could not find Grasper Raising with R button after deposit in goal')
 
+
             else:
-                dend_idx = idx[R_dep_idx[0]]
+                dend_idx = idx[R_dep_idx[-1]]
                 print('Found R press after touch down in goal')
+                LiftEndTime = dN_datetime[dend_idx]
 
             # check for power press
 
             OpenGrasper_idx = np.where((Power_datetime >= DepositTimeStart) & (Power_datetime <= EndSearchTime))[0]
 
+            Grasper_EndTime = datetime.min
             if len(OpenGrasper_idx) < 1:
                 print('Could not find Grasper modulation during end of deposit')
 
+
             else:
-                dend_idx = min(idx[OpenGrasper_idx[0]], dend_idx)
+                #find which happens last
+                Grasper_EndTime = Power_datetime[OpenGrasper_idx[-1]]
                 print('Found Grasper open during deposit')
 
-            DepositTimeEnd = dN_datetime[dend_idx]
+
+            DepositTimeEnd = max(Grasper_EndTime, LiftEndTime)
             print("Deposit Time End: " + datetime.strftime(DepositTimeEnd, "%H-%M-%S,%f"))
 
         ObjectStatus["Attempt"].append(numAttempts)

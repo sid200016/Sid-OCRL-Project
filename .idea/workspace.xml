@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfd83e2d-ab31-4129-8c0e-ce5b016d6614" name="Changes" comment="" />
+    <list default="true" id="bfd83e2d-ab31-4129-8c0e-ce5b016d6614" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/FRR-Software-Interface.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/FRR-Software-Interface.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Testing/combined.urdf" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/combined.urdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/.csv" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/August17th_Analysis.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/August17th_Analysis.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/HardwareDatalog_17_08_2023_10_37_29.csv" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/HardwareDatalog_17_08_2023_10_37_29.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/environment.yml" beforeDir="false" afterPath="$PROJECT_DIR$/environment.yml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,14 +43,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Ravesh/Desktop/Research/FRR/FRR Software Interface/FRR-Software-Interface&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PythonContentEntriesConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/Ravesh/Desktop/Research/FRR/FRR Software Interface/FRR-Software-Interface",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
   <component name="PyDebuggerOptionsProvider">
     <option name="myPyQtBackend" value="pyside2" />
   </component>
@@ -53,7 +63,7 @@
       <recent name="C:\Users\Ravesh\Desktop\Research\FRR\FRR Software Interface\FRR-Software-Interface" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Hardware_SNS_Try (1)">
+  <component name="RunManager" selected="Python.LogFileParser">
     <configuration name="GenerateRandomSequence" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="FRR-Software-Interface" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -96,7 +106,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="SNScontroller" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="LogFileParser" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="FRR-Software-Interface" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -104,11 +114,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/datalogs/Data Analysis" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/SNScontroller.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -263,11 +273,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Hardware_SNS_Try (1)" />
+        <item itemvalue="Python.LogFileParser" />
         <item itemvalue="Python.run" />
-        <item itemvalue="Python.GenerateRandomSequence" />
-        <item itemvalue="Python.SNScontroller" />
         <item itemvalue="Python.TestSNS_sim" />
+        <item itemvalue="Python.Hardware_SNS_Try (1)" />
+        <item itemvalue="Python.GenerateRandomSequence" />
       </list>
     </recent_temporary>
   </component>
@@ -346,6 +356,11 @@
           <url>file://$PROJECT_DIR$/Hardware_SNS_Try.py</url>
           <line>367</line>
           <option name="timeStamp" value="100" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser.py</url>
+          <line>353</line>
+          <option name="timeStamp" value="130" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

@@ -6770,7 +6770,6 @@
 2023-08-17 11:20:31,039 - __main__ - DEBUG - ProgramLoop
 2023-08-17 11:20:31,079 - __main__ - DEBUG - ProgramLoop
 2023-08-17 11:20:31,119 - __main__ - DEBUG - ProgramLoop
-2023-08-17 11:20:31,160 - __main__ - INFO - Item event: item 3 is success.  Attempt [{'n': 3, 'typ': 'fail'}, {'n': 3, 'typ': 'inprogress'}], test soft)
 2023-08-17 11:20:31,160 - __main__ - DEBUG - ProgramLoop
 2023-08-17 11:20:31,200 - __main__ - DEBUG - ProgramLoop
 2023-08-17 11:20:31,240 - __main__ - DEBUG - ProgramLoop
@@ -7499,6 +7498,7 @@
 2023-08-17 11:20:56,478 - __main__ - DEBUG - ProgramLoop
 2023-08-17 11:20:56,504 - __main__ - DEBUG - ProgramLoop
 2023-08-17 11:20:56,529 - __main__ - DEBUG - ProgramLoop
+2023-08-17 11:20:56,529 - __main__ - INFO - Item event: item 3 is success.  Attempt [{'n': 3, 'typ': 'fail'}, {'n': 3, 'typ': 'inprogress'}], test soft)
 2023-08-17 11:20:56,570 - __main__ - DEBUG - ProgramLoop
 2023-08-17 11:20:56,596 - __main__ - DEBUG - ProgramLoop
 2023-08-17 11:20:56,637 - __main__ - DEBUG - ProgramLoop

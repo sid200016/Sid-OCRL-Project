@@ -6,6 +6,8 @@ import mmap
 import shelve
 from datetime import datetime
 
+from pathlib import Path
+
 usePickle = True
 
 datalogName = "..\\HardwareDatalog_17_08_2023_10_37_29.csv"
@@ -92,9 +94,6 @@ if usePickle == False:
     Power_a = {"DateTime": [], "ChangeInRadius_mm": []}
 
     AttemptStarted_a = {"DateTime": [], "Item Number": [], "Status": [], "AttemptSequence": [], "testType": []}
-
-
-
 
     with open(eventLogName,'r') as f:
 
@@ -230,8 +229,8 @@ numAttempts = 0
 
 InfoDateTime = datetime.strptime(Info_Time.strip(),"%Y-%m-%d %H:%M:%S,%f")
 
-dN_datetime = [datetime.strptime(x+","+str(dN["Milliseconds"][i]),"%I:%M:%S %p,%f")for i,x in enumerate(dN["Date Time"])] #convert to datetime object with microseconds
-dN_datetime = np.array([x.combine(InfoDateTime.date(),x.time()) for x in dN_datetime])
+dN_datetime = np.array([datetime.strptime(x+","+str(dN["Milliseconds"][i]),"%Y-%m-%d %H:%M:%S,%f")for i,x in enumerate(dN["Date Time"])]) #convert to datetime object with microseconds
+#dN_datetime = np.array([x.combine(InfoDateTime.date(),x.time()) for x in dN_datetime])
 
 FailedGrasp_datetime = np.array([datetime.strptime(x.strip(),"%Y-%m-%d %H:%M:%S,%f") for x in FailedGrasp_a["DateTime"]])
 Broken_datetime = np.array([datetime.strptime(x.strip(),"%Y-%m-%d %H:%M:%S,%f") for x in BrokenItem_a["DateTime"]])

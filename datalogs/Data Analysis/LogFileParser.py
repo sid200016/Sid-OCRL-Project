@@ -356,23 +356,67 @@ for k,tstamp in enumerate(ItemSequence['DateTime']):
         ### Look for eventLog XYcommand which is within the goal location and closest to the successfully picked up.  Look in datalog to see from this time until the time when success marked: when the first ZR is marked.  This is the start time of the deposit.
         # find the ZR within the goal location. This is the start time of the deposit
         if itemSuccess == True:
-            idx = np.where((dN_datetime >= StartSearchTime) & (dN_datetime <= EndSearchTime))[0]
+            idx = np.where((dN_datetime >= GraspTimeEnd) & (dN_datetime <= EndSearchTime))[0]
 
-            # within these indices, find the ones where the distance is within ToleranceRadius_mm of the target
-            objectPosition = ObjectPositions_mm[itemNumber]  # x, y position of object
-            withinRange = (((dN.loc[idx, 'x'] - objectPosition[0]) ** 2 + (
-                        dN.loc[idx, 'y'] - objectPosition[1]) ** 2) ** 0.5 <= ToleranceRadius_mm)
+            withinGoal = (dN.loc[idx,'x'] <= goalPosition_mm[0][0]) & (dN.loc[idx,'x'] >= goalPosition_mm[3][0] ) &  (dN.loc[idx, 'y'] <= goalPosition_mm[0][1]) & (dN.loc[idx, 'y'] >= goalPosition_mm[3][1]) #check to see if within goal.  recall that -ve y is further away from the user, and -ve x is to the right when facing the gantry.
 
             ### For SNS control, see when either ZR first pressed in those times, or SR.  This is start time of grasp
-
+            dstart_idx = np.Inf
             # check ZR first:
 
-            ZRidx = np.where(dN.loc[withinRange.index, 'ZR'] == 1)[0]
+            ZR_dep_idx = np.where(dN.loc[withinGoal.index, 'ZR'] == 1)[0]
+
+            if len(ZR_dep_idx) < 1:
+                print('Could not find ZR press for deposit')
 
 
 
+            else:
+                dstart_idx = idx[ZR_dep_idx[0]]
+                print('Found ZR press for deposit')
 
-        ### when the last R1 that happened within the goal location.  This is the deposit finish time
+            # check to see when they start to open the grasper
+            OpenGrasper_idx = np.where((Power_datetime >= GraspTimeEnd) & (Power_datetime <= EndSearchTime))[0]
+
+            if len(OpenGrasper_idx) < 1:
+                print('Could not find Grasper Open during Deposit')
+
+            else:
+                dstart_idx = min(idx[OpenGrasper_idx[0]], dstart_idx)
+                print('Found Grasper open during deposit')
+
+
+
+            DepositTimeStart = dN_datetime[dstart_idx]
+            print("Deposit Time Start: " + datetime.strftime(DepositTimeStart, "%H-%M-%S,%f"))
+
+            ### when the last R press that happened within the goal location, or the last open command to the grasper, whichever came last.  This is the deposit finish time
+            # start with R press
+            dend_idx = np.Inf
+            idx = np.where((dN_datetime >= DepositTimeStart) & (dN_datetime <= EndSearchTime))[0]
+            R_dep_idx = np.where(dN.loc[idx, 'R'] == 1)[0]
+
+            if len(OpenGrasper_idx) < 1:
+                print('Could not find Grasper Raising with R button after deposit in goal')
+
+            else:
+                dend_idx = idx[R_dep_idx[0]]
+                print('Found R press after touch down in goal')
+
+
+            #check for power press
+
+            OpenGrasper_idx = np.where((Power_datetime >= DepositTimeStart) & (Power_datetime <= EndSearchTime))[0]
+
+            if len(OpenGrasper_idx) < 1:
+                print('Could not find Grasper modulation during end of deposit')
+
+            else:
+                dstart_idx = min(idx[OpenGrasper_idx[0]], dend_idx)
+                print('Found Grasper open during deposit')
+
+            DepositTimeEnd = dN_datetime[dend_idx]
+            print("Deposit Time End: " + datetime.strftime(DepositTimeEnd, "%H-%M-%S,%f"))
 
 
         ObjectStatus["Attempt"].append (numAttempts)

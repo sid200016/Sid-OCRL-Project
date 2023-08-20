@@ -8,7 +8,7 @@ from datetime import datetime
 
 from pathlib import Path
 
-usePickle = False
+usePickle = True
 
 datalogName = "..\\HardwareDatalog_17_08_2023_10_37_29.csv"
 #datalogName = "..\\HardwareDatalog_17_08_2023_11_15_43.csv"
@@ -25,6 +25,8 @@ eventLogName = "..\\Hardware_17_08_2023_10_37_29.txt"
 
 controlType = "SNS"
 #controlType = "Manual"
+
+groupType = "SNS_first"
 
 #### Strings for regex for parsing the event log
 programLoopString = "\s*(?P<DateTime>.*).*?- __main__.*?(?P<ProgramLoop>ProgramLoop)"
@@ -214,10 +216,22 @@ print(ItemSequence)
 
 dN = pd.read_csv(datalogName, names=datalogHeader)
 
-# look for the sequence of Attempt started to get the sequence of items.
-ObjectStatus = {"Attempt": [], "Type of Control": [], "Grasp Time started": [], "Grasp Time Finished": [],
-                "Deposit Time Started": [], "Deposit Time Finished": [], "Object Broken Time": [],
-                "Proctor Time Started": [], "Proctor Time Finished": []}
+
+ObjectStatus = {"Attempt": [], "Group Type": [], "Type of Control": [], "Proctor Classification": [],
+                        "Test Type": [], "Item Number": [], "Proctor Time Started": [], "Proctor Time Ended": [],
+                        "Grasp Time Started": [], "Grasp Time Finished": [],
+                        "Grasp Time Started idx": [], "Grasp Time Finished idx": [],"Grasp Time": [],
+                        "Deposit Time Started": [], "Deposit Time Finished": [],
+                        "Deposit Time Started idx": [], "Deposit Time Finished idx": [],"Deposit Time": [],
+                        "Object Broken Time": [], "Total Grasp Time": [],
+                        "Proctor Complete Time": [],
+                        "ZR grasp press time": [], "SR grasp press time": [],
+                        "R post-grasp press time": [], "ZR deposit press time": [],
+                        "Power slider deposit press time": [],
+                        "R post-deposit press time": [], "Power slider post-deposit press time": [],
+                        "X before Grasp attempt": [], "Y before Grasp Attempt": [], "Z before grasp attempt": [],
+                        "X before SR button": [], "Y before SR button": [], "Z before SR button": [],"Post Calc Analysis Classificaiton":[]}
+
 numAttempts = 0
 
 InfoDateTime = datetime.strptime(Info_Time.strip(), "%Y-%m-%d %H:%M:%S,%f")
@@ -231,18 +245,63 @@ Broken_datetime = np.array([datetime.strptime(x.strip(), "%Y-%m-%d %H:%M:%S,%f")
 ResetSNS_datetime = np.array([datetime.strptime(x.strip(), "%Y-%m-%d %H:%M:%S,%f") for x in ResetSNS_a["DateTime"]])
 Power_datetime = np.array([datetime.strptime(x.strip(), "%Y-%m-%d %H:%M:%S,%f") for x in Power_a["DateTime"]])
 XY_datetime = np.array([datetime.strptime(x.strip(), "%Y-%m-%d %H:%M:%S,%f") for x in XY_a["DateTime"]])
-XY_dataframe = pd.DataFrame.from_dict({"DateTime":XY_datetime,"XPos":[float(x) for x in (XY_a["XPos"])],"YPos":[float(y) for y in (XY_a["YPos"])]})
+XY_dataframe = pd.DataFrame.from_dict({"DateTime":XY_datetime,"XPos":[float(x)-20 for x in (XY_a["XPos"])],"YPos":[float(y)-20 for y in (XY_a["YPos"])]}) #-20 for both x and y to compensate because the xy that is logged in Hardware_SNS_Try doesn't have this correction.
 
 GraspStarted = InfoDateTime
 
 StartSearchTime = InfoDateTime
 
 for k, tstamp in enumerate(ItemSequence['DateTime']):
+    # look for the sequence of Attempt started to get the sequence of items.
+
+    storageDict = {k:0 for (k,v) in ObjectStatus.items()}
+
+
+    ProctorTimeStarted = datetime.min
+    ProctorTimeFinished = datetime.min
+    GraspTimeStart = datetime.min
+    GraspTimeEnd = datetime.min
+    GraspTimeStartIdx = 0
+    GraspTimeEndIdx = 0
+    GraspTime = 0
+    DepositTimeStart = datetime.max
+    DepositTimeEnd = datetime.max
+    DepositTimeStartIdx = 0
+    DepositTimeEndIdx = 0
+    DepositTime = 0
+    BrokenTime = datetime.min
+    TotalGraspTime = 0
+    ProctorTime = 0
+    ZRgraspTime = datetime.min
+    SRgraspTime = datetime.min
+    RpostgraspTime = datetime.min
+    ZRdepositTime = datetime.min
+    PowerSliderDepositTime = datetime.min
+    R_postdeposit_Time = datetime.min
+    PowerSlider_postdeposit_Time = datetime.min
+    X_grasp = np.NaN
+    Y_grasp = np.NaN
+    Z_grasp = np.NaN
+    X_SR = np.NaN
+    Y_SR = np.NaN
+    Z_SR = np.NaN
+    itemSuccess = False
+
+
+
+
+
+
+
 
     if ItemSequence["Status"][k].strip() != 'inprogress':
         numAttempts = numAttempts + 1
 
         ### start from the 1st in the sequence to find times in hardwareDatalog when the gantry is wihtin 5 cm of the x-y position
+
+        ProctorTimeStarted = ItemSequence["DateTime"][k-1]
+        ProctorTimeStarted = datetime.strptime(ProctorTimeStarted.strip(),
+                                                "%Y-%m-%d %H:%M:%S,%f")  # convert to datetime object
 
         ProctorTimeFinished = ItemSequence["DateTime"][k]
         ProctorTimeFinished = datetime.strptime(ProctorTimeFinished.strip(),
@@ -278,6 +337,10 @@ for k, tstamp in enumerate(ItemSequence['DateTime']):
         else:
             gstart_idx = idx[ZRidx[0]]
             print('Found ZR press')
+            ZRgraspTime = dN_datetime[gstart_idx]
+            X_grasp = dN.loc[gstart_idx, "x"]
+            Y_grasp = dN.loc[gstart_idx, "y"]
+            Z_grasp = dN.loc[gstart_idx, "z"]
 
 
         if controlType == "SNS": #for SNS only
@@ -286,14 +349,19 @@ for k, tstamp in enumerate(ItemSequence['DateTime']):
                 print('Could not find SR press')
 
             else:
-                gstart_idx = min(idx[SRidx[0]], gstart_idx)
+                SR_start_idx = idx[SRidx[0]]
+                gstart_idx = min(SR_start_idx, gstart_idx)
                 print('Found SR press')
+                SRgraspTime = dN_datetime[SR_start_idx]
+                X_SR = dN.loc[SR_start_idx,"x"]
+                Y_SR = dN.loc[SR_start_idx, "y"]
+                Z_SR = dN.loc[SR_start_idx, "z"]
 
         GraspTimeStart = dN_datetime[gstart_idx]
+        GraspTimeStartIdx = gstart_idx
         print("Grasp Time Start: " + datetime.strftime(GraspTimeStart, "%H-%M-%S,%f"))
 
         ### See if item failed grasp or broken item.  This is end time of grasp and mark as failed or broken.  Don't look for deposit times
-        GraspTimeEnd = 0
         # Check broken first if there is a date time within the idx
 
         Broken_idx = np.where((Broken_datetime >= min(dN_datetime[idx])) & (Broken_datetime <= max(dN_datetime[idx])))[
@@ -307,12 +375,13 @@ for k, tstamp in enumerate(ItemSequence['DateTime']):
         else:
             print("# of broken items found in this run: %i" % (len(Broken_idx)))
             Broken_idx = Broken_idx[0]
-            GraspTimeEnd = Broken_datetime[Broken_idx]
+            BrokenTime = Broken_datetime[Broken_idx]
+            GraspTimeEnd = BrokenTime
             print("Broken item:%i, %f" % (BrokenItem_a["Item"][Broken_idx], BrokenItem_a["Threshold"][Broken_idx]))
             print("Broken item status sanity check: %i" % (itemNumber == BrokenItem_a["Item"][Broken_idx]))
-            itemBroke == True
+            itemBroke = True
 
-        itemSuccess = False
+
         # Check failed item
         if controlType == "SNS": #only SNS has this failure mode
 
@@ -329,6 +398,7 @@ for k, tstamp in enumerate(ItemSequence['DateTime']):
                 print("# of failed grasps: %i" % (len(FailedGrasp_idx)))
                 FailedGrasp_idx2 = FailedGrasp_idx[0]
                 GraspTimeEnd = FailedGrasp_datetime[FailedGrasp_idx2]
+                GraspTimeEndIdx = FailedGrasp_idx2
                 itemFailedGrasp = True
 
             ### See if item was successfully picked up (Reset SNS doesn't have associated failed grasp or broken item).  This means that the object was was successfully picked up. Log this as the end time of the grasp
@@ -346,10 +416,11 @@ for k, tstamp in enumerate(ItemSequence['DateTime']):
                 else:
                     SuccessGrasp_idx = SuccessGrasp_idx[0]
                     GraspTimeEnd = ResetSNS_datetime[SuccessGrasp_idx]
+                    GraspTimeEndIdx = SuccessGrasp_idx
                     print("Successfully picked up")
                     itemSuccess = True
 
-            print("Grasp Time End %s" % (datetime.strftime(GraspTimeEnd, "%H-%M-%S,%f")))
+
 
         elif controlType == "Manual" and itemBroke == False:
 
@@ -369,6 +440,17 @@ for k, tstamp in enumerate(ItemSequence['DateTime']):
                 print("No target presses found to goal.")
                 itemFailedGrasp = True
                 itemSuccess = False
+                dN_red = dN.loc[idx_w,'R']
+                Ridx = dN_red.index[np.where(dN_red == 1)[0]]  # find the time in the datalog that is closest to this command and that had a R button press
+                if len(Ridx) < 1:
+                    print("No R press found during lift after grasp with no goal presses")
+                    GraspTimeEnd = ProctorTimeFinished
+
+                else:
+                    GraspTimeEnd = dN_datetime[Ridx[-1]]
+                    GraspTimeEndIdx = Ridx[-1]
+                    print("Grasp Time End %s" % (datetime.strftime(GraspTimeEnd, "%H-%M-%S,%f")))
+
 
                 #validate this with the proctor classified success.  If the proctor says success and you couldn't find a within goal location, then the proctor may have pressed too early.
 
@@ -384,6 +466,7 @@ for k, tstamp in enumerate(ItemSequence['DateTime']):
 
                 else:
                     GraspTimeEnd = dN_datetime[Ridx[-1]]
+                    GraspTimeEndIdx = Ridx[-1]
                     print("Grasp Time End %s" % (datetime.strftime(GraspTimeEnd, "%H-%M-%S,%f")))
                 itemSuccess = True
 
@@ -397,9 +480,7 @@ for k, tstamp in enumerate(ItemSequence['DateTime']):
 
             #for failure: search for last R before fail time was logged
 
-
-
-
+        print("Grasp Time End %s" % (datetime.strftime(GraspTimeEnd, "%H-%M-%S,%f")))
 
 
         ### Look for eventLog XYcommand which is within the goal location and closest to the successfully picked up.  Look in datalog to see from this time until the time when success marked: when the first ZR is marked.  This is the start time of the deposit.
@@ -423,9 +504,13 @@ for k, tstamp in enumerate(ItemSequence['DateTime']):
 
 
 
+
             else:
                 ZR_StartTime = dN_datetime[idx[ZR_dep_idx[0]]]
+                ZRdepositTime = ZR_StartTime
                 print('Found ZR press for deposit')
+
+                DepositTimeStartIdx = idx[ZR_dep_idx[0]] #temporary, should update so it is the closest index in the datalog to the DepositTimeStart
 
             # check to see when they start to open the grasper
             OpenGrasper_idx = np.where((Power_datetime >= GraspTimeEnd) & (Power_datetime <= EndSearchTime))[0]
@@ -436,6 +521,7 @@ for k, tstamp in enumerate(ItemSequence['DateTime']):
 
             else:
                 Grasper_StartTime = Power_datetime[OpenGrasper_idx[0]]
+                PowerSliderDepositTime = Grasper_StartTime
                 print('Found Grasper open during deposit')
 
             DepositTimeStart = min(Grasper_StartTime,ZR_StartTime)
@@ -455,6 +541,8 @@ for k, tstamp in enumerate(ItemSequence['DateTime']):
                 dend_idx = idx[R_dep_idx[-1]]
                 print('Found R press after touch down in goal')
                 LiftEndTime = dN_datetime[dend_idx]
+                R_postdeposit_Time = LiftEndTime
+                DepositTimeEndIdx = dend_idx
 
             # check for power press
 
@@ -469,17 +557,61 @@ for k, tstamp in enumerate(ItemSequence['DateTime']):
                 #find which happens last
                 Grasper_EndTime = Power_datetime[OpenGrasper_idx[-1]]
                 print('Found Grasper open during deposit')
+                PowerSlider_postdeposit_Time = Grasper_EndTime
+
 
 
             DepositTimeEnd = max(Grasper_EndTime, LiftEndTime)
             print("Deposit Time End: " + datetime.strftime(DepositTimeEnd, "%H-%M-%S,%f"))
 
-        ObjectStatus["Attempt"].append(numAttempts)
+
+
+        storageDict["Attempt"] = numAttempts
+        storageDict["Group Type"] = groupType
+        storageDict["Type of Control"] = controlType
+        storageDict["Proctor Classification"] = ItemSequence["Status"][k]
+        storageDict["Test Type"] = ItemSequence["testType"][k]
+        storageDict["Item Number"] = int(ItemSequence["ItemNumber"][k]) + 1 #so it is 1 through 9
+        storageDict["Proctor Time Started"] = ProctorTimeStarted
+        storageDict["Proctor Time Ended"] = ProctorTimeFinished
+        storageDict["Proctor Complete Time"] = ProctorTimeFinished-ProctorTimeStarted
+        storageDict["Grasp Time Started"] = GraspTimeStart
+        storageDict["Grasp Time Finished"] = GraspTimeEnd
+        storageDict["Grasp Time Started idx"] = GraspTimeStartIdx
+        storageDict["Grasp Time Finished idx"] = GraspTimeEndIdx
+        storageDict["Grasp Time"] = GraspTimeEnd-GraspTimeStart
+        storageDict["Deposit Time Started"] = DepositTimeStart
+        storageDict["Deposit Time Finished"] = DepositTimeEnd
+        storageDict["Deposit Time Started idx"] = DepositTimeStartIdx
+        storageDict["Deposit Time Finished idx"] = DepositTimeEndIdx
+        storageDict["Deposit Time"] = DepositTimeEnd-DepositTimeStart
+        storageDict["Object Broken Time"] = BrokenTime
+        storageDict["Total Grasp Time"] = storageDict["Grasp Time"] + storageDict["Deposit Time"]
+        storageDict["ZR grasp press time"] = ZRgraspTime
+        storageDict["SR grasp press time"] = SRgraspTime
+        storageDict["R post-grasp press time"] = RpostgraspTime
+        storageDict["ZR deposit press time"] = ZRdepositTime
+        storageDict["Power slider deposit press time"] = PowerSlider_postdeposit_Time
+        storageDict["R post-deposit press time"] = R_postdeposit_Time
+        storageDict["Power slider post-deposit press time"] = PowerSlider_postdeposit_Time
+        storageDict["X before Grasp attempt"] =X_grasp
+        storageDict["Y before Grasp Attempt"] = Y_grasp
+        storageDict["Z before grasp attempt"] = Z_grasp
+        storageDict["X before SR button"] = X_SR
+        storageDict["Y before SR button"] = Y_SR
+        storageDict["Z before SR button"] = Z_SR
+        storageDict["Post Calc Analysis Classificaiton"] = itemSuccess
+
+        for k,v in storageDict.items():
+            ObjectStatus[k].append(v)
+
+
+
         StartSearchTime = ProctorTimeFinished
 
 
 
-
+ObjectDF = pd.DataFrame.from_dict(ObjectStatus)
 
 
 

@@ -9,6 +9,7 @@
       <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/Data.pkl.bak" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/Data.pkl.bak" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/Data.pkl.dat" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/Data.pkl.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/Data.pkl.dir" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/Data.pkl.dir" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser_Manual.py" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser_Manual.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -354,19 +355,14 @@
           <option name="timeStamp" value="100" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser.py</url>
-          <line>352</line>
-          <option name="timeStamp" value="130" />
+          <url>file://$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser_Manual.py</url>
+          <line>613</line>
+          <option name="timeStamp" value="146" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser_Manual.py</url>
-          <line>473</line>
-          <option name="timeStamp" value="143" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser_Manual.py</url>
-          <line>440</line>
-          <option name="timeStamp" value="144" />
+          <line>336</line>
+          <option name="timeStamp" value="149" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

@@ -10962,7 +10962,6 @@
 2023-08-17 09:28:20,596 - __main__ - DEBUG - ProgramLoop
 2023-08-17 09:28:20,653 - __main__ - DEBUG - ProgramLoop
 2023-08-17 09:28:20,699 - __main__ - DEBUG - ProgramLoop
-2023-08-17 09:28:20,739 - __main__ - INFO - Item event: item 7 is inprogress.  Attempt [{'n': 0, 'typ': 'broken'}, {'n': 5, 'typ': 'success'}, {'n': 7, 'typ': 'inprogress'}], test soft)
 2023-08-17 09:28:20,739 - __main__ - DEBUG - ProgramLoop
 2023-08-17 09:28:20,779 - __main__ - DEBUG - ProgramLoop
 2023-08-17 09:28:20,818 - __main__ - DEBUG - ProgramLoop

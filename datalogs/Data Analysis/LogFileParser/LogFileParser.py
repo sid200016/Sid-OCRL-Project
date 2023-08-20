@@ -76,7 +76,7 @@ def ParseLogFile(usePickle=False, datalogName='', eventLogName='', controlType='
 
     pickleFileName =  Path(__file__).with_name("%s_%s_%i_pickle.pkl"%(controlType,groupType,ParticipantNumber))
 
-    if usePickle == False or (usePickle == True and Path.exists(pickleFileName)==False):
+    if usePickle == False or (usePickle == True and Path.exists(pickleFileName.with_suffix(pickleFileName.suffix + ".dat"))==False):
 
         # dN = pd.read_csv(datalogName,names= datalogHeader)
 
@@ -174,8 +174,6 @@ def ParseLogFile(usePickle=False, datalogName='', eventLogName='', controlType='
 
                     BrokenItemR = reBrokenItem.match(line)
 
-                    BrokenItem_a = {"DateTime": [], "Item": [], "Threshold": [], "RumbleVal": []}
-
                     if BrokenItemR is not None:
                         BrokenItem_a["DateTime"].append(BrokenItemR.group('DateTime'))
                         BrokenItem_a["Item"].append(BrokenItemR.group('Item'))
@@ -207,7 +205,7 @@ def ParseLogFile(usePickle=False, datalogName='', eventLogName='', controlType='
             for k in dir():
                 try:
                     bk[k] = globals()[k]
-                except Exception:
+                except Exception as e:
                     pass
 
     if usePickle == True:
@@ -224,7 +222,7 @@ def ParseLogFile(usePickle=False, datalogName='', eventLogName='', controlType='
 
 
     ObjectStatus = {"Attempt": [], "Group Type": [], "Type of Control": [], "Proctor Classification": [],
-                            "Test Type": [], "Item Number": [], "ID code":[],
+                            "Object Type":[],"Test Type": [], "Item Number": [], "ID code":[],
                             "Datalog Name":[], "Event Log Name":[], "Participant Number":[],
                             "Proctor Time Started": [], "Proctor Time Ended": [],
                             "Grasp Time Started": [], "Grasp Time Finished": [],
@@ -302,7 +300,7 @@ def ParseLogFile(usePickle=False, datalogName='', eventLogName='', controlType='
 
 
 
-        if ItemSequence["Status"][k].strip() != 'inprogress':
+        if ItemSequence["Status"][k].strip() != 'inprogress' and k<22:
             numAttempts = numAttempts + 1
 
             ### start from the 1st in the sequence to find times in hardwareDatalog when the gantry is wihtin 5 cm of the x-y position
@@ -365,14 +363,20 @@ def ParseLogFile(usePickle=False, datalogName='', eventLogName='', controlType='
                     Y_SR = dN.loc[SR_start_idx, "y"]
                     Z_SR = dN.loc[SR_start_idx, "z"]
 
-            GraspTimeStart = dN_datetime[gstart_idx]
-            GraspTimeStartIdx = gstart_idx
-            print("Grasp Time Start: " + datetime.strftime(GraspTimeStart, "%H-%M-%S,%f"))
+            if gstart_idx == np.Inf:
+                print("Not able to find a good start index")
+                continue
+
+            else:
+
+                GraspTimeStart = dN_datetime[gstart_idx]
+                GraspTimeStartIdx = gstart_idx
+                print("Grasp Time Start: " + datetime.strftime(GraspTimeStart, "%H-%M-%S,%f"))
 
             ### See if item failed grasp or broken item.  This is end time of grasp and mark as failed or broken.  Don't look for deposit times
             # Check broken first if there is a date time within the idx
 
-            Broken_idx = np.where((Broken_datetime >= min(dN_datetime[idx])) & (Broken_datetime <= max(dN_datetime[idx])))[
+            Broken_idx = np.where((Broken_datetime >= GraspTimeStart) & (Broken_datetime <= max(dN_datetime[idx])))[
                 0]
             itemBroke = False
             itemFailedGrasp = False
@@ -382,11 +386,11 @@ def ParseLogFile(usePickle=False, datalogName='', eventLogName='', controlType='
 
             else:
                 print("# of broken items found in this run: %i" % (len(Broken_idx)))
-                Broken_idx = Broken_idx[0]
-                BrokenTime = Broken_datetime[Broken_idx]
+                Broken_idxv = Broken_idx[0]
+                BrokenTime = Broken_datetime[Broken_idxv]
                 GraspTimeEnd = BrokenTime
-                print("Broken item:%i, %f" % (BrokenItem_a["Item"][Broken_idx], BrokenItem_a["Threshold"][Broken_idx]))
-                print("Broken item status sanity check: %i" % (itemNumber == BrokenItem_a["Item"][Broken_idx]))
+                print("Broken item:%s, %s" % (BrokenItem_a["Item"][Broken_idxv], BrokenItem_a["Threshold"][Broken_idxv]))
+                print("Broken item status sanity check: %i" % (itemNumber == BrokenItem_a["Item"][Broken_idxv]))
                 itemBroke = True
 
 
@@ -411,7 +415,7 @@ def ParseLogFile(usePickle=False, datalogName='', eventLogName='', controlType='
 
                 ### See if item was successfully picked up (Reset SNS doesn't have associated failed grasp or broken item).  This means that the object was was successfully picked up. Log this as the end time of the grasp
 
-                if len(Broken_idx) < 1 and itemFailedGrasp == False:  # object was not broken
+                if itemBroke == False and itemFailedGrasp == False:  # object was not broken
 
                     SuccessGrasp_idx = \
                         np.where((ResetSNS_datetime >= GraspTimeStart) & (ResetSNS_datetime <= max(dN_datetime[idx])))[
@@ -578,6 +582,7 @@ def ParseLogFile(usePickle=False, datalogName='', eventLogName='', controlType='
             storageDict["Group Type"] = groupType
             storageDict["Type of Control"] = controlType
             storageDict["Proctor Classification"] = ItemSequence["Status"][k]
+            storageDict["Object Type"] = GraspTypes[int(ItemSequence["ItemNumber"][k])]
             storageDict["Test Type"] = ItemSequence["testType"][k]
             storageDict["Item Number"] = int(ItemSequence["ItemNumber"][k]) + 1 #so it is 1 through 9
             storageDict["ID code"] = IDcode

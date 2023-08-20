@@ -5,16 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfd83e2d-ab31-4129-8c0e-ce5b016d6614" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser/LogFileParser.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalogs/Data Analysis/ParseFiles.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/FRR-Software-Interface.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/FRR-Software-Interface.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/Data.pkl.bak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/Data.pkl.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/Data.pkl.dir" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser_Manual.py" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser/Backup/LogFileParser_Manual.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/eventLogFile.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser/Backup/LogFileParser_Manual.py" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser/Backup/LogFileParser_Manual.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser/LogFileParser.py" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser/LogFileParser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser/SNS_SNS_first_2_pickle.pkl.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser/SNS_SNS_first_2_pickle.pkl.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser/SNS_SNS_first_2_pickle.pkl.dir" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/ParseFiles.py" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/ParseFiles.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/HardwareDatalog_17_08_2023_12_41_45.csv" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/HardwareDatalog_17_08_2023_12_41_45.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Hardware_17_08_2023_09_21_00.txt" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Hardware_17_08_2023_09_21_00.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +64,27 @@
     </key>
   </component>
   <component name="RunManager" selected="Python.ParseFiles">
+    <configuration name="LogFileParser (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="FRR-Software-Interface" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser/LogFileParser.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="LogFileParser" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="FRR-Software-Interface" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -120,27 +140,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/datalogs/Data Analysis/ParseFiles.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="TestSNS_sim" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="FRR-Software-Interface" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Testing" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Testing/TestSNS_sim.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -275,10 +274,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.ParseFiles" />
+        <item itemvalue="Python.LogFileParser (1)" />
         <item itemvalue="Python.LogFileParser_Manual" />
         <item itemvalue="Python.LogFileParser" />
         <item itemvalue="Python.run" />
-        <item itemvalue="Python.TestSNS_sim" />
       </list>
     </recent_temporary>
   </component>
@@ -367,6 +366,21 @@
           <url>file://$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser/Backup/LogFileParser_Manual.py</url>
           <line>339</line>
           <option name="timeStamp" value="149" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/GUI/EmbeddedSystems/SoftGrasper/SoftGrasper.py</url>
+          <line>318</line>
+          <option name="timeStamp" value="152" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/datalogs/Data Analysis/ParseFiles.py</url>
+          <line>80</line>
+          <option name="timeStamp" value="158" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser/LogFileParser.py</url>
+          <line>259</line>
+          <option name="timeStamp" value="159" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

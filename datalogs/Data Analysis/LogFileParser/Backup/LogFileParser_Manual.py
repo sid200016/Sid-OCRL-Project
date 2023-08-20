@@ -219,7 +219,7 @@ dN = pd.read_csv(datalogName, names=datalogHeader)
 
 
 ObjectStatus = {"Attempt": [], "Group Type": [], "Type of Control": [], "Proctor Classification": [],
-                        "Test Type": [], "Item Number": [], "ID code":[],
+                        "Object Type":[], "Test Type": [], "Item Number": [], "ID code":[],
                         "Datalog Name":[], "Event Log Name":[], "Participant Number":[],
                         "Proctor Time Started": [], "Proctor Time Ended": [],
                         "Grasp Time Started": [], "Grasp Time Finished": [],
@@ -573,6 +573,7 @@ for k, tstamp in enumerate(ItemSequence['DateTime']):
         storageDict["Group Type"] = groupType
         storageDict["Type of Control"] = controlType
         storageDict["Proctor Classification"] = ItemSequence["Status"][k]
+        storageDict["Object Type"] = GraspTypes[int(ItemSequence["ItemNumber"][k])]
         storageDict["Test Type"] = ItemSequence["testType"][k]
         storageDict["Item Number"] = int(ItemSequence["ItemNumber"][k]) + 1 #so it is 1 through 9
         storageDict["ID code"] = IDcode

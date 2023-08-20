@@ -5,12 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfd83e2d-ab31-4129-8c0e-ce5b016d6614" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser/LogFileParser.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/datalogs/Data Analysis/ParseFiles.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/FRR-Software-Interface.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/FRR-Software-Interface.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/Data.pkl.bak" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/Data.pkl.bak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/Data.pkl.dat" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/Data.pkl.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/Data.pkl.dir" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/Data.pkl.dir" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser_Manual.py" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser_Manual.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/Data.pkl.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/Data.pkl.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/Data.pkl.dir" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser_Manual.py" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser/Backup/LogFileParser_Manual.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/eventLogFile.pkl" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +49,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "last_opened_file_path": "C:/Users/Ravesh/Desktop/Research/FRR/FRR Software Interface/FRR-Software-Interface",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PythonContentEntriesConfigurable"
   }
 }]]></component>
   <component name="PyDebuggerOptionsProvider">
@@ -53,35 +57,14 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Ravesh\Desktop\Research\FRR\FRR Software Interface\FRR-Software-Interface\datalogs\Data Analysis\LogFileParser\Backup" />
+      <recent name="C:\Users\Ravesh\Desktop\Research\FRR\FRR Software Interface\FRR-Software-Interface\datalogs\Data Analysis\LogFileParser" />
       <recent name="C:\Users\SmorgasBORG\Documents\GitHub\FRR-Software-Interface" />
       <recent name="C:\Users\Ravesh\Desktop\Research\FRR\FRR Software Interface\FRR-Software-Interface\GUI\Testing" />
       <recent name="C:\Users\Ravesh\Desktop\Research\FRR\FRR Software Interface\FRR-Software-Interface\Testing" />
-      <recent name="C:\Users\Ravesh\Desktop\Research\FRR\FRR Software Interface\FRR-Software-Interface\EmbeddedSystems\SNS\controller" />
-      <recent name="C:\Users\Ravesh\Desktop\Research\FRR\FRR Software Interface\FRR-Software-Interface" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.LogFileParser_Manual">
-    <configuration name="Hardware_SNS_Try (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="FRR-Software-Interface" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Hardware_SNS_Try.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.ParseFiles">
     <configuration name="LogFileParser" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="FRR-Software-Interface" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -115,7 +98,28 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser_Manual.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Ravesh\Desktop\Research\FRR\FRR Software Interface\FRR-Software-Interface\datalogs\Data Analysis\LogFileParser\Backup\LogFileParser_Manual.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="ParseFiles" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="FRR-Software-Interface" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/datalogs/Data Analysis" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/datalogs/Data Analysis/ParseFiles.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -270,11 +274,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.ParseFiles" />
         <item itemvalue="Python.LogFileParser_Manual" />
         <item itemvalue="Python.LogFileParser" />
         <item itemvalue="Python.run" />
         <item itemvalue="Python.TestSNS_sim" />
-        <item itemvalue="Python.Hardware_SNS_Try (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -355,13 +359,13 @@
           <option name="timeStamp" value="100" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser_Manual.py</url>
-          <line>613</line>
+          <url>file://$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser/Backup/LogFileParser_Manual.py</url>
+          <line>620</line>
           <option name="timeStamp" value="146" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser_Manual.py</url>
-          <line>336</line>
+          <url>file://$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser/Backup/LogFileParser_Manual.py</url>
+          <line>339</line>
           <option name="timeStamp" value="149" />
         </line-breakpoint>
       </breakpoints>

@@ -8,7 +8,7 @@ from pathlib import Path
 
 def ParseLogFile(usePickle=False, datalogName='', eventLogName='', controlType='', groupType='', ParticipantNumber=0):
 
-
+    usePickle = False
     # usePickle = False
     #
     # #datalogName = "..\\HardwareDatalog_17_08_2023_10_37_29.csv"
@@ -60,8 +60,8 @@ def ParseLogFile(usePickle=False, datalogName='', eventLogName='', controlType='
     reAttemptStarted = re.compile(AttemptStarted)
 
     #### Get the object locations and goal positions in mm
-    goalPosition_mm = [[180, -195], [-180, -195], [-180, -255],
-                       [-180, -255]]  # bottom left, bottom right, top right, top left, in mm
+    goalPosition_mm = [[180, -195], [-180, -195], [-180, -260],
+                       [-180, -260]]  # bottom left, bottom right, top right, top left, in mm
     ObjectPositions_mm = [[165, -165],
                           [0, -165],
                           [-165, -165],
@@ -201,12 +201,13 @@ def ParseLogFile(usePickle=False, datalogName='', eventLogName='', controlType='
                         AttemptStarted_a["testType"].append(AttemptStartedR.group('testType'))
                         continue
 
-        with shelve.open(str(pickleFileName), 'n') as bk:
-            for k in dir():
-                try:
-                    bk[k] = globals()[k]
-                except Exception as e:
-                    pass
+        if usePickle == True:
+            with shelve.open(str(pickleFileName), 'n') as bk:
+                for k in dir():
+                    try:
+                        bk[k] = globals()[k]
+                    except Exception as e:
+                        pass
 
     if usePickle == True:
         bk_restore = shelve.open(str(pickleFileName))
@@ -231,7 +232,7 @@ def ParseLogFile(usePickle=False, datalogName='', eventLogName='', controlType='
                             "Deposit Time Started idx": [], "Deposit Time Finished idx": [],"Deposit Time": [],
                             "Object Broken Time": [], "Total Grasp Time": [],
                             "Proctor Complete Time": [],
-                            "ZR grasp press time": [], "SR grasp press time": [],
+                            "ZR grasp press time": [], "SR grasp press time": [], "Power slider grasp press time":[],
                             "R post-grasp press time": [], "ZR deposit press time": [],
                             "Power slider deposit press time": [],
                             "R post-deposit press time": [], "Power slider post-deposit press time": [],
@@ -279,6 +280,7 @@ def ParseLogFile(usePickle=False, datalogName='', eventLogName='', controlType='
         TotalGraspTime = 0
         ProctorTime = 0
         ZRgraspTime = datetime.min
+        PowerGraspTime = datetime.min
         SRgraspTime = datetime.min
         RpostgraspTime = datetime.min
         ZRdepositTime = datetime.min
@@ -325,13 +327,20 @@ def ParseLogFile(usePickle=False, datalogName='', eventLogName='', controlType='
             withinRange = (((dN.loc[idx, 'x'] - objectPosition[0]) ** 2 + (
                         dN.loc[idx, 'y'] - objectPosition[1]) ** 2) ** 0.5 <= ToleranceRadius_mm)
 
+
+
             ### For SNS control, see when either ZR first pressed in those times, or SR.  This is start time of grasp
 
             # check ZR first:
 
-            ZRidx = np.where(dN.loc[withinRange.index, 'ZR'] == 1)[0]
+            ZRidx = np.where((dN.loc[withinRange.index, 'ZR'] == 1) | (dN.loc[withinRange.index, 'R'] == 1) )[0]
 
             SRidx = np.where(dN.loc[withinRange.index, 'SR'] == 1)[0]
+
+            withinRange_start = dN_datetime[withinRange.index[0]]
+            withinRange_end = dN_datetime[withinRange.index[-1]]
+            OpenGrasper_idx = np.where((Power_datetime >= StartSearchTime) & (Power_datetime <= EndSearchTime) & (Power_datetime>=withinRange_start) & (Power_datetime<=withinRange_end))[0] #get the index of when the grasper is within range and a power command was triggered
+
 
             gstart_idx = np.Inf
 
@@ -347,6 +356,16 @@ def ParseLogFile(usePickle=False, datalogName='', eventLogName='', controlType='
                 X_grasp = dN.loc[gstart_idx, "x"]
                 Y_grasp = dN.loc[gstart_idx, "y"]
                 Z_grasp = dN.loc[gstart_idx, "z"]
+
+            if len(OpenGrasper_idx)<1:
+                print('Could not find grasper close during start of grasp')
+
+            else:
+                PowerGraspTime = Power_datetime[OpenGrasper_idx[0]]
+                print("Power command for grasp time start: " + datetime.strftime(PowerGraspTime, "%H-%M-%S,%f"))
+                if controlType != "SNS" and gstart_idx == np.Inf: #only if you can't find the ZR press do you use the power grasp time because it is is more unreliable
+                    nearestIdx = np.where(dN_datetime<=PowerGraspTime)[0][-1]
+                    gstart_idx = min(nearestIdx, gstart_idx)
 
 
             if controlType == "SNS": #for SNS only
@@ -428,7 +447,7 @@ def ParseLogFile(usePickle=False, datalogName='', eventLogName='', controlType='
                     else:
                         SuccessGrasp_idx = SuccessGrasp_idx[0]
                         GraspTimeEnd = ResetSNS_datetime[SuccessGrasp_idx]
-                        GraspTimeEndIdx = SuccessGrasp_idx
+                        GraspTimeEndIdx = np.where(dN_datetime <= GraspTimeEnd)[0][-1] #get closest position
                         print("Successfully picked up")
                         itemSuccess = True
 
@@ -606,6 +625,7 @@ def ParseLogFile(usePickle=False, datalogName='', eventLogName='', controlType='
             storageDict["Total Grasp Time"] = storageDict["Grasp Time"] + storageDict["Deposit Time"]
             storageDict["ZR grasp press time"] = ZRgraspTime
             storageDict["SR grasp press time"] = SRgraspTime
+            storageDict["Power slider grasp press time"] = PowerGraspTime
             storageDict["R post-grasp press time"] = RpostgraspTime
             storageDict["ZR deposit press time"] = ZRdepositTime
             storageDict["Power slider deposit press time"] = PowerSlider_postdeposit_Time

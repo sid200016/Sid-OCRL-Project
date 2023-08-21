@@ -223,6 +223,7 @@ function update_events(data, target, test) {
     }
 
     let attempts_made = attempts.length;
+
     let attempt_marker = document.getElementById('attempt'+(attempts_made-1).toString()+ '-' + target + '-' + test);
     attempt_marker.style.background = attempt_colors[typ];
 
@@ -235,7 +236,7 @@ function update_events(data, target, test) {
         else player_won = false;
     }
 
-    let player_lost = (NUM_ATTEMPTS == attempts_made) && !player_won;
+    let player_lost = (NUM_ATTEMPTS == attempts_made) && !player_won && (attempts[NUM_ATTEMPTS-1].typ != 'inprogress');
 
     let trial_over = player_won || player_lost;
 

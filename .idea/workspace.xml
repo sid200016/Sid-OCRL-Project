@@ -7,32 +7,38 @@
     <list default="true" id="bfd83e2d-ab31-4129-8c0e-ce5b016d6614" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser/LogFileParser.py" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser/LogFileParser.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser/Manual_Manual_first_3_pickle.pkl.bak" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/PlotData.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser/Manual_Manual_first_3_pickle.pkl.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser/Manual_Manual_first_3_pickle.pkl.dir" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser/Manual_Manual_first_4_pickle.pkl.bak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser/Manual_Manual_first_4_pickle.pkl.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser/Manual_Manual_first_4_pickle.pkl.dir" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser/Manual_SNS_first_1_pickle.pkl.bak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser/Manual_SNS_first_1_pickle.pkl.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser/Manual_SNS_first_1_pickle.pkl.dir" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser/Manual_SNS_first_2_pickle.pkl.bak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser/Manual_SNS_first_2_pickle.pkl.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser/Manual_SNS_first_2_pickle.pkl.dir" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser/SNS_Manual_first_3_pickle.pkl.bak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser/SNS_Manual_first_3_pickle.pkl.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser/SNS_Manual_first_3_pickle.pkl.dir" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser/SNS_Manual_first_4_pickle.pkl.bak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser/SNS_Manual_first_4_pickle.pkl.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser/SNS_Manual_first_4_pickle.pkl.dir" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser/SNS_SNS_first_1_pickle.pkl.bak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser/SNS_SNS_first_1_pickle.pkl.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser/SNS_SNS_first_1_pickle.pkl.dir" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser/SNS_SNS_first_2_pickle.pkl.bak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser/SNS_SNS_first_2_pickle.pkl.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser/SNS_SNS_first_2_pickle.pkl.dir" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/Manual_Manual_first_3_pickle.pkl.bak" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/Manual_Manual_first_3_pickle.pkl.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/Manual_Manual_first_3_pickle.pkl.dat" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/Manual_Manual_first_3_pickle.pkl.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/Manual_Manual_first_3_pickle.pkl.dir" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/Manual_Manual_first_3_pickle.pkl.dir" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/Manual_Manual_first_4_pickle.pkl.bak" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/Manual_Manual_first_4_pickle.pkl.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/Manual_Manual_first_4_pickle.pkl.dat" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/Manual_Manual_first_4_pickle.pkl.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/Manual_Manual_first_4_pickle.pkl.dir" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/Manual_Manual_first_4_pickle.pkl.dir" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/Manual_SNS_first_1_pickle.pkl.bak" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/Manual_SNS_first_1_pickle.pkl.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/Manual_SNS_first_1_pickle.pkl.dat" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/Manual_SNS_first_1_pickle.pkl.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/Manual_SNS_first_1_pickle.pkl.dir" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/Manual_SNS_first_1_pickle.pkl.dir" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/Manual_SNS_first_2_pickle.pkl.bak" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/Manual_SNS_first_2_pickle.pkl.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/Manual_SNS_first_2_pickle.pkl.dat" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/Manual_SNS_first_2_pickle.pkl.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/Manual_SNS_first_2_pickle.pkl.dir" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/Manual_SNS_first_2_pickle.pkl.dir" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/ParseFiles.py" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/ParseFiles.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/PlotData.py" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/PlotData.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_Manual_first_3_pickle.pkl.bak" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_Manual_first_3_pickle.pkl.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_Manual_first_3_pickle.pkl.dat" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_Manual_first_3_pickle.pkl.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_Manual_first_3_pickle.pkl.dir" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_Manual_first_3_pickle.pkl.dir" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_Manual_first_4_pickle.pkl.bak" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_Manual_first_4_pickle.pkl.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_Manual_first_4_pickle.pkl.dat" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_Manual_first_4_pickle.pkl.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_Manual_first_4_pickle.pkl.dir" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_Manual_first_4_pickle.pkl.dir" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_SNS_first_1_pickle.pkl.bak" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_SNS_first_1_pickle.pkl.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_SNS_first_1_pickle.pkl.dat" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_SNS_first_1_pickle.pkl.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_SNS_first_1_pickle.pkl.dir" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_SNS_first_1_pickle.pkl.dir" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_SNS_first_2_pickle.pkl.bak" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_SNS_first_2_pickle.pkl.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_SNS_first_2_pickle.pkl.dat" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_SNS_first_2_pickle.pkl.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_SNS_first_2_pickle.pkl.dir" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_SNS_first_2_pickle.pkl.dir" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/SummarySuccess.csv" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/SummarySuccess.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/UserExperimentsData.csv" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/UserExperimentsData.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/UserExperimentsData.pkl.bak" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/UserExperimentsData.pkl.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/UserExperimentsData.pkl.dat" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/UserExperimentsData.pkl.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/UserExperimentsData.pkl.dir" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/UserExperimentsData.pkl.dir" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/UserExperimentsData_Updated.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/UserExperimentsData_Updated.xlsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -393,18 +399,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/datalogs/Data Analysis/PlotData.py</url>
-          <line>28</line>
+          <line>62</line>
           <option name="timeStamp" value="163" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser/LogFileParser.py</url>
-          <line>470</line>
+          <line>482</line>
           <option name="timeStamp" value="173" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/datalogs/Data Analysis/PlotData.py</url>
-          <line>10</line>
-          <option name="timeStamp" value="177" />
+          <line>32</line>
+          <option name="timeStamp" value="180" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

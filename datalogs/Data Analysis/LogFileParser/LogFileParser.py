@@ -237,7 +237,7 @@ def ParseLogFile(usePickle=False, datalogName='', eventLogName='', controlType='
                             "Power slider deposit press time": [],
                             "R post-deposit press time": [], "Power slider post-deposit press time": [],
                             "X before Grasp attempt": [], "Y before Grasp Attempt": [], "Z before grasp attempt": [],
-                            "X before SR button": [], "Y before SR button": [], "Z before SR button": [],"Post Calc Analysis Classificaiton":[]}
+                            "X before SR button": [], "Y before SR button": [], "Z before SR button": [],"Post Calc Analysis Classificaiton":[], "Immediate Reattempt": [], "Reattempt":[]}
 
     numAttempts = 0
 
@@ -294,6 +294,8 @@ def ParseLogFile(usePickle=False, datalogName='', eventLogName='', controlType='
         Y_SR = np.NaN
         Z_SR = np.NaN
         itemSuccess = False
+        ImmediateReattempt = False
+        Reattempt = False
 
 
 
@@ -303,6 +305,16 @@ def ParseLogFile(usePickle=False, datalogName='', eventLogName='', controlType='
 
 
         if ItemSequence["Status"][k].strip() != 'inprogress' and k<22:
+
+            if (k>1):
+                if ItemSequence["ItemNumber"][k-2] == ItemSequence["ItemNumber"][k]:
+                    print("Immediate reattempt")
+                    ImmediateReattempt = True
+                    Reattempt = True
+
+                elif ItemSequence["ItemNumber"][k] in ItemSequence["ItemNumber"][0:k-1]: #if this number previously in the list
+                    Reattempt = True
+
             numAttempts = numAttempts + 1
 
             ### start from the 1st in the sequence to find times in hardwareDatalog when the gantry is wihtin 5 cm of the x-y position
@@ -638,6 +650,8 @@ def ParseLogFile(usePickle=False, datalogName='', eventLogName='', controlType='
             storageDict["Y before SR button"] = Y_SR
             storageDict["Z before SR button"] = Z_SR
             storageDict["Post Calc Analysis Classificaiton"] = itemSuccess
+            storageDict["Immediate Reattempt"] = ImmediateReattempt
+            storageDict["Reattempt"] = Reattempt
 
             for k,v in storageDict.items():
                 ObjectStatus[k].append(v)

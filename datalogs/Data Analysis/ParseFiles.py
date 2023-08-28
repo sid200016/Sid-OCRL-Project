@@ -9,56 +9,56 @@ FilesToParse = [{"datalogName": "..\\HardwareDatalog_17_08_2023_08_52_12.csv",
                  "controlType":"SNS",
                 "groupType":"SNS_first",
                 "ParticipantNumber":1,
-                "usePickle": True},
+                "usePickle": False},
 
                 {"datalogName": "..\\HardwareDatalog_17_08_2023_09_21_00.csv",
                  "eventLogName": "..\\Hardware_17_08_2023_09_21_00.txt" ,
                  "controlType":"Manual",
                 "groupType":"SNS_first",
                 "ParticipantNumber":1,
-                "usePickle": True},
+                "usePickle": False},
 
                 {"datalogName": "..\\HardwareDatalog_17_08_2023_10_37_29.csv",
                  "eventLogName": "..\\Hardware_17_08_2023_10_37_29.txt" ,
                  "controlType":"SNS",
                 "groupType":"SNS_first",
                 "ParticipantNumber":2,
-                "usePickle": True},
+                "usePickle": False},
 
                 {"datalogName": "..\\HardwareDatalog_17_08_2023_11_15_43.csv",
                  "eventLogName": "..\\Hardware_17_08_2023_11_15_43.txt" ,
                  "controlType":"Manual",
                 "groupType":"SNS_first",
                 "ParticipantNumber":2,
-                "usePickle": True},
+                "usePickle": False},
 
                 {"datalogName": "..\\HardwareDatalog_17_08_2023_12_41_45.csv",
                  "eventLogName": "..\\Hardware_17_08_2023_12_41_45.txt" ,
                  "controlType":"Manual",
                 "groupType":"Manual_first",
                 "ParticipantNumber":3,
-                "usePickle": True},
+                "usePickle": False},
 
                 {"datalogName": "..\\HardwareDatalog_17_08_2023_13_32_36.csv",
                  "eventLogName": "..\\Hardware_17_08_2023_13_32_36.txt" ,
                  "controlType":"SNS",
                 "groupType":"Manual_first",
                 "ParticipantNumber":3,
-                "usePickle": True},
+                "usePickle": False},
 
                 {"datalogName": "..\\HardwareDatalog_17_08_2023_14_42_23.csv",
                  "eventLogName": "..\\Hardware_17_08_2023_14_42_23.txt" ,
                  "controlType":"Manual",
                 "groupType":"Manual_first",
                 "ParticipantNumber":4,
-                "usePickle": True},
+                "usePickle": False},
 
                 {"datalogName": "..\\HardwareDatalog_17_08_2023_15_42_22.csv",
                  "eventLogName": "..\\Hardware_17_08_2023_15_42_22.txt" ,
                  "controlType":"SNS",
                 "groupType":"Manual_first",
                 "ParticipantNumber":4,
-                "usePickle": True},
+                "usePickle": False},
                 ]
 
 
@@ -90,15 +90,15 @@ DF.to_csv("UserExperimentsData.csv")
 #shelve the dataframe
 with shelve.open(str("UserExperimentsData.pkl"), 'n') as bk:
     bk["DF"] = DF
-
-#Get summary DF
-def calcSuccessFunc(df):
-    success = (df["Updated Classification"]== " success"  ).sum()
-    return success
-
-
-summaryDF = DF.groupby(["Group Type","Type of Control","Participant Number","Object Type"]).apply(calcSuccessFunc).to_frame("Number of Successes")
-summaryDF.to_csv("SummarySuccess.csv")
+#
+# #Get summary DF
+# def calcSuccessFunc(df):
+#     success = (df["Updated Classification"]== " success"  ).sum()
+#     return success
+#
+#
+# summaryDF = DF.groupby(["Group Type","Type of Control","Participant Number","Object Type"]).apply(calcSuccessFunc).to_frame("Number of Successes")
+# summaryDF.to_csv("SummarySuccess.csv")
 # usePickle = False
 #
 # #datalogName = "..\\HardwareDatalog_17_08_2023_10_37_29.csv"

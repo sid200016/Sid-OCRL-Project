@@ -60,8 +60,8 @@ def ParseLogFile(usePickle=False, datalogName='', eventLogName='', controlType='
     reAttemptStarted = re.compile(AttemptStarted)
 
     #### Get the object locations and goal positions in mm
-    goalPosition_mm = [[180, -195], [-180, -195], [-180, -260],
-                       [-180, -260]]  # bottom left, bottom right, top right, top left, in mm
+    goalPosition_mm = [[180, -195], [-180, -195], [-180, -275],
+                       [-180, -275]]  # bottom left, bottom right, top right, top left, in mm
     ObjectPositions_mm = [[165, -165],
                           [0, -165],
                           [-165, -165],

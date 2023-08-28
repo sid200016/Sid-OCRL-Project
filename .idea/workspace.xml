@@ -5,35 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfd83e2d-ab31-4129-8c0e-ce5b016d6614" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/datalogs/Data Analysis/PlotGraspMetric.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser/LogFileParser.py" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser/LogFileParser.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/Manual_Manual_first_3_pickle.pkl.bak" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/Manual_Manual_first_3_pickle.pkl.bak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/Manual_Manual_first_3_pickle.pkl.dat" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/Manual_Manual_first_3_pickle.pkl.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/Manual_Manual_first_3_pickle.pkl.dir" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/Manual_Manual_first_3_pickle.pkl.dir" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/Manual_Manual_first_4_pickle.pkl.bak" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/Manual_Manual_first_4_pickle.pkl.bak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/Manual_Manual_first_4_pickle.pkl.dat" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/Manual_Manual_first_4_pickle.pkl.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/Manual_Manual_first_4_pickle.pkl.dir" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/Manual_Manual_first_4_pickle.pkl.dir" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/Manual_SNS_first_1_pickle.pkl.bak" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/Manual_SNS_first_1_pickle.pkl.bak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/Manual_SNS_first_1_pickle.pkl.dat" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/Manual_SNS_first_1_pickle.pkl.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/Manual_SNS_first_1_pickle.pkl.dir" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/Manual_SNS_first_1_pickle.pkl.dir" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/Manual_SNS_first_2_pickle.pkl.bak" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/Manual_SNS_first_2_pickle.pkl.bak" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/Manual_SNS_first_2_pickle.pkl.dat" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/Manual_SNS_first_2_pickle.pkl.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/Manual_SNS_first_2_pickle.pkl.dir" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/Manual_SNS_first_2_pickle.pkl.dir" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/Minitab_GraspTime_Updated2.mpx" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/Minitab_GraspTime_Updated2.mpx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/ParseFiles.py" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/ParseFiles.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/PlotData.py" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/PlotData.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_Manual_first_3_pickle.pkl.bak" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_Manual_first_3_pickle.pkl.bak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_Manual_first_3_pickle.pkl.dat" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_Manual_first_3_pickle.pkl.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_Manual_first_3_pickle.pkl.dir" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_Manual_first_3_pickle.pkl.dir" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_Manual_first_4_pickle.pkl.bak" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_Manual_first_4_pickle.pkl.bak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_Manual_first_4_pickle.pkl.dat" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_Manual_first_4_pickle.pkl.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_Manual_first_4_pickle.pkl.dir" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_Manual_first_4_pickle.pkl.dir" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_SNS_first_1_pickle.pkl.bak" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_SNS_first_1_pickle.pkl.bak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_SNS_first_1_pickle.pkl.dat" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_SNS_first_1_pickle.pkl.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_SNS_first_1_pickle.pkl.dir" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_SNS_first_1_pickle.pkl.dir" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_SNS_first_2_pickle.pkl.bak" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_SNS_first_2_pickle.pkl.bak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_SNS_first_2_pickle.pkl.dat" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_SNS_first_2_pickle.pkl.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_SNS_first_2_pickle.pkl.dir" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_SNS_first_2_pickle.pkl.dir" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/SummarySuccess.csv" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/SummarySuccess.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/SummarySuccess.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/SummarySuccess.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/UserExperimentsData.csv" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/UserExperimentsData.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/UserExperimentsData.pkl.bak" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/UserExperimentsData.pkl.bak" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/UserExperimentsData.pkl.dat" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/UserExperimentsData.pkl.dat" afterDir="false" />
@@ -68,14 +48,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/Ravesh/Desktop/Research/FRR/FRR Software Interface/FRR-Software-Interface",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PythonContentEntriesConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Ravesh/Desktop/Research/FRR/FRR Software Interface/FRR-Software-Interface&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PythonContentEntriesConfigurable&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;Python&quot;
+    ]
   }
-}]]></component>
+}</component>
   <component name="PyDebuggerOptionsProvider">
     <option name="myPyQtBackend" value="pyside2" />
   </component>
@@ -88,7 +73,7 @@
       <recent name="C:\Users\Ravesh\Desktop\Research\FRR\FRR Software Interface\FRR-Software-Interface\Testing" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.PlotData">
+  <component name="RunManager" selected="Python.PlotGraspMetric">
     <configuration name="LogFileParser (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="FRR-Software-Interface" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -102,48 +87,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser/LogFileParser.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="LogFileParser" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="FRR-Software-Interface" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/datalogs/Data Analysis" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="LogFileParser_Manual" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="FRR-Software-Interface" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/datalogs/Data Analysis" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Users\Ravesh\Desktop\Research\FRR\FRR Software Interface\FRR-Software-Interface\datalogs\Data Analysis\LogFileParser\Backup\LogFileParser_Manual.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -194,6 +137,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="PlotGraspMetric" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="FRR-Software-Interface" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/datalogs/Data Analysis" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/datalogs/Data Analysis/PlotGraspMetric.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -232,6 +196,27 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="true" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="scratch_8" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="FRR-Software-Interface" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$APPLICATION_CONFIG_DIR$/scratches" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$APPLICATION_CONFIG_DIR$/scratches/scratch_8.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
       <option name="REDIRECT_INPUT" value="false" />
       <option name="INPUT_FILE" value="" />
       <method v="2" />
@@ -298,11 +283,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.PlotGraspMetric" />
         <item itemvalue="Python.PlotData" />
+        <item itemvalue="Python.scratch_8" />
         <item itemvalue="Python.ParseFiles" />
         <item itemvalue="Python.LogFileParser (1)" />
-        <item itemvalue="Python.LogFileParser_Manual" />
-        <item itemvalue="Python.LogFileParser" />
       </list>
     </recent_temporary>
   </component>
@@ -399,18 +384,33 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/datalogs/Data Analysis/PlotData.py</url>
-          <line>62</line>
+          <line>82</line>
           <option name="timeStamp" value="163" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser/LogFileParser.py</url>
-          <line>482</line>
-          <option name="timeStamp" value="173" />
+          <line>470</line>
+          <option name="timeStamp" value="181" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$APPLICATION_CONFIG_DIR$/scratches/scratch_8.py</url>
+          <line>7</line>
+          <option name="timeStamp" value="196" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/datalogs/Data Analysis/PlotData.py</url>
-          <line>32</line>
-          <option name="timeStamp" value="180" />
+          <line>151</line>
+          <option name="timeStamp" value="198" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/datalogs/Data Analysis/PlotData.py</url>
+          <line>67</line>
+          <option name="timeStamp" value="199" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/datalogs/Data Analysis/PlotGraspMetric.py</url>
+          <line>55</line>
+          <option name="timeStamp" value="201" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

@@ -8,6 +8,7 @@ import statsmodels.api as sm
 from statsmodels.formula.api import ols
 from scipy.stats import ttest_ind
 from scipy.stats import mannwhitneyu
+from datetime import datetime
 
 
 mpl.rcParams['font.family'] = 'Calibri'
@@ -38,21 +39,41 @@ u2DF["ContactMetric"] = u2DF.apply(lambda x: max(min((max(x['Jaw pressure 1 (psi
 
 #Broken and successful indices.  Using item # 6 from the Manual run of User #2
 broken=[7600,8600] #start and stop index
-success = [8600, 9618]#start and stop index
+success = [8600, 9900]#start and stop index
 
 #new column
+dN_datetime = np.array([datetime.strptime(x+","+"{0:03d}".format(u2DF["Milliseconds"][i]),"%Y-%m-%d %H:%M:%S,%f")for i,x in enumerate(u2DF["Date Time"])]) #get datetime from the csv
+
 u2DF["PlaceHolder"] = "NA"
 u2DF.loc[broken[0]:broken[1],"PlaceHolder"] ="Broke"
 u2DF.loc[success[0]:success[1],"PlaceHolder"] ="Success"
 
 u2DF["Idx"] = 0
 u2DF.loc[broken[0]:broken[1],"Idx"] = list(range(0,1+broken[1]-broken[0]))
+t_broke = dN_datetime[broken[0]:broken[1]]
+t_broke = [x.total_seconds() for x in t_broke - t_broke[0]]
+
 u2DF.loc[success[0]:success[1],"Idx"] = list(range(0,1+success[1]-success[0]))
+t_success = dN_datetime[success[0]:success[1]]
+t_success = [x.total_seconds() for x in t_success - t_success[0]]
 
 u2DF_red = u2DF.loc[u2DF["PlaceHolder"]!="NA",:]
 
-#new column to indicate whether it is
 
-sb.lineplot(data=u2DF_red,x="Idx", y="ContactMetric", hue="PlaceHolder")
+
+#Use dataframe method
+plt.figure()
+g = sb.lineplot(data=u2DF_red,x="Idx", y="ContactMetric", hue="PlaceHolder")
+fig = g.get_figure()
+fig.savefig("GraspMetric_BrokenRetry.svg",format="svg", dpi=1200)
+
+
+#plot separately
+plt.figure()
+g = sb.lineplot(x=t_broke, y=u2DF.loc[broken[0]:broken[1]-1,"ContactMetric"])
+g = sb.lineplot(x=t_success, y=u2DF.loc[success[0]:success[1]-1,"ContactMetric"])
+fig = g.get_figure()
+fig.savefig("GraspMetric_BrokenRetry_Time.svg",format="svg", dpi=1200)
+
 
 plt.show()

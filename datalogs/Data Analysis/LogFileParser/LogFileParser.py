@@ -243,7 +243,7 @@ def ParseLogFile(usePickle=False, datalogName='', eventLogName='', controlType='
 
     InfoDateTime = datetime.strptime(Info_Time.strip(), "%Y-%m-%d %H:%M:%S,%f")
 
-    dN_datetime = np.array([datetime.strptime(x+","+str(dN["Milliseconds"][i]),"%Y-%m-%d %H:%M:%S,%f")for i,x in enumerate(dN["Date Time"])]) #convert to datetime object with microseconds
+    dN_datetime = np.array([datetime.strptime(x+","+"{0:03d}".format(dN["Milliseconds"][i]),"%Y-%m-%d %H:%M:%S,%f")for i,x in enumerate(dN["Date Time"])]) #convert to datetime object with microseconds
     #dN_datetime = np.array([x.combine(InfoDateTime.date(),x.time()) for x in dN_datetime])
 
     FailedGrasp_datetime = np.array(

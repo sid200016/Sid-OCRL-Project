@@ -78,7 +78,7 @@ useSNS = True #set to true if you want to use the SNS to control
 buttonVal = None #read from joystick
 AxesPos = None #joystick axes position
 
-fragileThreshold = 0.5 #scale of 0 to 1.  Forces above this are considered broken for fragile objects
+fragileThreshold = 0.4 #scale of 0 to 1.  Forces above this are considered broken for fragile objects
 
 max_z_height = -0.184
 SNS_object_pos_m = [0,0,max_z_height]
@@ -368,6 +368,7 @@ async def program_loop():
                             GC.goalPos = [curPos_orig.x*1000, curPos_orig.y*1000, curPos_orig.z*1000+70] #move object up
                             loggerR.info('Failed grasp, exceeded number of attempts')
                             SNSc.lift_after_grasp_done = True #set to true to trigger the next statement
+                            SG.commandedPosition["ClosureChangeInRadius_mm"] = 0
 
 
                         if SNSc.num_grasp_attempts>=1 and SNSc.lift_after_grasp_done == True:

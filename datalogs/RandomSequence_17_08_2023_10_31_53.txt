@@ -1,0 +1,24 @@
+2023-08-17 10:32:03,321 - __main__ - INFO - ID: 2
+2023-08-17 10:32:03,321 - __main__ - INFO - Random ID: TMOWD0
+2023-08-17 10:32:03,321 - __main__ - INFO - Sequence of control type experiments: 1) SNS, 2) full-human
+
+
+2023-08-17 10:32:03,323 - __main__ - INFO - Generating object type distribution...
+2023-08-17 10:32:03,323 - __main__ - INFO - Trial 1, control type SNS
+2023-08-17 10:32:03,323 - __main__ - INFO - Random sequence: breakable,graspable,fixed,breakable,graspable,fixed,graspable,breakable,fixed 
+ As positioned on the grid: 
+
+ breakable graspable fixed 
+ breakable graspable fixed 
+ graspable breakable fixed
+
+----------
+2023-08-17 10:32:03,324 - __main__ - INFO - Trial 2, control type full-human
+2023-08-17 10:32:03,324 - __main__ - INFO - Random sequence: breakable,graspable,fixed,fixed,graspable,breakable,fixed,breakable,graspable 
+ As positioned on the grid: 
+
+ breakable graspable fixed 
+ fixed graspable breakable 
+ fixed breakable graspable
+
+----------

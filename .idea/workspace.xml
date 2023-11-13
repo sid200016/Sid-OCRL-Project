@@ -6,37 +6,23 @@
   <component name="ChangeListManager">
     <list default="true" id="bfd83e2d-ab31-4129-8c0e-ce5b016d6614" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/RigidGrasper/DynamixelSDK-3.7.31/python/dist/dynamixel_sdk-3.7.31-py3.10.egg" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/RigidGrasper/DynamixelSDK-3.7.31/python/dist/dynamixel_sdk-3.7.31-py3.10.egg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/RigidGrasper/DynamixelSDK-3.7.31/python/src/dynamixel_sdk.egg-info/SOURCES.txt" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/RigidGrasper/DynamixelSDK-3.7.31/python/src/dynamixel_sdk.egg-info/SOURCES.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/RigidGrasper/DynamixelSDK-3.7.31/python/src/dynamixel_sdk.egg-info/dependency_links.txt" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/RigidGrasper/DynamixelSDK-3.7.31/python/src/dynamixel_sdk.egg-info/dependency_links.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/RigidGrasper/DynamixelSDK-3.7.31/python/src/dynamixel_sdk.egg-info/requires.txt" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/RigidGrasper/DynamixelSDK-3.7.31/python/src/dynamixel_sdk.egg-info/requires.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/RigidGrasper/DynamixelSDK-3.7.31/python/src/dynamixel_sdk.egg-info/top_level.txt" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/RigidGrasper/DynamixelSDK-3.7.31/python/src/dynamixel_sdk.egg-info/top_level.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/RigidGrasper/RigidGrasper.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/RigidGrasper/RigidGrasper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/SoftGrasper/SoftGrasperController/.vscode/extensions.json" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SoftGrasper/SoftGrasperController/.vscode/extensions.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/GraspTime_vs_GroupType.svg" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/GraspTime_vs_GroupType.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/GraspTime_vs_TypeOfControl.svg" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/GraspTime_vs_TypeOfControl.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/GroupType_vs_DepositTime.svg" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/GroupType_vs_DepositTime.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/GroupType_vs_GraspTime_NoTypeOfControl.svg" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/GroupType_vs_GraspTime_NoTypeOfControl.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/Group_ControlType_GraspTime_SuccessRate.svg" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/Group_ControlType_GraspTime_SuccessRate.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/Group_Participant_ControlType_GraspTime_SuccessRate.svg" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/Group_Participant_ControlType_GraspTime_SuccessRate.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/Group_Partipant_ControlType_GraspTime.svg" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/Group_Partipant_ControlType_GraspTime.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser/LogFileParser.py" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser/LogFileParser.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/Manual_Manual_first_3_pickle.pkl.dat" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/Manual_Manual_first_3_pickle.pkl.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/Manual_Manual_first_4_pickle.pkl.dat" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/Manual_Manual_first_4_pickle.pkl.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/Manual_SNS_first_1_pickle.pkl.dat" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/Manual_SNS_first_1_pickle.pkl.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/Manual_SNS_first_2_pickle.pkl.dat" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/Manual_SNS_first_2_pickle.pkl.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/Object_Group_Partipant_ControlType_GraspTime.svg" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/Object_Group_Partipant_ControlType_GraspTime.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/PlotData.py" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/PlotData.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/PlotGraspMetric.py" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/PlotGraspMetric.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_Manual_first_3_pickle.pkl.bak" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_Manual_first_3_pickle.pkl.bak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_Manual_first_3_pickle.pkl.dat" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_Manual_first_3_pickle.pkl.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_Manual_first_3_pickle.pkl.dir" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_Manual_first_3_pickle.pkl.dir" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_Manual_first_4_pickle.pkl.bak" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_Manual_first_4_pickle.pkl.bak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_Manual_first_4_pickle.pkl.dat" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_Manual_first_4_pickle.pkl.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_Manual_first_4_pickle.pkl.dir" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_Manual_first_4_pickle.pkl.dir" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_SNS_first_1_pickle.pkl.dat" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_SNS_first_1_pickle.pkl.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_SNS_first_2_pickle.pkl.bak" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_SNS_first_2_pickle.pkl.bak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_SNS_first_2_pickle.pkl.dat" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_SNS_first_2_pickle.pkl.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_SNS_first_2_pickle.pkl.dir" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/SNS_SNS_first_2_pickle.pkl.dir" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/SummarySuccess.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/SummarySuccess.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/TypeOfControl_vs_DepositTime.svg" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/TypeOfControl_vs_DepositTime.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/TypeOfControl_vs_GraspTime.svg" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/TypeOfControl_vs_GraspTime.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/UserExperimentsData.csv" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/UserExperimentsData.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/UserExperimentsData.pkl.bak" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/UserExperimentsData.pkl.bak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/UserExperimentsData.pkl.dat" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/UserExperimentsData.pkl.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/UserExperimentsData.pkl.dir" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/UserExperimentsData.pkl.dir" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/UserExperimentsData_Updated.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/UserExperimentsData_Updated.xlsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,28 +77,7 @@
       <recent name="C:\Users\Ravesh\Desktop\Research\FRR\FRR Software Interface\FRR-Software-Interface\Testing" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.PlotData">
-    <configuration name="LogFileParser (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="FRR-Software-Interface" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/datalogs/Data Analysis/LogFileParser/LogFileParser.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.RigidGrasper">
     <configuration name="ParseFiles" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="FRR-Software-Interface" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -168,6 +133,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/datalogs/Data Analysis/PlotGraspMetric.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="RigidGrasper" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="FRR-Software-Interface" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/GUI/EmbeddedSystems/RigidGrasper" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GUI/EmbeddedSystems/RigidGrasper/RigidGrasper.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -301,11 +287,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.RigidGrasper" />
         <item itemvalue="Python.PlotData" />
         <item itemvalue="Python.ParseFiles" />
         <item itemvalue="Python.PlotGraspMetric" />
         <item itemvalue="Python.scratch_8" />
-        <item itemvalue="Python.LogFileParser (1)" />
       </list>
     </recent_temporary>
   </component>

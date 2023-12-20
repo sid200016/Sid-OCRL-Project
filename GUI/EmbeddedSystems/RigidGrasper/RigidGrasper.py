@@ -66,7 +66,7 @@ class ForceSensor(Enum):
 
 class RigidGrasper:
 
-    def __init__(self,BAUDRATE = 57600, DEVICEPORT = "COM3", GoalPosition1=[1500,2000], GoalPosition2 = [2120,1620], useForceSensor = False, COM_Port = 'COM7',BaudRate=115200,timeout=1):
+    def __init__(self,BAUDRATE = 57600, DEVICEPORT = "COM3", GoalPosition1=[1489,2000], GoalPosition2 = [2125,1620], useForceSensor = False, COM_Port_Force = 'COM7',BaudRate_Force=115200,timeout=1):
 
         # setup Logger
         self.logger = None
@@ -75,6 +75,7 @@ class RigidGrasper:
         # Control table address
         self.ADDR_PRO_TORQUE_ENABLE = 64  # Control table address is different in Dynamixel model
         self.ADDR_PRO_GOAL_POSITION = 116
+        self.ADDR_PRO_PRESENT_CURRENT = 126 #current in units of 1.34 mA
         self.ADDR_PRO_PRESENT_POSITION = 132
 
         # Protocol version
@@ -115,6 +116,9 @@ class RigidGrasper:
         # Current position of the grasper:
         self.CurrentPosition ={"1":[], "2":[]}
 
+        # Present Current in mA
+        self.PresentCurrent = {"1": [], "2": []}
+
         # Communication result and errors
         self.dxl_comm_result = None
         self.dxl_error = None
@@ -127,6 +131,8 @@ class RigidGrasper:
         if self.useForceSensor == True:
             self.numPorts = 1
             self.ForceArray = [[] for x in range(0, self.numPorts)]
+            self.PrevJawForce = None #list to hold the original Jaw force
+            self.changeInForce = 0 #change in force relative to baseline jaw force.
 
             # Tx-Rx Information for New Protocol
             self.startChar = ">!"  # indicates start of comm
@@ -142,7 +148,7 @@ class RigidGrasper:
             self.prevBuffer = bytearray()  # empty byte array that unprocessed data at the end of the buffer will be processed with
 
             #Serial port for force sensor
-            self.ser = serial.Serial(COM_Port, BaudRate, timeout=timeout)
+            self.ser = serial.Serial(COM_Port_Force, BaudRate_Force, timeout=timeout)
 
     def setupLogger(self):
         ##### Set up logging ####
@@ -155,7 +161,7 @@ class RigidGrasper:
         fh.setLevel(logging.DEBUG)
 
         ch = logging.StreamHandler(sys.stdout)  # stream handler
-        ch.setLevel(logging.ERROR)
+        ch.setLevel(logging.DEBUG)
 
         formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
@@ -283,7 +289,17 @@ class RigidGrasper:
 
         return (self.CurrentPosition,dxl_comm_result,dxl_error)
 
-    def ClosePort(self):
+    def ReadCurrent(self):
+        for i,(k,DXL_ID) in enumerate(self.DXL_ID.items()):
+            dxl_present_current, dxl_comm_result, dxl_error = self.readByte(2,DXL_ID,self.ADDR_PRO_PRESENT_CURRENT)
+            self.PresentCurrent[k] = dxl_present_current
+            print(dxl_present_current)
+            print("Current in mA for actuator %s: %i"%(k,self.PresentCurrent[k]))
+
+        return (self.PresentCurrent,dxl_comm_result,dxl_error)
+
+
+    def ClosePort(self):\
 
         for i,(k,DXL_ID) in enumerate(self.DXL_ID.items()):
 
@@ -297,6 +313,20 @@ class RigidGrasper:
 
         # Close port
         self.portHandler.closePort()
+
+
+    def GetCountFromGripperWidth(self,gripperWidth_mm,coeffs_M1=[-0.0032,-6.8731,801.91],coeffs_M2=[0.000007,-0.002,0.2001,-13.864,793.44]):
+        gW = np.clip(gripperWidth_mm*2,16,111) #SNS produces a radius value. Multiply by 2 to get distance between jaws. Limit between 16 and 111 mm.
+
+        M1_init_count = 2173 #offset corresponding to maximum gripper width
+        M2_init_count = 1463 #offset corresponding to maximum gripper width
+        M1_count = M1_init_count - (coeffs_M1[0]*(gW**2) + coeffs_M1[1]*(gW**1) + coeffs_M1[2]*(gW**0))
+        M2_count = M2_init_count + (coeffs_M2[0]*(gW**4) + coeffs_M2[1]*(gW**3) +coeffs_M2[2]*(gW**2) + coeffs_M2[3]*(gW**1) + coeffs_M2[4]*(gW**0))
+
+        M1_count = np.clip(M1_count,self.GoalPosition_Limits["1"][0],self.GoalPosition_Limits["1"][1])
+        M2_count = np.clip(M2_count, self.GoalPosition_Limits["2"][0], self.GoalPosition_Limits["2"][1])
+        return(M1_count,M2_count)
+
 
     def IncrementalMove(self,moveIncrement1 = 100,moveIncrement2 = 100, action1 = GrasperActions.STAY,action2 = GrasperActions.STAY): #close claws, assume position control
 
@@ -331,6 +361,37 @@ class RigidGrasper:
             #ChP = self.getJawChangePressureVals()
             #self.changeInPressure = ChP
             #self.logger.debug("Change in pressure: " + ','.join([str(x) for x in ChP]))
+
+    def MoveGrasper(self,): #close claws, assume position control
+
+        #Claw 1
+        if action1.value == GrasperActions.CLOSE.value:
+            CurrentPosition[0] = max(CurrentPosition[0]-moveIncrement1,self.GoalPosition_Limits["1"][0])
+        elif action1.value == GrasperActions.OPEN.value:
+            CurrentPosition[0] = min(CurrentPosition[0] + moveIncrement1, self.GoalPosition_Limits["1"][1])
+
+        self.SetGoalPosition(goal_position1=CurrentPosition[0])  # move towards goal position for claw 1 only
+
+        #Claw 2
+        if action2.value == GrasperActions.CLOSE.value:
+            CurrentPosition[1] = min(CurrentPosition[1] + moveIncrement2, self.GoalPosition_Limits["2"][0])
+        elif action2.value == GrasperActions.OPEN.value:
+            CurrentPosition[1] = max(CurrentPosition[1] - moveIncrement2, self.GoalPosition_Limits["2"][1])
+        self.SetGoalPosition(goal_position2=CurrentPosition[1])  # move towards goal position for claw 2 only
+
+
+        #Read pressure sensor:
+        if self.useForceSensor == True:
+            byteList = self.ConstructPortCommand()
+            numBytes = self.sendCommunicationArray(byteList=byteList)
+            self.logger.debug("Bytes sent:%i" % (numBytes))
+
+            # read serial data
+            self.readSerialData()
+
+            ChF = self.getJawChangeForce()
+            self.changeInForce = ChF
+            self.logger.debug("Change in Force: " + ','.join([str(x) for x in ChF]))
 
     def sendCommunicationArray(self, startDelim=None, byteList=None,
                                endDelim=None):  # send list of bytearrays over serial with start and stop delim
@@ -436,6 +497,12 @@ class RigidGrasper:
 
             # If the start is present but not the end, then add that data to the buffer
 
+    def calcForceFromSensor(self,reading,coeffs = [4.6e-15, 0.03704, 0.117, 0.003891]):
+        reading = np.clip(reading, 0, 1000)
+
+        Force_N = coeffs[0]*np.exp(coeffs[1]*reading) + coeffs[2]*np.exp(coeffs[3]*reading)
+        Force_N = clip(Force_N, 0, 40)
+        return(Force_N)
     def processData(self, protocolType=None, numBytes=None, payload=None):
 
         if protocolType is not None:
@@ -446,7 +513,8 @@ class RigidGrasper:
                             range(0, len_payload, 4)]  # for floats representing pressure values of each port
 
                     for count, val in enumerate(data):
-                        self.ForceArray[count].append(data[count])
+                        ForceN = self.calcForceFromSensor(data[count])
+                        self.ForceArray[count].append(ForceN)
 
                     self.logger.debug("Data for Case 0 (Force values): " + ','.join([str(x) for x in data]))
 
@@ -457,6 +525,21 @@ class RigidGrasper:
                 case _:
                     # action - default
                     pass
+
+    def getJawChangeForce(self):
+        if (len(self.PressureArray[self.JawPos[0]]) <= 0):
+            return ([0])
+        else:
+
+            CurJawForce = [self.ForceArray[0][-1]]
+            # PrevJawPress= [self.PressureArray[x][-2] for x in self.JawPos]
+            if self.PrevJawForce is None:
+                self.PrevJawForce = CurJawForce
+                self.logger.info('baseline Jaw force is ' + str(self.PrevJawForce))
+
+            ChangeInForce = (np.array(CurJawForce) - np.array(self.PrevJawForce)).tolist()
+            # return(ChangeInPressure)
+            return (ChangeInForce)
 
 
 def CyclicTestGrasper(self):
@@ -503,10 +586,18 @@ def CyclicTestGrasper(self):
                 index = 0
 
 if __name__ == '__main__':
-    RG = RigidGrasper(DEVICEPORT = "COM4",useForceSensor = True, COM_Port = 'COM3',BaudRate=460800)
-    while(True):
-        RG.IncrementalMove()
-        time.sleep(0.005)
+    RG = RigidGrasper(DEVICEPORT = "COM4",useForceSensor = False, COM_Port_Force = 'COM3',BaudRate_Force=460800)
+    CurrentPosition, dxl_comm_result, dxl_error = RG.ReadCurrentPosition()
+    print("%i,%i. In Deg: %f, %f:" % (
+    CurrentPosition["1"], CurrentPosition["2"], CurrentPosition["1"] * 360 / 4096, CurrentPosition["2"] * 360 / 4096))
+
+    while(input("Press a key to increment by 100")):
+        RG.IncrementalMove(moveIncrement1 = 50,moveIncrement2 = 50, action1 = GrasperActions.CLOSE,action2 = GrasperActions.CLOSE)
+        time.sleep(3)
+        #RG.ReadCurrent()
+        CurrentPosition,dxl_comm_result,dxl_error = RG.ReadCurrentPosition()
+        print("%i,%i. In Deg: %f, %f:"%(CurrentPosition["1"],CurrentPosition["2"],CurrentPosition["1"]*360/4096,CurrentPosition["2"]*360/4096))
+
 
 
 # RG = RigidGrasper()

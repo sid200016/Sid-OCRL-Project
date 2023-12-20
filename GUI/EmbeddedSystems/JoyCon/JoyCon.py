@@ -292,6 +292,8 @@ class Joy_RigidGrasper(Joy_Gantry):
 
         self.sortButtonMapping() #should be in order from highest priority to lowest priority.
 
+        self.SNS_control = False
+
 
     def buttonA(self): #close right claw, assume position control
         self.grasper.IncrementalMove(moveIncrement1= self.grasperIncrement, moveIncrement2 = self.grasperIncrement,
@@ -317,6 +319,16 @@ class Joy_RigidGrasper(Joy_Gantry):
     def buttonBY(self):
         self.grasper.IncrementalMove(moveIncrement1=self.grasperIncrement, moveIncrement2=self.grasperIncrement,
                                  action1=RG.GrasperActions.OPEN, action2=RG.GrasperActions.OPEN)
+
+    def buttonSR(self):
+        self.SNS_control = True  # use SNS control
+
+    def buttonSL(self):
+        self.SNS_control = False  # don't use SNS control
+
+
+    def buttonSR_Plus(self):
+        self.SNS_control = not (self.SNS_control)
 
 
 

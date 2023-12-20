@@ -5,24 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfd83e2d-ab31-4129-8c0e-ce5b016d6614" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Testing/SNS_RigidGrasperCheck.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/RigidGrasper/DynamixelSDK-3.7.31/python/dist/dynamixel_sdk-3.7.31-py3.10.egg" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/RigidGrasper/DynamixelSDK-3.7.31/python/dist/dynamixel_sdk-3.7.31-py3.10.egg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/RigidGrasper/DynamixelSDK-3.7.31/python/src/dynamixel_sdk.egg-info/SOURCES.txt" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/RigidGrasper/DynamixelSDK-3.7.31/python/src/dynamixel_sdk.egg-info/SOURCES.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/RigidGrasper/DynamixelSDK-3.7.31/python/src/dynamixel_sdk.egg-info/dependency_links.txt" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/RigidGrasper/DynamixelSDK-3.7.31/python/src/dynamixel_sdk.egg-info/dependency_links.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/RigidGrasper/DynamixelSDK-3.7.31/python/src/dynamixel_sdk.egg-info/requires.txt" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/RigidGrasper/DynamixelSDK-3.7.31/python/src/dynamixel_sdk.egg-info/requires.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/RigidGrasper/DynamixelSDK-3.7.31/python/src/dynamixel_sdk.egg-info/top_level.txt" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/RigidGrasper/DynamixelSDK-3.7.31/python/src/dynamixel_sdk.egg-info/top_level.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/JoyCon/JoyCon.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/JoyCon/JoyCon.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/RigidGrasper/RigidGrasper.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/RigidGrasper/RigidGrasper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/SoftGrasper/SoftGrasperController/.vscode/extensions.json" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SoftGrasper/SoftGrasperController/.vscode/extensions.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/GraspTime_vs_GroupType.svg" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/GraspTime_vs_GroupType.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/GraspTime_vs_TypeOfControl.svg" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/GraspTime_vs_TypeOfControl.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/GroupType_vs_DepositTime.svg" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/GroupType_vs_DepositTime.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/GroupType_vs_GraspTime_NoTypeOfControl.svg" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/GroupType_vs_GraspTime_NoTypeOfControl.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/Group_ControlType_GraspTime_SuccessRate.svg" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/Group_ControlType_GraspTime_SuccessRate.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/Group_Participant_ControlType_GraspTime_SuccessRate.svg" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/Group_Participant_ControlType_GraspTime_SuccessRate.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/Group_Partipant_ControlType_GraspTime.svg" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/Group_Partipant_ControlType_GraspTime.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/Object_Group_Partipant_ControlType_GraspTime.svg" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/Object_Group_Partipant_ControlType_GraspTime.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/TypeOfControl_vs_DepositTime.svg" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/TypeOfControl_vs_DepositTime.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/TypeOfControl_vs_GraspTime.svg" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/TypeOfControl_vs_GraspTime.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Testing/read_write_Try.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/read_write_Try.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,23 +39,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Ravesh/Desktop/Research/FRR/FRR Software Interface/FRR-Software-Interface&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PythonContentEntriesConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/Ravesh/Desktop/Research/FRR/FRR Software Interface/FRR-Software-Interface/Testing",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PythonContentEntriesConfigurable"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
-      &quot;Python&quot;
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "Python"
     ]
   }
-}</component>
+}]]></component>
   <component name="PyDebuggerOptionsProvider">
     <option name="myPyQtBackend" value="pyside2" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Ravesh\Desktop\Research\FRR\FRR Software Interface\FRR-Software-Interface\Testing" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Ravesh\Desktop\Research\FRR\FRR Software Interface\FRR-Software-Interface\datalogs\Data Analysis\LogFileParser\Backup" />
       <recent name="C:\Users\Ravesh\Desktop\Research\FRR\FRR Software Interface\FRR-Software-Interface\datalogs\Data Analysis\LogFileParser" />
@@ -120,27 +110,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="PlotGraspMetric" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="FRR-Software-Interface" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/datalogs/Data Analysis" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/datalogs/Data Analysis/PlotGraspMetric.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="RigidGrasper" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="FRR-Software-Interface" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -154,6 +123,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GUI/EmbeddedSystems/RigidGrasper/RigidGrasper.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestSNS_sim" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="FRR-Software-Interface" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Testing" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Testing/TestSNS_sim.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -204,7 +194,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="scratch_8" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="read_write_Try" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="FRR-Software-Interface" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -212,11 +202,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$APPLICATION_CONFIG_DIR$/scratches" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Testing" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$APPLICATION_CONFIG_DIR$/scratches/scratch_8.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Testing/read_write_Try.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -288,10 +278,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.RigidGrasper" />
+        <item itemvalue="Python.TestSNS_sim" />
+        <item itemvalue="Python.read_write_Try" />
         <item itemvalue="Python.PlotData" />
         <item itemvalue="Python.ParseFiles" />
-        <item itemvalue="Python.PlotGraspMetric" />
-        <item itemvalue="Python.scratch_8" />
       </list>
     </recent_temporary>
   </component>
@@ -405,6 +395,11 @@
           <url>file://$PROJECT_DIR$/datalogs/Data Analysis/PlotData.py</url>
           <line>204</line>
           <option name="timeStamp" value="208" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Testing/TestSNS_sim.py</url>
+          <line>82</line>
+          <option name="timeStamp" value="211" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

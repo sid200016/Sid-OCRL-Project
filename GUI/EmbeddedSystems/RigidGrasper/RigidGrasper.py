@@ -116,6 +116,9 @@ class RigidGrasper:
         # Current position of the grasper:
         self.CurrentPosition ={"1":[], "2":[]}
 
+        # Commanded Position for the grasper
+        self.commandedPosition_mm = 0
+
         # Present Current in mA
         self.PresentCurrent = {"1": [], "2": []}
 
@@ -362,22 +365,11 @@ class RigidGrasper:
             #self.changeInPressure = ChP
             #self.logger.debug("Change in pressure: " + ','.join([str(x) for x in ChP]))
 
-    def MoveGrasper(self,): #close claws, assume position control
+    def MoveGrasper(self): #close claws, assume position control
 
-        #Claw 1
-        if action1.value == GrasperActions.CLOSE.value:
-            CurrentPosition[0] = max(CurrentPosition[0]-moveIncrement1,self.GoalPosition_Limits["1"][0])
-        elif action1.value == GrasperActions.OPEN.value:
-            CurrentPosition[0] = min(CurrentPosition[0] + moveIncrement1, self.GoalPosition_Limits["1"][1])
-
-        self.SetGoalPosition(goal_position1=CurrentPosition[0])  # move towards goal position for claw 1 only
-
-        #Claw 2
-        if action2.value == GrasperActions.CLOSE.value:
-            CurrentPosition[1] = min(CurrentPosition[1] + moveIncrement2, self.GoalPosition_Limits["2"][0])
-        elif action2.value == GrasperActions.OPEN.value:
-            CurrentPosition[1] = max(CurrentPosition[1] - moveIncrement2, self.GoalPosition_Limits["2"][1])
-        self.SetGoalPosition(goal_position2=CurrentPosition[1])  # move towards goal position for claw 2 only
+        M1_count,M2_count = self.GetCountFromGripperWidth(self.commandedPosition_mm)
+        self.SetGoalPosition(goal_position1=M1_count)  # move towards goal position for claw 1 only
+        self.SetGoalPosition(goal_position2=M2_count)  # move towards goal position for claw 2 only
 
 
         #Read pressure sensor:

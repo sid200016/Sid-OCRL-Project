@@ -47,9 +47,9 @@ async def program_loop():
 
 
 
-                grasperThreshold = [0.4, 0.4, 0.4]
-                grasperContact = [(x - pressureThreshold[i])*5 if x >= pressureThreshold[i] else 0 for (i, x) in
-                               enumerate(SG.changeInPressure)]
+                forceThreshold = [0.4, 0.4, 0.4] #Newtons
+                grasperContact = [(x - forceThreshold[i])*5 if x >= forceThreshold[i] else 0 for (i, x) in
+                               enumerate(RG.changeInForce)]
 
                 grasperContact = GrasperContactForce(*grasperContact)
 
@@ -62,7 +62,7 @@ async def program_loop():
                 #command position is absolute move in m relative to the offset.
                 GC.goalPos = [x*1000 for x in list(commandPosition_m)]
 
-                RG.commandedPosition["ClosureChangeInRadius_mm"] = JawRadialPos_m*1000
+                RG.commandedPosition_mm = JawRadialPos_m*1000 #don't multiply by 2 yet
 
 
 

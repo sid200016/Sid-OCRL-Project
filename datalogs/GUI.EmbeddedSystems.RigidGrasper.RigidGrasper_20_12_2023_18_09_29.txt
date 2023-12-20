@@ -1,0 +1,887 @@
+2023-12-20 18:10:46,575 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:46,575 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0
+2023-12-20 18:10:50,047 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:50,048 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:50,048 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 6.0
+2023-12-20 18:10:50,051 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - baseline Jaw force is [0.1197636161702413]
+2023-12-20 18:10:50,051 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0
+2023-12-20 18:10:50,127 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:50,127 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:50,127 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:10:50,127 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:10:50,206 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:50,207 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:50,207 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:10:50,207 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:10:50,271 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:50,271 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:50,272 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:10:50,272 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:10:50,335 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:50,335 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:50,335 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:10:50,335 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:10:50,398 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:50,399 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:50,399 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 8.0
+2023-12-20 18:10:50,399 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0009356363000781603
+2023-12-20 18:10:50,463 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:50,463 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:50,463 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:10:50,463 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:10:50,527 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:50,527 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:50,527 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 5.0
+2023-12-20 18:10:50,527 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: -0.00046509480179186824
+2023-12-20 18:10:50,591 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:50,591 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:50,591 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 8.0
+2023-12-20 18:10:50,591 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0009356363000781603
+2023-12-20 18:10:50,655 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:50,655 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:50,655 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:10:50,656 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:10:50,719 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:50,719 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:50,719 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:10:50,719 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:10:50,782 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:50,783 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:50,783 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 9.0
+2023-12-20 18:10:50,783 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0014061919638046066
+2023-12-20 18:10:50,846 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:50,847 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:50,847 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:10:50,847 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:10:50,911 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:50,911 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:50,911 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 10.0
+2023-12-20 18:10:50,911 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0018785821263214708
+2023-12-20 18:10:50,974 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:50,975 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:50,975 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 5.0
+2023-12-20 18:10:50,975 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: -0.00046509480179186824
+2023-12-20 18:10:51,039 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:51,039 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:51,040 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 8.0
+2023-12-20 18:10:51,040 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0009356363000781603
+2023-12-20 18:10:51,134 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:51,135 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:51,135 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 6.0
+2023-12-20 18:10:51,135 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0
+2023-12-20 18:10:51,198 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:51,199 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:51,199 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 5.0
+2023-12-20 18:10:51,199 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: -0.00046509480179186824
+2023-12-20 18:10:51,263 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:51,263 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:51,263 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 6.0
+2023-12-20 18:10:51,263 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0
+2023-12-20 18:10:51,327 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:51,327 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:51,327 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 8.0
+2023-12-20 18:10:51,327 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0009356363000781603
+2023-12-20 18:10:51,391 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:51,391 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:51,391 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 8.0
+2023-12-20 18:10:51,392 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0009356363000781603
+2023-12-20 18:10:51,455 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:51,455 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:51,455 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 6.0
+2023-12-20 18:10:51,455 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0
+2023-12-20 18:10:51,535 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:51,535 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:51,536 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:10:51,536 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:10:51,598 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:51,598 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:51,599 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 9.0
+2023-12-20 18:10:51,599 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0014061919638046066
+2023-12-20 18:10:51,663 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:51,663 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:51,663 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:10:51,663 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:10:51,727 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:51,727 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:51,727 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 5.0
+2023-12-20 18:10:51,727 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: -0.00046509480179186824
+2023-12-20 18:10:51,791 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:51,791 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:51,791 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:10:51,792 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:10:51,855 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:51,855 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:51,855 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:10:51,856 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:10:51,919 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:51,919 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:51,919 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 5.0
+2023-12-20 18:10:51,919 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: -0.00046509480179186824
+2023-12-20 18:10:51,983 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:51,983 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:51,983 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 9.0
+2023-12-20 18:10:51,983 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0014061919638046066
+2023-12-20 18:10:52,047 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:52,047 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:52,047 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 5.0
+2023-12-20 18:10:52,047 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: -0.00046509480179186824
+2023-12-20 18:10:52,111 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:52,111 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:52,112 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 10.0
+2023-12-20 18:10:52,112 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0018785821263214708
+2023-12-20 18:10:52,175 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:52,175 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:52,175 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:10:52,175 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:10:52,239 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:52,239 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:52,240 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 9.0
+2023-12-20 18:10:52,240 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0014061919638046066
+2023-12-20 18:10:52,303 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:52,303 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:52,303 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 10.0
+2023-12-20 18:10:52,303 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0018785821263214708
+2023-12-20 18:10:52,367 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:52,367 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:52,367 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 9.0
+2023-12-20 18:10:52,367 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0014061919638046066
+2023-12-20 18:10:52,431 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:52,431 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:52,431 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:10:52,431 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:10:52,495 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:52,495 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:52,495 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 9.0
+2023-12-20 18:10:52,495 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0014061919638046066
+2023-12-20 18:10:52,559 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:52,559 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:52,559 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 10.0
+2023-12-20 18:10:52,559 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0018785821263214708
+2023-12-20 18:10:52,623 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:52,623 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:52,624 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 6.0
+2023-12-20 18:10:52,624 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0
+2023-12-20 18:10:52,687 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:52,687 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:52,687 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 9.0
+2023-12-20 18:10:52,687 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0014061919638046066
+2023-12-20 18:10:52,751 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:52,751 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:52,751 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:10:52,751 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:10:52,814 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:52,815 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:52,815 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 4.0
+2023-12-20 18:10:52,815 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: -0.0009283834358879695
+2023-12-20 18:10:52,879 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:52,879 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:52,879 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 6.0
+2023-12-20 18:10:52,880 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0
+2023-12-20 18:10:52,943 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:52,943 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:52,943 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 9.0
+2023-12-20 18:10:52,943 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0014061919638046066
+2023-12-20 18:10:53,007 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:53,007 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:53,007 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:10:53,007 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:10:53,071 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:53,071 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:53,071 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 8.0
+2023-12-20 18:10:53,071 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0009356363000781603
+2023-12-20 18:10:53,135 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:53,135 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:53,135 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 9.0
+2023-12-20 18:10:53,135 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0014061919638046066
+2023-12-20 18:10:53,231 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:53,231 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:53,231 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 4.0
+2023-12-20 18:10:53,231 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: -0.0009283834358879695
+2023-12-20 18:10:53,295 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:53,295 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:53,295 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:10:53,295 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:10:53,359 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:53,359 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:53,360 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:10:53,360 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:10:53,423 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:53,423 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:53,424 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 9.0
+2023-12-20 18:10:53,424 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0014061919638046066
+2023-12-20 18:10:53,487 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:53,487 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:53,487 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 8.0
+2023-12-20 18:10:53,487 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0009356363000781603
+2023-12-20 18:10:53,551 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:53,551 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:53,551 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:10:53,551 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:10:53,615 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:53,615 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:53,615 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 9.0
+2023-12-20 18:10:53,615 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0014061919638046066
+2023-12-20 18:10:53,679 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:53,679 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:53,679 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:10:53,679 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:10:53,743 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:53,743 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:53,743 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:10:53,743 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:10:53,807 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:53,807 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:53,808 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:10:53,808 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:10:53,871 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:53,871 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:53,872 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:10:53,872 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:10:53,935 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:53,935 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:53,935 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:10:53,935 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:10:53,999 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:53,999 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:53,999 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 6.0
+2023-12-20 18:10:53,999 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0
+2023-12-20 18:10:54,063 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:54,063 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:54,063 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 6.0
+2023-12-20 18:10:54,064 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0
+2023-12-20 18:10:54,127 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:54,127 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:54,127 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 6.0
+2023-12-20 18:10:54,127 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0
+2023-12-20 18:10:54,191 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:54,191 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:54,191 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:10:54,191 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:10:54,271 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:54,271 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:54,271 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:10:54,271 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:10:54,351 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:54,351 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:54,351 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:10:54,351 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:10:54,415 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:54,415 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:54,415 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 11.0
+2023-12-20 18:10:54,415 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.002352813939568668
+2023-12-20 18:10:54,479 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:54,479 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:54,479 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 6.0
+2023-12-20 18:10:54,479 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0
+2023-12-20 18:10:54,543 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:54,543 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:54,543 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 9.0
+2023-12-20 18:10:54,543 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0014061919638046066
+2023-12-20 18:10:54,606 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:54,606 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:54,607 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 12.0
+2023-12-20 18:10:54,607 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.002828894583368491
+2023-12-20 18:10:54,671 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:54,671 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:54,672 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 4.0
+2023-12-20 18:10:54,672 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: -0.0009283834358879695
+2023-12-20 18:10:54,751 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:54,751 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:54,751 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 9.0
+2023-12-20 18:10:54,751 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0014061919638046066
+2023-12-20 18:10:54,831 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:54,831 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:54,831 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:10:54,831 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:10:54,895 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:54,895 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:54,895 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 10.0
+2023-12-20 18:10:54,895 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0018785821263214708
+2023-12-20 18:10:54,975 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:54,975 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:54,975 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 6.0
+2023-12-20 18:10:54,975 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0
+2023-12-20 18:10:55,054 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:55,055 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:55,055 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:10:55,056 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:10:55,119 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:55,119 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:55,119 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 10.0
+2023-12-20 18:10:55,119 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0018785821263214708
+2023-12-20 18:10:55,182 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:55,182 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:55,183 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:10:55,183 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:10:55,247 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:55,247 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:55,247 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 8.0
+2023-12-20 18:10:55,247 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0009356363000781603
+2023-12-20 18:10:55,327 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:55,327 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:55,327 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:10:55,327 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:10:55,406 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:55,406 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:55,407 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 8.0
+2023-12-20 18:10:55,407 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0009356363000781603
+2023-12-20 18:10:55,486 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:55,486 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:55,487 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 6.0
+2023-12-20 18:10:55,487 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0
+2023-12-20 18:10:55,550 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:55,551 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:55,551 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 6.0
+2023-12-20 18:10:55,551 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0
+2023-12-20 18:10:55,614 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:55,615 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:55,615 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 8.0
+2023-12-20 18:10:55,615 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0009356363000781603
+2023-12-20 18:10:55,678 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:55,679 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:55,679 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 10.0
+2023-12-20 18:10:55,679 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0018785821263214708
+2023-12-20 18:10:55,743 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:55,743 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:55,743 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 6.0
+2023-12-20 18:10:55,743 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0
+2023-12-20 18:10:55,806 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:55,807 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:55,807 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 6.0
+2023-12-20 18:10:55,807 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0
+2023-12-20 18:10:55,871 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:55,871 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:55,872 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 6.0
+2023-12-20 18:10:55,873 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0
+2023-12-20 18:10:55,934 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:55,934 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:55,935 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:10:55,935 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:10:55,999 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:55,999 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:55,999 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 8.0
+2023-12-20 18:10:55,999 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0009356363000781603
+2023-12-20 18:10:56,062 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:56,063 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:56,063 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 8.0
+2023-12-20 18:10:56,063 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0009356363000781603
+2023-12-20 18:10:56,127 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:56,127 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:56,127 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:10:56,128 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:10:56,191 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:56,191 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:56,191 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:10:56,191 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:10:56,255 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:56,255 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:56,255 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 8.0
+2023-12-20 18:10:56,256 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0009356363000781603
+2023-12-20 18:10:56,318 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:56,319 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:56,319 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 12.0
+2023-12-20 18:10:56,319 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.002828894583368491
+2023-12-20 18:10:56,398 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:56,399 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:56,399 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 9.0
+2023-12-20 18:10:56,399 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0014061919638046066
+2023-12-20 18:10:56,462 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:56,463 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:56,464 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:10:56,464 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:10:56,526 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:56,526 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:56,526 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 13.0
+2023-12-20 18:10:56,527 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.003306831265534285
+2023-12-20 18:10:56,590 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:56,591 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:56,591 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:10:56,591 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:10:56,655 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:56,655 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:56,655 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 6.0
+2023-12-20 18:10:56,656 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0
+2023-12-20 18:10:56,718 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:56,719 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:56,719 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:10:56,719 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:10:56,782 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:56,783 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:56,783 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 8.0
+2023-12-20 18:10:56,783 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0009356363000781603
+2023-12-20 18:10:56,846 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:56,847 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:56,847 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 8.0
+2023-12-20 18:10:56,847 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0009356363000781603
+2023-12-20 18:10:56,910 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:56,911 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:56,911 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 6.0
+2023-12-20 18:10:56,911 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0
+2023-12-20 18:10:56,974 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:56,975 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:56,975 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:10:56,975 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:10:57,038 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:57,039 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:57,040 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 5.0
+2023-12-20 18:10:57,041 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: -0.00046509480179186824
+2023-12-20 18:10:57,118 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:57,119 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:57,119 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:10:57,120 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:10:57,182 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:57,182 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:57,183 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 9.0
+2023-12-20 18:10:57,183 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0014061919638046066
+2023-12-20 18:10:57,246 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:57,247 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:57,247 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 8.0
+2023-12-20 18:10:57,247 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0009356363000781603
+2023-12-20 18:10:57,310 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:57,310 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:57,310 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 10.0
+2023-12-20 18:10:57,311 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0018785821263214708
+2023-12-20 18:10:57,374 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:57,374 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:57,375 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 8.0
+2023-12-20 18:10:57,375 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0009356363000781603
+2023-12-20 18:10:57,438 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:57,439 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:57,439 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 10.0
+2023-12-20 18:10:57,439 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0018785821263214708
+2023-12-20 18:10:57,519 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:57,519 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:57,519 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 10.0
+2023-12-20 18:10:57,519 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0018785821263214708
+2023-12-20 18:10:57,614 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:57,614 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:57,615 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 6.0
+2023-12-20 18:10:57,615 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0
+2023-12-20 18:10:57,678 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:57,679 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:57,679 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:10:57,679 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:10:57,742 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:57,742 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:57,743 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 9.0
+2023-12-20 18:10:57,743 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0014061919638046066
+2023-12-20 18:10:57,806 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:57,807 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:57,807 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 6.0
+2023-12-20 18:10:57,807 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0
+2023-12-20 18:10:57,870 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:57,870 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:57,871 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 5.0
+2023-12-20 18:10:57,871 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: -0.00046509480179186824
+2023-12-20 18:10:57,934 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:57,935 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:57,935 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 9.0
+2023-12-20 18:10:57,935 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0014061919638046066
+2023-12-20 18:10:57,998 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:57,998 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:57,999 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:10:57,999 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:10:58,062 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:58,062 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:58,062 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:10:58,063 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:10:58,126 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:58,126 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:58,126 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 6.0
+2023-12-20 18:10:58,127 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0
+2023-12-20 18:10:58,190 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:58,192 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:58,193 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 6.0
+2023-12-20 18:10:58,193 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0
+2023-12-20 18:10:58,254 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:58,254 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:58,255 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 9.0
+2023-12-20 18:10:58,255 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0014061919638046066
+2023-12-20 18:10:58,318 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:58,318 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:58,319 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 6.0
+2023-12-20 18:10:58,319 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0
+2023-12-20 18:10:58,382 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:58,383 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:58,383 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 12.0
+2023-12-20 18:10:58,383 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.002828894583368491
+2023-12-20 18:10:58,446 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:58,447 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:58,447 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 8.0
+2023-12-20 18:10:58,447 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0009356363000781603
+2023-12-20 18:10:58,527 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:58,527 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:58,527 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 8.0
+2023-12-20 18:10:58,528 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0009356363000781603
+2023-12-20 18:10:58,590 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:58,591 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:58,591 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 5.0
+2023-12-20 18:10:58,591 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: -0.00046509480179186824
+2023-12-20 18:10:58,654 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:58,654 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:58,655 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 10.0
+2023-12-20 18:10:58,655 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0018785821263214708
+2023-12-20 18:10:58,734 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:58,735 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:58,735 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 9.0
+2023-12-20 18:10:58,735 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0014061919638046066
+2023-12-20 18:10:58,814 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:58,814 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:58,815 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 6.0
+2023-12-20 18:10:58,815 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0
+2023-12-20 18:10:58,878 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:58,879 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:58,879 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:10:58,879 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:10:58,958 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:58,958 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:58,958 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:10:58,959 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:10:59,022 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:59,022 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:59,023 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 5.0
+2023-12-20 18:10:59,023 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: -0.00046509480179186824
+2023-12-20 18:10:59,086 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:59,087 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:59,088 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 8.0
+2023-12-20 18:10:59,088 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0009356363000781603
+2023-12-20 18:10:59,150 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:59,151 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:59,151 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 8.0
+2023-12-20 18:10:59,151 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0009356363000781603
+2023-12-20 18:10:59,214 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:59,215 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:59,215 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 8.0
+2023-12-20 18:10:59,215 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0009356363000781603
+2023-12-20 18:10:59,294 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:59,294 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:59,294 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:10:59,295 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:10:59,358 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:59,358 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:59,359 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 5.0
+2023-12-20 18:10:59,359 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: -0.00046509480179186824
+2023-12-20 18:10:59,422 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:59,422 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:59,423 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:10:59,423 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:10:59,486 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:59,486 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:59,487 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 8.0
+2023-12-20 18:10:59,487 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0009356363000781603
+2023-12-20 18:10:59,550 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:59,550 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:59,551 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 9.0
+2023-12-20 18:10:59,551 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0014061919638046066
+2023-12-20 18:10:59,614 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:59,615 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:59,615 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 8.0
+2023-12-20 18:10:59,615 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0009356363000781603
+2023-12-20 18:10:59,678 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:59,679 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:59,679 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:10:59,679 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:10:59,742 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:59,743 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:59,743 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 6.0
+2023-12-20 18:10:59,743 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0
+2023-12-20 18:10:59,822 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:59,823 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:59,823 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 5.0
+2023-12-20 18:10:59,823 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: -0.00046509480179186824
+2023-12-20 18:10:59,902 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:59,903 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:59,904 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:10:59,904 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:10:59,966 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:10:59,967 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:10:59,967 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 5.0
+2023-12-20 18:10:59,967 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: -0.00046509480179186824
+2023-12-20 18:11:00,030 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:00,030 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:00,030 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 8.0
+2023-12-20 18:11:00,031 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0009356363000781603
+2023-12-20 18:11:00,094 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:00,095 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:00,095 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 8.0
+2023-12-20 18:11:00,095 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0009356363000781603
+2023-12-20 18:11:00,158 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:00,159 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:00,159 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 10.0
+2023-12-20 18:11:00,159 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0018785821263214708
+2023-12-20 18:11:00,222 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:00,223 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:00,223 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 8.0
+2023-12-20 18:11:00,223 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0009356363000781603
+2023-12-20 18:11:00,286 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:00,287 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:00,287 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 10.0
+2023-12-20 18:11:00,288 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0018785821263214708
+2023-12-20 18:11:00,350 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:00,351 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:00,351 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 9.0
+2023-12-20 18:11:00,351 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0014061919638046066
+2023-12-20 18:11:00,414 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:00,414 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:00,415 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 9.0
+2023-12-20 18:11:00,415 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0014061919638046066
+2023-12-20 18:11:00,478 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:00,479 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:00,479 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 9.0
+2023-12-20 18:11:00,479 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0014061919638046066
+2023-12-20 18:11:00,541 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:00,542 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:00,542 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 8.0
+2023-12-20 18:11:00,542 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0009356363000781603
+2023-12-20 18:11:00,606 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:00,607 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:00,607 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 8.0
+2023-12-20 18:11:00,607 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0009356363000781603
+2023-12-20 18:11:00,670 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:00,670 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:00,671 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 8.0
+2023-12-20 18:11:00,671 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0009356363000781603
+2023-12-20 18:11:00,734 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:00,734 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:00,735 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:11:00,735 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:11:00,798 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:00,798 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:00,799 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 6.0
+2023-12-20 18:11:00,799 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0
+2023-12-20 18:11:00,894 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:00,894 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:00,894 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 6.0
+2023-12-20 18:11:00,895 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0
+2023-12-20 18:11:00,990 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:00,990 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:00,990 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:11:00,990 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:11:01,054 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:01,054 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:01,055 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 5.0
+2023-12-20 18:11:01,055 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: -0.00046509480179186824
+2023-12-20 18:11:01,118 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:01,119 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:01,119 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 10.0
+2023-12-20 18:11:01,119 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0018785821263214708
+2023-12-20 18:11:01,182 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:01,183 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:01,183 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 5.0
+2023-12-20 18:11:01,183 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: -0.00046509480179186824
+2023-12-20 18:11:01,246 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:01,246 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:01,247 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 10.0
+2023-12-20 18:11:01,247 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0018785821263214708
+2023-12-20 18:11:01,310 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:01,311 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:01,311 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 9.0
+2023-12-20 18:11:01,311 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0014061919638046066
+2023-12-20 18:11:01,374 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:01,374 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:01,375 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 8.0
+2023-12-20 18:11:01,375 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0009356363000781603
+2023-12-20 18:11:01,438 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:01,439 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:01,439 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 9.0
+2023-12-20 18:11:01,439 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0014061919638046066
+2023-12-20 18:11:01,502 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:01,502 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:01,502 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 8.0
+2023-12-20 18:11:01,502 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0009356363000781603
+2023-12-20 18:11:01,566 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:01,566 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:01,567 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 9.0
+2023-12-20 18:11:01,567 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0014061919638046066
+2023-12-20 18:11:01,630 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:01,631 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:01,631 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:11:01,632 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:11:01,694 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:01,694 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:01,695 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 9.0
+2023-12-20 18:11:01,695 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0014061919638046066
+2023-12-20 18:11:01,758 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:01,758 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:01,759 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 8.0
+2023-12-20 18:11:01,759 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0009356363000781603
+2023-12-20 18:11:01,822 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:01,822 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:01,823 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 8.0
+2023-12-20 18:11:01,823 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0009356363000781603
+2023-12-20 18:11:01,902 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:01,902 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:01,903 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:11:01,903 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:11:01,966 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:01,966 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:01,966 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 8.0
+2023-12-20 18:11:01,966 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0009356363000781603
+2023-12-20 18:11:02,030 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:02,031 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:02,031 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:11:02,031 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:11:02,094 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:02,094 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:02,094 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:11:02,094 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:11:02,158 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:02,158 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:02,159 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 6.0
+2023-12-20 18:11:02,159 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0
+2023-12-20 18:11:02,222 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:02,223 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:02,223 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 9.0
+2023-12-20 18:11:02,224 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0014061919638046066
+2023-12-20 18:11:02,302 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:02,302 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:02,302 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 8.0
+2023-12-20 18:11:02,303 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0009356363000781603
+2023-12-20 18:11:02,382 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:02,382 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:02,383 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 6.0
+2023-12-20 18:11:02,383 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0
+2023-12-20 18:11:02,462 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:02,462 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:02,463 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 6.0
+2023-12-20 18:11:02,463 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0
+2023-12-20 18:11:02,542 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:02,543 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:02,543 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 8.0
+2023-12-20 18:11:02,543 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0009356363000781603
+2023-12-20 18:11:02,622 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:02,622 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:02,623 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 6.0
+2023-12-20 18:11:02,624 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0
+2023-12-20 18:11:02,702 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:02,702 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:02,703 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 6.0
+2023-12-20 18:11:02,703 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0
+2023-12-20 18:11:02,781 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:02,782 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:02,782 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 6.0
+2023-12-20 18:11:02,782 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0
+2023-12-20 18:11:02,862 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:02,863 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:02,863 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 9.0
+2023-12-20 18:11:02,863 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0014061919638046066
+2023-12-20 18:11:02,942 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:02,942 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:02,943 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 6.0
+2023-12-20 18:11:02,943 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0
+2023-12-20 18:11:03,021 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:03,022 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:03,022 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 8.0
+2023-12-20 18:11:03,022 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0009356363000781603
+2023-12-20 18:11:03,102 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:03,103 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:03,103 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 8.0
+2023-12-20 18:11:03,103 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0009356363000781603
+2023-12-20 18:11:03,166 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:03,166 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:03,167 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:11:03,167 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:11:03,229 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:03,230 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:03,230 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 6.0
+2023-12-20 18:11:03,230 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0
+2023-12-20 18:11:03,294 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:03,294 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:03,294 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 8.0
+2023-12-20 18:11:03,294 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0009356363000781603
+2023-12-20 18:11:03,374 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:03,374 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:03,375 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 9.0
+2023-12-20 18:11:03,375 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0014061919638046066
+2023-12-20 18:11:03,438 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:03,438 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:03,438 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 8.0
+2023-12-20 18:11:03,439 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0009356363000781603
+2023-12-20 18:11:03,501 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:03,502 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:03,502 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 9.0
+2023-12-20 18:11:03,502 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0014061919638046066
+2023-12-20 18:11:03,566 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:03,566 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:03,566 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 8.0
+2023-12-20 18:11:03,566 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0009356363000781603
+2023-12-20 18:11:03,630 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:03,630 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:03,631 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 8.0
+2023-12-20 18:11:03,632 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0009356363000781603
+2023-12-20 18:11:03,694 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:03,694 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:03,695 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:11:03,695 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:11:03,758 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:03,758 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:03,758 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 9.0
+2023-12-20 18:11:03,758 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0014061919638046066
+2023-12-20 18:11:03,822 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:03,822 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:03,823 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 9.0
+2023-12-20 18:11:03,823 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0014061919638046066
+2023-12-20 18:11:03,885 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:03,886 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:03,886 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 6.0
+2023-12-20 18:11:03,886 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0
+2023-12-20 18:11:03,950 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:03,951 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:03,951 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 10.0
+2023-12-20 18:11:03,951 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0018785821263214708
+2023-12-20 18:11:04,030 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:04,030 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:04,030 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 10.0
+2023-12-20 18:11:04,031 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0018785821263214708
+2023-12-20 18:11:04,094 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:04,094 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:04,095 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 3.0
+2023-12-20 18:11:04,095 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: -0.0013898729164319584
+2023-12-20 18:11:04,157 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:04,157 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:04,159 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 11.0
+2023-12-20 18:11:04,159 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.002352813939568668
+2023-12-20 18:11:04,222 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:04,223 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:04,223 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 6.0
+2023-12-20 18:11:04,223 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0
+2023-12-20 18:11:04,286 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:04,286 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:04,287 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 8.0
+2023-12-20 18:11:04,287 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0009356363000781603
+2023-12-20 18:11:04,349 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:04,350 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:04,350 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 9.0
+2023-12-20 18:11:04,351 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0014061919638046066
+2023-12-20 18:11:04,430 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:04,430 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:04,431 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:11:04,431 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:11:31,932 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:31,932 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:31,932 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 6.0
+2023-12-20 18:11:31,932 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0
+2023-12-20 18:11:32,780 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:32,780 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:32,780 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 10.0
+2023-12-20 18:11:32,780 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0018785821263214708
+2023-12-20 18:11:33,500 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:33,500 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:33,500 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:11:33,500 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:11:34,156 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:34,156 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:34,156 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:11:34,156 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:11:34,812 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:34,812 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:34,812 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 7.0
+2023-12-20 18:11:34,812 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0004669080109764717
+2023-12-20 18:11:55,451 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:11:55,451 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:11:55,451 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 4.0
+2023-12-20 18:11:55,452 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: -0.0009283834358879695
+2023-12-20 18:20:23,003 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 18:20:23,003 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 18:20:23,004 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 10.0
+2023-12-20 18:20:23,004 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0018785821263214708

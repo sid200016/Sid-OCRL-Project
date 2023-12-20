@@ -39,11 +39,12 @@ async def program_loop():
                 GC.calculateIncrementalMove(*posInc) #will set the GC.goalPos with the appropriate increments
 
             else: #SNS control
-                object_position_list=[0,0,-0.185]
-                target_position_list = [0.1,0.1,-0.190]
-                curPos = GC.getPosition() #get current position, in millimeters relative to offset
 
-                grasperPosition = Point(curPos.x/1000,curPos.y/1000,curPos.z/1000) #convert to meters
+                object_position_list=[0,0,-0.13]
+                target_position_list = [0.1,0.1,-0.13]
+                curPos = GC.getPosition() #get current position, in meters relative to offset
+
+                grasperPosition = Point(curPos.x,curPos.y,curPos.z) #convert to meters
 
 
 

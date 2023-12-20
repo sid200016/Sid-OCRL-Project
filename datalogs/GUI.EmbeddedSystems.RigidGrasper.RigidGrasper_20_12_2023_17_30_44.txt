@@ -1,0 +1,8 @@
+2023-12-20 17:31:12,203 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 17:31:13,594 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 17:31:17,180 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 8.0
+2023-12-20 17:31:17,180 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - baseline Jaw force is [0.12069925247031946]
+2023-12-20 17:31:17,180 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Change in Force: 0.0
+2023-12-20 17:31:24,153 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Bytes sent:5
+2023-12-20 17:31:29,881 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - INFO - Payload matches the expected number of bytes
+2023-12-20 17:31:34,045 - GUI.EmbeddedSystems.RigidGrasper.RigidGrasper - DEBUG - Data for Case 0 (Force values): 10.0

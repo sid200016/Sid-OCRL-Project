@@ -319,7 +319,7 @@ class RigidGrasper:
 
 
     def GetCountFromGripperWidth(self,gripperWidth_mm,coeffs_M1=[-0.0032,-6.8731,801.91],coeffs_M2=[0.000007,-0.002,0.2001,-13.864,793.44]):
-        gW = np.clip(gripperWidth_mm*2,16,111) #SNS produces a radius value. Multiply by 2 to get distance between jaws. Limit between 16 and 111 mm.
+        gW = np.clip(110-(gripperWidth_mm*2),16,110) #SNS produces a radius value. Multiply by 2 to get distance between jaws. Limit between 16 and 111 mm.
 
         M1_init_count = 2173 #offset corresponding to maximum gripper width
         M2_init_count = 1463 #offset corresponding to maximum gripper width
@@ -368,8 +368,8 @@ class RigidGrasper:
     def MoveGrasper(self): #close claws, assume position control
 
         M1_count,M2_count = self.GetCountFromGripperWidth(self.commandedPosition_mm)
-        self.SetGoalPosition(goal_position1=M1_count)  # move towards goal position for claw 1 only
-        self.SetGoalPosition(goal_position2=M2_count)  # move towards goal position for claw 2 only
+        self.SetGoalPosition(goal_position1=int(M1_count))  # move towards goal position for claw 1 only
+        self.SetGoalPosition(goal_position2=int(M2_count))  # move towards goal position for claw 2 only
 
 
         #Read pressure sensor:
@@ -493,7 +493,7 @@ class RigidGrasper:
         reading = np.clip(reading, 0, 1000)
 
         Force_N = coeffs[0]*np.exp(coeffs[1]*reading) + coeffs[2]*np.exp(coeffs[3]*reading)
-        Force_N = clip(Force_N, 0, 40)
+        Force_N = np.clip(Force_N, 0, 40)
         return(Force_N)
     def processData(self, protocolType=None, numBytes=None, payload=None):
 
@@ -519,7 +519,7 @@ class RigidGrasper:
                     pass
 
     def getJawChangeForce(self):
-        if (len(self.PressureArray[self.JawPos[0]]) <= 0):
+        if (len(self.ForceArray[0]) <= 0):
             return ([0])
         else:
 
@@ -578,7 +578,7 @@ def CyclicTestGrasper(self):
                 index = 0
 
 if __name__ == '__main__':
-    RG = RigidGrasper(DEVICEPORT = "COM4",useForceSensor = False, COM_Port_Force = 'COM3',BaudRate_Force=460800)
+    RG = RigidGrasper(DEVICEPORT = "COM6",useForceSensor = True, COM_Port_Force = 'COM3',BaudRate_Force=460800)
     CurrentPosition, dxl_comm_result, dxl_error = RG.ReadCurrentPosition()
     print("%i,%i. In Deg: %f, %f:" % (
     CurrentPosition["1"], CurrentPosition["2"], CurrentPosition["1"] * 360 / 4096, CurrentPosition["2"] * 360 / 4096))

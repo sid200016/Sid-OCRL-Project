@@ -1,12 +1,12 @@
 import time
 import asyncio
 
-from EmbeddedSystems.SoftGrasper.SoftGrasper import PortActions
-from EmbeddedSystems.RigidGrasper.RigidGrasper import RigidGrasper
-from EmbeddedSystems.Gantry.GantryController import Gantry as GantryController
-import EmbeddedSystems.JoyCon.JoyCon as JC
-from EmbeddedSystems.SNS.SNScontroller import SNScontroller
-from EmbeddedSystems.Support.Structures import GrasperContactForce,Point
+from GUI.EmbeddedSystems.SoftGrasper.SoftGrasper import PortActions
+from GUI.EmbeddedSystems.RigidGrasper.RigidGrasper import RigidGrasper
+from GUI.EmbeddedSystems.Gantry.GantryController import Gantry as GantryController
+import GUI.EmbeddedSystems.JoyCon.JoyCon as JC
+from GUI.EmbeddedSystems.SNS.SNScontroller import SNScontroller
+from GUI.EmbeddedSystems.Support.Structures import GrasperContactForce,Point
 
 RG  = None #rigid grasper
 GC = None #gantry controller
@@ -20,8 +20,8 @@ SNSc = None #SNS controller
 
 async def HardwareInitialize():
     global RG, GC, jcRG, SNSc
-    RG = RigidGrasper(DEVICEPORT = "COM4",useForceSensor = False, COM_Port_Force = 'COM3',BaudRate_Force=460800) #initialize rigid grasper
-    GC = GantryController(comport = "COM4",homeSystem = False, initPos=[0,0,0])#, homeSystem = False,initPos=[0,0,0]  #initialize gantry controller
+    RG = RigidGrasper(DEVICEPORT = "COM6",useForceSensor = True, COM_Port_Force = 'COM3',BaudRate_Force=460800) #initialize rigid grasper
+    GC = GantryController(comport = "COM4",homeSystem = True)#, homeSystem = False,initPos=[0,0,0]  #initialize gantry controller
     jcRG = JC.Joy_RigidGrasper(RGa=RG, GantryS=GC) #initialize joystick control of soft grasper and gantry controller
     SNSc = SNScontroller()
 
@@ -51,6 +51,7 @@ async def program_loop():
                 grasperContact = [(x - forceThreshold[i])*5 if x >= forceThreshold[i] else 0 for (i, x) in
                                enumerate(RG.changeInForce)]
 
+                grasperContact = [grasperContact[0],grasperContact[0],grasperContact[0]]
                 grasperContact = GrasperContactForce(*grasperContact)
 
 
@@ -77,7 +78,7 @@ async def program_loop():
             pressureThreshold = [0.4, 0.4,
                                  0.4]  # change in pressure threshold in psi above which to register changes in pressure
             rumbleValue = [(x - pressureThreshold[i]) / 1.5 if x >= pressureThreshold[i] else 0 for (i, x) in
-                           enumerate(RG.changeInPressure)]
+                           enumerate(RG.changeInForce)]
             jcRG.rumbleFeedback(max(rumbleValue), max(rumbleValue), 1000)
 
 

@@ -66,7 +66,7 @@ class ForceSensor(Enum):
 
 class RigidGrasper:
 
-    def __init__(self,BAUDRATE = 57600, DEVICEPORT = "COM3", GoalPosition1=[1489,2000], GoalPosition2 = [2125,1620], useForceSensor = False, COM_Port_Force = 'COM7',BaudRate_Force=115200,timeout=1):
+    def __init__(self,BAUDRATE = 57600, DEVICEPORT = "COM3", GoalPosition1=[1489,2000], GoalPosition2 = [2125,1489], useForceSensor = False, COM_Port_Force = 'COM7',BaudRate_Force=115200,timeout=1):
 
         # setup Logger
         self.logger = None
@@ -327,7 +327,7 @@ class RigidGrasper:
         M2_count = M2_init_count + (coeffs_M2[0]*(gW**4) + coeffs_M2[1]*(gW**3) +coeffs_M2[2]*(gW**2) + coeffs_M2[3]*(gW**1) + coeffs_M2[4]*(gW**0))
 
         M1_count = np.clip(M1_count,self.GoalPosition_Limits["1"][0],self.GoalPosition_Limits["1"][1])
-        M2_count = np.clip(M2_count, self.GoalPosition_Limits["2"][0], self.GoalPosition_Limits["2"][1])
+        M2_count = np.clip(M2_count, self.GoalPosition_Limits["2"][1], self.GoalPosition_Limits["2"][0])
         return(M1_count,M2_count)
 
 
@@ -489,12 +489,19 @@ class RigidGrasper:
 
             # If the start is present but not the end, then add that data to the buffer
 
-    def calcForceFromSensor(self,reading,coeffs = [4.6e-15, 0.03704, 0.117, 0.003891]):
+    def calcForceFromSensor_FSR(self,reading,coeffs = [4.6e-15, 0.03704, 0.117, 0.003891]):
+        print("Reading %i"%reading)
         reading = np.clip(reading, 0, 1000)
 
         Force_N = coeffs[0]*np.exp(coeffs[1]*reading) + coeffs[2]*np.exp(coeffs[3]*reading)
         Force_N = np.clip(Force_N, 0, 40)
         return(Force_N)
+
+    def calcForceFromSensor(self, reading):
+        Force_N = (reading-750)*44/1400
+        Force_N = np.clip(Force_N,0,40)
+        return(Force_N)
+
     def processData(self, protocolType=None, numBytes=None, payload=None):
 
         if protocolType is not None:
@@ -582,13 +589,15 @@ if __name__ == '__main__':
     CurrentPosition, dxl_comm_result, dxl_error = RG.ReadCurrentPosition()
     print("%i,%i. In Deg: %f, %f:" % (
     CurrentPosition["1"], CurrentPosition["2"], CurrentPosition["1"] * 360 / 4096, CurrentPosition["2"] * 360 / 4096))
-
-    while(input("Press a key to increment by 100")):
-        RG.IncrementalMove(moveIncrement1 = 50,moveIncrement2 = 50, action1 = GrasperActions.CLOSE,action2 = GrasperActions.CLOSE)
-        time.sleep(3)
-        #RG.ReadCurrent()
-        CurrentPosition,dxl_comm_result,dxl_error = RG.ReadCurrentPosition()
-        print("%i,%i. In Deg: %f, %f:"%(CurrentPosition["1"],CurrentPosition["2"],CurrentPosition["1"]*360/4096,CurrentPosition["2"]*360/4096))
+    while  (True):
+        RG.IncrementalMove(moveIncrement1 = 0,moveIncrement2 = 0, action1 = GrasperActions.CLOSE,action2 = GrasperActions.CLOSE)
+        time.sleep(0.1)
+    # while(input("Press a key to increment by 100")):
+    #     RG.IncrementalMove(moveIncrement1 = 50,moveIncrement2 = 50, action1 = GrasperActions.CLOSE,action2 = GrasperActions.CLOSE)
+    #     time.sleep(3)
+    #     #RG.ReadCurrent()
+    #     CurrentPosition,dxl_comm_result,dxl_error = RG.ReadCurrentPosition()
+    #     print("%i,%i. In Deg: %f, %f:"%(CurrentPosition["1"],CurrentPosition["2"],CurrentPosition["1"]*360/4096,CurrentPosition["2"]*360/4096))
 
 
 

@@ -363,11 +363,11 @@ void executeForcePortActions()
           while(Wire.available()) {
             byte num_v = Wire.read();
             num[inc] = num_v & mask[inc];
-            Serial.print(num[inc], BIN);
-            Serial.print(",");
+            //Serial.print(num[inc], BIN);
+            //Serial.print(",");
             inc++; // reverse bit order
           }
-          Serial.println(inc);
+          //Serial.println(inc);
 
           // Reverse Bit Order
           for (int j = 0;j<2;j++)
@@ -375,8 +375,8 @@ void executeForcePortActions()
             sensorB.arr_v[j] = num[1-j];
           }
 
-          Serial.println(sensorB.int_v, HEX);
-          Serial.println(sensorB.int_v, DEC);
+          //Serial.println(sensorB.int_v, HEX);
+          //Serial.println(sensorB.int_v, DEC);
 
           PortA.readADC = sensorB.int_v/1.0;  //save value as a float.
 

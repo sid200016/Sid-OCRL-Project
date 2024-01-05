@@ -1,0 +1,2446 @@
+2024-01-05 14:43:03,361 - GUI.EmbeddedSystems.Gantry.GantryController - INFO - Homing gantry ...
+2024-01-05 14:43:03,362 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: start
+
+2024-01-05 14:43:03,363 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: echo:Marlin 1.1.6BL_V3
+
+2024-01-05 14:43:03,363 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: 
+
+2024-01-05 14:43:03,363 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: echo: Last Updated: 2019-04-12 | Author: (CR-10 S5 BLTouch)
+
+2024-01-05 14:43:03,363 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: echo:Compiled: Sep  7 2022
+
+2024-01-05 14:43:03,363 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: echo: Free Memory: 1107  PlannerBufferBytes: 1200
+
+2024-01-05 14:43:03,363 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: echo:EEPROM version mismatch (EEPROM=? Marlin=V41)
+
+2024-01-05 14:43:03,363 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: echo:Hardcoded Default Settings Loaded
+
+2024-01-05 14:43:03,363 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: echo:  G21    ; Units in mm
+
+2024-01-05 14:43:03,363 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: echo:  M149 C ; Units in Celsius
+
+2024-01-05 14:43:03,363 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: 
+
+2024-01-05 14:43:03,363 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: echo:Filament settings: Disabled
+
+2024-01-05 14:43:03,363 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: echo:  M200 D1.75
+
+2024-01-05 14:43:03,363 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: echo:  M200 T1 D1.75
+
+2024-01-05 14:43:03,363 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: echo:  M200 D0
+
+2024-01-05 14:43:03,363 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: echo:Steps per unit:
+
+2024-01-05 14:43:03,363 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: echo:  M92 X80.00 Y80.00 Z400.00 E93.00
+
+2024-01-05 14:43:03,363 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: echo:Maximum feedrates (units/s):
+
+2024-01-05 14:43:03,363 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: echo:  M203 X300.00 Y300.00 Z35.00 E25.00
+
+2024-01-05 14:43:03,363 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: echo:Maximum Acceleration (units/s2):
+
+2024-01-05 14:43:03,363 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: echo:  M201 X500 Y500 Z100 E1000
+
+2024-01-05 14:43:03,379 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: echo:Acceleration (units/s2): P<print_accel> R<retract_accel> T<travel_accel>
+
+2024-01-05 14:43:03,379 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: echo:  M204 P500.00 R500.00 T1000.00
+
+2024-01-05 14:43:03,379 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: echo:Advanced: S<min_feedrate> T<min_travel_feedrate> B<min_segment_time_ms> X<max_xy_jerk> Z<max_z_jerk> E<max_e_jerk>
+
+2024-01-05 14:43:03,379 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: echo:  M205 S0.00 T0.00 B20000 X10.00 Y10.00 Z0.40 E5.00
+
+2024-01-05 14:43:03,379 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: echo:Home offset:
+
+2024-01-05 14:43:03,379 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: echo:  M206 X0.00 Y0.00 Z0.00
+
+2024-01-05 14:43:03,379 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: echo:Hotend offsets:
+
+2024-01-05 14:43:03,379 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: echo:  M218 T1 X0.00 Y0.00
+
+2024-01-05 14:43:03,379 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: echo:Auto Bed Leveling:
+
+2024-01-05 14:43:03,379 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: echo:  M420 S0 Z0.00
+
+2024-01-05 14:43:03,379 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: echo:Material heatup parameters:
+
+2024-01-05 14:43:03,379 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: echo:  M145 S0 H185 B45 F255
+
+2024-01-05 14:43:03,379 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok:   M145 S1 H240 B70 F255
+
+2024-01-05 14:43:03,379 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: echo:PID settings:
+
+2024-01-05 14:43:03,379 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: echo:  M301 P20.84 I1.96 D55.47
+
+2024-01-05 14:43:03,379 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: echo:Z-Probe Offset (mm):
+
+2024-01-05 14:43:03,379 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: echo:  M851 Z0.00
+
+2024-01-05 14:43:03,379 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: echo:TF init fail
+
+2024-01-05 14:43:03,379 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: echo:TF init fail
+
+2024-01-05 14:43:03,379 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: echo:Active Extruder: 0
+
+2024-01-05 14:43:05,367 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: echo:busy: processing
+
+2024-01-05 14:43:07,377 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: echo:busy: processing
+
+2024-01-05 14:43:09,377 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: echo:busy: processing
+
+2024-01-05 14:43:11,360 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: echo:busy: processing
+
+2024-01-05 14:43:13,360 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: echo:busy: processing
+
+2024-01-05 14:43:15,359 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: echo:busy: processing
+
+2024-01-05 14:43:17,358 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: echo:busy: processing
+
+2024-01-05 14:43:19,373 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: 
+2024-01-05 14:43:19,374 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: echo:busy: processing
+
+2024-01-05 14:43:21,373 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: echo:busy: processing
+
+2024-01-05 14:43:23,362 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: echo:busy: processing
+
+2024-01-05 14:43:25,372 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: echo:busy: processing
+
+2024-01-05 14:43:26,771 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: echo:Active Extruder: 0
+
+2024-01-05 14:43:26,771 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:255.00 Y:255.00 Z:10.00 E:0.00 Count X:20400 Y:20400 Z:4000
+
+2024-01-05 14:43:26,771 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:26,788 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:28,804 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:28,804 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Finished Sending G90
+2024-01-05 14:43:29,820 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:30,837 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:32,851 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: 
+2024-01-05 14:43:32,853 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: echo:busy: processing
+
+2024-01-05 14:43:34,852 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: echo:busy: processing
+
+2024-01-05 14:43:36,619 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:37,684 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:37,701 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:37,701 - GUI.EmbeddedSystems.Gantry.GantryController - INFO - Finished homing gantry ...
+2024-01-05 14:43:38,687 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:38,687 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:38,689 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.026112199993804097
+2024-01-05 14:43:38,701 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:49,964 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:49,964 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:49,964 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.023719599936157465
+2024-01-05 14:43:49,978 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:50,039 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:50,039 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:50,039 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02370440005324781
+2024-01-05 14:43:50,053 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:50,102 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:50,102 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:50,103 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.022428400116041303
+2024-01-05 14:43:50,117 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:50,166 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:50,166 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:50,166 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.022807300090789795
+2024-01-05 14:43:50,181 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:50,230 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:50,231 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:50,231 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.024634000146761537
+2024-01-05 14:43:50,244 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:50,292 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:50,293 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:50,293 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021958000026643276
+2024-01-05 14:43:50,308 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:50,356 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:50,357 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:50,357 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.022761499974876642
+2024-01-05 14:43:50,372 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:50,420 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:50,420 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:50,421 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.022210099967196584
+2024-01-05 14:43:50,436 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:50,484 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:50,485 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:50,485 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.022149200085550547
+2024-01-05 14:43:50,500 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:50,549 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:50,549 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:50,549 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021643599960952997
+2024-01-05 14:43:50,563 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:50,613 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:50,613 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:50,613 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021840799832716584
+2024-01-05 14:43:50,628 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:50,676 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:50,676 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:50,676 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021712200017645955
+2024-01-05 14:43:50,691 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:50,740 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:50,741 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:50,741 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02134890016168356
+2024-01-05 14:43:50,755 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:50,819 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:50,819 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:50,820 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.03674410004168749
+2024-01-05 14:43:50,851 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:50,900 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:50,900 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:50,900 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02107170014642179
+2024-01-05 14:43:50,915 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:50,964 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:50,964 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:50,964 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02147490018978715
+2024-01-05 14:43:50,979 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:51,028 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:51,028 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:51,028 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021384800085797906
+2024-01-05 14:43:51,043 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:51,091 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:51,091 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:51,092 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021574300015345216
+2024-01-05 14:43:51,106 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:51,156 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:51,156 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:51,156 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02111460012383759
+2024-01-05 14:43:51,171 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:51,219 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:51,219 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:51,220 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.020920499926432967
+2024-01-05 14:43:51,235 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:51,284 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:51,284 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:51,284 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.020981099922209978
+2024-01-05 14:43:51,299 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:51,348 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:51,348 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:51,348 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02084739995189011
+2024-01-05 14:43:51,363 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:51,412 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:51,412 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:51,412 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02170020015910268
+2024-01-05 14:43:51,427 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:51,476 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:51,476 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:51,476 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.020924099953845143
+2024-01-05 14:43:51,491 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:51,539 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:51,540 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:51,540 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02054110006429255
+2024-01-05 14:43:51,554 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:51,603 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:51,603 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:51,604 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.0213317999150604
+2024-01-05 14:43:51,619 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:51,666 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:51,667 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:51,667 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02121959999203682
+2024-01-05 14:43:51,682 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:51,731 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:51,731 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:51,731 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02073800005018711
+2024-01-05 14:43:51,746 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:51,795 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:51,795 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:51,795 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.020903400145471096
+2024-01-05 14:43:51,810 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:51,866 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:51,866 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:51,866 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.028057999908924103
+2024-01-05 14:43:51,895 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:51,958 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:51,958 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:51,959 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.024502900196239352
+2024-01-05 14:43:51,973 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:52,021 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:52,022 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:52,022 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.022206800058484077
+2024-01-05 14:43:52,037 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:52,085 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:52,086 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:52,086 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.0223129999358207
+2024-01-05 14:43:52,101 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:52,148 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:52,149 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:52,149 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.022279500029981136
+2024-01-05 14:43:52,164 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:52,212 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:52,213 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:52,213 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02254560007713735
+2024-01-05 14:43:52,228 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:52,276 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:52,277 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:52,277 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02204640000127256
+2024-01-05 14:43:52,292 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:52,340 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:52,341 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:52,341 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.022005199920386076
+2024-01-05 14:43:52,356 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:52,405 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:52,405 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:52,406 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.022387699922546744
+2024-01-05 14:43:52,420 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:52,468 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:52,469 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:52,469 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021762299817055464
+2024-01-05 14:43:52,484 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:52,532 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:52,533 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:52,533 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021246999967843294
+2024-01-05 14:43:52,548 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:52,596 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:52,597 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:52,597 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.022227599984034896
+2024-01-05 14:43:52,612 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:52,660 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:52,661 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:52,661 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.022399900015443563
+2024-01-05 14:43:52,676 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:52,725 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:52,725 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:52,725 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021701500052586198
+2024-01-05 14:43:52,740 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:52,788 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:52,788 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:52,788 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021638999925926328
+2024-01-05 14:43:52,803 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:52,852 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:52,853 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:52,853 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.020921400049701333
+2024-01-05 14:43:52,867 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:52,930 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:52,930 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:52,930 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.03549370006658137
+2024-01-05 14:43:52,960 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:53,014 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:53,014 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:53,014 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.024919399991631508
+2024-01-05 14:43:53,029 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:53,077 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:53,078 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:53,078 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.023129899986088276
+2024-01-05 14:43:53,093 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:53,141 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:53,141 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:53,141 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.022989900084212422
+2024-01-05 14:43:53,157 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:53,205 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:53,205 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:53,205 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.022734400117769837
+2024-01-05 14:43:53,221 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:53,270 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:53,270 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:53,270 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.022509000031277537
+2024-01-05 14:43:53,285 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:53,333 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:53,334 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:53,334 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.024364299839362502
+2024-01-05 14:43:53,348 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:53,397 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:53,397 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:53,397 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021549399942159653
+2024-01-05 14:43:53,412 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:53,460 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:53,461 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:53,461 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021593899931758642
+2024-01-05 14:43:53,475 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:53,524 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:53,525 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:53,525 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021875499980524182
+2024-01-05 14:43:53,539 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:53,588 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:53,588 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:53,589 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021771800005808473
+2024-01-05 14:43:53,604 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:53,652 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:53,652 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:53,652 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02218079986050725
+2024-01-05 14:43:53,667 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:53,716 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:53,716 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:53,716 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021310199983417988
+2024-01-05 14:43:53,731 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:53,780 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:53,780 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:53,780 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021776000037789345
+2024-01-05 14:43:53,795 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:53,844 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:53,844 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:53,844 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021933099953457713
+2024-01-05 14:43:53,859 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:53,907 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:53,908 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:53,908 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021836299914866686
+2024-01-05 14:43:53,923 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:53,972 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:53,972 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:53,973 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.0215271997731179
+2024-01-05 14:43:54,003 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:54,051 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:54,052 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:54,052 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.020736399805173278
+2024-01-05 14:43:54,066 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:54,116 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:54,116 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:54,116 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02054090006276965
+2024-01-05 14:43:54,130 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:54,180 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:54,180 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:54,180 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02102390001527965
+2024-01-05 14:43:54,194 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:54,244 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:54,244 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:54,244 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.0208144998177886
+2024-01-05 14:43:54,258 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:54,307 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:54,307 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:54,307 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021266299998387694
+2024-01-05 14:43:54,322 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:54,371 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:54,371 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:54,371 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02093179989606142
+2024-01-05 14:43:54,387 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:54,435 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:54,436 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:54,436 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.020554000046104193
+2024-01-05 14:43:54,450 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:54,499 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:54,500 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:54,500 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.020233199931681156
+2024-01-05 14:43:54,514 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:54,563 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:54,563 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:54,563 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021829399978742003
+2024-01-05 14:43:54,579 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:54,627 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:54,627 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:54,628 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021291800076141953
+2024-01-05 14:43:54,642 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:54,691 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:54,691 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:54,692 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02090550004504621
+2024-01-05 14:43:54,706 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:54,754 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:54,754 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:54,755 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021469199797138572
+2024-01-05 14:43:54,770 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:54,819 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:54,819 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:54,820 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.020227900007739663
+2024-01-05 14:43:54,834 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:54,888 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:54,888 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:54,889 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.025084099965170026
+2024-01-05 14:43:54,903 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:54,965 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:54,966 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:54,966 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.024390200152993202
+2024-01-05 14:43:54,980 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:55,028 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:55,029 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:55,029 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02245809999294579
+2024-01-05 14:43:55,061 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:55,109 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:55,109 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:55,110 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.023903199937194586
+2024-01-05 14:43:55,123 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:55,172 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:55,173 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:55,173 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021774200024083257
+2024-01-05 14:43:55,187 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:55,236 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:55,236 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:55,236 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021620299899950624
+2024-01-05 14:43:55,251 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:55,299 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:55,300 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:55,300 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.022022100165486336
+2024-01-05 14:43:55,315 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:55,363 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:55,363 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:55,364 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.022120699984952807
+2024-01-05 14:43:55,379 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:55,428 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:55,428 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:55,428 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02248919988051057
+2024-01-05 14:43:55,443 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:55,492 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:55,492 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:55,492 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021553500089794397
+2024-01-05 14:43:55,507 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:55,555 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:55,555 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:55,556 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021504800068214536
+2024-01-05 14:43:55,571 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:55,619 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:55,620 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:55,620 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.022345200181007385
+2024-01-05 14:43:55,634 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:55,684 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:55,684 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:55,684 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02126850001513958
+2024-01-05 14:43:55,699 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:55,747 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:55,748 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:55,748 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021672300063073635
+2024-01-05 14:43:55,762 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:55,812 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:55,812 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:55,812 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02223749994300306
+2024-01-05 14:43:55,826 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:55,875 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:55,875 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:55,875 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02111109998077154
+2024-01-05 14:43:55,890 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:55,939 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:55,939 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:55,939 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02111140009947121
+2024-01-05 14:43:55,954 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:56,003 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:56,004 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:56,004 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02040940010920167
+2024-01-05 14:43:56,018 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:56,067 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:56,067 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:56,068 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.020610300125554204
+2024-01-05 14:43:56,098 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:56,163 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:56,163 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:56,163 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.03744330001063645
+2024-01-05 14:43:56,178 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:56,232 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:56,232 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:56,232 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.024958499940112233
+2024-01-05 14:43:56,246 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:56,311 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:56,312 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:56,312 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02432490000501275
+2024-01-05 14:43:56,326 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:56,389 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:56,389 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:56,390 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.023120000027120113
+2024-01-05 14:43:56,405 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:56,454 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:56,454 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:56,454 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02271119994111359
+2024-01-05 14:43:56,469 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:56,533 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:56,533 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:56,533 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.0238387999124825
+2024-01-05 14:43:56,547 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:56,596 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:56,596 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:56,596 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02169260010123253
+2024-01-05 14:43:56,611 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:56,660 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:56,661 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:56,661 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021754899993538857
+2024-01-05 14:43:56,676 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:56,724 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:56,724 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:56,724 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021440300159156322
+2024-01-05 14:43:56,739 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:56,787 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:56,788 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:56,788 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.022126900032162666
+2024-01-05 14:43:56,803 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:56,852 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:56,852 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:56,852 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.022007400169968605
+2024-01-05 14:43:56,867 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:56,915 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:56,915 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:56,916 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021062999963760376
+2024-01-05 14:43:56,931 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:56,980 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:56,980 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:56,980 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021713600028306246
+2024-01-05 14:43:56,995 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:57,044 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:57,044 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:57,044 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021615899866446853
+2024-01-05 14:43:57,058 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:57,107 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:57,107 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:57,108 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021986200008541346
+2024-01-05 14:43:57,122 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:57,187 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:57,187 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:57,187 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.036289599956944585
+2024-01-05 14:43:57,218 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:57,267 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:57,268 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:57,268 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021255800034850836
+2024-01-05 14:43:57,283 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:57,331 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:57,331 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:57,331 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.020708899945020676
+2024-01-05 14:43:57,346 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:57,395 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:57,395 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:57,395 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.020935900043696165
+2024-01-05 14:43:57,411 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:57,458 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:57,458 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:57,459 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02191549981944263
+2024-01-05 14:43:57,474 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:57,522 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:57,523 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:57,523 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021645500091835856
+2024-01-05 14:43:57,538 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:57,587 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:57,587 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:57,588 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021585799986496568
+2024-01-05 14:43:57,602 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:57,651 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:57,651 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:57,651 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02067190012894571
+2024-01-05 14:43:57,666 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:57,715 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:57,715 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:57,716 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.0207010000012815
+2024-01-05 14:43:57,729 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:57,778 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:57,778 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:57,779 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.020347499987110496
+2024-01-05 14:43:57,793 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:57,843 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:57,843 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:57,843 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021244800183922052
+2024-01-05 14:43:57,858 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:57,906 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:57,906 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:57,907 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.020947800017893314
+2024-01-05 14:43:57,921 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:57,970 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:57,970 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:57,970 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021062799962237477
+2024-01-05 14:43:57,986 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:58,034 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:58,034 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:58,035 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.020614500157535076
+2024-01-05 14:43:58,049 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:58,103 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:58,103 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:58,104 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.024613700108602643
+2024-01-05 14:43:58,118 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:58,181 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:58,182 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:58,182 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.024181900080293417
+2024-01-05 14:43:58,196 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:58,251 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:58,252 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:58,252 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.029099700041115284
+2024-01-05 14:43:58,282 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:58,341 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:58,342 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:58,342 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02355769998393953
+2024-01-05 14:43:58,356 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:58,404 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:58,404 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:58,405 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.022623599972575903
+2024-01-05 14:43:58,420 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:58,468 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:58,469 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:58,469 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.022295900154858828
+2024-01-05 14:43:58,484 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:58,532 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:58,532 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:58,533 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02284059999510646
+2024-01-05 14:43:58,548 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:58,596 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:58,596 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:58,596 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.022514200070872903
+2024-01-05 14:43:58,611 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:58,660 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:58,660 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:58,661 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.022072199964895844
+2024-01-05 14:43:58,675 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:58,724 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:58,724 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:58,725 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02197970007546246
+2024-01-05 14:43:58,739 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:58,788 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:58,788 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:58,789 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021643599960952997
+2024-01-05 14:43:58,803 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:58,851 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:58,852 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:58,852 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021778899943456054
+2024-01-05 14:43:58,867 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:58,915 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:58,915 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:58,916 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02201840002089739
+2024-01-05 14:43:58,931 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:58,979 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:58,980 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:58,980 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021833099890500307
+2024-01-05 14:43:58,995 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:59,043 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:59,043 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:59,043 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.022526599932461977
+2024-01-05 14:43:59,059 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:59,107 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:59,108 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:59,108 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021718400064855814
+2024-01-05 14:43:59,122 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:59,171 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:59,171 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:59,171 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.0227014000993222
+2024-01-05 14:43:59,187 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:59,235 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:59,236 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:59,236 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021740100113675
+2024-01-05 14:43:59,251 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:59,314 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:59,315 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:59,315 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.03662499994970858
+2024-01-05 14:43:59,345 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:59,394 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:59,394 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:59,394 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.020721300039440393
+2024-01-05 14:43:59,409 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:59,459 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:59,459 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:59,459 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.020463000051677227
+2024-01-05 14:43:59,473 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:59,522 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:59,522 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:59,522 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.020449999952688813
+2024-01-05 14:43:59,537 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:59,585 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:59,586 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:59,586 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021215599961578846
+2024-01-05 14:43:59,601 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:59,649 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:59,650 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:59,650 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02040800009854138
+2024-01-05 14:43:59,665 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:59,714 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:59,714 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:59,714 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.0202417999971658
+2024-01-05 14:43:59,729 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:59,783 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:59,783 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:59,783 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02482770010828972
+2024-01-05 14:43:59,798 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:59,861 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:59,861 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:59,862 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.023765499936416745
+2024-01-05 14:43:59,876 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:59,924 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:59,924 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:59,925 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02292759995907545
+2024-01-05 14:43:59,940 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:59,988 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:43:59,988 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:43:59,988 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02215770003385842
+2024-01-05 14:44:00,004 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:00,051 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:00,051 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:00,052 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02303149993531406
+2024-01-05 14:44:00,067 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:00,115 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:00,116 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:00,116 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02251160005107522
+2024-01-05 14:44:00,132 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:00,180 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:00,180 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:00,180 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.022295800037682056
+2024-01-05 14:44:00,195 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:00,243 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:00,244 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:00,244 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.022119699977338314
+2024-01-05 14:44:00,259 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:00,308 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:00,308 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:00,309 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021636900026351213
+2024-01-05 14:44:00,323 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:00,372 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:00,372 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:00,372 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02218420011922717
+2024-01-05 14:44:00,387 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:00,435 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:00,435 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:00,436 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02136330003850162
+2024-01-05 14:44:00,450 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:00,499 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:00,499 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:00,500 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021204099990427494
+2024-01-05 14:44:00,514 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:00,563 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:00,564 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:00,564 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02196040004491806
+2024-01-05 14:44:00,579 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:00,627 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:00,628 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:00,628 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.022499400191009045
+2024-01-05 14:44:00,643 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:00,691 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:00,691 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:00,692 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021840699948370457
+2024-01-05 14:44:00,706 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:00,755 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:00,756 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:00,756 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.022022700170055032
+2024-01-05 14:44:00,770 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:00,819 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:00,819 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:00,819 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02191620017401874
+2024-01-05 14:44:00,834 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:00,883 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:00,884 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:00,884 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02167290006764233
+2024-01-05 14:44:00,898 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:00,947 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:00,948 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:00,948 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021194899920374155
+2024-01-05 14:44:00,962 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:01,011 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:01,011 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:01,011 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.022269000066444278
+2024-01-05 14:44:01,026 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:01,075 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:01,075 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:01,075 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02099859993904829
+2024-01-05 14:44:01,090 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:01,139 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:01,139 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:01,139 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021670099813491106
+2024-01-05 14:44:01,153 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:01,203 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:01,203 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:01,203 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021246900083497167
+2024-01-05 14:44:01,218 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:01,266 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:01,266 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:01,267 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021363200154155493
+2024-01-05 14:44:01,282 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:01,331 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:01,331 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:01,331 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021357899997383356
+2024-01-05 14:44:01,345 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:01,395 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:01,395 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:01,395 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02065630001015961
+2024-01-05 14:44:01,410 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:01,474 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:01,474 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:01,474 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.035599700175225735
+2024-01-05 14:44:01,489 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:01,538 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:01,538 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:01,539 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.020332599990069866
+2024-01-05 14:44:01,553 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:01,602 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:01,602 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:01,602 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02114570001140237
+2024-01-05 14:44:01,617 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:01,666 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:01,666 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:01,667 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02133799996227026
+2024-01-05 14:44:01,681 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:01,735 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:01,735 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:01,735 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.024648700142279267
+2024-01-05 14:44:01,750 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:01,812 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:01,813 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:01,813 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.023866199888288975
+2024-01-05 14:44:01,827 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:01,876 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:01,876 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:01,876 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.022142100147902966
+2024-01-05 14:44:01,891 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:01,939 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:01,939 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:01,939 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.022286000195890665
+2024-01-05 14:44:01,955 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:02,003 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:02,004 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:02,004 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02172159985639155
+2024-01-05 14:44:02,018 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:02,067 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:02,067 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:02,067 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.022728299954906106
+2024-01-05 14:44:02,083 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:02,131 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:02,131 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:02,132 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021979799959808588
+2024-01-05 14:44:02,146 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:02,195 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:02,195 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:02,196 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.022685000207275152
+2024-01-05 14:44:02,210 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:02,259 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:02,259 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:02,260 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02215699991211295
+2024-01-05 14:44:02,274 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:02,323 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:02,323 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:02,323 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021849799901247025
+2024-01-05 14:44:02,339 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:02,387 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:02,387 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:02,388 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021594699937850237
+2024-01-05 14:44:02,402 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:02,450 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:02,450 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:02,451 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02211569994688034
+2024-01-05 14:44:02,482 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:02,531 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:02,531 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:02,532 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021706199971958995
+2024-01-05 14:44:02,546 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:02,595 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:02,595 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:02,595 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021408200031146407
+2024-01-05 14:44:02,610 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:02,659 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:02,659 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:02,659 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.022119600092992187
+2024-01-05 14:44:02,674 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:02,723 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:02,723 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:02,723 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.020720999920740724
+2024-01-05 14:44:02,738 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:02,794 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:02,795 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:02,795 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02735049999319017
+2024-01-05 14:44:02,807 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:02,869 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:02,869 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:02,869 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.024073299951851368
+2024-01-05 14:44:02,883 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:02,932 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:02,932 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:02,933 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02190529997460544
+2024-01-05 14:44:02,948 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:02,996 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:02,996 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:02,996 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02237819996662438
+2024-01-05 14:44:03,012 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:03,059 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:03,059 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:03,061 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.022195100085809827
+2024-01-05 14:44:03,075 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:03,124 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:03,124 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:03,125 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.022963800001889467
+2024-01-05 14:44:03,140 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:03,187 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:03,187 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:03,188 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02221369999460876
+2024-01-05 14:44:03,203 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:03,251 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:03,252 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:03,252 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02168960007838905
+2024-01-05 14:44:03,267 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:03,316 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:03,316 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:03,316 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02149230008944869
+2024-01-05 14:44:03,331 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:03,380 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:03,380 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:03,380 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.020888900151476264
+2024-01-05 14:44:03,395 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:03,444 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:03,444 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:03,444 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021755299996584654
+2024-01-05 14:44:03,459 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:03,507 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:03,507 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:03,507 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.022227999987080693
+2024-01-05 14:44:03,538 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:03,587 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:03,587 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:03,588 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02165349991992116
+2024-01-05 14:44:03,602 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:03,651 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:03,651 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:03,651 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02192339999601245
+2024-01-05 14:44:03,666 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:03,716 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:03,716 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:03,716 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02089700009673834
+2024-01-05 14:44:03,731 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:03,779 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:03,779 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:03,779 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02230549999512732
+2024-01-05 14:44:03,794 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:03,843 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:03,844 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:03,844 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021649800008162856
+2024-01-05 14:44:03,858 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:03,923 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:03,923 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:03,924 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02095740009099245
+2024-01-05 14:44:03,938 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:03,987 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:03,987 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:03,987 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02124899998307228
+2024-01-05 14:44:04,002 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:04,050 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:04,051 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:04,051 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02144749998115003
+2024-01-05 14:44:04,065 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:04,115 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:04,115 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:04,116 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.020349600119516253
+2024-01-05 14:44:04,130 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:04,179 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:04,179 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:04,179 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02064830018207431
+2024-01-05 14:44:04,193 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:04,242 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:04,243 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:04,243 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.022107600001618266
+2024-01-05 14:44:04,257 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:04,306 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:200.00 E:0.00 B:14 14 Count X:18080 Y:20160 Z:80000
+
+2024-01-05 14:44:04,307 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:04,307 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02199569996446371
+2024-01-05 14:44:04,385 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:04,435 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:196.80 E:0.00 B:15 14 Count X:18080 Y:20160 Z:79944
+
+2024-01-05 14:44:04,436 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:04,437 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.023151899920776486
+2024-01-05 14:44:04,449 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:04,499 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:193.73 E:0.00 B:0 14 Count X:18080 Y:20160 Z:79722
+
+2024-01-05 14:44:04,499 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:04,500 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021137099945917726
+2024-01-05 14:44:04,513 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:04,563 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:190.78 E:0.00 B:1 14 Count X:18080 Y:20160 Z:79337
+
+2024-01-05 14:44:04,564 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:04,564 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02170550008304417
+2024-01-05 14:44:04,653 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:190.78 E:0.00 B:1 14 Count X:18080 Y:20160 Z:78887
+
+2024-01-05 14:44:04,653 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:04,654 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.046005900017917156
+2024-01-05 14:44:04,709 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:190.78 E:0.00 B:1 14 Count X:18080 Y:20160 Z:78738
+
+2024-01-05 14:44:04,709 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:04,710 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.023984000086784363
+2024-01-05 14:44:04,772 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:190.78 E:0.00 B:1 15 Count X:18080 Y:20160 Z:78666
+
+2024-01-05 14:44:04,773 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:04,773 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02445570006966591
+2024-01-05 14:44:04,787 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:04,837 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:180.12 E:0.00 B:2 15 Count X:18080 Y:20160 Z:78433
+
+2024-01-05 14:44:04,838 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:04,838 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.022899199975654483
+2024-01-05 14:44:04,900 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:180.12 E:0.00 B:2 15 Count X:18080 Y:20160 Z:78049
+
+2024-01-05 14:44:04,900 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:04,900 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.0218023001216352
+2024-01-05 14:44:04,963 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:180.12 E:0.00 B:2 15 Count X:18080 Y:20160 Z:77503
+
+2024-01-05 14:44:04,964 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:04,964 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.022506400011479855
+2024-01-05 14:44:05,035 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:180.12 E:0.00 B:2 0 Count X:18080 Y:20160 Z:76775
+
+2024-01-05 14:44:05,036 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:05,037 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.028488700045272708
+2024-01-05 14:44:05,064 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:05,127 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:171.06 E:0.00 B:3 1 Count X:18080 Y:20160 Z:75512
+
+2024-01-05 14:44:05,127 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:05,127 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.025897499872371554
+2024-01-05 14:44:05,142 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:05,207 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:169.02 E:0.00 B:4 1 Count X:18080 Y:20160 Z:74382
+
+2024-01-05 14:44:05,207 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:05,208 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.024924699915573
+2024-01-05 14:44:05,271 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:169.02 E:0.00 B:4 1 Count X:18080 Y:20160 Z:73582
+
+2024-01-05 14:44:05,272 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:05,273 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.024337699869647622
+2024-01-05 14:44:05,334 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:169.02 E:0.00 B:4 1 Count X:18080 Y:20160 Z:72964
+
+2024-01-05 14:44:05,334 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:05,335 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02447469998151064
+2024-01-05 14:44:05,397 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:169.02 E:0.00 B:4 1 Count X:18080 Y:20160 Z:72504
+
+2024-01-05 14:44:05,398 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:05,398 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02380339987576008
+2024-01-05 14:44:05,461 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:169.02 E:0.00 B:4 1 Count X:18080 Y:20160 Z:72199
+
+2024-01-05 14:44:05,462 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:05,462 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.023527199868112803
+2024-01-05 14:44:05,526 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:169.02 E:0.00 B:4 1 Count X:18080 Y:20160 Z:72054
+
+2024-01-05 14:44:05,526 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:05,526 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02253230009227991
+2024-01-05 14:44:05,589 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:169.02 E:0.00 B:4 2 Count X:18080 Y:20160 Z:71300
+
+2024-01-05 14:44:05,589 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:05,589 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.024039299925789237
+2024-01-05 14:44:05,605 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:05,654 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:156.83 E:0.00 B:5 2 Count X:18080 Y:20160 Z:70382
+
+2024-01-05 14:44:05,655 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:05,655 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.023830999853089452
+2024-01-05 14:44:05,733 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:156.83 E:0.00 B:5 2 Count X:18080 Y:20160 Z:69344
+
+2024-01-05 14:44:05,733 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:05,733 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.039668000070378184
+2024-01-05 14:44:05,805 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:156.83 E:0.00 B:5 2 Count X:18080 Y:20160 Z:68615
+
+2024-01-05 14:44:05,805 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:05,805 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.032848999835550785
+2024-01-05 14:44:05,866 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:156.83 E:0.00 B:5 3 Count X:18080 Y:20160 Z:68109
+
+2024-01-05 14:44:05,867 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:05,868 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.029305299976840615
+2024-01-05 14:44:05,895 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:05,959 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:151.28 E:0.00 B:6 4 Count X:18080 Y:20160 Z:67032
+
+2024-01-05 14:44:05,959 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:05,959 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.026538799982517958
+2024-01-05 14:44:05,988 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:06,037 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:150.03 E:0.00 B:7 4 Count X:18080 Y:20160 Z:65922
+
+2024-01-05 14:44:06,037 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:06,038 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.024122799979522824
+2024-01-05 14:44:06,101 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:150.03 E:0.00 B:7 4 Count X:18080 Y:20160 Z:65032
+
+2024-01-05 14:44:06,102 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:06,102 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.024609400192275643
+2024-01-05 14:44:06,165 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:150.03 E:0.00 B:7 4 Count X:18080 Y:20160 Z:64118
+
+2024-01-05 14:44:06,165 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:06,165 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.022386299911886454
+2024-01-05 14:44:06,229 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:150.03 E:0.00 B:7 4 Count X:18080 Y:20160 Z:63248
+
+2024-01-05 14:44:06,229 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:06,229 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02356799994595349
+2024-01-05 14:44:06,292 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:150.03 E:0.00 B:7 5 Count X:18080 Y:20160 Z:62362
+
+2024-01-05 14:44:06,293 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:06,293 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.023740899981930852
+2024-01-05 14:44:06,308 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:06,356 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:144.49 E:0.00 B:8 5 Count X:18080 Y:20160 Z:61572
+
+2024-01-05 14:44:06,356 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:06,357 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.023760800017043948
+2024-01-05 14:44:06,421 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:144.49 E:0.00 B:8 5 Count X:18080 Y:20160 Z:60931
+
+2024-01-05 14:44:06,422 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:06,422 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.023926200112327933
+2024-01-05 14:44:06,485 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:144.49 E:0.00 B:8 6 Count X:18080 Y:20160 Z:60464
+
+2024-01-05 14:44:06,486 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:06,486 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.023964399937540293
+2024-01-05 14:44:06,516 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:06,565 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:141.67 E:0.00 B:9 7 Count X:18080 Y:20160 Z:59807
+
+2024-01-05 14:44:06,565 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:06,566 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.024121100082993507
+2024-01-05 14:44:06,595 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:06,644 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:138.80 E:0.00 B:10 7 Count X:18080 Y:20160 Z:58899
+
+2024-01-05 14:44:06,644 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:06,645 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.022194100078195333
+2024-01-05 14:44:06,711 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:138.80 E:0.00 B:10 7 Count X:18080 Y:20160 Z:58105
+
+2024-01-05 14:44:06,711 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:06,712 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.023601299850270152
+2024-01-05 14:44:06,773 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:138.80 E:0.00 B:10 8 Count X:18080 Y:20160 Z:57475
+
+2024-01-05 14:44:06,773 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:06,774 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.023663900094106793
+2024-01-05 14:44:06,803 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:06,884 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:130.87 E:0.00 B:11 9 Count X:18080 Y:20160 Z:56295
+
+2024-01-05 14:44:06,884 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:06,884 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.05147959990426898
+2024-01-05 14:44:06,915 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:06,966 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:128.43 E:0.00 B:12 10 Count X:18080 Y:20160 Z:55254
+
+2024-01-05 14:44:06,967 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:06,967 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02310590003617108
+2024-01-05 14:44:06,979 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:07,030 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:126.10 E:0.00 B:13 10 Count X:18080 Y:20160 Z:54368
+
+2024-01-05 14:44:07,030 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:07,031 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02333400002680719
+2024-01-05 14:44:07,092 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:126.10 E:0.00 B:13 10 Count X:18080 Y:20160 Z:53508
+
+2024-01-05 14:44:07,093 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:07,093 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.024043799843639135
+2024-01-05 14:44:07,155 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:126.10 E:0.00 B:13 10 Count X:18080 Y:20160 Z:52764
+
+2024-01-05 14:44:07,155 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:07,156 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.022627800004556775
+2024-01-05 14:44:07,221 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:126.10 E:0.00 B:13 11 Count X:18080 Y:20160 Z:52135
+
+2024-01-05 14:44:07,221 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:07,222 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.023631999967619777
+2024-01-05 14:44:07,251 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:07,301 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:117.65 E:0.00 B:14 12 Count X:18080 Y:20160 Z:51359
+
+2024-01-05 14:44:07,301 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:07,302 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02353799995034933
+2024-01-05 14:44:07,330 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:07,379 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:115.74 E:0.00 B:15 12 Count X:18080 Y:20160 Z:50537
+
+2024-01-05 14:44:07,379 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:07,380 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021722699981182814
+2024-01-05 14:44:07,444 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:115.74 E:0.00 B:15 13 Count X:18080 Y:20160 Z:49716
+
+2024-01-05 14:44:07,445 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:07,445 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.023846900090575218
+2024-01-05 14:44:07,474 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:07,524 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:112.15 E:0.00 B:0 13 Count X:18080 Y:20160 Z:48590
+
+2024-01-05 14:44:07,525 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:07,525 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.023071100004017353
+2024-01-05 14:44:07,587 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:112.15 E:0.00 B:0 13 Count X:18080 Y:20160 Z:47814
+
+2024-01-05 14:44:07,588 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:07,588 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02251999988220632
+2024-01-05 14:44:07,652 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:112.15 E:0.00 B:0 13 Count X:18080 Y:20160 Z:47187
+
+2024-01-05 14:44:07,653 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:07,653 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02375439996831119
+2024-01-05 14:44:07,717 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:112.15 E:0.00 B:0 14 Count X:18080 Y:20160 Z:46631
+
+2024-01-05 14:44:07,717 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:07,718 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.023126300191506743
+2024-01-05 14:44:07,730 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:07,779 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:105.80 E:0.00 B:1 15 Count X:18080 Y:20160 Z:45940
+
+2024-01-05 14:44:07,779 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:07,780 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.020538700046017766
+2024-01-05 14:44:07,794 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:07,851 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:104.37 E:0.00 B:2 15 Count X:18080 Y:20160 Z:45068
+
+2024-01-05 14:44:07,852 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:07,852 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02797829988412559
+2024-01-05 14:44:07,928 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:104.37 E:0.00 B:2 0 Count X:18080 Y:20160 Z:43962
+
+2024-01-05 14:44:07,928 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:07,928 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.041972799925133586
+2024-01-05 14:44:07,960 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:08,041 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:101.68 E:0.00 B:3 0 Count X:18080 Y:20160 Z:42686
+
+2024-01-05 14:44:08,041 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:08,042 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.04333209991455078
+2024-01-05 14:44:08,101 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:101.68 E:0.00 B:3 1 Count X:18080 Y:20160 Z:42261
+
+2024-01-05 14:44:08,102 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:08,102 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.025131000205874443
+2024-01-05 14:44:08,116 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:08,181 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:99.19 E:0.00 B:4 2 Count X:18080 Y:20160 Z:41571
+
+2024-01-05 14:44:08,181 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:08,181 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02358600008301437
+2024-01-05 14:44:08,196 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:08,245 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:98.03 E:0.00 B:5 2 Count X:18080 Y:20160 Z:40874
+
+2024-01-05 14:44:08,245 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:08,246 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02247150009498
+2024-01-05 14:44:08,309 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:98.03 E:0.00 B:5 3 Count X:18080 Y:20160 Z:40276
+
+2024-01-05 14:44:08,310 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:08,311 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.024593699956312776
+2024-01-05 14:44:08,340 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:08,389 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:95.83 E:0.00 B:6 4 Count X:18080 Y:20160 Z:39673
+
+2024-01-05 14:44:08,389 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:08,390 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.023210000013932586
+2024-01-05 14:44:08,403 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:08,452 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:94.79 E:0.00 B:7 5 Count X:18080 Y:20160 Z:39192
+
+2024-01-05 14:44:08,453 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:08,453 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.022700800094753504
+2024-01-05 14:44:08,484 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:08,533 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:93.80 E:0.00 B:8 5 Count X:18080 Y:20160 Z:38529
+
+2024-01-05 14:44:08,533 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:08,533 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.022287300089374185
+2024-01-05 14:44:08,596 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:93.80 E:0.00 B:8 6 Count X:18080 Y:20160 Z:38129
+
+2024-01-05 14:44:08,596 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:08,597 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02326719998382032
+2024-01-05 14:44:08,612 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:08,660 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:91.94 E:0.00 B:9 7 Count X:18080 Y:20160 Z:37729
+
+2024-01-05 14:44:08,661 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:08,661 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.023426800034940243
+2024-01-05 14:44:08,676 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:08,725 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:91.06 E:0.00 B:10 8 Count X:18080 Y:20160 Z:37266
+
+2024-01-05 14:44:08,725 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:08,725 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.023039499996230006
+2024-01-05 14:44:08,740 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:08,787 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:90.22 E:0.00 B:11 8 Count X:18080 Y:20160 Z:36946
+
+2024-01-05 14:44:08,788 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:08,788 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.022645800141617656
+2024-01-05 14:44:08,852 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:90.22 E:0.00 B:11 8 Count X:18080 Y:20160 Z:36791
+
+2024-01-05 14:44:08,852 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:08,852 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.022906499914824963
+2024-01-05 14:44:08,916 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:90.22 E:0.00 B:11 9 Count X:18080 Y:20160 Z:36487
+
+2024-01-05 14:44:08,916 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:08,917 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02211770019493997
+2024-01-05 14:44:08,932 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:08,980 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:87.89 E:0.00 B:12 10 Count X:18080 Y:20160 Z:36203
+
+2024-01-05 14:44:08,980 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:08,980 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02112289983779192
+2024-01-05 14:44:08,995 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:09,055 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:87.17 E:0.00 B:13 11 Count X:18080 Y:20160 Z:36084
+
+2024-01-05 14:44:09,056 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:09,057 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.03377330000512302
+2024-01-05 14:44:09,085 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:09,143 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:86.48 E:0.00 B:14 11 Count X:18080 Y:20160 Z:35875
+
+2024-01-05 14:44:09,144 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:09,144 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.025487600127235055
+2024-01-05 14:44:09,205 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:86.48 E:0.00 B:14 11 Count X:18080 Y:20160 Z:35531
+
+2024-01-05 14:44:09,205 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:09,206 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.024869499960914254
+2024-01-05 14:44:09,268 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:86.48 E:0.00 B:14 12 Count X:18080 Y:20160 Z:35143
+
+2024-01-05 14:44:09,269 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:09,269 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.022629800019785762
+2024-01-05 14:44:09,284 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:09,333 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:84.58 E:0.00 B:15 13 Count X:18080 Y:20160 Z:34808
+
+2024-01-05 14:44:09,334 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:09,334 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.023927300004288554
+2024-01-05 14:44:09,348 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:09,397 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:84.00 E:0.00 B:0 14 Count X:18080 Y:20160 Z:34383
+
+2024-01-05 14:44:09,397 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:09,398 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.0223814002238214
+2024-01-05 14:44:09,428 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:09,477 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:83.44 E:0.00 B:1 14 Count X:18080 Y:20160 Z:33890
+
+2024-01-05 14:44:09,477 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:09,478 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.024770900141447783
+2024-01-05 14:44:09,541 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:83.44 E:0.00 B:1 0 Count X:18080 Y:20160 Z:33588
+
+2024-01-05 14:44:09,541 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:09,541 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.022838199976831675
+2024-01-05 14:44:09,556 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:09,604 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:82.39 E:0.00 B:2 0 Count X:18080 Y:20160 Z:33405
+
+2024-01-05 14:44:09,604 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:09,604 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02244480000808835
+2024-01-05 14:44:09,619 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:09,667 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:81.89 E:0.00 B:3 1 Count X:18080 Y:20160 Z:33336
+
+2024-01-05 14:44:09,668 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:09,668 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02251259982585907
+2024-01-05 14:44:09,683 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:09,732 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:81.42 E:0.00 B:4 1 Count X:18080 Y:20160 Z:33128
+
+2024-01-05 14:44:09,733 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:09,733 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02147440006956458
+2024-01-05 14:44:09,798 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:81.42 E:0.00 B:4 2 Count X:18080 Y:20160 Z:32837
+
+2024-01-05 14:44:09,798 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:09,799 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.022851699963212013
+2024-01-05 14:44:09,827 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:09,876 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:80.52 E:0.00 B:5 3 Count X:18080 Y:20160 Z:32593
+
+2024-01-05 14:44:09,876 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:09,877 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02161659998819232
+2024-01-05 14:44:09,891 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:09,942 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:80.10 E:0.00 B:6 4 Count X:18080 Y:20160 Z:32520
+
+2024-01-05 14:44:09,943 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:09,943 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.022893100045621395
+2024-01-05 14:44:09,971 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:10,020 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:79.70 E:0.00 B:7 4 Count X:18080 Y:20160 Z:32286
+
+2024-01-05 14:44:10,020 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:10,020 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02265800000168383
+2024-01-05 14:44:10,100 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:79.70 E:0.00 B:7 5 Count X:18080 Y:20160 Z:32181
+
+2024-01-05 14:44:10,101 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:10,101 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.038697100011631846
+2024-01-05 14:44:10,146 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:10,196 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:78.94 E:0.00 B:8 6 Count X:18080 Y:20160 Z:31921
+
+2024-01-05 14:44:10,197 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:10,197 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02353230002336204
+2024-01-05 14:44:10,211 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:10,259 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:78.58 E:0.00 B:9 7 Count X:18080 Y:20160 Z:31853
+
+2024-01-05 14:44:10,259 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:10,260 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02205529995262623
+2024-01-05 14:44:10,275 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:10,323 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:78.24 E:0.00 B:10 7 Count X:18080 Y:20160 Z:31668
+
+2024-01-05 14:44:10,324 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:10,324 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02121359994634986
+2024-01-05 14:44:10,387 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:78.24 E:0.00 B:10 9 Count X:18080 Y:20160 Z:31431
+
+2024-01-05 14:44:10,388 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:10,388 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02238260000012815
+2024-01-05 14:44:10,403 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:10,450 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:77.59 E:0.00 B:11 9 Count X:18080 Y:20160 Z:31300
+
+2024-01-05 14:44:10,451 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:10,451 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021525199990719557
+2024-01-05 14:44:10,466 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:10,515 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:77.29 E:0.00 B:12 10 Count X:18080 Y:20160 Z:31207
+
+2024-01-05 14:44:10,515 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:10,515 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02157659991644323
+2024-01-05 14:44:10,530 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:10,580 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:76.99 E:0.00 B:13 10 Count X:18080 Y:20160 Z:31052
+
+2024-01-05 14:44:10,581 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:10,581 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.022802800172939897
+2024-01-05 14:44:10,643 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:76.99 E:0.00 B:13 11 Count X:18080 Y:20160 Z:30978
+
+2024-01-05 14:44:10,643 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:10,643 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021785599878057837
+2024-01-05 14:44:10,658 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:10,708 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:76.45 E:0.00 B:14 12 Count X:18080 Y:20160 Z:30822
+
+2024-01-05 14:44:10,709 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:10,709 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02319169999100268
+2024-01-05 14:44:10,723 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:10,772 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:76.19 E:0.00 B:15 13 Count X:18080 Y:20160 Z:30752
+
+2024-01-05 14:44:10,773 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:10,774 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.024159499909728765
+2024-01-05 14:44:10,802 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:10,850 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:75.94 E:0.00 B:0 13 Count X:18080 Y:20160 Z:30586
+
+2024-01-05 14:44:10,851 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:10,851 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021564799826592207
+2024-01-05 14:44:10,915 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:75.94 E:0.00 B:0 14 Count X:18080 Y:20160 Z:30491
+
+2024-01-05 14:44:10,915 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:10,916 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02019320009276271
+2024-01-05 14:44:10,930 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:10,979 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:75.48 E:0.00 B:1 0 Count X:18080 Y:20160 Z:30376
+
+2024-01-05 14:44:10,979 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:10,979 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02011279994621873
+2024-01-05 14:44:10,994 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:11,048 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:75.26 E:0.00 B:2 0 Count X:18080 Y:20160 Z:30270
+
+2024-01-05 14:44:11,049 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:11,049 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.024704599985852838
+2024-01-05 14:44:11,063 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:11,125 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:75.05 E:0.00 B:3 1 Count X:18080 Y:20160 Z:30169
+
+2024-01-05 14:44:11,126 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:11,126 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.024630999891087413
+2024-01-05 14:44:11,140 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:11,203 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:74.84 E:0.00 B:4 3 Count X:18080 Y:20160 Z:29983
+
+2024-01-05 14:44:11,204 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:11,205 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.03833219991065562
+2024-01-05 14:44:11,232 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:11,281 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:74.65 E:0.00 B:5 4 Count X:18080 Y:20160 Z:29887
+
+2024-01-05 14:44:11,281 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:11,282 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.020241100108250976
+2024-01-05 14:44:11,296 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:11,345 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:74.46 E:0.00 B:6 5 Count X:18080 Y:20160 Z:29817
+
+2024-01-05 14:44:11,346 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:11,346 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.020274000009521842
+2024-01-05 14:44:11,360 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:11,410 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:74.29 E:0.00 B:7 6 Count X:18080 Y:20160 Z:29750
+
+2024-01-05 14:44:11,411 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:11,412 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02208060002885759
+2024-01-05 14:44:11,424 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:11,478 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:74.11 E:0.00 B:8 7 Count X:18080 Y:20160 Z:29680
+
+2024-01-05 14:44:11,478 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:11,478 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02456189994700253
+2024-01-05 14:44:11,493 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:11,557 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:73.95 E:0.00 B:9 8 Count X:18080 Y:20160 Z:29591
+
+2024-01-05 14:44:11,558 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:11,558 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.024488599970936775
+2024-01-05 14:44:11,572 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:11,620 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:73.79 E:0.00 B:10 9 Count X:18080 Y:20160 Z:29540
+
+2024-01-05 14:44:11,620 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:11,621 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.022243699990212917
+2024-01-05 14:44:11,636 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:11,685 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:73.64 E:0.00 B:11 10 Count X:18080 Y:20160 Z:29478
+
+2024-01-05 14:44:11,685 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:11,686 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.024199600098654628
+2024-01-05 14:44:11,700 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:11,748 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:73.49 E:0.00 B:12 11 Count X:18080 Y:20160 Z:29419
+
+2024-01-05 14:44:11,748 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:11,748 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02280459995381534
+2024-01-05 14:44:11,763 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:11,812 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:73.35 E:0.00 B:13 12 Count X:18080 Y:20160 Z:29355
+
+2024-01-05 14:44:11,812 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:11,812 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.022759499959647655
+2024-01-05 14:44:11,828 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:11,876 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:73.22 E:0.00 B:14 13 Count X:18080 Y:20160 Z:29302
+
+2024-01-05 14:44:11,876 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:11,877 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02320950012654066
+2024-01-05 14:44:11,892 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:11,940 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:73.09 E:0.00 B:15 14 Count X:18080 Y:20160 Z:29250
+
+2024-01-05 14:44:11,941 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:11,942 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02437240001745522
+2024-01-05 14:44:11,958 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:12,020 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:72.97 E:0.00 B:0 15 Count X:18080 Y:20160 Z:29189
+
+2024-01-05 14:44:12,020 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:12,021 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02355320006608963
+2024-01-05 14:44:12,035 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:12,083 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:72.85 E:0.00 B:1 0 Count X:18080 Y:20160 Z:29155
+
+2024-01-05 14:44:12,084 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:12,084 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02270109998062253
+2024-01-05 14:44:12,099 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:12,148 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:72.74 E:0.00 B:2 1 Count X:18080 Y:20160 Z:29102
+
+2024-01-05 14:44:12,148 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:12,149 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.022320100106298923
+2024-01-05 14:44:12,163 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:12,212 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:72.63 E:0.00 B:3 2 Count X:18080 Y:20160 Z:29058
+
+2024-01-05 14:44:12,212 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:12,213 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02212779992260039
+2024-01-05 14:44:12,227 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:12,287 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:72.52 E:0.00 B:4 3 Count X:18080 Y:20160 Z:29011
+
+2024-01-05 14:44:12,287 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:12,288 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.030555599834769964
+2024-01-05 14:44:12,301 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:29,676 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:72.42 E:0.00 B:5 5 Count X:18080 Y:20160 Z:28968
+
+2024-01-05 14:44:29,676 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:29,676 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.024497499922290444
+2024-01-05 14:44:29,690 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:45,254 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:72.32 E:0.00 B:6 6 Count X:18080 Y:20160 Z:28928
+
+2024-01-05 14:44:45,255 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:45,255 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.020924600074067712
+2024-01-05 14:44:45,270 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:46,580 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:72.23 E:0.00 B:7 7 Count X:18080 Y:20160 Z:28892
+
+2024-01-05 14:44:46,580 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:46,580 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02391139999963343
+2024-01-05 14:44:46,594 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:47,505 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:72.14 E:0.00 B:8 8 Count X:18080 Y:20160 Z:28856
+
+2024-01-05 14:44:47,505 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:47,506 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.022700700210407376
+2024-01-05 14:44:47,521 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:48,385 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:72.06 E:0.00 B:9 9 Count X:18080 Y:20160 Z:28824
+
+2024-01-05 14:44:48,385 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:48,386 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02144320006482303
+2024-01-05 14:44:48,400 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:49,205 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:71.97 E:0.00 B:10 10 Count X:18080 Y:20160 Z:28788
+
+2024-01-05 14:44:49,206 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:49,206 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.024343200027942657
+2024-01-05 14:44:49,219 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:49,762 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:71.89 E:0.00 B:11 11 Count X:18080 Y:20160 Z:28756
+
+2024-01-05 14:44:49,763 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:49,763 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.024435500148683786
+2024-01-05 14:44:49,777 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:52,421 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:71.82 E:0.00 B:12 12 Count X:18080 Y:20160 Z:28728
+
+2024-01-05 14:44:52,421 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:52,421 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.02470869990065694
+2024-01-05 14:44:52,435 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:53,138 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:71.75 E:0.00 B:13 13 Count X:18080 Y:20160 Z:28700
+
+2024-01-05 14:44:53,139 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:53,139 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.024162600049749017
+2024-01-05 14:44:53,153 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:53,856 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: X:226.00 Y:252.00 Z:71.68 E:0.00 B:14 14 Count X:18080 Y:20160 Z:28672
+
+2024-01-05 14:44:53,857 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+
+2024-01-05 14:44:53,857 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - M114 Time 0.021692000096663833
+2024-01-05 14:44:53,872 - GUI.EmbeddedSystems.Gantry.GantryController - DEBUG - Wait for ok: ok
+

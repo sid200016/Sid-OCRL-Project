@@ -121,7 +121,7 @@ ObjectVal = {"1": itemTrack(1, itemStatus.notstarted, itemClass.notspecified),
              "9": itemTrack(1, itemStatus.notstarted, itemClass.notspecified)
              }
 
-localHostName = 'http://localhost:8000'
+localHostName = 'http://localhost:8080'
 
 updatedSoftGrasper = False
 
@@ -255,26 +255,6 @@ def handle_TestInfo(user_data, trial_data):
 async def HardwareInitialize():
     global SG, GC, jcSG, loggerR, useSG, useGC, usejcSG, SNSc, z_offset
 
-    if useSG == True:
-        loggerR.info('Initializing Soft Grasper...')
-        SG = SoftGrasper(COM_Port='COM7', BaudRate=460800, timeout=1, controllerProfile="New") #initialize soft grasper
-        loggerR.info('Finished initializing Soft Grasper')
-
-    if useGC == True:
-        loggerR.info('Initializing Gantry...')
-        GC = GantryController(comport = "COM4")#, homeSystem = False,initPos=[0,0,0]  #initialize gantry controller
-        loggerR.info('Finished initializing Gantry!')
-
-    if usejcSG == True:
-        loggerR.info('Initializing Joystick...')
-        jcSG = JC.Joy_SoftGrasper(SGa=SG, GantryS=GC) #initialize joystick control of soft grasper and gantry controller
-        loggerR.info('Finished initializing Joystick!')
-
-
-    if useSNS == True:
-        loggerR.info('Initializing SNS controller')
-        SNSc = SNScontroller()
-        loggerR.info('Finished initializing the SNS.')
 
     await sio.emit('Initialize-Start','Finished')
     loggerR.info('Finished Initialization')
@@ -288,148 +268,18 @@ async def program_loop():
     try:
         while(True):
 
-            if usejcSG == True:
-                [buttonVal, AxesPos] = jcSG.eventLoop()  # run event loop to determine what values and axes to execute
-                jcSG.ExecuteButtonFunctions(buttonVal,
-                                            AxesPos)  # execute Button functions defined by the button values and axes positions
-
-                if jcSG.SNS_control == False or useSNS == False:
-                    posInc,feedrate_mmps = jcSG.calcPositionIncrement(AxesPos[0], AxesPos[1])  # get the joystick position for x, y and z, corrected for the flip on the x axis
-                    GC.calculateIncrementalMove(*posInc) #will set the GC.goalPos with the appropriate increments
-
-                #loggerR.info("Current Z: %f"%(GC.PositionArray["z"][-1]))
-                # SNS Control
-                if useSNS == True and jcSG.SNS_control == False:
-                    SNSc = SNScontroller()
-                    #logger.info('Reset controller')
 
 
-                elif jcSG.SNS_control == True and useSNS == True: # if the user presses the SR button and you want to have the option to switch to SNS, then use SNS to calculate the next commands
+            if SNS_BypassForceFeedback == True:
 
-                    loggerR.info('Inside SNS control')
-
-
-
-                    curPos = GC.getPosition()  # get current position, in meters relative to offset
-
-
-                    if SNSc.first_attempt == True:
-                        z_offset = curPos.z
-                        # will adjust height relative to object position
-
-                        loggerR.info("Z offset %f"%z_offset)
-                        object_position_list = [0, 0, SNS_object_pos_m[2] - z_offset]  # [0, 0, -0.185] #calculate move relative to the object position.
-                        # [-0.15, -0.15, -0.190]
-
-                        target_position_list = [SNS_target_pos_m[0] - SNS_object_pos_m[0],
-                                                SNS_target_pos_m[1] - SNS_object_pos_m[1],
-                                                SNS_target_pos_m[2] - z_offset]
-
-
-
-                        SNSc.first_attempt = False
-                        await sio.emit("SNS-start", "SNS has started!")
-
-
-                    curPos_orig = curPos
-                    curPos = Point(-SNS_object_pos_m[0]+curPos.x, -SNS_object_pos_m[1]+curPos.y,
-                                   -z_offset + curPos.z) #get where the current position is relative to where the object is
-
-
-
-                    grasperPosition = Point(curPos.x, curPos.y, curPos.z)  # convert to meters
-                    loggerR.info('Target position in m: %f %f %f' % (*target_position_list,))
-                    loggerR.info('GrasperPos in m:%f %f %f' % (*grasperPosition,))
-                    loggerR.info('ObjectPos in m:%f %f %f' % (*object_position_list,))
-
-                    grasperThreshold = [0.05, 0.05, 0.05]
-                    grasperContact = [(x - pressureThreshold[i]) * 30 if x >= grasperThreshold[i] else 0 for (i, x) in
-                                      enumerate(SG.changeInPressure)]
-
-                    grasperContact = GrasperContactForce(*grasperContact)
-
-                    if SNS_BypassForceFeedback == True:
-
-                        grasperContact = GrasperContactForce(*[0,0,0]) if SG.commandedPosition["ClosureChangeInRadius_mm"] <maxJawChangeInRadius_mm else GrasperContactForce(*[20,20,20]) #set contact threshold based on the position
-
-
-                    commandPosition_m, JawRadialPos_m = SNSc.SNS_forward(grasperPos_m=grasperPosition,
-                                                                         grasperContact=grasperContact,
-                                                                         objectPos_m=Point(*object_position_list),
-                                                                         targetPos_m=Point(*target_position_list),useRealGantry=True)
-
-                    loggerR.info('Jaw radial pos in m:%f'%(JawRadialPos_m))
-                    loggerR.info('Command Position: %f %f %f'%(*list(commandPosition_m),))
-                    # command position is absolute move in m relative to the offset.
-                    commandPosition_m = Point(SNS_object_pos_m[0] + commandPosition_m.x,
-                                              SNS_object_pos_m[1] + commandPosition_m.y,
-                                              z_offset+commandPosition_m.z)#calculate the move relative to the object position
-
-                    GC.goalPos = [x * 1000 for x in list(commandPosition_m)]
-
-                    loggerR.info('SNS commanded goal position (mm):%f,%f,%f'%(*GC.goalPos,))
-                    loggerR.debug('SNS commanded change in radius (mm):%f' % (JawRadialPos_m*1000))
-                    loggerR.debug(','.join([k + ":" + str(v) for k, v in SNSc.neuronset.items()]))
-
-                    if (abs(curPos_orig.z-SNS_target_pos_m[2])>0.03 and
-                            (SNSc.neuronset["move_to_grasp"]>=20 or SNSc.neuronset["move_to_pre_grasp"]>=20)): #don't inflate when far from the object in z
-                        JawRadialPos_m = 0
-
-                    SG.commandedPosition["ClosureChangeInRadius_mm"] = min(JawRadialPos_m * 1000,maxJawChangeInRadius_mm) #limit the radial position change to prevent overinflation
-
-                    if SNSc.lift_after_release_done == True:
-                        SNSc = SNScontroller() #reinitialize the SNS controller
-                        jcSG.SNS_control = False #reset to false to give control back to the user
-                        loggerR.info('Reset the SNS controller after lift after release complete')
-
-                    loggerR.info('Number of grasp attempts %i' % SNSc.num_grasp_attempts)
-                    if SNSc.num_grasp_attempts >=1 or SNSc.lift_after_grasp_done == True:
-
-                        if (SNSc.num_grasp_attempts>=1
-                                and
-                                (SNSc.neuronset["move_to_grasp"]>=20 or SNSc.neuronset["move_to_pre_grasp"]>=20)): #if about to attempt a regrasp
-                            GC.goalPos = [curPos_orig.x*1000, curPos_orig.y*1000, curPos_orig.z*1000+70] #move object up
-                            loggerR.info('Failed grasp, exceeded number of attempts')
-                            SNSc.lift_after_grasp_done = True #set to true to trigger the next statement
-                            SG.commandedPosition["ClosureChangeInRadius_mm"] = 0
-
-
-                        if SNSc.num_grasp_attempts>=1 and SNSc.lift_after_grasp_done == True:
-                            jcSG.SNS_control = False  # reset to false to give control back to the user
-
-                            SNSc = SNScontroller()
-                            loggerR.info('Reset the SNS controller after lift after grasp complete')
-
-
-
-                GC.goalPos=Point(GC.goalPos[0],GC.goalPos[1],max(GC.goalPos[2],max_z_height*1000))
-
-                GC.setXYZ_Position(*GC.goalPos,feedrate_mmps*60)  # absolute move of the gantry
-
-            if useSG == True:
-                SG.MoveGrasper()  # jcRG.executeButtonFunctions should update SGa with the the pressures, this command sends the appropriate commands to the grasper over serial
-
-
-                if updatedSoftGrasper == True:
-                    loggerR.debug("UPDATED Soft Grasper has happened")
-                    updatedSoftGrasper = False
-
-                # Rumble feedback based on pressure change
-                rumbleValue = calculateRumble(pressureThreshold,pressureScaling)
-
-            if usejcSG == True:
-                jcSG.rumbleFeedback(rumbleValue, rumbleValue, 1000)
-
-                await sio.emit('set-contact-force-soft_hardware', rumbleValue*100)
-                await sio.emit('set-gantry-marker_hardware', {'x': GC.PositionArray['x'][-1],'y': GC.PositionArray['y'][-1]})
-
+                grasperContact = GrasperContactForce(*[0,0,0]) if 12 <maxJawChangeInRadius_mm else GrasperContactForce(*[20,20,20]) #set contact threshold based on the position
 
 
 
 
             await asyncio.sleep(0.001) #allow other tasks to run
             loggerR.debug('ProgramLoop')
-            datalogFcn()
+            await datalogFcn()
 
 
     except KeyboardInterrupt:
@@ -466,44 +316,21 @@ def calculateRumble(pressureThreshold = [0.2,0.2,0.2],pressureScaling=1):
 async def datalogFcn():
     global SG, GC, jcSG,  datalogger, buttonVal, AxesPos, useSG, useGC, usejcSG
 
-    # should be x, y and z position of gantry, pressure in closure muscle, pressure in jaw 1, pressure in jaw 2, pressure in jaw3, button 1 status....button 11 status, axes 0 joystick, axes 1 joystick,  object 1 status .... object 9 status
-    ds = ''
 
-    if useGC == True:
-        GCvals = [x[-1] if len(x)>0 else 1000 for k,x in GC.PositionArray.items()]
-        ds="%f , %f , %f,"%(*GCvals[1:4],)
-
-    if useSG == True:
-        SGPressurevals = [SG.PressureArray[i][-1] if len(SG.PressureArray[i])>0 else 1000 for i in range(0,SG.numPorts)  ]
-        ds = ds + "%f , %f , %f , %f,"%(SGPressurevals[SG.closureMuscle_idx],
-                                       SGPressurevals[SG.JawPos[0]],
-                                       SGPressurevals[SG.JawPos[1]],
-                                       SGPressurevals[SG.JawPos[2]])
-
-    if usejcSG == True:
-        ds = ds +"%i , %i , %i , %i , %i , %i , %i , %i , %i , %i , %i ,  %f , %f," % (*list(buttonVal.values()),*AxesPos)
-
-
-    ds = ds + "%s , %s , %s , %s , %s , %s , %s , %s , %s"% ( *[x.status.name for k,x in ObjectVal.items()], )
-
-
-
-    datalogger.info(ds)
 
     # Send information to other script on current position of gantry and state of grasper
-    grasper_width = SG.commandedPosition["ClosureChangeInRadius_mm"]
-    await sio.emit('Robot-Status', {'x_mm':GC.PositionArray["x"], 'y_mm':GC.PositionArray["y"], 'z_mm':GC.PositionArray["z"], 'grasper_width_mm':grasper_width , 'closure_pressure_psi': SGPressurevals[SG.closureMuscle_idx],
-                                'jaw1_psi': SGPressurevals[SG.JawPos[0]], 'jaw2_psi': SGPressurevals[SG.JawPos[1]], 'jaw3_psi': SGPressurevals[SG.JawPos[2]]})
+    grasper_width = 6.77
+    await sio.emit('Robot-Status', {'x_mm':13.3, 'y_mm':14.7, 'z_mm':18.9, 'grasper_width_mm':grasper_width , 'closure_pressure_psi': 8.33,
+                                'jaw1_psi': 0.26, 'jaw2_psi': 0.27, 'jaw3_psi': 0.28})
 
 
 
 
 
 async def start_Program():
-
-    await HardwareInitialize()
     loggerR.info('Triggering connection to ' + str(localHostName))
     await sio.connect(localHostName)
+    await HardwareInitialize()
     await program_loop()
     await sio.wait()
 

@@ -1,0 +1,17 @@
+2024-01-10 16:36:23,881 - __main__ - INFO - Triggering connection to http://localhost:8080
+2024-01-10 16:36:23,889 - __main__ - DEBUG - connected to socket
+2024-01-10 16:36:23,889 - __main__ - DEBUG - Sending Start
+2024-01-10 16:36:23,889 - __main__ - INFO - Initializing Soft Grasper...
+2024-01-10 16:36:23,892 - __main__ - INFO - Finished initializing Soft Grasper
+2024-01-10 16:36:23,892 - __main__ - INFO - Initializing Gantry...
+2024-01-10 16:37:18,210 - __main__ - INFO - Finished initializing Gantry!
+2024-01-10 16:37:18,210 - __main__ - INFO - Initializing Joystick...
+2024-01-10 16:37:19,294 - __main__ - INFO - Finished initializing Joystick!
+2024-01-10 16:37:19,294 - __main__ - INFO - Initializing SNS controller
+2024-01-10 16:37:19,294 - __main__ - INFO - Finished initializing the SNS.
+2024-01-10 16:37:19,294 - __main__ - INFO - Finished Initialization
+2024-01-10 16:37:19,334 - __main__ - DEBUG - ProgramLoop
+2024-01-10 16:37:19,377 - __main__ - DEBUG - ProgramLoop
+2024-01-10 16:37:19,418 - __main__ - DEBUG - ProgramLoop
+2024-01-10 16:37:19,422 - __main__ - DEBUG - connected to socket
+2024-01-10 16:37:19,423 - __main__ - DEBUG - Sending Start

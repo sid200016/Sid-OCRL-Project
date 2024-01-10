@@ -121,7 +121,7 @@ ObjectVal = {"1": itemTrack(1, itemStatus.notstarted, itemClass.notspecified),
              "9": itemTrack(1, itemStatus.notstarted, itemClass.notspecified)
              }
 
-localHostName = 'http://localhost:8000'
+localHostName = 'http://localhost:8080'
 
 updatedSoftGrasper = False
 
@@ -153,6 +153,10 @@ async def connect():
     loggerR.debug('connected to socket')
     await send_Start()
 
+@sio.event
+def disconnect():
+    global loggerR
+    loggerR.info('disconnected from server')
 @sio.on('gantry position commands')
 async def gantryPosition(data):
 
@@ -262,7 +266,7 @@ async def HardwareInitialize():
 
     if useGC == True:
         loggerR.info('Initializing Gantry...')
-        GC = GantryController(comport = "COM4")#, homeSystem = False,initPos=[0,0,0]  #initialize gantry controller
+        GC = GantryController(comport = "COM4")#, homeSystem = False,initPos=[0,0,0])  #initialize gantry controller
         loggerR.info('Finished initializing Gantry!')
 
     if usejcSG == True:
@@ -276,7 +280,6 @@ async def HardwareInitialize():
         SNSc = SNScontroller()
         loggerR.info('Finished initializing the SNS.')
 
-    await sio.emit('Initialize-Start','Finished')
     loggerR.info('Finished Initialization')
 
 @sio.on('program_loop')
@@ -429,7 +432,7 @@ async def program_loop():
 
             await asyncio.sleep(0.001) #allow other tasks to run
             loggerR.debug('ProgramLoop')
-            datalogFcn()
+            await datalogFcn()
 
 
     except KeyboardInterrupt:
@@ -492,20 +495,28 @@ async def datalogFcn():
 
     # Send information to other script on current position of gantry and state of grasper
     grasper_width = SG.commandedPosition["ClosureChangeInRadius_mm"]
-    await sio.emit('Robot-Status', {'x_mm':GC.PositionArray["x"], 'y_mm':GC.PositionArray["y"], 'z_mm':GC.PositionArray["z"], 'grasper_width_mm':grasper_width , 'closure_pressure_psi': SGPressurevals[SG.closureMuscle_idx],
-                                'jaw1_psi': SGPressurevals[SG.JawPos[0]], 'jaw2_psi': SGPressurevals[SG.JawPos[1]], 'jaw3_psi': SGPressurevals[SG.JawPos[2]]})
 
+    dataDict= {'x_mm':GC.PositionArray["x"][-1], 'y_mm':GC.PositionArray["y"][-1], 'z_mm':GC.PositionArray["z"][-1], 'grasper_width_mm':grasper_width , 'closure_pressure_psi': SGPressurevals[SG.closureMuscle_idx],
+                                'jaw1_psi': SGPressurevals[SG.JawPos[0]], 'jaw2_psi': SGPressurevals[SG.JawPos[1]], 'jaw3_psi': SGPressurevals[SG.JawPos[2]]}
 
-
-
+    await sio.emit('Robot-Status', dataDict)
+    # grasper_width = 13
+    # await sio.emit('Robot-Status', {'x_mm': 13.3, 'y_mm': 14.7, 'z_mm': 18.9, 'grasper_width_mm': grasper_width,
+    #                                 'closure_pressure_psi': 8.33,
+    #                                 'jaw1_psi': 0.26, 'jaw2_psi': 0.27, 'jaw3_psi': 0.28})
+    #
 
 async def start_Program():
-
     await HardwareInitialize()
+
     loggerR.info('Triggering connection to ' + str(localHostName))
     await sio.connect(localHostName)
+    await sio.emit('Initialize-Start', 'Finished') #emit this to signal that hardware has been initialized
+
     await program_loop()
+
     await sio.wait()
+
 
 
 

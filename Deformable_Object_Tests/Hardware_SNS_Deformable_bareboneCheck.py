@@ -153,6 +153,10 @@ async def connect():
     loggerR.debug('connected to socket')
     await send_Start()
 
+@sio.event
+def disconnect():
+    global loggerR
+    loggerR.info('disconnected from server')
 @sio.on('gantry position commands')
 async def gantryPosition(data):
 
@@ -255,7 +259,7 @@ def handle_TestInfo(user_data, trial_data):
 async def HardwareInitialize():
     global SG, GC, jcSG, loggerR, useSG, useGC, usejcSG, SNSc, z_offset
 
-
+    time.sleep(120)
     await sio.emit('Initialize-Start','Finished')
     loggerR.info('Finished Initialization')
 
@@ -330,6 +334,7 @@ async def datalogFcn():
 async def start_Program():
     loggerR.info('Triggering connection to ' + str(localHostName))
     await sio.connect(localHostName)
+
     await HardwareInitialize()
     await program_loop()
     await sio.wait()

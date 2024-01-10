@@ -33,7 +33,7 @@ def handle_hardware_initialize(v,data):
 @sio.on('Robot-Status')
 def handle_RobotStatus(v,data):
     global robotCalibration_Vals, statusDict
-    if statusDict["Started Calibration"] == True:
+    if statusDict["Started Calibration"] == True & statusDict["Finished Calibration"] == False:
         print(data) #print the data to the screen
 
     if statusDict["Finished Calibration"] == True:
@@ -192,6 +192,7 @@ async def run_Program():
     await site.start()
 
     await asyncio.sleep(1)
+    print("Server started ...")
     runp = asyncio.create_task(HandleProgram())
     await runp
 

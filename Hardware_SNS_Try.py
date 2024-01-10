@@ -1,20 +1,4 @@
-import asyncio
-import socketio
 
-import time
-from enum import Enum
-
-from GUI.EmbeddedSystems.SoftGrasper.SoftGrasper import PortActions
-from GUI.EmbeddedSystems.SoftGrasper.SoftGrasper import SoftGrasper
-from GUI.EmbeddedSystems.Gantry.GantryController import Gantry as GantryController
-import GUI.EmbeddedSystems.JoyCon.JoyCon as JC
-from GUI.EmbeddedSystems.SNS.SNScontroller import SNScontroller
-from GUI.EmbeddedSystems.Support.Structures import GrasperContactForce,Point
-
-import logging
-from datetime import datetime
-import sys
-from pathlib import Path
 
 ##### Set up logging ####
 l_date = datetime.now().strftime("_%d_%m_%Y_%H_%M_%S")

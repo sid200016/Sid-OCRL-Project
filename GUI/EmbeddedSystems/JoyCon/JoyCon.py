@@ -210,6 +210,10 @@ class Joy_Gantry(JoyCon):
         self.JoystickPos = [0,0,0] # joystick reading for x, y and z axes
         self.GantryIncrement_mm = [] #for x, y and z axes, respectively, in mm
 
+        self.buttonMapping[("+", "Home")] = Button(
+            (self.buttonMapping["+"].buttonNumber, self.buttonMapping["Home"].buttonNumber),
+            ("+", "Home"),
+            ("+", "Home"), 2, self.buttonHomePlus)  # situation where two buttons are pressed at once to open the grasper
 
 
 
@@ -255,9 +259,13 @@ class Joy_Gantry(JoyCon):
         self.JoystickPos[2] = -1 #lower the gantry in z
 
 
+    def buttonHomePlus(self):
+
+        self.Gantry.HomeGantry(initPos=self.Gantry.initPos)  # home the gantry
 
     def buttonHome(self):
-        self.Gantry.HomeGantry(initPos = self.Gantry.initPos) #home the gantry
+        self.Gantry.setXYZ_Position(0,0,0)
+
 
     def calcPositionIncrement(self,joy_horiz_axis,joy_vert_axis):
         self.JoystickPos[0:2] = [-joy_horiz_axis,joy_vert_axis]  # modify x and y positions for the joystick pos.  the z-axis should be modified from buttonR and buttonZR calls.  X axis on the joystick is inverted from +ve motion on the joystick so multiply by -1

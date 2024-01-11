@@ -226,7 +226,6 @@ def handle_specified_object_location(data):
     loggerR.info('Deformable Test: Received new maximum change in Radius (in mm): %f' % data)
 
 
-
 @sio.on('TestInfo')
 def handle_TestInfo(user_data, trial_data):
 
@@ -386,7 +385,7 @@ async def program_loop():
                         loggerR.info('Reset the SNS controller after lift after release complete')
 
                     loggerR.info('Number of grasp attempts %i' % SNSc.num_grasp_attempts)
-                    if SNSc.num_grasp_attempts >=1 or SNSc.lift_after_grasp_done == True:
+                    if SNSc.num_grasp_attempts >=1 or SNSc.lift_after_release_done == True:
 
                         if (SNSc.num_grasp_attempts>=1
                                 and

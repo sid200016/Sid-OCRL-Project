@@ -7,9 +7,9 @@
     <list default="true" id="bfd83e2d-ab31-4129-8c0e-ce5b016d6614" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Deformable_Object_Tests/Hardware_SNS_Deformable.py" beforeDir="false" afterPath="$PROJECT_DIR$/Deformable_Object_Tests/Hardware_SNS_Deformable.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Deformable_Object_Tests/Hardware_SNS_Deformable_bareboneCheck.py" beforeDir="false" afterPath="$PROJECT_DIR$/Deformable_Object_Tests/Hardware_SNS_Deformable_bareboneCheck.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Deformable_Object_Tests/SNS_Deformable_Test.py" beforeDir="false" afterPath="$PROJECT_DIR$/Deformable_Object_Tests/SNS_Deformable_Test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hardware_SNS_Try.py" beforeDir="false" afterPath="$PROJECT_DIR$/Hardware_SNS_Try.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/JoyCon/JoyCon.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/JoyCon/JoyCon.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Hardware_10_01_2024_17_27_07.txt" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Hardware_10_01_2024_17_27_07.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -280,8 +280,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.Hardware_SNS_Deformable" />
-        <item itemvalue="Python.Hardware_SNS_Deformable_bareboneCheck" />
         <item itemvalue="Python.SNS_Deformable_Test" />
+        <item itemvalue="Python.Hardware_SNS_Deformable_bareboneCheck" />
         <item itemvalue="Python.checkSoftGrasper2_new" />
         <item itemvalue="Python.SNS_RigidGrasperCheck" />
       </list>
@@ -374,11 +374,6 @@
           <option name="timeStamp" value="149" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/GUI/EmbeddedSystems/SoftGrasper/SoftGrasper.py</url>
-          <line>318</line>
-          <option name="timeStamp" value="152" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/datalogs/Data Analysis/PlotData.py</url>
           <line>109</line>
           <option name="timeStamp" value="163" />
@@ -407,6 +402,11 @@
           <url>file://$PROJECT_DIR$/GUI/EmbeddedSystems/RigidGrasper/RigidGrasper.py</url>
           <line>330</line>
           <option name="timeStamp" value="240" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/GUI/EmbeddedSystems/JoyCon/JoyCon.py</url>
+          <line>266</line>
+          <option name="timeStamp" value="241" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

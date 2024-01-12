@@ -273,6 +273,3 @@ class Gantry:
         self.setXYZ_Position(*self.goalPos, moveSpeed_mmps*60) #send commands to move to the new position
 
 
-
-
-

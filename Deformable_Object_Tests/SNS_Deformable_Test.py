@@ -104,6 +104,7 @@ async def HandleProgram():
                                 statusDict["sendCalibrationXYZ"] = False
 
                         if statusDict["sendCalibrationXYZ"] == True:
+                            print("x,y,z used is (mm): %f, %f, %f" % (robotCalibration_Vals["x_mm"],robotCalibration_Vals["y_mm"],robotCalibration_Vals["z_mm"]))
                             await sio.emit("object-location",{"x_m":robotCalibration_Vals["x_mm"]/1000,"y_m":robotCalibration_Vals["y_mm"]/1000,"z_m":robotCalibration_Vals["z_mm"]/1000})
 
 
@@ -141,7 +142,7 @@ async def HandleProgram():
 
                         if statusDict["sendCalibrationGrasper"] == True:
                             await sio.emit("grasper-max",robotCalibration_Vals["grasper_width_mm"])
-                            print("Grasper width used in mm %f:" % robotCalibration_Vals["grasper_width_mm"])
+                            print("Grasper width used in mm: %f" % robotCalibration_Vals["grasper_width_mm"])
                             '''To be done:
                                 add emit for hardware initialize ("Initialize-Start") -> done
                                 add emit for robot status xyz,grasper pos, pressures ("Robot-Status") -> done
@@ -154,7 +155,10 @@ async def HandleProgram():
                             '''
 
                         # Prompt to press home button on Joystick to return to home position
-                        waitHome = await aioconsole.ainput('Press HOME button on the joystick to home the grasper. \n After homing is complete, press any button to continue \n')
+                        waitHome = await aioconsole.ainput('Press any button to return grasper to Home. \n')
+                        await sio.emit("Go-Home", "home")
+
+
                         startTest = await aioconsole.ainput('Press the SR button on the joystick to start the test. \n')
 
 
@@ -165,7 +169,7 @@ async def HandleProgram():
 
         await asyncio.sleep(0.001)
 
-        # After return home, prompt to hit "SR" on the joystick to start experiment.
+
 
 
 

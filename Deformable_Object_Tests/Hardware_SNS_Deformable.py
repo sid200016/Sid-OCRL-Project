@@ -251,6 +251,36 @@ def handle_TestInfo(user_data, trial_data):
         else:
             ObjectVal[str(k + 1)].itemClass = itemClass.notspecified
 
+@sio.on("Go-Home")
+async def handle_GoHome(string):
+    global GC, loggerR
+    loggerR.info("Deformable Test: Received Home command")
+
+    #move to goal
+    GC.setXYZ_Position(0,0,0)  # send commands to move to goal
+
+    MotionBool = False
+    while (True):
+
+        if MotionBool == True:
+            loggerR.info("Deformable Test: Finished Home.  x y z: %f %f %f"%tuple([x for x in curPos]))
+            break
+
+        # get the position
+        curPos = GC.getPosition()  # get current position, Point in m
+        curPos = Point(*[x * 1000 for x in curPos])  # convert to mm
+
+        MotionBool, distanceval = GC.CheckPositionToReference(curPos, Point(0, 0, 0), GC.GoalTolerance_mm)
+
+        await asyncio.sleep(0.001)
+
+
+
+
+    #if the position is not within the tolerance, then keep moving
+
+
+
 
 
 

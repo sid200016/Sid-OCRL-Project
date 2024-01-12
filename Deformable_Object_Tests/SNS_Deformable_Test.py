@@ -40,7 +40,7 @@ def handle_RobotStatus(v,data):
         robotCalibration_Vals = data #will be a dict of x,y,z, grasper position, pressure in closure muscle, pressure in jaw 1, pressure in jaw 2, pressure in jaw 3
 
 @sio.on('SNS-start')
-def handle_SNS_start(string):
+def handle_SNS_start(v,string):
     print(string)
 
 async def HandleProgram():

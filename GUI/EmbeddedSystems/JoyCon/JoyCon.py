@@ -123,7 +123,8 @@ class JoyCon:
         return(buttonValues,[horiz_move,vert_move]) #return the button press values and the analog stick values
 
 
-
+    def clear(self):
+        pygame.event.clear()
     def sortButtonMapping(self):
         self.buttonMapping = dict(sorted(self.buttonMapping.items(),key=lambda x:x[1].priority,reverse = True))
 

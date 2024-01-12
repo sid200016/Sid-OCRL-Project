@@ -253,17 +253,28 @@ def handle_TestInfo(user_data, trial_data):
 
 @sio.on("Go-Home")
 async def handle_GoHome(string):
-    global GC, loggerR
+    global GC, loggerR, jcSG, SNS_BypassForceFeedback
     loggerR.info("Deformable Test: Received Home command")
 
     #move to goal
+
+    await asyncio.sleep(2) #sleep to allow move buffer of gantry to clear before sending home command
+    jcSG.clear() #clear event loop
     GC.setXYZ_Position(0,0,0)  # send commands to move to goal
+    SNS_BypassForceFeedback = True
 
     MotionBool = False
     while (True):
 
         if MotionBool == True:
-            loggerR.info("Deformable Test: Finished Home.  x y z: %f %f %f"%tuple([x for x in curPos]))
+            GC.goalPos = Point(0,0,0) #set goal pos to 0 so that when the joystick takes control, it doesn't go back to goal pos that was set before entering this function
+            jcSG.clear()  # clear event loop now that you've reached home
+            await asyncio.sleep(10) #sleep for two seconds before passing control back to program loop and to allow time for the home motion to stabilize
+            curPos = GC.getPosition()  # get current position, Point in m
+            curPos = Point(*[x * 1000 for x in curPos])  # convert to mm
+            jcSG.clear() #clear event loop now that you've reached home
+            loggerR.info("Deformable Test: Finished Home.  x y z: %f %f %f" % tuple([x for x in curPos]))
+
             break
 
         # get the position
@@ -346,7 +357,8 @@ async def program_loop():
 
 
                     if SNSc.first_attempt == True:
-                        z_offset = curPos.z
+                        #z_offset = curPos.z
+                        z_offset = 0
                         # will adjust height relative to object position
 
                         loggerR.info("Z offset %f"%z_offset)
@@ -380,16 +392,17 @@ async def program_loop():
 
                     grasperContact = GrasperContactForce(*grasperContact)
 
-                    if SNS_BypassForceFeedback == True:
-
+                    if SNS_BypassForceFeedback == True and SNSc.neuronset['move_to_release']<20:
+                        #for grasping set to 20 psi. For releasing, use real pressure
                         grasperContact = GrasperContactForce(*[0,0,0]) if SG.commandedPosition["ClosureChangeInRadius_mm"] <maxJawChangeInRadius_mm else GrasperContactForce(*[20,20,20]) #set contact threshold based on the position
 
 
                     commandPosition_m, JawRadialPos_m = SNSc.SNS_forward(grasperPos_m=grasperPosition,
                                                                          grasperContact=grasperContact,
                                                                          objectPos_m=Point(*object_position_list),
-                                                                         targetPos_m=Point(*target_position_list),useRealGantry=True)
+                                                                         targetPos_m=Point(*target_position_list),useRealGantry=False)
 
+                    print(SNSc.neuronset)
                     loggerR.info('Jaw radial pos in m:%f'%(JawRadialPos_m))
                     loggerR.info('Command Position: %f %f %f'%(*list(commandPosition_m),))
                     # command position is absolute move in m relative to the offset.
@@ -417,16 +430,16 @@ async def program_loop():
                     loggerR.info('Number of grasp attempts %i' % SNSc.num_grasp_attempts)
                     if SNSc.num_grasp_attempts >=1 or SNSc.lift_after_release_done == True:
 
-                        if (SNSc.num_grasp_attempts>=1
-                                and
-                                (SNSc.neuronset["move_to_grasp"]>=20 or SNSc.neuronset["move_to_pre_grasp"]>=20)): #if about to attempt a regrasp
-                            GC.goalPos = [curPos_orig.x*1000, curPos_orig.y*1000, curPos_orig.z*1000+70] #move object up
-                            loggerR.info('Failed grasp, exceeded number of attempts')
-                            SNSc.lift_after_grasp_done = True #set to true to trigger the next statement
-                            SG.commandedPosition["ClosureChangeInRadius_mm"] = 0
+                        # if (SNSc.num_grasp_attempts>=1
+                        #         and
+                        #         (SNSc.neuronset["move_to_grasp"]>=20 or SNSc.neuronset["move_to_pre_grasp"]>=20)): #if about to attempt a regrasp
+                        #     GC.goalPos = [curPos_orig.x*1000, curPos_orig.y*1000, curPos_orig.z*1000+70] #move object up
+                        #     loggerR.info('Failed grasp, exceeded number of attempts')
+                        #     SNSc.lift_after_grasp_done = True #set to true to trigger the next statement
+                        #     SG.commandedPosition["ClosureChangeInRadius_mm"] = 0
+                        #
 
-
-                        if SNSc.num_grasp_attempts>=1 and SNSc.lift_after_grasp_done == True:
+                        if SNSc.num_grasp_attempts>=1 and SNSc.lift_after_release_done == True:
                             jcSG.SNS_control = False  # reset to false to give control back to the user
 
                             SNSc = SNScontroller()

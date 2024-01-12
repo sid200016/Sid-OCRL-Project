@@ -1,12 +1,12 @@
 import time
 import asyncio
 
-from EmbeddedSystems.SoftGrasper.SoftGrasper import PortActions
-from EmbeddedSystems.SoftGrasper.SoftGrasper import SoftGrasper
-from EmbeddedSystems.Gantry.GantryController import Gantry as GantryController
-import EmbeddedSystems.JoyCon.JoyCon as JC
-from EmbeddedSystems.SNS.SNScontroller import SNScontroller
-from EmbeddedSystems.Support.Structures import GrasperContactForce,Point
+from GUI.EmbeddedSystems.SoftGrasper.SoftGrasper import PortActions
+from GUI.EmbeddedSystems.SoftGrasper.SoftGrasper import SoftGrasper
+from GUI.EmbeddedSystems.Gantry.GantryController import Gantry as GantryController
+import GUI.EmbeddedSystems.JoyCon.JoyCon as JC
+from GUI.EmbeddedSystems.SNS.SNScontroller import SNScontroller
+from GUI.EmbeddedSystems.Support.Structures import GrasperContactForce,Point
 
 SG  = None #soft grasper
 GC = None #gantry controller
@@ -20,8 +20,8 @@ SNSc = None #SNS controller
 
 async def HardwareInitialize():
     global SG, GC, jcSG, SNSc
-    SG = SoftGrasper(COM_Port='COM5', BaudRate=460800, timeout=1, controllerProfile="New") #initialize soft grasper
-    GC = GantryController(comport = "COM4",homeSystem = False, initPos=[0,0,0])#, homeSystem = False,initPos=[0,0,0]  #initialize gantry controller
+    SG = SoftGrasper(COM_Port='COM7', BaudRate=460800, timeout=1, controllerProfile="New") #initialize soft grasper
+    GC = GantryController(comport = "COM4")#,homeSystem = False, initPos=[0,0,0])#, homeSystem = False,initPos=[0,0,0]  #initialize gantry controller
     jcSG = JC.Joy_SoftGrasper(SGa=SG, GantryS=GC) #initialize joystick control of soft grasper and gantry controller
     SNSc = SNScontroller()
 
@@ -43,7 +43,7 @@ async def program_loop():
                 target_position_list = [0,0,-0.190]
                 curPos = GC.getPosition() #get current position, in millimeters relative to offset
 
-                grasperPosition = Point(curPos.x/1000,curPos.y/1000,curPos.z/1000) #convert to meters
+                grasperPosition = Point(curPos.x,curPos.y,curPos.z) #convert to meters
 
                 grasperThreshold = [0.4, 0.4, 0.4]
                 grasperContact = [(x - pressureThreshold[i])*5 if x >= pressureThreshold[i] else 0 for (i, x) in

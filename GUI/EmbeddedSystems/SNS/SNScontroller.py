@@ -5,6 +5,7 @@ import time
 import torch
 
 from .controller.SNS_layer import perceptor, controller
+from .controller_modulation.SNS_layer import SNS_layer, SENSORY_LAYER_1_INPUT_SIZE, SENSORY_LAYER_1_SIZE, SENSORY_LAYER_2_INPUT_SIZE, SENSORY_LAYER_2_SIZE, THETA_MAX, THETA_MIN, F_MAX, F_MIN, sensory_layer_1, sensory_layer_2, R, perceptor as modulation_perceptor, modulation_controller
 
 from ..Support.Structures import Point,Velocity,Acceleration,GrasperContactForce
 import logging
@@ -14,7 +15,7 @@ import sys
 
 class SNScontroller:
 
-    def __init__(self,objectPos_m = Point(0,0,0), targetPos_m = Point(0,0,0)):
+    def __init__(self,objectPos_m = Point(0,0,0), targetPos_m = Point(0,0,0),ModulateSNS = False):
         self.neuronset = {
             "move_to_pre_grasp":0,
             "move_to_grasp":0,
@@ -42,6 +43,8 @@ class SNScontroller:
         self.z_offset = 0
 
         self.num_grasp_attempts = 0
+
+        self.ModulateSNS = ModulateSNS #use normal SNS without modulation of contact if False
 
 
     def setupLogger(self):
@@ -107,14 +110,24 @@ class SNScontroller:
         grasperPos_m = Point(grasperPos_m.x,grasperPos_m.y,grasperPos_m.z-self.z_offset)
         gripper_position = torch.Tensor(list(grasperPos_m)).unsqueeze(dim=0)
 
-        commands = perceptor.forward(
-            gripper_position, self.object_position, self.target_position, force)
+        if self.ModulateSNS == False:
+            commands = perceptor.forward(
+                gripper_position, self.object_position, self.target_position, force)
+
+        else:
+            commands = modulation_perceptor.forward( gripper_position,
+                                                     self.object_position, self.target_position, force)
 
         [move_to_pre_grasp, move_to_grasp, grasp, lift_after_grasp, move_to_pre_release,
          move_to_release, release, lift_after_release] = commands.squeeze(dim=0).numpy()
 
-        [x_d, y_d, z_d, JawRadialPos_m] = controller.forward(
-            self.object_position, self.target_position, commands).numpy()
+        if self.ModulateSNS == False:
+            [x_d, y_d, z_d, JawRadialPos_m] = controller.forward(
+                self.object_position, self.target_position, commands).numpy()
+
+        else:
+            [x_d, y_d, z_d, JawRadialPos_m] = modulation_controller.forward(
+                self.object_position, self.target_position, commands).numpy()
 
         cmd_grasperPos_m = Point(x_d, y_d,
                                  z_d + self.z_offset)  # note that this is in meters, and doesn't account for the offset that is considered 0,0,0 on the gantry.  Need to correct for that afterwards

@@ -387,12 +387,12 @@ async def program_loop():
                     loggerR.info('ObjectPos in m:%f %f %f' % (*object_position_list,))
 
                     grasperThreshold = [0.05, 0.05, 0.05]
-                    grasperContact = [(x - pressureThreshold[i]) * 30 if x >= grasperThreshold[i] else 0 for (i, x) in
+                    grasperContact = [(x - pressureThreshold[i]) * 60 if x >= grasperThreshold[i] else 0 for (i, x) in
                                       enumerate(SG.changeInPressure)]
 
                     grasperContact = GrasperContactForce(*grasperContact)
 
-                    if SNS_BypassForceFeedback == True and SNSc.neuronset['move_to_release']<20:
+                    if SNS_BypassForceFeedback == True and SNSc.neuronset['move_to_release']>=20:
                         #for grasping set to 20 psi. For releasing, use real pressure
                         grasperContact = GrasperContactForce(*[0,0,0]) if SG.commandedPosition["ClosureChangeInRadius_mm"] <maxJawChangeInRadius_mm else GrasperContactForce(*[20,20,20]) #set contact threshold based on the position
 
@@ -422,7 +422,7 @@ async def program_loop():
 
                     SG.commandedPosition["ClosureChangeInRadius_mm"] = min(JawRadialPos_m * 1000,maxJawChangeInRadius_mm) #limit the radial position change to prevent overinflation
 
-                    if SNSc.lift_after_release_done == True:
+                    if SNSc.neuronset["lift_after_release"] >= 60:
                         SNSc = SNScontroller() #reinitialize the SNS controller
                         jcSG.SNS_control = False #reset to false to give control back to the user
                         loggerR.info('Reset the SNS controller after lift after release complete')

@@ -17,7 +17,7 @@ sio = socketio.AsyncServer(async_mode='aiohttp')
 app = web.Application()
 sio.attach(app)
 
-statusDict = {"Hardware Initialized":False, "Loop Status":True, "Started Calibration":False, "Finished Calibration":False}
+statusDict = {"Hardware Initialized":False, "Loop Status":True, "Started Calibration":False, "Finished Calibration":False, "Save Calibration":False}
 robotCalibration_Vals = {} #to store the robot calibration
 
 @sio.on('start event')
@@ -36,9 +36,9 @@ def handle_RobotStatus(v,data):
     if statusDict["Started Calibration"] == True and statusDict["Finished Calibration"] == False:
         #print(data) #print the data to the screen
         pass
-    if statusDict["Finished Calibration"] == True:
+    if statusDict["Finished Calibration"] == True and statusDict["Save Calibration"] == False:
         robotCalibration_Vals = data #will be a dict of x,y,z, grasper position, pressure in closure muscle, pressure in jaw 1, pressure in jaw 2, pressure in jaw 3
-
+        statusDict["Save Calibration"] = True
 @sio.on('SNS-start')
 def handle_SNS_start(v,string):
     print(string)
@@ -115,6 +115,8 @@ async def HandleProgram():
                         match useGrasperCalibration.upper():
 
                             case "Y":
+                                robotCalibration_Vals["grasper_width_mm"] = robotCalibration_Vals["grasper_width_mm"]
+
                                 statusDict["sendCalibrationGrasper"] = True
 
                             case "N":

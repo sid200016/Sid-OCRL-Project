@@ -423,7 +423,7 @@ async def program_loop():
                     SG.commandedPosition["ClosureChangeInRadius_mm"] = min(JawRadialPos_m * 1000,maxJawChangeInRadius_mm) #limit the radial position change to prevent overinflation
 
                     if SNSc.neuronset["lift_after_release"] >= 60:
-                        SNSc = SNScontroller() #reinitialize the SNS controller
+                        SNSc = SNScontroller(ModulateSNS=True) #reinitialize the SNS controller
                         jcSG.SNS_control = False #reset to false to give control back to the user
                         loggerR.info('Reset the SNS controller after lift after release complete')
 

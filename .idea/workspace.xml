@@ -5,44 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfd83e2d-ab31-4129-8c0e-ce5b016d6614" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_modulation/SNS_layer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_modulation/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_modulation/a.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_modulation/a_mat.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_modulation/output_mu_param" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_modulation/output_sigma_param" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_modulation/sensory_layer_2_param" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_modulation/state_mat.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_modulation/torchSNS/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_modulation/torchSNS/torch/CTRNN_cell.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_modulation/torchSNS/torch/NODE_cell.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_modulation/torchSNS/torch/RNN_cell.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_modulation/torchSNS/torch/SNS_cell.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_modulation/torchSNS/torch/SNS_cell_modulation.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_modulation/torchSNS/torch/SNS_cell_original.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_modulation/torchSNS/torch/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_modulation/torchSNS/torch/ltc_cell.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_modulation/torchSNS/wirings/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_modulation/torchSNS/wirings/wirings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_modulation/tout.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_modulation/train.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_modulation/transmission.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_modulation/tt.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_modulation/y_modulation.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_modulation/y_post.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_modulation/y_post1_continous_mat.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_modulation/y_post1_discrete_mat.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_modulation/y_post2_continous_mat.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_modulation/y_post2_discrete_mat.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_modulation/y_post_mat.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_modulation/y_pre.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_modulation/y_pre1.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_modulation/y_pre2.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Testing/TestSNS_sim_modulation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/FRR-Software-Interface.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/FRR-Software-Interface.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/SNScontroller.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/SNScontroller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Deformable_Object_Tests/Hardware_SNS_Deformable.py" beforeDir="false" afterPath="$PROJECT_DIR$/Deformable_Object_Tests/Hardware_SNS_Deformable.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Testing/SNS_SoftGrasperCheck.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/SNS_SoftGrasperCheck.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,20 +37,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/Ravesh/Desktop/Research/FRR/FRR Software Interface/FRR-Software-Interface/Testing",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PythonContentEntriesConfigurable",
-    "two.files.diff.last.used.file": "C:/Users/SmorgasBORG/Documents/GitHub/FRR-Software-Interface/Deformable_Object_Tests/Hardware_SNS_Deformable.py"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Ravesh/Desktop/Research/FRR/FRR Software Interface/FRR-Software-Interface/Testing&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PythonContentEntriesConfigurable&quot;,
+    &quot;two.files.diff.last.used.file&quot;: &quot;C:/Users/SmorgasBORG/Documents/GitHub/FRR-Software-Interface/Deformable_Object_Tests/Hardware_SNS_Deformable.py&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "Python"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;Python&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="PyDebuggerOptionsProvider">
     <option name="myPyQtBackend" value="pyside2" />
   </component>
@@ -103,7 +68,7 @@
       <recent name="C:\Users\Ravesh\Desktop\Research\FRR\FRR Software Interface\FRR-Software-Interface\Testing" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.TestSNS_sim_modulation">
+  <component name="RunManager" selected="Python.SNS_SoftGrasperCheck">
     <configuration name="Hardware_SNS_Deformable" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="FRR-Software-Interface" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -313,11 +278,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.TestSNS_sim_modulation" />
+        <item itemvalue="Python.SNS_SoftGrasperCheck" />
         <item itemvalue="Python.Hardware_SNS_Deformable" />
         <item itemvalue="Python.SNS_Deformable_Test" />
+        <item itemvalue="Python.TestSNS_sim_modulation" />
         <item itemvalue="Python.TestSNS_sim" />
-        <item itemvalue="Python.SNS_SoftGrasperCheck" />
       </list>
     </recent_temporary>
   </component>

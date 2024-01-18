@@ -23,7 +23,7 @@ async def HardwareInitialize():
     SG = SoftGrasper(COM_Port='COM7', BaudRate=460800, timeout=1, controllerProfile="New") #initialize soft grasper
     GC = GantryController(comport = "COM4")#,homeSystem = False, initPos=[0,0,0])#, homeSystem = False,initPos=[0,0,0]  #initialize gantry controller
     jcSG = JC.Joy_SoftGrasper(SGa=SG, GantryS=GC) #initialize joystick control of soft grasper and gantry controller
-    SNSc = SNScontroller()
+    SNSc = SNScontroller(ModulateSNS=True)
 
 async def program_loop():
     global SG, GC, jcSG, SNSc
@@ -40,13 +40,13 @@ async def program_loop():
 
             else: #SNS control
                 object_position_list=[0,0,-0.185]
-                target_position_list = [0,0,-0.190]
+                target_position_list = [0.1,0.1,-0.185]
                 curPos = GC.getPosition() #get current position, in millimeters relative to offset
 
                 grasperPosition = Point(curPos.x,curPos.y,curPos.z) #convert to meters
 
-                grasperThreshold = [0.4, 0.4, 0.4]
-                grasperContact = [(x - pressureThreshold[i])*5 if x >= pressureThreshold[i] else 0 for (i, x) in
+                grasperThreshold = [0.03, 0.03, 0.03]
+                grasperContact = [(x - pressureThreshold[i])*7.5 if x >= pressureThreshold[i] else 0 for (i, x) in
                                enumerate(SG.changeInPressure)]
 
                 grasperContact = GrasperContactForce(*grasperContact)
@@ -55,7 +55,7 @@ async def program_loop():
                 commandPosition_m, JawRadialPos_m = SNSc.SNS_forward(grasperPos_m=grasperPosition,
                                                                    grasperContact=grasperContact,
                                                                    objectPos_m=Point(*object_position_list),
-                                                                   targetPos_m=Point(*target_position_list))
+                                                                   targetPos_m=Point(*target_position_list),useRealGantry = False)
 
                 #command position is absolute move in m relative to the offset.
                 GC.goalPos = [x*1000 for x in list(commandPosition_m)]
@@ -72,8 +72,8 @@ async def program_loop():
 
 
             # Rumble feedback based on pressure change
-            pressureThreshold = [0.4, 0.4,
-                                 0.4]  # change in pressure threshold in psi above which to register changes in pressure
+            pressureThreshold = [0.05, 0.05,
+                                 0.05]  # change in pressure threshold in psi above which to register changes in pressure
             rumbleValue = [(x - pressureThreshold[i]) / 1.5 if x >= pressureThreshold[i] else 0 for (i, x) in
                            enumerate(SG.changeInPressure)]
             jcSG.rumbleFeedback(max(rumbleValue), max(rumbleValue), 1000)

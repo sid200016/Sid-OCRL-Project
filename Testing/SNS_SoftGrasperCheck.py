@@ -23,7 +23,7 @@ async def HardwareInitialize():
     SG = SoftGrasper(COM_Port='COM7', BaudRate=460800, timeout=1, controllerProfile="New") #initialize soft grasper
     GC = GantryController(comport = "COM4")#,homeSystem = False, initPos=[0,0,0])#, homeSystem = False,initPos=[0,0,0]  #initialize gantry controller
     jcSG = JC.Joy_SoftGrasper(SGa=SG, GantryS=GC) #initialize joystick control of soft grasper and gantry controller
-    SNSc = SNScontroller(ModulateSNS=True)
+    SNSc = SNScontroller(ModulateSNS=False)
 
 async def program_loop():
     global SG, GC, jcSG, SNSc
@@ -46,7 +46,7 @@ async def program_loop():
                 grasperPosition = Point(curPos.x,curPos.y,curPos.z) #convert to meters
 
                 grasperThreshold = [0.03, 0.03, 0.03]
-                grasperContact = [(x - pressureThreshold[i])*7.5 if x >= pressureThreshold[i] else 0 for (i, x) in
+                grasperContact = [(x - pressureThreshold[i])*20 if x >= pressureThreshold[i] else 0 for (i, x) in
                                enumerate(SG.changeInPressure)]
 
                 grasperContact = GrasperContactForce(*grasperContact)

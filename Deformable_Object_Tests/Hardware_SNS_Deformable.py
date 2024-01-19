@@ -8,8 +8,9 @@ from GUI.EmbeddedSystems.SoftGrasper.SoftGrasper import PortActions
 from GUI.EmbeddedSystems.SoftGrasper.SoftGrasper import SoftGrasper
 from GUI.EmbeddedSystems.Gantry.GantryController import Gantry as GantryController
 import GUI.EmbeddedSystems.JoyCon.JoyCon as JC
-from GUI.EmbeddedSystems.SNS.SNScontroller import SNScontroller
+from GUI.EmbeddedSystems.SNS.SNScontroller import SNScontroller, controller
 from GUI.EmbeddedSystems.Support.Structures import GrasperContactForce,Point
+
 
 import logging
 from datetime import datetime
@@ -320,6 +321,10 @@ async def HardwareInitialize():
         SNSc = SNScontroller()
         loggerR.info('Finished initializing the SNS.')
 
+        #increase the z axis time constant to allow for more time for the gripper to open before lifting
+        controller._inter_layer_1._params["tau"].data[2] = 0.75
+        loggerR.info("SNS z height time constant set to %f"%0.75)
+
     loggerR.info('Finished Initialization')
 
 @sio.on('program_loop')
@@ -423,7 +428,7 @@ async def program_loop():
                     SG.commandedPosition["ClosureChangeInRadius_mm"] = min(JawRadialPos_m * 1000,maxJawChangeInRadius_mm) #limit the radial position change to prevent overinflation
 
                     if SNSc.neuronset["lift_after_release"] >= 60:
-                        SNSc = SNScontroller(ModulateSNS=True) #reinitialize the SNS controller
+                        SNSc = SNScontroller(ModulateSNS=False) #reinitialize the SNS controller
                         jcSG.SNS_control = False #reset to false to give control back to the user
                         loggerR.info('Reset the SNS controller after lift after release complete')
 

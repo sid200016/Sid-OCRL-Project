@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfd83e2d-ab31-4129-8c0e-ce5b016d6614" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Testing/SNS_SoftGrasper_Calibration.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/FRR-Software-Interface.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/FRR-Software-Interface.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Deformable_Object_Tests/Hardware_SNS_Deformable.py" beforeDir="false" afterPath="$PROJECT_DIR$/Deformable_Object_Tests/Hardware_SNS_Deformable.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Testing/SNS_SoftGrasperCheck.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/SNS_SoftGrasperCheck.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/JoyCon/JoyCon.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/JoyCon/JoyCon.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Testing/TestSNS_sim.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/TestSNS_sim.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +71,7 @@
       <recent name="C:\Users\Ravesh\Desktop\Research\FRR\FRR Software Interface\FRR-Software-Interface\Testing" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Hardware_SNS_Deformable">
+  <component name="RunManager" selected="Python.TestSNS_sim_modulation">
     <configuration name="Hardware_SNS_Deformable" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="FRR-Software-Interface" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -278,10 +281,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.TestSNS_sim_modulation" />
         <item itemvalue="Python.Hardware_SNS_Deformable" />
         <item itemvalue="Python.SNS_Deformable_Test" />
         <item itemvalue="Python.SNS_SoftGrasperCheck" />
-        <item itemvalue="Python.TestSNS_sim_modulation" />
         <item itemvalue="Python.TestSNS_sim" />
       </list>
     </recent_temporary>
@@ -404,7 +407,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI/EmbeddedSystems/JoyCon/JoyCon.py</url>
-          <line>267</line>
+          <line>276</line>
           <option name="timeStamp" value="241" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">

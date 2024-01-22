@@ -8,7 +8,7 @@ import numpy as np
 
 from GUI.EmbeddedSystems.Support.Structures import Point,GrasperContactForce
 from GUI.EmbeddedSystems.Gantry.envs.GantrySimulation import GantrySimulation
-from GUI.EmbeddedSystems.SNS.SNScontroller import SNScontroller
+from GUI.EmbeddedSystems.SNS.SNScontroller import SNScontroller, controller
 #########################################################
 
 def pick_and_place():
@@ -45,7 +45,10 @@ def pick_and_place():
     cmd_grasperPos_m = Point(0,0,0)
     JawRadialPos_m = 0
 
-
+    #for modifying the time constant of depositing the object
+    # print ("Time constant of release is %f"%controller._inter_layer_1._params["tau"].data[2])
+    # controller._inter_layer_1._params["tau"].data[2] = 2
+    # print("Time constant of release is %f" % controller._inter_layer_1._params["tau"].data[2])
 
     while (not gS.CheckStopSim()):  # check to see if the button was pressed to close the sim
 

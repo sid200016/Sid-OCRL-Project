@@ -4,12 +4,20 @@ from ..Gantry import GantryController as GC
 from ..RigidGrasper import RigidGrasper as RG
 from ..SoftGrasper import SoftGrasper as SG
 from ..Support.Structures import Velocity
+from enum import Enum
 
 import logging
 from datetime import datetime
 import sys
 
 from pathlib import Path
+
+
+class JoyConState(Enum):
+    NORMAL = 0 #move and actuate grasper based on joystick inputs
+    USE_SNS = 1 #SNS is controlling the grasper position and amount of closure
+    GO_HOME = 2 #Robot is moving to HOME
+    CALIBRATION = 3 #Robot is performing calibration
 
 
 
@@ -210,6 +218,7 @@ class Joy_Gantry(JoyCon):
         self.PeriodT_s = 0.055 #period over which to calculate movement of the gantry
         self.JoystickPos = [0,0,0] # joystick reading for x, y and z axes
         self.GantryIncrement_mm = [] #for x, y and z axes, respectively, in mm
+        self.ControlMode = JoyConState.NORMAL #by default, set to Normal mode
 
         self.buttonMapping[("+", "Home")] = Button(
             (self.buttonMapping["+"].buttonNumber, self.buttonMapping["Home"].buttonNumber),
@@ -349,6 +358,7 @@ class Joy_SoftGrasper(Joy_Gantry):
         self.jawIncrement_psi = 0.05  # increment of jaw pressure in psi
         self.SNS_control = False
 
+
         self.buttonMapping[("A", "X")] = Button(
             (self.buttonMapping["A"].buttonNumber, self.buttonMapping["X"].buttonNumber),
             ("A", "X"),
@@ -382,9 +392,11 @@ class Joy_SoftGrasper(Joy_Gantry):
 
     def buttonSR(self):
         self.SNS_control = True #use SNS control
+        self.ControlMode = JoyConState.USE_SNS
 
     def buttonSL(self):
         self.SNS_control = False #don't use SNS control
+        self.ControlMode = JoyConState.NORMAL 
 
     def buttonAX(self):
         pass

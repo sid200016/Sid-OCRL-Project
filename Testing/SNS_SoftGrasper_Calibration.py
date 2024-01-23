@@ -1,5 +1,6 @@
 import time
 import asyncio
+import aioconsole
 
 from GUI.EmbeddedSystems.SoftGrasper.SoftGrasper import PortActions
 from GUI.EmbeddedSystems.SoftGrasper.SoftGrasper import SoftGrasper
@@ -13,10 +14,7 @@ GC = None #gantry controller
 jcSG = None #joystick
 SNSc = None #SNS controller
 
-# SG = SoftGrasper(COM_Port='COM5', BaudRate=460800, timeout=1, controllerProfile="New") #initialize soft grasper
-# GC = GantryController(comport = "COM4",homeSystem = False, initPos=[0,0,0])#, homeSystem = False,initPos=[0,0,0]  #initialize gantry controller
-# jcSG = JC.Joy_SoftGrasper(SGa=SG, GantryS=GC) #initialize joystick control of soft grasper and gantry controller
-#
+
 
 async def HardwareInitialize():
     global SG, GC, jcSG, SNSc
@@ -34,35 +32,50 @@ async def program_loop():
             jcSG.ExecuteButtonFunctions(buttonVal,
                                         AxesPos)  # execute Button functions defined by the button values and axes positions
 
-            if jcSG.SNS_control == False:
-                posInc,feedrate_mmps = jcSG.calcPositionIncrement(AxesPos[0], AxesPos[1])  # get the joystick position for x, y and z, corrected for the flip on the x axis
-                GC.calculateIncrementalMove(*posInc) #will set the GC.goalPos with the appropriate increments
+            match jcSG.ControlMode:
+                case JC.JoyConState.NORMAL:
+                    posInc,feedrate_mmps = jcSG.calcPositionIncrement(AxesPos[0], AxesPos[1])  # get the joystick position for x, y and z, corrected for the flip on the x axis
+                    GC.calculateIncrementalMove(*posInc) #will set the GC.goalPos with the appropriate increments
 
-            else: #SNS control
-                object_position_list=[0,0,-0.185]
-                target_position_list = [0.1,0.1,-0.185]
-                curPos = GC.getPosition() #get current position, in millimeters relative to offset
+                case JC.JoyConState.USE_SNS:
+                    object_position_list=[0,0,-0.185]
+                    target_position_list = [0.1,0.1,-0.185]
+                    curPos = GC.getPosition() #get current position, in millimeters relative to offset
 
-                grasperPosition = Point(curPos.x,curPos.y,curPos.z) #convert to meters
+                    grasperPosition = Point(curPos.x,curPos.y,curPos.z) #convert to meters
 
-                grasperThreshold = [0.03, 0.03, 0.03]
-                grasperContact = [(x - pressureThreshold[i])*20 if x >= pressureThreshold[i] else 0 for (i, x) in
-                               enumerate(SG.changeInPressure)]
+                    grasperThreshold = [0.03, 0.03, 0.03]
+                    grasperContact = [(x - pressureThreshold[i])*20 if x >= pressureThreshold[i] else 0 for (i, x) in
+                                   enumerate(SG.changeInPressure)]
 
-                grasperContact = GrasperContactForce(*grasperContact)
-
-
-                commandPosition_m, JawRadialPos_m = SNSc.SNS_forward(grasperPos_m=grasperPosition,
-                                                                   grasperContact=grasperContact,
-                                                                   objectPos_m=Point(*object_position_list),
-                                                                   targetPos_m=Point(*target_position_list),useRealGantry = False)
-
-                #command position is absolute move in m relative to the offset.
-                GC.goalPos = [x*1000 for x in list(commandPosition_m)]
-
-                SG.commandedPosition["ClosureChangeInRadius_mm"] = JawRadialPos_m*1000
+                    grasperContact = GrasperContactForce(*grasperContact)
 
 
+                    commandPosition_m, JawRadialPos_m = SNSc.SNS_forward(grasperPos_m=grasperPosition,
+                                                                       grasperContact=grasperContact,
+                                                                       objectPos_m=Point(*object_position_list),
+                                                                       targetPos_m=Point(*target_position_list),useRealGantry = False)
+
+                    #command position is absolute move in m relative to the offset.
+                    GC.goalPos = [x*1000 for x in list(commandPosition_m)]
+
+                    SG.commandedPosition["ClosureChangeInRadius_mm"] = JawRadialPos_m*1000
+
+                case JC.JoyConState.CALIBRATION:
+                    #Prompt to move grasper into position. When grasper is in position, press SR+ on joycon to trigger calibration start. Hit SL+ to stop calibration
+
+
+                    #When grasper is in position and SR + is triggered, then begin the search. Move to setpoint. Wait 5 seconds.
+                    # Lift. Check pressure. If pressure is below threshold. Register fail, deflate slightly, return to z-height, inflate to new setpoint. If above threshold, Register a pass and return to surface.
+                    pass
+
+                case JC.JoyConState.GO_HOME:
+                    pass
+
+                case _:
+                    pass
+
+            #move to position and actuate grasper
 
             GC.setXYZ_Position(*GC.goalPos,feedrate_mmps*60)  # absolute move of the gantry
 
@@ -81,7 +94,7 @@ async def program_loop():
 
 
             await asyncio.sleep(0.001) #allow other tasks to run
-            print('ProgramLoop')
+            #print('ProgramLoop')
 
 
     except KeyboardInterrupt:

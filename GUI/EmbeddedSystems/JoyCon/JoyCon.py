@@ -348,8 +348,6 @@ class Joy_RigidGrasper(Joy_Gantry):
     def buttonSR_Plus(self):
         self.SNS_control = not (self.SNS_control)
 
-
-
 class Joy_SoftGrasper(Joy_Gantry):
     def __init__(self, SGa: SG.SoftGrasper , GantryS:GC.Gantry):
         super().__init__(GantryS = GantryS)
@@ -368,10 +366,10 @@ class Joy_SoftGrasper(Joy_Gantry):
             ("B", "Y"),
             ("B", "Y"), 2, self.buttonBY)  # situation where two buttons are pressed at once to open the grasper
 
-        # self.buttonMapping[("SR", "+")] = Button(
-        #     (self.buttonMapping["SR"].buttonNumber, self.buttonMapping["+"].buttonNumber),
-        #     ("SR", "+"),
-        #     ("SR", "+"), 2, self.buttonSR_Plus)  # trigger SNS, deprecated
+        self.buttonMapping[("SR", "+")] = Button(
+            (self.buttonMapping["SR"].buttonNumber, self.buttonMapping["+"].buttonNumber),
+            ("SR", "+"),
+            ("SR", "+"), 2, self.buttonSR_Plus)  # trigger calibration
 
 
         self.sortButtonMapping()  # should be in order from highest priority to lowest priority.
@@ -396,7 +394,7 @@ class Joy_SoftGrasper(Joy_Gantry):
 
     def buttonSL(self):
         self.SNS_control = False #don't use SNS control
-        self.ControlMode = JoyConState.NORMAL 
+        self.ControlMode = JoyConState.NORMAL
 
     def buttonAX(self):
         pass
@@ -406,7 +404,7 @@ class Joy_SoftGrasper(Joy_Gantry):
         pass
 
     def buttonSR_Plus(self):
-        self.SNS_control = not(self.SNS_control)
+        self.ControlMode = JoyConState.CALIBRATION
 
 
 

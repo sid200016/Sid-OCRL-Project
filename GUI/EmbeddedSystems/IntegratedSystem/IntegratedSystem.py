@@ -61,7 +61,7 @@ class IntegratedSystem:
         self.grasperType = None
 
         #calibration parameters
-        self.calibrationParams = {"Calibration Distance (mm)":0.5, "Grasp Pressure Threshold (psi)":[0.05,0.05,0.05], "Grasp Lift Height (mm)":20}
+        self.calibrationParams = {"Calibration Distance (mm)":2, "Grasp Pressure Threshold (psi)":[0.05,0.05,0.05], "Grasp Lift Height (mm)":20}
 
 
         #object for user experiments
@@ -111,16 +111,16 @@ class IntegratedSystem:
 
     async def HardwareInitialize(self, grasper_type = GrasperType.SoftGrasper):
 
-        self.grasperType = grasper_typ
+        self.grasperType = grasper_type
 
-        self.GC = GantryController(comport="COM4")  # ,homeSystem = False, initPos=[0,0,0])#, homeSystem = False,initPos=[0,0,0]  #initialize gantry controller
+        self.GC = GantryController(comport="COM4")#,homeSystem = False, initPos=[0,0,0])#, homeSystem = False,initPos=[0,0,0]  #initialize gantry controller
 
         if self.grasperType == GrasperType.SoftGrasper:
             self.SG = SoftGrasper(COM_Port='COM7', BaudRate=460800, timeout=1,
                              controllerProfile="New")  # initialize soft grasper
 
-            self.jcSG = JC.Joy_SoftGrasper(SGa=SG,
-                                      GantryS=GC)  # initialize joystick control of soft grasper and gantry controller
+            self.jcSG = JC.Joy_SoftGrasper(SGa=self.SG,
+                                      GantryS=self.GC)  # initialize joystick control of soft grasper and gantry controller
 
         else:  # rigid grasper
             pass
@@ -129,28 +129,29 @@ class IntegratedSystem:
 
     async def Normal_Mode(self): #meant to run as a long running co-routine
         while (True):
+            print ("Normal mode")
             [buttonVal, AxesPos] = self.jcSG.eventLoop()  # run event loop to determine what values and axes to execute
             self.jcSG.ExecuteButtonFunctions(buttonVal, AxesPos)  # execute Button functions defined by the button values and axes positions
 
 
 
             if self.jcSG.ControlMode == JC.JoyConState.NORMAL:
-                posInc, feedrate_mmps = jcSG.calcPositionIncrement(AxesPos[0], AxesPos[
+                posInc, feedrate_mmps = self.jcSG.calcPositionIncrement(AxesPos[0], AxesPos[
                     1])  # get the joystick position for x, y and z, corrected for the flip on the x axis
-                GC.calculateIncrementalMove(*posInc)  # will set the GC.goalPos with the appropriate increments
+                self.GC.calculateIncrementalMove(*posInc)  # will set the GC.goalPos with the appropriate increments
 
-                GC.goalPos = Point(GC.goalPos[0], GC.goalPos[1], max(GC.goalPos[2], max_z_height * 1000))
+                self.GC.goalPos = Point(self.GC.goalPos[0], self.GC.goalPos[1], self.GC.goalPos[2])
 
-                GC.setXYZ_Position(*GC.goalPos, feedrate_mmps * 60)  # absolute move of the gantry
+                self.GC.setXYZ_Position(*self.GC.goalPos, feedrate_mmps * 60)  # absolute move of the gantry
 
-                SG.MoveGrasper()
+                self.SG.MoveGrasper()
 
             #Update the hardware measurements of grasper position and soft grasper state, respecting the lock
             # TODO: to be populated
 
             # Set the rumble
-            rumbleValue = calculateRumble(pressureThreshold, pressureScaling)
-            jcSG.rumbleFeedback(rumbleValue, rumbleValue, 1000)
+            rumbleValue = self.calculateRumble(self.ObjectPressureThreshold, self.ObjectPressureScaling)
+            self.jcSG.rumbleFeedback(rumbleValue, rumbleValue, 1000)
 
             await asyncio.sleep(0.001)  # allow other tasks to run
 
@@ -181,7 +182,7 @@ class IntegratedSystem:
                 print ("Grasper contact pressure (psi) at start of calibration: %f, %f, %f" % tuple(initialJawPressure))
 
                 #close grasper
-                self.SG.IncrementalMove(closureIncrement_mm=self.closureIncrement_mm, jawIncrement_psi=[0, 0, 0]) #setup the variables
+                self.SG.IncrementalMove(closureIncrement_mm=self.calibrationParams["Calibration Distance (mm)"], jawIncrement_psi=[0, 0, 0]) #setup the variables
                 self.SG.MoveGrasper() #close the grasper
 
                 #allow time to settle
@@ -195,14 +196,14 @@ class IntegratedSystem:
 
                 #lift grasper
                 curPos = self.GC.getPosition()  # get current position, in meters relative to offset
-                self.GC.incrementalMove(0,0,self.calibrationParams["Grasp Lift Height (mm)"]) #move up by 20 mm
+                self.GC.incrementalMove(0,0,self.calibrationParams["Grasp Lift Height (mm)"],self.GC.MaxSpeedRate_mmps.z/2) #move up by 20 mm
                 await asyncio.sleep(15)
 
 
                 #check contact
                 self.SG.readSerialData()  # get most recent data
                 contactPressure = self.SG.getJawChangePressureVals()  # get jaw change in pressure
-                grasperContact = np.any([x if x >= self.calibrationParams["Grasp Pressure Threshold (psi)"] else 0 for (i, x) in
+                grasperContact = np.any([x if x >= self.calibrationParams["Grasp Pressure Threshold (psi)"][i] else 0 for (i, x) in
                                   enumerate(contactPressure)]) == True #sufficient contact if any of the thresholds greater than the threshold
 
                 ClosurePressure = self.SG.PressureArray[self.SG.closureMuscle_idx][-1]
@@ -216,8 +217,11 @@ class IntegratedSystem:
                     # await asyncio.sleep(5)
 
                     #lower grasper
-                    self.GC.incrementalMove(0, 0, -self.calibrationParams["Grasp Lift Height (mm)"])  # move up by 20 mm
+
+                    self.GC.incrementalMove(0, 0, -self.calibrationParams["Grasp Lift Height (mm)"], self.GC.MaxSpeedRate_mmps.z/2)  # move up by 20 mm
                     await asyncio.sleep(15)
+                    print("After Sleep")
+
 
                     #close grasper slightly
                     # self.SG.IncrementalMove(closureIncrement_mm=1,
@@ -237,7 +241,7 @@ class IntegratedSystem:
 
                     #return to home
                     print("Returning object to base ...")
-                    self.GC.incrementalMove(0, 0, -self.calibrationParams["Grasp Lift Height (mm)"])  # move up by 20 mm
+                    self.GC.incrementalMove(0, 0, -self.calibrationParams["Grasp Lift Height (mm)"],self.GC.MaxSpeedRate_mmps.z/2)  # move up by 20 mm
                     await asyncio.sleep(15)
 
                     #open grasper
@@ -249,7 +253,7 @@ class IntegratedSystem:
                     #set variable
                     self.jcSG.ControlMode = JC.JoyConState.NORMAL #return to normal mode
 
-
+                await asyncio.sleep(0.05)  # allow other tasks to run
             await asyncio.sleep(0.001)  # allow other tasks to run
 
     def calculateRumble(self,pressureThreshold=[0.2, 0.2, 0.2], pressureScaling=1):
@@ -286,7 +290,9 @@ if __name__ == '__main__':
 
     async def run_Program():
         IS = IntegratedSystem()
-        IS.HardwareInitialize()
+        await IS.HardwareInitialize()
+
+        print("Finished Calibration")
 
 
 

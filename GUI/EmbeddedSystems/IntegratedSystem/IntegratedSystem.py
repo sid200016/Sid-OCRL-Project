@@ -18,6 +18,7 @@ import GUI.EmbeddedSystems.JoyCon.JoyCon as JC
 from GUI.EmbeddedSystems.SNS.SNScontroller import SNScontroller
 from GUI.EmbeddedSystems.Support.Structures import GrasperContactForce,Point
 
+import aioconsole
 
 SG  = None #soft grasper
 GC = None #gantry controller
@@ -61,7 +62,7 @@ class IntegratedSystem:
         self.grasperType = None
 
         #calibration parameters
-        self.calibrationParams = {"Calibration Distance (mm)":2, "Grasp Pressure Threshold (psi)":[0.05,0.05,0.05], "Grasp Lift Height (mm)":20}
+        self.calibrationParams = {"Calibration Distance (mm)":1, "Grasp Pressure Threshold (psi)":[0.010,0.010,0.010], "Grasp Lift Height (mm)":20}
 
 
         #object for user experiments
@@ -78,7 +79,7 @@ class IntegratedSystem:
                      }
 
         self.fragileThreshold = 0.4 #scale of 0 to 1.  Forces above this are considered broken for fragile objects
-        self.ObjectPressureThreshold = [0.05, 0.05, 0.05]  # threshold above which to trigger the rumble, psi
+        self.ObjectPressureThreshold = [0.010, 0.010, 0.010]  # threshold above which to trigger the rumble, psi
         self.ObjectPressureScaling = 1  # 100% pressure value for rumble.  In psi. formula is (max change in pressure - pressurethreshold)/PressureScaling
 
         #logging
@@ -129,7 +130,7 @@ class IntegratedSystem:
 
     async def Normal_Mode(self): #meant to run as a long running co-routine
         while (True):
-            print ("Normal mode")
+            #print ("Normal mode")
             [buttonVal, AxesPos] = self.jcSG.eventLoop()  # run event loop to determine what values and axes to execute
             self.jcSG.ExecuteButtonFunctions(buttonVal, AxesPos)  # execute Button functions defined by the button values and axes positions
 
@@ -164,7 +165,6 @@ class IntegratedSystem:
 
 
 
-
     async def Calibration(self):
         while True:
             if self.jcSG.ControlMode == JC.JoyConState.CALIBRATION:
@@ -176,7 +176,7 @@ class IntegratedSystem:
                 initialClosurePressure = self.SG.PressureArray[self.SG.closureMuscle_idx][-1]
                 #initalClosurePosition = self.SG.GetPressureFromPosition(self.commandedPosition["ClosureChangeInRadius_mm"]) #get the pressure value in p
                 initialJawPressure = self.SG.getJawChangePressureVals() # get jaw change in pressure
-
+                self.SG.ChangeInPressure = initialJawPressure
                 print ("Gantry position at start of calibration (mm): %f %f %f"%tuple([x*1000 for x in curPos]))
                 print ("Grasper closure muscle pressure (psi): %f"%initialClosurePressure) #need function to go from pressure to mm
                 print ("Grasper contact pressure (psi) at start of calibration: %f, %f, %f" % tuple(initialJawPressure))
@@ -203,6 +203,7 @@ class IntegratedSystem:
                 #check contact
                 self.SG.readSerialData()  # get most recent data
                 contactPressure = self.SG.getJawChangePressureVals()  # get jaw change in pressure
+                self.SG.ChangeInPressure = initialJawPressure
                 grasperContact = np.any([x if x >= self.calibrationParams["Grasp Pressure Threshold (psi)"][i] else 0 for (i, x) in
                                   enumerate(contactPressure)]) == True #sufficient contact if any of the thresholds greater than the threshold
 
@@ -254,7 +255,10 @@ class IntegratedSystem:
                     self.jcSG.ControlMode = JC.JoyConState.NORMAL #return to normal mode
 
                 await asyncio.sleep(0.05)  # allow other tasks to run
+            #print("End of Calibration loop")
+            #print(self.jcSG.ControlMode)
             await asyncio.sleep(0.001)  # allow other tasks to run
+        await asyncio.sleep(0.001)
 
     def calculateRumble(self,pressureThreshold=[0.2, 0.2, 0.2], pressureScaling=1):
         global  fragileThreshold, loggerR
@@ -284,6 +288,31 @@ class IntegratedSystem:
 
         return (rumbleValue)
 
+    async def ReadCommandLine(self):
+        print_string = "Enter C for calibration. Enter S for SNS. Enter Z to return to joystick control"
+        print(print_string)
+        while (True):
+            s = await aioconsole.ainput()
+            print(s)
+
+
+            match s.upper():
+
+                case "C":
+                    self.jcSG.ControlMode = JC.JoyConState.CALIBRATION
+
+                case "S":
+                    self.jcSG.ControlMode = JC.JoyConState.USE_SNS
+
+                case "Z":
+                    self.jcSG.ControlMode = JC.JoyConState.NORMAL
+
+                case _:
+                    print(print_string)
+
+
+
+            await asyncio.sleep(0.01)
 
 
 if __name__ == '__main__':
@@ -299,7 +328,8 @@ if __name__ == '__main__':
         # https://stackoverflow.com/questions/53465862/python-aiohttp-into-existing-event-loop
         L = await asyncio.gather(
             IS.Normal_Mode(),
-            IS.Calibration()
+            IS.Calibration(),
+            IS.ReadCommandLine()
         )
         #runp = asyncio.create_task(HandleProgram())
         #await runp

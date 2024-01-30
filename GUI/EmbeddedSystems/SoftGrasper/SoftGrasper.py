@@ -7,6 +7,8 @@ import numpy as np
 import serial
 import math
 
+import asyncio
+
 import logging
 from datetime import datetime
 import sys
@@ -393,6 +395,24 @@ class SoftGrasper:
                 case _:
                     #action - default
                     pass
+
+    async def ReadSensorValues(self,number_avg = 1, loop_delay = 0.001): #convenience function to get the pressure values
+        jawPressure = np.array([0 for x in self.JawPos])
+        closurePressure = 0
+
+
+        for i in range(number_avg):
+            self.readSerialData()
+            jawPressure = np.array(self.getJawChangePressureVals())+jawPressure
+            closurePressure = self.PressureArray[self.closureMuscle_idx][-1] + closurePressure
+            await asyncio.sleep(loop_delay)
+
+
+        jawPressure = jawPressure/5
+        closurePressure = closurePressure/5
+
+        return(jawPressure,closurePressure)
+
 
 
 

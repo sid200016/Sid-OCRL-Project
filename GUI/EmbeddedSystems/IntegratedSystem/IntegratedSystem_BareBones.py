@@ -128,9 +128,11 @@ class IntegratedSystem:
         self.SNSc = SNScontroller(ModulateSNS=False)
 
     async def Normal_Mode(self): #meant to run as a long running co-routine
+        start_time = time.time()
         while (True):
 
-            print("Normal Mode")
+            print('Normal: %f seconds' % (time.time()-start_time))
+            self.fragileThreshold = 0.6
             await asyncio.sleep(0.001)  # allow other tasks to run
 
 
@@ -144,12 +146,15 @@ class IntegratedSystem:
 
 
     async def Calibration(self):
+        start_time = time.time()
         while True:
+
             if True:
-                print('Calibration')
+                self.fragileThreshold = 0.6
+                print('Calibration: %f seconds' % (time.time()-start_time))
 
-
-            await asyncio.sleep(0.001)  # allow other tasks to run
+            await asyncio.sleep(30)
+            await asyncio.sleep(0.1)  # allow other tasks to run
 
     def calculateRumble(self,pressureThreshold=[0.2, 0.2, 0.2], pressureScaling=1):
         global  fragileThreshold, loggerR
@@ -180,6 +185,13 @@ class IntegratedSystem:
         return (rumbleValue)
 
 
+async def waiter(event):
+    print('waiting for it ...')
+    print(event == True)
+    await event.wait()
+    print(event == True)
+    print('... got it!')
+
 
 if __name__ == '__main__':
 
@@ -187,13 +199,20 @@ if __name__ == '__main__':
         IS = IntegratedSystem()
         #IS.HardwareInitialize()
 
+        event = asyncio.Event()
+        event.set()
+
+
 
 
         # https://stackoverflow.com/questions/53465862/python-aiohttp-into-existing-event-loop
         L = await asyncio.gather(
             IS.Normal_Mode(),
-            IS.Calibration()
+            IS.Calibration(),
+            waiter(event)
         )
+
+
         #runp = asyncio.create_task(HandleProgram())
         #await runp
 

@@ -163,6 +163,23 @@ class IntegratedSystem:
             # TODO: to be populated
             asyncio.sleep(0.001)
 
+    async def ReadSensorValues(self,number_avg = 1,loop_delay = 0.001): # meant to run as a long running co-routine
+
+        for i in range(number_avg):
+            self.SG.readSerialData()  # get most recent data
+            curPos = self.GC.getPosition()  # get current position, in meters relative to offset
+            self.SG.getJawChangePressureVals()  # get jaw change in pressure
+
+            self.SG.IncrementalMove(closureIncrement_mm=self.calibrationParams["Calibration Distance (mm)"],
+                                    jawIncrement_psi=[0, 0, 0])  # setup the variables
+            self.SG.MoveGrasper()  # close the grasper
+
+
+            await asyncio.sleep(loop_delay)
+
+
+
+
 
 
     async def Calibration(self):
@@ -171,11 +188,9 @@ class IntegratedSystem:
                 print("Calibration started. Hit SL+ to stop calibration")
 
                 #get initial position and state of grasper
-                self.SG.readSerialData() #get most recent data
                 curPos = self.GC.getPosition()  # get current position, in meters relative to offset
-                initialClosurePressure = self.SG.PressureArray[self.SG.closureMuscle_idx][-1]
-                #initalClosurePosition = self.SG.GetPressureFromPosition(self.commandedPosition["ClosureChangeInRadius_mm"]) #get the pressure value in p
-                initialJawPressure = self.SG.getJawChangePressureVals() # get jaw change in pressure
+                initialJawPressure, initialClosurePressure = await self.SG.ReadSensorValues(number_avg = 10,loop_delay = 0.005)
+
                 self.SG.ChangeInPressure = initialJawPressure
                 print ("Gantry position at start of calibration (mm): %f %f %f"%tuple([x*1000 for x in curPos]))
                 print ("Grasper closure muscle pressure (psi): %f"%initialClosurePressure) #need function to go from pressure to mm
@@ -189,8 +204,7 @@ class IntegratedSystem:
                 await asyncio.sleep(5) #sleep for 5 seconds.  Allow other tasks to run
 
                 #get contact pressure prior to lift
-                self.SG.readSerialData()  # get most recent data
-                contactPressure = self.SG.getJawChangePressureVals()  # get jaw change in pressure
+                contactPressure, contactClosurePressure = await self.SG.ReadSensorValues(number_avg = 10,loop_delay = 0.005)
                 print("Contact Pressure: %f %f %f"%tuple(contactPressure))
 
 
@@ -201,13 +215,11 @@ class IntegratedSystem:
 
 
                 #check contact
-                self.SG.readSerialData()  # get most recent data
-                contactPressure = self.SG.getJawChangePressureVals()  # get jaw change in pressure
-                self.SG.ChangeInPressure = initialJawPressure
+                contactPressure, ClosurePressure = await self.SG.ReadSensorValues(number_avg = 10,loop_delay = 0.005)
+                self.SG.ChangeInPressure = contactPressure
                 grasperContact = np.any([x if x >= self.calibrationParams["Grasp Pressure Threshold (psi)"][i] else 0 for (i, x) in
                                   enumerate(contactPressure)]) == True #sufficient contact if any of the thresholds greater than the threshold
 
-                ClosurePressure = self.SG.PressureArray[self.SG.closureMuscle_idx][-1]
 
                 #if object not picked up, relax grasper by 1 mm, return to home then contract by 1mm to set up next loop
                 if grasperContact == False:

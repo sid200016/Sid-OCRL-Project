@@ -411,8 +411,8 @@ class SoftGrasper:
             await asyncio.sleep(loop_delay)
 
 
-        jawPressure = jawPressure/5
-        closurePressure = closurePressure/5
+        jawPressure = jawPressure/number_avg
+        closurePressure = closurePressure/number_avg
 
         return(jawPressure,closurePressure)
 

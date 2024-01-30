@@ -403,8 +403,11 @@ class SoftGrasper:
 
         for i in range(number_avg):
             self.readSerialData()
-            jawPressure = np.array(self.getJawChangePressureVals())+jawPressure
+            jawPressure_r = np.array(self.getJawChangePressureVals())
+            self.logger.debug("Read sensor values loop %i, jaw pressures in psi %f,%f,%f"%(i,*jawPressure_r))
+            jawPressure = jawPressure_r+jawPressure
             closurePressure = self.PressureArray[self.closureMuscle_idx][-1] + closurePressure
+            self.logger.debug("Closure Muscle loop %i, closure muscle pressure in psi %f" % (i, closurePressure))
             await asyncio.sleep(loop_delay)
 
 

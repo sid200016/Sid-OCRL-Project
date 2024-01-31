@@ -86,6 +86,20 @@ class IntegratedSystem:
         self.logger = None
         self.setupLogger()
 
+        #Events for determining
+        self.MoveGrasperEvent = asyncio.Event()
+        self.MoveGantryEvent = asyncio.Event()
+        self.FreshDataEvent = asyncio.Event()
+        self.GrasperReadAverage = {"Average Event":asyncio.Event(),"Number of Loops":1,"Time delay (s)":0.000}
+
+        #For storing position and pressure variables
+        self.SG.ChangeInPressure = None
+        self.jawPressure = None
+        self.ClosurePressure = None
+        self.curPos = None
+
+
+
     def setupLogger(self):
         ##### Set up logging ####
         logger_sys = logging.getLogger(__name__)
@@ -128,31 +142,73 @@ class IntegratedSystem:
 
         self.SNSc = SNScontroller(ModulateSNS=False)
 
+
+    async def Read_Move_Hardware(self):
+        while True:
+            curPos = self.GC.getPosition()
+            await asyncio.sleep(0.001)
+
+            if self.GrasperReadAverage["Average Event"].is_set() == True: #for the case where you want to average
+                jawPressure, ClosurePressure = await self.SG.ReadSensorValues(number_avg=self.GrasperReadAverage["Number of Loops"],
+                                                                              loop_delay=self.GrasperReadAverage["Time Delay (s)"])
+                self.GrasperReadAverage["Average Event"].clear()
+
+            else: #default
+                jawPressure, ClosurePressure = await self.SG.ReadSensorValues(number_avg=1, loop_delay=0)
+
+
+            self.SG.ChangeInPressure = jawPressure
+            self.jawPressure = jawPressure
+            self.ClosurePressure = ClosurePressure
+            self.curPos = curPos
+            await asyncio.sleep(0.001)  # nominal 50 Hz
+
+            # set the flag indicating that fresh data has been received, then sleep, then change the flag
+            self.FreshDataEvent.set()
+            await asyncio.sleep(0.010)
+
+            #Move gantry only when event is set to true
+            if self.MoveGantryEvent.is_set():
+                self.GC.setXYZ_Position(*self.GC.goalPos, self.GC.feedrate_mmps * 60)  # absolute move of the gantry
+                self.MoveGantryEvent.clear() #reset the event
+
+            #Actuate grasper only when event is set to true
+            if self.MoveGrasperEvent.is_set():
+                self.SG.MoveGrasper()
+                self.MoveGrasperEvent.clear() #reset the event
+
+
+            # Set the rumble
+            rumbleValue = self.calculateRumble(self.ObjectPressureThreshold, self.ObjectPressureScaling)
+            self.jcSG.rumbleFeedback(rumbleValue, rumbleValue, 1000)
+
+
+            # change the flags
+            self.FreshDataEvent.clear()
+            # now that all the actions have been awaited, set the fresh data flag to false
+
+
     async def Normal_Mode(self): #meant to run as a long running co-routine
         while (True):
             #print ("Normal mode")
             [buttonVal, AxesPos] = self.jcSG.eventLoop()  # run event loop to determine what values and axes to execute
             self.jcSG.ExecuteButtonFunctions(buttonVal, AxesPos)  # execute Button functions defined by the button values and axes positions
 
-
-
             if self.jcSG.ControlMode == JC.JoyConState.NORMAL:
                 posInc, feedrate_mmps = self.jcSG.calcPositionIncrement(AxesPos[0], AxesPos[
                     1])  # get the joystick position for x, y and z, corrected for the flip on the x axis
                 self.GC.calculateIncrementalMove(*posInc)  # will set the GC.goalPos with the appropriate increments
 
-                self.GC.goalPos = Point(self.GC.goalPos[0], self.GC.goalPos[1], self.GC.goalPos[2])
+                self.MoveGantryEvent.set() #Move the gantry
 
-                self.GC.setXYZ_Position(*self.GC.goalPos, feedrate_mmps * 60)  # absolute move of the gantry
+                self.MoveGrasperEvent.set() #Move the grasper
 
-                self.SG.MoveGrasper()
+
 
             #Update the hardware measurements of grasper position and soft grasper state, respecting the lock
             # TODO: to be populated
 
-            # Set the rumble
-            rumbleValue = self.calculateRumble(self.ObjectPressureThreshold, self.ObjectPressureScaling)
-            self.jcSG.rumbleFeedback(rumbleValue, rumbleValue, 1000)
+
 
             await asyncio.sleep(0.001)  # allow other tasks to run
 
@@ -174,37 +230,39 @@ class IntegratedSystem:
                 print("Calibration started. Hit SL+ to stop calibration")
 
                 #get initial position and state of grasper
-                curPos = self.GC.getPosition()  # get current position, in meters relative to offset
-                initialJawPressure, initialClosurePressure = await self.SG.ReadSensorValues(number_avg = 20,loop_delay = 0.005)
 
-                self.SG.ChangeInPressure = initialJawPressure
-                print ("Gantry position at start of calibration (mm): %f %f %f"%tuple([x*1000 for x in curPos]))
-                print ("Grasper closure muscle pressure (psi): %f"%initialClosurePressure) #need function to go from pressure to mm
-                print ("Grasper contact pressure (psi) at start of calibration: %f, %f, %f" % tuple(initialJawPressure))
+                await self.FreshDataEvent.wait() #wait for fresh data
+
+
+                print ("Gantry position at start of calibration (mm): %f %f %f"%tuple([x*1000 for x in self.curPos]))
+                print ("Grasper closure muscle pressure (psi): %f"%self.ClosurePressure) #need function to go from pressure to mm
+                print ("Grasper contact pressure (psi) at start of calibration: %f, %f, %f" % tuple(self.jawPressure))
 
                 #close grasper
-                self.SG.IncrementalMove(closureIncrement_mm=self.calibrationParams["Calibration Distance (mm)"], jawIncrement_psi=[0, 0, 0]) #setup the variables
-                self.SG.MoveGrasper() #close the grasper
+                self.SG.IncrementalMove(closureIncrement_mm=self.calibrationParams["Calibration Distance (mm)"],
+                                        jawIncrement_psi=[0, 0, 0])  # setup the variables
+
+                self.MoveGrasperEvent.set()
+                self.MoveGantryEvent.set()
 
                 #allow time to settle
                 await asyncio.sleep(5) #sleep for 5 seconds.  Allow other tasks to run
 
                 #get contact pressure prior to lift
-                contactPressure, contactClosurePressure = await self.SG.ReadSensorValues(number_avg = 20,loop_delay = 0.005)
-                print("Contact Pressure: %f %f %f"%tuple(contactPressure))
+                await self.FreshDataEvent.wait()  # wait for fresh data
+                print("Contact Pressure: %f %f %f"%tuple(self.jawPressure))
 
 
                 #lift grasper
-                curPos = self.GC.getPosition()  # get current position, in meters relative to offset
-                self.GC.incrementalMove(0,0,self.calibrationParams["Grasp Lift Height (mm)"],self.GC.MaxSpeedRate_mmps.z/2) #move up by 20 mm
+                self.GC.calculateIncrementalMove(0,0,self.calibrationParams["Grasp Lift Height (mm)"]) #move up by 20 mm
+                self.MoveGantryEvent.set()
                 await asyncio.sleep(15)
 
 
                 #check contact
-                contactPressure, ClosurePressure = await self.SG.ReadSensorValues(number_avg = 20,loop_delay = 0.005)
-                self.SG.ChangeInPressure = contactPressure
+
                 grasperContact = np.all([x if x >= self.calibrationParams["Grasp Pressure Threshold (psi)"][i] else 0 for (i, x) in
-                                  enumerate(contactPressure)]) == True #sufficient contact if any of the thresholds greater than the threshold
+                                  enumerate(self.jawPressure)]) == True #sufficient contact if any of the thresholds greater than the threshold
 
 
                 #if object not picked up, relax grasper by 1 mm, return to home then contract by 1mm to set up next loop
@@ -212,12 +270,12 @@ class IntegratedSystem:
                     #open grasper slightly
                     self.SG.IncrementalMove(closureIncrement_mm=-2,
                                             jawIncrement_psi=[0, 0, 0])  # setup the variables
-                    self.SG.MoveGrasper()  # open the grasper
+                    self.MoveGrasperEvent.set()
                     await asyncio.sleep(5)
 
                     #lower grasper
-
-                    self.GC.incrementalMove(0, 0, -self.calibrationParams["Grasp Lift Height (mm)"], self.GC.MaxSpeedRate_mmps.z/2)  # move up by 20 mm
+                    self.GC.calculateIncrementalMove(0, 0, -self.calibrationParams["Grasp Lift Height (mm)"])
+                    self.MoveGantryEvent.set()
                     await asyncio.sleep(15)
                     print("After Sleep")
 
@@ -225,27 +283,28 @@ class IntegratedSystem:
                     #close grasper slightly
                     self.SG.IncrementalMove(closureIncrement_mm=2,
                                             jawIncrement_psi=[0, 0, 0])  # setup the variables
-                    self.SG.MoveGrasper()  # open the grasper
+                    self.MoveGrasperEvent.set()
                     await asyncio.sleep(5)
 
                 #if object picked up, return to position, release object, set ControlMode to normal and report the final values.
                 elif grasperContact == True:
                     print("Calibration successful")
-                    print("Gantry position at end of calibration (mm): %f %f %f" % tuple([x * 1000 for x in curPos]))
+                    print("Gantry position at end of calibration (mm): %f %f %f" % tuple([x * 1000 for x in self.curPos]))
                     print(
-                        "Grasper closure muscle pressure at end of calibration (psi): %f" % ClosurePressure)  # need function to go from pressure to mm
+                        "Grasper closure muscle pressure at end of calibration (psi): %f" % self.ClosurePressure)  # need function to go from pressure to mm
                     print("Grasper closure radius at end of calibration (mm): %f" % self.SG.commandedPosition[
                         "ClosureChangeInRadius_mm"])
-                    print("Grasper contact pressure (psi) at end of calibration: %f, %f, %f" % tuple(contactPressure))
+                    print("Grasper contact pressure (psi) at end of calibration: %f, %f, %f" % tuple(self.jawPressure))
 
                     #return to home
                     print("Returning object to base ...")
-                    self.GC.incrementalMove(0, 0, -self.calibrationParams["Grasp Lift Height (mm)"],self.GC.MaxSpeedRate_mmps.z/2)  # move up by 20 mm
+                    self.GC.calculateIncrementalMove(0, 0, -self.calibrationParams["Grasp Lift Height (mm)"])
+                    self.MoveGantryEvent.set()
                     await asyncio.sleep(15)
 
                     #open grasper
                     self.SG.commandedPosition["ClosureChangeInRadius_mm"] = 0
-                    self.SG.MoveGrasper()
+                    self.MoveGantryGrasper.set()
 
                     await asyncio.sleep(5)
 
@@ -327,7 +386,8 @@ if __name__ == '__main__':
         L = await asyncio.gather(
             IS.Normal_Mode(),
             IS.Calibration(),
-            IS.ReadCommandLine()
+            IS.ReadCommandLine(),
+            IS.Read_Move_Hardware()
         )
         #runp = asyncio.create_task(HandleProgram())
         #await runp

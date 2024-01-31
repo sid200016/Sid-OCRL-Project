@@ -187,9 +187,9 @@ class IntegratedSystem:
 
 async def waiter(event):
     print('waiting for it ...')
-    print(event == True)
+    print(event.is_set())
     await event.wait()
-    print(event == True)
+    print(event.is_set())
     print('... got it!')
 
 
@@ -200,7 +200,7 @@ if __name__ == '__main__':
         #IS.HardwareInitialize()
 
         event = asyncio.Event()
-        event.set()
+
 
 
 

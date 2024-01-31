@@ -53,6 +53,7 @@ class Gantry:
         self.GoalTolerance_mm = 0.5 #distance away from the goal in mm to be considered "at goal"
         self.startMotionPos = Point(0, 0, 0) #triad indicating where the current motion was started from
 
+        self.feedrate_mmps = self.MoveSpeed/60
 
         #Run Initialization routine:
         if initializeSystem == True:

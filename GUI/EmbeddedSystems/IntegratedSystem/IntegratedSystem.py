@@ -62,7 +62,7 @@ class IntegratedSystem:
         self.grasperType = None
 
         #calibration parameters
-        self.calibrationParams = {"Calibration Distance (mm)":1, "Grasp Pressure Threshold (psi)":[0.010,0.010,0.010], "Grasp Lift Height (mm)":35}
+        self.calibrationParams = {"Calibration Distance (mm)":1, "Grasp Pressure Threshold (psi)":[0.005,0.005,0.005], "Grasp Lift Height (mm)":35}
 
 
         #object for user experiments
@@ -203,7 +203,7 @@ class IntegratedSystem:
                 #check contact
                 contactPressure, ClosurePressure = await self.SG.ReadSensorValues(number_avg = 20,loop_delay = 0.005)
                 self.SG.ChangeInPressure = contactPressure
-                grasperContact = np.any([x if x >= self.calibrationParams["Grasp Pressure Threshold (psi)"][i] else 0 for (i, x) in
+                grasperContact = np.all([x if x >= self.calibrationParams["Grasp Pressure Threshold (psi)"][i] else 0 for (i, x) in
                                   enumerate(contactPressure)]) == True #sufficient contact if any of the thresholds greater than the threshold
 
 

@@ -250,6 +250,28 @@ class SoftGrasper:
 
         #force_vec=[x*5 if x>0.2 else 0 for x in ChP] #threshold for contact
 
+    def ReadGrasperData(self):
+        PVal = self.GetPressureFromPosition(self.commandedPosition["ClosureChangeInRadius_mm"]) #get the pressure value in psi
+
+        self.logger.debug("CommandedPressure: "+str(PVal))
+
+        self.PressurePorts[self.closureMuscle_idx].portStatus = PortActions.INFLATE_AND_MODULATE
+        self.PressurePorts[self.JawPos[0]].portStatus = PortActions.HOLD
+        self.PressurePorts[self.JawPos[1]].portStatus = PortActions.HOLD
+        self.PressurePorts[self.JawPos[2]].portStatus = PortActions.HOLD
+
+
+
+        byteList = self.ConstructPortCommand()
+        numBytes = self.sendCommunicationArray(byteList=byteList)
+        self.logger.debug("Bytes sent:%i" % (numBytes))
+
+        # read serial data
+        self.readSerialData()
+
+        ChP = self.getJawChangePressureVals()
+        self.changeInPressure = ChP
+        self.logger.debug("Change in pressure: "+','.join([str(x) for x in ChP]))
 
     def sendCommunicationArray(self,startDelim = None,byteList = None, endDelim = None): #send list of bytearrays over serial with start and stop delim
         if startDelim is None:
@@ -399,10 +421,11 @@ class SoftGrasper:
     async def ReadSensorValues(self,number_avg = 1, loop_delay = 0.001): #convenience function to get the pressure values
         jawPressure = np.array([0 for x in self.JawPos])
         closurePressure = 0
+        await asyncio.sleep(0.001)
 
 
         for i in range(number_avg):
-            self.readSerialData()
+            self.ReadGrasperData()
             jawPressure_r = np.array(self.getJawChangePressureVals())
             self.logger.debug("Read sensor values loop %i, jaw pressures in psi %f,%f,%f"%(i,*jawPressure_r))
             jawPressure = jawPressure_r+jawPressure

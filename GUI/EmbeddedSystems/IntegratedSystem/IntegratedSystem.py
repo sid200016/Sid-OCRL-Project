@@ -90,10 +90,9 @@ class IntegratedSystem:
         self.MoveGrasperEvent = asyncio.Event()
         self.MoveGantryEvent = asyncio.Event()
         self.FreshDataEvent = asyncio.Event()
-        self.GrasperReadAverage = {"Average Event":asyncio.Event(),"Number of Loops":1,"Time delay (s)":0.000}
+        self.GrasperReadAverage = {"Average Event":asyncio.Event(),"Number of Loops":20,"Time Delay (s)":0.005}
 
         #For storing position and pressure variables
-        self.SG.ChangeInPressure = None
         self.jawPressure = None
         self.ClosurePressure = None
         self.curPos = None
@@ -144,28 +143,32 @@ class IntegratedSystem:
 
 
     async def Read_Move_Hardware(self):
+        self.SG.ReadGrasperData() #To fix: need to do this at least once so that there is data on the serial line, otherwise "ReadSensorValues" will fail
+        await asyncio.sleep(0.5)
+
         while True:
-            curPos = self.GC.getPosition()
-            await asyncio.sleep(0.001)
+            if self.jcSG.ControlMode != JC.JoyConState.NORMAL: #only do constant update of position when not in joystick control mode
+                curPos = self.GC.getPosition()
+                await asyncio.sleep(0.001)
 
-            if self.GrasperReadAverage["Average Event"].is_set() == True: #for the case where you want to average
-                jawPressure, ClosurePressure = await self.SG.ReadSensorValues(number_avg=self.GrasperReadAverage["Number of Loops"],
-                                                                              loop_delay=self.GrasperReadAverage["Time Delay (s)"])
-                self.GrasperReadAverage["Average Event"].clear()
+                if self.GrasperReadAverage["Average Event"].is_set() == True: #for the case where you want to average
+                    jawPressure, ClosurePressure = await self.SG.ReadSensorValues(number_avg=self.GrasperReadAverage["Number of Loops"],
+                                                                                  loop_delay=self.GrasperReadAverage["Time Delay (s)"])
+                    self.GrasperReadAverage["Average Event"].clear()
 
-            else: #default
-                jawPressure, ClosurePressure = await self.SG.ReadSensorValues(number_avg=1, loop_delay=0)
+                else: #default
+                    jawPressure, ClosurePressure = await self.SG.ReadSensorValues(number_avg=1, loop_delay=0)
 
 
-            self.SG.ChangeInPressure = jawPressure
-            self.jawPressure = jawPressure
-            self.ClosurePressure = ClosurePressure
-            self.curPos = curPos
-            await asyncio.sleep(0.001)  # nominal 50 Hz
+                self.SG.ChangeInPressure = jawPressure
+                self.jawPressure = jawPressure
+                self.ClosurePressure = ClosurePressure
+                self.curPos = curPos
+                await asyncio.sleep(0.001)  # nominal 50 Hz
 
-            # set the flag indicating that fresh data has been received, then sleep, then change the flag
-            self.FreshDataEvent.set()
-            await asyncio.sleep(0.010)
+                # set the flag indicating that fresh data has been received, then sleep, then change the flag
+                self.FreshDataEvent.set()
+                await asyncio.sleep(0.010)
 
             #Move gantry only when event is set to true
             if self.MoveGantryEvent.is_set():
@@ -185,6 +188,7 @@ class IntegratedSystem:
 
             # change the flags
             self.FreshDataEvent.clear()
+            await asyncio.sleep(0.001)
             # now that all the actions have been awaited, set the fresh data flag to false
 
 
@@ -227,6 +231,7 @@ class IntegratedSystem:
     async def Calibration(self):
         while True:
             if self.jcSG.ControlMode == JC.JoyConState.CALIBRATION:
+                self.GrasperReadAverage["Average Event"].set()
                 print("Calibration started. Hit SL+ to stop calibration")
 
                 #get initial position and state of grasper
@@ -250,7 +255,7 @@ class IntegratedSystem:
 
                 #get contact pressure prior to lift
                 await self.FreshDataEvent.wait()  # wait for fresh data
-                print("Contact Pressure: %f %f %f"%tuple(self.jawPressure))
+                print("Contact Pressure prior to lift: %f %f %f"%tuple(self.jawPressure))
 
 
                 #lift grasper
@@ -260,10 +265,11 @@ class IntegratedSystem:
 
 
                 #check contact
-
+                await self.FreshDataEvent.wait()  # wait for fresh data
                 grasperContact = np.all([x if x >= self.calibrationParams["Grasp Pressure Threshold (psi)"][i] else 0 for (i, x) in
                                   enumerate(self.jawPressure)]) == True #sufficient contact if any of the thresholds greater than the threshold
 
+                print("Contact Pressure: %f %f %f" % tuple(self.jawPressure))
 
                 #if object not picked up, relax grasper by 1 mm, return to home then contract by 1mm to set up next loop
                 if grasperContact == False:
@@ -304,12 +310,14 @@ class IntegratedSystem:
 
                     #open grasper
                     self.SG.commandedPosition["ClosureChangeInRadius_mm"] = 0
-                    self.MoveGantryGrasper.set()
+                    self.MoveGrasperEvent.set()
 
                     await asyncio.sleep(5)
 
                     #set variable
                     self.jcSG.ControlMode = JC.JoyConState.NORMAL #return to normal mode
+
+                    self.GrasperReadAverage["Average Event"].clear() #go back to only reading values 1 time
 
                 await asyncio.sleep(0.05)  # allow other tasks to run
             #print("End of Calibration loop")

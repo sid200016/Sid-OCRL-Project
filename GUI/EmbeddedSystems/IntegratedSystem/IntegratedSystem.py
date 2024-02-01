@@ -97,6 +97,14 @@ class IntegratedSystem:
         self.ClosurePressure = None
         self.curPos = None
 
+        #For SNS
+        self.SNS_target_pos_m = [0,0,0]
+        self.SNS_object_pos_m = [0,0,0]
+        self.ContactThreshold = {"Pressure Threshold (psi)":[0.05,0.05,0.05], "Pressure Scaling":[10,10,10]}
+        self.maxJawChangeInRadius_mm = 20 #20 mm max jaw change in radius
+        self.SNS_BypassForceFeedback = True
+
+
 
 
     def setupLogger(self):
@@ -219,8 +227,115 @@ class IntegratedSystem:
 
 
     async def SNS_Mode(self): #meant to run as a long running co-routine
+        # TODO: to be populated
+        # Finish SNS
+        # Add quick close grasper step
+        # Fix logging
+        # Take video of it closing and record the change in radius 3 times
+        #
         while (True):
-            # TODO: to be populated
+            if self.jcSG.SNS_control == True:
+                self.loggerR.info('Inside SNS control')
+
+                await self.FreshDataEvent.wait()  # wait for fresh data
+
+                curPos = self.curPos
+                curPos_orig = curPos
+                jawPressure = self.jawPressure
+
+                if self.SNSc.first_attempt == True:
+                    # z_offset = curPos.z
+                    z_offset = 0
+                    # will adjust height relative to object position
+
+                    self.loggerR.info("Z offset %f" % z_offset)
+                    object_position_list = [0, 0, self.SNS_object_pos_m[
+                        2] - z_offset]  # [0, 0, -0.185] #calculate move relative to the object position.
+                    # [-0.15, -0.15, -0.190]
+
+                    target_position_list = [self.SNS_target_pos_m[0] - self.SNS_object_pos_m[0],
+                                            self.SNS_target_pos_m[1] - self.SNS_object_pos_m[1],
+                                            self.SNS_target_pos_m[2] - self.z_offset]
+
+                    self.SNSc.first_attempt = False
+
+
+                curPos = Point(-self.SNS_object_pos_m[0] + curPos.x, -self.SNS_object_pos_m[1] + curPos.y,
+                               -z_offset + curPos.z)  # get where the current position is relative to where the object is
+
+                grasperPosition = Point(curPos.x, curPos.y, curPos.z)  # convert to meters
+                loggerR.info('Target position in m: %f %f %f' % (*target_position_list,))
+                loggerR.info('GrasperPos in m:%f %f %f' % (*grasperPosition,))
+                loggerR.info('ObjectPos in m:%f %f %f' % (*object_position_list,))
+
+                grasperThreshold = self.ContactThreshold["Pressure Threshold (psi)"]
+                pressureScaling = self.ContactThreshold["Pressure Scaling"]
+
+                grasperContact = [(x - grasperThreshold[i]) * pressureScaling[i] if x >= grasperThreshold[i] else 0 for (i, x) in
+                                  enumerate(jawPressure)]
+
+                grasperContact = GrasperContactForce(*grasperContact)
+
+                if (self.SNS_BypassForceFeedback == True and (self.SNSc.neuronset['grasp'] >= 20 or self.SNSc.num_grasp_attempts >=1)): #need to fix this so it releases the object as well
+                    # for grasping set to 20 psi. For releasing, use real pressure
+                    grasperContact = GrasperContactForce(*[0, 0, 0]) if self.SG.commandedPosition[
+                                                                            "ClosureChangeInRadius_mm"] < self.maxJawChangeInRadius_mm else GrasperContactForce(
+                        *[20, 20, 20])  # set contact threshold based on the position
+
+
+
+                commandPosition_m, JawRadialPos_m = self.SNSc.SNS_forward(grasperPos_m=grasperPosition,
+                                                                     grasperContact=grasperContact,
+                                                                     objectPos_m=Point(*object_position_list),
+                                                                     targetPos_m=Point(*target_position_list),
+                                                                     useRealGantry=False)
+
+                print(self.SNSc.neuronset)
+                self.loggerR.info('Jaw radial pos in m:%f' % (JawRadialPos_m))
+                self.loggerR.info('Command Position: %f %f %f' % (*list(commandPosition_m),))
+                # command position is absolute move in m relative to the offset.
+                commandPosition_m = Point(self.SNS_object_pos_m[0] + commandPosition_m.x,
+                                          self.SNS_object_pos_m[1] + commandPosition_m.y,
+                                          z_offset + commandPosition_m.z)  # calculate the move relative to the object position
+
+                self.GC.goalPos = [x * 1000 for x in list(commandPosition_m)] #set goal position
+
+                loggerR.info('SNS commanded goal position (mm):%f,%f,%f' % (*self.GC.goalPos,))
+                loggerR.debug('SNS commanded change in radius (mm):%f' % (self.JawRadialPos_m * 1000))
+                loggerR.debug(','.join([k + ":" + str(v) for k, v in self.SNSc.neuronset.items()]))
+
+                self.SG.commandedPosition["ClosureChangeInRadius_mm"] = min(JawRadialPos_m * 1000,
+                                                                       self.maxJawChangeInRadius_mm)  # limit the radial position change to prevent overinflation
+
+
+                loggerR.info('Number of grasp attempts %i' % self.SNSc.num_grasp_attempts)
+                if self.SNSc.num_grasp_attempts >= 1 or SNSc.lift_after_release_done == True:
+
+                    # if (SNSc.num_grasp_attempts>=1
+                    #         and
+                    #         (SNSc.neuronset["move_to_grasp"]>=20 or SNSc.neuronset["move_to_pre_grasp"]>=20)): #if about to attempt a regrasp
+                    #     GC.goalPos = [curPos_orig.x*1000, curPos_orig.y*1000, curPos_orig.z*1000+70] #move object up
+                    #     loggerR.info('Failed grasp, exceeded number of attempts')
+                    #     SNSc.lift_after_grasp_done = True #set to true to trigger the next statement
+                    #     SG.commandedPosition["ClosureChangeInRadius_mm"] = 0
+                    #
+
+                    if self.SNSc.num_grasp_attempts >= 1 and self.SNSc.lift_after_release_done == True:
+                        self.jcSG.SNS_control = False  # reset to false to give control back to the user
+                        self.jcSG.ControlMode =JC.JoyConState.NORMAL
+                        self.loggerR.info('Reset the SNS controller after lift after grasp complete')
+
+                self.MoveGrasperEvent.set()
+                self.MoveGantryEvent.set()
+
+
+
+            else:
+                self.SNSc = SNScontroller() #reinitialize SNS
+
+
+
+
             asyncio.sleep(0.001)
 
 

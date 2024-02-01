@@ -297,7 +297,6 @@ class SNS_Perception(nn.Module):
             (1, self._sensory_layer_2.state_size))
         self._command_layer_state = torch.zeros(
             (1, self._command_layer.state_size))
-        self._command_layer_state[0,-1] = -R
 
     def forward(self, gripper_position, object_position, target_position, force):
         position_input = torch.cat(
@@ -338,11 +337,10 @@ for i in range(6, 9):
 for i in range(9, 12):
     sparsity_mask[i - 9, i] = -1
     sparsity_mask[i - 3, i] = 1
-tau = torch.Tensor(0.1*np.ones(SENSORY_LAYER_1_SIZE))
 theta_max_in = np.tile(THETA_MAX[:3], 3)
 theta_min_in = np.tile(THETA_MIN[:3], 3)
 sensory_layer_1 = SNS_layer(layer_input_size=SENSORY_LAYER_1_INPUT_SIZE, layer_size=SENSORY_LAYER_1_SIZE,
-                            sparsity_mask=sparsity_mask, theta_min_in=theta_min_in, theta_max_in=theta_max_in, R=R, tau=tau)
+                            sparsity_mask=sparsity_mask, theta_min_in=theta_min_in, theta_max_in=theta_max_in, R=R)
 
 
 # sensory_layer_2
@@ -351,11 +349,10 @@ sparsity_mask = np.zeros(
 sparsity_mask[0:6, 0:2] = 1
 sparsity_mask[6:12, 2:4] = 1
 sparsity_mask[12:15, 4:8] = 1
-tau = torch.Tensor(0.1*np.ones(SENSORY_LAYER_2_SIZE))
 theta_max_in = torch.Tensor(np.concatenate(
     (R * np.ones(SENSORY_LAYER_1_SIZE), F_MAX)))
 sensory_layer_2 = SNS_layer(layer_input_size=SENSORY_LAYER_2_INPUT_SIZE,
-                            layer_size=SENSORY_LAYER_2_SIZE, sparsity_mask=sparsity_mask, theta_max_in=theta_max_in, R=R, tau=tau)
+                            layer_size=SENSORY_LAYER_2_SIZE, sparsity_mask=sparsity_mask, theta_max_in=theta_max_in, R=R)
 
 p = Path(__file__).with_name("sensory_layer_2_param")
 sensory_layer_2.load_state_dict(
@@ -391,7 +388,7 @@ sparsity_mask[[2, 3, 7], 5] = [-1, 1, 1]
 sparsity_mask[[3, 7], 6] = [-1, 1]
 # far away from the target position + no force = move to the postrelease position
 sparsity_mask[[2, 7], 7] = -1
-tau = torch.Tensor(0.1*np.ones(COMMAND_LAYER_SIZE))
+tau = torch.Tensor(0.3*np.ones(COMMAND_LAYER_SIZE))
 command_layer = SNS_layer(layer_input_size=COMMAND_LAYER_INPUT_SIZE,
                           layer_size=COMMAND_LAYER_SIZE, sparsity_mask=sparsity_mask, R=R,tau=tau)
 
@@ -410,7 +407,7 @@ command_layer._params["b"].data[4] = -2 * R
 command_layer._params["b"].data[5] = -R
 command_layer._params["b"].data[7] = R
 command_layer._params["erev"].data[2, 3] = -R
-#command_layer._params["erev"].data[3, 2] = -3 * R
+command_layer._params["erev"].data[3, 2] = -3 * R
 
 
 # inter_layer_1
@@ -436,7 +433,7 @@ sparsity_mask[5, [1, 3]] = [1, 1]
 sparsity_mask[6, 1] = 1
 # move to the postrelease position = move to the target position + lift the gripper up + open the gripper
 sparsity_mask[7, [1, 2]] = 1
-tau = torch.Tensor(0.1*np.ones(INTER_LAYER_1_SIZE))
+tau = torch.Tensor(0.3*np.ones(INTER_LAYER_1_SIZE))
 inter_layer_1 = SNS_layer(layer_input_size=INTER_LAYER_1_INPUT_SIZE,
                           layer_size=INTER_LAYER_1_SIZE, sparsity_mask=sparsity_mask, R=R,tau=tau)
 inter_layer_1._params["sensory_erev"].data[0, 2] = 10
@@ -471,12 +468,11 @@ sparsity_mask[9, 9] = 1  # target_z feedback = target_z
 sparsity_mask[10, 9] = -1
 # move to the target position = object_z inhibited
 sparsity_mask[11, 8] = -1
-tau = torch.Tensor(0.1*np.ones(INTER_LAYER_2_SIZE))
 theta_max_in = np.concatenate((np.stack((THETA_MAX[0:3], THETA_MIN[0:3])).transpose().reshape(
     1, -1).squeeze()[:-1], np.stack((THETA_MAX[0:3], THETA_MIN[0:3])).transpose().reshape(1, -1).squeeze()[:-1], [R, R]))
 theta_max_in = torch.Tensor(theta_max_in)
 inter_layer_2 = SNS_layer(layer_input_size=INTER_LAYER_2_INPUT_SIZE, layer_size=INTER_LAYER_2_SIZE,
-                          sparsity_mask=sparsity_mask, theta_max_in=theta_max_in, R=R, tau=tau)
+                          sparsity_mask=sparsity_mask, theta_max_in=theta_max_in, R=R)
 
 
 # motor_layer
@@ -513,7 +509,7 @@ theta_max_out = torch.Tensor(THETA_MAX)
 theta_max_out_modulation = torch.Tensor(THETA_MAX)
 theta_max_out_modulation[-1] *= 0.2
 theta_min_out = torch.Tensor(THETA_MIN)
-tau = torch.Tensor([0.1, 0.1, 0.1, 0.1])
+tau = torch.Tensor([0.1, 0.3, 0.1, 0.1])
 motor_layer = SNS_layer(layer_input_size=MOTOR_LAYER_INPUT_SIZE, layer_size=MOTOR_LAYER_SIZE,
                         sparsity_mask=sparsity_mask, tau=tau, theta_min_out=theta_min_out, theta_max_out=theta_max_out, R=R)
 modulation_motor_layer = modulation_SNS_layer(layer_input_size=MOTOR_LAYER_MODULATION_INPUT_SIZE, layer_size=MOTOR_LAYER_SIZE,
@@ -525,7 +521,6 @@ modulation_motor_layer._params["sensory_erev"].data[10, 2] = -R / 10
 
 
 perceptor = SNS_Perception(sensory_layer_1, sensory_layer_2, command_layer)
-perceptor._sensory_layer_2._params["tau"].data = torch.Tensor(0.1*np.ones(SENSORY_LAYER_2_SIZE))
 controller = SNS_Control(inter_layer_1, inter_layer_2, motor_layer)
 modulation_controller = SNS_Modulation_Control(inter_layer_1, inter_layer_2, modulation_motor_layer)
 perceptor.eval()

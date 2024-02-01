@@ -122,7 +122,7 @@ def pick_and_place():
 
         # ---------step the simulation----------
         gS.stepSim(usePositionControl=True, GUI_override=False, **ArgumentDict)  # pass argument dict to function
-
+        print
 
     return positionset, targetpositionset, forceset, neuronset
 

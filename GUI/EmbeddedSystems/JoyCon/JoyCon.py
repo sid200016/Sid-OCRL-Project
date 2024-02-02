@@ -18,7 +18,7 @@ class JoyConState(Enum):
     USE_SNS = 1 #SNS is controlling the grasper position and amount of closure
     GO_HOME = 2 #Robot is moving to HOME
     CALIBRATION = 3 #Robot is performing calibration
-
+    PREP_SNS = 4 #Getting input prompts for SNS
 
 
 class Button:

@@ -95,7 +95,7 @@ class IntegratedSystem:
         #For storing position and pressure variables
         self.jawPressure = None
         self.ClosurePressure = None
-        self.curPos = None
+        self.curPos = None #will be a Point (x,y,z) in meters
 
         #For SNS
         self.max_z_height = -0.184
@@ -235,8 +235,8 @@ class IntegratedSystem:
         # Take video of it closing and record the change in radius 3 times
         #
         while (True):
-            if self.jcSG.SNS_control == True:
-                self.loggerR.info('Inside SNS control')
+            if self.jcSG.ControlMode == JC.JoyConState.USE_SNS:
+                self.logger.info('Inside SNS control')
 
                 await self.FreshDataEvent.wait()  # wait for fresh data
 
@@ -249,14 +249,14 @@ class IntegratedSystem:
                     z_offset = 0
                     # will adjust height relative to object position
 
-                    self.loggerR.info("Z offset %f" % z_offset)
+                    self.logger.info("Z offset %f" % z_offset)
                     object_position_list = [0, 0, self.SNS_object_pos_m[
                         2] - z_offset]  # [0, 0, -0.185] #calculate move relative to the object position.
                     # [-0.15, -0.15, -0.190]
 
                     target_position_list = [self.SNS_target_pos_m[0] - self.SNS_object_pos_m[0],
                                             self.SNS_target_pos_m[1] - self.SNS_object_pos_m[1],
-                                            self.SNS_target_pos_m[2] - self.z_offset]
+                                            self.SNS_target_pos_m[2] - z_offset]
 
                     self.SNSc.first_attempt = False
 
@@ -265,9 +265,9 @@ class IntegratedSystem:
                                -z_offset + curPos.z)  # get where the current position is relative to where the object is
 
                 grasperPosition = Point(curPos.x, curPos.y, curPos.z)  # convert to meters
-                loggerR.info('Target position in m: %f %f %f' % (*target_position_list,))
-                loggerR.info('GrasperPos in m:%f %f %f' % (*grasperPosition,))
-                loggerR.info('ObjectPos in m:%f %f %f' % (*object_position_list,))
+                self.logger.info('Target position in m: %f %f %f' % (*target_position_list,))
+                self.logger.info('GrasperPos in m:%f %f %f' % (*grasperPosition,))
+                self.logger.info('ObjectPos in m:%f %f %f' % (*object_position_list,))
 
                 grasperThreshold = self.ContactThreshold["Pressure Threshold (psi)"]
                 pressureScaling = self.ContactThreshold["Pressure Scaling"]
@@ -296,8 +296,8 @@ class IntegratedSystem:
                                                                      useRealGantry=False)
 
                 print(self.SNSc.neuronset)
-                self.loggerR.info('Jaw radial pos in m:%f' % (JawRadialPos_m))
-                self.loggerR.info('Command Position: %f %f %f' % (*list(commandPosition_m),))
+                self.logger.info('Jaw radial pos in m:%f' % (JawRadialPos_m))
+                self.logger.info('Command Position: %f %f %f' % (*list(commandPosition_m),))
                 # command position is absolute move in m relative to the offset.
                 commandPosition_m = Point(self.SNS_object_pos_m[0] + commandPosition_m.x,
                                           self.SNS_object_pos_m[1] + commandPosition_m.y,
@@ -305,16 +305,16 @@ class IntegratedSystem:
 
                 self.GC.goalPos = [x * 1000 for x in list(commandPosition_m)] #set goal position
 
-                loggerR.info('SNS commanded goal position (mm):%f,%f,%f' % (*self.GC.goalPos,))
-                loggerR.debug('SNS commanded change in radius (mm):%f' % (self.JawRadialPos_m * 1000))
-                loggerR.debug(','.join([k + ":" + str(v) for k, v in self.SNSc.neuronset.items()]))
+                self.logger.info('SNS commanded goal position (mm):%f,%f,%f' % (*self.GC.goalPos,))
+                self.logger.debug('SNS commanded change in radius (mm):%f' % (JawRadialPos_m * 1000))
+                self.logger.debug(','.join([k + ":" + str(v) for k, v in self.SNSc.neuronset.items()]))
 
                 self.SG.commandedPosition["ClosureChangeInRadius_mm"] = min(JawRadialPos_m * 1000,
                                                                        self.maxJawChangeInRadius_mm)  # limit the radial position change to prevent overinflation
 
 
-                loggerR.info('Number of grasp attempts %i' % self.SNSc.num_grasp_attempts)
-                if self.SNSc.num_grasp_attempts >= 1 or SNSc.lift_after_release_done == True:
+                self.logger.info('Number of grasp attempts %i' % self.SNSc.num_grasp_attempts)
+                if self.SNSc.num_grasp_attempts >= 1 or self.SNSc.lift_after_release_done == True:
 
                     # if (SNSc.num_grasp_attempts>=1
                     #         and
@@ -328,7 +328,7 @@ class IntegratedSystem:
                     if self.SNSc.num_grasp_attempts >= 1 and self.SNSc.lift_after_release_done == True:
                         self.jcSG.SNS_control = False  # reset to false to give control back to the user
                         self.jcSG.ControlMode =JC.JoyConState.NORMAL
-                        self.loggerR.info('Reset the SNS controller after lift after grasp complete')
+                        self.logger.info('Reset the SNS controller after lift after grasp complete')
 
                 self.MoveGrasperEvent.set()
                 self.MoveGantryEvent.set()
@@ -341,7 +341,7 @@ class IntegratedSystem:
 
 
 
-            asyncio.sleep(0.001)
+            await asyncio.sleep(0.002)
 
 
 
@@ -446,7 +446,7 @@ class IntegratedSystem:
         await asyncio.sleep(0.001)
 
     def calculateRumble(self,pressureThreshold=[0.2, 0.2, 0.2], pressureScaling=1):
-        global  fragileThreshold, loggerR
+
         # pressureThreshold:  change in pressure threshold in psi above which to register changes in pressure
         rumbleValue_arr = [min((x - pressureThreshold[i]) / pressureScaling, 1) if x >= pressureThreshold[i] else 0 for
                            (i, x) in
@@ -491,8 +491,7 @@ class IntegratedSystem:
 
                 # SNS
                 case "S":
-
-
+                    self.jcSG.ControlMode = JC.JoyConState.PREP_SNS
                     await self.Get_SNS_Input() #prompts to setup SNS
                     self.jcSG.ControlMode = JC.JoyConState.USE_SNS
 
@@ -516,6 +515,9 @@ class IntegratedSystem:
         match useXYZcalibration.upper():
 
             case "Y":
+                await self.FreshDataEvent.wait()
+                self.SNS_object_pos_m =[self.curPos.x,self.curPos.y,self.curPos.z]
+
 
 
             case "N":
@@ -599,6 +601,7 @@ if __name__ == '__main__':
         L = await asyncio.gather(
             IS.Normal_Mode(),
             IS.Calibration(),
+            IS.SNS_Mode(),
             IS.ReadCommandLine(),
             IS.Read_Move_Hardware()
         )

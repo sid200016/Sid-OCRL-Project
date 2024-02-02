@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfd83e2d-ab31-4129-8c0e-ce5b016d6614" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hardware_SNS_Try.py" beforeDir="false" afterPath="$PROJECT_DIR$/Hardware_SNS_Try.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/JoyCon/JoyCon.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/JoyCon/JoyCon.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +67,7 @@
       <recent name="C:\Users\Ravesh\Desktop\Research\FRR\FRR Software Interface\FRR-Software-Interface\Testing" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.run">
+  <component name="RunManager" selected="Python.IntegratedSystem">
     <configuration name="Hardware_SNS_Try" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="FRR-Software-Interface" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -277,9 +277,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.IntegratedSystem" />
         <item itemvalue="Python.run" />
         <item itemvalue="Python.Hardware_SNS_Try" />
-        <item itemvalue="Python.IntegratedSystem" />
         <item itemvalue="Python.IntegratedSystem_Original" />
         <item itemvalue="Python.checkSoftGrasper2_new" />
       </list>
@@ -428,7 +428,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py</url>
-          <line>154</line>
+          <line>163</line>
           <option name="timeStamp" value="257" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">

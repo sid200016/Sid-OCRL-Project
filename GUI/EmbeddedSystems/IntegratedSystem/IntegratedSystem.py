@@ -98,10 +98,11 @@ class IntegratedSystem:
         self.curPos = None
 
         #For SNS
-        self.SNS_target_pos_m = [0,0,0]
-        self.SNS_object_pos_m = [0,0,0]
-        self.ContactThreshold = {"Pressure Threshold (psi)":[0.05,0.05,0.05], "Pressure Scaling":[10,10,10]}
-        self.maxJawChangeInRadius_mm = 20 #20 mm max jaw change in radius
+        self.max_z_height = -0.184
+        self.SNS_target_pos_m = [0,-0.25,-0.184]
+        self.SNS_object_pos_m = [0,0,-0.184]
+        self.ContactThreshold = {"Pressure Threshold (psi)":[0.05,0.05,0.05], "Pressure Scaling":[100,100,100]}
+        self.maxJawChangeInRadius_mm = 15 #20 mm max jaw change in radius
         self.SNS_BypassForceFeedback = True
 
 
@@ -276,13 +277,17 @@ class IntegratedSystem:
 
                 grasperContact = GrasperContactForce(*grasperContact)
 
-                if (self.SNS_BypassForceFeedback == True and (self.SNSc.neuronset['grasp'] >= 20 or self.SNSc.num_grasp_attempts >=1)): #need to fix this so it releases the object as well
+                object_grasped_phase = (self.SNSc.neuronset['grasp'] >= 20 or self.SNSc.neuronset['lift_after_grasp'] >= 20
+                        or self.SNSc.neuronset['move_to_pre_release'] >= 20 or self.SNSc.neuronset['move_to_release'] >= 20) #these should all only trigger once. Only move to pre grasp, move to grasp, grasp are triggered twice, once in the beginning and once when it returns home.
+
+
+
+
+                if (self.SNS_BypassForceFeedback == True and object_grasped_phase == True): #need to fix this so it releases the object as well
                     # for grasping set to 20 psi. For releasing, use real pressure
                     grasperContact = GrasperContactForce(*[0, 0, 0]) if self.SG.commandedPosition[
                                                                             "ClosureChangeInRadius_mm"] < self.maxJawChangeInRadius_mm else GrasperContactForce(
                         *[20, 20, 20])  # set contact threshold based on the position
-
-
 
                 commandPosition_m, JawRadialPos_m = self.SNSc.SNS_forward(grasperPos_m=grasperPosition,
                                                                      grasperContact=grasperContact,
@@ -469,7 +474,9 @@ class IntegratedSystem:
         return (rumbleValue)
 
     async def ReadCommandLine(self):
-        print_string = "Enter C for calibration. Enter S for SNS. Enter Z to return to joystick control"
+        print_string = "Enter C for calibration. \n" \
+                       "Enter S for SNS. \n" \
+                       "Enter Z to return to joystick control\n"
         print(print_string)
         while (True):
             s = await aioconsole.ainput()
@@ -478,21 +485,104 @@ class IntegratedSystem:
 
             match s.upper():
 
+                # Calibration
                 case "C":
                     self.jcSG.ControlMode = JC.JoyConState.CALIBRATION
 
+                # SNS
                 case "S":
+
+
+                    await self.Get_SNS_Input() #prompts to setup SNS
                     self.jcSG.ControlMode = JC.JoyConState.USE_SNS
 
+                # Return to Joystick Mode
                 case "Z":
                     self.jcSG.ControlMode = JC.JoyConState.NORMAL
 
+                # Default
                 case _:
                     print(print_string)
 
 
 
             await asyncio.sleep(0.01)
+
+    async def Get_SNS_Input(self):
+        useXYZcalibration = await aioconsole.ainput(
+            "Do you want to use the current position as the object location?\n"
+            "Enter 'Y' for yes, 'N' to use default position, 'T' to adjust the calibration xyz value, or 'X' to enter a new value. \n")
+
+        match useXYZcalibration.upper():
+
+            case "Y":
+
+
+            case "N":
+                print("Using default values")
+
+            case "T":
+                vals = await aioconsole.ainput(
+                    "Expecting 3 values for x,y,z offset separated by comma and in mm \n")
+                vals = [float(x) for x in vals.split(',')]
+                self.SNS_object_pos_m[0] = self.SNS_object_pos_m[0] + vals[0]/1000
+                self.SNS_object_pos_m[1] = self.SNS_object_pos_m[1] + vals[1]/1000
+                self.SNS_object_pos_m[2] = self.SNS_object_pos_m[2] + vals[2]/1000
+
+            case "X":
+                vals = await aioconsole.ainput(
+                    "Expecting 3 values for new x,y,z separated by comma and in mm \n")
+                vals = [float(x) for x in vals.split(',')]
+                self.SNS_object_pos_m[0] = vals[0] / 1000
+                self.SNS_object_pos_m[1] = vals[1] / 1000
+                self.SNS_object_pos_m[2] = vals[2] / 1000
+
+            case "Z":
+                "Exiting SNS setup ... \n"
+                return
+
+            case _:
+                pass
+
+
+        print("x,y,z used is (mm): %f, %f, %f" % (
+            self.SNS_object_pos_m[0]*1000, self.SNS_object_pos_m[1]*1000, self.SNS_object_pos_m[2]*1000))
+
+        # Ask it they want to adjust or enter new value for the grasper max closure calibration
+        useGrasperCalibration = await aioconsole.ainput(
+            "Do you want to use the grasper maximum change in radial position from the current state?\n "
+            "Enter 'Y' for yes, 'N' to use default position, 'T' to adjust the calibration grasper value, or 'X' to enter a new value.\n")
+
+        match useGrasperCalibration.upper():
+
+            case "Y":
+                await self.FreshDataEvent.wait()  # wait for fresh data
+                self.maxJawChangeInRadius_mm = self.SG.commandedPosition["ClosureChangeInRadius_mm"]
+
+
+            case "N":
+                print("Using default values")
+
+            case "T":
+                vals = await aioconsole.ainput(
+                    "Expecting value in mm, this will be an offset")
+                self.maxJawChangeInRadius_mm = self.maxJawChangeInRadius_mm + float(vals)
+
+            case "X":
+                vals = await aioconsole.ainput(
+                    "Expecting value in mm. This is the new value for maximum change in radial position.")
+                self.maxJawChangeInRadius_mm = float(vals)
+
+            case "Z":
+                "Exiting SNS setup ... \n"
+                return
+
+            case _:
+                pass
+
+        print("Max closure (mm): %f"%self.maxJawChangeInRadius_mm)
+
+
 
 
 if __name__ == '__main__':

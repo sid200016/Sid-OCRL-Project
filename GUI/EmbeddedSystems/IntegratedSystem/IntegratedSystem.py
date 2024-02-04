@@ -17,6 +17,7 @@ from GUI.EmbeddedSystems.Gantry.GantryController import Gantry as GantryControll
 import GUI.EmbeddedSystems.JoyCon.JoyCon as JC
 from GUI.EmbeddedSystems.SNS.SNScontroller import SNScontroller
 from GUI.EmbeddedSystems.Support.Structures import GrasperContactForce,Point
+from copy import deepcopy
 
 import aioconsole
 
@@ -100,7 +101,7 @@ class IntegratedSystem:
         #For SNS
         self.max_z_height = -0.184
         self.SNS_target_pos_m = [0,-0.25,-0.184]
-        self.SNS_object_pos_m = [0,0,-0.184]
+        self.SNS_object_pos_m = [-0.00931,0.01145,-0.18326] #[0,0,-0.184]
         self.ContactThreshold = {"Pressure Threshold (psi)":[0.05,0.05,0.05], "Pressure Scaling":[100,100,100]}
         self.maxJawChangeInRadius_mm = 15 #20 mm max jaw change in radius
         self.SNS_BypassForceFeedback = True
@@ -282,7 +283,6 @@ class IntegratedSystem:
 
 
 
-
                 if (self.SNS_BypassForceFeedback == True and object_grasped_phase == True): #need to fix this so it releases the object as well
                     # for grasping set to 20 psi. For releasing, use real pressure
                     grasperContact = GrasperContactForce(*[0, 0, 0]) if self.SG.commandedPosition[
@@ -294,6 +294,13 @@ class IntegratedSystem:
                                                                      objectPos_m=Point(*object_position_list),
                                                                      targetPos_m=Point(*target_position_list),
                                                                      useRealGantry=False)
+
+
+                if (self.SNS_BypassForceFeedback == True and object_grasped_phase == True):
+                    JawRadialPos_m = self.maxJawChangeInRadius_mm/1000
+                    if self.SNSc.num_grasp_attempts==1 and prev_num_grasp_attempts ==0: #only do this wait one time to allow the grasper to close fully before moving
+                        await asyncio.sleep(5)
+
 
                 print(self.SNSc.neuronset)
                 self.logger.info('Jaw radial pos in m:%f' % (JawRadialPos_m))
@@ -314,24 +321,34 @@ class IntegratedSystem:
 
 
                 self.logger.info('Number of grasp attempts %i' % self.SNSc.num_grasp_attempts)
-                if self.SNSc.num_grasp_attempts >= 1 or self.SNSc.lift_after_release_done == True:
 
-                    # if (SNSc.num_grasp_attempts>=1
-                    #         and
-                    #         (SNSc.neuronset["move_to_grasp"]>=20 or SNSc.neuronset["move_to_pre_grasp"]>=20)): #if about to attempt a regrasp
-                    #     GC.goalPos = [curPos_orig.x*1000, curPos_orig.y*1000, curPos_orig.z*1000+70] #move object up
-                    #     loggerR.info('Failed grasp, exceeded number of attempts')
-                    #     SNSc.lift_after_grasp_done = True #set to true to trigger the next statement
-                    #     SG.commandedPosition["ClosureChangeInRadius_mm"] = 0
-                    #
+                release_complete = self.SNSc.lift_after_release_done == True  and self.SNSc.neuronset["release"]==-20
 
-                    if self.SNSc.num_grasp_attempts >= 1 and self.SNSc.lift_after_release_done == True:
-                        self.jcSG.SNS_control = False  # reset to false to give control back to the user
-                        self.jcSG.ControlMode =JC.JoyConState.NORMAL
-                        self.logger.info('Reset the SNS controller after lift after grasp complete')
+                # if self.SNSc.num_grasp_attempts >= 1 or self.SNSc.lift_after_release_done == True:
+                #
+                #     # if (SNSc.num_grasp_attempts>=1
+                #     #         and
+                #     #         (SNSc.neuronset["move_to_grasp"]>=20 or SNSc.neuronset["move_to_pre_grasp"]>=20)): #if about to attempt a regrasp
+                #     #     GC.goalPos = [curPos_orig.x*1000, curPos_orig.y*1000, curPos_orig.z*1000+70] #move object up
+                #     #     loggerR.info('Failed grasp, exceeded number of attempts')
+                #     #     SNSc.lift_after_grasp_done = True #set to true to trigger the next statement
+                #     #     SG.commandedPosition["ClosureChangeInRadius_mm"] = 0
+                #     #
+                #
+                #     if self.SNSc.num_grasp_attempts >= 1 and release_complete == True:
+                #         self.jcSG.SNS_control = False  # reset to false to give control back to the user
+                #         self.jcSG.ControlMode =JC.JoyConState.NORMAL
+                #         self.logger.info('Reset the SNS controller after lift after grasp complete')
+
+
+
 
                 self.MoveGrasperEvent.set()
                 self.MoveGantryEvent.set()
+
+
+
+
 
 
 

@@ -120,6 +120,8 @@ def pick_and_place():
                         "x_force": 50, "y_force": 500,
                         "z_force": 500, "GrasperArguments": GrasperArguments}
 
+        if SNSc.lift_after_release_done == True:
+            pass
         # ---------step the simulation----------
         gS.stepSim(usePositionControl=True, GUI_override=False, **ArgumentDict)  # pass argument dict to function
         print

@@ -132,16 +132,15 @@ class SNScontroller:
         cmd_grasperPos_m = Point(x_d, y_d,
                                  z_d + self.z_offset)  # note that this is in meters, and doesn't account for the offset that is considered 0,0,0 on the gantry.  Need to correct for that afterwards
 
-
-
+        if self.neuronset["grasp"] < 20 and grasp >= 20:
+            self.num_grasp_attempts = self.num_grasp_attempts + 1
+            #print(self.num_grasp_attempts)
 
         #if using the real gantry, stop after one grasp attempt
         if useRealGantry == True:
 
-            print("Grasp: %i , previous: %i"%(self.neuronset["grasp"],grasp))
-            if self.neuronset["grasp"]<20 and grasp>=20:
-                self.num_grasp_attempts = self.num_grasp_attempts+1
-                print(self.num_grasp_attempts)
+            #print("Grasp: %i , previous: %i"%(self.neuronset["grasp"],grasp))
+
 
 
 

@@ -287,7 +287,7 @@ class IntegratedSystem:
                     # for grasping set to 20 psi. For releasing, use real pressure
                     grasperContact = GrasperContactForce(*[0, 0, 0]) if self.SG.commandedPosition[
                                                                             "ClosureChangeInRadius_mm"] < self.maxJawChangeInRadius_mm else GrasperContactForce(
-                        *[20, 20, 20])  # set contact threshold based on the position
+                        *[20, 20, 20])  # set contact threshold based on the position #maybe need to change this to see some change in pressure at the jaws before lifting up, or adding some delay time during inflation. Need to do the same during deflation
 
                 commandPosition_m, JawRadialPos_m = self.SNSc.SNS_forward(grasperPos_m=grasperPosition,
                                                                      grasperContact=grasperContact,

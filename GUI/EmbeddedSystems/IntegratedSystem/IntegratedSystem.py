@@ -15,16 +15,12 @@ from GUI.EmbeddedSystems.SoftGrasper.SoftGrasper import PortActions
 from GUI.EmbeddedSystems.SoftGrasper.SoftGrasper import SoftGrasper
 from GUI.EmbeddedSystems.Gantry.GantryController import Gantry as GantryController
 import GUI.EmbeddedSystems.JoyCon.JoyCon as JC
-from GUI.EmbeddedSystems.SNS.SNScontroller import SNScontroller
+from GUI.EmbeddedSystems.SNS.SNScontroller import SNScontroller,controller
 from GUI.EmbeddedSystems.Support.Structures import GrasperContactForce,Point
 from copy import deepcopy
 
 import aioconsole
 
-SG  = None #soft grasper
-GC = None #gantry controller
-jcSG = None #joystick
-SNSc = None #SNS controller
 
 class GrasperType(Enum):
     SoftGrasper = 0 #Soft Grasper
@@ -150,6 +146,8 @@ class IntegratedSystem:
             pass
 
         self.SNSc = SNScontroller(ModulateSNS=False)
+        #controller._inter_layer_1._params["tau"].data[2] = 0.75
+        #self.logger.info("SNS z height time constant set to %f" % 0.75)
 
 
     async def Read_Move_Hardware(self):
@@ -296,10 +294,10 @@ class IntegratedSystem:
                                                                      useRealGantry=False)
 
 
-                if (self.SNS_BypassForceFeedback == True and object_grasped_phase == True):
-                    JawRadialPos_m = self.maxJawChangeInRadius_mm/1000
-                    if self.SNSc.num_grasp_attempts==1 and prev_num_grasp_attempts ==0: #only do this wait one time to allow the grasper to close fully before moving
-                        await asyncio.sleep(5)
+                # if (self.SNS_BypassForceFeedback == True and object_grasped_phase == True):
+                #     JawRadialPos_m = self.maxJawChangeInRadius_mm/1000
+                #     if self.SNSc.num_grasp_attempts==1 and prev_num_grasp_attempts ==0: #only do this wait one time to allow the grasper to close fully before moving
+                #         await asyncio.sleep(5)
 
 
                 print(self.SNSc.neuronset)
@@ -493,7 +491,8 @@ class IntegratedSystem:
     async def ReadCommandLine(self):
         print_string = "Enter C for calibration. \n" \
                        "Enter S for SNS. \n" \
-                       "Enter Z to return to joystick control\n"
+                       "Enter Z to return to joystick control\n" \
+                       "Enter H to move grasper home \n"
         print(print_string)
         while (True):
             s = await aioconsole.ainput()
@@ -516,6 +515,10 @@ class IntegratedSystem:
                 case "Z":
                     self.jcSG.ControlMode = JC.JoyConState.NORMAL
 
+                case "H":
+                    await(self.returnHome())
+
+
                 # Default
                 case _:
                     print(print_string)
@@ -523,6 +526,22 @@ class IntegratedSystem:
 
 
             await asyncio.sleep(0.01)
+
+    async def returnHome(self, defaultMode = None):
+        priorMode = self.jcSG.ControlMode
+        self.jcSG.ControlMode = JC.JoyConState.GO_HOME
+        self.GC.goalPos = [0,0,0]
+        self.MoveGantryEvent.set()
+        await asyncio.sleep(20) #sleep for 20 seconds while returning home
+        if defaultMode is None:
+            self.jcSG.ControlMode = priorMode
+        else:
+            self.jcSG.ControlMode = defaultMode
+
+        print ("Return home completed")
+
+
+
 
     async def Get_SNS_Input(self):
         useXYZcalibration = await aioconsole.ainput(
@@ -601,6 +620,12 @@ class IntegratedSystem:
 
         print("Max closure (mm): %f"%self.maxJawChangeInRadius_mm)
 
+        returnHome = await aioconsole.ainput(
+            "Enter any button to return home")
+
+        await self.returnHome()
+
+        print("Beginning SNS ...")
 
 
 

@@ -287,11 +287,14 @@ class IntegratedSystem:
                                                                             "ClosureChangeInRadius_mm"] < self.maxJawChangeInRadius_mm else GrasperContactForce(
                         *[20, 20, 20])  # set contact threshold based on the position #maybe need to change this to see some change in pressure at the jaws before lifting up, or adding some delay time during inflation. Need to do the same during deflation
 
+                #when commanded position is sufficient and you just transition to lift after grasp, then sleep for 5 seconds in order to allow grasper time to pressurize.
+                
+
                 commandPosition_m, JawRadialPos_m = self.SNSc.SNS_forward(grasperPos_m=grasperPosition,
                                                                      grasperContact=grasperContact,
                                                                      objectPos_m=Point(*object_position_list),
                                                                      targetPos_m=Point(*target_position_list),
-                                                                     useRealGantry=False)
+                                                                     useRealGantry=False) #update SNS
 
 
                 # if (self.SNS_BypassForceFeedback == True and object_grasped_phase == True):
@@ -320,23 +323,25 @@ class IntegratedSystem:
 
                 self.logger.info('Number of grasp attempts %i' % self.SNSc.num_grasp_attempts)
 
-                release_complete = self.SNSc.lift_after_release_done == True  and self.SNSc.neuronset["release"]==-20
+                motion_complete = self.SNSc.lift_after_release_done == True  and self.SNSc.neuronset["grasp"]>=20
 
-                # if self.SNSc.num_grasp_attempts >= 1 or self.SNSc.lift_after_release_done == True:
-                #
-                #     # if (SNSc.num_grasp_attempts>=1
-                #     #         and
-                #     #         (SNSc.neuronset["move_to_grasp"]>=20 or SNSc.neuronset["move_to_pre_grasp"]>=20)): #if about to attempt a regrasp
-                #     #     GC.goalPos = [curPos_orig.x*1000, curPos_orig.y*1000, curPos_orig.z*1000+70] #move object up
-                #     #     loggerR.info('Failed grasp, exceeded number of attempts')
-                #     #     SNSc.lift_after_grasp_done = True #set to true to trigger the next statement
-                #     #     SG.commandedPosition["ClosureChangeInRadius_mm"] = 0
-                #     #
-                #
-                #     if self.SNSc.num_grasp_attempts >= 1 and release_complete == True:
-                #         self.jcSG.SNS_control = False  # reset to false to give control back to the user
-                #         self.jcSG.ControlMode =JC.JoyConState.NORMAL
-                #         self.logger.info('Reset the SNS controller after lift after grasp complete')
+                if self.SNSc.num_grasp_attempts >= 1 or self.SNSc.lift_after_release_done == True:
+
+                    # if (SNSc.num_grasp_attempts>=1
+                    #         and
+                    #         (SNSc.neuronset["move_to_grasp"]>=20 or SNSc.neuronset["move_to_pre_grasp"]>=20)): #if about to attempt a regrasp
+                    #     GC.goalPos = [curPos_orig.x*1000, curPos_orig.y*1000, curPos_orig.z*1000+70] #move object up
+                    #     loggerR.info('Failed grasp, exceeded number of attempts')
+                    #     SNSc.lift_after_grasp_done = True #set to true to trigger the next statement
+                    #     SG.commandedPosition["ClosureChangeInRadius_mm"] = 0
+                    #
+
+                    if self.SNSc.num_grasp_attempts >= 1 and motion_complete == True:
+                        self.jcSG.SNS_control = False  # reset to false to give control back to the user
+                        self.jcSG.ControlMode = JC.JoyConState.NORMAL
+                        self.logger.info('Reset the SNS controller after motion complete complete')
+                        self.SG.commandedPosition["ClosureChangeInRadius_mm"] = 0 #so it doesn't re-pressurize
+
 
 
 

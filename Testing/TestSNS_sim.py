@@ -89,6 +89,8 @@ def pick_and_place():
 
             cmd_grasperPos_m = Point(*commandPosition)
 
+            old_grasperContact = grasperContact
+
             if len(force_feedback_1) != 0:
                 force_1 = np.linalg.norm(sum(np.array([np.array(x[7]) * x[9] for x in force_feedback_1])), 2)
             else:
@@ -119,6 +121,12 @@ def pick_and_place():
                         "z_AxisBar": cmd_grasperPos_m.z,
                         "x_force": 50, "y_force": 500,
                         "z_force": 500, "GrasperArguments": GrasperArguments}
+        if SNSc.neuronset["grasp"]>=20:
+            pass
+
+        if SNSc.neuronset["lift_after_grasp"]>=20:
+            print(old_grasperContact)
+            print(grasperContact)
 
         if SNSc.lift_after_release_done == True:
             pass

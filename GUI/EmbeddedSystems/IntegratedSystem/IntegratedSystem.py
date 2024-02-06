@@ -276,12 +276,10 @@ class IntegratedSystem:
 
                 grasperContact = GrasperContactForce(*grasperContact) #grasper contact force
 
-                object_grasped_phase = (self.SNSc.neuronset['grasp'] >= 20 or self.SNSc.neuronset['lift_after_grasp'] >= 20
-                        or self.SNSc.neuronset['move_to_pre_release'] >= 20 or self.SNSc.neuronset['move_to_release'] >= 20) #these should all only trigger once. Only move to pre grasp, move to grasp, grasp are triggered twice, once in the beginning and once when it returns home.
 
 
                 # check if in open loop mode and if object has been grasped
-                if (self.SNS_BypassForceFeedback == True and object_grasped_phase == True):
+                if (self.SNS_BypassForceFeedback == True and self.SNSc.object_grasped_phase == True):
                     # for grasping set to 20 psi. For releasing, use real pressure
                     grasperContact = GrasperContactForce(*[0, 0, 0]) if self.SG.commandedPosition[
                                                                             "ClosureChangeInRadius_mm"] < self.maxJawChangeInRadius_mm else GrasperContactForce(
@@ -340,6 +338,11 @@ class IntegratedSystem:
                     if self.SG.commandedPosition[
                         "ClosureChangeInRadius_mm"] >= self.maxJawChangeInRadius_mm:  # this should always be satisfied because the contact force only is set to a large value when the commanded change in radius is larger or equal to the commanded threshold
                         await asyncio.sleep(5)  # sleep 5 seconds to allow the grasp to complete #hopefully only triggers once
+
+                if (self.SNS_BypassForceFeedback == True and self.SNSc.neuronset["release"] >= 20): #to release the object
+                    self.SG.commandedPosition["ClosureChangeInRadius_mm"] == 0  # need to check if this is always satisfied
+                    await asyncio.sleep(5)
+
 
                 self.MoveGrasperEvent.set()
                 self.MoveGantryEvent.set()

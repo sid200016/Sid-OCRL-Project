@@ -138,6 +138,12 @@ def pick_and_place():
         # else:
         #     controller._inter_layer_1._params["tau"].data[2] = orig_time_constant_z
         #     pass
+        if SNSc.neuronset["move_to_release"] >= 10:
+            if SNSc.neuronset["release"] <= 0:
+                pass
+
+        if SNSc.neuronset["release"] <= 0 and SNSc.neuronset["move_to_release"]<=0:
+            pass
 
         if SNSc.lift_after_grasp_started == True:
             pass

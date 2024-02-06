@@ -13,9 +13,17 @@ from pathlib import Path
 from datetime import datetime
 import sys
 
+from enum import Enum
+
+
+class ControlType(Enum):
+    NORMAL = 0 #close until contact
+    OPEN_LOOP = 1 #close until you reach a certain position
+
+
 class SNScontroller:
 
-    def __init__(self,objectPos_m = Point(0,0,0), targetPos_m = Point(0,0,0),ModulateSNS = False):
+    def __init__(self,objectPos_m = Point(0,0,0), targetPos_m = Point(0,0,0),ModulateSNS = False, ControlMode = ControlType.OPEN_LOOP):
         self.neuronset = {
             "move_to_pre_grasp":0,
             "move_to_grasp":0,
@@ -33,7 +41,10 @@ class SNScontroller:
         self.first_attempt = True
 
         self.lift_after_release_done = False #set to true when lifted after release neuron exceeds 10.  Necessary to set the object pos to 0,0,0 to trigger the final phases of motion
+        self.lift_after_grasp_started = False #set to true when lift after grasp has started for the first time, otherwise set to false
         self.lift_after_grasp_done = False
+        self.object_grasped_phase = False #set to true when object is still being grasped, i.e .in grasp, lift_after_grasp, move_to_pre_release or move_to_release are >= 20
+        self.motion_complete = False #set to true when motion is complete
 
         self.object_position = torch.Tensor(list(objectPos_m)).unsqueeze(dim=0)
         self.target_position = torch.Tensor(list(targetPos_m)).unsqueeze(dim=0)
@@ -45,6 +56,9 @@ class SNScontroller:
         self.num_grasp_attempts = 0
 
         self.ModulateSNS = ModulateSNS #use normal SNS without modulation of contact if False
+
+        self.ControlMode = ControlMode
+
 
 
     def setupLogger(self):
@@ -106,6 +120,7 @@ class SNScontroller:
             self.target_position = torch.Tensor(list(targetPos_m)).unsqueeze(dim=0) #update the target pos
 
 
+
         force = torch.Tensor(list(grasperContact)).unsqueeze(dim=0)
         grasperPos_m = Point(grasperPos_m.x,grasperPos_m.y,grasperPos_m.z-self.z_offset)
         gripper_position = torch.Tensor(list(grasperPos_m)).unsqueeze(dim=0)
@@ -132,18 +147,27 @@ class SNScontroller:
         cmd_grasperPos_m = Point(x_d, y_d,
                                  z_d + self.z_offset)  # note that this is in meters, and doesn't account for the offset that is considered 0,0,0 on the gantry.  Need to correct for that afterwards
 
+
+        ### Setup the indicators for the phase of motion###
         if self.neuronset["grasp"] < 20 and grasp >= 20:
             self.num_grasp_attempts = self.num_grasp_attempts + 1
             #print(self.num_grasp_attempts)
+
+        if self.neuronset["grasp"]>=20 and lift_after_grasp >=20 and self.neuronset['lift_after_grasp'] <=10:
+            self.lift_after_grasp_started = True #should only trigger once
+        else:
+            self.lift_after_grasp_started = False
+
+        self.object_grasped_phase = (self.neuronset['grasp'] >= 20 or self.neuronset['lift_after_grasp'] >= 20
+                        or self.neuronset['move_to_pre_release'] >= 20 or
+                self.neuronset['move_to_release'] >= 20) ##these should all only trigger once. Only move to pre grasp, move to grasp, grasp are triggered twice, once in the beginning and once when it returns home.
+
+        self.motion_complete = self.lift_after_release_done == True  and self.neuronset["grasp"]>=20 #finished SNS motion
 
         #if using the real gantry, stop after one grasp attempt
         if useRealGantry == True:
 
             #print("Grasp: %i , previous: %i"%(self.neuronset["grasp"],grasp))
-
-
-
-
 
             if lift_after_release>=20 or move_to_pre_release>=20:
                 self.z_offset = 0.07 #add offset to the z so it lifts the object higher

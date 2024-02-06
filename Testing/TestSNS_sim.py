@@ -2,6 +2,7 @@ import pybullet as p
 import pybullet_data
 import pathlib
 from pathlib import Path
+from copy import deepcopy
 
 import numpy as np
 
@@ -49,6 +50,9 @@ def pick_and_place():
     # print ("Time constant of release is %f"%controller._inter_layer_1._params["tau"].data[2])
     # controller._inter_layer_1._params["tau"].data[2] = 2
     # print("Time constant of release is %f" % controller._inter_layer_1._params["tau"].data[2])
+
+    orig_time_constant_z = deepcopy(controller._inter_layer_1._params["tau"].data[2])
+    print("Time constant of release is %f" % controller._inter_layer_1._params["tau"].data[2])
 
     while (not gS.CheckStopSim()):  # check to see if the button was pressed to close the sim
 
@@ -121,12 +125,22 @@ def pick_and_place():
                         "z_AxisBar": cmd_grasperPos_m.z,
                         "x_force": 50, "y_force": 500,
                         "z_force": 500, "GrasperArguments": GrasperArguments}
-        if SNSc.neuronset["grasp"]>=20:
-            pass
+        # if SNSc.neuronset["grasp"]>=60:
+        #     controller._inter_layer_1._params["tau"].data[2] = 1000
+        # else:
+        #     controller._inter_layer_1._params["tau"].data[2] = orig_time_constant_z
+        #     pass
+        #
+        # if SNSc.neuronset["lift_after_grasp"]>=20:
+        #     print(old_grasperContact)
+        #     print(grasperContact)
+        #     controller._inter_layer_1._params["tau"].data[2] = 0.8
+        # else:
+        #     controller._inter_layer_1._params["tau"].data[2] = orig_time_constant_z
+        #     pass
 
-        if SNSc.neuronset["lift_after_grasp"]>=20:
-            print(old_grasperContact)
-            print(grasperContact)
+        if SNSc.lift_after_grasp_started == True:
+            pass
 
         if SNSc.lift_after_release_done == True:
             pass

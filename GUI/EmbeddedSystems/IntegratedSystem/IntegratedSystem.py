@@ -274,33 +274,27 @@ class IntegratedSystem:
                 grasperContact = [(x - grasperThreshold[i]) * pressureScaling[i] if x >= grasperThreshold[i] else 0 for (i, x) in
                                   enumerate(jawPressure)]
 
-                grasperContact = GrasperContactForce(*grasperContact)
+                grasperContact = GrasperContactForce(*grasperContact) #grasper contact force
 
                 object_grasped_phase = (self.SNSc.neuronset['grasp'] >= 20 or self.SNSc.neuronset['lift_after_grasp'] >= 20
                         or self.SNSc.neuronset['move_to_pre_release'] >= 20 or self.SNSc.neuronset['move_to_release'] >= 20) #these should all only trigger once. Only move to pre grasp, move to grasp, grasp are triggered twice, once in the beginning and once when it returns home.
 
 
-
-                if (self.SNS_BypassForceFeedback == True and object_grasped_phase == True): #need to fix this so it releases the object as well
+                # check if in open loop mode and if object has been grasped
+                if (self.SNS_BypassForceFeedback == True and object_grasped_phase == True):
                     # for grasping set to 20 psi. For releasing, use real pressure
                     grasperContact = GrasperContactForce(*[0, 0, 0]) if self.SG.commandedPosition[
                                                                             "ClosureChangeInRadius_mm"] < self.maxJawChangeInRadius_mm else GrasperContactForce(
                         *[20, 20, 20])  # set contact threshold based on the position #maybe need to change this to see some change in pressure at the jaws before lifting up, or adding some delay time during inflation. Need to do the same during deflation
 
-                #when commanded position is sufficient and you just transition to lift after grasp, then sleep for 5 seconds in order to allow grasper time to pressurize.
-                
 
+                #forward the SNS to the next time step and get the commanded xyz and radial pos of the grasper
                 commandPosition_m, JawRadialPos_m = self.SNSc.SNS_forward(grasperPos_m=grasperPosition,
                                                                      grasperContact=grasperContact,
                                                                      objectPos_m=Point(*object_position_list),
                                                                      targetPos_m=Point(*target_position_list),
                                                                      useRealGantry=False) #update SNS
 
-
-                # if (self.SNS_BypassForceFeedback == True and object_grasped_phase == True):
-                #     JawRadialPos_m = self.maxJawChangeInRadius_mm/1000
-                #     if self.SNSc.num_grasp_attempts==1 and prev_num_grasp_attempts ==0: #only do this wait one time to allow the grasper to close fully before moving
-                #         await asyncio.sleep(5)
 
 
                 print(self.SNSc.neuronset)
@@ -323,7 +317,6 @@ class IntegratedSystem:
 
                 self.logger.info('Number of grasp attempts %i' % self.SNSc.num_grasp_attempts)
 
-                motion_complete = self.SNSc.lift_after_release_done == True  and self.SNSc.neuronset["grasp"]>=20
 
                 if self.SNSc.num_grasp_attempts >= 1 or self.SNSc.lift_after_release_done == True:
 
@@ -336,18 +329,23 @@ class IntegratedSystem:
                     #     SG.commandedPosition["ClosureChangeInRadius_mm"] = 0
                     #
 
-                    if self.SNSc.num_grasp_attempts >= 1 and motion_complete == True:
+                    if self.SNSc.num_grasp_attempts >= 1 and self.SNSc.motion_complete == True:
                         self.jcSG.SNS_control = False  # reset to false to give control back to the user
                         self.jcSG.ControlMode = JC.JoyConState.NORMAL
                         self.logger.info('Reset the SNS controller after motion complete complete')
                         self.SG.commandedPosition["ClosureChangeInRadius_mm"] = 0 #so it doesn't re-pressurize
 
-
-
-
+                # if in open loop mode, need to have extra delay to allow the grasp to complete
+                if (self.SNS_BypassForceFeedback == True and self.SNSc.lift_after_grasp_started == True):
+                    if self.SG.commandedPosition[
+                        "ClosureChangeInRadius_mm"] >= self.maxJawChangeInRadius_mm:  # this should always be satisfied because the contact force only is set to a large value when the commanded change in radius is larger or equal to the commanded threshold
+                        await asyncio.sleep(5)  # sleep 5 seconds to allow the grasp to complete #hopefully only triggers once
 
                 self.MoveGrasperEvent.set()
                 self.MoveGantryEvent.set()
+
+
+
 
 
 

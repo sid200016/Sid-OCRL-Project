@@ -59,7 +59,8 @@ class IntegratedSystem:
         self.grasperType = None
 
         #calibration parameters
-        self.calibrationParams = {"Calibration Distance (mm)":1, "Grasp Pressure Threshold (psi)":[0.005,0.005,0.005], "Grasp Lift Height (mm)":35}
+        self.calibrationParams = {"Calibration Distance (mm)":1, "Grasp Pressure Threshold (psi)":[0.005,0.005,0.005], "Grasp Lift Height (mm)":35,
+                                  "Touch Object Distance (mm)": 0.5, "Touch Pressure Threshold (psi)":[0.005,0.005,0.005] }
 
 
         #object for user experiments
@@ -502,7 +503,9 @@ class IntegratedSystem:
         print_string = "Enter C for calibration. \n" \
                        "Enter S for SNS. \n" \
                        "Enter Z to return to joystick control\n" \
-                       "Enter H to move grasper home \n"
+                       "Enter H to move grasper home \n" \
+                       "Enter T to inflate until grasper touches \n" \
+                       "Enter RG to deflate the grasper completely"
         print(print_string)
         while (True):
             s = await aioconsole.ainput()
@@ -513,6 +516,7 @@ class IntegratedSystem:
 
                 # Calibration
                 case "C":
+                    print ("Calibration Event Initiated\n")
                     self.jcSG.ControlMode = JC.JoyConState.CALIBRATION
 
                 # SNS
@@ -521,12 +525,20 @@ class IntegratedSystem:
                     await self.Get_SNS_Input() #prompts to setup SNS
                     self.jcSG.ControlMode = JC.JoyConState.USE_SNS
 
+                case "T":
+                    print("Touch Event Initiated\n")
+                    self.jcSG.ControlMode = JC.JoyConState.TOUCH_OBJECT
+
                 # Return to Joystick Mode
                 case "Z":
                     self.jcSG.ControlMode = JC.JoyConState.NORMAL
 
                 case "H":
                     await(self.returnHome())
+
+                case "RG":
+                    await(self.resetGrasper())
+
 
 
                 # Default
@@ -544,11 +556,86 @@ class IntegratedSystem:
         self.MoveGantryEvent.set()
         await asyncio.sleep(20) #sleep for 20 seconds while returning home
         if defaultMode is None:
-            self.jcSG.ControlMode = priorMode
+            self.jcSG.ControlMode = priorMode #return to whatever mode was set before calling this function
         else:
-            self.jcSG.ControlMode = defaultMode
+            self.jcSG.ControlMode = defaultMode #return to mode specified
 
         print ("Return home completed")
+
+
+    async def resetGrasper(self, defaultMode = None):
+        priorMode = self.jcSG.ControlMode
+        self.jcSG.ControlMode = JC.JoyConState.RESET_GRASPER
+        self.SG.commandedPosition["ClosureChangeInRadius_mm"] = 0
+        self.MoveGrasperEvent.set()
+
+        await asyncio.sleep(5) #sleep for 5 seconds while returning home
+        if defaultMode is None:
+            self.jcSG.ControlMode = priorMode #return to whatever mode was set before calling this function
+        else:
+            self.jcSG.ControlMode = defaultMode #return to mode specified
+
+        print ("Grasper reset completed")
+
+
+    async def TouchObject(self):
+        while True:
+            if self.jcSG.ControlMode == JC.JoyConState.TOUCH_OBJECT:
+                self.GrasperReadAverage["Average Event"].set() #setup to average values before returning
+
+                #get initial position and state of grasper
+
+                await self.FreshDataEvent.wait() #wait for fresh data
+
+
+                print ("Gantry position at start of touch object (mm): %f %f %f"%tuple([x*1000 for x in self.curPos]))
+                print ("Grasper closure muscle pressure (psi): %f"%self.ClosurePressure) #need function to go from pressure to mm
+                print ("Grasper contact pressure (psi) at start of touch object: %f, %f, %f" % tuple(self.jawPressure))
+
+                #close grasper
+                self.SG.IncrementalMove(closureIncrement_mm=self.calibrationParams["Touch Object Distance (mm)"],
+                                        jawIncrement_psi=[0, 0, 0])  # setup the variables
+
+                self.MoveGrasperEvent.set()
+                self.MoveGantryEvent.set()
+
+                #allow time to settle
+                await asyncio.sleep(1) #sleep for 1 second.  Allow other tasks to run
+
+
+                #check contact
+                await self.FreshDataEvent.wait()  # wait for fresh data
+                grasperContact = np.all([x if x >= self.calibrationParams["Touch Pressure Threshold (psi)"][i] else 0 for (i, x) in
+                                  enumerate(self.jawPressure)]) == True #sufficient contact if any of the thresholds greater than the threshold
+
+                print("Contact Pressure: %f %f %f" % tuple(self.jawPressure))
+
+                #
+                if grasperContact == False:
+
+                    pass
+
+                #if object picked up, return to position, release object, set ControlMode to normal and report the final values.
+                elif grasperContact == True:
+                    print("Touch object successful")
+                    print("Gantry position at end of object touch (mm): %f %f %f" % tuple([x * 1000 for x in self.curPos]))
+                    print(
+                        "Grasper closure muscle pressure at end of object touch (psi): %f" % self.ClosurePressure)  # need function to go from pressure to mm
+                    print("Grasper closure radius at end of calibration (mm): %f" % self.SG.commandedPosition[
+                        "ClosureChangeInRadius_mm"])
+                    print("Grasper contact pressure (psi) at end of calibration: %f, %f, %f" % tuple(self.jawPressure))
+
+                    #set variable
+                    self.jcSG.ControlMode = JC.JoyConState.NORMAL #return to normal mode
+
+                    self.GrasperReadAverage["Average Event"].clear() #go back to only reading values 1 time
+
+                await asyncio.sleep(0.05)  # allow other tasks to run
+            #print("End of Calibration loop")
+            #print(self.jcSG.ControlMode)
+            await asyncio.sleep(0.001)  # allow other tasks to run
+        await asyncio.sleep(0.001)
+
 
 
 
@@ -655,7 +742,8 @@ if __name__ == '__main__':
             IS.Calibration(),
             IS.SNS_Mode(),
             IS.ReadCommandLine(),
-            IS.Read_Move_Hardware()
+            IS.Read_Move_Hardware(),
+            IS.TouchObject()
         )
         #runp = asyncio.create_task(HandleProgram())
         #await runp

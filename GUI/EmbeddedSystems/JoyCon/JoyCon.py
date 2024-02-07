@@ -19,6 +19,8 @@ class JoyConState(Enum):
     GO_HOME = 2 #Robot is moving to HOME
     CALIBRATION = 3 #Robot is performing calibration
     PREP_SNS = 4 #Getting input prompts for SNS
+    TOUCH_OBJECT = 5 #move grasper until it just touches object
+    RESET_GRASPER = 6 #deflate the grasper completely
 
 
 class Button:

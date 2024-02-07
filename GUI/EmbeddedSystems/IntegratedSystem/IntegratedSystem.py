@@ -60,7 +60,7 @@ class IntegratedSystem:
 
         #calibration parameters
         self.calibrationParams = {"Calibration Distance (mm)":1, "Grasp Pressure Threshold (psi)":[0.005,0.005,0.005], "Grasp Lift Height (mm)":35,
-                                  "Touch Object Distance (mm)": 0.5, "Touch Pressure Threshold (psi)":[0.005,0.005,0.005] }
+                                  "Touch Object Distance (mm)": 0.1, "Touch Pressure Threshold (psi)":[0.005,0.005,0.005] }
 
 
         #object for user experiments

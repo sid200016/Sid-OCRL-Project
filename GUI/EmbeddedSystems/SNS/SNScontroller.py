@@ -43,6 +43,7 @@ class SNScontroller:
         self.lift_after_release_done = False #set to true when lifted after release neuron exceeds 10.  Necessary to set the object pos to 0,0,0 to trigger the final phases of motion
         self.lift_after_grasp_started = False #set to true when lift after grasp has started for the first time, otherwise set to false
         self.lift_after_grasp_done = False
+        self.release_started = False #set to true when the release has started
         self.object_grasped_phase = False #set to true when object is still being grasped, i.e .in grasp, lift_after_grasp, move_to_pre_release or move_to_release are >= 20
         self.motion_complete = False #set to true when motion is complete
 
@@ -161,6 +162,9 @@ class SNScontroller:
         self.object_grasped_phase = (self.neuronset['grasp'] >= 20 or self.neuronset['lift_after_grasp'] >= 20
                         or self.neuronset['move_to_pre_release'] >= 20 or
                 self.neuronset['move_to_release'] >= 20) ##these should all only trigger once. Only move to pre grasp, move to grasp, grasp are triggered twice, once in the beginning and once when it returns home.
+
+        if self.neuronset["release"]>=20 and release <=0:
+            self.release_started = True
 
         self.motion_complete = self.lift_after_release_done == True  and self.neuronset["grasp"]>=20 #finished SNS motion
 

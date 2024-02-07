@@ -278,13 +278,14 @@ class IntegratedSystem:
 
 
 
-                # check if in open loop mode and if object has been grasped
-                if (self.SNS_BypassForceFeedback == True and self.SNSc.object_grasped_phase == True):
+                # check if in open loop mode and if object has been grasped and we haven't transitioned to the release phase yet
+                if (self.SNS_BypassForceFeedback == True and self.SNSc.object_grasped_phase == True and self.SNSc.release_started == False):
                     # for grasping set to 20 psi. For releasing, use real pressure
                     grasperContact = GrasperContactForce(*[0, 0, 0]) if self.SG.commandedPosition[
                                                                             "ClosureChangeInRadius_mm"] < self.maxJawChangeInRadius_mm else GrasperContactForce(
                         *[20, 20, 20])  # set contact threshold based on the position #maybe need to change this to see some change in pressure at the jaws before lifting up, or adding some delay time during inflation. Need to do the same during deflation
 
+                #if transition to release has begun, set contact force to all zeros,
 
                 #forward the SNS to the next time step and get the commanded xyz and radial pos of the grasper
                 commandPosition_m, JawRadialPos_m = self.SNSc.SNS_forward(grasperPos_m=grasperPosition,
@@ -337,11 +338,14 @@ class IntegratedSystem:
                 if (self.SNS_BypassForceFeedback == True and self.SNSc.lift_after_grasp_started == True):
                     if self.SG.commandedPosition[
                         "ClosureChangeInRadius_mm"] >= self.maxJawChangeInRadius_mm:  # this should always be satisfied because the contact force only is set to a large value when the commanded change in radius is larger or equal to the commanded threshold
+                        self.MoveGrasperEvent.set()  # set event to indicate to other function that it should actuate grasper
                         await asyncio.sleep(5)  # sleep 5 seconds to allow the grasp to complete #hopefully only triggers once
 
-                if (self.SNS_BypassForceFeedback == True and self.SNSc.neuronset["release"] >= 20): #to release the object
-                    self.SG.commandedPosition["ClosureChangeInRadius_mm"] == 0  # need to check if this is always satisfied
+                if (self.SNS_BypassForceFeedback == True and self.SNSc.neuronset["release"] > 10): #to release the object
+                    self.SG.commandedPosition["ClosureChangeInRadius_mm"] = 0  # need to check if this is always satisfied
+                    self.MoveGrasperEvent.set() #set event to indicate to other function that it should actuate grasper
                     await asyncio.sleep(5)
+                    print (self.SG.commandedPosition["ClosureChangeInRadius_mm"])
 
 
                 self.MoveGrasperEvent.set()

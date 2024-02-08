@@ -88,7 +88,7 @@ class IntegratedSystem:
         self.MoveGrasperEvent = asyncio.Event()
         self.MoveGantryEvent = asyncio.Event()
         self.FreshDataEvent = asyncio.Event()
-        self.GrasperReadAverage = {"Average Event":asyncio.Event(),"Number of Loops":20,"Time Delay (s)":0.005}
+        self.GrasperReadAverage = {"Average Event":asyncio.Event(),"Number of Loops":50,"Time Delay (s)":0.005}
 
         #For storing position and pressure variables
         self.jawPressure = None
@@ -505,7 +505,8 @@ class IntegratedSystem:
                        "Enter Z to return to joystick control\n" \
                        "Enter H to move grasper home \n" \
                        "Enter T to inflate until grasper touches \n" \
-                       "Enter RG to deflate the grasper completely"
+                       "Enter MG to move the grasper \n" \
+                       "Enter M to move the gantry"
         print(print_string)
         while (True):
             s = await aioconsole.ainput()
@@ -537,8 +538,17 @@ class IntegratedSystem:
                 case "H":
                     await(self.returnHome())
 
-                case "RG":
-                    await(self.resetGrasper())
+                case "M":
+                    await(self.moveGantry())
+
+                case "MG":
+                    await(self.moveGrasper())
+
+                case "D":
+                    await(self.displayRobotState())
+
+
+
 
 
 
@@ -563,7 +573,60 @@ class IntegratedSystem:
 
         print ("Return home completed")
 
+    async def moveGantry(self):
+        action_input = await aioconsole.ainput(
+            "Type X to enter absolute distance in mm to move the gantry to absolute position.  \n"
+            "Enter T to adjust current position by offset in mm.\n")
 
+        match action_input.upper():
+            case "T":
+                vals = await aioconsole.ainput(
+                    "Expecting 3 values for x,y,z offset separated by comma and in mm \n")
+                vals = [float(x) for x in vals.split(',')]
+                self.GC.goalPos[0] = self.GC.goalPos[0] + vals[0]
+                self.GC.goalPos[1] = self.GC.goalPos[1] + vals[1]
+                self.GC.goalPos[2] = self.GC.goalPos[2] + vals[2]
+
+            case "X":
+                vals = await aioconsole.ainput(
+                    "Expecting 3 values for new x,y,z separated by comma and in mm \n")
+                vals = [float(x) for x in vals.split(',')]
+                self.GC.goalPos[0] = vals[0]
+                self.SNS_object_pos_m[0] = vals[1]
+                self.SNS_object_pos_m[0] = vals[2]
+
+            case _:
+                print("Neither X or T selected. Exiting. ")
+
+        self.MoveGantryEvent.set()
+
+        await asyncio.sleep(0.1)
+
+
+    async def moveGrasper(self):
+
+        action_input = await aioconsole.ainput(
+            "Type X to enter absolute distance in mm to move the grasper's radius to. \n"
+            "Enter T to adjust current radial position in mm (+ve values close the grasper, -ve values open the grasper)\n")
+
+        match action_input.upper():
+
+            case "T":
+                vals = await aioconsole.ainput(
+                    "Expecting value in mm, this will be an offset")
+                self.SG.commandedPosition["ClosureChangeInRadius_mm"] = self.SG.commandedPosition["ClosureChangeInRadius_mm"] + float(vals)
+
+            case "X":
+                vals = await aioconsole.ainput(
+                    "Expecting value in mm. This is the new value for change in radial position.")
+                self.SG.commandedPosition["ClosureChangeInRadius_mm"] = float(vals)
+
+            case _:
+                print("Neither X or T selected. Exiting. ")
+
+        self.MoveGrasperEvent.set()
+
+        await asyncio.sleep(0.1)
     async def resetGrasper(self, defaultMode = None):
         priorMode = self.jcSG.ControlMode
         self.jcSG.ControlMode = JC.JoyConState.RESET_GRASPER
@@ -578,6 +641,15 @@ class IntegratedSystem:
 
         print ("Grasper reset completed")
 
+    async def displayRobotState(self):
+
+        await self.FreshDataEvent.wait()
+        print("Gantry position(mm): %f %f %f \n" % tuple([x * 1000 for x in self.curPos]))
+        print(
+            "Grasper closure muscle pressure(psi): %f \n" % self.ClosurePressure)  # need function to go from pressure to mm
+        print("Grasper closure radius(mm): %f \n" % self.SG.commandedPosition[
+            "ClosureChangeInRadius_mm"])
+        print("Grasper contact pressure (psi): %f, %f, %f \n" % tuple(self.jawPressure))
 
     async def TouchObject(self):
         while True:

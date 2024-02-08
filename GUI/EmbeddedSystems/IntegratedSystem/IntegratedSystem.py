@@ -583,17 +583,20 @@ class IntegratedSystem:
                 vals = await aioconsole.ainput(
                     "Expecting 3 values for x,y,z offset separated by comma and in mm \n")
                 vals = [float(x) for x in vals.split(',')]
-                self.GC.goalPos[0] = self.GC.goalPos[0] + vals[0]
-                self.GC.goalPos[1] = self.GC.goalPos[1] + vals[1]
-                self.GC.goalPos[2] = self.GC.goalPos[2] + vals[2]
-
+                pos = [0,0,0]
+                pos[0] = self.GC.goalPos[0] + vals[0]
+                pos[1] = self.GC.goalPos[1] + vals[1]
+                pos[2] = self.GC.goalPos[2] + vals[2]
+                self.GC.goalPos = pos
             case "X":
                 vals = await aioconsole.ainput(
                     "Expecting 3 values for new x,y,z separated by comma and in mm \n")
                 vals = [float(x) for x in vals.split(',')]
-                self.GC.goalPos[0] = vals[0]
-                self.SNS_object_pos_m[0] = vals[1]
-                self.SNS_object_pos_m[0] = vals[2]
+                pos = [0,0,0]
+                pos[0] = vals[0]
+                pos[1] = vals[1]
+                pos[2] = vals[2]
+                self.GC.goalPos = pos
 
             case _:
                 print("Neither X or T selected. Exiting. ")
@@ -642,7 +645,8 @@ class IntegratedSystem:
         print ("Grasper reset completed")
 
     async def displayRobotState(self):
-
+        priorMode = self.jcSG.ControlMode
+        self.jcSG.ControlMode = JC.JoyConState.DISPLAY_DATA
         await self.FreshDataEvent.wait()
         print("Gantry position(mm): %f %f %f \n" % tuple([x * 1000 for x in self.curPos]))
         print(
@@ -650,7 +654,8 @@ class IntegratedSystem:
         print("Grasper closure radius(mm): %f \n" % self.SG.commandedPosition[
             "ClosureChangeInRadius_mm"])
         print("Grasper contact pressure (psi): %f, %f, %f \n" % tuple(self.jawPressure))
-
+        self.jcSG.ControlMode = priorMode
+        await asyncio.sleep(0.001)
     async def TouchObject(self):
         while True:
             if self.jcSG.ControlMode == JC.JoyConState.TOUCH_OBJECT:

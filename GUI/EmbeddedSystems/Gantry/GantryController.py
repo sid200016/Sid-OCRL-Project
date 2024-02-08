@@ -206,6 +206,9 @@ class Gantry:
         if distanceGoalToStart ==0 and distanceval == 0:
             fractionCovered = 1
 
+        elif distanceGoalToStart == 0:
+            fractionCovered = 1 #need to fix this
+
         else:
             fractionCovered = distanceval/distanceGoalToStart
 

@@ -163,7 +163,7 @@ class SNScontroller:
                         or self.neuronset['move_to_pre_release'] >= 20 or
                 self.neuronset['move_to_release'] >= 20) ##these should all only trigger once. Only move to pre grasp, move to grasp, grasp are triggered twice, once in the beginning and once when it returns home.
 
-        if self.neuronset["release"]>=20 and release <=0:
+        if self.neuronset["release"]>=10 and release <=0:
             self.release_started = True
 
         self.motion_complete = self.lift_after_release_done == True  and self.neuronset["grasp"]>=20 #finished SNS motion

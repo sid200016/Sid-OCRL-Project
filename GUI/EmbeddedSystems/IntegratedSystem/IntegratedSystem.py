@@ -340,12 +340,12 @@ class IntegratedSystem:
                     if self.SG.commandedPosition[
                         "ClosureChangeInRadius_mm"] >= self.maxJawChangeInRadius_mm:  # this should always be satisfied because the contact force only is set to a large value when the commanded change in radius is larger or equal to the commanded threshold
                         self.MoveGrasperEvent.set()  # set event to indicate to other function that it should actuate grasper
-                        await asyncio.sleep(5)  # sleep 5 seconds to allow the grasp to complete #hopefully only triggers once
+                        await asyncio.sleep(20)  # sleep 20 seconds to allow the grasp to complete #hopefully only triggers once
 
                 if (self.SNS_BypassForceFeedback == True and self.SNSc.neuronset["release"] > 10): #to release the object
                     self.SG.commandedPosition["ClosureChangeInRadius_mm"] = 0  # need to check if this is always satisfied
                     self.MoveGrasperEvent.set() #set event to indicate to other function that it should actuate grasper
-                    await asyncio.sleep(5)
+                    await asyncio.sleep(8)
                     print (self.SG.commandedPosition["ClosureChangeInRadius_mm"])
 
 
@@ -521,6 +521,7 @@ class IntegratedSystem:
 
                 # SNS
                 case "S":
+                    self.SNSc = SNScontroller() #reinitialize each time
                     self.jcSG.ControlMode = JC.JoyConState.PREP_SNS
                     await self.Get_SNS_Input() #prompts to setup SNS
                     self.jcSG.ControlMode = JC.JoyConState.USE_SNS

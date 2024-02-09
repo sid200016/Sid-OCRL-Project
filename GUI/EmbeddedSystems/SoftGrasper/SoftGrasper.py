@@ -221,11 +221,13 @@ class SoftGrasper:
 
     def MoveGrasper(self):
         PVal = self.GetPressureFromPosition(self.commandedPosition["ClosureChangeInRadius_mm"]) #get the pressure value in psi
+        self.MoveGrasper_Pressure(PVal)
 
-        self.logger.debug("CommandedPressure: "+str(PVal))
+    def MoveGrasper_Pressure(self,PVal):
+        self.logger.debug("CommandedPressure: " + str(PVal))
 
         self.PressurePorts[self.closureMuscle_idx].portStatus = PortActions.INFLATE_AND_MODULATE
-        self.PressurePorts[self.closureMuscle_idx].commandedPressure = PVal #value in psi
+        self.PressurePorts[self.closureMuscle_idx].commandedPressure = PVal  # value in psi
 
         self.PressurePorts[self.JawPos[0]].portStatus = PortActions.INFLATE_AND_STOP
         self.PressurePorts[self.JawPos[0]].commandedPressure = self.commandedPosition["Jaw1_psi"]  # value in psi
@@ -233,7 +235,6 @@ class SoftGrasper:
         self.PressurePorts[self.JawPos[1]].commandedPressure = self.commandedPosition["Jaw2_psi"]  # value in psi
         self.PressurePorts[self.JawPos[2]].portStatus = PortActions.INFLATE_AND_STOP
         self.PressurePorts[self.JawPos[2]].commandedPressure = self.commandedPosition["Jaw3_psi"]  # value in psi
-
 
         byteList = self.ConstructPortCommand()
         numBytes = self.sendCommunicationArray(byteList=byteList)
@@ -244,7 +245,7 @@ class SoftGrasper:
 
         ChP = self.getJawChangePressureVals()
         self.changeInPressure = ChP
-        self.logger.debug("Change in pressure: "+','.join([str(x) for x in ChP]))
+        self.logger.debug("Change in pressure: " + ','.join([str(x) for x in ChP]))
 
 
 

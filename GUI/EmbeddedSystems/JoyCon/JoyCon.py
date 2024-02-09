@@ -22,6 +22,7 @@ class JoyConState(Enum):
     TOUCH_OBJECT = 5 #move grasper until it just touches object
     RESET_GRASPER = 6 #deflate the grasper completely
     DISPLAY_DATA = 7 #display current state of robot
+    PRESSURE_RADIUS_CAL = 8 #perform pressure radius calibration
 
 
 class Button:

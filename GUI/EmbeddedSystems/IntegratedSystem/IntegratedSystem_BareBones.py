@@ -18,6 +18,12 @@ import GUI.EmbeddedSystems.JoyCon.JoyCon as JC
 from GUI.EmbeddedSystems.SNS.SNScontroller import SNScontroller
 from GUI.EmbeddedSystems.Support.Structures import GrasperContactForce,Point
 
+import numpy as np
+import cv2 as cv
+import matplotlib.pyplot as plt
+import time
+
+
 
 SG  = None #soft grasper
 GC = None #gantry controller
@@ -57,6 +63,7 @@ class IntegratedSystem:
         self.GC = None # Gantry Controller
         self.SNSc = None # SNS
         self.jcSG = None #Joycon+Soft Grasper controller
+        self.start_time = time.time()
 
         self.grasperType = None
 
@@ -128,10 +135,9 @@ class IntegratedSystem:
         self.SNSc = SNScontroller(ModulateSNS=False)
 
     async def Normal_Mode(self): #meant to run as a long running co-routine
-        start_time = time.time()
         while (True):
 
-            print('Normal: %f seconds' % (time.time()-start_time))
+            print('Normal: %f seconds' % (time.time()-self.start_time))
             self.fragileThreshold = 0.6
             await asyncio.sleep(0.001)  # allow other tasks to run
 
@@ -146,15 +152,46 @@ class IntegratedSystem:
 
 
     async def Calibration(self):
-        start_time = time.time()
+
         while True:
 
             if True:
                 self.fragileThreshold = 0.6
-                print('Calibration: %f seconds' % (time.time()-start_time))
+                print('Calibration: %f seconds' % (time.time()-self.start_time))
 
             await asyncio.sleep(30)
             await asyncio.sleep(0.1)  # allow other tasks to run
+
+    async def VideoCapture(self):
+        cap = cv.VideoCapture(0)
+        if not cap.isOpened():
+            print("Cannot open camera")
+            exit()
+        while True:
+            # Capture frame-by-frame
+            tic = time.time()
+            ret, frame = cap.read()
+            toc = time.time()
+            #print(toc - tic)
+            # if frame is read correctly ret is True
+            if not ret:
+                print("Can't receive frame (stream end?). Exiting ...")
+                break
+            print('VideoCapture: %f seconds' % (time.time() - self.start_time))
+
+            await asyncio.sleep(0.030)
+            # # Our operations on the frame come here
+            # gray = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
+            # # Display the resulting frame
+            # plt.imshow(gray, cmap='gray', interpolation='bicubic')
+            # plt.xticks([]), plt.yticks([])  # to hide tick values on X and Y axis
+            # plt.show()
+            # if cv.waitKey(1) == ord('q'):
+            #     break
+        # When everything done, release the capture
+        cap.release()
+        cv.destroyAllWindows()
+
 
     def calculateRumble(self,pressureThreshold=[0.2, 0.2, 0.2], pressureScaling=1):
         global  fragileThreshold, loggerR
@@ -207,6 +244,7 @@ if __name__ == '__main__':
 
         # https://stackoverflow.com/questions/53465862/python-aiohttp-into-existing-event-loop
         L = await asyncio.gather(
+            IS.VideoCapture(),
             IS.Normal_Mode(),
             IS.Calibration(),
             waiter(event)

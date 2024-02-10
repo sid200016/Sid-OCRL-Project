@@ -111,6 +111,8 @@ class IntegratedSystem:
                                            "step pressure (psi)": 0.1, "stabilization time (s)": 5,
                                            "Pressure Capture Event": asyncio.Event(),
                                            "Pressure Actuate Event": asyncio.Event(),
+                                           "Picture Capture Event" : asyncio.Event(),
+                                           "Pressure Datalog Event" : asyncio.Event(),
                                            "Directory": None,
                                            "logger": None}  # pressure capture event is to indicate object is stable, pressure actuate event is to indicate to the read_move syntax that it can move
 
@@ -183,7 +185,7 @@ class IntegratedSystem:
 
         self.grasperType = grasper_type
 
-        self.GC = GantryController(comport="COM4")#,homeSystem = False, initPos=[0,0,0])#, homeSystem = False,initPos=[0,0,0]  #initialize gantry controller
+        self.GC = GantryController(comport="COM4",homeSystem = False, initPos=[0,0,0])#, homeSystem = False,initPos=[0,0,0]  #initialize gantry controller
 
         if self.grasperType == GrasperType.SoftGrasper:
             self.SG = SoftGrasper(COM_Port='COM7', BaudRate=460800, timeout=1,
@@ -242,8 +244,8 @@ class IntegratedSystem:
 
 
             if self.pressure_radius_parameters["Pressure Actuate Event"].is_set():
-                self.SG.MoveGrasper_Pressure(Pval = self.pressure_state["Commanded pressure (psi)"]) #set pressure directly, don't use commanded radius position
-
+                self.SG.MoveGrasper_Pressure(self.pressure_state["Commanded pressure (psi)"]) #set pressure directly, don't use commanded radius position
+                self.pressure_radius_parameters["Pressure Actuate Event"].clear()
 
             # Set the rumble
             rumbleValue = self.calculateRumble(self.ObjectPressureThreshold, self.ObjectPressureScaling)
@@ -559,7 +561,9 @@ class IntegratedSystem:
                        "Enter H to move grasper home \n" \
                        "Enter T to inflate until grasper touches \n" \
                        "Enter MG to move the grasper \n" \
-                       "Enter M to move the gantry"
+                       "Enter M to move the gantry \n" \
+                       "Enter D to display robot state \n" \
+                       "Enter PR to enter pressure radius calibration \n"
         print(print_string)
         while (True):
             s = await aioconsole.ainput()
@@ -599,6 +603,9 @@ class IntegratedSystem:
 
                 case "D":
                     await(self.displayRobotState())
+
+                case "PR":
+                    self.jcSG.ControlMode = JC.JoyConState.PRESSURE_RADIUS_CAL
 
 
 
@@ -795,27 +802,13 @@ class IntegratedSystem:
                     self.pressure_radius_parameters["Directory"] = directory_path
 
 
-                self.pressure_radius_parameters = {"min pressure (psi)": 0, "max pressure (psi)": 12.5,
-                                                   "step pressure (psi)": 0.1, "stabilization time (s)": 5,
-                                                   "Pressure Capture Event": asyncio.Event(),
-                                                   "Pressure Actuate Event": asyncio.Event(),
-                                                   "Directory" : None,
-                                                   "logger": None}  # pressure capture event is to indicate object is stable, pressure actuate event is to indicate to the read_move syntax that it can move
-
-                self.pressure_state = {"Commanded pressure (psi)": 0,
-                                       "Measured Pressure closure (psi)": 0,
-                                       "Measured Pressure Jaw 1 (psi)": 0,
-                                       "Measured Pressure Jaw 2 (psi)": 0,
-                                       "Measured Pressure Jaw 3 (psi)": 0,
-                                       "Time Stamp": None,
-                                       "Pressure Capture Event": False}
 
                 if self.pressure_radius_parameters["logger"] is None:
                     #setup the logger
                     l_date = datetime.now().strftime("_%d_%m_%Y_%H_%M_%S")
                     datalogger = logging.getLogger(__name__ + "_datalogs")
 
-                    fname = Path(__file__).parents[3].joinpath("datalogs", "PressureRadiusDatalog" + l_date + ".csv")
+                    fname = self.pressure_radius_parameters["Directory"].joinpath("PressureRadiusDatalog" + l_date + ".csv")
 
                     fh2 = logging.FileHandler(fname)  # file handler
                     fh2.setLevel(logging.DEBUG)
@@ -823,7 +816,7 @@ class IntegratedSystem:
                     ch2 = logging.StreamHandler(sys.stdout)  # stream handler
                     ch2.setLevel(logging.INFO)
 
-                    formatter2 = logging.Formatter('%(asctime)s.%(msecs)03d,%(name)s,%(levelname)s,%(message)s')
+                    formatter2 = logging.Formatter('%(asctime)s,%(name)s,%(levelname)s,%(message)s')
 
                     fh2.setFormatter(formatter2)
                     ch2.setFormatter(formatter2)
@@ -854,12 +847,16 @@ class IntegratedSystem:
                                       self.pressure_radius_parameters["step pressure (psi)"])
 
                 for pressure in setpoints:
+                    print(pressure)
+
                     self.pressure_state["Commanded pressure (psi)"] = pressure
                     self.pressure_radius_parameters["Pressure Actuate Event"].set()  # set pressure actuate event
-                    await asyncio.sleep(self.pressure_state["stabilization time (s)"]) #sleep to allow it to stabilize
-                    #datalog
-                    self.pressure_radius_parameters["Pressure Capture Event"].set()  # set this to allow the video capture routine to know that it should label that image specially
 
+                    await asyncio.sleep(self.pressure_radius_parameters["stabilization time (s)"]) #sleep to allow it to stabilize
+                    #datalog and wait until events are set properly
+                    self.pressure_radius_parameters["Pressure Capture Event"].set()  # set this to allow the video capture routine to know that it should label that image specially
+                    await self.pressure_radius_parameters["Pressure Datalog Event"].wait() #this will be cleared, and then set again, so wait until that is done to clear it
+                    self.pressure_radius_parameters["Pressure Capture Event"].clear()
 
                 print("Finished pressure-radius characterization")
                 self.jcSG.ControlMode = JC.JoyConState.NORMAL
@@ -874,16 +871,25 @@ class IntegratedSystem:
                 self.pressure_state["Measured Pressure Jaw 1 (psi)"] = self.jawPressure[0]
                 self.pressure_state["Measured Pressure Jaw 2 (psi)"] = self.jawPressure[1]
                 self.pressure_state["Measured Pressure Jaw 3 (psi)"] = self.jawPressure[2]
-                self.pressure_state["Time Stamp"] = datetime.now().strftime('%Y_%m_%d_%H:%M:%S.%f')
+                self.pressure_state["Time Stamp"] = datetime.now().strftime('%Y-%m-%d-%H_%M_%S.%f')
                 self.pressure_state["Pressure Capture Event"] = self.pressure_radius_parameters[
                     "Pressure Capture Event"].is_set()
 
-                self.pressure_radius_parameters["logger"].info(",".join(str(v) for k,v in self.pressure_state.items())) #log the values
+                #Wait for video capture event because the botteneck is taking the picture
+                await self.pressure_radius_parameters["Picture Capture Event"].wait()
+
+                if self.pressure_state["Pressure Capture Event"] == False:
+                    self.pressure_radius_parameters["logger"].debug(
+                        ",".join(str(v) for k,v in self.pressure_state.items())) #log the values
+                else: #to limit the amount of information displayed
+                    self.pressure_radius_parameters["logger"].info(
+                        ",".join(str(v) for k, v in self.pressure_state.items()))  # log the values
+                    self.pressure_radius_parameters["Pressure Datalog Event"].set()
 
                 #TODO : need to add video capture code, maybe capture to folder.
 
             await asyncio.sleep(0.001)
-
+            self.pressure_radius_parameters["Pressure Datalog Event"].clear()
 
     async def capture_video(self):
         while True:
@@ -893,12 +899,16 @@ class IntegratedSystem:
                     if not ret:
                         print("Can't receive frame (stream end?).")
                         break
-                    ts = datetime.now().strftime('%Y_%m_%d_%H:%M:%S.%f')
-                    fname = "IMG_ts_%s_pts_%s_Pressure_%f_TF%s.jpg"%(str(ts),
-                                                                     str(self.pressure_state["Time Stamp"]),
-                                                                     self.pressure_state["Measured Pressure closure (psi)"],
+                    #ts = datetime.now().strftime('%Y-%m-%d-%H_%M_%S.%f')
+                    ts = self.pressure_state["Time Stamp"]
+                    fname = "IMG_ts_%s_P_%f_TF_%s.jpg"%(str(ts),
+                                                                     self.pressure_state["Commanded pressure (psi)"],
                                                                      ["True" if self.pressure_state["Pressure Capture Event"] else "False"][0])
-                    cv.imwrite(fname, frame)
+                    fname = self.pressure_radius_parameters["Directory"].joinpath(fname)
+                    status = cv.imwrite(str(fname), frame)
+            self.pressure_radius_parameters["Picture Capture Event"].set()
+            await asyncio.sleep(0.030)
+            self.pressure_radius_parameters["Picture Capture Event"].clear()
 
 
 
@@ -1017,7 +1027,8 @@ if __name__ == '__main__':
             IS.Read_Move_Hardware(),
             IS.TouchObject(),
             IS.datalog(),
-            IS.PressureRadiusCalibration()
+            IS.PressureRadiusCalibration(),
+            IS.capture_video()
         )
         #runp = asyncio.create_task(HandleProgram())
         #await runp

@@ -111,7 +111,8 @@ class IntegratedSystem:
                                            "step pressure (psi)": 0.1, "stabilization time (s)": 5,
                                            "Pressure Capture Event": asyncio.Event(),
                                            "Pressure Actuate Event": asyncio.Event(),
-                                           "logger": None}  #pressure capture event is to indicate object is stable, pressure actuate event is to indicate to the read_move syntax that it can move
+                                           "Directory": None,
+                                           "logger": None}  # pressure capture event is to indicate object is stable, pressure actuate event is to indicate to the read_move syntax that it can move
 
         self.pressure_state = {"Commanded pressure (psi)": 0,
                                "Measured Pressure closure (psi)": 0,
@@ -787,10 +788,18 @@ class IntegratedSystem:
                         case _:
                             self.use_video_Stream = False
 
+                if self.pressure_radius_parameters["Directory"] is None:
+                    l_date = datetime.now().strftime("_%d_%m_%Y_%H_%M_%S")
+                    directory_path = Path(__file__).parents[3].joinpath("datalogs", "Pressure_Radius_Test" + l_date)
+                    directory_path.mkdir() #make directory
+                    self.pressure_radius_parameters["Directory"] = directory_path
+
+
                 self.pressure_radius_parameters = {"min pressure (psi)": 0, "max pressure (psi)": 12.5,
                                                    "step pressure (psi)": 0.1, "stabilization time (s)": 5,
                                                    "Pressure Capture Event": asyncio.Event(),
                                                    "Pressure Actuate Event": asyncio.Event(),
+                                                   "Directory" : None,
                                                    "logger": None}  # pressure capture event is to indicate object is stable, pressure actuate event is to indicate to the read_move syntax that it can move
 
                 self.pressure_state = {"Commanded pressure (psi)": 0,
@@ -865,16 +874,31 @@ class IntegratedSystem:
                 self.pressure_state["Measured Pressure Jaw 1 (psi)"] = self.jawPressure[0]
                 self.pressure_state["Measured Pressure Jaw 2 (psi)"] = self.jawPressure[1]
                 self.pressure_state["Measured Pressure Jaw 3 (psi)"] = self.jawPressure[2]
-                self.pressure_state["Time Stamp"] = datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')
-                self.pressure_stat["Pressure Capture Event"] = self.pressure_radius_parameters[
+                self.pressure_state["Time Stamp"] = datetime.now().strftime('%Y_%m_%d_%H:%M:%S.%f')
+                self.pressure_state["Pressure Capture Event"] = self.pressure_radius_parameters[
                     "Pressure Capture Event"].is_set()
 
-                self.pressure_radius_parameters["logger"].info(",".join(str(v) for k,v in self.pressure_state.items())) #log
+                self.pressure_radius_parameters["logger"].info(",".join(str(v) for k,v in self.pressure_state.items())) #log the values
 
                 #TODO : need to add video capture code, maybe capture to folder.
 
             await asyncio.sleep(0.001)
 
+
+    async def capture_video(self):
+        while True:
+            if self.video_stream is not None:
+                if self.jcSG.ControlMode == JC.JoyConState.PRESSURE_RADIUS_CAL:
+                    ret, frame = self.video_stream.read()
+                    if not ret:
+                        print("Can't receive frame (stream end?).")
+                        break
+                    ts = datetime.now().strftime('%Y_%m_%d_%H:%M:%S.%f')
+                    fname = "IMG_ts_%s_pts_%s_Pressure_%f_TF%s.jpg"%(str(ts),
+                                                                     str(self.pressure_state["Time Stamp"]),
+                                                                     self.pressure_state["Measured Pressure closure (psi)"],
+                                                                     ["True" if self.pressure_state["Pressure Capture Event"] else "False"][0])
+                    cv.imwrite(fname, frame)
 
 
 
@@ -991,7 +1015,9 @@ if __name__ == '__main__':
             IS.SNS_Mode(),
             IS.ReadCommandLine(),
             IS.Read_Move_Hardware(),
-            IS.TouchObject()
+            IS.TouchObject(),
+            IS.datalog(),
+            IS.PressureRadiusCalibration()
         )
         #runp = asyncio.create_task(HandleProgram())
         #await runp

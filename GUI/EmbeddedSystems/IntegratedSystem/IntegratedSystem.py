@@ -800,6 +800,9 @@ class IntegratedSystem:
                     directory_path = Path(__file__).parents[3].joinpath("datalogs", "Pressure_Radius_Test" + l_date)
                     directory_path.mkdir() #make directory
                     self.pressure_radius_parameters["Directory"] = directory_path
+                    directory_image_path = directory_path.joinpath("Images")
+                    directory_image_path.mkdir()
+
 
 
 
@@ -904,7 +907,7 @@ class IntegratedSystem:
                     fname = "IMG_ts_%s_P_%f_TF_%s.jpg"%(str(ts),
                                                                      self.pressure_state["Commanded pressure (psi)"],
                                                                      ["True" if self.pressure_state["Pressure Capture Event"] else "False"][0])
-                    fname = self.pressure_radius_parameters["Directory"].joinpath(fname)
+                    fname = self.pressure_radius_parameters["Directory"].joinpath("Images",fname)
                     status = cv.imwrite(str(fname), frame)
             self.pressure_radius_parameters["Picture Capture Event"].set()
             await asyncio.sleep(0.030)

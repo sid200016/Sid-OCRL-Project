@@ -107,14 +107,15 @@ class IntegratedSystem:
         self.SNS_BypassForceFeedback = True
 
         #For Calibration of pressure-Radius relationship
-        self.pressure_radius_parameters = {"min pressure (psi)": 0, "max pressure (psi)": 12.5,
+        self.pressure_radius_parameters = {"min pressure (psi)": 0, "max pressure (psi)": 12.0,
                                            "step pressure (psi)": 0.1, "stabilization time (s)": 5,
                                            "Pressure Capture Event": asyncio.Event(),
                                            "Pressure Actuate Event": asyncio.Event(),
                                            "Picture Capture Event" : asyncio.Event(),
                                            "Pressure Datalog Event" : asyncio.Event(),
                                            "Directory": None,
-                                           "logger": None}  # pressure capture event is to indicate object is stable, pressure actuate event is to indicate to the read_move syntax that it can move
+                                           "logger": None,
+                                           "Video Writer": None}  # pressure capture event is to indicate object is stable, pressure actuate event is to indicate to the read_move syntax that it can move
 
         self.pressure_state = {"Commanded pressure (psi)": 0,
                                "Measured Pressure closure (psi)": 0,
@@ -792,8 +793,10 @@ class IntegratedSystem:
                             self.initializeVideoStream()
                             self.use_video_stream = True
 
+
+
                         case _:
-                            self.use_video_Stream = False
+                            self.use_video_stream = False
 
                 if self.pressure_radius_parameters["Directory"] is None:
                     l_date = datetime.now().strftime("_%d_%m_%Y_%H_%M_%S")
@@ -802,6 +805,11 @@ class IntegratedSystem:
                     self.pressure_radius_parameters["Directory"] = directory_path
                     directory_image_path = directory_path.joinpath("Images")
                     directory_image_path.mkdir()
+
+                    output_video_path = directory_image_path.joinpath("video.mp4")
+                    if self.use_video_stream == True:
+                        self.pressure_radius_parameters["Video Writer"] = cv.VideoWriter(str(output_video_path),
+                                                                                         cv.VideoWriter_fourcc(*'mp4v'), 30, (640, 480))
 
 
 
@@ -862,6 +870,7 @@ class IntegratedSystem:
                     self.pressure_radius_parameters["Pressure Capture Event"].clear()
 
                 print("Finished pressure-radius characterization")
+                self.pressure_radius_parameters["Video Writer"].release()
                 self.jcSG.ControlMode = JC.JoyConState.NORMAL
             await asyncio.sleep(0.001)
 
@@ -903,12 +912,14 @@ class IntegratedSystem:
                         print("Can't receive frame (stream end?).")
                         break
                     #ts = datetime.now().strftime('%Y-%m-%d-%H_%M_%S.%f')
-                    ts = self.pressure_state["Time Stamp"]
-                    fname = "IMG_ts_%s_P_%f_TF_%s.jpg"%(str(ts),
-                                                                     self.pressure_state["Commanded pressure (psi)"],
-                                                                     ["True" if self.pressure_state["Pressure Capture Event"] else "False"][0])
-                    fname = self.pressure_radius_parameters["Directory"].joinpath("Images",fname)
-                    status = cv.imwrite(str(fname), frame)
+                    self.pressure_radius_parameters["Video Writer"].write(frame) #write frame to video
+                    if self.pressure_state["Pressure Capture Event"] == True: #save images at end of settle time and before start of transition
+                        ts = self.pressure_state["Time Stamp"]
+                        fname = "IMG_ts_%s_P_%f_TF_%s.jpg"%(str(ts),
+                                                                         self.pressure_state["Commanded pressure (psi)"],
+                                                                         ["True" if self.pressure_state["Pressure Capture Event"] else "False"][0])
+                        fname = self.pressure_radius_parameters["Directory"].joinpath("Images",fname)
+                        status = cv.imwrite(str(fname), frame)
             self.pressure_radius_parameters["Picture Capture Event"].set()
             await asyncio.sleep(0.030)
             self.pressure_radius_parameters["Picture Capture Event"].clear()
@@ -921,6 +932,8 @@ class IntegratedSystem:
         self.video_stream = cv.VideoCapture(index)
         if not self.video_stream.isOpened():
             self.logger.error("Cannot open camera")
+
+
 
 
 

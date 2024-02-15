@@ -13,7 +13,7 @@ const int G_ENABLE = 15;
 //#define ReadSingle
 //#define DebugSingle
 //#define ReadMultiple
-//#define DebugPrint //define if you want to send all the debug print statements
+#define DebugPrint //define if you want to send all the debug print statements
 
 
 
@@ -432,7 +432,7 @@ void ReadSerial()
                     {
 
                         int pressportIdx = PressVal_ind[nIdx-numExpectedBytes]; //get the pressure value
-                        PortA[pressportIdx].pressure = 12*Payload[nIdx]/255; //convert to a pressure value
+                        PortA[pressportIdx].pressure = 12.0*Payload[nIdx]/255.0; //convert to a pressure value
 
                         #ifdef DebugPrint
                             // for communication

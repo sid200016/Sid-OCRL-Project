@@ -336,6 +336,7 @@ class SoftGrasper:
             numBytes = self.ser.inWaiting()
             xd = self.ser.read(numBytes) #read the entire buffer
 
+
             totalBuffer = bytearray()
             totalBuffer.extend(self.prevBuffer)
             totalBuffer.extend(xd) #total buffer is the unprocessed data from last round with the new data from this round

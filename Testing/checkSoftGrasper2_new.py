@@ -3,7 +3,14 @@ import time
 from GUI.EmbeddedSystems.SoftGrasper.SoftGrasper import PortActions
 from GUI.EmbeddedSystems.SoftGrasper.SoftGrasper import SoftGrasper
 
+import logging
+
+import sys
 SG  = SoftGrasper(COM_Port = 'COM7',BaudRate=460800,timeout=1,controllerProfile="New")
+
+logger_sys = logging.getLogger(__name__)
+ch = logging.StreamHandler(sys.stdout)  # stream handler
+ch.setLevel(logging.DEBUG)
 
 while (True):
 
@@ -12,7 +19,7 @@ while (True):
     SG.PressurePorts[2].portStatus = PortActions.HOLD
     SG.PressurePorts[1].portStatus = PortActions.HOLD
     SG.PressurePorts[0].portStatus = PortActions.INFLATE_AND_MODULATE
-    SG.PressurePorts[0].commandedPressure = 2
+    SG.PressurePorts[0].commandedPressure = 2.3
 
     byteList = SG.ConstructPortCommand()
     numBytes = SG.sendCommunicationArray(byteList=byteList)

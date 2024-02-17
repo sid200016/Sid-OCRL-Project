@@ -130,9 +130,9 @@ class SoftGrasper:
     def GetPressureFromPosition(self,position_mm,coeffs=[3.0274e-7,-1.9476e-5,2.3862e-4,0.0085,-0.2511,2.2551,-0.1014]):
         b = coeffs
         x = position_mm
-        x=min(x,19)  #limit to maximum 19 mm contraction
+        x=min(x,30)  #limit to maximum 30 mm contraction
         pressV = b[0]*(x**6) + b[1]*(x**5) + b[2]*(x**4) + b[3]*(x**3) + b[4]*(x**2) + b[5]*(x) + b[6]*1
-        pressV=min(pressV,self.maxClosurePressure_psi)  #limit pressure
+        pressV = max(min(pressV,self.maxClosurePressure_psi),0)  #limit pressure
         return(pressV)
     def SendPressureCommand(self,PressureVal):
         byteFval = bytearray(struct.pack("f", PressureVal))

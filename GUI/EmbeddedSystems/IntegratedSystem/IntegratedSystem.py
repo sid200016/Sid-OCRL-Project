@@ -85,7 +85,7 @@ class IntegratedSystem:
         #logging
         self.logger = None
         self.datalogger = None
-        self.setupLogger()
+
 
         #Events for determining
         self.MoveGrasperEvent = asyncio.Event()
@@ -97,6 +97,14 @@ class IntegratedSystem:
         self.jawPressure = None
         self.ClosurePressure = None
         self.curPos = None #will be a Point (x,y,z) in meters
+
+        #button and axes values
+        self.buttonVal = None
+        self.AxesPos = None
+
+        #For datalogging
+        self.startDatalog = asyncio.Event()
+        self.finishDatalog = asyncio.Event()
 
         #For SNS
         self.max_z_height = -0.184
@@ -182,6 +190,16 @@ class IntegratedSystem:
 
         self.datalogger = datalogger
 
+        #write the header to the file
+        headerstr = "program_mode,x_mm,y_mm,z_mm,P_closure_psi,P_jaw1_psi,P_jaw2_psi,P_jaw3_psi,commanded_radius_mm, commanded_P_jaw1_psi, commanded_P_jaw2_psi, commanded_P_jaw3_psi"
+        headerstr = headerstr + "," + ','.join(
+            [k for k, v in self.buttonVal.items()]) + "," + "Axes 1, Axes 2"  # for the buttons
+        headerstr = headerstr + "," + ','.join([k for k, v in self.neuronset.items()])  # for the SNS neuron states
+        headerstr = headerstr + "," + ','.join(
+            [k for k, x in self.ObjectVal.items()])  # for the object states
+
+        self.datalogger.info(headerstr)
+
     async def HardwareInitialize(self, grasper_type = GrasperType.SoftGrasper):
 
         self.grasperType = grasper_type
@@ -199,6 +217,9 @@ class IntegratedSystem:
             pass
 
         self.SNSc = SNScontroller(ModulateSNS=False)
+
+        #setup the logger
+        self.setupLogger()
         #controller._inter_layer_1._params["tau"].data[2] = 0.75
         #self.logger.info("SNS z height time constant set to %f" % 0.75)
 
@@ -242,8 +263,6 @@ class IntegratedSystem:
                 self.MoveGrasperEvent.clear() #reset the event
 
             #Specifically to actuate with a pressure during pressure radius cal
-
-
             if self.pressure_radius_parameters["Pressure Actuate Event"].is_set():
                 self.SG.MoveGrasper_Pressure(self.pressure_state["Commanded pressure (psi)"]) #set pressure directly, don't use commanded radius position
                 self.pressure_radius_parameters["Pressure Actuate Event"].clear()
@@ -252,9 +271,15 @@ class IntegratedSystem:
             rumbleValue = self.calculateRumble(self.ObjectPressureThreshold, self.ObjectPressureScaling)
             self.jcSG.rumbleFeedback(rumbleValue, rumbleValue, 1000)
 
+            #indicate to datalog function that you can log the current state
+            self.startDatalog.set()
+            await self.finishDatalog.wait()
+
+
 
             # change the flags
             self.FreshDataEvent.clear()
+            self.startDatalog.clear()
             await asyncio.sleep(0.001)
             # now that all the actions have been awaited, set the fresh data flag to false
 
@@ -264,6 +289,9 @@ class IntegratedSystem:
             #print ("Normal mode")
             [buttonVal, AxesPos] = self.jcSG.eventLoop()  # run event loop to determine what values and axes to execute
             self.jcSG.ExecuteButtonFunctions(buttonVal, AxesPos)  # execute Button functions defined by the button values and axes positions
+
+            self.buttonVal = buttonVal
+            self.AxesPos = AxesPos
 
             if self.jcSG.ControlMode == JC.JoyConState.NORMAL:
                 posInc, feedrate_mmps = self.jcSG.calcPositionIncrement(AxesPos[0], AxesPos[
@@ -900,8 +928,38 @@ class IntegratedSystem:
 
                 #TODO : need to add video capture code, maybe capture to folder.
 
+            else:
+                pass
+
+            #Normal datalog code
+            '''
+            Recall that header str is:
+            headerstr = "program_mode,x_mm,y_mm,z_mm,P_closure_psi,P_jaw1_psi,P_jaw2_psi,P_jaw3_psi,commanded_radius_mm, commanded_P_jaw1_psi, commanded_P_jaw2_psi, commanded_P_jaw3_psi"
+            headerstr = headerstr + "," + ','.join(
+                [k for k, v in self.buttonVal.items()]) + "," + "Axes 1, Axes 2"  # for the buttons
+            headerstr = headerstr + "," + ','.join([k for k, v in self.neuronset.items()])  # for the SNS neuron states
+            headerstr = headerstr + "," + ','.join(
+                [x.status.name for k, x in self.ObjectVal.items()])  # for the object states
+            '''
+
+            await self.startDatalog.wait()
+            datastr = "%s,%f,%f,%f"%(str(self.jcSG.ControlMode),self.curPos[0]*1000, self.curPos[1]*1000, self.curPos[2]*1000)
+            datastr = datastr + ",%f,%f,%f,%f,%f,%f,%f,%f"%(self.ClosurePressure,*self.jawPressure,self.SG.commandedPosition["ClosureChangeInRadius_mm"],
+                                                            self.SG.commandedPosition["Jaw1_psi"],self.SG.commandedPosition["Jaw2_psi"],self.SG.commandedPosition["Jaw3_psi"])
+            datastr = datastr + "," + ','.join(
+                [str(v) for k, v in self.buttonVal.items()]) + ','.join([str(x) for x in self.AxesPos]) #for the joystick button and pos
+
+            datastr = datastr + "," + ','.join([v for k, v in self.neuronset.items()]) #for the SNS neuronset
+
+            datastr = datastr + "," + ','.join([x.status.name for k, x in self.ObjectVal.items()]) #for the objects
+
+            self.datalogger.info(datastr)
+            self.finishDatalog.set()
+
+            #sleep and set pressure datalog event
             await asyncio.sleep(0.001)
             self.pressure_radius_parameters["Pressure Datalog Event"].clear()
+            self.finishDatalog.clear()
 
     async def capture_video(self):
         while True:

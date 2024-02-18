@@ -349,9 +349,9 @@ class IntegratedSystem:
                                -z_offset + curPos.z)  # get where the current position is relative to where the object is
 
                 grasperPosition = Point(curPos.x, curPos.y, curPos.z)  # convert to meters
-                self.logger.info('Target position in m: %f %f %f' % (*target_position_list,))
-                self.logger.info('GrasperPos in m:%f %f %f' % (*grasperPosition,))
-                self.logger.info('ObjectPos in m:%f %f %f' % (*object_position_list,))
+                self.logger.debug('Target position in m: %f %f %f' % (*target_position_list,))
+                self.logger.debug('GrasperPos in m:%f %f %f' % (*grasperPosition,))
+                self.logger.debug('ObjectPos in m:%f %f %f' % (*object_position_list,))
 
                 grasperThreshold = self.ContactThreshold["Pressure Threshold (psi)"]
                 pressureScaling = self.ContactThreshold["Pressure Scaling"]
@@ -381,9 +381,9 @@ class IntegratedSystem:
 
 
 
-                print(self.SNSc.neuronset)
-                self.logger.info('Jaw radial pos in m:%f' % (JawRadialPos_m))
-                self.logger.info('Command Position: %f %f %f' % (*list(commandPosition_m),))
+                #print(self.SNSc.neuronset)
+                self.logger.debug('Jaw radial pos in m:%f' % (JawRadialPos_m))
+                self.logger.debug('Command Position: %f %f %f' % (*list(commandPosition_m),))
                 # command position is absolute move in m relative to the offset.
                 commandPosition_m = Point(self.SNS_object_pos_m[0] + commandPosition_m.x,
                                           self.SNS_object_pos_m[1] + commandPosition_m.y,
@@ -391,7 +391,7 @@ class IntegratedSystem:
 
                 self.GC.goalPos = [x * 1000 for x in list(commandPosition_m)] #set goal position
 
-                self.logger.info('SNS commanded goal position (mm):%f,%f,%f' % (*self.GC.goalPos,))
+                self.logger.debug('SNS commanded goal position (mm):%f,%f,%f' % (*self.GC.goalPos,))
                 self.logger.debug('SNS commanded change in radius (mm):%f' % (JawRadialPos_m * 1000))
                 self.logger.debug(','.join([k + ":" + str(v) for k, v in self.SNSc.neuronset.items()]))
 
@@ -399,7 +399,7 @@ class IntegratedSystem:
                                                                        self.maxJawChangeInRadius_mm)  # limit the radial position change to prevent overinflation
 
 
-                self.logger.info('Number of grasp attempts %i' % self.SNSc.num_grasp_attempts)
+                self.logger.debug('Number of grasp attempts %i' % self.SNSc.num_grasp_attempts)
 
 
                 if self.SNSc.num_grasp_attempts >= 1 or self.SNSc.lift_after_release_done == True:
@@ -430,7 +430,7 @@ class IntegratedSystem:
                     self.SG.commandedPosition["ClosureChangeInRadius_mm"] = 0  # need to check if this is always satisfied
                     self.MoveGrasperEvent.set() #set event to indicate to other function that it should actuate grasper
                     await asyncio.sleep(8)
-                    print (self.SG.commandedPosition["ClosureChangeInRadius_mm"])
+                    #self.logger.debug (self.SG.commandedPosition["ClosureChangeInRadius_mm"])
 
 
                 self.MoveGrasperEvent.set()
@@ -462,16 +462,16 @@ class IntegratedSystem:
         while True:
             if self.jcSG.ControlMode == JC.JoyConState.CALIBRATION:
                 self.GrasperReadAverage["Average Event"].set()
-                print("Calibration started. Hit SL+ to stop calibration")
+                self.logger.info("Calibration started. Hit SL+ to stop calibration")
 
                 #get initial position and state of grasper
 
                 await self.FreshDataEvent.wait() #wait for fresh data
 
 
-                print ("Gantry position at start of calibration (mm): %f %f %f"%tuple([x*1000 for x in self.curPos]))
-                print ("Grasper closure muscle pressure (psi): %f"%self.ClosurePressure) #need function to go from pressure to mm
-                print ("Grasper contact pressure (psi) at start of calibration: %f, %f, %f" % tuple(self.jawPressure))
+                self.logger.info ("Gantry position at start of calibration (mm): %f %f %f"%tuple([x*1000 for x in self.curPos]))
+                self.logger.info ("Grasper closure muscle pressure (psi): %f"%self.ClosurePressure) #need function to go from pressure to mm
+                self.logger.info ("Grasper contact pressure (psi) at start of calibration: %f, %f, %f" % tuple(self.jawPressure))
 
                 #close grasper
                 self.SG.IncrementalMove(closureIncrement_mm=self.calibrationParams["Calibration Distance (mm)"],
@@ -485,7 +485,7 @@ class IntegratedSystem:
 
                 #get contact pressure prior to lift
                 await self.FreshDataEvent.wait()  # wait for fresh data
-                print("Contact Pressure prior to lift: %f %f %f"%tuple(self.jawPressure))
+                self.logger.info("Contact Pressure prior to lift: %f %f %f"%tuple(self.jawPressure))
 
 
                 #lift grasper
@@ -499,7 +499,7 @@ class IntegratedSystem:
                 grasperContact = np.all([x if x >= self.calibrationParams["Grasp Pressure Threshold (psi)"][i] else 0 for (i, x) in
                                   enumerate(self.jawPressure)]) == True #sufficient contact if any of the thresholds greater than the threshold
 
-                print("Contact Pressure: %f %f %f" % tuple(self.jawPressure))
+                self.logger.info("Contact Pressure: %f %f %f" % tuple(self.jawPressure))
 
                 #if object not picked up, relax grasper by 1 mm, return to home then contract by 1mm to set up next loop
                 if grasperContact == False:
@@ -513,7 +513,7 @@ class IntegratedSystem:
                     self.GC.calculateIncrementalMove(0, 0, -self.calibrationParams["Grasp Lift Height (mm)"])
                     self.MoveGantryEvent.set()
                     await asyncio.sleep(15)
-                    print("After Sleep")
+                    self.logger.debug("After Sleep")
 
 
                     #close grasper slightly
@@ -524,16 +524,16 @@ class IntegratedSystem:
 
                 #if object picked up, return to position, release object, set ControlMode to normal and report the final values.
                 elif grasperContact == True:
-                    print("Calibration successful")
-                    print("Gantry position at end of calibration (mm): %f %f %f" % tuple([x * 1000 for x in self.curPos]))
-                    print(
+                    self.logger.info("Calibration successful")
+                    self.logger.info("Gantry position at end of calibration (mm): %f %f %f" % tuple([x * 1000 for x in self.curPos]))
+                    self.logger.info(
                         "Grasper closure muscle pressure at end of calibration (psi): %f" % self.ClosurePressure)  # need function to go from pressure to mm
-                    print("Grasper closure radius at end of calibration (mm): %f" % self.SG.commandedPosition[
+                    self.logger.info("Grasper closure radius at end of calibration (mm): %f" % self.SG.commandedPosition[
                         "ClosureChangeInRadius_mm"])
-                    print("Grasper contact pressure (psi) at end of calibration: %f, %f, %f" % tuple(self.jawPressure))
+                    self.logger.info("Grasper contact pressure (psi) at end of calibration: %f, %f, %f" % tuple(self.jawPressure))
 
                     #return to home
-                    print("Returning object to base ...")
+                    self.logger.info("Returning object to base ...")
                     self.GC.calculateIncrementalMove(0, 0, -self.calibrationParams["Grasp Lift Height (mm)"])
                     self.MoveGantryEvent.set()
                     await asyncio.sleep(15)
@@ -593,17 +593,17 @@ class IntegratedSystem:
                        "Enter M to move the gantry \n" \
                        "Enter D to display robot state \n" \
                        "Enter PR to enter pressure radius calibration \n"
-        print(print_string)
+        self.logger.info(print_string)
         while (True):
             s = await aioconsole.ainput()
-            print(s)
+            self.logger.info(s)
 
 
             match s.upper():
 
                 # Calibration
                 case "C":
-                    print ("Calibration Event Initiated\n")
+                    self.logger.info("Calibration Event Initiated\n")
                     self.jcSG.ControlMode = JC.JoyConState.CALIBRATION
 
                 # SNS
@@ -614,7 +614,7 @@ class IntegratedSystem:
                     self.jcSG.ControlMode = JC.JoyConState.USE_SNS
 
                 case "T":
-                    print("Touch Event Initiated\n")
+                    self.logger.info("Touch Event Initiated\n")
                     self.jcSG.ControlMode = JC.JoyConState.TOUCH_OBJECT
 
                 # Return to Joystick Mode
@@ -643,7 +643,7 @@ class IntegratedSystem:
 
                 # Default
                 case _:
-                    print(print_string)
+                    self.logger.info(print_string)
 
 
 
@@ -660,7 +660,7 @@ class IntegratedSystem:
         else:
             self.jcSG.ControlMode = defaultMode #return to mode specified
 
-        print ("Return home completed")
+        self.logger.info ("Return home completed")
 
     async def moveGantry(self):
         action_input = await aioconsole.ainput(
@@ -688,7 +688,7 @@ class IntegratedSystem:
                 self.GC.goalPos = pos
 
             case _:
-                print("Neither X or T selected. Exiting. ")
+                self.logger.info("Neither X or T selected. Exiting. ")
 
         self.MoveGantryEvent.set()
 
@@ -714,7 +714,7 @@ class IntegratedSystem:
                 self.SG.commandedPosition["ClosureChangeInRadius_mm"] = float(vals)
 
             case _:
-                print("Neither X or T selected. Exiting. ")
+                self.logger.info("Neither X or T selected. Exiting. ")
 
         self.MoveGrasperEvent.set()
 
@@ -731,18 +731,18 @@ class IntegratedSystem:
         else:
             self.jcSG.ControlMode = defaultMode #return to mode specified
 
-        print ("Grasper reset completed")
+        self.logger.info ("Grasper reset completed")
 
     async def displayRobotState(self):
         priorMode = self.jcSG.ControlMode
         self.jcSG.ControlMode = JC.JoyConState.DISPLAY_DATA
         await self.FreshDataEvent.wait()
-        print("Gantry position(mm): %f %f %f \n" % tuple([x * 1000 for x in self.curPos]))
-        print(
+        self.logger.info("Gantry position(mm): %f %f %f \n" % tuple([x * 1000 for x in self.curPos]))
+        self.logger.info(
             "Grasper closure muscle pressure(psi): %f \n" % self.ClosurePressure)  # need function to go from pressure to mm
-        print("Grasper closure radius(mm): %f \n" % self.SG.commandedPosition[
+        self.logger.info("Grasper closure radius(mm): %f \n" % self.SG.commandedPosition[
             "ClosureChangeInRadius_mm"])
-        print("Grasper contact pressure (psi): %f, %f, %f \n" % tuple(self.jawPressure))
+        self.logger.info("Grasper contact pressure (psi): %f, %f, %f \n" % tuple(self.jawPressure))
         self.jcSG.ControlMode = priorMode
         await asyncio.sleep(0.001)
     async def TouchObject(self):
@@ -755,9 +755,9 @@ class IntegratedSystem:
                 await self.FreshDataEvent.wait() #wait for fresh data
 
 
-                print ("Gantry position at start of touch object (mm): %f %f %f"%tuple([x*1000 for x in self.curPos]))
-                print ("Grasper closure muscle pressure (psi): %f"%self.ClosurePressure) #need function to go from pressure to mm
-                print ("Grasper contact pressure (psi) at start of touch object: %f, %f, %f" % tuple(self.jawPressure))
+                self.logger.info ("Gantry position at start of touch object (mm): %f %f %f"%tuple([x*1000 for x in self.curPos]))
+                self.logger.info ("Grasper closure muscle pressure (psi): %f"%self.ClosurePressure) #need function to go from pressure to mm
+                self.logger.info ("Grasper contact pressure (psi) at start of touch object: %f, %f, %f" % tuple(self.jawPressure))
 
                 #close grasper
                 self.SG.IncrementalMove(closureIncrement_mm=self.calibrationParams["Touch Object Distance (mm)"],
@@ -775,7 +775,7 @@ class IntegratedSystem:
                 grasperContact = np.all([x if x >= self.calibrationParams["Touch Pressure Threshold (psi)"][i] else 0 for (i, x) in
                                   enumerate(self.jawPressure)]) == True #sufficient contact if any of the thresholds greater than the threshold
 
-                print("Contact Pressure: %f %f %f" % tuple(self.jawPressure))
+                self.logger.info("Contact Pressure: %f %f %f" % tuple(self.jawPressure))
 
                 #
                 if grasperContact == False:
@@ -784,13 +784,13 @@ class IntegratedSystem:
 
                 #if object picked up, return to position, release object, set ControlMode to normal and report the final values.
                 elif grasperContact == True:
-                    print("Touch object successful")
-                    print("Gantry position at end of object touch (mm): %f %f %f" % tuple([x * 1000 for x in self.curPos]))
-                    print(
+                    self.logger.info("Touch object successful")
+                    self.logger.info("Gantry position at end of object touch (mm): %f %f %f" % tuple([x * 1000 for x in self.curPos]))
+                    self.logger.info(
                         "Grasper closure muscle pressure at end of object touch (psi): %f" % self.ClosurePressure)  # need function to go from pressure to mm
-                    print("Grasper closure radius at end of calibration (mm): %f" % self.SG.commandedPosition[
+                    self.logger.info("Grasper closure radius at end of calibration (mm): %f" % self.SG.commandedPosition[
                         "ClosureChangeInRadius_mm"])
-                    print("Grasper contact pressure (psi) at end of calibration: %f, %f, %f" % tuple(self.jawPressure))
+                    self.logger.info("Grasper contact pressure (psi) at end of calibration: %f, %f, %f" % tuple(self.jawPressure))
 
                     #set variable
                     self.jcSG.ControlMode = JC.JoyConState.NORMAL #return to normal mode
@@ -812,9 +812,9 @@ class IntegratedSystem:
         #
         while (True):
             if self.jcSG.ControlMode == JC.JoyConState.PRESSURE_RADIUS_CAL:
-                print("Beginning Pressure radius cal")
+                self.logger.info("Beginning Pressure radius cal")
                 if self.video_stream is None:
-                    print("Do you want to record video? Please enter Y for yes, any other button to not record.")
+                    self.logger.info("Do you want to record video? Please enter Y for yes, any other button to not record.")
                     response = await aioconsole.ainput()
                     match response.upper():
                         case "Y":
@@ -871,10 +871,10 @@ class IntegratedSystem:
 
                     self.pressure_radius_parameters["logger"] = datalogger
 
-                print("Logger set up ...") #should be the same as the one for self.pressure_radius_parameters
+                self.logger.info("Logger set up ...") #should be the same as the one for self.pressure_radius_parameters
 
                 #completely deflate grasper
-                print("Completely deflating grasper...")
+                self.logger.info("Completely deflating grasper...")
                 self.pressure_state["Commanded pressure (psi)"] = 0
 
                 await asyncio.sleep(5)
@@ -886,7 +886,7 @@ class IntegratedSystem:
                                       self.pressure_radius_parameters["step pressure (psi)"])
 
                 for pressure in setpoints:
-                    print(pressure)
+                    self.logger.info(pressure)
 
                     self.pressure_state["Commanded pressure (psi)"] = pressure
                     self.pressure_radius_parameters["Pressure Actuate Event"].set()  # set pressure actuate event
@@ -897,7 +897,7 @@ class IntegratedSystem:
                     await self.pressure_radius_parameters["Pressure Datalog Event"].wait() #this will be cleared, and then set again, so wait until that is done to clear it
                     self.pressure_radius_parameters["Pressure Capture Event"].clear()
 
-                print("Finished pressure-radius characterization")
+                self.logger.info("Finished pressure-radius characterization")
                 self.pressure_radius_parameters["Video Writer"].release()
                 self.jcSG.ControlMode = JC.JoyConState.NORMAL
             await asyncio.sleep(0.001)
@@ -967,7 +967,7 @@ class IntegratedSystem:
                 if self.jcSG.ControlMode == JC.JoyConState.PRESSURE_RADIUS_CAL:
                     ret, frame = self.video_stream.read()
                     if not ret:
-                        print("Can't receive frame (stream end?).")
+                        self.logger.info("Can't receive frame (stream end?).")
                         break
                     #ts = datetime.now().strftime('%Y-%m-%d-%H_%M_%S.%f')
                     self.pressure_radius_parameters["Video Writer"].write(frame) #write frame to video
@@ -1010,7 +1010,7 @@ class IntegratedSystem:
 
 
             case "N":
-                print("Using default values")
+                self.logger.info("Using default values")
 
             case "T":
                 vals = await aioconsole.ainput(
@@ -1036,7 +1036,7 @@ class IntegratedSystem:
                 pass
 
 
-        print("x,y,z used is (mm): %f, %f, %f" % (
+        self.logger.info("x,y,z used is (mm): %f, %f, %f" % (
             self.SNS_object_pos_m[0]*1000, self.SNS_object_pos_m[1]*1000, self.SNS_object_pos_m[2]*1000))
 
         # Ask it they want to adjust or enter new value for the grasper max closure calibration
@@ -1052,7 +1052,7 @@ class IntegratedSystem:
 
 
             case "N":
-                print("Using default values")
+                self.logger.info("Using default values")
 
             case "T":
                 vals = await aioconsole.ainput(
@@ -1071,14 +1071,14 @@ class IntegratedSystem:
             case _:
                 pass
 
-        print("Max closure (mm): %f"%self.maxJawChangeInRadius_mm)
+        self.logger.info("Max closure (mm): %f"%self.maxJawChangeInRadius_mm)
 
         returnHome = await aioconsole.ainput(
             "Enter any button to return home")
 
         await self.returnHome()
 
-        print("Beginning SNS ...")
+        self.logger.info("Beginning SNS ...")
 
 
 

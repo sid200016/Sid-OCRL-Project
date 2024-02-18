@@ -196,7 +196,7 @@ class IntegratedSystem:
 
         self.grasperType = grasper_type
 
-        self.GC = GantryController(comport="COM4",homeSystem = False, initPos=[0,0,0])#, homeSystem = False,initPos=[0,0,0]  #initialize gantry controller
+        self.GC = GantryController(comport="COM4")#,homeSystem = False, initPos=[0,0,0])#, homeSystem = False,initPos=[0,0,0]  #initialize gantry controller
 
         if self.grasperType == GrasperType.SoftGrasper:
             self.SG = SoftGrasper(COM_Port='COM7', BaudRate=460800, timeout=1,
@@ -224,35 +224,37 @@ class IntegratedSystem:
 
         while True:
             if self.jcSG.ControlMode != JC.JoyConState.NORMAL: #only do constant update of position when not in joystick control mode
-                curPos = self.GC.getPosition()
-                await asyncio.sleep(0.001)
+                pass
 
-                if self.GrasperReadAverage["Average Event"].is_set() == True: #for the case where you want to average
-                    jawPressure, ClosurePressure = await self.SG.ReadSensorValues(number_avg=self.GrasperReadAverage["Number of Loops"],
-                                                                                  loop_delay=self.GrasperReadAverage["Time Delay (s)"])
-                    self.GrasperReadAverage["Average Event"].clear()
+            curPos = self.GC.getPosition()
+            await asyncio.sleep(0.001)
 
-                else: #default
-                    jawPressure, ClosurePressure = await self.SG.ReadSensorValues(number_avg=1, loop_delay=0)
+            if self.GrasperReadAverage["Average Event"].is_set() == True: #for the case where you want to average
+                jawPressure, ClosurePressure = await self.SG.ReadSensorValues(number_avg=self.GrasperReadAverage["Number of Loops"],
+                                                                              loop_delay=self.GrasperReadAverage["Time Delay (s)"])
+                self.GrasperReadAverage["Average Event"].clear()
+
+            else: #default
+                jawPressure, ClosurePressure = await self.SG.ReadSensorValues(number_avg=1, loop_delay=0)
 
 
-                self.SG.ChangeInPressure = jawPressure
-                self.jawPressure = jawPressure
-                self.ClosurePressure = ClosurePressure
-                self.curPos = curPos
-                await asyncio.sleep(0.001)  # nominal 50 Hz
+            self.SG.ChangeInPressure = jawPressure
+            self.jawPressure = jawPressure
+            self.ClosurePressure = ClosurePressure
+            self.curPos = curPos
+            await asyncio.sleep(0.001)  # nominal 50 Hz
 
-                # set the flag indicating that fresh data has been received, then sleep, then change the flag
-                self.FreshDataEvent.set()
-                await asyncio.sleep(0.010)
+            # set the flag indicating that fresh data has been received, then sleep, then change the flag
+            self.FreshDataEvent.set()
+            await asyncio.sleep(0.001)
 
-            elif self.jcSG.ControlMode == JC.JoyConState.NORMAL:
-                self.curPos = Point(self.GC.PositionArray["x"][-1]/1000,
-                                    self.GC.PositionArray["y"][-1]/1000,
-                                    self.GC.PositionArray["z"][-1]/1000) #TODO: maybe need to fix this. Should unify so that current position is only called in this function, and don't have to worry about the updates that are being made in the Normal loop
-
-                self.ClosurePressure = self.SG.PressureArray[self.SG.closureMuscle_idx][-1]
-                self.jawPressure = self.SG.changeInPressure
+            # elif self.jcSG.ControlMode == JC.JoyConState.NORMAL:
+            #     self.curPos = Point(self.GC.PositionArray["x"][-1]/1000,
+            #                         self.GC.PositionArray["y"][-1]/1000,
+            #                         self.GC.PositionArray["z"][-1]/1000) #TODO: maybe need to fix this. Should unify so that current position is only called in this function, and don't have to worry about the updates that are being made in the Normal loop
+            #
+            #     self.ClosurePressure = self.SG.PressureArray[self.SG.closureMuscle_idx][-1]
+            #     self.jawPressure = self.SG.changeInPressure
 
             #Move gantry only when event is set to true
             if self.MoveGantryEvent.is_set():
@@ -287,6 +289,7 @@ class IntegratedSystem:
 
 
     async def Normal_Mode(self): #meant to run as a long running co-routine
+        #self.jcSG.PeriodT_s = 0.1 #longer in this version
         while (True):
             #print ("Normal mode")
             [buttonVal, AxesPos] = self.jcSG.eventLoop()  # run event loop to determine what values and axes to execute
@@ -322,7 +325,7 @@ class IntegratedSystem:
 
         while (True):
             if self.jcSG.ControlMode == JC.JoyConState.USE_SNS:
-                self.logger.info('Inside SNS control')
+                self.logger.debug('Inside SNS control')
 
                 await self.FreshDataEvent.wait()  # wait for fresh data
 
@@ -694,7 +697,7 @@ class IntegratedSystem:
 
         self.MoveGantryEvent.set()
 
-        await asyncio.sleep(0.1)
+        await asyncio.sleep(0.05)
 
 
     async def moveGrasper(self):
@@ -720,7 +723,7 @@ class IntegratedSystem:
 
         self.MoveGrasperEvent.set()
 
-        await asyncio.sleep(0.1)
+        await asyncio.sleep(0.05)
     async def resetGrasper(self, defaultMode = None):
         priorMode = self.jcSG.ControlMode
         self.jcSG.ControlMode = JC.JoyConState.RESET_GRASPER
@@ -934,6 +937,7 @@ class IntegratedSystem:
                 pass
 
             #Normal datalog code
+            #print("Datalog")
             if self.datalog_header == False:
                 # write the header to the file
                 headerstr = "program_mode,x_mm,y_mm,z_mm,P_closure_psi,P_jaw1_psi,P_jaw2_psi,P_jaw3_psi,commanded_radius_mm, commanded_P_jaw1_psi, commanded_P_jaw2_psi, commanded_P_jaw3_psi"
@@ -963,11 +967,11 @@ class IntegratedSystem:
             datastr = datastr + ",%f,%f,%f,%f,%f,%f,%f,%f"%(self.ClosurePressure,*self.jawPressure,self.SG.commandedPosition["ClosureChangeInRadius_mm"],
                                                             self.SG.commandedPosition["Jaw1_psi"],self.SG.commandedPosition["Jaw2_psi"],self.SG.commandedPosition["Jaw3_psi"])
             datastr = datastr + "," + ','.join(
-                [str(v) for k, v in self.buttonVal.items()]) + ','.join([str(x) for x in self.AxesPos]) #for the joystick button and pos
+                [str(v) for k, v in self.buttonVal.items()]) + "," + ','.join([str(x) for x in self.AxesPos]) #for the joystick button and pos
 
             datastr = datastr + "," + ','.join([str(v) for k, v in self.SNSc.neuronset.items()]) #for the SNS neuronset
 
-            datastr = datastr + "," + ','.join([str(x.status.name) for k, x in self.ObjectVal.items()]) #for the objects
+            datastr = datastr + "," + ','.join(["Object "+ str(x.status.name) for k, x in self.ObjectVal.items()]) #for the objects
 
             self.datalogger.info(datastr)
             self.finishDatalog.set()
@@ -1117,8 +1121,8 @@ if __name__ == '__main__':
             IS.Read_Move_Hardware(),
             IS.TouchObject(),
             IS.datalog(),
-            IS.PressureRadiusCalibration(),
-            IS.capture_video()
+            #IS.PressureRadiusCalibration(),
+            #IS.capture_video()
         )
         #runp = asyncio.create_task(HandleProgram())
         #await runp

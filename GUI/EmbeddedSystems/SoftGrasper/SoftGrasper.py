@@ -15,6 +15,8 @@ import sys
 
 from pathlib import Path
 
+import time
+
 #########################################################
 
 
@@ -71,7 +73,7 @@ class SoftGrasper:
         self.JawPos = [1, 2, 3]  # position of pressure values that the jaws are at
         self.closureMuscle_idx = 0 #index for the closure muscle
         self.changeInPressure = [0, 0, 0] # change in pressure in psi for the three jaws
-        self.maxClosurePressure_psi = 10.5 #maximum pressure for the closure muscle in psi
+        self.maxClosurePressure_psi = 12 #maximum pressure for the closure muscle in psi
 
         #Tx-Rx Information for New Protocol
         self.startChar = ">!" #indicates start of comm
@@ -111,7 +113,7 @@ class SoftGrasper:
             "_%d_%m_%Y_%H_%M_%S") + ".txt")
 
         fh = logging.FileHandler(fname)  # file handler
-        fh.setLevel(logging.DEBUG)
+        fh.setLevel(logging.ERROR) #set to error otherwise takes forever
 
         ch = logging.StreamHandler(sys.stdout)  # stream handler
         ch.setLevel(logging.ERROR)
@@ -185,7 +187,7 @@ class SoftGrasper:
             #PrevJawPress= [self.PressureArray[x][-2] for x in self.JawPos]
             if self.PrevJawPress is None:
                 self.PrevJawPress=CurJawPress
-                self.logger.info('baseline Jaw pressure is '+str(self.PrevJawPress))
+                #self.logger.info('baseline Jaw pressure is '+str(self.PrevJawPress))
 
             ChangeInPressure = (np.array(CurJawPress)-np.array(self.PrevJawPress)).tolist()
             #return(ChangeInPressure)
@@ -241,7 +243,7 @@ class SoftGrasper:
         self.logger.debug("Bytes sent:%i" % (numBytes))
 
         # read serial data
-        self.readSerialData()
+        # self.readSerialData()
 
         ChP = self.getJawChangePressureVals()
         self.changeInPressure = ChP
@@ -268,7 +270,10 @@ class SoftGrasper:
         self.logger.debug("Bytes sent:%i" % (numBytes))
 
         # read serial data
+        tic = time.time()
         self.readSerialData()
+        toc = time.time()
+        self.logger.debug("Time for Serial Read %f"%(toc-tic))
 
         ChP = self.getJawChangePressureVals()
         self.changeInPressure = ChP

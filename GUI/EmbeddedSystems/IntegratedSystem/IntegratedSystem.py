@@ -105,6 +105,7 @@ class IntegratedSystem:
         #For datalogging
         self.startDatalog = asyncio.Event()
         self.finishDatalog = asyncio.Event()
+        self.datalog_header = False #set to true when you've written the header for the 1st time
 
         #For SNS
         self.max_z_height = -0.184
@@ -190,21 +191,12 @@ class IntegratedSystem:
 
         self.datalogger = datalogger
 
-        #write the header to the file
-        headerstr = "program_mode,x_mm,y_mm,z_mm,P_closure_psi,P_jaw1_psi,P_jaw2_psi,P_jaw3_psi,commanded_radius_mm, commanded_P_jaw1_psi, commanded_P_jaw2_psi, commanded_P_jaw3_psi"
-        headerstr = headerstr + "," + ','.join(
-            [k for k, v in self.buttonVal.items()]) + "," + "Axes 1, Axes 2"  # for the buttons
-        headerstr = headerstr + "," + ','.join([k for k, v in self.neuronset.items()])  # for the SNS neuron states
-        headerstr = headerstr + "," + ','.join(
-            [k for k, x in self.ObjectVal.items()])  # for the object states
-
-        self.datalogger.info(headerstr)
 
     async def HardwareInitialize(self, grasper_type = GrasperType.SoftGrasper):
 
         self.grasperType = grasper_type
 
-        self.GC = GantryController(comport="COM4")#,homeSystem = False, initPos=[0,0,0])#, homeSystem = False,initPos=[0,0,0]  #initialize gantry controller
+        self.GC = GantryController(comport="COM4",homeSystem = False, initPos=[0,0,0])#, homeSystem = False,initPos=[0,0,0]  #initialize gantry controller
 
         if self.grasperType == GrasperType.SoftGrasper:
             self.SG = SoftGrasper(COM_Port='COM7', BaudRate=460800, timeout=1,
@@ -226,6 +218,8 @@ class IntegratedSystem:
 
     async def Read_Move_Hardware(self):
         self.SG.ReadGrasperData() #To fix: need to do this at least once so that there is data on the serial line, otherwise "ReadSensorValues" will fail
+        self.SG.ReadGrasperData()
+
         await asyncio.sleep(0.5)
 
         while True:
@@ -251,6 +245,14 @@ class IntegratedSystem:
                 # set the flag indicating that fresh data has been received, then sleep, then change the flag
                 self.FreshDataEvent.set()
                 await asyncio.sleep(0.010)
+
+            elif self.jcSG.ControlMode == JC.JoyConState.NORMAL:
+                self.curPos = Point(self.GC.PositionArray["x"][-1]/1000,
+                                    self.GC.PositionArray["y"][-1]/1000,
+                                    self.GC.PositionArray["z"][-1]/1000) #TODO: maybe need to fix this. Should unify so that current position is only called in this function, and don't have to worry about the updates that are being made in the Normal loop
+
+                self.ClosurePressure = self.SG.PressureArray[self.SG.closureMuscle_idx][-1]
+                self.jawPressure = self.SG.changeInPressure
 
             #Move gantry only when event is set to true
             if self.MoveGantryEvent.is_set():
@@ -932,6 +934,20 @@ class IntegratedSystem:
                 pass
 
             #Normal datalog code
+            if self.datalog_header == False:
+                # write the header to the file
+                headerstr = "program_mode,x_mm,y_mm,z_mm,P_closure_psi,P_jaw1_psi,P_jaw2_psi,P_jaw3_psi,commanded_radius_mm, commanded_P_jaw1_psi, commanded_P_jaw2_psi, commanded_P_jaw3_psi"
+                headerstr = headerstr + "," + ','.join(
+                    [k for k, v in self.buttonVal.items()]) + "," + "Axes 1, Axes 2"  # for the buttons
+                headerstr = headerstr + "," + ','.join(
+                    [k for k, v in self.SNSc.neuronset.items()])  # for the SNS neuron states
+                headerstr = headerstr + "," + ','.join(
+                    [k for k, x in self.ObjectVal.items()])  # for the object states
+
+                self.datalogger.info(headerstr)
+
+                self.datalog_header = True
+
             '''
             Recall that header str is:
             headerstr = "program_mode,x_mm,y_mm,z_mm,P_closure_psi,P_jaw1_psi,P_jaw2_psi,P_jaw3_psi,commanded_radius_mm, commanded_P_jaw1_psi, commanded_P_jaw2_psi, commanded_P_jaw3_psi"
@@ -949,9 +965,9 @@ class IntegratedSystem:
             datastr = datastr + "," + ','.join(
                 [str(v) for k, v in self.buttonVal.items()]) + ','.join([str(x) for x in self.AxesPos]) #for the joystick button and pos
 
-            datastr = datastr + "," + ','.join([v for k, v in self.neuronset.items()]) #for the SNS neuronset
+            datastr = datastr + "," + ','.join([str(v) for k, v in self.SNSc.neuronset.items()]) #for the SNS neuronset
 
-            datastr = datastr + "," + ','.join([x.status.name for k, x in self.ObjectVal.items()]) #for the objects
+            datastr = datastr + "," + ','.join([str(x.status.name) for k, x in self.ObjectVal.items()]) #for the objects
 
             self.datalogger.info(datastr)
             self.finishDatalog.set()

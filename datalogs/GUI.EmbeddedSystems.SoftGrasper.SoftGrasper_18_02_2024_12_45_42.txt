@@ -1,0 +1,1397 @@
+2024-02-18 12:45:43,168 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - CommandedPressure: 0
+2024-02-18 12:45:43,169 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Bytes sent:7
+2024-02-18 12:45:43,170 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,170 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,170 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,170 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0137,0.0252
+2024-02-18 12:45:43,170 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,171 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0137,0.0206
+2024-02-18 12:45:43,171 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,171 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0206
+2024-02-18 12:45:43,171 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,171 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0206
+2024-02-18 12:45:43,171 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,171 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0206
+2024-02-18 12:45:43,171 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,171 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,171 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,171 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0137,0.0252
+2024-02-18 12:45:43,171 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,171 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0137,0.0252
+2024-02-18 12:45:43,171 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,171 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0137,0.0252
+2024-02-18 12:45:43,171 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,172 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,172 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,172 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0206
+2024-02-18 12:45:43,172 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,172 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0206
+2024-02-18 12:45:43,172 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,172 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0252
+2024-02-18 12:45:43,172 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,172 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0046,0.0137,0.0252
+2024-02-18 12:45:43,172 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,172 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0046,0.0183,0.0252
+2024-02-18 12:45:43,172 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,172 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,172 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,172 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,173 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,173 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0252
+2024-02-18 12:45:43,173 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,173 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,173 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,173 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,173 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,173 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,-0.0023,0.0137,0.0252
+2024-02-18 12:45:43,173 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,173 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0137,0.0252
+2024-02-18 12:45:43,173 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,173 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0137,0.0252
+2024-02-18 12:45:43,173 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,173 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0137,0.0252
+2024-02-18 12:45:43,173 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,173 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0137,0.0252
+2024-02-18 12:45:43,174 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,174 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0137,0.0252
+2024-02-18 12:45:43,174 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,174 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0046,0.0137,0.0252
+2024-02-18 12:45:43,174 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,174 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0046,0.0137,0.0252
+2024-02-18 12:45:43,174 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,174 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0137,0.0252
+2024-02-18 12:45:43,174 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,174 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,174 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,174 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,0.0069,0.0183,0.0252
+2024-02-18 12:45:43,174 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,174 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,174 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,175 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0206
+2024-02-18 12:45:43,175 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,175 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0206
+2024-02-18 12:45:43,175 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,175 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,-0.0023,0.0183,0.0206
+2024-02-18 12:45:43,175 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,175 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,0.0069,0.0183,0.0252
+2024-02-18 12:45:43,175 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,175 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0252
+2024-02-18 12:45:43,175 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,175 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0137,0.0252
+2024-02-18 12:45:43,175 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,175 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0137,0.0252
+2024-02-18 12:45:43,175 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,175 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,175 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,176 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,176 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,176 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,176 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,176 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0183,0.0252
+2024-02-18 12:45:43,176 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,176 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0252
+2024-02-18 12:45:43,176 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,176 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0046,0.0137,0.0252
+2024-02-18 12:45:43,176 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,176 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0046,0.0137,0.0252
+2024-02-18 12:45:43,176 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,176 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0206
+2024-02-18 12:45:43,176 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,176 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0206
+2024-02-18 12:45:43,177 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,177 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0137,0.0252
+2024-02-18 12:45:43,177 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,177 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0137,0.0252
+2024-02-18 12:45:43,177 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,177 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,177 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,177 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,177 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,177 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,177 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,177 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,177 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,177 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0252
+2024-02-18 12:45:43,177 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,177 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0206
+2024-02-18 12:45:43,178 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,178 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0206
+2024-02-18 12:45:43,178 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,178 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0137,0.0206
+2024-02-18 12:45:43,178 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,178 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0137,0.0206
+2024-02-18 12:45:43,178 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,178 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,178 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,178 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,0.0023,0.0137,0.0252
+2024-02-18 12:45:43,178 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,178 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,0.0069,0.0137,0.0252
+2024-02-18 12:45:43,178 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,178 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0206
+2024-02-18 12:45:43,178 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,179 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0046,0.0183,0.0206
+2024-02-18 12:45:43,179 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,179 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0046,0.0183,0.0275
+2024-02-18 12:45:43,179 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,179 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0275
+2024-02-18 12:45:43,179 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,179 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0252
+2024-02-18 12:45:43,179 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,179 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0137,0.0252
+2024-02-18 12:45:43,179 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,179 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0137,0.0252
+2024-02-18 12:45:43,179 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,179 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,179 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,179 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,180 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,180 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,180 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,180 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,180 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,180 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,180 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,180 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,0.0023,0.0137,0.0252
+2024-02-18 12:45:43,180 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,180 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0137,0.0252
+2024-02-18 12:45:43,180 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,180 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,180 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,180 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,180 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,181 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,181 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,181 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,181 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,181 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,181 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,181 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,181 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,181 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,181 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,181 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0137,0.0252
+2024-02-18 12:45:43,181 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,181 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0137,0.0252
+2024-02-18 12:45:43,181 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,181 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,182 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,182 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,182 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,182 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0137,0.0252
+2024-02-18 12:45:43,182 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,182 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0137,0.0252
+2024-02-18 12:45:43,182 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,182 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0137,0.0252
+2024-02-18 12:45:43,182 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,182 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0137,0.0252
+2024-02-18 12:45:43,182 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,182 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0137,0.0252
+2024-02-18 12:45:43,182 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,182 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0252
+2024-02-18 12:45:43,182 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,182 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0252
+2024-02-18 12:45:43,183 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,183 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0137,0.0252
+2024-02-18 12:45:43,183 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,183 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0137,0.0252
+2024-02-18 12:45:43,183 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,183 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,183 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,183 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,183 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,183 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0252
+2024-02-18 12:45:43,183 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,183 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0252
+2024-02-18 12:45:43,183 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,183 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,183 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,184 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0137,0.0252
+2024-02-18 12:45:43,184 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,184 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0137,0.0252
+2024-02-18 12:45:43,184 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,184 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,0.0069,0.0183,0.0252
+2024-02-18 12:45:43,184 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,184 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,0.0069,0.0183,0.0252
+2024-02-18 12:45:43,184 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,184 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,184 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,184 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0206
+2024-02-18 12:45:43,184 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,184 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,184 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,184 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0137,0.0252
+2024-02-18 12:45:43,185 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,185 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0137,0.0252
+2024-02-18 12:45:43,185 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,185 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,185 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,185 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0206
+2024-02-18 12:45:43,185 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,185 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0206
+2024-02-18 12:45:43,185 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,185 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,-0.0023,0.0183,0.0206
+2024-02-18 12:45:43,185 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,185 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0206
+2024-02-18 12:45:43,185 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,185 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0137,0.0252
+2024-02-18 12:45:43,185 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,185 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0137,0.0252
+2024-02-18 12:45:43,186 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,186 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0137,0.0252
+2024-02-18 12:45:43,186 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,186 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,-0.0023,0.0137,0.0206
+2024-02-18 12:45:43,186 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,186 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,-0.0023,0.0183,0.0206
+2024-02-18 12:45:43,186 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,186 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,186 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,186 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,186 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,186 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,0.0023,0.0137,0.0206
+2024-02-18 12:45:43,186 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,186 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,0.0023,0.0137,0.0206
+2024-02-18 12:45:43,186 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,187 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0137,0.0252
+2024-02-18 12:45:43,187 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,187 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0137,0.0252
+2024-02-18 12:45:43,187 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,187 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0046,0.0137,0.0252
+2024-02-18 12:45:43,187 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,187 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,187 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,187 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,187 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,187 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,187 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,187 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,187 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,187 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0137,0.0252
+2024-02-18 12:45:43,187 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,188 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0137,0.0252
+2024-02-18 12:45:43,188 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,188 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0137,0.0252
+2024-02-18 12:45:43,188 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,188 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0137,0.0252
+2024-02-18 12:45:43,188 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,188 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0046,0.0137,0.0206
+2024-02-18 12:45:43,188 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,188 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0046,0.0137,0.0252
+2024-02-18 12:45:43,188 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,188 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0137,0.0252
+2024-02-18 12:45:43,188 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,188 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0206
+2024-02-18 12:45:43,188 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,188 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,0.0069,0.0183,0.0206
+2024-02-18 12:45:43,188 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,189 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,189 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,189 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,189 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,189 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,189 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,189 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,189 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,189 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0252
+2024-02-18 12:45:43,189 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,189 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0206
+2024-02-18 12:45:43,189 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,189 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,0.0023,0.0183,0.0206
+2024-02-18 12:45:43,189 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,189 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,0.0023,0.0137,0.0252
+2024-02-18 12:45:43,190 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,190 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,-0.0023,0.0137,0.0252
+2024-02-18 12:45:43,190 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,190 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,0.0023,0.0137,0.0206
+2024-02-18 12:45:43,190 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,190 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0206
+2024-02-18 12:45:43,190 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,190 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0206
+2024-02-18 12:45:43,190 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,190 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0206
+2024-02-18 12:45:43,190 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,190 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0046,0.0183,0.0252
+2024-02-18 12:45:43,190 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,190 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0046,0.0137,0.0252
+2024-02-18 12:45:43,190 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,190 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0137,0.0252
+2024-02-18 12:45:43,191 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,191 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,191 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,191 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0252
+2024-02-18 12:45:43,191 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,191 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,0.0069,0.0183,0.0252
+2024-02-18 12:45:43,191 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,191 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,191 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,191 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0206
+2024-02-18 12:45:43,191 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,191 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,-0.0023,0.0229,0.0206
+2024-02-18 12:45:43,191 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,191 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,0.0069,0.0229,0.0252
+2024-02-18 12:45:43,191 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,192 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0252
+2024-02-18 12:45:43,192 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,192 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0137,0.0252
+2024-02-18 12:45:43,192 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,192 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0137,0.0206
+2024-02-18 12:45:43,192 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,192 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0206
+2024-02-18 12:45:43,192 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,192 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,192 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,192 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0137,0.0252
+2024-02-18 12:45:43,192 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,192 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0137,0.0252
+2024-02-18 12:45:43,192 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,192 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0137,0.0252
+2024-02-18 12:45:43,192 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,192 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0252
+2024-02-18 12:45:43,193 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,193 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0046,0.0183,0.0252
+2024-02-18 12:45:43,193 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,193 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,-0.0046,0.0183,0.0252
+2024-02-18 12:45:43,193 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,193 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,193 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,193 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,193 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,193 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,193 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,193 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,193 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,193 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,193 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,194 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0137,0.0252
+2024-02-18 12:45:43,194 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,194 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,194 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,194 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,0.0069,0.0183,0.0252
+2024-02-18 12:45:43,194 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,194 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0137,0.0252
+2024-02-18 12:45:43,194 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,194 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0137,0.0252
+2024-02-18 12:45:43,194 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,194 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0252
+2024-02-18 12:45:43,194 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,194 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,194 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,194 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0137,0.0252
+2024-02-18 12:45:43,195 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,195 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0137,0.0206
+2024-02-18 12:45:43,195 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,195 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0137,0.0206
+2024-02-18 12:45:43,195 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,195 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,195 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,195 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,195 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,195 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,195 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,195 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,195 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,195 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0137,0.0252
+2024-02-18 12:45:43,195 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,195 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,196 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,196 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,196 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,196 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0137,0.0252
+2024-02-18 12:45:43,196 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,196 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0137,0.0252
+2024-02-18 12:45:43,196 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,196 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,196 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,196 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0252
+2024-02-18 12:45:43,196 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,196 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0206
+2024-02-18 12:45:43,196 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,196 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0092,0.0183,0.0252
+2024-02-18 12:45:43,196 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,196 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0092,0.0183,0.0252
+2024-02-18 12:45:43,197 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,197 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,197 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,197 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,197 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,197 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,197 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,197 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,197 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,197 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0137,0.0252
+2024-02-18 12:45:43,197 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,197 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,0.0069,0.0183,0.0252
+2024-02-18 12:45:43,197 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,197 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,197 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,198 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0137,0.0252
+2024-02-18 12:45:43,198 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,198 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0137,0.0252
+2024-02-18 12:45:43,198 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,198 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,198 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,198 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,198 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,198 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,198 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,198 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,198 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,198 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,198 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,198 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,198 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,199 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0252
+2024-02-18 12:45:43,199 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,199 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,0.0069,0.0183,0.0252
+2024-02-18 12:45:43,199 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,199 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,199 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,199 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,199 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,199 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,199 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,199 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0206
+2024-02-18 12:45:43,199 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,199 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0206
+2024-02-18 12:45:43,199 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,199 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0252
+2024-02-18 12:45:43,199 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,200 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0252
+2024-02-18 12:45:43,200 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,200 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0046,0.0183,0.0206
+2024-02-18 12:45:43,200 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,200 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0046,0.0183,0.0206
+2024-02-18 12:45:43,200 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,200 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0206
+2024-02-18 12:45:43,200 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,200 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0206
+2024-02-18 12:45:43,200 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,200 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0137,0.0206
+2024-02-18 12:45:43,201 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,201 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0137,0.0206
+2024-02-18 12:45:43,201 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,201 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0206
+2024-02-18 12:45:43,201 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,201 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,201 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,201 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,201 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,201 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0252
+2024-02-18 12:45:43,201 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,201 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0252
+2024-02-18 12:45:43,201 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,201 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0137,0.0252
+2024-02-18 12:45:43,201 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,202 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0137,0.0252
+2024-02-18 12:45:43,202 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,202 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,202 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,202 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,202 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,202 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0137,0.0252
+2024-02-18 12:45:43,202 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,202 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0046,0.0137,0.0252
+2024-02-18 12:45:43,202 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,202 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0046,0.0137,0.0252
+2024-02-18 12:45:43,202 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,202 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,202 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,202 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,202 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,203 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0252
+2024-02-18 12:45:43,203 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,203 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,203 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,203 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,203 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,203 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,203 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,203 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0137,0.0252
+2024-02-18 12:45:43,203 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,203 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0137,0.0275
+2024-02-18 12:45:43,203 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,203 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,203 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,204 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0137,0.0252
+2024-02-18 12:45:43,204 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,204 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0137,0.0252
+2024-02-18 12:45:43,204 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,204 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,204 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,204 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,204 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,204 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,204 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,204 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,204 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,204 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0275
+2024-02-18 12:45:43,204 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,204 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,204 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,205 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,205 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,205 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0275
+2024-02-18 12:45:43,205 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,205 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,205 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,205 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,205 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,205 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,205 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,205 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0275
+2024-02-18 12:45:43,205 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,205 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0275
+2024-02-18 12:45:43,205 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,205 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,206 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,206 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,206 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,206 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,206 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,206 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0252
+2024-02-18 12:45:43,206 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,206 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0275
+2024-02-18 12:45:43,206 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,206 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0137,0.0275
+2024-02-18 12:45:43,206 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,206 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,206 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,206 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,206 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,206 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0137,0.0275
+2024-02-18 12:45:43,207 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,207 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0137,0.0275
+2024-02-18 12:45:43,207 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,207 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,207 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,207 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,207 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,207 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,-0.0023,0.0183,0.0275
+2024-02-18 12:45:43,207 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,207 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,0.0069,0.0183,0.0252
+2024-02-18 12:45:43,207 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,207 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0252
+2024-02-18 12:45:43,207 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,207 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,208 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,208 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,208 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,208 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,208 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,208 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,208 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,208 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,208 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,208 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,208 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,208 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,208 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,208 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0275
+2024-02-18 12:45:43,208 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,208 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0275
+2024-02-18 12:45:43,209 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,209 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0137,0.0252
+2024-02-18 12:45:43,209 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,209 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0137,0.0252
+2024-02-18 12:45:43,209 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,209 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,209 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,209 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,209 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,209 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,209 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,209 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0137,0.0275
+2024-02-18 12:45:43,209 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,209 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0137,0.0275
+2024-02-18 12:45:43,210 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,210 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0275
+2024-02-18 12:45:43,210 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,210 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,210 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,210 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0137,0.0275
+2024-02-18 12:45:43,210 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,210 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0137,0.0275
+2024-02-18 12:45:43,210 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,210 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0046,0.0137,0.0252
+2024-02-18 12:45:43,210 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,210 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,-0.0046,0.0183,0.0252
+2024-02-18 12:45:43,210 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,210 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,211 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,211 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,211 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,211 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,211 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,211 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0137,0.0275
+2024-02-18 12:45:43,211 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,211 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0137,0.0275
+2024-02-18 12:45:43,211 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,211 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0137,0.0275
+2024-02-18 12:45:43,211 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,211 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0137,0.0275
+2024-02-18 12:45:43,211 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,211 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0137,0.0275
+2024-02-18 12:45:43,211 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,212 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0137,0.0275
+2024-02-18 12:45:43,212 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,212 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0137,0.0275
+2024-02-18 12:45:43,212 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,212 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0275
+2024-02-18 12:45:43,212 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,212 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0275
+2024-02-18 12:45:43,212 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,212 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0137,0.0252
+2024-02-18 12:45:43,212 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,212 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,212 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,212 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,212 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,212 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,212 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,213 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,213 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,213 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0046,0.0183,0.0275
+2024-02-18 12:45:43,213 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,213 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,213 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,213 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,213 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,213 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0137,0.0275
+2024-02-18 12:45:43,213 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,213 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0137,0.0252
+2024-02-18 12:45:43,213 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,213 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0137,0.0252
+2024-02-18 12:45:43,213 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,213 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0137,0.0275
+2024-02-18 12:45:43,214 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,214 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,214 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,214 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,214 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,214 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0046,0.0137,0.0275
+2024-02-18 12:45:43,214 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,214 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0046,0.0183,0.0275
+2024-02-18 12:45:43,214 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,214 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,214 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,214 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,214 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,214 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,214 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,214 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0046,0.0137,0.0275
+2024-02-18 12:45:43,215 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,215 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0046,0.0137,0.0252
+2024-02-18 12:45:43,215 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,215 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,215 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,215 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0137,0.0275
+2024-02-18 12:45:43,215 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,215 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0137,0.0275
+2024-02-18 12:45:43,215 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,215 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0137,0.0252
+2024-02-18 12:45:43,215 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,215 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0137,0.0252
+2024-02-18 12:45:43,215 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,215 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0275
+2024-02-18 12:45:43,215 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,215 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0275
+2024-02-18 12:45:43,216 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,216 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0137,0.0275
+2024-02-18 12:45:43,216 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,216 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0252
+2024-02-18 12:45:43,216 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,216 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0252
+2024-02-18 12:45:43,216 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,216 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0137,0.0275
+2024-02-18 12:45:43,216 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,216 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0137,0.0275
+2024-02-18 12:45:43,216 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,216 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0137,0.0275
+2024-02-18 12:45:43,216 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,216 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0137,0.0275
+2024-02-18 12:45:43,217 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,217 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,217 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,217 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,217 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,217 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,217 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,217 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0046,0.0183,0.0252
+2024-02-18 12:45:43,217 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,217 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0046,0.0183,0.0252
+2024-02-18 12:45:43,217 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,217 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0137,0.0252
+2024-02-18 12:45:43,217 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,217 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0137,0.0252
+2024-02-18 12:45:43,217 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,218 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0137,0.0275
+2024-02-18 12:45:43,218 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,218 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,0.0023,0.0137,0.0275
+2024-02-18 12:45:43,218 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,218 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,218 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,218 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,0.0069,0.0183,0.0252
+2024-02-18 12:45:43,218 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,218 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,0.0069,0.0183,0.0252
+2024-02-18 12:45:43,218 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,218 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,218 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,218 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,218 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,218 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,-0.0023,0.0137,0.0275
+2024-02-18 12:45:43,219 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,219 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,-0.0023,0.0137,0.0275
+2024-02-18 12:45:43,219 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,219 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,219 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,219 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0137,0.0252
+2024-02-18 12:45:43,219 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,219 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0137,0.0275
+2024-02-18 12:45:43,219 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,219 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0046,0.0183,0.0252
+2024-02-18 12:45:43,219 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,219 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0046,0.0183,0.0252
+2024-02-18 12:45:43,219 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,219 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0137,0.0275
+2024-02-18 12:45:43,219 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,220 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0137,0.0275
+2024-02-18 12:45:43,220 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,220 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0252
+2024-02-18 12:45:43,220 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,220 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0137,0.0252
+2024-02-18 12:45:43,220 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,220 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0137,0.0275
+2024-02-18 12:45:43,220 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,220 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0137,0.0275
+2024-02-18 12:45:43,220 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,220 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0137,0.0275
+2024-02-18 12:45:43,220 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,220 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,220 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,220 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,220 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,221 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0137,0.0275
+2024-02-18 12:45:43,221 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,221 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,0.0023,0.0137,0.0275
+2024-02-18 12:45:43,221 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,221 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0137,0.0275
+2024-02-18 12:45:43,221 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,221 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0137,0.0275
+2024-02-18 12:45:43,221 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,221 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0137,0.0275
+2024-02-18 12:45:43,221 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,221 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0137,0.0275
+2024-02-18 12:45:43,221 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,221 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0137,0.0275
+2024-02-18 12:45:43,221 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,221 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,222 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,222 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0275
+2024-02-18 12:45:43,222 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,222 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0275
+2024-02-18 12:45:43,222 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,222 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0275
+2024-02-18 12:45:43,222 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,222 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,222 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,222 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,222 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,222 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0275
+2024-02-18 12:45:43,222 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,222 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,-0.0023,0.0183,0.0275
+2024-02-18 12:45:43,222 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,222 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,-0.0023,0.0137,0.0275
+2024-02-18 12:45:43,223 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,223 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,-0.0023,0.0137,0.0252
+2024-02-18 12:45:43,223 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,223 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0137,0.0252
+2024-02-18 12:45:43,223 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,223 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0137,0.0275
+2024-02-18 12:45:43,223 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,223 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,0.0023,0.0137,0.0275
+2024-02-18 12:45:43,223 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,223 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,-0.0023,0.0137,0.0275
+2024-02-18 12:45:43,223 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,223 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,-0.0023,0.0183,0.0275
+2024-02-18 12:45:43,223 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,223 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,223 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,224 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,224 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,224 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,224 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,224 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0252
+2024-02-18 12:45:43,224 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,224 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,224 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,224 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0275
+2024-02-18 12:45:43,224 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,224 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0137,0.0275
+2024-02-18 12:45:43,224 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,224 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0275
+2024-02-18 12:45:43,224 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,224 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,224 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,225 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,225 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,225 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,225 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,225 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,225 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,225 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0275
+2024-02-18 12:45:43,225 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,225 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0275
+2024-02-18 12:45:43,225 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,225 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0137,0.0275
+2024-02-18 12:45:43,225 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,225 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0137,0.0275
+2024-02-18 12:45:43,225 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,225 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,225 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,226 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0275
+2024-02-18 12:45:43,226 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,226 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0275
+2024-02-18 12:45:43,226 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,226 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,226 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,226 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0137,0.0252
+2024-02-18 12:45:43,226 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,226 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,226 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,226 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,226 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,226 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,0.0023,0.0137,0.0275
+2024-02-18 12:45:43,226 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,226 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0229,-0.0023,0.0137,0.0275
+2024-02-18 12:45:43,226 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,227 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,-0.0023,0.0183,0.0275
+2024-02-18 12:45:43,227 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,227 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,227 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,227 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,227 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,227 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,227 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,227 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,227 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,227 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,-0.0023,0.0183,0.0275
+2024-02-18 12:45:43,227 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,227 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0183,0.0275
+2024-02-18 12:45:43,227 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,227 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,228 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,228 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0183,0.0252
+2024-02-18 12:45:43,228 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,228 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0137,0.0275
+2024-02-18 12:45:43,228 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,228 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,228 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,228 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,228 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,228 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0137,0.0275
+2024-02-18 12:45:43,228 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,228 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,-0.0023,0.0137,0.0252
+2024-02-18 12:45:43,228 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,228 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0137,0.0275
+2024-02-18 12:45:43,228 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,228 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0137,0.0275
+2024-02-18 12:45:43,229 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,229 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0137,0.0275
+2024-02-18 12:45:43,229 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,229 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,229 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,229 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,-0.0046,0.0183,0.0275
+2024-02-18 12:45:43,229 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,229 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,-0.0023,0.0137,0.0275
+2024-02-18 12:45:43,229 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,229 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,-0.0023,0.0137,0.0252
+2024-02-18 12:45:43,229 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,229 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0137,0.0252
+2024-02-18 12:45:43,229 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,229 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0137,0.0252
+2024-02-18 12:45:43,229 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,229 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,-0.0023,0.0183,0.0275
+2024-02-18 12:45:43,230 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,230 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,-0.0023,0.0183,0.0275
+2024-02-18 12:45:43,230 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,230 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,-0.0023,0.0183,0.0275
+2024-02-18 12:45:43,230 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,230 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,-0.0023,0.0183,0.0275
+2024-02-18 12:45:43,230 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,230 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,230 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,230 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0137,0.0275
+2024-02-18 12:45:43,230 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,230 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0137,0.0275
+2024-02-18 12:45:43,230 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,230 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,-0.0023,0.0137,0.0275
+2024-02-18 12:45:43,230 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,231 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,-0.0023,0.0137,0.0275
+2024-02-18 12:45:43,231 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,231 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0137,0.0275
+2024-02-18 12:45:43,231 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,231 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,231 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,231 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,231 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,231 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0137,0.0275
+2024-02-18 12:45:43,231 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,231 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,-0.0023,0.0137,0.0275
+2024-02-18 12:45:43,231 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,231 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,-0.0023,0.0137,0.0275
+2024-02-18 12:45:43,231 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,231 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,-0.0023,0.0183,0.0275
+2024-02-18 12:45:43,231 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,232 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,-0.0023,0.0183,0.0275
+2024-02-18 12:45:43,232 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,232 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,-0.0023,0.0137,0.0252
+2024-02-18 12:45:43,232 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,232 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0137,0.0275
+2024-02-18 12:45:43,232 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,232 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0137,0.0275
+2024-02-18 12:45:43,232 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,232 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0137,0.0275
+2024-02-18 12:45:43,232 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,232 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,232 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,232 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,232 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,232 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,232 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,233 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,233 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,233 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,233 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,233 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0092,0.0183,0.0275
+2024-02-18 12:45:43,233 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,233 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,-0.0023,0.0183,0.0275
+2024-02-18 12:45:43,233 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,233 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,-0.0023,0.0137,0.0275
+2024-02-18 12:45:43,233 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,233 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0137,0.0252
+2024-02-18 12:45:43,233 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,233 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,234 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,234 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0092,0.0137,0.0275
+2024-02-18 12:45:43,234 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,234 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0092,0.0137,0.0275
+2024-02-18 12:45:43,234 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,234 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0137,0.0275
+2024-02-18 12:45:43,234 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,234 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0137,0.0252
+2024-02-18 12:45:43,234 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,234 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,-0.0023,0.0137,0.0252
+2024-02-18 12:45:43,234 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,234 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,-0.0023,0.0137,0.0275
+2024-02-18 12:45:43,234 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,234 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,235 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,235 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0092,0.0183,0.0275
+2024-02-18 12:45:43,235 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,235 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0092,0.0183,0.0275
+2024-02-18 12:45:43,235 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,235 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0137,0.0252
+2024-02-18 12:45:43,235 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,235 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0137,0.0252
+2024-02-18 12:45:43,235 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,235 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0137,0.0275
+2024-02-18 12:45:43,235 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,235 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0137,0.0275
+2024-02-18 12:45:43,235 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,235 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0092,0.0183,0.0275
+2024-02-18 12:45:43,235 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,235 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0092,0.0183,0.0275
+2024-02-18 12:45:43,235 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,236 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,-0.0023,0.0183,0.0275
+2024-02-18 12:45:43,236 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,236 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,236 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,236 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,236 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,236 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0183,0.0252
+2024-02-18 12:45:43,236 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,236 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0183,0.0252
+2024-02-18 12:45:43,236 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,236 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0137,0.0252
+2024-02-18 12:45:43,236 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,236 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0183,0.0252
+2024-02-18 12:45:43,236 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,236 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,237 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,237 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,-0.0023,0.0137,0.0275
+2024-02-18 12:45:43,237 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,237 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0137,0.0275
+2024-02-18 12:45:43,237 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,237 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0137,0.0275
+2024-02-18 12:45:43,237 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,237 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0092,0.0137,0.0275
+2024-02-18 12:45:43,237 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,237 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0092,0.0183,0.0275
+2024-02-18 12:45:43,237 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,237 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,237 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,237 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,237 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,237 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,238 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,238 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0092,0.0183,0.0275
+2024-02-18 12:45:43,238 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,238 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0092,0.0183,0.0275
+2024-02-18 12:45:43,238 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,238 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,238 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,238 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,238 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,238 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0137,0.0275
+2024-02-18 12:45:43,238 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,238 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0137,0.0275
+2024-02-18 12:45:43,238 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,238 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,238 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,238 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,239 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,239 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,239 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,239 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,239 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,239 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,-0.0023,0.0137,0.0275
+2024-02-18 12:45:43,239 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,239 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,239 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,239 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,239 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,239 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0092,0.0183,0.0275
+2024-02-18 12:45:43,239 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,239 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0092,0.0183,0.0275
+2024-02-18 12:45:43,239 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,239 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,240 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,240 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,240 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,240 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0137,0.0275
+2024-02-18 12:45:43,240 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,240 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,240 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,240 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0092,0.0183,0.0275
+2024-02-18 12:45:43,240 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,240 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0092,0.0137,0.0275
+2024-02-18 12:45:43,240 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,240 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0137,0.0275
+2024-02-18 12:45:43,240 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,240 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,240 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,240 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,241 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,241 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0092,0.0183,0.0275
+2024-02-18 12:45:43,241 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,241 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0092,0.0137,0.0275
+2024-02-18 12:45:43,241 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,241 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0137,0.0275
+2024-02-18 12:45:43,241 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,241 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,241 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,241 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,241 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,241 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,241 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,241 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,241 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,241 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0137,0.0275
+2024-02-18 12:45:43,242 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,242 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0092,0.0137,0.0275
+2024-02-18 12:45:43,242 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,242 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0137,0.0275
+2024-02-18 12:45:43,242 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,242 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0137,0.0275
+2024-02-18 12:45:43,242 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,242 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0137,0.0252
+2024-02-18 12:45:43,242 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,242 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0183,0.0252
+2024-02-18 12:45:43,242 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,242 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0092,0.0183,0.0252
+2024-02-18 12:45:43,242 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,242 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0092,0.0137,0.0252
+2024-02-18 12:45:43,242 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,242 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,243 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,243 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,243 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,243 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,243 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,243 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,243 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,243 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0137,0.0275
+2024-02-18 12:45:43,243 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,243 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0137,0.0275
+2024-02-18 12:45:43,243 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,243 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0137,0.0275
+2024-02-18 12:45:43,243 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,243 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,243 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,243 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,244 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,244 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,244 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,244 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,244 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,244 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0092,0.0137,0.0252
+2024-02-18 12:45:43,244 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,244 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0092,0.0137,0.0275
+2024-02-18 12:45:43,244 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,244 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,244 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,244 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,244 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,244 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,244 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,244 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0092,0.0183,0.0252
+2024-02-18 12:45:43,245 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,245 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0092,0.0183,0.0252
+2024-02-18 12:45:43,245 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,245 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,245 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,245 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,245 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,245 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0137,0.0252
+2024-02-18 12:45:43,245 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,245 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0137,0.0252
+2024-02-18 12:45:43,245 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,245 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0137,0.0252
+2024-02-18 12:45:43,245 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,245 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0183,0.0252
+2024-02-18 12:45:43,245 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,245 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0183,0.0252
+2024-02-18 12:45:43,246 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,246 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0137,0.0275
+2024-02-18 12:45:43,246 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,246 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,-0.0023,0.0137,0.0275
+2024-02-18 12:45:43,246 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,246 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0137,0.0252
+2024-02-18 12:45:43,246 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,246 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0137,0.0252
+2024-02-18 12:45:43,246 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,246 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0092,0.0183,0.0275
+2024-02-18 12:45:43,246 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,246 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0092,0.0137,0.0275
+2024-02-18 12:45:43,246 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,246 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0137,0.0275
+2024-02-18 12:45:43,246 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,246 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0137,0.0275
+2024-02-18 12:45:43,247 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,247 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0137,0.0275
+2024-02-18 12:45:43,247 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,247 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0137,0.0252
+2024-02-18 12:45:43,247 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,247 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0092,0.0137,0.0252
+2024-02-18 12:45:43,247 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,247 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0092,0.0137,0.0252
+2024-02-18 12:45:43,247 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,247 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0183,0.0252
+2024-02-18 12:45:43,247 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,247 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,247 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,247 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,247 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,248 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,248 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,248 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0137,0.0275
+2024-02-18 12:45:43,248 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,248 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0137,0.0275
+2024-02-18 12:45:43,248 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,248 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0183,0.0252
+2024-02-18 12:45:43,248 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,248 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,248 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,248 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,248 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,248 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,248 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,248 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,248 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,248 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0092,0.0137,0.0275
+2024-02-18 12:45:43,249 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,249 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0137,0.0275
+2024-02-18 12:45:43,249 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,249 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,249 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,249 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0137,0.0252
+2024-02-18 12:45:43,249 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,249 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0137,0.0275
+2024-02-18 12:45:43,249 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,249 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0092,0.0183,0.0275
+2024-02-18 12:45:43,249 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,249 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0092,0.0183,0.0252
+2024-02-18 12:45:43,249 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,249 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0137,0.0252
+2024-02-18 12:45:43,249 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,249 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0137,0.0252
+2024-02-18 12:45:43,250 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,250 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,-0.0023,0.0137,0.0252
+2024-02-18 12:45:43,250 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,250 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,-0.0023,0.0137,0.0252
+2024-02-18 12:45:43,250 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,250 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0137,0.0275
+2024-02-18 12:45:43,250 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,250 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,250 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,250 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0183,0.0252
+2024-02-18 12:45:43,250 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,250 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,-0.0023,0.0183,0.0252
+2024-02-18 12:45:43,250 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,250 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,-0.0023,0.0183,0.0275
+2024-02-18 12:45:43,250 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,251 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,251 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,251 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0137,0.0275
+2024-02-18 12:45:43,251 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,251 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0092,0.0137,0.0275
+2024-02-18 12:45:43,251 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,251 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0092,0.0183,0.0275
+2024-02-18 12:45:43,251 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,251 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,251 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,251 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,251 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,251 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,251 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,251 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,251 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,252 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,252 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,252 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0092,0.0183,0.0275
+2024-02-18 12:45:43,252 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,252 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0092,0.0183,0.0275
+2024-02-18 12:45:43,252 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,252 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,-0.0023,0.0183,0.0275
+2024-02-18 12:45:43,252 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,252 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,-0.0023,0.0137,0.0275
+2024-02-18 12:45:43,252 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,252 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0137,0.0275
+2024-02-18 12:45:43,252 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,252 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,252 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,252 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,253 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,253 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,253 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,253 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0137,0.0275
+2024-02-18 12:45:43,253 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,253 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0137,0.0275
+2024-02-18 12:45:43,253 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,253 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0137,0.0275
+2024-02-18 12:45:43,253 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,253 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0137,0.0275
+2024-02-18 12:45:43,253 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,253 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,253 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,253 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0092,0.0183,0.0275
+2024-02-18 12:45:43,254 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,254 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0092,0.0183,0.0275
+2024-02-18 12:45:43,254 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,254 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,254 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,254 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,254 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,254 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,254 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,254 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,254 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,254 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0137,0.0275
+2024-02-18 12:45:43,254 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,254 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0137,0.0275
+2024-02-18 12:45:43,254 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,254 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0137,0.0275
+2024-02-18 12:45:43,255 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,255 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,255 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,255 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,255 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,255 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,255 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,255 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,255 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,255 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0137,0.0275
+2024-02-18 12:45:43,255 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,255 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0137,0.0275
+2024-02-18 12:45:43,255 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,255 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0137,0.0275
+2024-02-18 12:45:43,255 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,255 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,256 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,256 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,256 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,256 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0092,0.0183,0.0252
+2024-02-18 12:45:43,256 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,256 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0092,0.0183,0.0252
+2024-02-18 12:45:43,256 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,256 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0137,0.0275
+2024-02-18 12:45:43,256 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,256 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0137,0.0275
+2024-02-18 12:45:43,256 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,256 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0137,0.0275
+2024-02-18 12:45:43,256 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,256 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0137,0.0275
+2024-02-18 12:45:43,256 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,256 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0137,0.0275
+2024-02-18 12:45:43,257 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,257 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,257 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,257 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,257 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,257 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,257 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,257 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,257 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,257 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,257 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,257 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0137,0.0275
+2024-02-18 12:45:43,257 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,257 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0137,0.0275
+2024-02-18 12:45:43,257 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,257 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0183,0.0252
+2024-02-18 12:45:43,258 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,258 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,258 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,258 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0137,0.0275
+2024-02-18 12:45:43,258 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,258 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,258 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,258 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,258 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,258 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,258 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,258 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0183,0.0252
+2024-02-18 12:45:43,258 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,258 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0137,0.0252
+2024-02-18 12:45:43,258 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,259 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0137,0.0275
+2024-02-18 12:45:43,259 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,259 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0137,0.0252
+2024-02-18 12:45:43,259 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,259 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0183,0.0252
+2024-02-18 12:45:43,259 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,259 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0183,0.0252
+2024-02-18 12:45:43,259 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,259 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0092,0.0183,0.0252
+2024-02-18 12:45:43,259 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,259 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0092,0.0183,0.0275
+2024-02-18 12:45:43,259 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,259 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,259 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,259 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0023,0.0183,0.0252
+2024-02-18 12:45:43,259 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,259 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0252,0.0069,0.0183,0.0252
+2024-02-18 12:45:43,260 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,260 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0069,0.0183,0.0275
+2024-02-18 12:45:43,260 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,260 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0092,0.0183,0.0275
+2024-02-18 12:45:43,260 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,260 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,260 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,260 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,260 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,260 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,260 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,260 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0023,0.0183,0.0275
+2024-02-18 12:45:43,260 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - INFO - Payload matches the expected number of bytes
+2024-02-18 12:45:43,260 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Payload Case 1 (strings): ,-0.0298,0.0092,0.0137,0.0275
+2024-02-18 12:45:43,260 - GUI.EmbeddedSystems.SoftGrasper.SoftGrasper - DEBUG - Change in pressure: 0,0,0

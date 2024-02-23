@@ -131,6 +131,15 @@ def pick_and_place():
         #     controller._inter_layer_1._params["tau"].data[2] = orig_time_constant_z
         #     pass
         #
+        if SNSc.neuronset["grasp"]>=20:
+            print("Grasp Contact")
+            print(old_grasperContact)
+            print(grasperContact)
+
+        else:
+            print("Not grasp contact")
+            print(grasperContact)
+
         # if SNSc.neuronset["lift_after_grasp"]>=20:
         #     print(old_grasperContact)
         #     print(grasperContact)

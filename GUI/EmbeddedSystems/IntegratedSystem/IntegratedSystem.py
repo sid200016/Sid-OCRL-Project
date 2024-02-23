@@ -1018,6 +1018,23 @@ class IntegratedSystem:
 
 
     async def Get_SNS_Input(self):
+
+        SNS_type = await aioconsole.ainput(
+                                           "Enter the type of SNS control.\n"
+                                           "Enter 'O' for open-loop control and 'C' for closed-loop control")
+
+        self.logger.info("Type selected: %s"%SNS_type)
+        match SNS_type.upper():
+
+            case "O":
+                self.SNS_BypassForceFeedback = True
+
+            case "C":
+                self.SNS_BypassForceFeedback = False
+
+            case _:
+                self.logger.info("Using default")
+
         useXYZcalibration = await aioconsole.ainput(
             "Do you want to use the current position as the object location?\n"
             "Enter 'Y' for yes, 'N' to use default position, 'T' to adjust the calibration xyz value, or 'X' to enter a new value. \n")
@@ -1060,39 +1077,84 @@ class IntegratedSystem:
         self.logger.info("x,y,z used is (mm): %f, %f, %f" % (
             self.SNS_object_pos_m[0]*1000, self.SNS_object_pos_m[1]*1000, self.SNS_object_pos_m[2]*1000))
 
-        # Ask it they want to adjust or enter new value for the grasper max closure calibration
-        useGrasperCalibration = await aioconsole.ainput(
-            "Do you want to use the grasper maximum change in radial position from the current state?\n "
-            "Enter 'Y' for yes, 'N' to use default position, 'T' to adjust the calibration grasper value, or 'X' to enter a new value.\n")
+        # Ask it they want to adjust or enter new value for the grasper max closure calibration if it is open loop
+        if self.SNS_BypassForceFeedback == True:
+            useGrasperCalibration = await aioconsole.ainput(
+                "Do you want to use the grasper maximum change in radial position from the current state?\n "
+                "Enter 'Y' for yes, 'N' to use default position, 'T' to adjust the calibration grasper value, or 'X' to enter a new value.\n")
 
-        match useGrasperCalibration.upper():
+            match useGrasperCalibration.upper():
 
-            case "Y":
-                await self.FreshDataEvent.wait()  # wait for fresh data
-                self.maxJawChangeInRadius_mm = self.SG.commandedPosition["ClosureChangeInRadius_mm"]
+                case "Y":
+                    await self.FreshDataEvent.wait()  # wait for fresh data
+                    self.maxJawChangeInRadius_mm = self.SG.commandedPosition["ClosureChangeInRadius_mm"]
 
 
-            case "N":
-                self.logger.info("Using default values")
+                case "N":
+                    self.logger.info("Using default values")
 
-            case "T":
-                vals = await aioconsole.ainput(
-                    "Expecting value in mm, this will be an offset")
-                self.maxJawChangeInRadius_mm = self.maxJawChangeInRadius_mm + float(vals)
+                case "T":
+                    vals = await aioconsole.ainput(
+                        "Expecting value in mm, this will be an offset")
+                    self.maxJawChangeInRadius_mm = self.maxJawChangeInRadius_mm + float(vals)
 
-            case "X":
-                vals = await aioconsole.ainput(
-                    "Expecting value in mm. This is the new value for maximum change in radial position.")
-                self.maxJawChangeInRadius_mm = float(vals)
+                case "X":
+                    vals = await aioconsole.ainput(
+                        "Expecting value in mm. This is the new value for maximum change in radial position.")
+                    self.maxJawChangeInRadius_mm = float(vals)
 
-            case "Z":
-                "Exiting SNS setup ... \n"
-                return
+                case "Z":
+                    "Exiting SNS setup ... \n"
+                    return
 
-            case _:
-                pass
+                case _:
+                    pass
 
-        self.logger.info("Max closure (mm): %f"%self.maxJawChangeInRadius_mm)
+            self.logger.info("Max closure (mm): %f"%self.maxJawChangeInRadius_mm)
+
+        else: # Closed loop control
+            SNS_thresholds_input = await aioconsole.ainput(
+                "Please enter 'Y' to enter the pressure thresholds for the jaws"
+                "Or, enter 'N' to use the default values of %f,%f,%f\n"
+                "Pressures below this threshold are set to zero when computing feedback to the SNS\n"%(*self.ContactThreshold["Pressure Threshold (psi)"]))
+
+
+            match SNS_thresholds_input.upper():
+
+                case "N":
+                    pass
+
+                case "Y":
+                    vals = await aioconsole.ainput(
+                        "Please enter the pressure thresholds for each jaw, in psi, and separated by commas. \n")
+                    vals = [float(x) for x in vals.split(',')]
+                    self.ContactThreshold["Pressure Threshold (psi)"] = vals
+                case _:
+                    pass
+
+            self.logger.info("Thresholds (psi): %f, %f, %f"%(*self.ContactThreshold["Pressure Threshold (psi)"] ))
+
+            #------ gain inputs -------#
+            SNS_gains_input = await aioconsole.ainput(
+                "Please enter 'Y' to enter the gains for the jaws"
+                "Or, enter 'N' to use the default values of %f,%f,%f\n"
+                "This is the multiplication factor on the measured pressure to transform it to a force.\n" % (
+                    *self.ContactThreshold["Pressure Scaling"]))
+
+            match SNS_thresholds_input.upper():
+
+                case "N":
+                    pass
+
+                case "Y":
+                    vals = await aioconsole.ainput(
+                        "Please enter the scaling for pressure for each jaw, and separated by commas. \n")
+                    vals = [float(x) for x in vals.split(',')]
+                    self.ContactThreshold["Pressure Scaling"] = vals
+                case _:
+                    pass
+
+            self.logger.info("Scaling: %f, %f, %f" % (*self.ContactThreshold["Pressure Scaling"]))
 
         returnHome = await aioconsole.ainput(
             "Enter any button to return home")

@@ -109,7 +109,7 @@ class IntegratedSystem:
 
         #For SNS
         self.max_z_height = -0.184
-        self.SNS_target_pos_m = [0,-0.25,-0.184]
+        self.SNS_target_pos_m = [-0.19,-0.24,-0.184]
         self.SNS_object_pos_m = [-0.00931,0.01145,-0.18326] #[0,0,-0.184]
         self.ContactThreshold = {"Pressure Threshold (psi)":[0.05,0.05,0.05], "Pressure Scaling":[100,100,100]}
         self.maxJawChangeInRadius_mm = 15 #20 mm max jaw change in radius
@@ -431,11 +431,12 @@ class IntegratedSystem:
                         self.MoveGrasperEvent.set()  # set event to indicate to other function that it should actuate grasper
                         await asyncio.sleep(20)  # sleep 20 seconds to allow the grasp to complete #hopefully only triggers once
 
-                if (self.SNS_BypassForceFeedback == True and self.SNSc.neuronset["release"] > 10): #to release the object
+                if (self.SNS_BypassForceFeedback == True and self.SNSc.neuronset["release"] > 2): #to release the object
                     self.SG.commandedPosition["ClosureChangeInRadius_mm"] = 0  # need to check if this is always satisfied
                     self.MoveGrasperEvent.set() #set event to indicate to other function that it should actuate grasper
                     await asyncio.sleep(8)
-                    #self.logger.debug (self.SG.commandedPosition["ClosureChangeInRadius_mm"])
+                    self.logger.debug (self.SG.commandedPosition["ClosureChangeInRadius_mm"])
+                    self.logger.info("In Release Phase")
 
 
                 self.MoveGrasperEvent.set()

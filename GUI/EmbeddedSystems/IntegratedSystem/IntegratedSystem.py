@@ -382,6 +382,11 @@ class IntegratedSystem:
                                                                      targetPos_m=Point(*target_position_list),
                                                                      useRealGantry=False) #update SNS
 
+                if (self.SNS_BypassForceFeedback == False and self.SNSc.object_grasped_phase == True):
+                    if self.lift_after_grasp_started == True:
+                        self.maxJawChangeInRadius_mm = min(JawRadialPos_m*1000,self.maxJawChangeInRadius_mm)
+                        self.logger.info("Lift after grasp started, change in radius limited to %f"%self.maxJawChangeInRadius_mm)
+
 
 
                 #print(self.SNSc.neuronset)

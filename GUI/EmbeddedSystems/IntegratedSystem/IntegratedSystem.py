@@ -110,9 +110,9 @@ class IntegratedSystem:
         #For SNS
         self.max_z_height = -0.184
         self.SNS_target_pos_m = [-0.19,-0.24,-0.184]
-        self.SNS_object_pos_m = [-0.00931,0.01145,-0.18326] #[0,0,-0.184]
-        self.ContactThreshold = {"Pressure Threshold (psi)":[0.05,0.05,0.05], "Pressure Scaling":[100,100,100]}
-        self.maxJawChangeInRadius_mm = 15 #20 mm max jaw change in radius
+        self.SNS_object_pos_m = [-0.0065875,0.012362,-0.18464] #[0,0,-0.184]
+        self.ContactThreshold = {"Pressure Threshold (psi)":[0.007,0.007,0.007], "Pressure Scaling":[100,100,100]}
+        self.maxJawChangeInRadius_mm = 30 #20 mm max jaw change in radius
         self.SNS_BypassForceFeedback = True
 
         #For Calibration of pressure-Radius relationship
@@ -361,7 +361,7 @@ class IntegratedSystem:
                 grasperThreshold = self.ContactThreshold["Pressure Threshold (psi)"]
                 pressureScaling = self.ContactThreshold["Pressure Scaling"]
 
-                grasperContact = [(x - grasperThreshold[i]) * pressureScaling[i] if x >= grasperThreshold[i] else 0 for (i, x) in
+                grasperContact = [(x) * pressureScaling[i] if x >= grasperThreshold[i] else 0 for (i, x) in
                                   enumerate(jawPressure)]
 
                 grasperContact = GrasperContactForce(*grasperContact) #grasper contact force
@@ -1114,9 +1114,9 @@ class IntegratedSystem:
 
         else: # Closed loop control
             SNS_thresholds_input = await aioconsole.ainput(
-                "Please enter 'Y' to enter the pressure thresholds for the jaws"
+                "Please enter 'Y' to enter the pressure thresholds for the jaws\n"
                 "Or, enter 'N' to use the default values of %f,%f,%f\n"
-                "Pressures below this threshold are set to zero when computing feedback to the SNS\n"%(*self.ContactThreshold["Pressure Threshold (psi)"]))
+                "Pressures below this threshold are set to zero when computing feedback to the SNS\n"%(tuple(self.ContactThreshold["Pressure Threshold (psi)"])))
 
 
             match SNS_thresholds_input.upper():
@@ -1132,16 +1132,16 @@ class IntegratedSystem:
                 case _:
                     pass
 
-            self.logger.info("Thresholds (psi): %f, %f, %f"%(*self.ContactThreshold["Pressure Threshold (psi)"] ))
+            self.logger.info("Thresholds (psi): %f, %f, %f"%(tuple(self.ContactThreshold["Pressure Threshold (psi)"] )))
 
             #------ gain inputs -------#
             SNS_gains_input = await aioconsole.ainput(
-                "Please enter 'Y' to enter the gains for the jaws"
+                "Please enter 'Y' to enter the gains for the jaws\n"
                 "Or, enter 'N' to use the default values of %f,%f,%f\n"
                 "This is the multiplication factor on the measured pressure to transform it to a force.\n" % (
-                    *self.ContactThreshold["Pressure Scaling"]))
+                    tuple(self.ContactThreshold["Pressure Scaling"])))
 
-            match SNS_thresholds_input.upper():
+            match SNS_gains_input.upper():
 
                 case "N":
                     pass
@@ -1154,7 +1154,7 @@ class IntegratedSystem:
                 case _:
                     pass
 
-            self.logger.info("Scaling: %f, %f, %f" % (*self.ContactThreshold["Pressure Scaling"]))
+            self.logger.info("Scaling: %f, %f, %f" % (tuple(self.ContactThreshold["Pressure Scaling"])))
 
         returnHome = await aioconsole.ainput(
             "Enter any button to return home")

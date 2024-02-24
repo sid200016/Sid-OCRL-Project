@@ -9,7 +9,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Testing/TestSNS_sim.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/TestSNS_sim.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +69,7 @@
       <recent name="C:\Users\Ravesh\Desktop\Research\FRR\FRR Software Interface\FRR-Software-Interface\Testing" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.TestSNS_sim">
+  <component name="RunManager" selected="Python.IntegratedSystem">
     <configuration name="IntegratedSystem" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="FRR-Software-Interface" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -280,8 +279,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.TestSNS_sim" />
         <item itemvalue="Python.IntegratedSystem" />
+        <item itemvalue="Python.TestSNS_sim" />
         <item itemvalue="Python.checkSoftGrasper2_new" />
         <item itemvalue="Python.IntegratedSystem_BareBones" />
         <item itemvalue="Python.run" />

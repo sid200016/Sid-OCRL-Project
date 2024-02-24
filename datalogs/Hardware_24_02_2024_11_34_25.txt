@@ -1,0 +1,13 @@
+2024-02-24 11:34:25,892 - __main__ - INFO - Enter C for calibration. 
+Enter S for SNS. 
+Enter Z to return to joystick control
+Enter H to move grasper home 
+Enter T to inflate until grasper touches 
+Enter MG to move the grasper 
+Enter M to move the gantry 
+Enter D to display robot state 
+Enter PR to enter pressure radius calibration 
+
+2024-02-24 11:34:39,929 - __main__ - INFO - S
+2024-02-24 11:34:40,900 - __main__ - INFO - Type selected: C
+2024-02-24 11:34:50,586 - __main__ - INFO - x,y,z used is (mm): -6.587500, 12.362000, -184.640000

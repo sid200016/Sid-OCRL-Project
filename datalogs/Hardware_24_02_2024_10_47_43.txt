@@ -1,0 +1,19 @@
+2024-02-24 10:47:43,099 - __main__ - INFO - Enter C for calibration. 
+Enter S for SNS. 
+Enter Z to return to joystick control
+Enter H to move grasper home 
+Enter T to inflate until grasper touches 
+Enter MG to move the grasper 
+Enter M to move the gantry 
+Enter D to display robot state 
+Enter PR to enter pressure radius calibration 
+
+2024-02-24 10:47:48,641 - __main__ - INFO - D
+2024-02-24 10:47:48,660 - __main__ - INFO - Gantry position(mm): 0.000000 0.000000 0.000000 
+
+2024-02-24 10:47:48,660 - __main__ - INFO - Grasper closure muscle pressure(psi): -0.025175 
+
+2024-02-24 10:47:48,661 - __main__ - INFO - Grasper closure radius(mm): 0.000000 
+
+2024-02-24 10:47:48,661 - __main__ - INFO - Grasper contact pressure (psi): 0.000000, -0.004577, 0.000000 
+

@@ -48,7 +48,7 @@ def pick_and_place():
 
     #for modifying the time constant of depositing the object
     print ("Time constant of release is %f"%controller._inter_layer_1._params["tau"].data[2])
-    controller._inter_layer_1._params["tau"].data[2] = 0.75
+    controller._inter_layer_1._params["tau"].data[2] = 1.5
     print("Time constant of release is %f" % controller._inter_layer_1._params["tau"].data[2])
 
     orig_time_constant_z = deepcopy(controller._inter_layer_1._params["tau"].data[2])

@@ -9,7 +9,7 @@ import numpy as np
 
 from GUI.EmbeddedSystems.Support.Structures import Point,GrasperContactForce
 from GUI.EmbeddedSystems.Gantry.envs.GantrySimulation import GantrySimulation
-from GUI.EmbeddedSystems.SNS.SNScontroller import SNScontroller, controller
+from GUI.EmbeddedSystems.SNS.SNScontroller import SNScontroller, controller, F_MAX
 #########################################################
 
 def pick_and_place():
@@ -46,18 +46,22 @@ def pick_and_place():
     cmd_grasperPos_m = Point(0,0,0)
     JawRadialPos_m = 0
 
+    max_jaw_radial_pos_m = None
+
     #for modifying the time constant of depositing the object
     print ("Time constant of release is %f"%controller._inter_layer_1._params["tau"].data[2])
     controller._inter_layer_1._params["tau"].data[2] = 1.5
     print("Time constant of release is %f" % controller._inter_layer_1._params["tau"].data[2])
 
-    orig_time_constant_z = deepcopy(controller._inter_layer_1._params["tau"].data[2])
-    print("Time constant of release is %f" % controller._inter_layer_1._params["tau"].data[2])
+    # orig_time_constant_z = deepcopy(controller._inter_layer_1._params["tau"].data[2])
+    # print("Time constant of release is %f" % controller._inter_layer_1._params["tau"].data[2])
+    #
+    # #For opening closing the gripper
+    print("Time constant of grasper opening/closing is %f" % controller._inter_layer_1._params["tau"].data[3])
+    controller._inter_layer_1._params["tau"].data[3] = 0.3
+    print("Time constant of grasper opening/closing is %f" % controller._inter_layer_1._params["tau"].data[3])
 
-    #For opening closing the gripper
-    print("Time constant of grasper opening/closing is %f" % controller._inter_layer_1._params["tau"].data[3])
-    controller._inter_layer_1._params["tau"].data[3] = 10
-    print("Time constant of grasper opening/closing is %f" % controller._inter_layer_1._params["tau"].data[3])
+    controller.F_MAX = np.array([1000,1000,1000])
 
     while (not gS.CheckStopSim()):  # check to see if the button was pressed to close the sim
 
@@ -77,8 +81,8 @@ def pick_and_place():
                 gS.gantryId, gS.GantryLinkIndex_dict["BasePositionIndex"])[0]
             z = gS.bulletClient.getJointState(
                 gS.gantryId, gS.GantryLinkIndex_dict["ZAxisBarIndex"])[0]
-            # JawRadialPos = gS.bulletClient.getJointState(
-            #     gS.gantryId, gS.gantryLinkDict["SJ1"])[0]
+            JawRadialPos = gS.bulletClient.getJointState(
+                gS.gantryId, gS.gantryLinkDict["SJ1"])[0]
 
             grasperPosition = Point(x,y,z)
 
@@ -118,6 +122,13 @@ def pick_and_place():
         ts = gS.timeStep  # time step of the simulation in seconds
         nsteps = gS.simCounter  # of simulation steps taken so far
 
+        if SNSc.neuronset["lift_after_grasp"]>=20:
+            print("lift after grasp")
+            print(old_grasperContact)
+            if max_jaw_radial_pos_m is None:
+                max_jaw_radial_pos_m = JawRadialPos_m
+            JawRadialPos_m = min(max_jaw_radial_pos_m,JawRadialPos_m)
+            print(JawRadialPos_m)
 
         GrasperArguments = {"frictionCoefficient": 1, "PressureValue": 2.5,
                             # change the pressure value to see change in effective stiffness.
@@ -145,8 +156,9 @@ def pick_and_place():
             print("Not grasp contact")
             print(grasperContact)
 
-        # if SNSc.neuronset["lift_after_grasp"]>=20:
-        #     print(old_grasperContact)
+        if SNSc.neuronset["lift_after_grasp"]>=20:
+            print(old_grasperContact)
+
         #     print(grasperContact)
         #     controller._inter_layer_1._params["tau"].data[2] = 0.8
         # else:

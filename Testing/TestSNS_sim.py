@@ -47,12 +47,17 @@ def pick_and_place():
     JawRadialPos_m = 0
 
     #for modifying the time constant of depositing the object
-    # print ("Time constant of release is %f"%controller._inter_layer_1._params["tau"].data[2])
-    # controller._inter_layer_1._params["tau"].data[2] = 2
-    # print("Time constant of release is %f" % controller._inter_layer_1._params["tau"].data[2])
+    print ("Time constant of release is %f"%controller._inter_layer_1._params["tau"].data[2])
+    controller._inter_layer_1._params["tau"].data[2] = 0.75
+    print("Time constant of release is %f" % controller._inter_layer_1._params["tau"].data[2])
 
     orig_time_constant_z = deepcopy(controller._inter_layer_1._params["tau"].data[2])
     print("Time constant of release is %f" % controller._inter_layer_1._params["tau"].data[2])
+
+    #For opening closing the gripper
+    print("Time constant of grasper opening/closing is %f" % controller._inter_layer_1._params["tau"].data[3])
+    controller._inter_layer_1._params["tau"].data[3] = 10
+    print("Time constant of grasper opening/closing is %f" % controller._inter_layer_1._params["tau"].data[3])
 
     while (not gS.CheckStopSim()):  # check to see if the button was pressed to close the sim
 

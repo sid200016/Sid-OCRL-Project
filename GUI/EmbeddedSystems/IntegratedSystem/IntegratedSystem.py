@@ -383,7 +383,7 @@ class IntegratedSystem:
                                                                      useRealGantry=False) #update SNS
 
                 if (self.SNS_BypassForceFeedback == False and self.SNSc.object_grasped_phase == True):
-                    if self.lift_after_grasp_started == True:
+                    if self.SNSc.lift_after_grasp_started == True:
                         self.maxJawChangeInRadius_mm = min(JawRadialPos_m*1000,self.maxJawChangeInRadius_mm)
                         self.logger.info("Lift after grasp started, change in radius limited to %f"%self.maxJawChangeInRadius_mm)
 
@@ -1022,7 +1022,6 @@ class IntegratedSystem:
 
     async def Get_SNS_Input(self):
 
-        self.SNSc = SNScontroller() #reset each time ...
 
         SNS_type = await aioconsole.ainput(
                                            "Enter the type of SNS control.\n"

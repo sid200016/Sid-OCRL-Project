@@ -212,8 +212,6 @@ class IntegratedSystem:
 
         #setup the logger
         self.setupLogger()
-        #controller._inter_layer_1._params["tau"].data[2] = 0.75
-        #self.logger.info("SNS z height time constant set to %f" % 0.75)
 
 
     async def Read_Move_Hardware(self):
@@ -1019,6 +1017,8 @@ class IntegratedSystem:
 
     async def Get_SNS_Input(self):
 
+        self.SNSc = SNScontroller() #reset each time ...
+
         SNS_type = await aioconsole.ainput(
                                            "Enter the type of SNS control.\n"
                                            "Enter 'O' for open-loop control and 'C' for closed-loop control")
@@ -1155,6 +1155,49 @@ class IntegratedSystem:
                     pass
 
             self.logger.info("Scaling: %f, %f, %f" % (tuple(self.ContactThreshold["Pressure Scaling"])))
+
+
+            #----- z Time Constant -----
+            SNS_tc_input = await aioconsole.ainput(
+                "Please enter 'Y' to change the time constant of the z axis during grasp\n"
+                "Or, enter 'N' to use the default values of %f seconds \n" % (
+                    controller._inter_layer_1._params["tau"].data[2]))
+
+            match SNS_tc_input.upper():
+
+                case "N":
+                    pass
+
+                case "Y":
+                    vals = await aioconsole.ainput(
+                        "Please enter the new time constant in seconds. \n")
+                    vals = float(vals)
+                    controller._inter_layer_1._params["tau"].data[2] = vals
+                case _:
+                    pass
+
+            self.logger.info("SNS z height time constant set to %f" % controller._inter_layer_1._params["tau"].data[2])
+
+            # ----- grasper Time Constant -----
+            SNS_tc_input = await aioconsole.ainput(
+                "Please enter 'Y' to change the time constant of the grasper\n"
+                "Or, enter 'N' to use the default values of %f seconds \n" % (
+                    controller._inter_layer_1._params["tau"].data[3]))
+
+            match SNS_tc_input.upper():
+
+                case "N":
+                    pass
+
+                case "Y":
+                    vals = await aioconsole.ainput(
+                        "Please enter the new time constant in seconds. \n")
+                    vals = float(vals)
+                    controller._inter_layer_1._params["tau"].data[3] = vals
+                case _:
+                    pass
+
+            self.logger.info("SNS grasper time constant set to %f" % controller._inter_layer_1._params["tau"].data[3])
 
         returnHome = await aioconsole.ainput(
             "Enter any button to return home")

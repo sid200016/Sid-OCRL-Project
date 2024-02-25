@@ -114,6 +114,7 @@ class IntegratedSystem:
         self.ContactThreshold = {"Pressure Threshold (psi)":[0.007,0.007,0.007], "Pressure Scaling":[100,100,100]}
         self.maxJawChangeInRadius_mm = 30 #20 mm max jaw change in radius
         self.SNS_BypassForceFeedback = True
+        self.SNS_grasper_tc_s = 0 #time constant for the closure muscle of the grasper
 
         #For Calibration of pressure-Radius relationship
         self.pressure_radius_parameters = {"min pressure (psi)": 0, "max pressure (psi)": 12.0,
@@ -386,7 +387,16 @@ class IntegratedSystem:
                     if self.SNSc.lift_after_grasp_started == True:
                         self.maxJawChangeInRadius_mm = min(JawRadialPos_m*1000,self.maxJawChangeInRadius_mm)
                         self.logger.info("Lift after grasp started, change in radius limited to %f"%self.maxJawChangeInRadius_mm)
+                        self.logger.info("Time constant of grasper %f"%controller._inter_layer_1._params["tau"].data[3])
 
+                if (self.SNS_BypassForceFeedback == False and self.SNSc.lift_after_grasp_done == False):
+                    controller._inter_layer_1._params["tau"].data[3] = deepcopy(self.SNS_grasper_tc_s)
+
+
+                elif (self.SNS_BypassForceFeedback == False and self.SNSc.lift_after_grasp_done == True): #if not in grasp phase, set to 0 in order to release object more quickly
+                    controller._inter_layer_1._params["tau"].data[3] = 0
+                    self.ContactThreshold["Pressure Scaling"] = [600,600,600] #change scaling so that
+                    #print(controller._inter_layer_1._params["tau"].data[3])
 
 
                 #print(self.SNSc.neuronset)
@@ -1181,7 +1191,6 @@ class IntegratedSystem:
                     controller._inter_layer_1._params["tau"].data[2] = vals
                 case _:
                     pass
-
             self.logger.info("SNS z height time constant set to %f" % controller._inter_layer_1._params["tau"].data[2])
 
             # ----- grasper Time Constant -----
@@ -1203,6 +1212,7 @@ class IntegratedSystem:
                 case _:
                     pass
 
+            self.SNS_grasper_tc_s = deepcopy(controller._inter_layer_1._params["tau"].data[3])
             self.logger.info("SNS grasper time constant set to %f" % controller._inter_layer_1._params["tau"].data[3])
 
         returnHome = await aioconsole.ainput(

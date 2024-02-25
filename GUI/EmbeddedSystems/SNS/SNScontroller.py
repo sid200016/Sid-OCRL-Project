@@ -159,6 +159,9 @@ class SNScontroller:
         else:
             self.lift_after_grasp_started = False
 
+        if self.neuronset["move_to_pre_release"] >= 20:
+            self.lift_after_grasp_done = True
+
         self.object_grasped_phase = (self.neuronset['grasp'] >= 20 or self.neuronset['lift_after_grasp'] >= 20
                         or self.neuronset['move_to_pre_release'] >= 20 or
                 self.neuronset['move_to_release'] >= 20) ##these should all only trigger once. Only move to pre grasp, move to grasp, grasp are triggered twice, once in the beginning and once when it returns home.
@@ -189,8 +192,6 @@ class SNScontroller:
                     cmd_grasperPos_m = self.cmd_position_m #use the last commanded position, don't return to home
                     #self.logger.debug('Lift after release triggered, stay at this position')
 
-                if move_to_pre_release>=20:
-                    self.lift_after_grasp_done = True
 
 
             else: #if more than 1 grasp attempted

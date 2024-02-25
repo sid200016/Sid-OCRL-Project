@@ -456,6 +456,7 @@ class IntegratedSystem:
 
             else:
                 self.SNSc = SNScontroller() #reinitialize SNS
+                self.SNSc.first_attempt = True
 
 
 
@@ -618,6 +619,7 @@ class IntegratedSystem:
                 # SNS
                 case "S":
                     self.SNSc = SNScontroller() #reinitialize each time
+                    self.SNSc.first_attempt = True
                     self.jcSG.ControlMode = JC.JoyConState.PREP_SNS
                     await self.Get_SNS_Input() #prompts to setup SNS
                     self.jcSG.ControlMode = JC.JoyConState.USE_SNS

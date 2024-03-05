@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="bfd83e2d-ab31-4129-8c0e-ce5b016d6614" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -423,12 +422,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py</url>
-          <line>253</line>
+          <line>254</line>
           <option name="timeStamp" value="281" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py</url>
-          <line>438</line>
+          <line>448</line>
           <option name="timeStamp" value="282" />
         </line-breakpoint>
       </breakpoints>

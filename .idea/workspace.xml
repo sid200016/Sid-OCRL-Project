@@ -5,44 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfd83e2d-ab31-4129-8c0e-ce5b016d6614" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_ForceTrigger/SNS_layer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_ForceTrigger/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_ForceTrigger/a.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_ForceTrigger/a_mat.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_ForceTrigger/output_mu_param" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_ForceTrigger/output_sigma_param" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_ForceTrigger/sensory_layer_2_param" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_ForceTrigger/state_mat.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_ForceTrigger/torchSNS/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_ForceTrigger/torchSNS/torch/CTRNN_cell.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_ForceTrigger/torchSNS/torch/NODE_cell.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_ForceTrigger/torchSNS/torch/RNN_cell.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_ForceTrigger/torchSNS/torch/SNS_cell.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_ForceTrigger/torchSNS/torch/SNS_cell_modulation.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_ForceTrigger/torchSNS/torch/SNS_cell_original.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_ForceTrigger/torchSNS/torch/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_ForceTrigger/torchSNS/torch/ltc_cell.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_ForceTrigger/torchSNS/wirings/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_ForceTrigger/torchSNS/wirings/wirings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_ForceTrigger/tout.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_ForceTrigger/train.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_ForceTrigger/transmission.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_ForceTrigger/tt.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_ForceTrigger/y_modulation.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_ForceTrigger/y_post.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_ForceTrigger/y_post1_continous_mat.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_ForceTrigger/y_post1_discrete_mat.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_ForceTrigger/y_post2_continous_mat.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_ForceTrigger/y_post2_discrete_mat.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_ForceTrigger/y_post_mat.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_ForceTrigger/y_pre.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_ForceTrigger/y_pre1.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_ForceTrigger/y_pre2.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Testing/TestSNS_sim_ForceTrigger.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/FRR-Software-Interface.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/FRR-Software-Interface.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/SNScontroller.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/SNScontroller.py" afterDir="false" />
     </list>
@@ -468,7 +430,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py</url>
-          <line>448</line>
+          <line>449</line>
           <option name="timeStamp" value="282" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">

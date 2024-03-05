@@ -383,6 +383,7 @@ class IntegratedSystem:
                                                                      targetPos_m=Point(*target_position_list),
                                                                      useRealGantry=False) #update SNS
 
+                # TODO: need to modify for the Force inhibit and Force cap movements.
                 if (self.SNS_BypassForceFeedback == False and self.SNSc.object_grasped_phase == True):
                     if self.SNSc.lift_after_grasp_started == True:
                         self.maxJawChangeInRadius_mm = min(JawRadialPos_m*1000,self.maxJawChangeInRadius_mm)
@@ -629,6 +630,10 @@ class IntegratedSystem:
                 # SNS
                 case "S":
                     self.SNSc = SNScontroller() #reinitialize each time
+                    self.SNSc.initialize_controller()
+                    self.SNSc.controller.reset()
+                    self.SNSc.perceptor.reset()
+
                     self.SNSc.first_attempt = True
                     self.jcSG.ControlMode = JC.JoyConState.PREP_SNS
                     await self.Get_SNS_Input() #prompts to setup SNS
@@ -1065,10 +1070,14 @@ class IntegratedSystem:
                 self.SNSc.ControlType = ControlType.FORCE_INHIBIT
                 self.SNSc.initialize_controller()
 
+                # TODO: need to add FI prompts to get inhibitory gain
+
             case "FC":
                 self.SNS_BypassForceFeedback = False
                 self.SNSc.ControlType = ControlType.FORCE_CAP
                 self.SNSc.initialize_controller()
+
+                # TODO: need to add FC prompts to get closing speed
 
             case _:
                 self.logger.info("Using default")

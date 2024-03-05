@@ -15,7 +15,7 @@ from GUI.EmbeddedSystems.SoftGrasper.SoftGrasper import PortActions
 from GUI.EmbeddedSystems.SoftGrasper.SoftGrasper import SoftGrasper
 from GUI.EmbeddedSystems.Gantry.GantryController import Gantry as GantryController
 import GUI.EmbeddedSystems.JoyCon.JoyCon as JC
-from GUI.EmbeddedSystems.SNS.SNScontroller import SNScontroller,controller
+from GUI.EmbeddedSystems.SNS.SNScontroller import SNScontroller, ControlType
 from GUI.EmbeddedSystems.Support.Structures import GrasperContactForce,Point
 from copy import deepcopy
 
@@ -1037,19 +1037,42 @@ class IntegratedSystem:
 
         SNS_type = await aioconsole.ainput(
                                            "Enter the type of SNS control.\n"
-                                           "Enter 'O' for open-loop control and 'C' for closed-loop control")
+                                           "'O' for open-loop control.\n"
+                                           "'C' for modified closed-loop force control.\n"
+                                           "'FI' to enable force trigger based on inhibition of the jaw interneuron.\n"
+                                           "'FC' to enable force trigger based on cap of the position based on transition.\n"
+                                            )
 
         self.logger.info("Type selected: %s"%SNS_type)
+
+
         match SNS_type.upper():
 
             case "O":
                 self.SNS_BypassForceFeedback = True
+                self.SNSc.ControlType = ControlType.OPEN_LOOP
+                self.SNSc.initialize_controller()
+                await self.SNS_input_OpenLoop()
 
             case "C":
                 self.SNS_BypassForceFeedback = False
+                self.SNSc.ControlType = ControlType.NORMAL
+                self.SNSc.initialize_controller()
+                await self.SNS_input_Normal()
+
+            case "FI":
+                self.SNS_BypassForceFeedback = False
+                self.SNSc.ControlType = ControlType.FORCE_INHIBIT
+                self.SNSc.initialize_controller()
+
+            case "FC":
+                self.SNS_BypassForceFeedback = False
+                self.SNSc.ControlType = ControlType.FORCE_CAP
+                self.SNSc.initialize_controller()
 
             case _:
                 self.logger.info("Using default")
+                self.SNSc.initialize_controller()
 
         useXYZcalibration = await aioconsole.ainput(
             "Do you want to use the current position as the object location?\n"
@@ -1093,6 +1116,15 @@ class IntegratedSystem:
         self.logger.info("x,y,z used is (mm): %f, %f, %f" % (
             self.SNS_object_pos_m[0]*1000, self.SNS_object_pos_m[1]*1000, self.SNS_object_pos_m[2]*1000))
 
+        returnHome = await aioconsole.ainput(
+            "Enter any button to return home")
+
+        await self.returnHome()
+
+        self.logger.info("Beginning SNS ...")
+
+
+    async def SNS_input_OpenLoop(self):
         # Ask it they want to adjust or enter new value for the grasper max closure calibration if it is open loop
         if self.SNS_BypassForceFeedback == True:
             useGrasperCalibration = await aioconsole.ainput(
@@ -1104,7 +1136,6 @@ class IntegratedSystem:
                 case "Y":
                     await self.FreshDataEvent.wait()  # wait for fresh data
                     self.maxJawChangeInRadius_mm = self.SG.commandedPosition["ClosureChangeInRadius_mm"]
-
 
                 case "N":
                     self.logger.info("Using default values")
@@ -1126,102 +1157,93 @@ class IntegratedSystem:
                 case _:
                     pass
 
-            self.logger.info("Max closure (mm): %f"%self.maxJawChangeInRadius_mm)
+            self.logger.info("Max closure (mm): %f" % self.maxJawChangeInRadius_mm)
+    async def SNS_input_Normal(self):
+        # Closed loop control
+        SNS_thresholds_input = await aioconsole.ainput(
+            "Please enter 'Y' to enter the pressure thresholds for the jaws\n"
+            "Or, enter 'N' to use the default values of %f,%f,%f\n"
+            "Pressures below this threshold are set to zero when computing feedback to the SNS\n" % (
+                tuple(self.ContactThreshold["Pressure Threshold (psi)"])))
 
-        else: # Closed loop control
-            SNS_thresholds_input = await aioconsole.ainput(
-                "Please enter 'Y' to enter the pressure thresholds for the jaws\n"
-                "Or, enter 'N' to use the default values of %f,%f,%f\n"
-                "Pressures below this threshold are set to zero when computing feedback to the SNS\n"%(tuple(self.ContactThreshold["Pressure Threshold (psi)"])))
+        match SNS_thresholds_input.upper():
 
+            case "N":
+                pass
 
-            match SNS_thresholds_input.upper():
+            case "Y":
+                vals = await aioconsole.ainput(
+                    "Please enter the pressure thresholds for each jaw, in psi, and separated by commas. \n")
+                vals = [float(x) for x in vals.split(',')]
+                self.ContactThreshold["Pressure Threshold (psi)"] = vals
+            case _:
+                pass
 
-                case "N":
-                    pass
+        self.logger.info("Thresholds (psi): %f, %f, %f" % (tuple(self.ContactThreshold["Pressure Threshold (psi)"])))
 
-                case "Y":
-                    vals = await aioconsole.ainput(
-                        "Please enter the pressure thresholds for each jaw, in psi, and separated by commas. \n")
-                    vals = [float(x) for x in vals.split(',')]
-                    self.ContactThreshold["Pressure Threshold (psi)"] = vals
-                case _:
-                    pass
+        # ------ gain inputs -------#
+        SNS_gains_input = await aioconsole.ainput(
+            "Please enter 'Y' to enter the gains for the jaws\n"
+            "Or, enter 'N' to use the default values of %f,%f,%f\n"
+            "This is the multiplication factor on the measured pressure to transform it to a force.\n" % (
+                tuple(self.ContactThreshold["Pressure Scaling"])))
 
-            self.logger.info("Thresholds (psi): %f, %f, %f"%(tuple(self.ContactThreshold["Pressure Threshold (psi)"] )))
+        match SNS_gains_input.upper():
 
-            #------ gain inputs -------#
-            SNS_gains_input = await aioconsole.ainput(
-                "Please enter 'Y' to enter the gains for the jaws\n"
-                "Or, enter 'N' to use the default values of %f,%f,%f\n"
-                "This is the multiplication factor on the measured pressure to transform it to a force.\n" % (
-                    tuple(self.ContactThreshold["Pressure Scaling"])))
+            case "N":
+                pass
 
-            match SNS_gains_input.upper():
+            case "Y":
+                vals = await aioconsole.ainput(
+                    "Please enter the scaling for pressure for each jaw, and separated by commas. \n")
+                vals = [float(x) for x in vals.split(',')]
+                self.ContactThreshold["Pressure Scaling"] = vals
+            case _:
+                pass
 
-                case "N":
-                    pass
+        self.logger.info("Scaling: %f, %f, %f" % (tuple(self.ContactThreshold["Pressure Scaling"])))
 
-                case "Y":
-                    vals = await aioconsole.ainput(
-                        "Please enter the scaling for pressure for each jaw, and separated by commas. \n")
-                    vals = [float(x) for x in vals.split(',')]
-                    self.ContactThreshold["Pressure Scaling"] = vals
-                case _:
-                    pass
+        # ----- z Time Constant -----
+        SNS_tc_input = await aioconsole.ainput(
+            "Please enter 'Y' to change the time constant of the z axis during grasp\n"
+            "Or, enter 'N' to use the default values of %f seconds \n" % (
+                controller._inter_layer_1._params["tau"].data[2]))
 
-            self.logger.info("Scaling: %f, %f, %f" % (tuple(self.ContactThreshold["Pressure Scaling"])))
+        match SNS_tc_input.upper():
 
+            case "N":
+                pass
 
-            #----- z Time Constant -----
-            SNS_tc_input = await aioconsole.ainput(
-                "Please enter 'Y' to change the time constant of the z axis during grasp\n"
-                "Or, enter 'N' to use the default values of %f seconds \n" % (
-                    controller._inter_layer_1._params["tau"].data[2]))
+            case "Y":
+                vals = await aioconsole.ainput(
+                    "Please enter the new time constant in seconds. \n")
+                vals = float(vals)
+                controller._inter_layer_1._params["tau"].data[2] = vals
+            case _:
+                pass
+        self.logger.info("SNS z height time constant set to %f" % controller._inter_layer_1._params["tau"].data[2])
 
-            match SNS_tc_input.upper():
+        # ----- grasper Time Constant -----
+        SNS_tc_input = await aioconsole.ainput(
+            "Please enter 'Y' to change the time constant of the grasper\n"
+            "Or, enter 'N' to use the default values of %f seconds \n" % (
+                controller._inter_layer_1._params["tau"].data[3]))
 
-                case "N":
-                    pass
+        match SNS_tc_input.upper():
 
-                case "Y":
-                    vals = await aioconsole.ainput(
-                        "Please enter the new time constant in seconds. \n")
-                    vals = float(vals)
-                    controller._inter_layer_1._params["tau"].data[2] = vals
-                case _:
-                    pass
-            self.logger.info("SNS z height time constant set to %f" % controller._inter_layer_1._params["tau"].data[2])
+            case "N":
+                pass
 
-            # ----- grasper Time Constant -----
-            SNS_tc_input = await aioconsole.ainput(
-                "Please enter 'Y' to change the time constant of the grasper\n"
-                "Or, enter 'N' to use the default values of %f seconds \n" % (
-                    controller._inter_layer_1._params["tau"].data[3]))
+            case "Y":
+                vals = await aioconsole.ainput(
+                    "Please enter the new time constant in seconds. \n")
+                vals = float(vals)
+                controller._inter_layer_1._params["tau"].data[3] = vals
+            case _:
+                pass
 
-            match SNS_tc_input.upper():
-
-                case "N":
-                    pass
-
-                case "Y":
-                    vals = await aioconsole.ainput(
-                        "Please enter the new time constant in seconds. \n")
-                    vals = float(vals)
-                    controller._inter_layer_1._params["tau"].data[3] = vals
-                case _:
-                    pass
-
-            self.SNS_grasper_tc_s = deepcopy(controller._inter_layer_1._params["tau"].data[3])
-            self.logger.info("SNS grasper time constant set to %f" % controller._inter_layer_1._params["tau"].data[3])
-
-        returnHome = await aioconsole.ainput(
-            "Enter any button to return home")
-
-        await self.returnHome()
-
-        self.logger.info("Beginning SNS ...")
-
+        self.SNS_grasper_tc_s = deepcopy(controller._inter_layer_1._params["tau"].data[3])
+        self.logger.info("SNS grasper time constant set to %f" % controller._inter_layer_1._params["tau"].data[3])
 
 
 if __name__ == '__main__':

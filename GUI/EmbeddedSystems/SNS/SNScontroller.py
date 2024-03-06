@@ -177,7 +177,7 @@ class SNScontroller:
         if isinstance(self.controller, SNS_Control_closed_loop_v2):
             if grasper_closing_speed is not None:
                 self.grasper_closing_speed = grasper_closing_speed
-            self.controller._inter_layer_2._params["tau"].data[-2:] = 1 / self.grasper_closing_speed
+            self.controller._inter_layer_2._params["tau"].data[-2:] = self.grasper_closing_speed
 
         if zero_time_constant is not None:
             if zero_time_constant == True:
@@ -185,7 +185,8 @@ class SNScontroller:
                 self.controller._motor_layer._params["tau"].data[-1] = 0
 
 
-
+        if force_threshold_gain is not None:
+            self.force_threshold_gain = force_threshold_gain
 
 
 
@@ -206,7 +207,7 @@ class SNScontroller:
 
 
 
-        force = torch.Tensor(list(grasperContact)).unsqueeze(dim=0)
+        force = torch.Tensor(list(grasperContact)).unsqueeze(dim=0)*self.force_threshold_gain
         grasperPos_m = Point(grasperPos_m.x,grasperPos_m.y,grasperPos_m.z-self.z_offset)
         gripper_position = torch.Tensor(list(grasperPos_m)).unsqueeze(dim=0)
 

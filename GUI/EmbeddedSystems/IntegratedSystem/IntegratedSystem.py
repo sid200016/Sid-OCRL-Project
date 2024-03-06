@@ -309,7 +309,7 @@ class IntegratedSystem:
 
 
             #Update the hardware measurements of grasper position and soft grasper state, respecting the lock
-            # TODO: to be populated
+
 
 
 
@@ -318,7 +318,7 @@ class IntegratedSystem:
 
 
     async def SNS_Mode(self): #meant to run as a long running co-routine
-        # TODO: to be populated
+
         # Fix logging
         # Take video of it closing and record the change in radius 3 times
 
@@ -368,7 +368,7 @@ class IntegratedSystem:
 
 
                 # check if in open loop mode and if object has been grasped and we haven't transitioned to the release phase yet
-                if (self.SNS_BypassForceFeedback == True and self.SNSc.object_grasped_phase == True and self.SNSc.release_started == False):
+                if (self.SNSc.ControlMode == ControlType.OPEN_LOOP and self.SNSc.object_grasped_phase == True and self.SNSc.release_started == False):
                     # for grasping set to 20 psi. For releasing, use real pressure
                     grasperContact = GrasperContactForce(*[0, 0, 0]) if self.SG.commandedPosition[
                                                                             "ClosureChangeInRadius_mm"] < self.maxJawChangeInRadius_mm else GrasperContactForce(
@@ -384,20 +384,24 @@ class IntegratedSystem:
                                                                      useRealGantry=False) #update SNS
 
                 # TODO: need to modify for the Force inhibit and Force cap movements.
-                if (self.SNS_BypassForceFeedback == False and self.SNSc.object_grasped_phase == True):
+
+                # ----------------- For normal mode, i.e. manually cap the grasper opening at transition from grasp to lift_after_grasp ---------------#
+                if (self.SNSc.ControlMode == ControlType.NORMAL and self.SNSc.object_grasped_phase == True):
                     if self.SNSc.lift_after_grasp_started == True:
                         self.maxJawChangeInRadius_mm = min(JawRadialPos_m*1000,self.maxJawChangeInRadius_mm)
                         self.logger.info("Lift after grasp started, change in radius limited to %f"%self.maxJawChangeInRadius_mm)
-                        self.logger.info("Time constant of grasper %f"%controller._inter_layer_1._params["tau"].data[3])
+                        self.logger.info("Time constant of grasper %f"%self.SNSc.controller._inter_layer_1._params["tau"].data[3])
 
-                if (self.SNS_BypassForceFeedback == False and self.SNSc.lift_after_grasp_done == False):
-                    controller._inter_layer_1._params["tau"].data[3] = deepcopy(self.SNS_grasper_tc_s)
+                if (self.SNSc.ControlMode == ControlType.NORMAL and self.SNSc.lift_after_grasp_done == False):
+                    self.SNSc.controller._inter_layer_1._params["tau"].data[3] = deepcopy(self.SNS_grasper_tc_s)
 
 
-                elif (self.SNS_BypassForceFeedback == False and self.SNSc.lift_after_grasp_done == True): #if not in grasp phase, set to 0 in order to release object more quickly
-                    controller._inter_layer_1._params["tau"].data[3] = 0
+                elif (self.SNSc.ControlMode == ControlType.NORMAL and self.SNSc.lift_after_grasp_done == True): #if not in grasp phase, set to 0 in order to release object more quickly
+                    self.SNSc.controller._inter_layer_1._params["tau"].data[3] = 0
                     self.ContactThreshold["Pressure Scaling"] = [600,600,600] #change scaling so that
                     #print(controller._inter_layer_1._params["tau"].data[3])
+                # ----------------- End normal mode modification ---------------#
+
 
 
                 #print(self.SNSc.neuronset)
@@ -830,7 +834,7 @@ class IntegratedSystem:
         await asyncio.sleep(0.001)
 
     async def PressureRadiusCalibration(self): #meant to run as a long running co-routine
-        # TODO: to be populated
+
         # Finish SNS
         # Add quick close grasper step
         # Fix logging
@@ -952,7 +956,7 @@ class IntegratedSystem:
                         ",".join(str(v) for k, v in self.pressure_state.items()))  # log the values
                     self.pressure_radius_parameters["Pressure Datalog Event"].set()
 
-                #TODO : need to add video capture code, maybe capture to folder.
+
 
             else:
                 pass
@@ -1069,15 +1073,13 @@ class IntegratedSystem:
                 self.SNS_BypassForceFeedback = False
                 self.SNSc.ControlType = ControlType.FORCE_INHIBIT
                 self.SNSc.initialize_controller()
-
-                # TODO: need to add FI prompts to get inhibitory gain
+                await self.SNS_input_ForceInhibit()
 
             case "FC":
                 self.SNS_BypassForceFeedback = False
                 self.SNSc.ControlType = ControlType.FORCE_CAP
                 self.SNSc.initialize_controller()
-
-                # TODO: need to add FC prompts to get closing speed
+                await self.SNS_input_ForceCap()
 
             case _:
                 self.logger.info("Using default")
@@ -1132,43 +1134,106 @@ class IntegratedSystem:
 
         self.logger.info("Beginning SNS ...")
 
+    async def SNS_input_force_threshold_gain(self):
+        force_gain_response = await aioconsole.ainput("Please enter 'Y' to enter the force threshold gain, "
+                                                      "or enter any other button to use the default value of %f\n" % self.SNSc.force_threshold_gain)
+
+        match force_gain_response.upper():
+
+            case "Y":
+                force_gain_value = await aioconsole.ainput(
+                    "Please enter the force threshold gain as a float. i.e. 100 means 100 times the feedback force.\n "
+                    "The force threshold = force_threshold_gain * feedback force\n")
+
+                self.SNSc.force_threshold_gain = float(force_gain_value)
+
+            case _:
+                pass
+
+        self.logger.info("Force Threshold gain is: %f" % self.SNSc.force_threshold_gain)
+    async def SNS_input_ForceInhibit(self):
+        await self.SNS_input_force_threshold_gain()
+
+        inhibitory_gain_response = await aioconsole.ainput("Please enter 'Y' to enter the inhibitory threshold gain, "
+                                                      "or enter any other button to use the default value of %f\n" % self.SNSc.inhibitory_gain)
+
+        match inhibitory_gain_response.upper():
+
+            case "Y":
+                inhibitory_gain_value = await aioconsole.ainput(
+                    "Please enter the inhibitory gain as a float.\n ")
+
+                self.SNSc.inhibitory_gain = float(inhibitory_gain_value)
+
+            case _:
+                pass
+
+        self.logger.info("Inhibitory gain is: %f" % self.SNSc.inhibitory_gain)
+
+        # ----- prompt to get jaw thresholds and gains if the user wants to change them -----
+        await self.SNS_input_jaw_thresholds_and_gains()
+
+    async def SNS_input_ForceCap(self):
+        await self.SNS_input_force_threshold_gain()
+
+        grasper_closing_speed_response = await aioconsole.ainput("Please enter 'Y' to enter the grasper closing time constant (s), "
+                                                           "or enter any other button to use the default value of %f s\n" % self.SNSc.grasper_closing_speed)
+
+        match grasper_closing_speed_response.upper():
+
+            case "Y":
+                inhibitory_gain_value = await aioconsole.ainput(
+                    "Please enter the grasper closing time constant as a float.\n"
+                    "The larger the value, the longer it will take to pick an object up")
+
+                self.SNSc.grasper_closing_speed = float(inhibitory_gain_value)
+
+            case _:
+                pass
+
+        self.logger.info("Grasper closing time constant is: %f" % self.SNSc.grasper_closing_speed)
+
+        # ----- prompt to get jaw thresholds and gains if the user wants to change them -----
+        await self.SNS_input_jaw_thresholds_and_gains()
 
     async def SNS_input_OpenLoop(self):
         # Ask it they want to adjust or enter new value for the grasper max closure calibration if it is open loop
-        if self.SNS_BypassForceFeedback == True:
-            useGrasperCalibration = await aioconsole.ainput(
-                "Do you want to use the grasper maximum change in radial position from the current state?\n "
-                "Enter 'Y' for yes, 'N' to use default position, 'T' to adjust the calibration grasper value, or 'X' to enter a new value.\n")
 
-            match useGrasperCalibration.upper():
+        useGrasperCalibration = await aioconsole.ainput(
+            "Do you want to use the grasper maximum change in radial position from the current state?\n "
+            "Enter 'Y' for yes, 'N' to use default position, 'T' to adjust the calibration grasper value, or 'X' to enter a new value.\n")
 
-                case "Y":
-                    await self.FreshDataEvent.wait()  # wait for fresh data
-                    self.maxJawChangeInRadius_mm = self.SG.commandedPosition["ClosureChangeInRadius_mm"]
+        match useGrasperCalibration.upper():
 
-                case "N":
-                    self.logger.info("Using default values")
+            case "Y":
+                await self.FreshDataEvent.wait()  # wait for fresh data
+                self.maxJawChangeInRadius_mm = self.SG.commandedPosition["ClosureChangeInRadius_mm"]
 
-                case "T":
-                    vals = await aioconsole.ainput(
-                        "Expecting value in mm, this will be an offset")
-                    self.maxJawChangeInRadius_mm = self.maxJawChangeInRadius_mm + float(vals)
+            case "N":
+                self.logger.info("Using default values")
 
-                case "X":
-                    vals = await aioconsole.ainput(
-                        "Expecting value in mm. This is the new value for maximum change in radial position.")
-                    self.maxJawChangeInRadius_mm = float(vals)
+            case "T":
+                vals = await aioconsole.ainput(
+                    "Expecting value in mm, this will be an offset")
+                self.maxJawChangeInRadius_mm = self.maxJawChangeInRadius_mm + float(vals)
 
-                case "Z":
-                    "Exiting SNS setup ... \n"
-                    return
+            case "X":
+                vals = await aioconsole.ainput(
+                    "Expecting value in mm. This is the new value for maximum change in radial position.")
+                self.maxJawChangeInRadius_mm = float(vals)
 
-                case _:
-                    pass
+            case "Z":
+                "Exiting SNS setup ... \n"
+                return
 
-            self.logger.info("Max closure (mm): %f" % self.maxJawChangeInRadius_mm)
-    async def SNS_input_Normal(self):
-        # Closed loop control
+            case _:
+                pass
+
+        self.logger.info("Max closure (mm): %f" % self.maxJawChangeInRadius_mm)
+
+
+
+    async def SNS_input_jaw_thresholds_and_gains(self):
         SNS_thresholds_input = await aioconsole.ainput(
             "Please enter 'Y' to enter the pressure thresholds for the jaws\n"
             "Or, enter 'N' to use the default values of %f,%f,%f\n"
@@ -1211,12 +1276,17 @@ class IntegratedSystem:
                 pass
 
         self.logger.info("Scaling: %f, %f, %f" % (tuple(self.ContactThreshold["Pressure Scaling"])))
+    async def SNS_input_Normal(self):
+        # Closed loop control
+
+        # ----- thresholds and gains for jaws -----
+        await self.SNS_input_jaw_thresholds_and_gains()
 
         # ----- z Time Constant -----
         SNS_tc_input = await aioconsole.ainput(
             "Please enter 'Y' to change the time constant of the z axis during grasp\n"
             "Or, enter 'N' to use the default values of %f seconds \n" % (
-                controller._inter_layer_1._params["tau"].data[2]))
+                self.SNSc.controller._inter_layer_1._params["tau"].data[2]))
 
         match SNS_tc_input.upper():
 
@@ -1227,16 +1297,16 @@ class IntegratedSystem:
                 vals = await aioconsole.ainput(
                     "Please enter the new time constant in seconds. \n")
                 vals = float(vals)
-                controller._inter_layer_1._params["tau"].data[2] = vals
+                self.SNSc.controller._inter_layer_1._params["tau"].data[2] = vals
             case _:
                 pass
-        self.logger.info("SNS z height time constant set to %f" % controller._inter_layer_1._params["tau"].data[2])
+        self.logger.info("SNS z height time constant set to %f" % self.SNSc.controller._inter_layer_1._params["tau"].data[2])
 
         # ----- grasper Time Constant -----
         SNS_tc_input = await aioconsole.ainput(
             "Please enter 'Y' to change the time constant of the grasper\n"
             "Or, enter 'N' to use the default values of %f seconds \n" % (
-                controller._inter_layer_1._params["tau"].data[3]))
+                self.SNSc.controller._inter_layer_1._params["tau"].data[3]))
 
         match SNS_tc_input.upper():
 
@@ -1247,12 +1317,12 @@ class IntegratedSystem:
                 vals = await aioconsole.ainput(
                     "Please enter the new time constant in seconds. \n")
                 vals = float(vals)
-                controller._inter_layer_1._params["tau"].data[3] = vals
+                self.SNSc.controller._inter_layer_1._params["tau"].data[3] = vals
             case _:
                 pass
 
-        self.SNS_grasper_tc_s = deepcopy(controller._inter_layer_1._params["tau"].data[3])
-        self.logger.info("SNS grasper time constant set to %f" % controller._inter_layer_1._params["tau"].data[3])
+        self.SNS_grasper_tc_s = deepcopy(self.SNSc.controller._inter_layer_1._params["tau"].data[3])
+        self.logger.info("SNS grasper time constant set to %f" % self.SNSc.controller._inter_layer_1._params["tau"].data[3])
 
 
 if __name__ == '__main__':

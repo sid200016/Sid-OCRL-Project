@@ -14,9 +14,9 @@ import sys
 
 from enum import Enum
 
-from .controller.SNS_layer import perceptor_original, controller_original #original_controller
-from .controller_ForceTrigger.SNS_layer import R, perceptor_FT, controller_open_loop, controller_closed_loop_v1, SNS_Control_closed_loop_v1, controller_closed_loop_v2, SNS_Control_closed_loop_v2
-from .controller_modulation.SNS_layer import perceptor_modulation, controller_modulation
+from .controller.SNS_layer import perceptor as perceptor_original, controller as controller_original #original_controller
+from .controller_ForceTrigger.SNS_layer import R, perceptor as perceptor_FT, controller_open_loop, controller_closed_loop_v1, SNS_Control_closed_loop_v1, controller_closed_loop_v2, SNS_Control_closed_loop_v2
+from .controller_modulation.SNS_layer import perceptor as perceptor_modulation, controller as controller_modulation
 
 class ControlType(Enum):
     NORMAL = 0 #close until contact
@@ -100,8 +100,8 @@ class SNScontroller:
                 self.perceptor = perceptor_original
 
             case _:  # for normal or open-loop mode
-                self.controller = controller_open_loop
-                self.perceptor = perceptor_FT
+                self.controller = controller_original
+                self.perceptor = perceptor_original
 
         self.perceptor.reset()
         self.controller.reset()

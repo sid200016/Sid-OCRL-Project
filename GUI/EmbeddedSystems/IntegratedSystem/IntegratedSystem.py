@@ -209,7 +209,7 @@ class IntegratedSystem:
         else:  # rigid grasper
             pass
 
-        self.SNSc = SNScontroller(ModulateSNS=False)
+        self.SNSc = SNScontroller()
 
         #setup the logger
         self.setupLogger()

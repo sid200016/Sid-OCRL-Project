@@ -1,7 +1,7 @@
 import numpy as np
 import torch
 import torch.nn as nn
-import . import torchSNS as tSNS
+from . import torchSNS as tSNS
 from .torchSNS.torch import SNSCell,SNSCell_modulation
 from pathlib import Path
 

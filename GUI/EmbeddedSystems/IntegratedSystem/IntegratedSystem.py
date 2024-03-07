@@ -206,6 +206,9 @@ class IntegratedSystem:
             self.jcSG = JC.Joy_SoftGrasper(SGa=self.SG,
                                       GantryS=self.GC)  # initialize joystick control of soft grasper and gantry controller
 
+
+
+
         else:  # rigid grasper
             pass
 
@@ -216,10 +219,21 @@ class IntegratedSystem:
 
 
     async def Read_Move_Hardware(self):
-        self.SG.ReadGrasperData() #To fix: need to do this at least once so that there is data on the serial line, otherwise "ReadSensorValues" will fail
+        self.SG.ReadGrasperData() #TODO ... To fix: need to do this at least once so that there is data on the serial line, otherwise "ReadSensorValues" will fail
         self.SG.ReadGrasperData()
 
         await asyncio.sleep(0.5)
+
+        if self.grasperType == GrasperType.SoftGrasper:
+            # set the initial
+            jawPressure, ClosurePressure = await self.SG.ReadSensorValues(
+                number_avg=10,
+                loop_delay=0.020)
+
+            self.SG.PrevJawPress = jawPressure  # initialize the jaw pressure
+
+            self.logger.info("Initial jaw pressure is (psi):" +",".join([str(x) for x in self.SG.PrevJawPress]))
+
 
         while True:
             if self.jcSG.ControlMode != JC.JoyConState.NORMAL: #only do constant update of position when not in joystick control mode
@@ -325,6 +339,10 @@ class IntegratedSystem:
         while (True):
             if self.jcSG.ControlMode == JC.JoyConState.USE_SNS:
                 self.logger.debug('Inside SNS control')
+
+                self.GrasperReadAverage["Number of Loops"] = 5
+                self.GrasperReadAverage["Time Delay (s)"] = 0.005
+                self.GrasperReadAverage["Average Event"].set()  # setup to average values before returning
 
                 await self.FreshDataEvent.wait()  # wait for fresh data
 
@@ -467,6 +485,8 @@ class IntegratedSystem:
 
                 self.MoveGrasperEvent.set()
                 self.MoveGantryEvent.set()
+
+                self.GrasperReadAverage["Average Event"].clear()
 
 
 

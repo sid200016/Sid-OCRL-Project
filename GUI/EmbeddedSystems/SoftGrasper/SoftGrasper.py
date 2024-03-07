@@ -69,7 +69,7 @@ class SoftGrasper:
 
 
         self.PressureArray = [[] for x in range(0, self.numPorts)]  # to store pressure values
-        self.PrevJawPress = None  # list to hold the original Jaw Press
+        self.PrevJawPress = [0,0,0]  # list to hold the original Jaw Press. Need to update outside of code
         self.JawPos = [1, 2, 3]  # position of pressure values that the jaws are at
         self.closureMuscle_idx = 0 #index for the closure muscle
         self.changeInPressure = [0, 0, 0] # change in pressure in psi for the three jaws
@@ -185,11 +185,13 @@ class SoftGrasper:
 
             CurJawPress = [self.PressureArray[x][-1] for x in self.JawPos]
             #PrevJawPress= [self.PressureArray[x][-2] for x in self.JawPos]
-            if self.PrevJawPress is None:
-                self.PrevJawPress=CurJawPress
-                #self.logger.info('baseline Jaw pressure is '+str(self.PrevJawPress))
+            # if self.PrevJawPress is None:
+            #     self.PrevJawPress=CurJawPress
+            #     #self.logger.info('baseline Jaw pressure is '+str(self.PrevJawPress))
 
             ChangeInPressure = (np.array(CurJawPress)-np.array(self.PrevJawPress)).tolist()
+
+            #ChangeInPressure = (np.array(CurJawPress)).tolist()
             #return(ChangeInPressure)
             return(ChangeInPressure)
 

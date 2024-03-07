@@ -404,6 +404,12 @@ class IntegratedSystem:
 
 
 
+                # --- report for other modes what the limit of the force is when transition begins ----
+                if (self.SNSc.object_grasped_phase == True and self.SNSc.lift_after_grasp_started == True):
+                    self.logger.info("Lift after grasp started, change in radius set to %f" %self.SG.commandedPosition["ClosureChangeInRadius_mm"])
+
+                # --- finish
+
                 #print(self.SNSc.neuronset)
                 self.logger.debug('Jaw radial pos in m:%f' % (JawRadialPos_m))
                 self.logger.debug('Command Position: %f %f %f' % (*list(commandPosition_m),))
@@ -455,6 +461,8 @@ class IntegratedSystem:
                     await asyncio.sleep(8)
                     self.logger.debug (self.SG.commandedPosition["ClosureChangeInRadius_mm"])
                     self.logger.info("In Release Phase")
+
+
 
 
                 self.MoveGrasperEvent.set()

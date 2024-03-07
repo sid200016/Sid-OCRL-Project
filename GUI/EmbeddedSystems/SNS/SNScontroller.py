@@ -247,6 +247,8 @@ class SNScontroller:
             [x_d, y_d, z_d, JawRadialPos_m] = motor_states.numpy()
 
 
+
+
         cmd_grasperPos_m = Point(x_d, y_d,
                                  z_d + self.z_offset)  # note that this is in meters, and doesn't account for the offset that is considered 0,0,0 on the gantry.  Need to correct for that afterwards
 

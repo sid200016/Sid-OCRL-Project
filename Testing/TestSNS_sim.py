@@ -9,7 +9,7 @@ import numpy as np
 
 from GUI.EmbeddedSystems.Support.Structures import Point,GrasperContactForce
 from GUI.EmbeddedSystems.Gantry.envs.GantrySimulation import GantrySimulation
-from GUI.EmbeddedSystems.SNS.SNScontroller import SNScontroller, controller, F_MAX
+from GUI.EmbeddedSystems.SNS.SNScontroller import SNScontroller
 #########################################################
 
 def pick_and_place():
@@ -28,6 +28,7 @@ def pick_and_place():
 
 
     SNSc = SNScontroller()
+    SNSc.initialize_controller()
 
 
     positionset = []
@@ -49,19 +50,19 @@ def pick_and_place():
     max_jaw_radial_pos_m = None
 
     #for modifying the time constant of depositing the object
-    print ("Time constant of release is %f"%controller._inter_layer_1._params["tau"].data[2])
-    controller._inter_layer_1._params["tau"].data[2] = 1.5
-    print("Time constant of release is %f" % controller._inter_layer_1._params["tau"].data[2])
+    print ("Time constant of release is %f"%SNSc.controller._inter_layer_1._params["tau"].data[2])
+    SNSc.controller._inter_layer_1._params["tau"].data[2] = 1.5
+    print("Time constant of release is %f" % SNSc.controller._inter_layer_1._params["tau"].data[2])
 
     # orig_time_constant_z = deepcopy(controller._inter_layer_1._params["tau"].data[2])
     # print("Time constant of release is %f" % controller._inter_layer_1._params["tau"].data[2])
     #
     # #For opening closing the gripper
-    print("Time constant of grasper opening/closing is %f" % controller._inter_layer_1._params["tau"].data[3])
-    controller._inter_layer_1._params["tau"].data[3] = 0.3
-    print("Time constant of grasper opening/closing is %f" % controller._inter_layer_1._params["tau"].data[3])
+    print("Time constant of grasper opening/closing is %f" % SNSc.controller._inter_layer_1._params["tau"].data[3])
+    SNSc.controller._inter_layer_1._params["tau"].data[3] = 0.3
+    print("Time constant of grasper opening/closing is %f" % SNSc.controller._inter_layer_1._params["tau"].data[3])
 
-    controller.F_MAX = np.array([1000,1000,1000])
+    SNSc.controller.F_MAX = np.array([1000,1000,1000])
 
     while (not gS.CheckStopSim()):  # check to see if the button was pressed to close the sim
 

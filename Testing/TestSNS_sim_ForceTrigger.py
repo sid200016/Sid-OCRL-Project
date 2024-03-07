@@ -8,7 +8,7 @@ import numpy as np
 
 from GUI.EmbeddedSystems.Support.Structures import Point,GrasperContactForce
 from GUI.EmbeddedSystems.Gantry.envs.GantrySimulation import GantrySimulation
-from GUI.EmbeddedSystems.SNS.SNScontroller import SNScontroller
+from GUI.EmbeddedSystems.SNS.SNScontroller import SNScontroller, ControlType
 #########################################################
 
 def pick_and_place():
@@ -26,7 +26,8 @@ def pick_and_place():
     p.setAdditionalSearchPath("C://Users//Ravesh//BulletPhysics//bullet3//examples//pybullet//gym//pybullet_data")
 
 
-    SNSc = SNScontroller(ModulateSNS=True)
+    SNSc = SNScontroller(ControlMode = ControlType.NORMAL)
+    SNSc.initialize_controller()
 
 
     positionset = []
@@ -45,6 +46,9 @@ def pick_and_place():
     cmd_grasperPos_m = Point(0,0,0)
     JawRadialPos_m = 0
 
+    ts = gS.timeStep
+    nsteps = 0
+
 
 
     while (not gS.CheckStopSim()):  # check to see if the button was pressed to close the sim
@@ -58,7 +62,7 @@ def pick_and_place():
             object_position_list = [0, 0, -0.315]
             target_position_list = [1.5, 1.5, -0.34]
 
-        if GUI_control is False:
+        if GUI_control is False: #use SNS
             x = gS.bulletClient.getJointState(
                 gS.gantryId, gS.GantryLinkIndex_dict["GantryHeadIndex"])[0]
             y = gS.bulletClient.getJointState(

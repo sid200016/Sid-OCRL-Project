@@ -27,7 +27,7 @@ class ControlType(Enum):
     ORIGINAL = 5
 class SNScontroller:
 
-    def __init__(self,objectPos_m = Point(0,0,0), targetPos_m = Point(0,0,0), ControlMode = ControlType.OPEN_LOOP,
+    def __init__(self,objectPos_m = Point(0,0,0), targetPos_m = Point(0,0,0), ControlMode = ControlType.ORIGINAL,
                  force_threshold_gain=1, inhibitory_gain=1, grasper_closing_speed=1, zero_time_constant=False):
         self.neuronset = {
             "move_to_pre_grasp":0,
@@ -100,8 +100,8 @@ class SNScontroller:
                 self.perceptor = perceptor_original
 
             case _:  # for normal or open-loop mode
-                self.controller = controller_original
-                self.perceptor = perceptor_original
+                self.controller = controller_open_loop
+                self.perceptor = perceptor_FT
 
         self.perceptor.reset()
         self.controller.reset()
@@ -205,6 +205,14 @@ class SNScontroller:
         if targetPos_m is not None:
             self.target_position = torch.Tensor(list(targetPos_m)).unsqueeze(dim=0) #update the target pos
 
+        #Before object grasped phase, the target position x and y need to be same as the object position. If in object grasped phase, use the correct x and y
+        if (self.neuronset["move_to_pre_grasp"] >0):
+            targ_pos = torch.Tensor([self.object_position.squeeze().numpy()[0],
+                                     self.object_position.squeeze().numpy()[1],
+                                     self.target_position.squeeze().numpy()[2]]).unsqueeze(dim=0)
+        else:
+            targ_pos = self.target_position
+
 
 
         force = torch.Tensor(list(grasperContact)).unsqueeze(dim=0)*self.force_threshold_gain
@@ -214,24 +222,27 @@ class SNScontroller:
 
         if self.ControlMode == ControlType.ORIGINAL or self.ControlMode == ControlType.MODULATE: #for the original version and the modulation
             commands = self.perceptor.forward(
-                gripper_position, self.object_position, self.target_position, force)
+                gripper_position, self.object_position, targ_pos, force)
 
 
             [move_to_pre_grasp, move_to_grasp, grasp, lift_after_grasp, move_to_pre_release,
              move_to_release, release, lift_after_release] = commands.squeeze(dim=0).numpy()
 
             [x_d, y_d, z_d, JawRadialPos_m] = self.controller.forward(
-                self.object_position, self.target_position, commands).numpy()
+                self.object_position, targ_pos, commands).numpy()
 
-        elif self.ControlMode == ControlType.FORCE_INHIBIT or self.ControlMode == ControlType.FORCE_CAP:
+        elif self.ControlMode == ControlType.FORCE_INHIBIT or self.ControlMode == ControlType.FORCE_CAP or self.ControlMode == ControlType.NORMAL:
             commands, force_output = self.perceptor.forward(gripper_position, self.object_position,
-                                                            self.target_position, force)
+                                                            targ_pos, force)
+
+            [move_to_pre_grasp, move_to_grasp, grasp, lift_after_grasp, move_to_pre_release,
+             move_to_release, release, lift_after_release] = commands.squeeze(dim=0).numpy()
 
             force_sum = force_output.squeeze(dim=0).numpy()
             if isinstance(self.controller, SNS_Control_closed_loop_v1):
-                motor_states = self.controller.forward(self.object_position, self.target_position, commands, force_output)
+                motor_states = self.controller.forward(self.object_position, targ_pos, commands, force_output)
             else:
-                motor_states = self.controller.forward(self.object_position, self.target_position, commands)
+                motor_states = self.controller.forward(self.object_position, targ_pos, commands)
 
             [x_d, y_d, z_d, JawRadialPos_m] = motor_states.numpy()
 

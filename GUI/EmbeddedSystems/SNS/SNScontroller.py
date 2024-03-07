@@ -206,14 +206,14 @@ class SNScontroller:
             self.target_position = torch.Tensor(list(targetPos_m)).unsqueeze(dim=0) #update the target pos
 
         #Before object grasped phase, the target position x and y need to be same as the object position. If in object grasped phase, use the correct x and y
-        if (self.neuronset["move_to_pre_grasp"] >0):
-            targ_pos = torch.Tensor([self.object_position.squeeze().numpy()[0],
-                                     self.object_position.squeeze().numpy()[1],
-                                     self.target_position.squeeze().numpy()[2]]).unsqueeze(dim=0)
-        else:
-            targ_pos = self.target_position
+        # if (self.neuronset["move_to_pre_grasp"] >0):
+        #     targ_pos = torch.Tensor([self.object_position.squeeze().numpy()[0],
+        #                              self.object_position.squeeze().numpy()[1],
+        #                              self.target_position.squeeze().numpy()[2]]).unsqueeze(dim=0)
+        # else:
+        #     targ_pos = self.target_position
 
-
+        targ_pos = self.target_position
 
         force = torch.Tensor(list(grasperContact)).unsqueeze(dim=0)*self.force_threshold_gain
         grasperPos_m = Point(grasperPos_m.x,grasperPos_m.y,grasperPos_m.z-self.z_offset)

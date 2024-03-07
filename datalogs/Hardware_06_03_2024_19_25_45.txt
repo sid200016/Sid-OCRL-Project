@@ -1,0 +1,25 @@
+2024-03-06 19:25:45,242 - __main__ - INFO - Enter C for calibration. 
+Enter S for SNS. 
+Enter Z to return to joystick control
+Enter H to move grasper home 
+Enter T to inflate until grasper touches 
+Enter MG to move the grasper 
+Enter M to move the gantry 
+Enter D to display robot state 
+Enter PR to enter pressure radius calibration 
+
+2024-03-06 19:25:48,840 - __main__ - INFO - S
+2024-03-06 19:25:52,717 - __main__ - INFO - Type selected: FC
+2024-03-06 19:25:56,163 - __main__ - INFO - Force Threshold gain is: 1.000000
+2024-03-06 19:26:03,329 - __main__ - INFO - Grasper closing time constant is: 8.500000
+2024-03-06 19:26:10,382 - __main__ - INFO - Thresholds (psi): 0.020000, 0.020000, 0.020000
+2024-03-06 19:26:20,219 - __main__ - INFO - Scaling: 25.000000, 25.000000, 25.000000
+2024-03-06 19:26:28,642 - __main__ - INFO - Using default values
+2024-03-06 19:26:28,642 - __main__ - INFO - x,y,z used is (mm): -6.587500, 12.362000, -184.640000
+2024-03-06 19:26:52,596 - __main__ - INFO - Return home completed
+2024-03-06 19:26:52,596 - __main__ - INFO - Beginning SNS ...
+2024-03-06 19:26:52,596 - __main__ - DEBUG - Inside SNS control
+2024-03-06 19:26:52,611 - __main__ - INFO - Z offset 0.000000
+2024-03-06 19:26:52,611 - __main__ - DEBUG - Target position in m: -0.183413 -0.252362 -0.184000
+2024-03-06 19:26:52,611 - __main__ - DEBUG - GrasperPos in m:0.006587 -0.012362 0.000000
+2024-03-06 19:26:52,611 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.184640

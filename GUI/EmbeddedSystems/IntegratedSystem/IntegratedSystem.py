@@ -439,7 +439,7 @@ class IntegratedSystem:
                     if self.SNSc.num_grasp_attempts >= 1 and self.SNSc.motion_complete == True:
                         self.jcSG.SNS_control = False  # reset to false to give control back to the user
                         self.jcSG.ControlMode = JC.JoyConState.NORMAL
-                        self.logger.info('Reset the SNS controller after motion complete complete')
+                        self.logger.info('Reset the SNS controller after motion complete')
                         self.SG.commandedPosition["ClosureChangeInRadius_mm"] = 0 #so it doesn't re-pressurize
 
                 # if in open loop mode, need to have extra delay to allow the grasp to complete
@@ -470,7 +470,7 @@ class IntegratedSystem:
 
 
             else:
-                self.SNSc = SNScontroller() #reinitialize SNS
+                #self.SNSc = SNScontroller() #reinitialize SNS
                 self.SNSc.first_attempt = True
 
 
@@ -1059,25 +1059,25 @@ class IntegratedSystem:
 
             case "O":
                 self.SNS_BypassForceFeedback = True
-                self.SNSc.ControlType = ControlType.OPEN_LOOP
+                self.SNSc.ControlMode = ControlType.OPEN_LOOP
                 self.SNSc.initialize_controller()
                 await self.SNS_input_OpenLoop()
 
             case "C":
                 self.SNS_BypassForceFeedback = False
-                self.SNSc.ControlType = ControlType.NORMAL
+                self.SNSc.ControlMode = ControlType.NORMAL
                 self.SNSc.initialize_controller()
                 await self.SNS_input_Normal()
 
             case "FI":
                 self.SNS_BypassForceFeedback = False
-                self.SNSc.ControlType = ControlType.FORCE_INHIBIT
+                self.SNSc.ControlMode = ControlType.FORCE_INHIBIT
                 self.SNSc.initialize_controller()
                 await self.SNS_input_ForceInhibit()
 
             case "FC":
                 self.SNS_BypassForceFeedback = False
-                self.SNSc.ControlType = ControlType.FORCE_CAP
+                self.SNSc.ControlMode = ControlType.FORCE_CAP
                 self.SNSc.initialize_controller()
                 await self.SNS_input_ForceCap()
 

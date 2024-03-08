@@ -7,7 +7,6 @@
     <list default="true" id="bfd83e2d-ab31-4129-8c0e-ce5b016d6614" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/SoftGrasper/SoftGrasper.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SoftGrasper/SoftGrasper.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -426,42 +425,42 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py</url>
-          <line>268</line>
+          <line>269</line>
           <option name="timeStamp" value="281" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py</url>
-          <line>477</line>
+          <line>478</line>
           <option name="timeStamp" value="282" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py</url>
-          <line>1097</line>
+          <line>1098</line>
           <option name="timeStamp" value="287" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py</url>
-          <line>1162</line>
+          <line>1163</line>
           <option name="timeStamp" value="293" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py</url>
-          <line>1160</line>
+          <line>1161</line>
           <option name="timeStamp" value="294" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py</url>
-          <line>1109</line>
+          <line>1110</line>
           <option name="timeStamp" value="295" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py</url>
-          <line>1305</line>
+          <line>1306</line>
           <option name="timeStamp" value="296" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py</url>
-          <line>1224</line>
+          <line>1225</line>
           <option name="timeStamp" value="297" />
         </line-breakpoint>
       </breakpoints>

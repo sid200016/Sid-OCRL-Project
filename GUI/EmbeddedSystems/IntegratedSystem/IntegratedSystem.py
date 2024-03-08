@@ -230,7 +230,8 @@ class IntegratedSystem:
                 number_avg=10,
                 loop_delay=0.020)
 
-            self.SG.PrevJawPress = jawPressure  # initialize the jaw pressure
+            ## Skip this temporarily
+            #self.SG.PrevJawPress = jawPressure  # initialize the jaw pressure
 
             self.logger.info("Initial jaw pressure is (psi):" +",".join([str(x) for x in self.SG.PrevJawPress]))
 

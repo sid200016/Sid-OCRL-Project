@@ -341,7 +341,7 @@ class IntegratedSystem:
             if self.jcSG.ControlMode == JC.JoyConState.USE_SNS:
                 self.logger.debug('Inside SNS control')
 
-                self.GrasperReadAverage["Number of Loops"] = 5
+                self.GrasperReadAverage["Number of Loops"] = 15
                 self.GrasperReadAverage["Time Delay (s)"] = 0.005
                 self.GrasperReadAverage["Average Event"].set()  # setup to average values before returning
 
@@ -379,8 +379,17 @@ class IntegratedSystem:
                 grasperThreshold = self.ContactThreshold["Pressure Threshold (psi)"]
                 pressureScaling = self.ContactThreshold["Pressure Scaling"]
 
-                grasperContact = [(x) * pressureScaling[i] if x >= grasperThreshold[i] else 0 for (i, x) in
+                grasperContact = [(x-grasperThreshold[i]) * pressureScaling[i] if x >= grasperThreshold[i] else 0 for (i, x) in
                                   enumerate(jawPressure)]
+
+                num_grasper_contact = np.where(np.array(grasperContact)==0)[0] #check how many are not in contact
+
+                if len(num_grasper_contact)==1: #if you have two jaws in contact, then set the third jaw to the max contact pressure
+                    grasperContact[num_grasper_contact[0]] = max(grasperContact)
+
+
+
+
 
                 grasperContact = GrasperContactForce(*grasperContact) #grasper contact force
 
@@ -795,6 +804,8 @@ class IntegratedSystem:
     async def displayRobotState(self):
         priorMode = self.jcSG.ControlMode
         self.jcSG.ControlMode = JC.JoyConState.DISPLAY_DATA
+        self.GrasperReadAverage["Number of Loops"] = 15
+        self.GrasperReadAverage["Time Delay (s)"] = 0.005
         await self.FreshDataEvent.wait()
         self.logger.info("Gantry position(mm): %f %f %f \n" % tuple([x * 1000 for x in self.curPos]))
         self.logger.info(

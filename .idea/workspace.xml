@@ -7,6 +7,29 @@
     <list default="true" id="bfd83e2d-ab31-4129-8c0e-ce5b016d6614" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/SNScontroller.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/SNScontroller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.JoyCon.JoyCon_07_03_2024_10_38_14.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.JoyCon.JoyCon_07_03_2024_11_05_08.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.JoyCon.JoyCon_07_03_2024_14_12_26.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.JoyCon.JoyCon_07_03_2024_16_52_34.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.JoyCon.JoyCon_07_03_2024_17_28_36.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.JoyCon.JoyCon_07_03_2024_18_25_06.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.JoyCon.JoyCon_08_03_2024_11_37_48.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.JoyCon.JoyCon_08_03_2024_11_57_00.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.JoyCon.JoyCon_08_03_2024_15_32_29.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.JoyCon.JoyCon_09_03_2024_15_27_30.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.JoyCon.JoyCon_11_03_2024_10_10_33.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.JoyCon.JoyCon_11_03_2024_12_25_09.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.JoyCon.JoyCon_11_03_2024_12_38_53.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.JoyCon.JoyCon_11_03_2024_13_02_56.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.JoyCon.JoyCon_12_03_2024_14_19_07.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.JoyCon.JoyCon_12_03_2024_14_40_43.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.JoyCon.JoyCon_19_02_2024_18_37_57.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.JoyCon.JoyCon_20_02_2024_13_01_14.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.JoyCon.JoyCon_20_02_2024_13_35_27.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.JoyCon.JoyCon_22_02_2024_11_38_08.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.JoyCon.JoyCon_24_02_2024_12_45_09.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.JoyCon.JoyCon_24_02_2024_16_38_07.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -430,37 +453,37 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py</url>
-          <line>487</line>
+          <line>497</line>
           <option name="timeStamp" value="282" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py</url>
-          <line>1109</line>
+          <line>1119</line>
           <option name="timeStamp" value="287" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py</url>
-          <line>1174</line>
+          <line>1184</line>
           <option name="timeStamp" value="293" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py</url>
-          <line>1172</line>
+          <line>1182</line>
           <option name="timeStamp" value="294" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py</url>
-          <line>1121</line>
+          <line>1131</line>
           <option name="timeStamp" value="295" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py</url>
-          <line>1317</line>
+          <line>1327</line>
           <option name="timeStamp" value="296" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py</url>
-          <line>1236</line>
+          <line>1246</line>
           <option name="timeStamp" value="297" />
         </line-breakpoint>
       </breakpoints>

@@ -110,8 +110,8 @@ class IntegratedSystem:
         #For SNS
         self.max_z_height = -0.184
         self.SNS_target_pos_m = [-0.19,-0.24,-0.184]
-        self.SNS_object_pos_m = [-0.0065875,0.012362,-0.18464] #[0,0,-0.184]
-        self.ContactThreshold = {"Pressure Threshold (psi)":[0.007,0.007,0.007], "Pressure Scaling":[100,100,100]}
+        self.SNS_object_pos_m = [-0.0095875,0.012362,-0.18464] #[0,0,-0.184]
+        self.ContactThreshold = {"Pressure Threshold (psi)":[0.010,0.020,0.029], "Pressure Scaling":[1,1,1]}
         self.maxJawChangeInRadius_mm = 30 #20 mm max jaw change in radius
         self.SNS_BypassForceFeedback = True
         self.SNS_grasper_tc_s = 0 #time constant for the closure muscle of the grasper
@@ -382,13 +382,16 @@ class IntegratedSystem:
                 grasperContact = [(x-grasperThreshold[i]) * pressureScaling[i] if x >= grasperThreshold[i] else 0 for (i, x) in
                                   enumerate(jawPressure)]
 
+
                 num_grasper_contact = np.where(np.array(grasperContact)==0)[0] #check how many are not in contact
+
 
                 if len(num_grasper_contact)==1: #if you have two jaws in contact, then set the third jaw to the max contact pressure
                     grasperContact[num_grasper_contact[0]] = max(grasperContact)
 
 
-
+                # if len(num_grasper_contact)== 2:
+                #     grasperContact=[max(grasperContact) for x in grasperContact] #set to max contact for all three if only one jaw is in contact
 
 
                 grasperContact = GrasperContactForce(*grasperContact) #grasper contact force
@@ -430,6 +433,13 @@ class IntegratedSystem:
                     #print(controller._inter_layer_1._params["tau"].data[3])
                 # ----------------- End normal mode modification ---------------#
 
+
+                # ----------------- Force Cap Mode Modification for release -----------#
+                if (self.SNSc.ControlMode == ControlType.FORCE_CAP
+                        and self.SNSc.lift_after_grasp_done == True):  # if not in grasp phase, set to 0 in order to release object more quickly
+                    self.SNSc.controller._inter_layer_1._params["tau"].data[3] = 0
+                    self.ContactThreshold["Pressure Scaling"] = [2000, 2000, 2000]  # change scaling so that
+                # ----------------- Force Cap Mode Modification for release -----------#
 
 
                 # --- report for other modes what the limit of the force is when transition begins ----

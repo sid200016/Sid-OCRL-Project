@@ -179,6 +179,15 @@ class SNScontroller:
                 self.grasper_closing_speed = grasper_closing_speed
             self.controller._inter_layer_2._params["tau"].data[-2:] = self.grasper_closing_speed
 
+            #Setting perceptor layer time constants to 0.01
+
+            self.perceptor._sensory_layer_1._params["tau"].data = 0.01 * torch.ones_like(
+                self.perceptor._sensory_layer_1._params["tau"].data)
+            self.perceptor._sensory_layer_2._params["tau"].data = 0.01 * torch.ones_like(
+                self.perceptor._sensory_layer_2._params["tau"].data)
+            self.perceptor._command_layer._params["tau"].data = 0.01 * torch.ones_like(
+                self.perceptor._command_layer._params["tau"].data)
+
         if zero_time_constant is not None:
             if zero_time_constant == True:
                 self.controller._inter_layer_1._params["tau"].data[-2:] = 0

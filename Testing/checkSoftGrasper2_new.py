@@ -18,7 +18,7 @@ while (True):
     SG.PressurePorts[3].portStatus = PortActions.HOLD
     SG.PressurePorts[2].portStatus = PortActions.HOLD
     SG.PressurePorts[1].portStatus = PortActions.HOLD
-    SG.PressurePorts[0].portStatus = PortActions.INFLATE_AND_MODULATE
+    SG.PressurePorts[0].portStatus = PortActions.HOLD
     SG.PressurePorts[0].commandedPressure = 2.3
 
     byteList = SG.ConstructPortCommand()

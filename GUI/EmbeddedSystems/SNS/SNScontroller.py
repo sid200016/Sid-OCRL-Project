@@ -65,6 +65,8 @@ class SNScontroller:
 
         self.ControlMode = ControlMode
 
+        self.SNS_release_done = False #for use in the real ganty control. Set to true when trigger the SNS release the 1st time so it doesn't wait 8 seconds for each part of the release phase
+
         self.controller = None
         self.perceptor = None
 
@@ -189,9 +191,11 @@ class SNScontroller:
                 self.perceptor._command_layer._params["tau"].data)
 
         if zero_time_constant is not None:
-            if zero_time_constant == True:
-                self.controller._inter_layer_1._params["tau"].data[-2:] = 0
-                self.controller._motor_layer._params["tau"].data[-1] = 0
+            self.zero_time_constant = zero_time_constant
+
+        if self.zero_time_constant == True:
+            self.controller._inter_layer_1._params["tau"].data[-2:] = 0
+            self.controller._motor_layer._params["tau"].data[-1] = 0
 
 
         if force_threshold_gain is not None:

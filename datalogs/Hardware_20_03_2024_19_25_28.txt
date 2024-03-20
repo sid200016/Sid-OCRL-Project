@@ -1,0 +1,92 @@
+2024-03-20 19:25:28,495 - __main__ - INFO - Enter C for calibration. 
+Enter S for SNS. 
+Enter Z to return to joystick control
+Enter H to move grasper home 
+Enter T to inflate until grasper touches 
+Enter MG to move the grasper 
+Enter M to move the gantry 
+Enter D to display robot state 
+Enter PR to enter pressure radius calibration 
+
+2024-03-20 19:25:29,175 - __main__ - INFO - Initial jaw pressure is (psi):0,0,0
+2024-03-20 19:25:31,062 - __main__ - INFO - D
+2024-03-20 19:25:31,062 - __main__ - INFO - Gantry position(mm): 0.000000 0.000000 0.000000 
+
+2024-03-20 19:25:31,064 - __main__ - INFO - Grasper closure muscle pressure(psi): -0.032042 
+
+2024-03-20 19:25:31,064 - __main__ - INFO - Grasper closure radius(mm): 0.000000 
+
+2024-03-20 19:25:31,064 - __main__ - INFO - Grasper contact pressure (psi): 0.006866, 0.011443, 0.025176 
+
+2024-03-20 19:25:33,076 - __main__ - INFO - D
+2024-03-20 19:25:33,094 - __main__ - INFO - Gantry position(mm): 0.000000 0.000000 0.000000 
+
+2024-03-20 19:25:33,094 - __main__ - INFO - Grasper closure muscle pressure(psi): -0.029753 
+
+2024-03-20 19:25:33,094 - __main__ - INFO - Grasper closure radius(mm): 0.000000 
+
+2024-03-20 19:25:33,094 - __main__ - INFO - Grasper contact pressure (psi): 0.006866, 0.011443, 0.020598 
+
+2024-03-20 19:25:35,785 - __main__ - INFO - D
+2024-03-20 19:25:35,785 - __main__ - INFO - Gantry position(mm): 0.000000 0.000000 0.000000 
+
+2024-03-20 19:25:35,785 - __main__ - INFO - Grasper closure muscle pressure(psi): -0.025175 
+
+2024-03-20 19:25:35,785 - __main__ - INFO - Grasper closure radius(mm): 0.000000 
+
+2024-03-20 19:25:35,785 - __main__ - INFO - Grasper contact pressure (psi): 0.006866, 0.011443, 0.025176 
+
+2024-03-20 19:25:37,031 - __main__ - INFO - D
+2024-03-20 19:25:37,031 - __main__ - INFO - Gantry position(mm): 0.000000 0.000000 0.000000 
+
+2024-03-20 19:25:37,031 - __main__ - INFO - Grasper closure muscle pressure(psi): -0.032042 
+
+2024-03-20 19:25:37,031 - __main__ - INFO - Grasper closure radius(mm): 0.000000 
+
+2024-03-20 19:25:37,032 - __main__ - INFO - Grasper contact pressure (psi): 0.006866, 0.011443, 0.025176 
+
+2024-03-20 19:25:38,064 - __main__ - INFO - D
+2024-03-20 19:25:38,064 - __main__ - INFO - Gantry position(mm): 0.000000 0.000000 0.000000 
+
+2024-03-20 19:25:38,064 - __main__ - INFO - Grasper closure muscle pressure(psi): -0.025175 
+
+2024-03-20 19:25:38,064 - __main__ - INFO - Grasper closure radius(mm): 0.000000 
+
+2024-03-20 19:25:38,065 - __main__ - INFO - Grasper contact pressure (psi): 0.006866, 0.011443, 0.025176 
+
+2024-03-20 19:26:01,343 - __main__ - INFO - D
+2024-03-20 19:26:01,359 - __main__ - INFO - Gantry position(mm): 0.000000 0.000000 0.000000 
+
+2024-03-20 19:26:01,359 - __main__ - INFO - Grasper closure muscle pressure(psi): -0.022887 
+
+2024-03-20 19:26:01,359 - __main__ - INFO - Grasper closure radius(mm): 0.000000 
+
+2024-03-20 19:26:01,359 - __main__ - INFO - Grasper contact pressure (psi): -0.048062, 0.004577, 0.025176 
+
+2024-03-20 19:26:03,416 - __main__ - INFO - D
+2024-03-20 19:26:03,417 - __main__ - INFO - Gantry position(mm): 0.000000 0.000000 0.000000 
+
+2024-03-20 19:26:03,417 - __main__ - INFO - Grasper closure muscle pressure(psi): -0.018309 
+
+2024-03-20 19:26:03,417 - __main__ - INFO - Grasper closure radius(mm): 0.000000 
+
+2024-03-20 19:26:03,417 - __main__ - INFO - Grasper contact pressure (psi): -0.043485, 0.011443, 0.020598 
+
+2024-03-20 19:26:04,516 - __main__ - INFO - D
+2024-03-20 19:26:04,516 - __main__ - INFO - Gantry position(mm): 0.000000 0.000000 0.000000 
+
+2024-03-20 19:26:04,516 - __main__ - INFO - Grasper closure muscle pressure(psi): -0.022887 
+
+2024-03-20 19:26:04,517 - __main__ - INFO - Grasper closure radius(mm): 0.000000 
+
+2024-03-20 19:26:04,517 - __main__ - INFO - Grasper contact pressure (psi): -0.043485, 0.011443, 0.025176 
+
+2024-03-20 19:26:05,400 - __main__ - INFO - D
+2024-03-20 19:26:05,418 - __main__ - INFO - Gantry position(mm): 0.000000 0.000000 0.000000 
+
+2024-03-20 19:26:05,418 - __main__ - INFO - Grasper closure muscle pressure(psi): -0.025175 
+
+2024-03-20 19:26:05,418 - __main__ - INFO - Grasper closure radius(mm): 0.000000 
+
+2024-03-20 19:26:05,418 - __main__ - INFO - Grasper contact pressure (psi): -0.043485, 0.011443, 0.025176 
+

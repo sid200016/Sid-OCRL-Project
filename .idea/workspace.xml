@@ -5,27 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfd83e2d-ab31-4129-8c0e-ce5b016d6614" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/FRR-Software-Interface.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/FRR-Software-Interface.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.Gantry.GantryController_18_02_2024_15_38_21.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.JoyCon.JoyCon_11_03_2024_09_34_34.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.JoyCon.JoyCon_13_03_2024_10_14_08.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.JoyCon.JoyCon_13_03_2024_12_57_34.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.JoyCon.JoyCon_18_03_2024_10_13_04.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.JoyCon.JoyCon_18_03_2024_10_29_57.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.JoyCon.JoyCon_18_03_2024_10_48_45.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.JoyCon.JoyCon_18_03_2024_11_30_26.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.JoyCon.JoyCon_18_03_2024_13_45_15.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.JoyCon.JoyCon_18_03_2024_14_10_28.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.JoyCon.JoyCon_19_02_2024_12_56_27.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.JoyCon.JoyCon_19_02_2024_15_21_56.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.JoyCon.JoyCon_20_03_2024_19_04_11.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.JoyCon.JoyCon_20_03_2024_19_31_10.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.JoyCon.JoyCon_22_02_2024_12_27_35.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.JoyCon.JoyCon_24_02_2024_11_13_17.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.JoyCon.JoyCon_24_02_2024_17_06_42.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.JoyCon.JoyCon_25_02_2024_15_16_41.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.SoftGrasper.SoftGrasper_18_02_2024_13_19_02.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalogs/GUI.EmbeddedSystems.SoftGrasper.SoftGrasper_18_02_2024_14_34_14.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/SNScontroller.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/SNScontroller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_modulation/SNS_layer.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_modulation/SNS_layer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_modulation/SNS_layer.py.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Testing/TestSNS_sim_modulation.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/TestSNS_sim_modulation.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,30 +42,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;V:/Research/FRR/FRR Software Interface/FRR-Software-Interface/GUI/EmbeddedSystems/SNS/controller_ForceTrigger&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
-    &quot;two.files.diff.last.used.file&quot;: &quot;C:/Users/SmorgasBORG/Documents/GitHub/FRR-Software-Interface/Deformable_Object_Tests/Hardware_SNS_Deformable.py&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "V:/Research/FRR/FRR Software Interface/FRR-Software-Interface/GUI/EmbeddedSystems/SNS/controller_modulation",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "two.files.diff.last.used.file": "C:/Users/SmorgasBORG/Documents/GitHub/FRR-Software-Interface/Deformable_Object_Tests/Hardware_SNS_Deformable.py"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
-      &quot;Python&quot;
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "Python"
     ]
   }
-}</component>
+}]]></component>
   <component name="PyDebuggerOptionsProvider">
     <option name="myPyQtBackend" value="pyside2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="V:\Research\FRR\FRR Software Interface\FRR-Software-Interface\GUI\EmbeddedSystems\SNS\controller_modulation" />
       <recent name="V:\Research\FRR\FRR Software Interface\FRR-Software-Interface\GUI\EmbeddedSystems\SNS\controller_ForceTrigger" />
       <recent name="V:\Research\FRR\FRR Software Interface\FRR-Software-Interface\Testing" />
       <recent name="C:\Users\Ravesh\Desktop\Research\FRR\FRR Software Interface\FRR-Software-Interface\Testing" />
       <recent name="C:\Users\Ravesh\Desktop\Research\FRR\FRR Software Interface\FRR-Software-Interface\GUI\EmbeddedSystems\SNS\controller_modulation" />
-      <recent name="C:\Users\SmorgasBORG\Documents\GitHub\FRR-Software-Interface\Deformable_Object_Tests" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Ravesh\Desktop\Research\FRR\FRR Software Interface\FRR-Software-Interface\datalogs\Data Analysis\LogFileParser\Backup" />
@@ -88,7 +75,7 @@
       <recent name="C:\Users\Ravesh\Desktop\Research\FRR\FRR Software Interface\FRR-Software-Interface\Testing" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.IntegratedSystem">
+  <component name="RunManager" selected="Python.TestSNS_sim_modulation">
     <configuration name="IntegratedSystem" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="FRR-Software-Interface" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -131,27 +118,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="TestSNS_sim" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="FRR-Software-Interface" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Testing" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Testing/TestSNS_sim.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="TestSNS_sim_ForceTrigger" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="FRR-Software-Interface" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -165,6 +131,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Testing/TestSNS_sim_ForceTrigger.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestSNS_sim_modulation" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="FRR-Software-Interface" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Testing" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Testing/TestSNS_sim_modulation.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -298,11 +285,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.TestSNS_sim_modulation" />
         <item itemvalue="Python.IntegratedSystem" />
         <item itemvalue="Python.checkSoftGrasper2_new" />
         <item itemvalue="Python.TestSNS_sim_ForceTrigger" />
         <item itemvalue="Python.SNScontroller" />
-        <item itemvalue="Python.TestSNS_sim" />
       </list>
     </recent_temporary>
   </component>
@@ -444,42 +431,42 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py</url>
-          <line>269</line>
+          <line>270</line>
           <option name="timeStamp" value="281" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py</url>
-          <line>501</line>
+          <line>537</line>
           <option name="timeStamp" value="282" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py</url>
-          <line>1135</line>
+          <line>1180</line>
           <option name="timeStamp" value="287" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py</url>
-          <line>1200</line>
+          <line>1245</line>
           <option name="timeStamp" value="293" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py</url>
-          <line>1198</line>
+          <line>1243</line>
           <option name="timeStamp" value="294" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py</url>
-          <line>1147</line>
+          <line>1192</line>
           <option name="timeStamp" value="295" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py</url>
-          <line>1343</line>
+          <line>1405</line>
           <option name="timeStamp" value="296" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py</url>
-          <line>1262</line>
+          <line>1307</line>
           <option name="timeStamp" value="297" />
         </line-breakpoint>
       </breakpoints>

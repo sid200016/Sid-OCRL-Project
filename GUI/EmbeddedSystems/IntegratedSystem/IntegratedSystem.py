@@ -1116,6 +1116,7 @@ class IntegratedSystem:
                                            "'C' for modified closed-loop force control.\n"
                                            "'FI' to enable force trigger based on inhibition of the jaw interneuron.\n"
                                            "'FC' to enable force trigger based on cap of the position based on transition.\n"
+                                           "'M' to enable SNS w/ modulate.\n"
                                             )
 
         self.logger.info("Type selected: %s"%SNS_type)
@@ -1146,6 +1147,12 @@ class IntegratedSystem:
                 self.SNSc.ControlMode = ControlType.FORCE_CAP
                 self.SNSc.initialize_controller()
                 await self.SNS_input_ForceCap()
+
+            case "M":
+                self.SNSc.ControlMode = ControlType.MODULATE
+                await self.SNS_input_Modulate()
+                self.SNSc.initialize_controller()
+                await self.SNS_input_Normal()
 
             case _:
                 self.logger.info("Using default")
@@ -1342,6 +1349,23 @@ class IntegratedSystem:
                 pass
 
         self.logger.info("Scaling: %f, %f, %f" % (tuple(self.ContactThreshold["Pressure Scaling"])))
+
+    async def SNS_input_Modulate(self):
+        maxPos = await aioconsole.ainput("Enter 'Y' to change the scaling of the max radial position.  Enter 'N' otherwise.\n")
+
+        match maxPos.upper():
+            case "Y":
+                maxPos = await aioconsole.ainput("Enter the maximum scaling for the Radial Position.\n")
+                self.SNSc.modulation_radial_scaling = float(maxPos)
+
+            case "N":
+                pass
+
+            case _:
+                pass
+
+
+
     async def SNS_input_Normal(self):
         # Closed loop control
 

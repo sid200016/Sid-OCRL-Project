@@ -8,7 +8,7 @@ import numpy as np
 
 from GUI.EmbeddedSystems.Support.Structures import Point,GrasperContactForce
 from GUI.EmbeddedSystems.Gantry.envs.GantrySimulation import GantrySimulation
-from GUI.EmbeddedSystems.SNS.SNScontroller import SNScontroller
+from GUI.EmbeddedSystems.SNS.SNScontroller import SNScontroller, ControlType
 #########################################################
 
 def pick_and_place():
@@ -26,7 +26,10 @@ def pick_and_place():
     p.setAdditionalSearchPath("C://Users//Ravesh//BulletPhysics//bullet3//examples//pybullet//gym//pybullet_data")
 
 
-    SNSc = SNScontroller(ModulateSNS=True)
+    SNSc = SNScontroller()
+    SNSc.ControlMode = ControlType.MODULATE
+    SNSc.modulation_radial_scaling = 0.2
+    SNSc.initialize_controller()
 
 
     positionset = []

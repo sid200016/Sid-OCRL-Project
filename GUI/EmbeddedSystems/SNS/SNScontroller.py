@@ -16,7 +16,7 @@ from enum import Enum
 
 from .controller.SNS_layer import perceptor as perceptor_original, controller as controller_original #original_controller
 from .controller_ForceTrigger.SNS_layer import R, perceptor as perceptor_FT, controller_open_loop, controller_closed_loop_v1, SNS_Control_closed_loop_v1, controller_closed_loop_v2, SNS_Control_closed_loop_v2
-from .controller_modulation.SNS_layer import perceptor as perceptor_modulation, controller as controller_modulation
+from .controller_modulation.SNS_layer import Create_Open_Loop_Modulation, SNS_Control_modulation, SNS_Control_closed_loop_modulation
 
 class ControlType(Enum):
     NORMAL = 0 #close until contact
@@ -28,7 +28,8 @@ class ControlType(Enum):
 class SNScontroller:
 
     def __init__(self,objectPos_m = Point(0,0,0), targetPos_m = Point(0,0,0), ControlMode = ControlType.ORIGINAL,
-                 force_threshold_gain=1, inhibitory_gain=1, grasper_closing_speed=1, zero_time_constant=False):
+                 force_threshold_gain=1, inhibitory_gain=1, grasper_closing_speed=1, zero_time_constant=False,
+                 modulation_radial_scaling = 0.2):
         self.neuronset = {
             "move_to_pre_grasp":0,
             "move_to_grasp":0,
@@ -77,6 +78,8 @@ class SNScontroller:
         self.grasper_closing_speed = grasper_closing_speed
         self.zero_time_constant = zero_time_constant
 
+        self.modulation_radial_scaling = modulation_radial_scaling
+
 
 
 
@@ -86,8 +89,10 @@ class SNScontroller:
         match self.ControlMode:
 
             case ControlType.MODULATE:
-                self.controller = controller_modulation
-                self.perceptor = perceptor_modulation
+
+                self.controller, self.perceptor = Create_Open_Loop_Modulation(self.modulation_radial_scaling)
+                #self.controller = controller_modulation
+                #self.perceptor = perceptor_modulation
 
             case ControlType.FORCE_INHIBIT:
                 self.controller = controller_closed_loop_v1
@@ -190,6 +195,7 @@ class SNScontroller:
             self.perceptor._command_layer._params["tau"].data = 0.01 * torch.ones_like(
                 self.perceptor._command_layer._params["tau"].data)
 
+
         if zero_time_constant is not None:
             self.zero_time_constant = zero_time_constant
 
@@ -233,7 +239,7 @@ class SNScontroller:
         gripper_position = torch.Tensor(list(grasperPos_m)).unsqueeze(dim=0)
 
 
-        if self.ControlMode == ControlType.ORIGINAL or self.ControlMode == ControlType.MODULATE: #for the original version and the modulation
+        if self.ControlMode == ControlType.ORIGINAL: #for the original version and the modulation
             commands = self.perceptor.forward(
                 gripper_position, self.object_position, targ_pos, force)
 
@@ -244,7 +250,8 @@ class SNScontroller:
             [x_d, y_d, z_d, JawRadialPos_m] = self.controller.forward(
                 self.object_position, targ_pos, commands).numpy()
 
-        elif self.ControlMode == ControlType.FORCE_INHIBIT or self.ControlMode == ControlType.FORCE_CAP or self.ControlMode == ControlType.NORMAL:
+        elif self.ControlMode == ControlType.FORCE_INHIBIT or self.ControlMode == ControlType.FORCE_CAP \
+                or self.ControlMode == ControlType.NORMAL or self.ControlMode == ControlType.MODULATE:
             commands, force_output = self.perceptor.forward(gripper_position, self.object_position,
                                                             targ_pos, force)
 

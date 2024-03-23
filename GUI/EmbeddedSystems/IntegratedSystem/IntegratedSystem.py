@@ -1116,7 +1116,7 @@ class IntegratedSystem:
                                            "'C' for modified closed-loop force control.\n"
                                            "'FI' to enable force trigger based on inhibition of the jaw interneuron.\n"
                                            "'FC' to enable force trigger based on cap of the position based on transition.\n"
-                                           "'M' to enable SNS w/ modulate.\n"
+                                           "'M' to enable SNS w/ modulation.\n"
                                             )
 
         self.logger.info("Type selected: %s"%SNS_type)
@@ -1152,6 +1152,7 @@ class IntegratedSystem:
                 self.SNSc.ControlMode = ControlType.MODULATE
                 await self.SNS_input_Modulate()
                 self.SNSc.initialize_controller()
+                await self.SNS_input_force_threshold_gain()
                 await self.SNS_input_Normal()
 
             case _:

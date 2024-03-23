@@ -9,10 +9,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/SNScontroller.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/SNScontroller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_modulation/SNS_layer.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_modulation/SNS_layer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_modulation/SNS_layer.py.bak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Testing/TestSNS_sim_modulation.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/TestSNS_sim_modulation.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,20 +38,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "V:/Research/FRR/FRR Software Interface/FRR-Software-Interface/GUI/EmbeddedSystems/SNS/controller_modulation",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
-    "two.files.diff.last.used.file": "C:/Users/SmorgasBORG/Documents/GitHub/FRR-Software-Interface/Deformable_Object_Tests/Hardware_SNS_Deformable.py"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;V:/Research/FRR/FRR Software Interface/FRR-Software-Interface/GUI/EmbeddedSystems/SNS/controller_modulation&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;two.files.diff.last.used.file&quot;: &quot;C:/Users/SmorgasBORG/Documents/GitHub/FRR-Software-Interface/Deformable_Object_Tests/Hardware_SNS_Deformable.py&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "Python"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;Python&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="PyDebuggerOptionsProvider">
     <option name="myPyQtBackend" value="pyside2" />
   </component>
@@ -75,7 +71,7 @@
       <recent name="C:\Users\Ravesh\Desktop\Research\FRR\FRR Software Interface\FRR-Software-Interface\Testing" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.TestSNS_sim_modulation">
+  <component name="RunManager" selected="Python.IntegratedSystem">
     <configuration name="IntegratedSystem" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="FRR-Software-Interface" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -285,8 +281,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.TestSNS_sim_modulation" />
         <item itemvalue="Python.IntegratedSystem" />
+        <item itemvalue="Python.TestSNS_sim_modulation" />
         <item itemvalue="Python.checkSoftGrasper2_new" />
         <item itemvalue="Python.TestSNS_sim_ForceTrigger" />
         <item itemvalue="Python.SNScontroller" />
@@ -441,32 +437,32 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py</url>
-          <line>1180</line>
+          <line>1181</line>
           <option name="timeStamp" value="287" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py</url>
-          <line>1245</line>
+          <line>1246</line>
           <option name="timeStamp" value="293" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py</url>
-          <line>1243</line>
+          <line>1244</line>
           <option name="timeStamp" value="294" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py</url>
-          <line>1192</line>
+          <line>1193</line>
           <option name="timeStamp" value="295" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py</url>
-          <line>1405</line>
+          <line>1406</line>
           <option name="timeStamp" value="296" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py</url>
-          <line>1307</line>
+          <line>1308</line>
           <option name="timeStamp" value="297" />
         </line-breakpoint>
       </breakpoints>

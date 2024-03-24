@@ -696,9 +696,9 @@ def pick_and_place(position_o, position_t, perceptor, controller, PressureValue=
         controller._motor_layer._params["tau"].data[3] = 0
     gS = GantrySimulation() #gantryURDFfile = "URDF//GrasperAndGantry//urdf//GrasperAndGantry.urdf"
     # add object to the simulation at the center of the plate
-    gS.addObjectsToSim("PickupCube", startPos=[position_o[0], position_o[1], (0.063 + 0.02)], mass_kg=mass, sizeScaling=sizeScaling, sourceFile=str(pathlib.Path.cwd()/"Gantry\\envs\\URDF\\PickUpObject_URDF\\urdf\\PickUpObject_URDF.urdf"))
-    p.setAdditionalSearchPath(pybullet_data.getDataPath())
-    p.setAdditionalSearchPath("C://Users//Ravesh//BulletPhysics//bullet3//examples//pybullet//gym//pybullet_data")
+    gS.addObjectsToSim("PickupCube", startPos=[position_o[0], position_o[1], (0.063 + 0.02)], mass_kg=mass, sizeScaling=sizeScaling, sourceFile=str(pathlib.Path.cwd().parents[0]/"GUI\\EmbeddedSystems\\Gantry\\envs\\URDF\\PickUpObject_URDF\\urdf\\PickUpObject_URDF.urdf"))
+    #p.setAdditionalSearchPath(pybullet_data.getDataPath())
+    #p.setAdditionalSearchPath("C://Users//Ravesh//BulletPhysics//bullet3//examples//pybullet//gym//pybullet_data")
 
     neuron_history = []
     sensory_history = []

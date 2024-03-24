@@ -30,7 +30,8 @@ def pick_and_place():
     SNSc.ControlMode = ControlType.MODULATE_FORCE_THRESHOLD
     SNSc.initialize_controller()
     SNSc.perceptor.set_tau(0.05)
-    SNSc.perceptor.set_modulation_gain(5)
+    SNSc.perceptor.set_modulation_gain(10)
+    SNSc.perceptor.set_force_threshold(0.1)
     SNSc.perceptor.reset()
     SNSc.controller.reset()
 
@@ -62,7 +63,7 @@ def pick_and_place():
             GUI_control = False
             gS.simCounter = 0
             object_position_list = [0, 0, -0.315]
-            target_position_list = [1.5, 1.5, -0.34]
+            target_position_list = [0.15, 0.15, -0.34]
 
         if GUI_control is False:
             x = gS.bulletClient.getJointState(
@@ -89,9 +90,12 @@ def pick_and_place():
             commandPosition,JawRadialPos_m = SNSc.SNS_forward(grasperPos_m = grasperPosition, grasperContact = grasperContact,
                                       objectPos_m = Point(*object_position_list),
                                       targetPos_m=Point(*target_position_list),
-                                                              grasper_closing_speed=1/0.3, force_threshold_gain=1/0.01)
+                                                              grasper_closing_speed=1/0.3, force_threshold_gain=1)
 
             cmd_grasperPos_m = Point(*commandPosition)
+
+            if SNSc.neuronset["lift_after_release"] > 10:
+                object_position_list = [0,0,0]
 
             if len(force_feedback_1) != 0:
                 force_1 = np.linalg.norm(sum(np.array([np.array(x[7]) * x[9] for x in force_feedback_1])), 2)

@@ -31,7 +31,8 @@ class SNScontroller:
 
     def __init__(self,objectPos_m = Point(0,0,0), targetPos_m = Point(0,0,0), ControlMode = ControlType.ORIGINAL,
                  force_threshold_gain=1, inhibitory_gain=1, grasper_closing_speed=1, zero_time_constant=False,
-                 modulation_radial_scaling = 0.2, modulation_mod_gain = 5,  modulation_sensory_tau = 0.05):
+                 modulation_radial_scaling = 0.2, modulation_mod_gain = 5,  modulation_sensory_tau = 0.05,
+                 modulation_threshold_gain = 0.1):
         self.neuronset = {
             "move_to_pre_grasp":0,
             "move_to_grasp":0,
@@ -83,6 +84,7 @@ class SNScontroller:
         self.modulation_radial_scaling = modulation_radial_scaling
         self.modulation_mod_gain = modulation_mod_gain
         self.modulation_sensory_tau = modulation_sensory_tau
+        self.SNSc.modulation_threshold_gain = modulation_threshold_gain
 
 
 
@@ -196,12 +198,12 @@ class SNScontroller:
 
             #Setting perceptor layer time constants to 0.01
 
-            self.perceptor._sensory_layer_1._params["tau"].data = 0.01 * torch.ones_like(
-                self.perceptor._sensory_layer_1._params["tau"].data)
-            self.perceptor._sensory_layer_2._params["tau"].data = 0.01 * torch.ones_like(
-                self.perceptor._sensory_layer_2._params["tau"].data)
-            self.perceptor._command_layer._params["tau"].data = 0.01 * torch.ones_like(
-                self.perceptor._command_layer._params["tau"].data)
+            # self.perceptor._sensory_layer_1._params["tau"].data = 0.01 * torch.ones_like(
+            #     self.perceptor._sensory_layer_1._params["tau"].data)
+            # self.perceptor._sensory_layer_2._params["tau"].data = 0.01 * torch.ones_like(
+            #     self.perceptor._sensory_layer_2._params["tau"].data)
+            # self.perceptor._command_layer._params["tau"].data = 0.01 * torch.ones_like(
+            #     self.perceptor._command_layer._params["tau"].data)
 
 
         if zero_time_constant is not None:
@@ -209,7 +211,7 @@ class SNScontroller:
 
         if self.zero_time_constant == True:
             self.controller._inter_layer_1._params["tau"].data[-2:] = 0
-            self.controller._motor_layer._params["tau"].data[-1] = 0
+            self.controller._motor_layer._params["tau"].data[3] = 0
 
 
         if force_threshold_gain is not None:
@@ -243,6 +245,8 @@ class SNScontroller:
         targ_pos = self.target_position
 
         force = torch.Tensor(list(grasperContact)).unsqueeze(dim=0)*self.force_threshold_gain
+
+
         grasperPos_m = Point(grasperPos_m.x,grasperPos_m.y,grasperPos_m.z-self.z_offset)
         gripper_position = torch.Tensor(list(grasperPos_m)).unsqueeze(dim=0)
 

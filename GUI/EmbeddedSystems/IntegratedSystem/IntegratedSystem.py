@@ -1159,8 +1159,8 @@ class IntegratedSystem:
             case "MC":
                 self.SNSc.ControlMode = ControlType.MODULATE_FORCE_THRESHOLD
                 self.SNSc.initialize_controller()
-                await self.SNS_input_ForceCap()
                 await self.SNS_input_Modulate_Force_Threshold()
+                await self.SNS_input_ForceCap()
 
 
             case _:
@@ -1414,9 +1414,27 @@ class IntegratedSystem:
 
         self.SNSc.perceptor.set_tau(self.SNSc.modulation_sensory_tau)
 
+        # Set the sensory gain on the force thresholds:
+        sensoryGain_response = await aioconsole.ainput("Enter 'Y' to change the Sensory Gain. Note it is recommended to set the other gains to 1 for this mode.  "
+                                                      "Enter 'N' otherwise.\n"
+                                                      "The current value is: %f" % 1/self.SNSc.modulation_threshold_gain)
 
+        match sensoryGain_response.upper():
+            case "Y":
+                sensoryGain = await aioconsole.ainput("Enter sensory gain as a float.\n"
+                                                      "The maximum gain is equal to: force threshold gain x force modulation gain x original force thresholds\n"
+                                                      "For pickup, the threshold is 12N for each of the three jaws \n"
+                                                      "Note that it is recommended to set the other contact feedback gains to 1 when prompted for this mode. \n")
 
+                self.SNSc.modulation_threshold_gain = 1/float(sensoryGain)
 
+            case "N":
+                pass
+
+            case _:
+                pass
+
+        self.SNSc.perceptor.set_force_threshold(self.SNSc.modulation_threshold_gain)
 
 
     async def SNS_input_Normal(self):

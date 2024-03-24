@@ -84,7 +84,7 @@ class SNScontroller:
         self.modulation_radial_scaling = modulation_radial_scaling
         self.modulation_mod_gain = modulation_mod_gain
         self.modulation_sensory_tau = modulation_sensory_tau
-        self.SNSc.modulation_threshold_gain = modulation_threshold_gain
+        self.modulation_threshold_gain = modulation_threshold_gain
 
 
 

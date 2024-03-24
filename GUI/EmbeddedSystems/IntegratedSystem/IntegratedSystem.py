@@ -109,7 +109,7 @@ class IntegratedSystem:
 
         #For SNS
         self.max_z_height = -0.184
-        self.SNS_target_pos_m = [-0.19,-0.24,-0.184]
+        self.SNS_target_pos_m = [-0.19,-0.19,-0.184] #original -0.19,-0.24,-0.184
         self.SNS_object_pos_m = [-0.0095875,0.012362,-0.18464] #[0,0,-0.184]
         self.ContactThreshold = {"Pressure Threshold (psi)":[0.010,0.020,0.029], "Pressure Scaling":[1,1,1]}
         self.maxJawChangeInRadius_mm = 30 #20 mm max jaw change in radius
@@ -1157,6 +1157,7 @@ class IntegratedSystem:
                 await self.SNS_input_Normal()
 
             case "MC":
+                self.SNS_BypassForceFeedback = False
                 self.SNSc.ControlMode = ControlType.MODULATE_FORCE_THRESHOLD
                 self.SNSc.initialize_controller()
                 await self.SNS_input_Modulate_Force_Threshold()
@@ -1417,7 +1418,7 @@ class IntegratedSystem:
         # Set the sensory gain on the force thresholds:
         sensoryGain_response = await aioconsole.ainput("Enter 'Y' to change the Sensory Gain. Note it is recommended to set the other gains to 1 for this mode.  "
                                                       "Enter 'N' otherwise.\n"
-                                                      "The current value is: %f" % 1/self.SNSc.modulation_threshold_gain)
+                                                      "The current value is: %f" % (1/self.SNSc.modulation_threshold_gain))
 
         match sensoryGain_response.upper():
             case "Y":

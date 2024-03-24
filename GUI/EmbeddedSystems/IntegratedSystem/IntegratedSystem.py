@@ -1116,7 +1116,8 @@ class IntegratedSystem:
                                            "'C' for modified closed-loop force control.\n"
                                            "'FI' to enable force trigger based on inhibition of the jaw interneuron.\n"
                                            "'FC' to enable force trigger based on cap of the position based on transition.\n"
-                                           "'M' to enable SNS w/ modulation.\n"
+                                           "'MO' to enable SNS w/ modulation in open-loop.\n"
+                                           "'MC' to enable SNS w/ modulation of force threshold"
                                             )
 
         self.logger.info("Type selected: %s"%SNS_type)
@@ -1148,12 +1149,19 @@ class IntegratedSystem:
                 self.SNSc.initialize_controller()
                 await self.SNS_input_ForceCap()
 
-            case "M":
-                self.SNSc.ControlMode = ControlType.MODULATE
-                await self.SNS_input_Modulate()
+            case "MO":
+                self.SNSc.ControlMode = ControlType.MODULATE_OPEN_LOOP
+                await self.SNS_input_Modulate_Open_Loop()
                 self.SNSc.initialize_controller()
                 await self.SNS_input_force_threshold_gain()
                 await self.SNS_input_Normal()
+
+            case "MC":
+                self.SNSc.ControlMode = ControlType.MODULATE_FORCE_THRESHOLD
+                self.SNSc.initialize_controller()
+                await self.SNS_input_ForceCap()
+                await self.SNS_input_Modulate_Force_Threshold()
+
 
             case _:
                 self.logger.info("Using default")
@@ -1351,7 +1359,7 @@ class IntegratedSystem:
 
         self.logger.info("Scaling: %f, %f, %f" % (tuple(self.ContactThreshold["Pressure Scaling"])))
 
-    async def SNS_input_Modulate(self):
+    async def SNS_input_Modulate_Open_Loop(self):
         maxPos = await aioconsole.ainput("Enter 'Y' to change the scaling of the max radial position.  Enter 'N' otherwise.\n")
 
         match maxPos.upper():
@@ -1364,6 +1372,50 @@ class IntegratedSystem:
 
             case _:
                 pass
+
+    async def SNS_input_Modulate_Force_Threshold(self):
+        #Set the modulation gain:
+        modGain_response = await aioconsole.ainput("Enter 'Y' to change the scaling of the force modulation gain.  "
+                                          "Enter 'N' otherwise.\n"
+                                          "The current value is: %f"%self.SNSc.modulation_mod_gain)
+
+        match modGain_response.upper():
+            case "Y":
+                modGain = await aioconsole.ainput("Enter the modulation gain as a float.\n"
+                                                  "This gain controls the strength of modulation. The maximal force threshold = force threshol x force modulation gain x original force thresholds\n")
+
+
+                self.SNSc.modulation_mod_gain = float(modGain)
+
+            case "N":
+                pass
+
+            case _:
+                pass
+
+        self.SNSc.perceptor.set_modulation_gain(self.SNSc.modulation_mod_gain)
+
+        #Set the perceptor time constant:
+        sensoryTau_response = await aioconsole.ainput("Enter 'Y' to change the Perceptor Tau.  "
+                                                   "Enter 'N' otherwise.\n"
+                                                   "The current value is: %f" % self.SNSc.modulation_sensory_tau)
+
+        match sensoryTau_response.upper():
+            case "Y":
+                sensoryTau = await aioconsole.ainput("Enter sensory tau as a float.\n")
+
+                self.SNSc.modulation_sensory_tau = float(sensoryTau)
+
+            case "N":
+                pass
+
+            case _:
+                pass
+
+        self.SNSc.perceptor.set_tau(self.SNSc.modulation_sensory_tau)
+
+
+
 
 
 

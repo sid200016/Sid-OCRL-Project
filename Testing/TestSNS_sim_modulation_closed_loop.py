@@ -14,7 +14,7 @@ from GUI.EmbeddedSystems.SNS.SNScontroller import SNScontroller, ControlType
 def pick_and_place():
     gS = GantrySimulation()  # gantryURDFfile = "URDF//GrasperAndGantry//urdf//GrasperAndGantry.urdf"
     # add object to the simulation at the center of the plate
-    gS.addObjectsToSim("PickupCube", startPos=[0, 0, (0.063 + 0.02)], mass_kg=0.5, sizeScaling=0.6,
+    gS.addObjectsToSim("PickupCube", startPos=[0, 0, (0.063 + 0.02)], mass_kg=1, sizeScaling=0.6,
                        sourceFile=str(
                            Path(__file__).parent.parent/"GUI\\EmbeddedSystems\\Gantry\\envs\\URDF\\PickUpObject_URDF\\urdf\\PickUpObject_URDF.urdf"))
     # SoftSupportInit = p.loadURDF("URDF/SoftGrasperAssembly_SimplifiedTilt/urdf/SoftGrasperAssembly_SimplifiedTilt.urdf",
@@ -27,9 +27,12 @@ def pick_and_place():
 
 
     SNSc = SNScontroller()
-    SNSc.ControlMode = ControlType.MODULATE_OPEN_LOOP
-    SNSc.modulation_radial_scaling = 0.2
+    SNSc.ControlMode = ControlType.MODULATE_FORCE_THRESHOLD
     SNSc.initialize_controller()
+    SNSc.perceptor.set_tau(0.05)
+    SNSc.perceptor.set_modulation_gain(5)
+    SNSc.perceptor.reset()
+    SNSc.controller.reset()
 
 
     positionset = []
@@ -85,7 +88,8 @@ def pick_and_place():
 
             commandPosition,JawRadialPos_m = SNSc.SNS_forward(grasperPos_m = grasperPosition, grasperContact = grasperContact,
                                       objectPos_m = Point(*object_position_list),
-                                      targetPos_m=Point(*target_position_list))
+                                      targetPos_m=Point(*target_position_list),
+                                                              grasper_closing_speed=1/0.3, force_threshold_gain=1/0.01)
 
             cmd_grasperPos_m = Point(*commandPosition)
 
@@ -103,6 +107,7 @@ def pick_and_place():
                 force_3 = 0
 
             grasperContact = GrasperContactForce(force_1, force_2, force_3)
+
 
         ts = gS.timeStep  # time step of the simulation in seconds
         nsteps = gS.simCounter  # of simulation steps taken so far

@@ -16,20 +16,22 @@ from enum import Enum
 
 from .controller.SNS_layer import perceptor as perceptor_original, controller as controller_original #original_controller
 from .controller_ForceTrigger.SNS_layer import R, perceptor as perceptor_FT, controller_open_loop, controller_closed_loop_v1, SNS_Control_closed_loop_v1, controller_closed_loop_v2, SNS_Control_closed_loop_v2
-from .controller_modulation.SNS_layer import Create_Open_Loop_Modulation, SNS_Control_modulation, SNS_Control_closed_loop_modulation
+from .controller_modulation_open_loop.SNS_layer import Create_Open_Loop_Modulation, SNS_Control_modulation, SNS_Control_closed_loop_modulation
+from .controller_modulation.SNS_layer import perceptor_closed_loop_modulation, controller_closed_loop_v2 as controller_closed_loop_v2_modulation, SNS_Control_closed_loop_v2 as SNS_Control_closed_loop_v2_modulation
 
 class ControlType(Enum):
     NORMAL = 0 #close until contact
     OPEN_LOOP = 1 #close until you reach a certain position
     FORCE_INHIBIT = 2 #jaw interneuron has an inhibitory connection from the force feedback to prevent oversqueezing
     FORCE_CAP = 3 #Cap the jaw position to what was triggered after transition from grasp to lift-after-grasp
-    MODULATE = 4 #Modulate the jaw force by increasing the force until it grasps the object
-    ORIGINAL = 5
+    MODULATE_OPEN_LOOP = 4 #Modulate the jaw force by increasing the force until it grasps the object
+    MODULATE_FORCE_THRESHOLD = 5  # Modulate the jaw force by increasing the threshold until it grasps the object
+    ORIGINAL = 6
 class SNScontroller:
 
     def __init__(self,objectPos_m = Point(0,0,0), targetPos_m = Point(0,0,0), ControlMode = ControlType.ORIGINAL,
                  force_threshold_gain=1, inhibitory_gain=1, grasper_closing_speed=1, zero_time_constant=False,
-                 modulation_radial_scaling = 0.2):
+                 modulation_radial_scaling = 0.2, modulation_mod_gain = 5,  modulation_sensory_tau = 0.05):
         self.neuronset = {
             "move_to_pre_grasp":0,
             "move_to_grasp":0,
@@ -79,6 +81,8 @@ class SNScontroller:
         self.zero_time_constant = zero_time_constant
 
         self.modulation_radial_scaling = modulation_radial_scaling
+        self.modulation_mod_gain = modulation_mod_gain
+        self.modulation_sensory_tau = modulation_sensory_tau
 
 
 
@@ -88,11 +92,15 @@ class SNScontroller:
     def initialize_controller(self):
         match self.ControlMode:
 
-            case ControlType.MODULATE:
+            case ControlType.MODULATE_OPEN_LOOP:
 
                 self.controller, self.perceptor = Create_Open_Loop_Modulation(self.modulation_radial_scaling)
                 #self.controller = controller_modulation
                 #self.perceptor = perceptor_modulation
+
+            case ControlType.MODULATE_FORCE_THRESHOLD:
+                self.controller = controller_closed_loop_v2_modulation
+                self.perceptor = perceptor_closed_loop_modulation
 
             case ControlType.FORCE_INHIBIT:
                 self.controller = controller_closed_loop_v1
@@ -181,7 +189,7 @@ class SNScontroller:
                 self.inhibitory_gain = inhibitory_gain
             self.controller._inter_layer_1._params["sensory_erev"].data[-1, -1] = -self.inhibitory_gain * R
 
-        if isinstance(self.controller, SNS_Control_closed_loop_v2):
+        if isinstance(self.controller, SNS_Control_closed_loop_v2) or isinstance(self.controller, SNS_Control_closed_loop_v2_modulation):
             if grasper_closing_speed is not None:
                 self.grasper_closing_speed = grasper_closing_speed
             self.controller._inter_layer_2._params["tau"].data[-2:] = self.grasper_closing_speed
@@ -251,7 +259,8 @@ class SNScontroller:
                 self.object_position, targ_pos, commands).numpy()
 
         elif self.ControlMode == ControlType.FORCE_INHIBIT or self.ControlMode == ControlType.FORCE_CAP \
-                or self.ControlMode == ControlType.NORMAL or self.ControlMode == ControlType.MODULATE:
+                or self.ControlMode == ControlType.NORMAL or self.ControlMode == ControlType.MODULATE_OPEN_LOOP or \
+                self.ControlMode == ControlType.MODULATE_FORCE_THRESHOLD:
             commands, force_output = self.perceptor.forward(gripper_position, self.object_position,
                                                             targ_pos, force)
 

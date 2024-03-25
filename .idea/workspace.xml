@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfd83e2d-ab31-4129-8c0e-ce5b016d6614" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/FRR-Software-Interface.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/FRR-Software-Interface.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/SoftGrasper/SoftGrasper.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SoftGrasper/SoftGrasper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Testing/checkSoftGrasper2_new.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/checkSoftGrasper2_new.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -284,10 +281,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.IntegratedSystem" />
+        <item itemvalue="Python.checkSoftGrasper2_new" />
         <item itemvalue="Python.TestSNS_sim_modulation_closed_loop" />
         <item itemvalue="Python.TestSNS_sim_modulation_Yanjun_ex" />
         <item itemvalue="Python.TestSNS_sim_modulation" />
-        <item itemvalue="Python.checkSoftGrasper2_new" />
       </list>
     </recent_temporary>
   </component>

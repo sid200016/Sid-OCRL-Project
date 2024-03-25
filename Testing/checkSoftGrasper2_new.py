@@ -19,7 +19,7 @@ while (True):
     SG.PressurePorts[2].portStatus = PortActions.HOLD
     SG.PressurePorts[1].portStatus = PortActions.HOLD
     SG.PressurePorts[0].portStatus = PortActions.HOLD
-    SG.PressurePorts[0].commandedPressure = 2.3
+    SG.PressurePorts[0].commandedPressure = 12
 
     byteList = SG.ConstructPortCommand()
     numBytes = SG.sendCommunicationArray(byteList=byteList)

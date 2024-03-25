@@ -517,7 +517,7 @@ tau = torch.Tensor(0.1 * np.ones(INTER_LAYER_1_SIZE + 1))
 inter_layer_1_closed_loop_v2 = SNS_layer(layer_input_size=INTER_LAYER_1_INPUT_SIZE, layer_size=INTER_LAYER_1_SIZE + 1, sparsity_mask=sparsity_mask, R=R, tau=tau)
 inter_layer_1_closed_loop_v2._params["sensory_erev"].data[0, 2] = 10
 inter_layer_1_closed_loop_v2._params["sensory_erev"].data[4, 2] = 10
-inter_layer_1_closed_loop_v2._params["sensory_erev"].data[1, 4] = R / 1.2
+inter_layer_1_closed_loop_v2._params["sensory_erev"].data[1, 4] = R*100#R / 1.2 #originally divide by 1.2, now multiply by 5 to make it faster
 
 
 # inter_layer_2

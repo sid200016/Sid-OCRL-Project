@@ -112,7 +112,7 @@ class IntegratedSystem:
         self.SNS_target_pos_m = [-0.19,-0.19,-0.184] #original -0.19,-0.24,-0.184
         self.SNS_object_pos_m = [-0.0095875,0.012362,-0.18464] #[0,0,-0.184]
         self.ContactThreshold = {"Pressure Threshold (psi)":[0.010,0.020,0.029], "Pressure Scaling":[1,1,1]}
-        self.maxJawChangeInRadius_mm = 30 #20 mm max jaw change in radius
+        self.maxJawChangeInRadius_mm = 26.5 #20 mm max jaw change in radius
         self.SNS_BypassForceFeedback = True
         self.SNS_grasper_tc_s = 0 #time constant for the closure muscle of the grasper
 
@@ -1162,6 +1162,7 @@ class IntegratedSystem:
                 self.SNSc.initialize_controller()
                 await self.SNS_input_Modulate_Force_Threshold()
                 await self.SNS_input_ForceCap()
+                await self.SNS_z_time_constant()
 
 
             case _:
@@ -1438,13 +1439,7 @@ class IntegratedSystem:
         self.SNSc.perceptor.set_force_threshold(self.SNSc.modulation_threshold_gain)
 
 
-    async def SNS_input_Normal(self):
-        # Closed loop control
-
-        # ----- thresholds and gains for jaws -----
-        await self.SNS_input_jaw_thresholds_and_gains()
-
-        # ----- z Time Constant -----
+    async def SNS_z_time_constant(self):
         SNS_tc_input = await aioconsole.ainput(
             "Please enter 'Y' to change the time constant of the z axis during grasp\n"
             "Or, enter 'N' to use the default values of %f seconds \n" % (
@@ -1462,8 +1457,17 @@ class IntegratedSystem:
                 self.SNSc.controller._inter_layer_1._params["tau"].data[2] = vals
             case _:
                 pass
-        self.logger.info("SNS z height time constant set to %f" % self.SNSc.controller._inter_layer_1._params["tau"].data[2])
+        self.logger.info(
+            "SNS z height time constant set to %f" % self.SNSc.controller._inter_layer_1._params["tau"].data[2])
 
+    async def SNS_input_Normal(self):
+        # Closed loop control
+
+        # ----- thresholds and gains for jaws -----
+        await self.SNS_input_jaw_thresholds_and_gains()
+
+        # ----- z Time Constant -----
+        await self.SNS_z_time_constant()
         # ----- grasper Time Constant -----
         SNS_tc_input = await aioconsole.ainput(
             "Please enter 'Y' to change the time constant of the grasper\n"

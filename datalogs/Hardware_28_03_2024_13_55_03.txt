@@ -1,0 +1,18 @@
+2024-03-28 13:55:03,718 - __main__ - INFO - Enter C for calibration. 
+Enter S for SNS. 
+Enter Z to return to joystick control
+Enter H to move grasper home 
+Enter T to inflate until grasper touches 
+Enter MG to move the grasper 
+Enter M to move the gantry 
+Enter D to display robot state 
+Enter PR to enter pressure radius calibration 
+
+2024-03-28 13:55:04,503 - __main__ - INFO - Initial jaw pressure is (psi):0,0,0
+2024-03-28 13:55:16,557 - __main__ - INFO - S
+2024-03-28 13:55:18,135 - __main__ - INFO - Type selected: MC
+2024-03-28 13:56:01,078 - __main__ - INFO - Force Threshold gain is: 2000.000000
+2024-03-28 13:56:07,355 - __main__ - INFO - Grasper closing time constant is: 6.000000
+2024-03-28 13:56:09,765 - __main__ - INFO - Thresholds (psi): 0.010000, 0.020000, 0.029000
+2024-03-28 13:56:10,916 - __main__ - INFO - Scaling: 1.000000, 1.000000, 1.000000
+2024-03-28 13:56:12,463 - __main__ - INFO - SNS z height time constant set to 0.100000

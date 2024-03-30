@@ -106,7 +106,7 @@ class IntegratedSystem:
         self.startDatalog = asyncio.Event()
         self.finishDatalog = asyncio.Event()
         self.datalog_header = False #set to true when you've written the header for the 1st time
-
+        self.time_0 = 0 #time for the start of the datalog
         #For SNS
         self.max_z_height = -0.184
         self.SNS_target_pos_m = [-0.19,-0.19,-0.184] #original -0.19,-0.24,-0.184
@@ -341,7 +341,7 @@ class IntegratedSystem:
             if self.jcSG.ControlMode == JC.JoyConState.USE_SNS:
                 self.logger.debug('Inside SNS control')
 
-                self.GrasperReadAverage["Number of Loops"] = 15
+                self.GrasperReadAverage["Number of Loops"] = 15#15
                 self.GrasperReadAverage["Time Delay (s)"] = 0.005
                 self.GrasperReadAverage["Average Event"].set()  # setup to average values before returning
 
@@ -1031,7 +1031,7 @@ class IntegratedSystem:
             #print("Datalog")
             if self.datalog_header == False:
                 # write the header to the file
-                headerstr = "program_mode,x_mm,y_mm,z_mm,P_closure_psi,P_jaw1_psi,P_jaw2_psi,P_jaw3_psi,commanded_radius_mm, commanded_P_jaw1_psi, commanded_P_jaw2_psi, commanded_P_jaw3_psi"
+                headerstr = "time_delta_s,program_mode,x_mm,y_mm,z_mm,P_closure_psi,P_jaw1_psi,P_jaw2_psi,P_jaw3_psi,commanded_radius_mm, commanded_P_jaw1_psi, commanded_P_jaw2_psi, commanded_P_jaw3_psi"
                 headerstr = headerstr + "," + ','.join(
                     [k for k, v in self.buttonVal.items()]) + "," + "Axes 1, Axes 2"  # for the buttons
                 headerstr = headerstr + "," + ','.join(
@@ -1039,9 +1039,14 @@ class IntegratedSystem:
                 headerstr = headerstr + "," + ','.join(
                     [k for k, x in self.ObjectVal.items()])  # for the object states
 
+                headerstr = headerstr + "," + "Mode"
+
+                self.time_0 = time.time()
+
                 self.datalogger.info(headerstr)
 
                 self.datalog_header = True
+
 
             '''
             Recall that header str is:
@@ -1054,8 +1059,9 @@ class IntegratedSystem:
             '''
 
             await self.startDatalog.wait()
-            datastr = "%s,%f,%f,%f"%(str(self.jcSG.ControlMode),self.curPos[0]*1000, self.curPos[1]*1000, self.curPos[2]*1000)
-            datastr = datastr + ",%f,%f,%f,%f,%f,%f,%f,%f"%(self.ClosurePressure,*self.jawPressure,self.SG.commandedPosition["ClosureChangeInRadius_mm"],
+            datastr = str(time.time()-self.time_0)
+            datastr = datastr+ "," + "%s,%f,%f,%f"%(str(self.jcSG.ControlMode),self.curPos[0]*1000, self.curPos[1]*1000, self.curPos[2]*1000)
+            datastr = datastr + "," + "%f,%f,%f,%f,%f,%f,%f,%f"%(self.ClosurePressure,*self.jawPressure,self.SG.commandedPosition["ClosureChangeInRadius_mm"],
                                                             self.SG.commandedPosition["Jaw1_psi"],self.SG.commandedPosition["Jaw2_psi"],self.SG.commandedPosition["Jaw3_psi"])
             datastr = datastr + "," + ','.join(
                 [str(v) for k, v in self.buttonVal.items()]) + "," + ','.join([str(x) for x in self.AxesPos]) #for the joystick button and pos
@@ -1063,6 +1069,9 @@ class IntegratedSystem:
             datastr = datastr + "," + ','.join([str(v) for k, v in self.SNSc.neuronset.items()]) #for the SNS neuronset
 
             datastr = datastr + "," + ','.join(["Object "+ str(x.status.name) for k, x in self.ObjectVal.items()]) #for the objects
+
+            datastr = datastr + "," + str(self.jcSG.ControlMode.name)
+
 
             self.datalogger.info(datastr)
             self.finishDatalog.set()
@@ -1396,6 +1405,8 @@ class IntegratedSystem:
                 pass
 
         self.SNSc.perceptor.set_modulation_gain(self.SNSc.modulation_mod_gain)
+        self.logger.info(
+            "SNS modulation gain: %f" % self.SNSc.modulation_mod_gain)
 
         #Set the perceptor time constant:
         sensoryTau_response = await aioconsole.ainput("Enter 'Y' to change the Perceptor Tau.  "
@@ -1415,6 +1426,8 @@ class IntegratedSystem:
                 pass
 
         self.SNSc.perceptor.set_tau(self.SNSc.modulation_sensory_tau)
+        self.logger.info(
+            "SNS modulation sensory tau (s): %f" % self.SNSc.modulation_sensory_tau)
 
         # Set the sensory gain on the force thresholds:
         sensoryGain_response = await aioconsole.ainput("Enter 'Y' to change the Sensory Gain. Note it is recommended to set the other gains to 1 for this mode.  "
@@ -1436,8 +1449,10 @@ class IntegratedSystem:
             case _:
                 pass
 
-        self.SNSc.perceptor.set_force_threshold(self.SNSc.modulation_threshold_gain)
 
+        self.SNSc.perceptor.set_force_threshold(self.SNSc.modulation_threshold_gain)
+        self.logger.info(
+            "SNS sensory gain: %f" % self.SNSc.modulation_threshold_gain)
 
     async def SNS_z_time_constant(self):
         SNS_tc_input = await aioconsole.ainput(

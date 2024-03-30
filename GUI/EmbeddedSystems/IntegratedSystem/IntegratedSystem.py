@@ -681,7 +681,8 @@ class IntegratedSystem:
                        "Enter MG to move the grasper \n" \
                        "Enter M to move the gantry \n" \
                        "Enter D to display robot state \n" \
-                       "Enter PR to enter pressure radius calibration \n"
+                       "Enter PR to enter pressure radius calibration \n" \
+                       "Enter K to begin Koopman Experiments \n"
         self.logger.info(print_string)
         while (True):
             s = await aioconsole.ainput()
@@ -730,9 +731,8 @@ class IntegratedSystem:
                 case "PR":
                     self.jcSG.ControlMode = JC.JoyConState.PRESSURE_RADIUS_CAL
 
-
-
-
+                case "K":
+                    self.jcSG.ControlMode = JC.JoyConState.KOOPMAN
 
 
                 # Default

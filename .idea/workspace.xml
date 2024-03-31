@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfd83e2d-ab31-4129-8c0e-ce5b016d6614" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/Koopman/KoopmanTesting.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/Koopman/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/FRR-Software-Interface.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/FRR-Software-Interface.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/JoyCon/JoyCon.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/JoyCon/JoyCon.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/Koopman/KoopmanTesting.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/Koopman/KoopmanTesting.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -438,6 +433,11 @@
           <url>file://$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/controller_modulation/SNS_layer.py</url>
           <line>753</line>
           <option name="timeStamp" value="316" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/GUI/EmbeddedSystems/Koopman/KoopmanTesting.py</url>
+          <line>206</line>
+          <option name="timeStamp" value="317" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

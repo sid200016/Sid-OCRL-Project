@@ -29,7 +29,8 @@ class sample_type(Enum):
 
 class var_params:
 
-    def __init__(self, x_type = variable_type.STATE,
+    def __init__(self, x_name = 'x',
+                 x_type = variable_type.STATE,
                  control_min_max=[0,20],
                  units='psi',
                  samp_type = sample_type.GAUSSIAN,
@@ -38,6 +39,7 @@ class var_params:
                  total_run_time=300,
                  samp_freq_Hz = 20):
 
+        self.var_name = x_name
         self.var_type = x_type #Control variable or state variable
         self.control_min_max = control_min_max #only applicable for control variables. Min and max allowed
         self.units = units #units
@@ -110,7 +112,8 @@ class koopman:
 
     def __init__(self, var_defs=None,hold_time_s = 30, total_run_time_s = 1200, samp_freq_Hz = 20):
         if var_defs is None:
-            var_defs = {"x": var_params(x_type=variable_type.CONTROL,
+            var_defs = {"x": var_params(x_name = 'x',
+                                        x_type=variable_type.CONTROL,
                                         control_min_max=[-12, 12],
                                         units='mm',
                                         samp_type=sample_type.UNIFORM,
@@ -118,7 +121,8 @@ class koopman:
                                         x_hold_time=hold_time_s,
                                         total_run_time=total_run_time_s,
                                         samp_freq_Hz=samp_freq_Hz),
-                        "y": var_params(x_type=variable_type.CONTROL,
+                        "y": var_params(x_name = 'y',
+                                        x_type=variable_type.CONTROL,
                                         control_min_max =[-12, 12],
                                         units='mm',
                                         samp_type = sample_type.UNIFORM,
@@ -126,7 +130,8 @@ class koopman:
                                         x_hold_time = hold_time_s,
                                         total_run_time=total_run_time_s,
                                         samp_freq_Hz = samp_freq_Hz),
-                        "z": var_params(x_type=variable_type.STATE,
+                        "z": var_params(x_name = 'z',
+                                        x_type=variable_type.STATE,
                                         control_min_max=[0, 0],
                                         units='mm',
                                         samp_type=sample_type.UNIFORM,
@@ -134,7 +139,8 @@ class koopman:
                                         x_hold_time=hold_time_s,
                                         total_run_time=total_run_time_s,
                                         samp_freq_Hz=samp_freq_Hz),
-                        "Grasper_Pressure": var_params(x_type=variable_type.CONTROL,
+                        "Grasper_Pressure": var_params(x_name = 'Grasper_Pressure',
+                                                       x_type=variable_type.CONTROL,
                                         control_min_max=[0, 11.2],
                                         units='psi',
                                         samp_type=sample_type.UNIFORM,
@@ -142,7 +148,8 @@ class koopman:
                                         x_hold_time=hold_time_s,
                                         total_run_time=total_run_time_s,
                                         samp_freq_Hz=samp_freq_Hz),
-                        "Jaw1": var_params(x_type=variable_type.STATE,
+                        "Jaw_1": var_params(x_name = 'Jaw_1',
+                                            x_type=variable_type.STATE,
                                         control_min_max=[0, 30],
                                         units='psi',
                                         samp_type=sample_type.UNIFORM,
@@ -150,7 +157,8 @@ class koopman:
                                         x_hold_time=hold_time_s,
                                         total_run_time=total_run_time_s,
                                         samp_freq_Hz=samp_freq_Hz),
-                        "Jaw2": var_params(x_type=variable_type.STATE,
+                        "Jaw_2": var_params(x_name = 'Jaw_2',
+                                            x_type=variable_type.STATE,
                                         control_min_max=[0, 30],
                                         units='psi',
                                         samp_type=sample_type.UNIFORM,
@@ -158,7 +166,8 @@ class koopman:
                                         x_hold_time=hold_time_s,
                                         total_run_time=total_run_time_s,
                                         samp_freq_Hz=samp_freq_Hz),
-                        "Jaw3": var_params(x_type=variable_type.STATE,
+                        "Jaw_3": var_params(x_name = 'Jaw_3',
+                                            x_type=variable_type.STATE,
                                            control_min_max=[0, 30],
                                            units='psi',
                                            samp_type=sample_type.UNIFORM,
@@ -168,21 +177,34 @@ class koopman:
                                            samp_freq_Hz=samp_freq_Hz)
                         }
 
-        self.vars = var_defs
+        self.variables = var_defs
+        self.DF = self.createDF()
+
 
 
     def compute_variable_sequence(self):
-        for (k,v) in self.vars.items():
+        for (k,v) in self.variables.items():
             v.generate_random_sequence()
             print(k)
             print(v.random_sequence)
+
+        self.DF=self.createDF()
+
+    def createDF(self):
+        DF = pd.DataFrame.from_dict([vars(v) for k,v in self.variables.items()])
+        return (DF)
+
+    def readFromDF(self,fname=''):
+        tempDF = pd.read_csv(fname,sep='\t')
+
 
 
 
 if __name__ == '__main__':
     kpm = koopman()
     kpm.compute_variable_sequence()
-    print(kpm.vars["y"])
+    print(kpm.DF)
+    print(kpm.variables["y"])
 
 
 

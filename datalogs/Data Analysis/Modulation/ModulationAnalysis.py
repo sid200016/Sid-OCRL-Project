@@ -47,14 +47,41 @@ class AnalyzeDatalog():
 
         self.DF["Valid Episode"] = [x in list_of_indices for x in self.DF.index]
         self.DF["Episode Label"] = [episode_labels[np.where(x ==list_of_indices)][0] if (x in list_of_indices) else np.NAN for x in self.DF.index ]
+        
     def parse_episode(self):
 
         #Parse episode to determine the indices for attempts, i.e where
-        pass
+        #determine the start and end of each attempt based on activity of grasp neuron (i.e. where grasp goes from <0 to >0) and where
+        #move_to_grasp starts decreasing.  Finish occurs when lift after release>10 and grasp >20
+        
+        for i,v in enumerate(self.Episode_IDX["Start IDX"]):
+            st_idx = self.Episode_IDX["Start IDX"][i]
+            end_idx = self.Episode_IDX["End IDX"][i]
+            
+            DFr = self.DF.loc[st_idx:end_idx,:]
+            DFr = DFr.reset_index(drop=True)
+
+            #find where the move to grasp is less than 0 and the grasp neuron is activate, i.e. greater than 10
+            mg = np.diff(DFr["move_to_grasp"].to_numpy())
+            mgb = (mg < 0) & (DFr["move_to_grasp"][0:-1].to_numpy() > 10)
+            
+            #find where the grasp was less than 0 but crossed over to be positive
+            gr = np.diff(DFr["grasp"].to_numpy())
+            grb = (gr>0) & (DFr["grasp"][0:-1].to_numpy()<0) & (DFr["grasp"][1:].to_numpy()>0)
+            
+            idx = np.where(mgb & grb)
+            print(idx)
+            
+            
+            
+        
+        
+            pass
 
 
 AD = AnalyzeDatalog()
 AD.find_episodes()
+AD.parse_episode()
 
 
 

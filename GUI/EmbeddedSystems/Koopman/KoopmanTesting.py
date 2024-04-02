@@ -196,13 +196,13 @@ class koopman:
 
     def readFromDF(self,fname=''):
         tempDF = pd.read_csv(fname,sep='\t')
-
-
+        pass
 
 
 if __name__ == '__main__':
     kpm = koopman()
     kpm.compute_variable_sequence()
+    kpm.readFromDF(fname="KoopmanExperimentParameters.txt")
     print(kpm.DF)
     print(kpm.variables["y"])
 

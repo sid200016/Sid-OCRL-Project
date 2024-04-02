@@ -23,6 +23,8 @@ import aioconsole
 
 import cv2 as cv
 
+from GUI.EmbeddedSystems.Koopman.KoopmanTesting import  koopman as kpm
+
 
 class GrasperType(Enum):
     SoftGrasper = 0 #Soft Grasper
@@ -137,6 +139,17 @@ class IntegratedSystem:
 
         self.video_stream = None #initialize later
         self.use_video_stream = False #set to true if you want to use the video stream, else false
+
+        # For Koopman
+        self.kpt =  {"Pressure Capture Event": asyncio.Event(),
+                     "Pressure Actuate Event": asyncio.Event(),
+                     "Picture Capture Event" : asyncio.Event(),
+                     "Pressure Datalog Event" : asyncio.Event(),
+                     "Directory": None,
+                     "logger": None,
+                     "kpm": None}
+
+
 
 
 
@@ -899,6 +912,9 @@ class IntegratedSystem:
             await asyncio.sleep(0.001)  # allow other tasks to run
         await asyncio.sleep(0.001)
 
+
+
+
     async def PressureRadiusCalibration(self): #meant to run as a long running co-routine
 
         # Finish SNS
@@ -971,6 +987,96 @@ class IntegratedSystem:
 
                 #completely deflate grasper
                 self.logger.info("Completely deflating grasper...")
+                self.pressure_state["Commanded pressure (psi)"] = 0
+
+                await asyncio.sleep(5)
+
+                #increase pressure setpoint, actuate grasper and then wait
+                setpoints = np.arange(self.pressure_radius_parameters["min pressure (psi)"],
+                                      self.pressure_radius_parameters["max pressure (psi)"]+
+                                      self.pressure_radius_parameters["step pressure (psi)"],
+                                      self.pressure_radius_parameters["step pressure (psi)"])
+
+                for pressure in setpoints:
+                    self.logger.info(pressure)
+
+                    self.pressure_state["Commanded pressure (psi)"] = pressure
+                    self.pressure_radius_parameters["Pressure Actuate Event"].set()  # set pressure actuate event
+
+                    await asyncio.sleep(self.pressure_radius_parameters["stabilization time (s)"]) #sleep to allow it to stabilize
+                    #datalog and wait until events are set properly
+                    self.pressure_radius_parameters["Pressure Capture Event"].set()  # set this to allow the video capture routine to know that it should label that image specially
+                    await self.pressure_radius_parameters["Pressure Datalog Event"].wait() #this will be cleared, and then set again, so wait until that is done to clear it
+                    self.pressure_radius_parameters["Pressure Capture Event"].clear()
+
+                self.logger.info("Finished pressure-radius characterization")
+                self.pressure_radius_parameters["Video Writer"].release()
+                self.jcSG.ControlMode = JC.JoyConState.NORMAL
+            await asyncio.sleep(0.001)
+
+
+    async def KoopmanTesting(self): #meant to run as a long running co-routine
+
+        # Prompt User to hit X to proceed to Koopman. Hit Z at any time to quit.
+
+        while (True):
+            if self.jcSG.ControlMode == JC.JoyConState.KOOPMAN:
+
+                #initialize the Koopman testing structure
+                if self.kpt["kpm"] is None:
+                    self.kpt["kpm"] = kpm() #initialize
+                    self.kpt["kpm"].compute_variable_sequence()
+
+
+                if self.kpt["Directory"] is None:
+                    l_date = datetime.now().strftime("_%d_%m_%Y_%H_%M_%S")
+                    directory_path = Path(__file__).parents[3].joinpath("datalogs", "Koopman_Experiments" + l_date)
+                    directory_path.mkdir() #make directory
+                    self.kpt["Directory"] = directory_path
+
+                if self.kpt["logger"] is None:
+                    #setup the logger
+                    l_date = datetime.now().strftime("_%d_%m_%Y_%H_%M_%S")
+                    datalogger = logging.getLogger(__name__ + "_datalogs")
+
+                    fname = self.kpt["Directory"].joinpath("PressureRadiusDatalog" + l_date + ".csv")
+
+                    fh2 = logging.FileHandler(fname)  # file handler
+                    fh2.setLevel(logging.DEBUG)
+
+                    ch2 = logging.StreamHandler(sys.stdout)  # stream handler
+                    ch2.setLevel(logging.INFO)
+
+                    formatter2 = logging.Formatter('%(asctime)s,%(name)s,%(levelname)s,%(message)s')
+
+                    fh2.setFormatter(formatter2)
+                    ch2.setFormatter(formatter2)
+
+                    datalogger.setLevel(logging.DEBUG)
+
+                    # add the handlers to the logger
+                    datalogger.addHandler(fh2)
+                    datalogger.addHandler(ch2)
+
+                    # add the header
+                    datalogger.info(','.join(k for k,v in self.pressure_state.items()))
+
+                    self.kpt["logger"] = datalogger
+
+                self.kpt["logger"].info(
+                    "Logger set up ...")
+
+                self.kpt["logger"].info("Below are the Experimental parameters....")
+                self.kpt["logger"].info(self.kpt["kpm"].DF)
+
+                #TODO: Ask User to Enter Y to proceed, enter z to exit
+
+                #TODO: Iterate through list of states Those that are just states, ignore. Those that are controls, then move x,y,z or grasper. Update counter, then repeat for others.
+
+
+
+                #completely deflate grasper
+                self.kpt["logger"].info("Completely deflating grasper...")
                 self.pressure_state["Commanded pressure (psi)"] = 0
 
                 await asyncio.sleep(5)

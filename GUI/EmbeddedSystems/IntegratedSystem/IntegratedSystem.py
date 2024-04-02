@@ -23,7 +23,7 @@ import aioconsole
 
 import cv2 as cv
 
-from GUI.EmbeddedSystems.Koopman.KoopmanTesting import  koopman as kpm
+from GUI.EmbeddedSystems.Koopman.KoopmanTesting import  koopman as kpm, variable_type
 
 
 class GrasperType(Enum):
@@ -141,12 +141,11 @@ class IntegratedSystem:
         self.use_video_stream = False #set to true if you want to use the video stream, else false
 
         # For Koopman
-        self.kpt =  {"Pressure Capture Event": asyncio.Event(),
-                     "Pressure Actuate Event": asyncio.Event(),
-                     "Picture Capture Event" : asyncio.Event(),
-                     "Pressure Datalog Event" : asyncio.Event(),
+        self.kpt =  {"Koopman Datalog Event" : asyncio.Event(),
                      "Directory": None,
                      "logger": None,
+                     "logger_header": False,
+                     "logger_controls":{"x":0,"y":0,"z":0,"Grasper_Pressure":0},
                      "kpm": None}
 
 
@@ -1039,7 +1038,7 @@ class IntegratedSystem:
                     l_date = datetime.now().strftime("_%d_%m_%Y_%H_%M_%S")
                     datalogger = logging.getLogger(__name__ + "_datalogs")
 
-                    fname = self.kpt["Directory"].joinpath("PressureRadiusDatalog" + l_date + ".csv")
+                    fname = self.kpt["Directory"].joinpath("Koopman_Testing" + l_date + ".csv")
 
                     fh2 = logging.FileHandler(fname)  # file handler
                     fh2.setLevel(logging.DEBUG)
@@ -1063,45 +1062,79 @@ class IntegratedSystem:
 
                     self.kpt["logger"] = datalogger
 
-                self.kpt["logger"].info(
+
+
+                self.logger.info(
                     "Logger set up ...")
 
-                self.kpt["logger"].info("Below are the Experimental parameters....")
-                self.kpt["logger"].info(self.kpt["kpm"].DF)
-
-                #TODO: Ask User to Enter Y to proceed, enter z to exit
-
-                #TODO: Iterate through list of states Those that are just states, ignore. Those that are controls, then move x,y,z or grasper. Update counter, then repeat for others.
+                self.logger.info("Below are the Experimental parameters....")
+                self.logger.info(self.kpt["kpm"].DF)
 
 
 
-                #completely deflate grasper
-                self.kpt["logger"].info("Completely deflating grasper...")
-                self.pressure_state["Commanded pressure (psi)"] = 0
+                #Ask User to Enter Y to proceed, enter z to exit
+                orig_pos = deepcopy(self.GC.goalPos)
+                self.logger.info("Original position (mm): %f,%f,%f"%(*orig_pos))
 
-                await asyncio.sleep(5)
 
-                #increase pressure setpoint, actuate grasper and then wait
-                setpoints = np.arange(self.pressure_radius_parameters["min pressure (psi)"],
-                                      self.pressure_radius_parameters["max pressure (psi)"]+
-                                      self.pressure_radius_parameters["step pressure (psi)"],
-                                      self.pressure_radius_parameters["step pressure (psi)"])
+                self.logger.info("Enter Y to proceed, enter Z to exit")
 
-                for pressure in setpoints:
-                    self.logger.info(pressure)
+                response = await aioconsole.ainput()
 
-                    self.pressure_state["Commanded pressure (psi)"] = pressure
-                    self.pressure_radius_parameters["Pressure Actuate Event"].set()  # set pressure actuate event
+                proceed = False
+                match response.upper():
+                    case "Y":
+                        proceed = True
 
-                    await asyncio.sleep(self.pressure_radius_parameters["stabilization time (s)"]) #sleep to allow it to stabilize
-                    #datalog and wait until events are set properly
-                    self.pressure_radius_parameters["Pressure Capture Event"].set()  # set this to allow the video capture routine to know that it should label that image specially
-                    await self.pressure_radius_parameters["Pressure Datalog Event"].wait() #this will be cleared, and then set again, so wait until that is done to clear it
-                    self.pressure_radius_parameters["Pressure Capture Event"].clear()
 
-                self.logger.info("Finished pressure-radius characterization")
-                self.pressure_radius_parameters["Video Writer"].release()
-                self.jcSG.ControlMode = JC.JoyConState.NORMAL
+                    case Z:
+                        self.self.jcSG.ControlMode = JC.JoyConState.NORMAL
+                        self.logger.info("Exiting Koopman...")
+
+
+
+
+
+                #TODO: Iterate through list of states. Those that are just states, ignore. Those that are controls, then move x,y,z or grasper. Update counter, then repeat for others.
+
+                if proceed == True:
+
+                    #completely deflate grasper
+                    self.logger.info("Completely deflating grasper...")
+                    self.pressure_state["Commanded pressure (psi)"] = 0
+                    self.pressure_radius_parameters["Pressure Actuate Event"].set()
+                    await asyncio.sleep(5)
+
+                    kpmv = self.kpt["kpm"]
+                    num_points = np.size(kpmv.variables["y"].random_sequence) #get number of points
+                    for i in range(0,num_points):
+                        #iterate through each variable, check if it is a control or not, then actuate accordingly
+                        new_pos_mm = [0,0,0]
+                        for k,v in kpmv.variables.items():
+                            if v.var_type == variable_type.CONTROL:
+                                if v.var_name == "x":
+                                    new_pos_mm[0] = orig_pos[0] + v.random_sequence[i]
+
+                                elif v.var_name == "y":
+                                    new_pos_mm[1] = orig_pos[1] + v.random_sequence[i]
+
+                                elif v.var_name == "z":
+                                    new_pos_mm[2] = orig_pos[2] + v.random_sequence[i]
+
+                                elif v.var_name == "Grasper_Pressure":
+                                    self.pressure_state["Commanded pressure (psi)"] = v.random_sequence[i]
+
+                                else:
+                                    pass
+
+                        self.pressure_radius_parameters["Pressure Actuate Event"].set()  # set pressure actuate event
+                        self.MoveGantryEvent.set()
+                        await asyncio.sleep(1/kpmv.variables["y"].samp_freq_Hz)
+
+                        await self.kpt["Koopman Datalog Event"].wait() #this will be cleared, and then set again, so wait until that is done to clear it
+
+                    self.logger.info("Finished Koopman")
+                    self.jcSG.ControlMode = JC.JoyConState.NORMAL
             await asyncio.sleep(0.001)
 
 
@@ -1130,8 +1163,49 @@ class IntegratedSystem:
 
 
 
-            else:
-                pass
+            if self.jcSG.ControlMode == JC.JoyConState.KOOPMAN and self.kpt["logger"] is not None:
+                if self.kpt["logger_header"] == False:
+                    headerstr = "time_delta_s,program_mode,x_mm,y_mm,z_mm,P_closure_psi,P_jaw1_psi,P_jaw2_psi,P_jaw3_psi,commanded_radius_mm, commanded_P_jaw1_psi, commanded_P_jaw2_psi, commanded_P_jaw3_psi"
+                    headerstr = headerstr + "," + ','.join(
+                        [k for k, v in self.buttonVal.items()]) + "," + "Axes 1, Axes 2"  # for the buttons
+                    headerstr = headerstr + "," + ','.join(
+                        [k for k, v in self.SNSc.neuronset.items()])  # for the SNS neuron states
+                    headerstr = headerstr + "," + ','.join(
+                        [k for k, x in self.ObjectVal.items()])  # for the object states
+
+                    headerstr = headerstr + "," + "Mode"
+
+                    self.kpt["logger"].info(headerstr)
+
+                    self.kpt["logger_header"] = True
+
+                #TODO: fix this portion of the datalog:
+                await self.startDatalog.wait()
+                datastr = str(time.time() - self.time_0)
+                datastr = datastr + "," + "%s,%f,%f,%f" % (
+                str(self.jcSG.ControlMode), self.curPos[0] * 1000, self.curPos[1] * 1000, self.curPos[2] * 1000)
+                datastr = datastr + "," + "%f,%f,%f,%f,%f,%f,%f,%f" % (
+                self.ClosurePressure, *self.jawPressure, self.SG.commandedPosition["ClosureChangeInRadius_mm"],
+                self.SG.commandedPosition["Jaw1_psi"], self.SG.commandedPosition["Jaw2_psi"],
+                self.SG.commandedPosition["Jaw3_psi"])
+                datastr = datastr + "," + ','.join(
+                    [str(v) for k, v in self.buttonVal.items()]) + "," + ','.join(
+                    [str(x) for x in self.AxesPos])  # for the joystick button and pos
+
+                datastr = datastr + "," + ','.join(
+                    [str(v) for k, v in self.SNSc.neuronset.items()])  # for the SNS neuronset
+
+                datastr = datastr + "," + ','.join(
+                    ["Object " + str(x.status.name) for k, x in self.ObjectVal.items()])  # for the objects
+
+                datastr = datastr + "," + str(self.jcSG.ControlMode.name)
+
+                self.datalogger.info(datastr)
+                self.finishDatalog.set()
+
+                # sleep and set pressure datalog event
+                await asyncio.sleep(0.001)
+
 
             #Normal datalog code
             #print("Datalog")

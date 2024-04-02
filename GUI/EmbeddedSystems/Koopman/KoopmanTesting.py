@@ -94,7 +94,7 @@ class var_params:
                                              self.samp_parameters["stddev"],
                                              size = num_control_points)
 
-                        cpoints = np.clip(s,self.control_min_max[0], self.control_min_max[1])
+                        cpoints = np.clip(cpoints,self.control_min_max[0], self.control_min_max[1])
 
                         s = np.array([np.repeat(i, num_points_episode)
                                       for i in cpoints]).flatten()
@@ -205,6 +205,8 @@ if __name__ == '__main__':
     kpm.readFromDF(fname="KoopmanExperimentParameters.txt")
     print(kpm.DF)
     print(kpm.variables["y"])
+
+    print(np.size(kpm.variables["y"].random_sequence))
 
 
 

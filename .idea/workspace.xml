@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
     <list default="true" id="bfd83e2d-ab31-4129-8c0e-ce5b016d6614" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/Koopman/KoopmanTesting.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/Koopman/KoopmanTesting.py" afterDir="false" />
     </list>
+=======
+    <list default="true" id="bfd83e2d-ab31-4129-8c0e-ce5b016d6614" name="Changes" comment="" />
+>>>>>>> Stashed changes
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -435,9 +439,20 @@
           <option name="timeStamp" value="316" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+<<<<<<< Updated upstream
           <url>file://$PROJECT_DIR$/GUI/EmbeddedSystems/Koopman/KoopmanTesting.py</url>
           <line>206</line>
           <option name="timeStamp" value="317" />
+=======
+          <url>file://$PROJECT_DIR$/datalogs/Data Analysis/Modulation/ModulationAnalysis.py</url>
+          <line>87</line>
+          <option name="timeStamp" value="325" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/datalogs/Data Analysis/Modulation/ModulationAnalysis.py</url>
+          <line>96</line>
+          <option name="timeStamp" value="326" />
+>>>>>>> Stashed changes
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

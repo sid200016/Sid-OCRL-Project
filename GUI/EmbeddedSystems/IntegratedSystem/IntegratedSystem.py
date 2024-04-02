@@ -1129,9 +1129,54 @@ class IntegratedSystem:
 
                         self.pressure_radius_parameters["Pressure Actuate Event"].set()  # set pressure actuate event
                         self.MoveGantryEvent.set()
-                        await asyncio.sleep(1/kpmv.variables["y"].samp_freq_Hz)
+                        await asyncio.sleep(1/kpmv.variables["y"].samp_freq_Hz) #wait for events to register and get executed
 
-                        await self.kpt["Koopman Datalog Event"].wait() #this will be cleared, and then set again, so wait until that is done to clear it
+                        #datalog
+                        await self.FreshDataEvent.wait()
+
+                        if self.kpt["logger_header"] == False:
+                            headerstr = "time_delta_s,program_mode,x_mm,y_mm,z_mm,P_closure_psi,P_jaw1_psi,P_jaw2_psi,P_jaw3_psi,commanded_radius_mm, commanded_P_jaw1_psi, commanded_P_jaw2_psi, commanded_P_jaw3_psi"
+                            headerstr = headerstr + "," + ','.join(
+                                [k for k, v in self.buttonVal.items()]) + "," + "Axes 1, Axes 2"  # for the buttons
+                            headerstr = headerstr + "," + ','.join(
+                                [k for k, v in self.SNSc.neuronset.items()])  # for the SNS neuron states
+                            headerstr = headerstr + "," + ','.join(
+                                [k for k, x in self.ObjectVal.items()])  # for the object states
+
+                            headerstr = headerstr + "," + "Mode"
+
+                            self.kpt["logger"].info(headerstr)
+
+                            self.kpt["logger_header"] = True
+
+                            # TODO: fix this portion of the datalog:
+                            await self.startDatalog.wait()
+                            datastr = str(time.time() - self.time_0)
+                            datastr = datastr + "," + "%s,%f,%f,%f" % (
+                                str(self.jcSG.ControlMode), self.curPos[0] * 1000, self.curPos[1] * 1000,
+                                self.curPos[2] * 1000)
+                            datastr = datastr + "," + "%f,%f,%f,%f,%f,%f,%f,%f" % (
+                                self.ClosurePressure, *self.jawPressure,
+                                self.SG.commandedPosition["ClosureChangeInRadius_mm"],
+                                self.SG.commandedPosition["Jaw1_psi"], self.SG.commandedPosition["Jaw2_psi"],
+                                self.SG.commandedPosition["Jaw3_psi"])
+                            datastr = datastr + "," + ','.join(
+                                [str(v) for k, v in self.buttonVal.items()]) + "," + ','.join(
+                                [str(x) for x in self.AxesPos])  # for the joystick button and pos
+
+                            datastr = datastr + "," + ','.join(
+                                [str(v) for k, v in self.SNSc.neuronset.items()])  # for the SNS neuronset
+
+                            datastr = datastr + "," + ','.join(
+                                ["Object " + str(x.status.name) for k, x in self.ObjectVal.items()])  # for the objects
+
+                            datastr = datastr + "," + str(self.jcSG.ControlMode.name)
+
+                            self.datalogger.info(datastr)
+                            self.finishDatalog.set()
+
+                            # sleep and set pressure datalog event
+                            await asyncio.sleep(0.001)
 
                     self.logger.info("Finished Koopman")
                     self.jcSG.ControlMode = JC.JoyConState.NORMAL
@@ -1163,48 +1208,7 @@ class IntegratedSystem:
 
 
 
-            if self.jcSG.ControlMode == JC.JoyConState.KOOPMAN and self.kpt["logger"] is not None:
-                if self.kpt["logger_header"] == False:
-                    headerstr = "time_delta_s,program_mode,x_mm,y_mm,z_mm,P_closure_psi,P_jaw1_psi,P_jaw2_psi,P_jaw3_psi,commanded_radius_mm, commanded_P_jaw1_psi, commanded_P_jaw2_psi, commanded_P_jaw3_psi"
-                    headerstr = headerstr + "," + ','.join(
-                        [k for k, v in self.buttonVal.items()]) + "," + "Axes 1, Axes 2"  # for the buttons
-                    headerstr = headerstr + "," + ','.join(
-                        [k for k, v in self.SNSc.neuronset.items()])  # for the SNS neuron states
-                    headerstr = headerstr + "," + ','.join(
-                        [k for k, x in self.ObjectVal.items()])  # for the object states
 
-                    headerstr = headerstr + "," + "Mode"
-
-                    self.kpt["logger"].info(headerstr)
-
-                    self.kpt["logger_header"] = True
-
-                #TODO: fix this portion of the datalog:
-                await self.startDatalog.wait()
-                datastr = str(time.time() - self.time_0)
-                datastr = datastr + "," + "%s,%f,%f,%f" % (
-                str(self.jcSG.ControlMode), self.curPos[0] * 1000, self.curPos[1] * 1000, self.curPos[2] * 1000)
-                datastr = datastr + "," + "%f,%f,%f,%f,%f,%f,%f,%f" % (
-                self.ClosurePressure, *self.jawPressure, self.SG.commandedPosition["ClosureChangeInRadius_mm"],
-                self.SG.commandedPosition["Jaw1_psi"], self.SG.commandedPosition["Jaw2_psi"],
-                self.SG.commandedPosition["Jaw3_psi"])
-                datastr = datastr + "," + ','.join(
-                    [str(v) for k, v in self.buttonVal.items()]) + "," + ','.join(
-                    [str(x) for x in self.AxesPos])  # for the joystick button and pos
-
-                datastr = datastr + "," + ','.join(
-                    [str(v) for k, v in self.SNSc.neuronset.items()])  # for the SNS neuronset
-
-                datastr = datastr + "," + ','.join(
-                    ["Object " + str(x.status.name) for k, x in self.ObjectVal.items()])  # for the objects
-
-                datastr = datastr + "," + str(self.jcSG.ControlMode.name)
-
-                self.datalogger.info(datastr)
-                self.finishDatalog.set()
-
-                # sleep and set pressure datalog event
-                await asyncio.sleep(0.001)
 
 
             #Normal datalog code

@@ -24,9 +24,10 @@ class AnalyzeDatalog():
         # self.DF.to_excel("WithModulation_resaved.xlsx")
 
         self.Episode_IDX = {"Date Classifier":[], "Start IDX":[], "End IDX":[]}
-        self.Summary = {"Date Classifier":[],"Start IDX":[],"End IDX":[], "Attempt start IDX":[],"Attempt end IDX":[], "Time Start":[], "Time End":[],
-                        "Success":[], "Failure":[], "Number of Attempts": [],
-                        "Attempt average radius (mm)": [], "Attempt average jaw pressure (psi)":[],
+        self.Summary = {"Date Classifier":[],"Start IDX":[],"End IDX":[], "Attempt start IDX":[],"Attempt end IDX":[],
+                        "Time Start":[], "Time End":[],
+                        "Success":[], "Failure":[],
+                        "Number of Attempts": [], "Attempt average radius (mm)": [], "Attempt average jaw pressure (psi)":[],
                         "Attempt std. dev jaw pressure (psi)": [], "Attempt max jaw pressure (psi)":[]}
 
 
@@ -61,6 +62,7 @@ class AnalyzeDatalog():
             DFr = self.DF.loc[st_idx:end_idx,:]
             DFr = DFr.reset_index(drop=True)
 
+            ##----Attempt parsing ----##
             #find where the move to grasp is less than 0 and the grasp neuron is activate, i.e. greater than 10
             mg = np.diff(DFr["move_to_grasp"].to_numpy())
             mgb = (mg < 0) & (DFr["move_to_grasp"][0:-1].to_numpy() > 10)
@@ -69,8 +71,76 @@ class AnalyzeDatalog():
             gr = np.diff(DFr["grasp"].to_numpy())
             grb = (gr>0) & (DFr["grasp"][0:-1].to_numpy()<0) & (DFr["grasp"][1:].to_numpy()>0)
             
-            idx = np.where(mgb & grb)
+            idx = np.where(mgb & grb)[0]
             print(idx)
+
+
+            ##---- Success parsing ----##
+            #find whether the grasp was successful or not -> need grasp>20 after lift_after_release>10
+
+            grv = np.where(DFr["grasp"].to_numpy() >15) [0][-1] #get the last element
+            lar = np.where(DFr["lift_after_release"].to_numpy()>10)[0] #get the last element
+            if len(lar)==0:
+                success = False
+                at_end_idx = end_idx[i]
+            else:
+                lar = lar[-1]
+                success = grv>lar
+                at_end_idx = lar
+
+            attempt_start_idx = [x for x in idx]
+            num_attempts = len(attempt_start_idx)
+            if (num_attempts ==1):
+                attempt_end_idx = [at_end_idx]
+            else:
+                attempt_end_idx = [x for x in idx[1:]]
+                attempt_end_idx.append(at_end_idx)
+
+
+            ##---- For each attempt, determine where the transition from grasp to lift-after-grasp occurs ----##
+            for k in range(0,num_attempts):
+                zero_pressure = DFk.loc[1:40,["P_jaw1_psi","P_jaw2_psi","P_jaw3_psi"]].mean()
+                DFk = DFr.loc[attempt_start_idx[k]:attempt_end_idx[k], :]
+                DFk = DFk.reset_index(drop=True)
+
+                # find indices of transition from grasp to lift-after-grasp-> look for where gr>20 and the diff is <0
+                grk = np.diff(DFk["grasp"].to_numpy())
+                grkb = (grk < 0) & (DFk["grasp"][0:-1].to_numpy() > 0)
+
+                # find indices of transition from grasp to lift-after-grasp-> look for where lift after grasp went from negative to positive
+                lgk = np.diff(DFk["lift_after_grasp"].to_numpy())
+                lgkb = (lgk > 0) & (DFk["lift_after_grasp"][0:-1].to_numpy() < 0) & (DFk["lift_after_grasp"][1:].to_numpy() > 0)
+
+
+
+                # find where the grasp was less than 0 but crossed over to be positive
+                idx_lift_start = np.where(grkb & lgkb)[0][-1]
+
+
+                pressures_at_transition = [DFk.at[idx_lift_start,"P_jaw1_psi"],
+                                           DFk.at[idx_lift_start,"P_jaw2_psi"],
+                                           DFk.at[idx_lift_start,"P_jaw3_psi"]]
+
+
+
+
+
+
+
+            #Find maximum pressure during lift-after-grasp
+
+            #Find maximum pressure applied during transport and release
+
+
+            #
+            # self.Summary = {"Date Classifier": [], "Start IDX": [], "End IDX": [], "Attempt start IDX": [],
+            #                 "Attempt end IDX": [], "Time Start": [], "Time End": [],
+            #                 "Success": [], "Failure": [], "Number of Attempts": [],
+            #                 "Attempt average radius (mm)": [], "Attempt average jaw pressure (psi)": [],
+            #                 "Attempt std. dev jaw pressure (psi)": [], "Attempt max jaw pressure (psi)": []}
+
+
+
             
             
             

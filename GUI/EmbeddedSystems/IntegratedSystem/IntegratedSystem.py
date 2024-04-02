@@ -141,11 +141,12 @@ class IntegratedSystem:
         self.use_video_stream = False #set to true if you want to use the video stream, else false
 
         # For Koopman
-        self.kpt =  {"Koopman Datalog Event" : asyncio.Event(),
-                     "Directory": None,
+        self.kpt =  {"Directory": None,
                      "logger": None,
                      "logger_header": False,
                      "logger_controls":{"x":0,"y":0,"z":0,"Grasper_Pressure":0},
+                     "Object Class":"default",
+                     "Object Size (mm)":0,
                      "kpm": None}
 
 
@@ -1074,9 +1075,6 @@ class IntegratedSystem:
 
                 #Ask User to Enter Y to proceed, enter z to exit
                 orig_pos = deepcopy(self.GC.goalPos)
-                self.logger.info("Original position (mm): %f,%f,%f"%(*orig_pos))
-
-
                 self.logger.info("Enter Y to proceed, enter Z to exit")
 
                 response = await aioconsole.ainput()
@@ -1091,12 +1089,21 @@ class IntegratedSystem:
                         self.self.jcSG.ControlMode = JC.JoyConState.NORMAL
                         self.logger.info("Exiting Koopman...")
 
+                self.logger.info("Original position (mm): %f,%f,%f" % (*orig_pos))
+
+                #prompt to get object type
+                self.logger.info("Please enter object type (rigid, elastic or soft)")
+                self.kpt["Object Class"] = await aioconsole.ainput()
+
+                #prompt to get object size
+                self.logger.info("Please enter object size in mm")
+                self.kpt["Object Size (mm)"] = float(await aioconsole.ainput())
 
 
 
 
                 #TODO: Iterate through list of states. Those that are just states, ignore. Those that are controls, then move x,y,z or grasper. Update counter, then repeat for others.
-
+                ### ---- Start Koopman Experiments ---- ###
                 if proceed == True:
 
                     #completely deflate grasper
@@ -1107,77 +1114,68 @@ class IntegratedSystem:
 
                     kpmv = self.kpt["kpm"]
                     num_points = np.size(kpmv.variables["y"].random_sequence) #get number of points
+                    start_time = datetime.now().strftime('%Y:%h:%d_%H:%M:%S')
+
+                    ### ---- Iterate through randomly generated sequence ---- ###
                     for i in range(0,num_points):
                         #iterate through each variable, check if it is a control or not, then actuate accordingly
-                        new_pos_mm = [0,0,0]
+                        new_pos_mm = orig_pos
                         for k,v in kpmv.variables.items():
                             if v.var_type == variable_type.CONTROL:
                                 if v.var_name == "x":
-                                    new_pos_mm[0] = orig_pos[0] + v.random_sequence[i]
+                                    new_pos_mm[0] = new_pos_mm[0] + v.random_sequence[i]
 
                                 elif v.var_name == "y":
-                                    new_pos_mm[1] = orig_pos[1] + v.random_sequence[i]
+                                    new_pos_mm[1] = new_pos_mm[1] + v.random_sequence[i]
 
                                 elif v.var_name == "z":
-                                    new_pos_mm[2] = orig_pos[2] + v.random_sequence[i]
+                                    new_pos_mm[2] = new_pos_mm[2] + v.random_sequence[i]
 
                                 elif v.var_name == "Grasper_Pressure":
                                     self.pressure_state["Commanded pressure (psi)"] = v.random_sequence[i]
 
                                 else:
                                     pass
+                        ### ---- Send commands to perturb system ---- ###
+                        self.GC.goalPos = new_pos_mm
 
                         self.pressure_radius_parameters["Pressure Actuate Event"].set()  # set pressure actuate event
-                        self.MoveGantryEvent.set()
-                        await asyncio.sleep(1/kpmv.variables["y"].samp_freq_Hz) #wait for events to register and get executed
-
+                        self.MoveGantryEvent.set() #set move gantry event
+                        #await asyncio.sleep(1/kpmv.variables["y"].samp_freq_Hz) #wait for events to register and get executed
+                        await asyncio.sleep(0.0005)
                         #datalog
-                        await self.FreshDataEvent.wait()
+                        await self.FreshDataEvent.wait() #await fresh data event should provide the sample freq because the serial I/O is blocking
 
                         if self.kpt["logger_header"] == False:
-                            headerstr = "time_delta_s,program_mode,x_mm,y_mm,z_mm,P_closure_psi,P_jaw1_psi,P_jaw2_psi,P_jaw3_psi,commanded_radius_mm, commanded_P_jaw1_psi, commanded_P_jaw2_psi, commanded_P_jaw3_psi"
-                            headerstr = headerstr + "," + ','.join(
-                                [k for k, v in self.buttonVal.items()]) + "," + "Axes 1, Axes 2"  # for the buttons
-                            headerstr = headerstr + "," + ','.join(
-                                [k for k, v in self.SNSc.neuronset.items()])  # for the SNS neuron states
-                            headerstr = headerstr + "," + ','.join(
-                                [k for k, x in self.ObjectVal.items()])  # for the object states
-
-                            headerstr = headerstr + "," + "Mode"
+                            headerstr = "Datalog_time,time_delta_s, object_class, object_size, program_mode,x_mm,y_mm,z_mm,P_closure_psi,P_jaw1_psi,P_jaw2_psi,P_jaw3_psi," \
+                                        "commanded_radius_mm, commanded_P_jaw1_psi, commanded_P_jaw2_psi, commanded_P_jaw3_psi," \
+                                        "commanded_x_mm, commanded_y_mm,commanded_z_mm"
 
                             self.kpt["logger"].info(headerstr)
 
                             self.kpt["logger_header"] = True
 
-                            # TODO: fix this portion of the datalog:
-                            await self.startDatalog.wait()
-                            datastr = str(time.time() - self.time_0)
-                            datastr = datastr + "," + "%s,%f,%f,%f" % (
-                                str(self.jcSG.ControlMode), self.curPos[0] * 1000, self.curPos[1] * 1000,
-                                self.curPos[2] * 1000)
-                            datastr = datastr + "," + "%f,%f,%f,%f,%f,%f,%f,%f" % (
-                                self.ClosurePressure, *self.jawPressure,
-                                self.SG.commandedPosition["ClosureChangeInRadius_mm"],
-                                self.SG.commandedPosition["Jaw1_psi"], self.SG.commandedPosition["Jaw2_psi"],
-                                self.SG.commandedPosition["Jaw3_psi"])
-                            datastr = datastr + "," + ','.join(
-                                [str(v) for k, v in self.buttonVal.items()]) + "," + ','.join(
-                                [str(x) for x in self.AxesPos])  # for the joystick button and pos
+                        ### ---- Datalog events ---- ###
+                        datastr = start_time + ","+ str(time.time() - self.time_0) + "," + self.kpt["Object Class"] + "," + self.kpt["Object Size (mm)"]
+                        datastr = datastr + "," + "%s,%f,%f,%f" % (
+                            str(self.jcSG.ControlMode.value), self.curPos[0] * 1000, self.curPos[1] * 1000,
+                            self.curPos[2] * 1000)
+                        datastr = datastr + "," + "%f,%f,%f,%f,%f,%f,%f,%f" % (
+                            self.ClosurePressure, *self.jawPressure,
+                            self.SG.commandedPosition["ClosureChangeInRadius_mm"],
+                            self.SG.commandedPosition["Jaw1_psi"], self.SG.commandedPosition["Jaw2_psi"],
+                            self.SG.commandedPosition["Jaw3_psi"])
 
-                            datastr = datastr + "," + ','.join(
-                                [str(v) for k, v in self.SNSc.neuronset.items()])  # for the SNS neuronset
+                        datastr = datastr + "," + ",".join([str(x) for x in self.GC.goalPos])
 
-                            datastr = datastr + "," + ','.join(
-                                ["Object " + str(x.status.name) for k, x in self.ObjectVal.items()])  # for the objects
 
-                            datastr = datastr + "," + str(self.jcSG.ControlMode.name)
+                        self.kpt["logger"].info(datastr)
 
-                            self.datalogger.info(datastr)
-                            self.finishDatalog.set()
+                        # sleep and set pressure datalog event
+                        await asyncio.sleep(0.001)
 
-                            # sleep and set pressure datalog event
-                            await asyncio.sleep(0.001)
 
+                    ### ---- Finish For loop ---- ###
                     self.logger.info("Finished Koopman")
                     self.jcSG.ControlMode = JC.JoyConState.NORMAL
             await asyncio.sleep(0.001)

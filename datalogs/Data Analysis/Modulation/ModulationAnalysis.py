@@ -27,6 +27,7 @@ class AnalyzeDatalog():
 
         self.Summary = {}
         self.Summary["Date Classifier"] = []
+        self.Summary["Trial Number"] = []
         self.Summary["Start IDX"] = []
         self.Summary["End IDX"] = []
         self.Summary["Attempt start IDX"] = []
@@ -125,6 +126,8 @@ class AnalyzeDatalog():
                 DFk = DFr.loc[attempt_start_idx[k]:attempt_end_idx[k], :]
                 DFk = DFk.reset_index(drop=True)
 
+
+
                 zero_pressure = DFk.loc[1:40, ["P_jaw1_psi", "P_jaw2_psi", "P_jaw3_psi"]].mean().to_numpy()
 
                 # find indices of transition from grasp to lift-after-grasp-> look for where gr>20 and the diff is <0
@@ -138,9 +141,9 @@ class AnalyzeDatalog():
 
 
                 # find where the grasp was less than 0 but crossed over to be positive
-                trans_press = np.NaN
-                max_lift_press = np.NaN
-                max_grasp_press = np.NaN
+                trans_press = [np.NaN,np.NaN, np.NaN]
+                max_lift_press = [np.NaN,np.NaN, np.NaN]
+                max_grasp_press = [np.NaN,np.NaN, np.NaN]
 
                 trans_radius = np.NaN
                 max_lift_radius = np.NaN
@@ -156,6 +159,7 @@ class AnalyzeDatalog():
                                                                       "P_jaw3_psi"]] - zero_pressure).to_list()
 
                     print("Attempt %i: Pressures at transition %f, %f, %f"%(k,*pressures_at_transition))
+                    trans_press = pressures_at_transition
 
                     #find max pressure during lift phase. First find where the end of the lift phase occurs
                     lift_phase_end = np.where((lgk<0) & (DFk["lift_after_grasp"][0:-1].to_numpy() > 0))[0]
@@ -170,17 +174,18 @@ class AnalyzeDatalog():
 
                             print("Attempt %i: Max pressure during lift %f, %f, %f" % (k,*max_pressure_during_lift.to_list()))
 
-
+                            max_lift_press = max_pressure_during_lift.to_list()
 
                             #find max pressure during grasp phase. #go from lift after grasp ends to the end of the total
                             max_pressure_during_grasp = DFk.loc[lift_phase_end_idx:, ["P_jaw1_psi",
                                                                                                    "P_jaw2_psi",
                                                                                                    "P_jaw3_psi"]].max() - zero_pressure
-
+                            max_grasp_press = max_pressure_during_grasp.to_list()
                             print("Attempt %i: Max pressure during grasp %f, %f, %f" % (k,*max_pressure_during_grasp.to_list()))
 
 
                 self.Summary["Date Classifier"].append(i)
+                self.Summary["Trial Number"].append(i)
                 self.Summary["Start IDX"].append(np.NaN)
                 self.Summary["End IDX"].append(np.NaN)
                 self.Summary["Attempt start IDX"].append(np.NaN)

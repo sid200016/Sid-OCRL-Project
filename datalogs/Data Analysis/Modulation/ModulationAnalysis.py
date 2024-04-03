@@ -4,6 +4,8 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 import plotly.express as px
+from plotly.subplots import make_subplots
+import plotly.graph_objs as go
 '''
 Pseudocode
 
@@ -293,12 +295,37 @@ fig3 = px.line(AD.DF.query("`Episode Label` in [0]"),x = 'time_delta_s',y = ['co
 fig3.show()
 
 fig4 = px.line(newDF.query("`Gain`=='K = 30'"),x = 'Attempt Number',y = 'Lift Max Pressure 1', color = "Trial Number", symbol = "Trial Number")
+fig4.update_traces(marker=dict(size=18), line=dict(width=3))
+fig4.update_layout(font=dict(size=15))
 fig4.show()
 
 fig5 = px.line(newDF.query("`Gain`=='K = 1'"),x = 'Attempt Number',y = 'Lift Max Pressure 1', color = "Trial Number", symbol = "Trial Number")
+fig5.update_traces(marker=dict(size=18), line=dict(width=3))
+fig5.update_layout(font=dict(size=15))
 fig5.show()
 
 
+## subplot figure
+newDF_melt = newDF.melt(id_vars=['Attempt Number','Trial Number','Gain'],
+                        value_vars=['Lift Max Pressure 1', 'Max Radius during lift mm'],var_name = 'Variable',value_name ='Values')
+fig6 = px.line(newDF_melt,x = 'Attempt Number',y = 'Values', color = "Trial Number", symbol = "Trial Number",facet_col="Gain",facet_row = 'Variable')
+fig6.update_traces(marker=dict(size=12), line=dict(width=1.4))
+fig6.update_layout(font=dict(size=12))
+fig6.update_yaxes(matches=None, showticklabels=True)
+fig6.show()
+
+## two plots per figure
+fig7 = px.line(newDF,x = 'Attempt Number',y = 'Lift Max Pressure 1', color = "Trial Number", symbol = "Trial Number",facet_col="Gain")
+fig7.update_traces(marker=dict(size=12), line=dict(width=1.4))
+fig7.update_layout(font=dict(size=15))
+fig7.show()
+fig7.write_image("LiftMaxPressure.svg")
+
+fig8 = px.line(newDF,x = 'Attempt Number',y = 'Max Radius during lift mm', color = "Trial Number", symbol = "Trial Number",facet_col="Gain")
+fig8.update_traces(marker=dict(size=12), line=dict(width=1.4))
+fig8.update_layout(font=dict(size=15))
+fig8.show()
+fig8.write_image("MaxRadiusDuringLift.svg")
 
 plotDF = AD.DF.loc[~np.isnan(AD.DF["Episode Label"]),:]
 plotDF = plotDF.melt(id_vars=['time_delta_s', 'Valid Episode', 'Episode Label'],
@@ -309,10 +336,10 @@ plotDF = plotDF.melt(id_vars=['time_delta_s', 'Valid Episode', 'Episode Label'],
 
 
 
-g = sns.FacetGrid(plotDF, col="Episode Label", hue = 'Variable',col_wrap=6, height=2)
-g.map(sns.lineplot, "time_delta_s", 'Values')
-g.add_legend()
-plt.show()
+# g = sns.FacetGrid(plotDF, col="Episode Label", hue = 'Variable',col_wrap=6, height=2)
+# g.map(sns.lineplot, "time_delta_s", 'Values')
+# g.add_legend()
+# plt.show()
 
 
 

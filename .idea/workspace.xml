@@ -436,13 +436,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/datalogs/Data Analysis/Modulation/ModulationAnalysis.py</url>
-          <line>116</line>
-          <option name="timeStamp" value="328" />
+          <line>302</line>
+          <option name="timeStamp" value="330" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/datalogs/Data Analysis/Modulation/ModulationAnalysis.py</url>
-          <line>102</line>
-          <option name="timeStamp" value="329" />
+          <line>285</line>
+          <option name="timeStamp" value="331" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/datalogs/Data Analysis/Modulation/ModulationAnalysis.py</url>
+          <line>280</line>
+          <option name="timeStamp" value="333" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

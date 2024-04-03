@@ -3,7 +3,7 @@ import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-
+import plotly.express as px
 '''
 Pseudocode
 
@@ -37,6 +37,7 @@ class AnalyzeDatalog():
         self.Summary["Success"] = []
         self.Summary["Number of Attempts"] = []
         self.Summary["Attempt Number"] = []
+        self.Summary["Relative Attempt"] = []
         self.Summary["Transition Pressure psi"] = []
         self.Summary["Max Pressure during lift psi"] = []
         self.Summary["Max Pressure during grasp"] = []
@@ -160,6 +161,7 @@ class AnalyzeDatalog():
 
                     print("Attempt %i: Pressures at transition %f, %f, %f"%(k,*pressures_at_transition))
                     trans_press = pressures_at_transition
+                    trans_radius = DFk.loc[idx_lift_start,"commanded_radius_mm"]
 
                     #find max pressure during lift phase. First find where the end of the lift phase occurs
                     lift_phase_end = np.where((lgk<0) & (DFk["lift_after_grasp"][0:-1].to_numpy() > 0))[0]
@@ -175,12 +177,14 @@ class AnalyzeDatalog():
                             print("Attempt %i: Max pressure during lift %f, %f, %f" % (k,*max_pressure_during_lift.to_list()))
 
                             max_lift_press = max_pressure_during_lift.to_list()
+                            max_lift_radius = DFk.loc[idx_lift_start:lift_phase_end_idx, "commanded_radius_mm"].max()
 
                             #find max pressure during grasp phase. #go from lift after grasp ends to the end of the total
                             max_pressure_during_grasp = DFk.loc[lift_phase_end_idx:, ["P_jaw1_psi",
                                                                                                    "P_jaw2_psi",
                                                                                                    "P_jaw3_psi"]].max() - zero_pressure
                             max_grasp_press = max_pressure_during_grasp.to_list()
+                            max_grasp_radius = DFk.loc[lift_phase_end_idx:lift_phase_end_idx, "commanded_radius_mm"].max()
                             print("Attempt %i: Max pressure during grasp %f, %f, %f" % (k,*max_pressure_during_grasp.to_list()))
 
 
@@ -195,6 +199,7 @@ class AnalyzeDatalog():
                 self.Summary["Success"].append(success)
                 self.Summary["Number of Attempts"].append(num_attempts)
                 self.Summary["Attempt Number"].append(k)
+                self.Summary["Relative Attempt"].append(num_attempts-k)
                 self.Summary["Transition Pressure psi"].append(trans_press)
                 self.Summary["Max Pressure during lift psi"].append(max_lift_press)
                 self.Summary["Max Pressure during grasp"].append(max_grasp_press)
@@ -230,9 +235,68 @@ class AnalyzeDatalog():
             pass
 
 
+# ------ success datalog, K = 30 ------ #
 AD = AnalyzeDatalog()
 AD.find_episodes()
 AD.parse_episode()
+
+SumDF = pd.DataFrame.from_dict(AD.Summary)
+SumDF["Gain"]="K = 30"
+expTransDF = SumDF[["Transition Pressure psi"]].apply(lambda x:  pd.Series([v for lst in x for v in lst],index = ["Transition Pressure 1","Transition Pressure 2", "Transition Pressure 3"]), axis=1, result_type="expand")
+expMaxLiftDF = SumDF[["Max Pressure during lift psi"]].apply(lambda x:  pd.Series([v for lst in x for v in lst],index = ["Lift Max Pressure 1","Lift Max Pressure 2", "Lift Max Pressure 3"]), axis=1, result_type="expand")
+expMaxGraspDF = SumDF[["Max Pressure during grasp"]].apply(lambda x:  pd.Series([v for lst in x for v in lst],index = ["Grasp Max Pressure 1","Grasp Max Pressure 2", "Grasp Max Pressure 3"]), axis=1, result_type="expand")
+
+totalSumDF = pd.concat([SumDF,expTransDF,expMaxLiftDF,expMaxGraspDF],axis=1)
+
+totalSumDF.query("`Trial Number` in [0,1,2,4,6,7,8,9,10,11]",inplace = True) #Filter to exclude the success on the 1st pass.
+
+#melt down the dataframe
+totalSumDFmelt = totalSumDF.melt(id_vars=['Date Classifier', 'Trial Number', 'Success','Number of Attempts', 'Attempt Number'],
+                                 value_vars=['Transition Pressure 1','Transition Pressure 2','Transition Pressure 3', 'Lift Max Pressure 1','Lift Max Pressure 2', 'Lift Max Pressure 3',
+                                             'Grasp Max Pressure 1', 'Grasp Max Pressure 2', 'Grasp Max Pressure 3',
+                                             'Transition Radius mm', 'Max Radius during lift mm', 'Max Radius during grasp mm'],
+                                 var_name='Variable',
+                                 value_name='Values')
+
+# ------ fail datalog, K = 1 ------ #
+ADf = AnalyzeDatalog(fname = "HardwareDatalog_29_03_2024_21_40_45.csv")
+ADf.find_episodes()
+ADf.parse_episode()
+
+SumDF_f = pd.DataFrame.from_dict(ADf.Summary)
+SumDF_f["Gain"]="K = 1"
+expTransDF_f = SumDF_f[["Transition Pressure psi"]].apply(lambda x:  pd.Series([v for lst in x for v in lst],index = ["Transition Pressure 1","Transition Pressure 2", "Transition Pressure 3"]), axis=1, result_type="expand")
+expMaxLiftDF_f = SumDF_f[["Max Pressure during lift psi"]].apply(lambda x:  pd.Series([v for lst in x for v in lst],index = ["Lift Max Pressure 1","Lift Max Pressure 2", "Lift Max Pressure 3"]), axis=1, result_type="expand")
+expMaxGraspDF_f = SumDF_f[["Max Pressure during grasp"]].apply(lambda x:  pd.Series([v for lst in x for v in lst],index = ["Grasp Max Pressure 1","Grasp Max Pressure 2", "Grasp Max Pressure 3"]), axis=1, result_type="expand")
+
+totalSumDF_f = pd.concat([SumDF_f,expTransDF_f,expMaxLiftDF_f,expMaxGraspDF_f],axis=1)
+
+#produce plot of pressure change at transition between success and failures(maybe just jaw 1)
+#produce plot of radius at transition between success and failures
+#produce plot of maximum pressure change during lift between success and failures (color), x axis is number of attempts
+#produce plot of maximum pressure change during grasp between success and failures
+
+# ------ Join the two dataframes ------ #
+
+newDF = pd.concat([totalSumDF.query("Success == True"),totalSumDF_f]).reset_index()
+
+# ------ Plotting ------ #
+
+
+fig = px.box(newDF,x="Relative Attempt", y="Max Radius during lift mm", color="Gain",points = "all")
+fig.show()
+
+fig2 = px.box(newDF,x="Relative Attempt", y="Transition Pressure 1", color="Gain",points = "all")
+fig2.show()
+
+fig3 = px.line(AD.DF.query("`Episode Label` in [0]"),x = 'time_delta_s',y = ['commanded_radius_mm','grasp'])
+fig3.show()
+
+fig4 = px.line(newDF.query("`Gain`=='K = 30'"),x = 'Attempt Number',y = 'Lift Max Pressure 1', color = "Trial Number", symbol = "Trial Number")
+fig4.show()
+
+fig5 = px.line(newDF.query("`Gain`=='K = 1'"),x = 'Attempt Number',y = 'Lift Max Pressure 1', color = "Trial Number", symbol = "Trial Number")
+fig5.show()
 
 
 
@@ -244,10 +308,14 @@ plotDF = plotDF.melt(id_vars=['time_delta_s', 'Valid Episode', 'Episode Label'],
                      var_name='Variable', value_name='Values')
 
 
+
 g = sns.FacetGrid(plotDF, col="Episode Label", hue = 'Variable',col_wrap=6, height=2)
 g.map(sns.lineplot, "time_delta_s", 'Values')
 g.add_legend()
 plt.show()
+
+
+
 # pd.options.plotting.backend = "plotly"
 # fig = AD.DF.plot(title="Pandas Backend Example", template="simple_white",
 #               labels=dict(index="time", value="money", variable="option"))

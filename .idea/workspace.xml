@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="bfd83e2d-ab31-4129-8c0e-ce5b016d6614" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/Modulation/LiftMaxPressure.svg" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/Modulation/LiftMaxPressure.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/Modulation/MaxRadiusDuringLift.svg" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/Modulation/MaxRadiusDuringLift.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/Modulation/ModulationAnalysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/Modulation/ModulationAnalysis.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -436,11 +438,6 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/datalogs/Data Analysis/Modulation/ModulationAnalysis.py</url>
-          <line>302</line>
-          <option name="timeStamp" value="330" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/datalogs/Data Analysis/Modulation/ModulationAnalysis.py</url>
           <line>285</line>
           <option name="timeStamp" value="331" />
         </line-breakpoint>
@@ -448,6 +445,11 @@
           <url>file://$PROJECT_DIR$/datalogs/Data Analysis/Modulation/ModulationAnalysis.py</url>
           <line>280</line>
           <option name="timeStamp" value="333" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/datalogs/Data Analysis/Modulation/ModulationAnalysis.py</url>
+          <line>317</line>
+          <option name="timeStamp" value="335" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

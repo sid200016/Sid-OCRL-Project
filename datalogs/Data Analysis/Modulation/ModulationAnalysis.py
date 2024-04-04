@@ -307,12 +307,27 @@ fig5.show()
 
 ## subplot figure
 newDF_melt = newDF.melt(id_vars=['Attempt Number','Trial Number','Gain'],
-                        value_vars=['Lift Max Pressure 1', 'Max Radius during lift mm'],var_name = 'Variable',value_name ='Values')
+                        value_vars=['Lift Max Pressure 1', 'Max Radius during grasp mm'],var_name = 'Variable',value_name ='Values')
 fig6 = px.line(newDF_melt,x = 'Attempt Number',y = 'Values', color = "Trial Number", symbol = "Trial Number",facet_col="Gain",facet_row = 'Variable')
-fig6.update_traces(marker=dict(size=12), line=dict(width=1.4))
+fig6.update_traces(marker=dict(size=9), line=dict(width=1))
 fig6.update_layout(font=dict(size=12))
-fig6.update_yaxes(matches=None, showticklabels=True)
+fig6.update_yaxes(matches = None, showticklabels=True)
+
+
+#set y limits
+fig6.layout['yaxis3'].update(range=[-0.025,0.3])
+fig6.layout['yaxis4'].update(range=[-0.025,0.3])
+fig6.layout['yaxis'].update(range=[9,27.5])
+fig6.layout['yaxis2'].update(range=[9,27.5])
+
+fig6.layout['xaxis3'].update(range=[-0.5,5.5])
+fig6.layout['xaxis4'].update(range=[-0.5,5.5])
+fig6.layout['xaxis'].update(range=[-0.5,5.5])
+fig6.layout['xaxis2'].update(range=[-0.5,5.5])
+#fig6.for_each_yaxis(lambda yaxis: yaxis.update(range=[1,3]))
 fig6.show()
+fig6.write_image("LiftRadius_MaxPressure.svg")
+
 
 ## two plots per figure
 fig7 = px.line(newDF,x = 'Attempt Number',y = 'Lift Max Pressure 1', color = "Trial Number", symbol = "Trial Number",facet_col="Gain")

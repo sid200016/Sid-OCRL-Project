@@ -309,7 +309,7 @@ fig5.show()
 newDF_melt = newDF.melt(id_vars=['Attempt Number','Trial Number','Gain'],
                         value_vars=['Lift Max Pressure 1', 'Max Radius during grasp mm'],var_name = 'Variable',value_name ='Values')
 fig6 = px.line(newDF_melt,x = 'Attempt Number',y = 'Values', color = "Trial Number", symbol = "Trial Number",facet_col="Gain",facet_row = 'Variable')
-fig6.update_traces(marker=dict(size=9), line=dict(width=1))
+fig6.update_traces(marker=dict(size=7), line=dict(width=0.8))
 fig6.update_layout(font=dict(size=12))
 fig6.update_yaxes(matches = None, showticklabels=True)
 

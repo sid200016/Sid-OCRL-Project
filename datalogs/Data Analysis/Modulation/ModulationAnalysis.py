@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 import plotly.express as px
 from plotly.subplots import make_subplots
 import plotly.graph_objs as go
+from copy import deepcopy
 '''
 Pseudocode
 
@@ -281,6 +282,46 @@ totalSumDF_f = pd.concat([SumDF_f,expTransDF_f,expMaxLiftDF_f,expMaxGraspDF_f],a
 # ------ Join the two dataframes ------ #
 
 newDF = pd.concat([totalSumDF.query("Success == True"),totalSumDF_f]).reset_index()
+
+# ------ Get dataframe with one success and one failure for the K==30 case
+DF_comp = AD.DF.query("`Episode Label` in [9,11]")
+
+## subplot figure
+
+
+DF_comp.loc[:,"commanded_radius_mm"] = DF_comp.loc[:,"commanded_radius_mm"].apply(lambda x: max(x,0))#absolute value
+gg = DF_comp.loc[:,["time_delta_s","Episode Label"]].groupby(['Episode Label']).transform(lambda x: (x-x.iloc[0])).loc[:,"time_delta_s"].to_numpy() #get rid of the time offset
+DF_comp.loc[:,"time_delta_s"]  = deepcopy(gg)
+
+DF_comp_melt = DF_comp.melt(id_vars=['time_delta_s', 'Valid Episode', 'Episode Label'],
+                     value_vars=[
+                                 'commanded_radius_mm','P_jaw1_psi'],
+                     var_name='Variable', value_name='Values')
+
+fig0 = px.line(DF_comp_melt,x = 'time_delta_s',y = 'Values', color = "Variable", facet_col="Episode Label",facet_row = 'Variable')
+fig0.update_traces(marker=dict(size=7), line=dict(width=1.5))
+fig0.update_layout(font=dict(size=12))
+fig0.update_yaxes(matches = None, showticklabels=True)
+fig0.update_xaxes(matches = None, showticklabels=True)
+
+fig0.show()
+
+fig0.write_image("Success_Failure.svg")
+
+#set y limits
+# fig6.layout['yaxis3'].update(range=[-0.025,0.3])
+# fig6.layout['yaxis4'].update(range=[-0.025,0.3])
+# fig6.layout['yaxis'].update(range=[9,27.5])
+# fig6.layout['yaxis2'].update(range=[9,27.5])
+#
+# fig6.layout['xaxis3'].update(range=[-0.5,5.5])
+# fig6.layout['xaxis4'].update(range=[-0.5,5.5])
+# fig6.layout['xaxis'].update(range=[-0.5,5.5])
+# fig6.layout['xaxis2'].update(range=[-0.5,5.5])
+# #fig6.for_each_yaxis(lambda yaxis: yaxis.update(range=[1,3]))
+# fig6.show()
+# fig6.write_image("LiftRadius_MaxPressure.svg")
+
 
 # ------ Plotting ------ #
 

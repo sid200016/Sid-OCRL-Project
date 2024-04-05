@@ -1026,8 +1026,8 @@ class IntegratedSystem:
 
         if self.kpt["Directory"] is None:
             l_date = datetime.now().strftime("_%d_%m_%Y_%H_%M_%S")
-            directory_path = Path(__file__).parents[3].joinpath("datalogs", "Koopman_Experiments" + l_date)
-            directory_path.mkdir()  # make directory
+            directory_path = Path(__file__).parents[3].joinpath("datalogs","Koopman Testing")
+            #directory_path.mkdir()  # make directory
             self.kpt["Directory"] = directory_path
 
         if self.kpt["logger"] is None:

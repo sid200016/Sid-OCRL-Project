@@ -68,7 +68,7 @@ class var_params:
 
         num_points = math.floor(self.total_run_time*self.samp_freq_Hz) #number of points in the experiment
         num_control_points = math.floor(self.total_run_time*self.samp_freq_Hz/self.x_hold_time)
-        num_points_episode = math.floor(num_points/num_control_points)
+        num_points_episode = math.floor(num_points*self.x_hold_time/num_control_points)
         s = np.zeros(num_points)
 
         match self.var_type:
@@ -114,7 +114,7 @@ class koopman:
         if var_defs is None:
             var_defs = {"x": var_params(x_name = 'x',
                                         x_type=variable_type.CONTROL,
-                                        control_min_max=[-12, 12],
+                                        control_min_max=[-5, 5],
                                         units='mm',
                                         samp_type=sample_type.UNIFORM,
                                         samp_parameters={},
@@ -123,7 +123,7 @@ class koopman:
                                         samp_freq_Hz=samp_freq_Hz),
                         "y": var_params(x_name = 'y',
                                         x_type=variable_type.CONTROL,
-                                        control_min_max =[-12, 12],
+                                        control_min_max =[-5, 5],
                                         units='mm',
                                         samp_type = sample_type.UNIFORM,
                                         samp_parameters = {},
@@ -141,7 +141,7 @@ class koopman:
                                         samp_freq_Hz=samp_freq_Hz),
                         "Grasper_Pressure": var_params(x_name = 'Grasper_Pressure',
                                                        x_type=variable_type.CONTROL,
-                                        control_min_max=[0, 11.2],
+                                        control_min_max=[4, 10.5],
                                         units='psi',
                                         samp_type=sample_type.UNIFORM,
                                         samp_parameters={},

@@ -212,7 +212,7 @@ class IntegratedSystem:
 
         self.grasperType = grasper_type
 
-        self.GC = GantryController(comport="COM4",homeSystem = False, initPos=[0,0,0])#, homeSystem = False,initPos=[0,0,0]  #initialize gantry controller
+        self.GC = GantryController(comport="COM4")#,homeSystem = False, initPos=[0,0,0])#, homeSystem = False,initPos=[0,0,0]  #initialize gantry controller
 
         if self.grasperType == GrasperType.SoftGrasper:
             self.SG = SoftGrasper(COM_Port='COM7', BaudRate=460800, timeout=1,
@@ -1041,7 +1041,7 @@ class IntegratedSystem:
             fh2.setLevel(logging.DEBUG)
 
             ch2 = logging.StreamHandler(sys.stdout)  # stream handler
-            ch2.setLevel(logging.INFO)
+            ch2.setLevel(logging.WARNING)
 
             formatter2 = logging.Formatter('%(asctime)s,%(name)s,%(levelname)s,%(message)s')
 
@@ -1116,9 +1116,10 @@ class IntegratedSystem:
                     kpmv = self.kpt["kpm"]
                     num_points = np.size(kpmv.variables["y"].random_sequence) #get number of points
                     start_time = datetime.now().strftime('%Y:%h:%d_%H:%M:%S')
-
+                    testnum = 0
                     ### ---- Iterate through randomly generated sequence ---- ###
                     for i in range(0,num_points):
+
                         #iterate through each variable, check if it is a control or not, then actuate accordingly
                         new_pos_mm = [x for x in orig_pos]
                         for k,v in kpmv.variables.items():
@@ -1134,7 +1135,7 @@ class IntegratedSystem:
 
                                 elif v.var_name == "Grasper_Pressure":
                                     self.pressure_state["Commanded pressure (psi)"] = v.random_sequence[i]
-
+                                    testnum = v.sequence_index[i]
                                 else:
                                     pass
                         ### ---- Send commands to perturb system ---- ###
@@ -1150,7 +1151,7 @@ class IntegratedSystem:
                         if self.kpt["logger_header"] == False:
                             headerstr = "Datalog_time,time_delta_s, object_class, object_size, program_mode,x_mm,y_mm,z_mm,P_closure_psi,P_jaw1_psi,P_jaw2_psi,P_jaw3_psi," \
                                         "commanded_radius_mm, commanded_P_jaw1_psi, commanded_P_jaw2_psi, commanded_P_jaw3_psi," \
-                                        "commanded_x_mm, commanded_y_mm,commanded_z_mm"
+                                        "commanded_x_mm, commanded_y_mm,commanded_z_mm,sequence_num"
 
                             self.kpt["logger"].info(headerstr)
 
@@ -1168,6 +1169,7 @@ class IntegratedSystem:
                             self.SG.commandedPosition["Jaw3_psi"])
 
                         datastr = datastr + "," + ",".join([str(x) for x in self.GC.goalPos])
+                        datastr = datastr + "," + str(testnum)
 
 
                         self.kpt["logger"].info(datastr)

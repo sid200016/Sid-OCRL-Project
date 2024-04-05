@@ -49,6 +49,7 @@ class var_params:
         self.total_run_time = total_run_time #total run time in seconds to run the experiment
         self.samp_freq_Hz = samp_freq_Hz #sampling frequency in Hz.
         self.random_sequence = [] #list to store the randomly generated sequence of controls
+        self.sequence_index = [] #list of number of trials
 
     def __str__(self):
         temp = "Variable Type: %s\n" \
@@ -71,6 +72,13 @@ class var_params:
         num_points_episode = math.floor(num_points*self.x_hold_time/num_control_points)
         s = np.zeros(num_points)
 
+        si_help = np.array(list(range(0, num_control_points)))
+
+        si = np.array([np.repeat(i, num_points_episode)
+                       for i in si_help]).flatten()
+
+
+
         match self.var_type:
 
             case variable_type.STATE:
@@ -85,8 +93,11 @@ class var_params:
                                               self.control_min_max[1],
                                               size = num_control_points)
 
+
+
                         s = np.array([np.repeat(i,num_points_episode)
                                       for i in cpoints]).flatten()
+
 
 
                     case sample_type.GAUSSIAN:
@@ -102,6 +113,7 @@ class var_params:
 
 
         self.random_sequence = s
+        self.sequence_index = si
         return (s)
 
 
@@ -141,7 +153,7 @@ class koopman:
                                         samp_freq_Hz=samp_freq_Hz),
                         "Grasper_Pressure": var_params(x_name = 'Grasper_Pressure',
                                                        x_type=variable_type.CONTROL,
-                                        control_min_max=[4, 10.5],
+                                        control_min_max=[4, 9.5],
                                         units='psi',
                                         samp_type=sample_type.UNIFORM,
                                         samp_parameters={},

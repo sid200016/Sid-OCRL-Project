@@ -1150,7 +1150,7 @@ class IntegratedSystem:
 
                         if self.kpt["logger_header"] == False:
                             headerstr = "Datalog_time,time_delta_s, object_class, object_size, program_mode,x_mm,y_mm,z_mm,P_closure_psi,P_jaw1_psi,P_jaw2_psi,P_jaw3_psi," \
-                                        "commanded_radius_mm, commanded_P_jaw1_psi, commanded_P_jaw2_psi, commanded_P_jaw3_psi," \
+                                        "commanded_closure_pressure_psi, commanded_P_jaw1_psi, commanded_P_jaw2_psi, commanded_P_jaw3_psi," \
                                         "commanded_x_mm, commanded_y_mm,commanded_z_mm,sequence_num"
 
                             self.kpt["logger"].info(headerstr)
@@ -1164,7 +1164,7 @@ class IntegratedSystem:
                             self.curPos[2] * 1000)
                         datastr = datastr + "," + "%f,%f,%f,%f,%f,%f,%f,%f" % (
                             self.ClosurePressure, *self.jawPressure,
-                            self.SG.commandedPosition["ClosureChangeInRadius_mm"],
+                            self.pressure_state["Commanded pressure (psi)"],
                             self.SG.commandedPosition["Jaw1_psi"], self.SG.commandedPosition["Jaw2_psi"],
                             self.SG.commandedPosition["Jaw3_psi"])
 

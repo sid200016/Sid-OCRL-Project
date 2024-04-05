@@ -147,7 +147,9 @@ class IntegratedSystem:
                      "logger_controls":{"x":0,"y":0,"z":0,"Grasper_Pressure":0},
                      "Object Class":"default",
                      "Object Size (mm)":0,
-                     "kpm": None}
+                     "kpm": None,
+                     "proceed":False,
+                     "orig_pos":[0,0,0]}
 
 
 
@@ -210,7 +212,7 @@ class IntegratedSystem:
 
         self.grasperType = grasper_type
 
-        self.GC = GantryController(comport="COM4")#,homeSystem = False, initPos=[0,0,0])#, homeSystem = False,initPos=[0,0,0]  #initialize gantry controller
+        self.GC = GantryController(comport="COM4",homeSystem = False, initPos=[0,0,0])#, homeSystem = False,initPos=[0,0,0]  #initialize gantry controller
 
         if self.grasperType == GrasperType.SoftGrasper:
             self.SG = SoftGrasper(COM_Port='COM7', BaudRate=460800, timeout=1,
@@ -745,6 +747,8 @@ class IntegratedSystem:
                     self.jcSG.ControlMode = JC.JoyConState.PRESSURE_RADIUS_CAL
 
                 case "K":
+
+                    await (self.setup_koopman())
                     self.jcSG.ControlMode = JC.JoyConState.KOOPMAN
 
 
@@ -1014,6 +1018,82 @@ class IntegratedSystem:
                 self.jcSG.ControlMode = JC.JoyConState.NORMAL
             await asyncio.sleep(0.001)
 
+    async def setup_koopman(self):
+        # initialize the Koopman testing structure
+        if self.kpt["kpm"] is None:
+            self.kpt["kpm"] = kpm()  # initialize
+            self.kpt["kpm"].compute_variable_sequence()
+
+        if self.kpt["Directory"] is None:
+            l_date = datetime.now().strftime("_%d_%m_%Y_%H_%M_%S")
+            directory_path = Path(__file__).parents[3].joinpath("datalogs", "Koopman_Experiments" + l_date)
+            directory_path.mkdir()  # make directory
+            self.kpt["Directory"] = directory_path
+
+        if self.kpt["logger"] is None:
+            # setup the logger
+            l_date = datetime.now().strftime("_%d_%m_%Y_%H_%M_%S")
+            datalogger = logging.getLogger(__name__ + "_datalog_Koopman")
+
+            fname = self.kpt["Directory"].joinpath("Koopman_Testing" + l_date + ".csv")
+
+            fh2 = logging.FileHandler(fname)  # file handler
+            fh2.setLevel(logging.DEBUG)
+
+            ch2 = logging.StreamHandler(sys.stdout)  # stream handler
+            ch2.setLevel(logging.INFO)
+
+            formatter2 = logging.Formatter('%(asctime)s,%(name)s,%(levelname)s,%(message)s')
+
+            fh2.setFormatter(formatter2)
+            ch2.setFormatter(formatter2)
+
+            datalogger.setLevel(logging.DEBUG)
+
+            # add the handlers to the logger
+            datalogger.addHandler(fh2)
+            datalogger.addHandler(ch2)
+
+            # add the header
+            datalogger.info(','.join(k for k, v in self.pressure_state.items()))
+
+            self.kpt["logger"] = datalogger
+
+        self.logger.info(
+            "Logger set up ...")
+
+        self.logger.info("Below are the Experimental parameters....")
+        self.logger.info(self.kpt["kpm"].DF)
+
+        # Ask User to Enter Y to proceed, enter z to exit
+        orig_pos = deepcopy(self.GC.goalPos)
+        self.logger.info("Enter Y to proceed, enter Z to exit")
+
+        response = await aioconsole.ainput()
+
+        proceed = False
+        match response.upper():
+            case "Y":
+                proceed = True
+
+            case Z:
+                self.jcSG.ControlMode = JC.JoyConState.NORMAL
+                self.logger.info("Exiting Koopman...")
+
+        self.kpt["proceed"] = proceed
+        self.logger.info("Original position (mm): %f,%f,%f" % (tuple(orig_pos)))
+        self.kpt["orig_pos"] = orig_pos
+
+        # prompt to get object type
+        self.logger.info("Please enter object type (rigid, elastic or soft)\n")
+        class_response = await aioconsole.ainput()
+        self.kpt["Object Class"] = class_response
+
+        # prompt to get object size
+        self.logger.info("Please enter object size in mm")
+        response = await aioconsole.ainput()
+        self.kpt["Object Size (mm)"] = float(response)
+
 
     async def KoopmanTesting(self): #meant to run as a long running co-routine
 
@@ -1022,89 +1102,10 @@ class IntegratedSystem:
         while (True):
             if self.jcSG.ControlMode == JC.JoyConState.KOOPMAN:
 
-                #initialize the Koopman testing structure
-                if self.kpt["kpm"] is None:
-                    self.kpt["kpm"] = kpm() #initialize
-                    self.kpt["kpm"].compute_variable_sequence()
-
-
-                if self.kpt["Directory"] is None:
-                    l_date = datetime.now().strftime("_%d_%m_%Y_%H_%M_%S")
-                    directory_path = Path(__file__).parents[3].joinpath("datalogs", "Koopman_Experiments" + l_date)
-                    directory_path.mkdir() #make directory
-                    self.kpt["Directory"] = directory_path
-
-                if self.kpt["logger"] is None:
-                    #setup the logger
-                    l_date = datetime.now().strftime("_%d_%m_%Y_%H_%M_%S")
-                    datalogger = logging.getLogger(__name__ + "_datalogs")
-
-                    fname = self.kpt["Directory"].joinpath("Koopman_Testing" + l_date + ".csv")
-
-                    fh2 = logging.FileHandler(fname)  # file handler
-                    fh2.setLevel(logging.DEBUG)
-
-                    ch2 = logging.StreamHandler(sys.stdout)  # stream handler
-                    ch2.setLevel(logging.INFO)
-
-                    formatter2 = logging.Formatter('%(asctime)s,%(name)s,%(levelname)s,%(message)s')
-
-                    fh2.setFormatter(formatter2)
-                    ch2.setFormatter(formatter2)
-
-                    datalogger.setLevel(logging.DEBUG)
-
-                    # add the handlers to the logger
-                    datalogger.addHandler(fh2)
-                    datalogger.addHandler(ch2)
-
-                    # add the header
-                    datalogger.info(','.join(k for k,v in self.pressure_state.items()))
-
-                    self.kpt["logger"] = datalogger
-
-
-
-                self.logger.info(
-                    "Logger set up ...")
-
-                self.logger.info("Below are the Experimental parameters....")
-                self.logger.info(self.kpt["kpm"].DF)
-
-
-
-                #Ask User to Enter Y to proceed, enter z to exit
-                orig_pos = deepcopy(self.GC.goalPos)
-                self.logger.info("Enter Y to proceed, enter Z to exit")
-
-                response = await aioconsole.ainput()
-
-                proceed = False
-                match response.upper():
-                    case "Y":
-                        proceed = True
-
-
-                    case Z:
-                        self.self.jcSG.ControlMode = JC.JoyConState.NORMAL
-                        self.logger.info("Exiting Koopman...")
-
-                self.logger.info("Original position (mm): %f,%f,%f" % (*orig_pos))
-
-                #prompt to get object type
-                self.logger.info("Please enter object type (rigid, elastic or soft)")
-                self.kpt["Object Class"] = await aioconsole.ainput()
-
-                #prompt to get object size
-                self.logger.info("Please enter object size in mm")
-                self.kpt["Object Size (mm)"] = float(await aioconsole.ainput())
-
-
-
-
                 #TODO: Iterate through list of states. Those that are just states, ignore. Those that are controls, then move x,y,z or grasper. Update counter, then repeat for others.
                 ### ---- Start Koopman Experiments ---- ###
-                if proceed == True:
+                orig_pos = self.kpt["orig_pos"]
+                if self.kpt["proceed"] == True:
 
                     #completely deflate grasper
                     self.logger.info("Completely deflating grasper...")
@@ -1119,7 +1120,7 @@ class IntegratedSystem:
                     ### ---- Iterate through randomly generated sequence ---- ###
                     for i in range(0,num_points):
                         #iterate through each variable, check if it is a control or not, then actuate accordingly
-                        new_pos_mm = orig_pos
+                        new_pos_mm = [x for x in orig_pos]
                         for k,v in kpmv.variables.items():
                             if v.var_type == variable_type.CONTROL:
                                 if v.var_name == "x":
@@ -1137,7 +1138,7 @@ class IntegratedSystem:
                                 else:
                                     pass
                         ### ---- Send commands to perturb system ---- ###
-                        self.GC.goalPos = new_pos_mm
+                        self.GC.goalPos = Point(*new_pos_mm)
 
                         self.pressure_radius_parameters["Pressure Actuate Event"].set()  # set pressure actuate event
                         self.MoveGantryEvent.set() #set move gantry event
@@ -1156,7 +1157,7 @@ class IntegratedSystem:
                             self.kpt["logger_header"] = True
 
                         ### ---- Datalog events ---- ###
-                        datastr = start_time + ","+ str(time.time() - self.time_0) + "," + self.kpt["Object Class"] + "," + self.kpt["Object Size (mm)"]
+                        datastr = start_time + ","+ str(time.time() - self.time_0) + "," + self.kpt["Object Class"] + "," + str(self.kpt["Object Size (mm)"])
                         datastr = datastr + "," + "%s,%f,%f,%f" % (
                             str(self.jcSG.ControlMode.value), self.curPos[0] * 1000, self.curPos[1] * 1000,
                             self.curPos[2] * 1000)
@@ -1707,6 +1708,7 @@ if __name__ == '__main__':
             IS.Read_Move_Hardware(),
             IS.TouchObject(),
             IS.datalog(),
+            IS.KoopmanTesting()
             #IS.PressureRadiusCalibration(),
             #IS.capture_video()
         )

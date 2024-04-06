@@ -122,7 +122,7 @@ class var_params:
 
 class koopman:
 
-    def __init__(self, var_defs=None,hold_time_s = 30, total_run_time_s = 1200, samp_freq_Hz = 20):
+    def __init__(self, var_defs=None,hold_time_s = 20, total_run_time_s = 900, samp_freq_Hz = 16):
         if var_defs is None:
             var_defs = {"x": var_params(x_name = 'x',
                                         x_type=variable_type.CONTROL,

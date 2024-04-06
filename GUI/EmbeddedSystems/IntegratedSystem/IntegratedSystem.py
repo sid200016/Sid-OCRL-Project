@@ -1055,7 +1055,7 @@ class IntegratedSystem:
             datalogger.addHandler(ch2)
 
             # add the header
-            datalogger.info(','.join(k for k, v in self.pressure_state.items()))
+            #datalogger.info(','.join(k for k, v in self.pressure_state.items()))
 
             self.kpt["logger"] = datalogger
 
@@ -1160,7 +1160,7 @@ class IntegratedSystem:
                         ### ---- Datalog events ---- ###
                         datastr = start_time + ","+ str(time.time() - self.time_0) + "," + self.kpt["Object Class"] + "," + str(self.kpt["Object Size (mm)"])
                         datastr = datastr + "," + "%s,%f,%f,%f" % (
-                            str(self.jcSG.ControlMode.value), self.curPos[0] * 1000, self.curPos[1] * 1000,
+                            str(self.jcSG.ControlMode.name), self.curPos[0] * 1000, self.curPos[1] * 1000,
                             self.curPos[2] * 1000)
                         datastr = datastr + "," + "%f,%f,%f,%f,%f,%f,%f,%f" % (
                             self.ClosurePressure, *self.jawPressure,

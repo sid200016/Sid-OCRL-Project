@@ -151,6 +151,17 @@ class IntegratedSystem:
                      "proceed":False,
                      "orig_pos":[0,0,0]}
 
+        # For PID
+
+        self.PID = {"Directory": None,
+                     "logger": None,
+                     "logger_header": False,
+                     "logger_controls":{"x":0,"y":0,"z":0,"Grasper_Pressure":0},
+                     "Object Class":"default",
+                     "Object Size (mm)":0,
+                     "kpm": None,
+                     "proceed":False,
+                     "orig_pos":[0,0,0]}
 
 
 
@@ -697,7 +708,8 @@ class IntegratedSystem:
                        "Enter M to move the gantry \n" \
                        "Enter D to display robot state \n" \
                        "Enter PR to enter pressure radius calibration \n" \
-                       "Enter K to begin Koopman Experiments \n"
+                       "Enter K to begin Koopman Experiments \n" \
+                       "Enter PID to begin PID Experiments\n"
         self.logger.info(print_string)
         while (True):
             s = await aioconsole.ainput()
@@ -750,6 +762,11 @@ class IntegratedSystem:
 
                     await (self.setup_koopman())
                     self.jcSG.ControlMode = JC.JoyConState.KOOPMAN
+
+                case "PID":
+
+                    await(self.setup_PID())
+                    self.jcSG.ControlMode = JC.JoyConState.PID
 
 
                 # Default

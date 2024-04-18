@@ -24,6 +24,7 @@ class JoyConState(Enum):
     DISPLAY_DATA = 7 #display current state of robot
     PRESSURE_RADIUS_CAL = 8 #perform pressure radius calibration
     KOOPMAN = 9 #Perform Experiments for Koopman
+    PID = 10 #Perform PID experiments
 
 
 class Button:

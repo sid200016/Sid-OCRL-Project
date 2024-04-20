@@ -153,15 +153,16 @@ class IntegratedSystem:
 
         # For PID
 
-        self.PID = {"Directory": None,
-                     "logger": None,
-                     "logger_header": False,
-                     "logger_controls":{"x":0,"y":0,"z":0,"Grasper_Pressure":0},
-                     "Object Class":"default",
-                     "Object Size (mm)":0,
-                     "kpm": None,
-                     "proceed":False,
-                     "orig_pos":[0,0,0]}
+        self.LQR = {"Directory": None,
+                    "logger": None,
+                    "logger_header": False,
+                    "logger_controls":{"x":0,"y":0,"z":0,"Grasper_Pressure":0},
+                    "Desired Trajectory":[],
+                    "Object Class":"default",
+                    "Object Size (mm)":0,
+                    "kpm": None,
+                    "proceed":False,
+                    "orig_pos":[0,0,0]}
 
 
 

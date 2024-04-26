@@ -24,6 +24,7 @@ import aioconsole
 import cv2 as cv
 
 from GUI.EmbeddedSystems.Koopman.KoopmanTesting import  koopman as kpm, variable_type
+from GUI.EmbeddedSystems.Controllers.LQR import LQR
 
 
 class GrasperType(Enum):
@@ -151,16 +152,15 @@ class IntegratedSystem:
                      "proceed":False,
                      "orig_pos":[0,0,0]}
 
-        # For PID
+        # For LQR
 
         self.LQR = {"Directory": None,
                     "logger": None,
                     "logger_header": False,
                     "logger_controls":{"x":0,"y":0,"z":0,"Grasper_Pressure":0},
-                    "Desired Trajectory":[],
                     "Object Class":"default",
                     "Object Size (mm)":0,
-                    "kpm": None,
+                    "LQR": None,
                     "proceed":False,
                     "orig_pos":[0,0,0]}
 
@@ -710,7 +710,7 @@ class IntegratedSystem:
                        "Enter D to display robot state \n" \
                        "Enter PR to enter pressure radius calibration \n" \
                        "Enter K to begin Koopman Experiments \n" \
-                       "Enter PID to begin PID Experiments\n"
+                       "Enter LQR to begin LQR Experiments\n"
         self.logger.info(print_string)
         while (True):
             s = await aioconsole.ainput()
@@ -764,10 +764,10 @@ class IntegratedSystem:
                     await (self.setup_koopman())
                     self.jcSG.ControlMode = JC.JoyConState.KOOPMAN
 
-                case "PID":
+                case "LQR":
 
-                    await(self.setup_PID())
-                    self.jcSG.ControlMode = JC.JoyConState.PID
+                    await(self.setup_LQR())
+                    self.jcSG.ControlMode = JC.JoyConState.LQR
 
 
                 # Default
@@ -1112,6 +1112,177 @@ class IntegratedSystem:
         response = await aioconsole.ainput()
         self.kpt["Object Size (mm)"] = float(response)
 
+    async def setup_LQR(self):
+        # initialize the LQR Testing structure
+        # self.LQR = {"Directory": None,
+        #             "logger": None,
+        #             "logger_header": False,
+        #             "logger_controls": {"x": 0, "y": 0, "z": 0, "Grasper_Pressure": 0},
+        #             "Object Class": "default",
+        #             "Object Size (mm)": 0,
+        #             "LQR": None,
+        #             "proceed": False,
+        #             "orig_pos": [0, 0, 0]}
+        if self.LQR["LQR"] is None:
+            self.LQR["LQR"] = LQR()  # initialize
+            self.LQR["LQR"].read_from_JSON() #read the A, B, C, desired_traj from the JSON file
+
+        if self.LQR["Directory"] is None:
+            l_date = datetime.now().strftime("_%d_%m_%Y_%H_%M_%S")
+            directory_path = Path(__file__).parents[3].joinpath("datalogs","LQR")
+            #directory_path.mkdir()  # make directory
+            self.LQR["Directory"] = directory_path
+
+        if self.LQR["logger"] is None:
+            # setup the logger
+            l_date = datetime.now().strftime("_%d_%m_%Y_%H_%M_%S")
+            datalogger = logging.getLogger(__name__ + "_datalog_Koopman")
+
+            fname = self.LQR["Directory"].joinpath("LQR" + l_date + ".csv")
+
+            fh2 = logging.FileHandler(fname)  # file handler
+            fh2.setLevel(logging.DEBUG)
+
+            ch2 = logging.StreamHandler(sys.stdout)  # stream handler
+            ch2.setLevel(logging.WARNING)
+
+            formatter2 = logging.Formatter('%(asctime)s,%(name)s,%(levelname)s,%(message)s')
+
+            fh2.setFormatter(formatter2)
+            ch2.setFormatter(formatter2)
+
+            datalogger.setLevel(logging.DEBUG)
+
+            # add the handlers to the logger
+            datalogger.addHandler(fh2)
+            datalogger.addHandler(ch2)
+
+            # add the header
+            #datalogger.info(','.join(k for k, v in self.pressure_state.items()))
+
+            self.LQR["logger"] = datalogger
+
+        self.logger.info(
+            "Logger set up ...")
+
+
+        # Ask User to Enter Y to proceed, enter z to exit
+        orig_pos = deepcopy(self.GC.goalPos)
+        self.logger.info("Enter Y to proceed, enter Z to exit")
+
+        response = await aioconsole.ainput()
+
+        proceed = False
+        match response.upper():
+            case "Y":
+                proceed = True
+
+            case Z:
+                self.jcSG.ControlMode = JC.JoyConState.NORMAL
+                self.logger.info("Exiting LQR...")
+
+        self.LQR["proceed"] = proceed
+        self.logger.info("Original position (mm): %f,%f,%f" % (tuple(orig_pos)))
+        self.LQR["orig_pos"] = orig_pos
+
+        # prompt to get object type
+        self.logger.info("Please enter object type (rigid, elastic or soft)\n")
+        class_response = await aioconsole.ainput()
+        self.LQR["Object Class"] = class_response
+
+        # prompt to get object size
+        self.logger.info("Please enter object size in mm")
+        response = await aioconsole.ainput()
+        self.LQR["Object Size (mm)"] = float(response)
+
+
+    async def LQRTesting(self): #meant to run as a long running co-routine
+
+        # Prompt User to hit X to proceed to Koopman. Hit Z at any time to quit.
+
+        while (True):
+            if self.jcSG.ControlMode == JC.JoyConState.KOOPMAN:
+
+                #TODO: Iterate through list of states. Those that are just states, ignore. Those that are controls, then move x,y,z or grasper. Update counter, then repeat for others.
+                ### ---- Start Koopman Experiments ---- ###
+                orig_pos = self.kpt["orig_pos"]
+                if self.kpt["proceed"] == True:
+
+                    #completely deflate grasper
+                    self.logger.info("Completely deflating grasper...")
+                    self.pressure_state["Commanded pressure (psi)"] = 0
+                    self.pressure_radius_parameters["Pressure Actuate Event"].set()
+                    await asyncio.sleep(5)
+
+                    kpmv = self.kpt["kpm"]
+                    num_points = np.size(kpmv.variables["y"].random_sequence) #get number of points
+                    start_time = datetime.now().strftime('%Y:%h:%d_%H:%M:%S')
+                    testnum = 0
+                    ### ---- Iterate through randomly generated sequence ---- ###
+                    for i in range(0,num_points):
+
+                        #iterate through each variable, check if it is a control or not, then actuate accordingly
+                        new_pos_mm = [x for x in orig_pos]
+                        for k,v in kpmv.variables.items():
+                            if v.var_type == variable_type.CONTROL:
+                                if v.var_name == "x":
+                                    new_pos_mm[0] = new_pos_mm[0] + v.random_sequence[i]
+
+                                elif v.var_name == "y":
+                                    new_pos_mm[1] = new_pos_mm[1] + v.random_sequence[i]
+
+                                elif v.var_name == "z":
+                                    new_pos_mm[2] = new_pos_mm[2] + v.random_sequence[i]
+
+                                elif v.var_name == "Grasper_Pressure":
+                                    self.pressure_state["Commanded pressure (psi)"] = v.random_sequence[i]
+                                    testnum = v.sequence_index[i]
+                                else:
+                                    pass
+                        ### ---- Send commands to perturb system ---- ###
+                        self.GC.goalPos = Point(*new_pos_mm)
+
+                        self.pressure_radius_parameters["Pressure Actuate Event"].set()  # set pressure actuate event
+                        self.MoveGantryEvent.set() #set move gantry event
+                        #await asyncio.sleep(1/kpmv.variables["y"].samp_freq_Hz) #wait for events to register and get executed
+                        await asyncio.sleep(0.0005)
+                        #datalog
+                        await self.FreshDataEvent.wait() #await fresh data event should provide the sample freq because the serial I/O is blocking
+
+                        if self.kpt["logger_header"] == False:
+                            headerstr = "Datalog_time,time_delta_s, object_class, object_size, program_mode,x_mm,y_mm,z_mm,P_closure_psi,P_jaw1_psi,P_jaw2_psi,P_jaw3_psi," \
+                                        "commanded_closure_pressure_psi, commanded_P_jaw1_psi, commanded_P_jaw2_psi, commanded_P_jaw3_psi," \
+                                        "commanded_x_mm, commanded_y_mm,commanded_z_mm,sequence_num"
+
+                            self.kpt["logger"].info(headerstr)
+
+                            self.kpt["logger_header"] = True
+
+                        ### ---- Datalog events ---- ###
+                        datastr = start_time + ","+ str(time.time() - self.time_0) + "," + self.kpt["Object Class"] + "," + str(self.kpt["Object Size (mm)"])
+                        datastr = datastr + "," + "%s,%f,%f,%f" % (
+                            str(self.jcSG.ControlMode.name), self.curPos[0] * 1000, self.curPos[1] * 1000,
+                            self.curPos[2] * 1000)
+                        datastr = datastr + "," + "%f,%f,%f,%f,%f,%f,%f,%f" % (
+                            self.ClosurePressure, *self.jawPressure,
+                            self.pressure_state["Commanded pressure (psi)"],
+                            self.SG.commandedPosition["Jaw1_psi"], self.SG.commandedPosition["Jaw2_psi"],
+                            self.SG.commandedPosition["Jaw3_psi"])
+
+                        datastr = datastr + "," + ",".join([str(x) for x in self.GC.goalPos])
+                        datastr = datastr + "," + str(testnum)
+
+
+                        self.kpt["logger"].info(datastr)
+
+                        # sleep and set pressure datalog event
+                        await asyncio.sleep(0.001)
+
+
+                    ### ---- Finish For loop ---- ###
+                    self.logger.info("Finished Koopman")
+                    self.jcSG.ControlMode = JC.JoyConState.NORMAL
+            await asyncio.sleep(0.001)
 
     async def KoopmanTesting(self): #meant to run as a long running co-routine
 

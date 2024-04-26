@@ -36,6 +36,7 @@ class LQR():
         self.A = []
         self.B = []
         self.C = []
+        self.C_inv = []
         self.target_trajectory = []
         self.u_feedforward = []
         
@@ -79,8 +80,14 @@ class LQR():
                 c_z
             ]]
 
-        i.e. there should be nested lists where each list is a row in the matrix
+        i.e. there should be nested lists where each list is a row in the matrix.
 
+        A: nz x nz
+        B: nz x nu
+        C: np x nz
+        K: list of numpy arrays (nu x nz) (Note: length is N-1, if N is the number of timesteps)
+        target_trajectory: np x N (each column is the desired outputs)
+        u_feedforward: list of numpy arrays (3 x 1)
         """
 
 
@@ -92,11 +99,54 @@ class LQR():
         self.A = np.array(pc["A"])
         self.B = np.array(pc["B"])
         self.C = np.array(pc["C"])
+        self.C_inv = np.linalg.pinv(self.C)
         self.K = [np.array(pc["K"][i]) for i in range(0,len(pc["K"]))]
         self.target_trajectory = np.array(pc["target_trajectory"])
         self.u_feedforward = [np.array(pc["u_feedforward"][i]) for i in range(0,len(pc["u_feedforward"]))]
 
+    def calculate_control(self,current_output : np.ndarray, time_step_int : int):
+        """
+        calculate_control
+        For a problem that is:
+        z[k+1] = A*z[k] + B*u[k]
+        p[k] = C*z[k] + D*u[k]
+
+        At current time_step k, calculate the control inputs u[k] using the LQR control for the current output p[k] and feedforward u_feedforward[k]:
+        u_k = u_feedforward[k] - K[k]*(z[k]-z_target[k])
+
+        Parameters
+        ----------
+        current_output: np.ndarray, npx1 vector
+        time_step_int: integer representing the timestep, (1:N-1)
+
+        Returns
+        -------
+        u_k
+        """
+        z_k = self.map_p_to_z(current_output)
+        z_target_k = self.map_p_to_z(self.target_trajectory[:,time_step_int])
+        u_k = self.u_feedforward[time_step_int] - self.K[time_step_int]@(z_k - z_target_k)
+        return(u_k)
+
+    def map_p_to_z(self , p):
+        z = self.C_inv@p
+        return z
+
+    def map_z_to_p(self , z):
+        p = self.C@z
+        return(p)
+
+
+
+
+
 if __name__ == "__main__":
     lq = LQR()
     lq.read_from_JSON()
+    print("Calculated Controls:")
+    print(lq.calculate_control(np.array([0.06,0.015,0.03]), 0))
+    print("\nTarget Trajectory:")
+    print(lq.target_trajectory[:,0])
+    print("\nFeedforward controls:")
+    print(lq.u_feedforward[0])
     pass

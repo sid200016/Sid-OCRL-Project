@@ -1198,15 +1198,15 @@ class IntegratedSystem:
 
     async def LQRTesting(self): #meant to run as a long running co-routine
 
-        # Prompt User to hit X to proceed to Koopman. Hit Z at any time to quit.
+
 
         while (True):
-            if self.jcSG.ControlMode == JC.JoyConState.KOOPMAN:
+            if self.jcSG.ControlMode == JC.JoyConState.LQR:
 
                 #TODO: Iterate through list of states. Those that are just states, ignore. Those that are controls, then move x,y,z or grasper. Update counter, then repeat for others.
                 ### ---- Start Koopman Experiments ---- ###
-                orig_pos = self.kpt["orig_pos"]
-                if self.kpt["proceed"] == True:
+                orig_pos = self.LQR["orig_pos"]
+                if self.LQR["proceed"] == True:
 
                     #completely deflate grasper
                     self.logger.info("Completely deflating grasper...")
@@ -1214,12 +1214,12 @@ class IntegratedSystem:
                     self.pressure_radius_parameters["Pressure Actuate Event"].set()
                     await asyncio.sleep(5)
 
-                    kpmv = self.kpt["kpm"]
-                    num_points = np.size(kpmv.variables["y"].random_sequence) #get number of points
+                    LQRv = self.LQR["LQR"]
+                    N = LQRv.N_steps #get number of points
                     start_time = datetime.now().strftime('%Y:%h:%d_%H:%M:%S')
                     testnum = 0
                     ### ---- Iterate through randomly generated sequence ---- ###
-                    for i in range(0,num_points):
+                    for i in range(0,N-1):
 
                         #iterate through each variable, check if it is a control or not, then actuate accordingly
                         new_pos_mm = [x for x in orig_pos]

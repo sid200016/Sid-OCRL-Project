@@ -25,6 +25,7 @@ class JoyConState(Enum):
     PRESSURE_RADIUS_CAL = 8 #perform pressure radius calibration
     KOOPMAN = 9 #Perform Experiments for Koopman
     PID = 10 #Perform PID experiments
+    LQR = 11 #Perform LQR experiments
 
 
 class Button:

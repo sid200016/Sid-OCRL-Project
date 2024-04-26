@@ -39,6 +39,7 @@ class LQR():
         self.C_inv = []
         self.target_trajectory = []
         self.u_feedforward = []
+        self.N_steps = 0
         
 
     def read_from_JSON(self,
@@ -103,6 +104,7 @@ class LQR():
         self.K = [np.array(pc["K"][i]) for i in range(0,len(pc["K"]))]
         self.target_trajectory = np.array(pc["target_trajectory"])
         self.u_feedforward = [np.array(pc["u_feedforward"][i]) for i in range(0,len(pc["u_feedforward"]))]
+        self.N_steps = np.size(self.target_trajectory,1)
 
     def calculate_control(self,current_output : np.ndarray, time_step_int : int):
         """

@@ -1203,8 +1203,7 @@ class IntegratedSystem:
         while (True):
             if self.jcSG.ControlMode == JC.JoyConState.LQR:
 
-                #TODO: Iterate through list of states. Those that are just states, ignore. Those that are controls, then move x,y,z or grasper. Update counter, then repeat for others.
-                ### ---- Start Koopman Experiments ---- ###
+                ### ---- Start LQR Experiments ---- ###
                 orig_pos = self.LQR["orig_pos"]
                 if self.LQR["proceed"] == True:
 
@@ -1221,24 +1220,26 @@ class IntegratedSystem:
                     ### ---- Iterate through randomly generated sequence ---- ###
                     for i in range(0,N-1):
 
+                        #for each timestep, get the current state and log it, then execute LQR control
                         #iterate through each variable, check if it is a control or not, then actuate accordingly
+                        # datalog
+
+                        ### ---- Get new data ---- ###
+                        await self.FreshDataEvent.wait()  # await fresh data event should provide the sample freq because the serial I/O is blocking
+
                         new_pos_mm = [x for x in orig_pos]
-                        for k,v in kpmv.variables.items():
-                            if v.var_type == variable_type.CONTROL:
-                                if v.var_name == "x":
-                                    new_pos_mm[0] = new_pos_mm[0] + v.random_sequence[i]
+                        testnum = v.sequence_index[i]
 
-                                elif v.var_name == "y":
-                                    new_pos_mm[1] = new_pos_mm[1] + v.random_sequence[i]
+                        ### ---- Get commands from LQR ---- ###
+                        controls = lq.calculate_control(np.array(self.jawPressure), i) #get LQR control based on current jaw pressures
+                        jaw_pressure_psi_c, x_mm_c, y_mm_c = *controls
 
-                                elif v.var_name == "z":
-                                    new_pos_mm[2] = new_pos_mm[2] + v.random_sequence[i]
+                        self.pressure_state["Commanded pressure (psi)"] = jaw_pressure_psi_c
 
-                                elif v.var_name == "Grasper_Pressure":
-                                    self.pressure_state["Commanded pressure (psi)"] = v.random_sequence[i]
-                                    testnum = v.sequence_index[i]
-                                else:
-                                    pass
+                        new_pos_mm[0] = x_mm_c
+                        new_pos_mm[1] = y_mm_c
+
+
                         ### ---- Send commands to perturb system ---- ###
                         self.GC.goalPos = Point(*new_pos_mm)
 
@@ -1246,20 +1247,20 @@ class IntegratedSystem:
                         self.MoveGantryEvent.set() #set move gantry event
                         #await asyncio.sleep(1/kpmv.variables["y"].samp_freq_Hz) #wait for events to register and get executed
                         await asyncio.sleep(0.0005)
-                        #datalog
-                        await self.FreshDataEvent.wait() #await fresh data event should provide the sample freq because the serial I/O is blocking
 
-                        if self.kpt["logger_header"] == False:
+
+
+                        if self.LQR["logger_header"] == False:
                             headerstr = "Datalog_time,time_delta_s, object_class, object_size, program_mode,x_mm,y_mm,z_mm,P_closure_psi,P_jaw1_psi,P_jaw2_psi,P_jaw3_psi," \
                                         "commanded_closure_pressure_psi, commanded_P_jaw1_psi, commanded_P_jaw2_psi, commanded_P_jaw3_psi," \
                                         "commanded_x_mm, commanded_y_mm,commanded_z_mm,sequence_num"
 
-                            self.kpt["logger"].info(headerstr)
+                            self.LQR["logger"].info(headerstr)
 
-                            self.kpt["logger_header"] = True
+                            self.LQR["logger_header"] = True
 
                         ### ---- Datalog events ---- ###
-                        datastr = start_time + ","+ str(time.time() - self.time_0) + "," + self.kpt["Object Class"] + "," + str(self.kpt["Object Size (mm)"])
+                        datastr = start_time + ","+ str(time.time() - self.time_0) + "," + self.LQR["Object Class"] + "," + str(self.LQR["Object Size (mm)"])
                         datastr = datastr + "," + "%s,%f,%f,%f" % (
                             str(self.jcSG.ControlMode.name), self.curPos[0] * 1000, self.curPos[1] * 1000,
                             self.curPos[2] * 1000)
@@ -1273,14 +1274,14 @@ class IntegratedSystem:
                         datastr = datastr + "," + str(testnum)
 
 
-                        self.kpt["logger"].info(datastr)
+                        self.LQR["logger"].info(datastr)
 
                         # sleep and set pressure datalog event
                         await asyncio.sleep(0.001)
 
 
                     ### ---- Finish For loop ---- ###
-                    self.logger.info("Finished Koopman")
+                    self.logger.info("Finished LQR")
                     self.jcSG.ControlMode = JC.JoyConState.NORMAL
             await asyncio.sleep(0.001)
 

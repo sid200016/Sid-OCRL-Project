@@ -227,7 +227,7 @@ class IntegratedSystem:
         self.GC = GantryController(comport="COM4")#,homeSystem = False, initPos=[0,0,0])#, homeSystem = False,initPos=[0,0,0]  #initialize gantry controller
 
         if self.grasperType == GrasperType.SoftGrasper:
-            self.SG = SoftGrasper(COM_Port='COM7', BaudRate=460800, timeout=1,
+            self.SG = SoftGrasper(COM_Port='COM10', BaudRate=460800, timeout=1,
                              controllerProfile="New")  # initialize soft grasper
 
             self.jcSG = JC.Joy_SoftGrasper(SGa=self.SG,
@@ -1125,7 +1125,7 @@ class IntegratedSystem:
         #             "orig_pos": [0, 0, 0]}
         if self.LQR["LQR"] is None:
             self.LQR["LQR"] = LQR()  # initialize
-            self.LQR["LQR"].read_from_JSON() #read the A, B, C, desired_traj from the JSON file
+            self.LQR["LQR"].read_from_JSON(fname = "D://Ravesh//FRR-Software-Interface//GUI//EmbeddedSystems//Controllers//LQR_output.json") #read the A, B, C, desired_traj from the JSON file
 
         if self.LQR["Directory"] is None:
             l_date = datetime.now().strftime("_%d_%m_%Y_%H_%M_%S")
@@ -1228,13 +1228,13 @@ class IntegratedSystem:
                         await self.FreshDataEvent.wait()  # await fresh data event should provide the sample freq because the serial I/O is blocking
 
                         new_pos_mm = [x for x in orig_pos]
-                        testnum = v.sequence_index[i]
+                        testnum = i
 
                         ### ---- Get commands from LQR ---- ###
-                        controls = lq.calculate_control(np.array(self.jawPressure), i) #get LQR control based on current jaw pressures
-                        jaw_pressure_psi_c, x_mm_c, y_mm_c = *controls
+                        controls = LQRv.calculate_control(np.array(self.jawPressure), i) #get LQR control based on current jaw pressures
+                        jaw_pressure_psi_c, x_mm_c, y_mm_c = controls
 
-                        self.pressure_state["Commanded pressure (psi)"] = jaw_pressure_psi_c
+                        self.pressure_state["Commanded pressure (psi)"] = np.clip(jaw_pressure_psi_c,0,self.SG.maxClosurePressure_psi)
 
                         new_pos_mm[0] = x_mm_c
                         new_pos_mm[1] = y_mm_c
@@ -1253,7 +1253,8 @@ class IntegratedSystem:
                         if self.LQR["logger_header"] == False:
                             headerstr = "Datalog_time,time_delta_s, object_class, object_size, program_mode,x_mm,y_mm,z_mm,P_closure_psi,P_jaw1_psi,P_jaw2_psi,P_jaw3_psi," \
                                         "commanded_closure_pressure_psi, commanded_P_jaw1_psi, commanded_P_jaw2_psi, commanded_P_jaw3_psi," \
-                                        "commanded_x_mm, commanded_y_mm,commanded_z_mm,sequence_num"
+                                        "commanded_x_mm, commanded_y_mm,commanded_z_mm,sequence_num," \
+                                        "target_P1_psi,target_P2_psi,target_P3_psi"
 
                             self.LQR["logger"].info(headerstr)
 
@@ -1272,6 +1273,7 @@ class IntegratedSystem:
 
                         datastr = datastr + "," + ",".join([str(x) for x in self.GC.goalPos])
                         datastr = datastr + "," + str(testnum)
+                        datastr = datastr + "," + ",".join([str(x) for x in LQRv.target_trajectory[:,i]])
 
 
                         self.LQR["logger"].info(datastr)
@@ -1900,7 +1902,8 @@ if __name__ == '__main__':
             IS.Read_Move_Hardware(),
             IS.TouchObject(),
             IS.datalog(),
-            IS.KoopmanTesting()
+            IS.KoopmanTesting(),
+            IS.LQRTesting()
             #IS.PressureRadiusCalibration(),
             #IS.capture_video()
         )

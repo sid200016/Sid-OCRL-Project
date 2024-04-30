@@ -869,6 +869,9 @@ class IntegratedSystem:
         self.GrasperReadAverage["Time Delay (s)"] = 0.005
         await self.FreshDataEvent.wait()
         self.logger.info("Gantry position(mm): %f %f %f \n" % tuple([x * 1000 for x in self.curPos]))
+
+        CommandedPressure = self.SG.GetPressureFromPosition(self.SG.commandedPosition["ClosureChangeInRadius_mm"])
+        self.logger.info("Grasper closure muscle commanded pressure(psi):%f \n"%CommandedPressure)
         self.logger.info(
             "Grasper closure muscle pressure(psi): %f \n" % self.ClosurePressure)  # need function to go from pressure to mm
         self.logger.info("Grasper closure radius(mm): %f \n" % self.SG.commandedPosition[

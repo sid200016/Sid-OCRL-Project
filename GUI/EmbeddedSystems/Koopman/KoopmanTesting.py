@@ -122,7 +122,7 @@ class var_params:
 
 class koopman:
 
-    def __init__(self, var_defs=None,hold_time_s = 20, total_run_time_s = 900, samp_freq_Hz = 16):
+    def __init__(self, var_defs=None,hold_time_s = 15, total_run_time_s = 750, samp_freq_Hz = 16):
         if var_defs is None:
             var_defs = {"x": var_params(x_name = 'x',
                                         x_type=variable_type.CONTROL,
@@ -153,7 +153,7 @@ class koopman:
                                         samp_freq_Hz=samp_freq_Hz),
                         "Grasper_Pressure": var_params(x_name = 'Grasper_Pressure',
                                                        x_type=variable_type.CONTROL,
-                                        control_min_max=[4, 9.5],
+                                        control_min_max=[6.5, 10],
                                         units='psi',
                                         samp_type=sample_type.UNIFORM,
                                         samp_parameters={},

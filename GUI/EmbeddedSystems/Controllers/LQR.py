@@ -1,7 +1,7 @@
 import numpy as np
 import json
-
-
+import pandas as pd
+import plotly.graph_objects as go
 
 class LQR():
     """
@@ -143,11 +143,21 @@ class LQR():
 
 if __name__ == "__main__":
     lq = LQR()
-    lq.read_from_JSON()
+    lq.read_from_JSON(fname = "LQR_output.json")
     print("Calculated Controls:")
     print(lq.calculate_control(np.array([0.06,0.015,0.03]), 0))
     print("\nTarget Trajectory:")
     print(lq.target_trajectory[:,0])
     print("\nFeedforward controls:")
     print(lq.u_feedforward[0])
+
+
+    DF = pd.read_csv("../../../datalogs/LQR/LQR_29_04_2024_16_26_34.csv")
+
+    fig = go.Figure()
+    trace1 = go.Scatter(x=DF.sequence_num, y=DF.P_jaw1_psi)
+    trace2 = go.Scatter(x=list(range(0,lq.N_steps )),y=list(lq.target_trajectory[0,:]))
+    fig.add_traces([trace1,trace2])
+    fig.show()
+
     pass

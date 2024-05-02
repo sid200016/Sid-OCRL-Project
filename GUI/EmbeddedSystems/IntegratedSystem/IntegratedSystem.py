@@ -5,6 +5,7 @@ import numpy as np
 
 import logging
 from datetime import datetime
+from tkinter import filedialog
 import sys
 
 from pathlib import Path
@@ -1128,7 +1129,21 @@ class IntegratedSystem:
         #             "orig_pos": [0, 0, 0]}
         if self.LQR["LQR"] is None:
             self.LQR["LQR"] = LQR()  # initialize
-            self.LQR["LQR"].read_from_JSON(fname = "D://Ravesh//FRR-Software-Interface//GUI//EmbeddedSystems//Controllers//LQR_output.json") #read the A, B, C, desired_traj from the JSON file
+
+            fname = "D://Ravesh//FRR-Software-Interface//GUI//EmbeddedSystems//Controllers//LQR_output.json"
+
+            #--- select and read LQR file ---#
+            response = await aioconsole.ainput("Press Y to select the JSON file with the A, B, C and desired Traj \n")
+
+            match response.upper():
+                case "Y":
+                    fname = filedialog.askopenfilename()
+
+                case _:
+                    pass
+            self.logger.info("Using LQR JSON File: %s"%fname)
+
+            self.LQR["LQR"].read_from_JSON(fname = fname) #read the A, B, C, desired_traj from the JSON file
 
         if self.LQR["Directory"] is None:
             l_date = datetime.now().strftime("_%d_%m_%Y_%H_%M_%S")

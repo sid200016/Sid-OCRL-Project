@@ -744,6 +744,7 @@ class IntegratedSystem:
                 # Return to Joystick Mode
                 case "Z":
                     self.jcSG.ControlMode = JC.JoyConState.NORMAL
+                    self.logger.info("Setting to NORMAL mode...\n")
 
                 case "H":
                     await(self.returnHome())

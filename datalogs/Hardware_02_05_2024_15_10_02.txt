@@ -1,0 +1,25 @@
+2024-05-02 15:10:02,925 - __main__ - INFO - Enter C for calibration. 
+Enter S for SNS. 
+Enter Z to return to joystick control
+Enter H to move grasper home 
+Enter T to inflate until grasper touches 
+Enter MG to move the grasper 
+Enter M to move the gantry 
+Enter D to display robot state 
+Enter PR to enter pressure radius calibration 
+Enter K to begin Koopman Experiments 
+Enter LQR to begin LQR Experiments
+
+2024-05-02 15:10:03,606 - __main__ - INFO - Initial jaw pressure is (psi):0,0,0
+2024-05-02 15:11:20,549 - __main__ - INFO - M
+2024-05-02 15:12:13,062 - __main__ - INFO - Neither X or T selected. Exiting. 
+2024-05-02 15:12:21,310 - __main__ - INFO - M
+2024-05-02 15:12:39,432 - __main__ - INFO - LQR
+2024-05-02 15:14:13,366 - __main__ - INFO - Using LQR JSON File: D:/Ravesh/FRR-Software-Interface/GUI/EmbeddedSystems/Controllers/LQR_output_contact_only.json
+2024-05-02 15:14:13,888 - __main__ - INFO - Logger set up ...
+2024-05-02 15:14:13,888 - __main__ - INFO - Enter Y to proceed, enter Z to exit
+2024-05-02 15:14:13,974 - __main__ - INFO - Exiting LQR...
+2024-05-02 15:14:13,975 - __main__ - INFO - Original position (mm): -9.325000,12.925000,-180.180000
+2024-05-02 15:14:13,975 - __main__ - INFO - Please enter object type (rigid, elastic or soft)
+
+2024-05-02 15:14:14,021 - __main__ - INFO - Please enter object size in mm

@@ -40,6 +40,10 @@ class LQR():
         self.u_feedforward = []
         self.N_steps = 0
         
+        #-- For keeping track during real tiem control --#
+        self.z_k_hat = None
+        self.u_k = 0
+        
 
     def read_from_JSON(self,
                        fname = "C://Users//Ravesh//Desktop//Courses//16745 Optimal Control//16745 Course Project//16745_CourseProject//LQR_output.json"):
@@ -105,7 +109,10 @@ class LQR():
         self.u_feedforward = [np.array(pc["u_feedforward"][i]) for i in range(0,len(pc["u_feedforward"]))]
         self.N_steps = np.size(self.target_trajectory,1)
 
-    def calculate_control(self,current_output : np.ndarray, time_step_int : int):
+        #TODO: Need to add
+        # self.L = np.array(pc["L"]) AND add the L to the Julia JSON
+
+    def calculate_control(self,current_output : np.ndarray, time_step_int : int, use_state_estimate = False):
         """
         calculate_control
         For a problem that is:
@@ -119,15 +126,26 @@ class LQR():
         ----------
         current_output: np.ndarray, npx1 vector
         time_step_int: integer representing the timestep, (1:N-1)
+        use_state_estimate: Boolean. If True, estimate state via Luenberger observer. If False, estimate state via pseudoinverse of C.
 
         Returns
         -------
         u_k
         """
-        z_k = self.map_p_to_z(current_output)
+
+        if use_state_estimate == False:
+            z_k = self.map_p_to_z(current_output)
+
+        else:
+            if time_step_int == 1:
+                self.z_k_hat = self.map_p_to_z(current_output) #guess initial state to be pseudoinverse of current output
+                self.u_k = self.u_feedforward[time_step_int]
+            self.z_k_hat = self.state_observer(current_output,self.z_k_hat, self.u_k )
+            z_k = self.z_k_hat
+
         z_target_k = self.map_p_to_z(self.target_trajectory[:,time_step_int])
-        u_k = self.u_feedforward[time_step_int] - self.K[time_step_int]@(z_k - z_target_k)
-        return(u_k)
+        self.u_k = self.u_feedforward[time_step_int] - self.K[time_step_int]@(z_k - z_target_k) #TODO: Use modified feedforward/feedback  from Julia
+        return(self.u_k)
 
     def map_p_to_z(self , p):
         z = self.C_inv@p
@@ -136,6 +154,36 @@ class LQR():
     def map_z_to_p(self , z):
         p = self.C@z
         return(p)
+
+    def state_observer(self, p,z_k_hat, u_k):
+        '''
+        This function gets an estimate of the z, using a linear model of the dynamics:
+
+        p_k_hat = C*z_k_hat
+
+        z_k+1_hat = A*z_k_hat + B*u + L(p_k-p_k_hat)
+
+        where p_k is the actual measured output and z_k+1_hat is the estimate of the state
+
+        Parameters
+        ----------
+        y
+
+        Returns
+        -------
+
+        '''
+
+        p_k_hat = self.C@z_k_hat
+        z_kp1_hat = self.A@z_k_hat + self.B@u_k + self.L@(p-p_k_hat) #TODO: Check sign
+
+        return z_kp1_hat
+
+
+    def calculate_control_w_state_estimate(self,current_output : np.ndarray, time_step_int : int):
+
+        pass
+
 
 
 

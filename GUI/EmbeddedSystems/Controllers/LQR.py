@@ -103,14 +103,14 @@ class LQR():
         self.A = np.array(pc["A"])
         self.B = np.array(pc["B"])
         self.C = np.array(pc["C"])
+        self.L = np.array(pc["L"])
         self.C_inv = np.linalg.pinv(self.C)
         self.K = [np.array(pc["K"][i]) for i in range(0,len(pc["K"]))]
         self.target_trajectory = np.array(pc["target_trajectory"])
         self.u_feedforward = [np.array(pc["u_feedforward"][i]) for i in range(0,len(pc["u_feedforward"]))]
         self.N_steps = np.size(self.target_trajectory,1)
 
-        #TODO: Need to add
-        # self.L = np.array(pc["L"]) AND add the L to the Julia JSON
+
 
     def calculate_control(self,current_output : np.ndarray, time_step_int : int, use_state_estimate = False, use_affine_feedforward = True):
         """

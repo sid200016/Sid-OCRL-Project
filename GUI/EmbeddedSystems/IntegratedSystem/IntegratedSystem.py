@@ -1250,7 +1250,8 @@ class IntegratedSystem:
                         testnum = i
 
                         ### ---- Get commands from LQR ---- ###
-                        controls = LQRv.calculate_control(np.array(self.jawPressure), i) #get LQR control based on current jaw pressures
+                        controls = LQRv.calculate_control(np.array(self.jawPressure), i,
+                                                          use_state_estimate = True, use_affine_feedforward = True) #get LQR control based on current jaw pressures
                         jaw_pressure_psi_c, x_mm_c, y_mm_c = controls
 
                         self.pressure_state["Commanded pressure (psi)"] = np.clip(jaw_pressure_psi_c,0,self.SG.maxClosurePressure_psi)

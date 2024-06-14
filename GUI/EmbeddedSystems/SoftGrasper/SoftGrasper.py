@@ -97,6 +97,8 @@ class SoftGrasper:
         #For GUI real-time control
         self.isActive = False
 
+        #Max closure pressure set
+        self.PressurePorts[self.closureMuscle_idx].maxPressure = self.maxClosurePressure_psi
 
 
         # #------ Initialization -----#

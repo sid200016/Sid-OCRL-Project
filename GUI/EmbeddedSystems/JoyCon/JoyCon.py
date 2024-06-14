@@ -23,6 +23,9 @@ class JoyConState(Enum):
     RESET_GRASPER = 6 #deflate the grasper completely
     DISPLAY_DATA = 7 #display current state of robot
     PRESSURE_RADIUS_CAL = 8 #perform pressure radius calibration
+    KOOPMAN = 9 #Perform Experiments for Koopman
+    PID = 10 #Perform PID experiments
+    LQR = 11 #Perform LQR experiments
 
 
 class Button:

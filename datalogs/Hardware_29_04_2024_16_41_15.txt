@@ -1,0 +1,22 @@
+2024-04-29 16:41:15,797 - __main__ - INFO - Enter C for calibration. 
+Enter S for SNS. 
+Enter Z to return to joystick control
+Enter H to move grasper home 
+Enter T to inflate until grasper touches 
+Enter MG to move the grasper 
+Enter M to move the gantry 
+Enter D to display robot state 
+Enter PR to enter pressure radius calibration 
+Enter K to begin Koopman Experiments 
+Enter LQR to begin LQR Experiments
+
+2024-04-29 16:41:16,563 - __main__ - INFO - Initial jaw pressure is (psi):0,0,0
+2024-04-29 16:41:30,428 - __main__ - INFO - M
+2024-04-29 16:42:03,887 - __main__ - INFO - LQR
+2024-04-29 16:42:04,252 - __main__ - INFO - Logger set up ...
+2024-04-29 16:42:04,252 - __main__ - INFO - Enter Y to proceed, enter Z to exit
+2024-04-29 16:42:40,876 - __main__ - INFO - Original position (mm): -9.325000,12.925000,-180.180000
+2024-04-29 16:42:40,876 - __main__ - INFO - Please enter object type (rigid, elastic or soft)
+
+2024-04-29 16:42:44,744 - __main__ - INFO - Please enter object size in mm
+2024-04-29 16:42:47,152 - __main__ - INFO - Completely deflating grasper...

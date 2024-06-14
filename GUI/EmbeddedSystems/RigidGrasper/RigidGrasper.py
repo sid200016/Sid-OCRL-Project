@@ -114,13 +114,13 @@ class RigidGrasper:
         self.GoalPosition_Limits = {"1":GoalPosition1, "2":GoalPosition2} #limits of motion
 
         # Current position of the grasper:
-        self.CurrentPosition ={"1":[], "2":[]}
+        self.CurrentPosition ={"1":-1000000, "2":-1000000}
 
         # Commanded Position for the grasper
         self.commandedPosition_mm = 0
 
         # Present Current in mA
-        self.PresentCurrent = {"1": [], "2": []}
+        self.PresentCurrent = {"1": -1000000, "2": -1000000}
 
         # Communication result and errors
         self.dxl_comm_result = None
@@ -161,10 +161,10 @@ class RigidGrasper:
             "_%d_%m_%Y_%H_%M_%S") + ".txt")
 
         fh = logging.FileHandler(fname)  # file handler
-        fh.setLevel(logging.DEBUG)
+        fh.setLevel(logging.INFO)
 
         ch = logging.StreamHandler(sys.stdout)  # stream handler
-        ch.setLevel(logging.DEBUG)
+        ch.setLevel(logging.INFO)
 
         formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
@@ -330,11 +330,38 @@ class RigidGrasper:
         M2_count = np.clip(M2_count, self.GoalPosition_Limits["2"][1], self.GoalPosition_Limits["2"][0])
         return(M1_count,M2_count)
 
+    def IncrementalMove(self, moveIncrement_mm = 1, action1=GrasperActions.STAY,
+                        action2=GrasperActions.STAY):  # close claws, assume position control
 
-    def IncrementalMove(self,moveIncrement1 = 100,moveIncrement2 = 100, action1 = GrasperActions.STAY,action2 = GrasperActions.STAY): #close claws, assume position control
+        CurrentPosition, dxl_comm_result, dxl_error = self.ReadCurrentPosition()  # get current position and update member variable with the same.
+
+        self.commandedPosition_mm = self.commandedPosition_mm + moveIncrement_mm
+        M1_count, M2_count = self.GetCountFromGripperWidth(self.commandedPosition_mm)
+
+
+
+        self.SetGoalPosition(goal_position1=int(M1_count))  # move towards goal position for claw 1 only
+        self.SetGoalPosition(goal_position2=int(M2_count))  # move towards goal position for claw 2 only
+
+        # Read pressure sensor:
+        if self.useForceSensor == True:
+            byteList = self.ConstructPortCommand()
+            numBytes = self.sendCommunicationArray(byteList=byteList)
+            self.logger.debug("Bytes sent:%i" % (numBytes))
+
+            # read serial data
+            self.readSerialData()
+
+            # ChP = self.getJawChangePressureVals()
+            # self.changeInPressure = ChP
+            # self.logger.debug("Change in pressure: " + ','.join([str(x) for x in ChP]))
+
+    def IncrementalMove_Count(self,moveIncrement1 = 100,moveIncrement2 = 100, action1 = GrasperActions.STAY,action2 = GrasperActions.STAY): #close claws, assume position control
+
 
         CurrentPosition,dxl_comm_result,dxl_error = self.ReadCurrentPosition() #get current position and update member variable with the same.
-        CurrentPosition=[CurrentPosition["1"],CurrentPosition["2"]]
+        CurrentPosition=[CurrentPosition["1"],CurrentPosition["2"]] #if incrementing based on current position, but this results in choppy jittery motion
+
 
         #Claw 1
         if action1.value == GrasperActions.CLOSE.value:
@@ -467,7 +494,7 @@ class RigidGrasper:
 
                 if payload is not None:
                     if numBytes == len(payload):
-                        self.logger.info('Payload matches the expected number of bytes')
+                        self.logger.debug('Payload matches the expected number of bytes')
                         self.processData(protocolType, numBytes, payload)
 
                     else:

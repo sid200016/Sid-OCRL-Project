@@ -306,7 +306,8 @@ class Joy_RigidGrasper(Joy_Gantry):
     def __init__(self,RGa:RG.RigidGrasper, GantryS:GC.Gantry):
         super().__init__(GantryS = GantryS)
         self.grasper = RGa
-        self.grasperIncrement = 100
+        self.grasperIncrement_Count = 500
+        self.grasperIncrement_mm = 10
 
         self.buttonMapping[("A", "X")] = Button((self.buttonMapping["A"].buttonNumber,self.buttonMapping["X"].buttonNumber),
                                                 ("A","X"),
@@ -321,28 +322,28 @@ class Joy_RigidGrasper(Joy_Gantry):
 
 
     def buttonA(self): #close right claw, assume position control
-        self.grasper.IncrementalMove(moveIncrement1= self.grasperIncrement, moveIncrement2 = self.grasperIncrement,
-                                     action1=RG.GrasperActions.CLOSE,action2=RG.GrasperActions.STAY)
+        self.grasper.IncrementalMove(moveIncrement_mm= self.grasperIncrement_mm,
+                                     action1=RG.GrasperActions.CLOSE,action2=RG.GrasperActions.CLOSE)
 
     def buttonB(self): #open right claw, assume position control
-        self.grasper.IncrementalMove(moveIncrement1=self.grasperIncrement, moveIncrement2=self.grasperIncrement,
-                                     action1=RG.GrasperActions.OPEN, action2=RG.GrasperActions.STAY)
+        self.grasper.IncrementalMove(moveIncrement_mm=-self.grasperIncrement_mm,
+                                     action1=RG.GrasperActions.OPEN, action2=RG.GrasperActions.OPEN)
 
     def buttonX(self):  # close left claw, assume position control
-        self.grasper.IncrementalMove(moveIncrement1=self.grasperIncrement, moveIncrement2=self.grasperIncrement,
+        self.grasper.IncrementalMove_Count(moveIncrement1=self.grasperIncrement_Count, moveIncrement2=self.grasperIncrement_Count,
                                      action1=RG.GrasperActions.STAY, action2=RG.GrasperActions.CLOSE)
 
     def buttonY(self): #open left claw, assume position control
-        self.grasper.IncrementalMove(moveIncrement1=self.grasperIncrement, moveIncrement2=self.grasperIncrement,
+        self.grasper.IncrementalMove_Count(moveIncrement1=self.grasperIncrement_Count, moveIncrement2=self.grasperIncrement_Count,
                                      action1=RG.GrasperActions.STAY, action2=RG.GrasperActions.OPEN)
 
     def buttonAX(self):
-        self.grasper.IncrementalMove(moveIncrement1= self.grasperIncrement, moveIncrement2 = self.grasperIncrement,
+        self.grasper.IncrementalMove(moveIncrement_mm= self.grasperIncrement_mm,
                                      action1=RG.GrasperActions.CLOSE,action2=RG.GrasperActions.CLOSE)
 
 
     def buttonBY(self):
-        self.grasper.IncrementalMove(moveIncrement1=self.grasperIncrement, moveIncrement2=self.grasperIncrement,
+        self.grasper.IncrementalMove(moveIncrement_mm=self.grasperIncrement_mm,
                                  action1=RG.GrasperActions.OPEN, action2=RG.GrasperActions.OPEN)
 
     def buttonSR(self):

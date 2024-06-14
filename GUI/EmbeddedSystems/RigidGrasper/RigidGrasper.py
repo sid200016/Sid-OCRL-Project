@@ -26,6 +26,8 @@ import sys
 import serial
 import math
 
+import asyncio
+
 import logging
 from datetime import datetime
 
@@ -115,6 +117,7 @@ class RigidGrasper:
 
         # Current position of the grasper:
         self.CurrentPosition ={"1":-1000000, "2":-1000000}
+        self.CurrentDistance = 0
 
         # Commanded Position for the grasper
         self.commandedPosition_mm = 0
@@ -356,6 +359,28 @@ class RigidGrasper:
             # self.changeInPressure = ChP
             # self.logger.debug("Change in pressure: " + ','.join([str(x) for x in ChP]))
 
+    async def ReadSensorValues(self,number_avg = 1, loop_delay = 0.001): #convenience function to get the pressure values
+        jawForce = np.array([0])
+        closureDistance = 0
+        await asyncio.sleep(0.001)
+
+
+        for i in range(number_avg):
+            self.ReadGrasperData()
+
+            jawForce_r = np.array(self.getJawChangeForce())
+            self.logger.debug("Read sensor values loop %i, jaw force in N %f"%(i,*jawPressure_r))
+            jawForce = jawForce_r+jawForce
+            closureDistance = self.CurrentDistance + closureDistance
+            self.logger.debug("Closure distance loop %i, closure distance in mm %f" % (i, closureDistance))
+            await asyncio.sleep(loop_delay)
+
+
+        jawForce = jawForce/number_avg
+        closureDistance = closureDistance/number_avg
+
+        return(jawForce,closureDistance)
+
     def IncrementalMove_Count(self,moveIncrement1 = 100,moveIncrement2 = 100, action1 = GrasperActions.STAY,action2 = GrasperActions.STAY): #close claws, assume position control
 
 
@@ -398,6 +423,7 @@ class RigidGrasper:
         self.SetGoalPosition(goal_position1=int(M1_count))  # move towards goal position for claw 1 only
         self.SetGoalPosition(goal_position2=int(M2_count))  # move towards goal position for claw 2 only
 
+    def ReadGrasperData(self):
 
         #Read pressure sensor:
         if self.useForceSensor == True:
@@ -411,6 +437,14 @@ class RigidGrasper:
             ChF = self.getJawChangeForce()
             self.changeInForce = ChF
             self.logger.debug("Change in Force: " + ','.join([str(x) for x in ChF]))
+
+            CurrentPosition, dxl_comm_result, dxl_error = self.ReadCurrentPosition()  # get current position and update member variable with the same.
+
+            self.CurrentDistance = self.ConvertPositionToDistance_mm(CurrentPosition["1"],CurrentPosition["2"])
+
+    def ConvertPositionToDistance_mm(self, pos1, pos2):
+        return 0 #TODO: update this
+
 
     def sendCommunicationArray(self, startDelim=None, byteList=None,
                                endDelim=None):  # send list of bytearrays over serial with start and stop delim

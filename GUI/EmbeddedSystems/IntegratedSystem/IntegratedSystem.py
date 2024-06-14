@@ -238,7 +238,10 @@ class IntegratedSystem:
 
 
         else:  # rigid grasper
-            pass
+            self.SG = RigidGrasper(DEVICEPORT = "COM6",useForceSensor = True, COM_Port_Force = 'COM3',BaudRate_Force=460800)
+
+            self.jcSG = JC.Joy_RigidGrasper(RGa=self.SG,
+                                           GantryS=self.GC)  # initialize joystick control of rigid grasper and gantry controller
 
         self.SNSc = SNScontroller()
 
@@ -271,24 +274,47 @@ class IntegratedSystem:
             curPos = self.GC.getPosition()
             await asyncio.sleep(0.001)
 
-            if self.GrasperReadAverage["Average Event"].is_set() == True: #for the case where you want to average
-                jawPressure, ClosurePressure = await self.SG.ReadSensorValues(number_avg=self.GrasperReadAverage["Number of Loops"],
-                                                                              loop_delay=self.GrasperReadAverage["Time Delay (s)"])
-                self.GrasperReadAverage["Average Event"].clear()
+            if self.grasperType == GrasperType.SoftGrasper:
 
-            else: #default
-                jawPressure, ClosurePressure = await self.SG.ReadSensorValues(number_avg=1, loop_delay=0)
+                if self.GrasperReadAverage["Average Event"].is_set() == True: #for the case where you want to average
+                    jawPressure, ClosurePressure = await self.SG.ReadSensorValues(number_avg=self.GrasperReadAverage["Number of Loops"],
+                                                                                  loop_delay=self.GrasperReadAverage["Time Delay (s)"])
+                    self.GrasperReadAverage["Average Event"].clear()
+
+                else: #default
+                    jawPressure, ClosurePressure = await self.SG.ReadSensorValues(number_avg=1, loop_delay=0)
 
 
-            self.SG.ChangeInPressure = jawPressure
-            self.jawPressure = jawPressure
-            self.ClosurePressure = ClosurePressure
-            self.curPos = curPos
-            await asyncio.sleep(0.001)  # nominal 50 Hz
+                self.SG.ChangeInPressure = jawPressure
+                self.jawPressure = jawPressure
+                self.ClosurePressure = ClosurePressure
+                self.curPos = curPos
+                await asyncio.sleep(0.001)  # nominal 50 Hz
 
-            # set the flag indicating that fresh data has been received, then sleep, then change the flag
-            self.FreshDataEvent.set()
-            await asyncio.sleep(0.001)
+                # set the flag indicating that fresh data has been received, then sleep, then change the flag
+                self.FreshDataEvent.set()
+                await asyncio.sleep(0.001)
+
+            elif self.grasperType == GrasperType.RigidGrasper:
+                if self.GrasperReadAverage["Average Event"].is_set() == True:  # for the case where you want to average
+                    jawForce, ClosureDistance = await self.SG.ReadSensorValues(
+                        number_avg=self.GrasperReadAverage["Number of Loops"],
+                        loop_delay=self.GrasperReadAverage["Time Delay (s)"])
+                    self.GrasperReadAverage["Average Event"].clear()
+
+                else:  # default
+                    jawForce, ClosureDistance = await self.SG.ReadSensorValues(number_avg=1, loop_delay=0)
+
+                self.SG.ChangeInForce = jawForce
+                self.jawPressure = jawPressure
+                self.ClosurePressure = ClosureDistance
+                self.curPos = curPos
+                await asyncio.sleep(0.001)  # nominal 50 Hz
+
+                # set the flag indicating that fresh data has been received, then sleep, then change the flag
+                self.FreshDataEvent.set()
+                await asyncio.sleep(0.001)
+
 
             # elif self.jcSG.ControlMode == JC.JoyConState.NORMAL:
             #     self.curPos = Point(self.GC.PositionArray["x"][-1]/1000,

@@ -651,7 +651,7 @@ if __name__ == '__main__':
     print("%i,%i. In Deg: %f, %f:" % (
     CurrentPosition["1"], CurrentPosition["2"], CurrentPosition["1"] * 360 / 4096, CurrentPosition["2"] * 360 / 4096))
     while  (True):
-        commandedPos1, commandedPos2 = RG.IncrementalMove_Count(moveIncrement1 = 50,moveIncrement2 = 50, action1 = GrasperActions.CLOSE,action2 = GrasperActions.CLOSE)
+        commandedPos1, commandedPos2 = RG.IncrementalMove_Count(moveIncrement1 = 25,moveIncrement2 = 25, action1 = GrasperActions.CLOSE,action2 = GrasperActions.CLOSE)
         time.sleep(1)
 
         CurrentPosition, dxl_comm_result, dxl_error = RG.ReadCurrentPosition()

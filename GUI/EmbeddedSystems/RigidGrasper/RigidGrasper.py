@@ -646,13 +646,14 @@ def CyclicTestGrasper(self):
                 index = 0
 
 if __name__ == '__main__':
-    RG = RigidGrasper(DEVICEPORT = "COM6",useForceSensor = True, COM_Port_Force = 'COM3',BaudRate_Force=460800)
+    RG = RigidGrasper(DEVICEPORT = "COM6",useForceSensor = False, COM_Port_Force = 'COM3',BaudRate_Force=460800)
     CurrentPosition, dxl_comm_result, dxl_error = RG.ReadCurrentPosition()
     print("%i,%i. In Deg: %f, %f:" % (
     CurrentPosition["1"], CurrentPosition["2"], CurrentPosition["1"] * 360 / 4096, CurrentPosition["2"] * 360 / 4096))
     while  (True):
-        RG.IncrementalMove(moveIncrement1 = 0,moveIncrement2 = 0, action1 = GrasperActions.CLOSE,action2 = GrasperActions.CLOSE)
-        time.sleep(0.1)
+        RG.IncrementalMove_Count(moveIncrement1 = 50,moveIncrement2 = 50, action1 = GrasperActions.CLOSE,action2 = GrasperActions.CLOSE)
+        time.sleep(1)
+        print("Close")
     # while(input("Press a key to increment by 100")):
     #     RG.IncrementalMove(moveIncrement1 = 50,moveIncrement2 = 50, action1 = GrasperActions.CLOSE,action2 = GrasperActions.CLOSE)
     #     time.sleep(3)

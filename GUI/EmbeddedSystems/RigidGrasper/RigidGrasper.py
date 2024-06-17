@@ -416,7 +416,7 @@ class RigidGrasper:
             #ChP = self.getJawChangePressureVals()
             #self.changeInPressure = ChP
             #self.logger.debug("Change in pressure: " + ','.join([str(x) for x in ChP]))
-
+        return (CurrentPosition[0], CurrentPosition[1])
     def MoveGrasper(self): #close claws, assume position control
 
         M1_count,M2_count = self.GetCountFromGripperWidth(self.commandedPosition_mm)
@@ -651,9 +651,17 @@ if __name__ == '__main__':
     print("%i,%i. In Deg: %f, %f:" % (
     CurrentPosition["1"], CurrentPosition["2"], CurrentPosition["1"] * 360 / 4096, CurrentPosition["2"] * 360 / 4096))
     while  (True):
-        RG.IncrementalMove_Count(moveIncrement1 = 50,moveIncrement2 = 50, action1 = GrasperActions.CLOSE,action2 = GrasperActions.CLOSE)
+        commandedPos1, commandedPos2 = RG.IncrementalMove_Count(moveIncrement1 = 50,moveIncrement2 = 50, action1 = GrasperActions.CLOSE,action2 = GrasperActions.CLOSE)
         time.sleep(1)
-        print("Close")
+
+        CurrentPosition, dxl_comm_result, dxl_error = RG.ReadCurrentPosition()
+        print("Commanded pos: %i, %i. Current Pos: %i,%i. In Deg: %f, %f:" % (
+            commandedPos1, commandedPos2,
+            CurrentPosition["1"], CurrentPosition["2"], CurrentPosition["1"] * 360 / 4096,
+            CurrentPosition["2"] * 360 / 4096))
+
+        time.sleep(1)
+
     # while(input("Press a key to increment by 100")):
     #     RG.IncrementalMove(moveIncrement1 = 50,moveIncrement2 = 50, action1 = GrasperActions.CLOSE,action2 = GrasperActions.CLOSE)
     #     time.sleep(3)

@@ -225,7 +225,23 @@ class IntegratedSystem:
 
         self.grasperType = grasper_type
 
-        self.GC = GantryController(comport="COM4")#,homeSystem = False, initPos=[0,0,0])#, homeSystem = False,initPos=[0,0,0]  #initialize gantry controller
+        self.logger.info("Press 'S' to use Soft Grasper, 'R' to use Rigid Grasper. Any other input defaults to Soft Grasper.")
+        s = await aioconsole.ainput()
+        self.logger.info(s)
+
+        match s.upper():
+            # Calibration
+            case "S":
+                self.grasperType = GrasperType.SoftGrasper
+            case "R":
+                self.grasperType = GrasperType.RigidGrasper
+            case _:
+                self.grasperType = GrasperType.SoftGrasper
+
+        self.logger.info("Grasper Type selected: %s"%self.grasperType)
+
+
+        self.GC = GantryController(comport="COM4",homeSystem = False, initPos=[0,0,0])#, homeSystem = False,initPos=[0,0,0]  #initialize gantry controller
 
         if self.grasperType == GrasperType.SoftGrasper:
             self.SG = SoftGrasper(COM_Port='COM10', BaudRate=460800, timeout=1,
@@ -237,7 +253,7 @@ class IntegratedSystem:
 
 
 
-        else:  # rigid grasper
+        elif self.grasperType == GrasperType.RigidGrasper:  # rigid grasper
             self.SG = RigidGrasper(DEVICEPORT = "COM6",useForceSensor = True, COM_Port_Force = 'COM3',BaudRate_Force=460800)
 
             self.jcSG = JC.Joy_RigidGrasper(RGa=self.SG,

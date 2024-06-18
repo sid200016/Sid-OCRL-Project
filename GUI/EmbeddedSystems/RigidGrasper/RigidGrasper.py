@@ -573,6 +573,7 @@ class RigidGrasper:
                             range(0, len_payload, 4)]  # for floats representing pressure values of each port
 
                     for count, val in enumerate(data):
+                        print(data[count])
                         ForceN = self.calcForceFromSensor(data[count])
                         self.ForceArray[count].append(ForceN)
 
@@ -646,7 +647,7 @@ def CyclicTestGrasper(self):
                 index = 0
 
 if __name__ == '__main__':
-    RG = RigidGrasper(DEVICEPORT = "COM6",useForceSensor = False, COM_Port_Force = 'COM3',BaudRate_Force=460800)
+    RG = RigidGrasper(DEVICEPORT = "COM6",useForceSensor = True, COM_Port_Force = 'COM3',BaudRate_Force=460800)
     CurrentPosition, dxl_comm_result, dxl_error = RG.ReadCurrentPosition()
     print("%i,%i. In Deg: %f, %f:" % (
     CurrentPosition["1"], CurrentPosition["2"], CurrentPosition["1"] * 360 / 4096, CurrentPosition["2"] * 360 / 4096))
@@ -659,6 +660,9 @@ if __name__ == '__main__':
             commandedPos1, commandedPos2,
             CurrentPosition["1"], CurrentPosition["2"], CurrentPosition["1"] * 360 / 4096,
             CurrentPosition["2"] * 360 / 4096))
+
+        RG.ReadGrasperData()
+        print(RG.changeInForce)
 
         time.sleep(1)
 

@@ -337,9 +337,10 @@ class RigidGrasper:
     def IncrementalMove(self, moveIncrement_mm = 1, action1=GrasperActions.STAY,
                         action2=GrasperActions.STAY):  # close claws, assume position control
 
+        #TODO: Limit the move so it doesn't get -ve distance -> kinda done but need better limits
         CurrentPosition, dxl_comm_result, dxl_error = self.ReadCurrentPosition()  # get current position and update member variable with the same.
 
-        self.commandedPosition_mm = self.commandedPosition_mm + moveIncrement_mm
+        self.commandedPosition_mm = np.clip(self.commandedPosition_mm + moveIncrement_mm, 0, 100)
         M1_count, M2_count = self.GetCountFromGripperWidth(self.commandedPosition_mm)
 
 

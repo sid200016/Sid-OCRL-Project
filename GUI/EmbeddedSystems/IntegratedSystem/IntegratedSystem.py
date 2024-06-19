@@ -239,10 +239,26 @@ class IntegratedSystem:
             case _:
                 self.grasperType = GrasperType.SoftGrasper
 
+        print("Press 'H' to home system, 'X' to not home system.")
+        s = await aioconsole.ainput()
+        home_system = False
+        print(s)
+
+        match s.upper():
+            # Calibration
+            case "H":
+                home_system = True
+            case "X":
+                home_system = False
+            case _:
+                home_system = False
 
 
+        if home_system == False:
+            self.GC = GantryController(comport="COM4",homeSystem = False, initPos=[0,0,0])#, homeSystem = False,initPos=[0,0,0]  #initialize gantry controller
 
-        self.GC = GantryController(comport="COM4",homeSystem = False, initPos=[0,0,0])#, homeSystem = False,initPos=[0,0,0]  #initialize gantry controller
+        elif home_system == True:
+            self.GC = GantryController(comport="COM4")  # , homeSystem = False,initPos=[0,0,0]  #initialize gantry controller
 
         if self.grasperType == GrasperType.SoftGrasper:
             self.SG = SoftGrasper(COM_Port='COM10', BaudRate=460800, timeout=1,
@@ -259,6 +275,9 @@ class IntegratedSystem:
 
             self.jcSG = JC.Joy_RigidGrasper(RGa=self.SG,
                                            GantryS=self.GC)  # initialize joystick control of rigid grasper and gantry controller
+
+            self.ObjectPressureThreshold = [0.1]  # threshold above which to trigger the rumble, psi
+            self.ObjectPressureScaling = 0.05
 
         self.SNSc = SNScontroller()
 
@@ -336,7 +355,7 @@ class IntegratedSystem:
             # elif self.jcSG.ControlMode == JC.JoyConState.NORMAL:
             #     self.curPos = Point(self.GC.PositionArray["x"][-1]/1000,
             #                         self.GC.PositionArray["y"][-1]/1000,
-            #                         self.GC.PositionArray["z"][-1]/1000) #TODO: maybe need to fix this. Should unify so that current position is only called in this function, and don't have to worry about the updates that are being made in the Normal loop
+            #                         self.GC.PositionArray["z"][-1]/1000)
             #
             #     self.ClosurePressure = self.SG.PressureArray[self.SG.closureMuscle_idx][-1]
             #     self.jawPressure = self.SG.changeInPressure
@@ -408,6 +427,7 @@ class IntegratedSystem:
         # Fix logging
         # Take video of it closing and record the change in radius 3 times
 
+        #TODO: Need to integrate rigid grasper
         while (True):
             if self.jcSG.ControlMode == JC.JoyConState.USE_SNS:
                 self.logger.debug('Inside SNS control')
@@ -485,7 +505,6 @@ class IntegratedSystem:
                                                                      targetPos_m=Point(*target_position_list),
                                                                      useRealGantry=False) #update SNS
 
-                # TODO: need to modify for the Force inhibit and Force cap movements.
 
                 # ----------------- For normal mode, i.e. manually cap the grasper opening at transition from grasp to lift_after_grasp ---------------#
                 if (self.SNSc.ControlMode == ControlType.NORMAL and self.SNSc.object_grasped_phase == True):
@@ -718,9 +737,17 @@ class IntegratedSystem:
     def calculateRumble(self,pressureThreshold=[0.2, 0.2, 0.2], pressureScaling=1):
 
         # pressureThreshold:  change in pressure threshold in psi above which to register changes in pressure
-        rumbleValue_arr = [min((x - pressureThreshold[i]) / pressureScaling, 1) if x >= pressureThreshold[i] else 0 for
-                           (i, x) in
-                           enumerate(self.SG.changeInPressure)]  # was divide by 1.75, changed to 1
+        #TODO: Need to change scaling for rigid grasper
+        if self.grasperType == GrasperType.SoftGrasper:
+            rumbleValue_arr = [min((x - pressureThreshold[i]) / pressureScaling, 1) if x >= pressureThreshold[i] else 0 for
+                               (i, x) in
+                               enumerate(self.SG.changeInPressure)]  # was divide by 1.75, changed to 1
+
+        elif self.grasperType == GrasperType.RigidGrasper:
+            rumbleValue_arr = [min((x - pressureThreshold[i]) / pressureScaling, 1) if x >= pressureThreshold[i] else 0
+                               for
+                               (i, x) in
+                               enumerate(self.SG.changeInForce)]  # was divide by 1.75, changed to 1
 
         rumbleValue = max(rumbleValue_arr)
         # if the current attempt is on a breakable item, check to see if the rumble value is greater than the threshold
@@ -915,13 +942,24 @@ class IntegratedSystem:
         await self.FreshDataEvent.wait()
         self.logger.info("Gantry position(mm): %f %f %f \n" % tuple([x * 1000 for x in self.curPos]))
 
-        CommandedPressure = self.SG.GetPressureFromPosition(self.SG.commandedPosition["ClosureChangeInRadius_mm"])
-        self.logger.info("Grasper closure muscle commanded pressure(psi):%f \n"%CommandedPressure)
-        self.logger.info(
-            "Grasper closure muscle pressure(psi): %f \n" % self.ClosurePressure)  # need function to go from pressure to mm
-        self.logger.info("Grasper closure radius(mm): %f \n" % self.SG.commandedPosition[
-            "ClosureChangeInRadius_mm"])
-        self.logger.info("Grasper contact pressure (psi): %f, %f, %f \n" % tuple(self.jawPressure))
+        if self.grasperType == GrasperType.SoftGrasper:
+            CommandedPressure = self.SG.GetPressureFromPosition(self.SG.commandedPosition["ClosureChangeInRadius_mm"])
+            self.logger.info("Grasper closure muscle commanded pressure(psi):%f \n"%CommandedPressure)
+            self.logger.info(
+                "Grasper closure muscle pressure(psi): %f \n" % self.ClosurePressure)  # need function to go from pressure to mm
+            self.logger.info("Grasper closure radius(mm): %f \n" % self.SG.commandedPosition[
+                "ClosureChangeInRadius_mm"])
+            self.logger.info("Grasper contact pressure (psi): %f, %f, %f \n" % tuple(self.jawPressure))
+
+        elif self.grasperType == GrasperType.RigidGrasper:
+            CurrentPosition = self.ClosurePressure #TODO: This is always 0 -> Need to fix the other todo in rigid grasper
+            self.logger.info("Grasper commanded position (mm): %f \n"%self.SG.commandedPosition_mm)
+            self.logger.info("Grasper current position (mm): %f \n"%CurrentPosition)
+            self.logger.info("Raw load cell reading: %f \n"%self.SG.RawForceArray[0])
+            self.logger.info("Load cell reading (N): %f \n"%self.jawPressure)
+
+
+
         self.jcSG.ControlMode = priorMode
         await asyncio.sleep(0.001)
     async def TouchObject(self):
@@ -1357,7 +1395,6 @@ class IntegratedSystem:
         while (True):
             if self.jcSG.ControlMode == JC.JoyConState.KOOPMAN:
 
-                #TODO: Iterate through list of states. Those that are just states, ignore. Those that are controls, then move x,y,z or grasper. Update counter, then repeat for others.
                 ### ---- Start Koopman Experiments ---- ###
                 orig_pos = self.kpt["orig_pos"]
                 if self.kpt["proceed"] == True:
@@ -1471,7 +1508,15 @@ class IntegratedSystem:
             #print("Datalog")
             if self.datalog_header == False:
                 # write the header to the file
-                headerstr = "time_delta_s,program_mode,x_mm,y_mm,z_mm,P_closure_psi,P_jaw1_psi,P_jaw2_psi,P_jaw3_psi,commanded_radius_mm, commanded_P_jaw1_psi, commanded_P_jaw2_psi, commanded_P_jaw3_psi"
+
+                if self.grasperType == GrasperType.SoftGrasper:
+                    headerstr = "time_delta_s,program_mode,x_mm,y_mm,z_mm,P_closure_psi,P_jaw1_psi,P_jaw2_psi,P_jaw3_psi,commanded_radius_mm, commanded_P_jaw1_psi, commanded_P_jaw2_psi, commanded_P_jaw3_psi"
+
+                elif self.grasperType == GrasperType.RigidGrasper:
+                    headerstr = "time_delta_s,program_mode,x_mm,y_mm,z_mm," \
+                              "current closure distance (mm), jaw force (N), current position 1, current position 2, currentDistance_mm, commandedPosition_mm, RawForceArray (count),ForceArray (N)"
+
+
                 headerstr = headerstr + "," + ','.join(
                     [k for k, v in self.buttonVal.items()]) + "," + "Axes 1, Axes 2"  # for the buttons
                 headerstr = headerstr + "," + ','.join(
@@ -1501,8 +1546,16 @@ class IntegratedSystem:
             await self.startDatalog.wait()
             datastr = str(time.time()-self.time_0)
             datastr = datastr+ "," + "%s,%f,%f,%f"%(str(self.jcSG.ControlMode),self.curPos[0]*1000, self.curPos[1]*1000, self.curPos[2]*1000)
-            datastr = datastr + "," + "%f,%f,%f,%f,%f,%f,%f,%f"%(self.ClosurePressure,*self.jawPressure,self.SG.commandedPosition["ClosureChangeInRadius_mm"],
-                                                            self.SG.commandedPosition["Jaw1_psi"],self.SG.commandedPosition["Jaw2_psi"],self.SG.commandedPosition["Jaw3_psi"])
+
+            if self.grasperType == GrasperType.SoftGrasper:
+                datastr = datastr + "," + "%f,%f,%f,%f,%f,%f,%f,%f"%(self.ClosurePressure,*self.jawPressure,self.SG.commandedPosition["ClosureChangeInRadius_mm"],
+                                                                self.SG.commandedPosition["Jaw1_psi"],self.SG.commandedPosition["Jaw2_psi"],self.SG.commandedPosition["Jaw3_psi"])
+            elif self.grasperType == GrasperType.RigidGrasper:
+                datastr = datastr + "," + "%f, %f, %f, %f, %f, %f, %f, %f"%(self.ClosurePressure,self.jawPressure[0],
+                                               self.SG.CurrentPosition["1"], self.SG.CurrentPosition["2"],
+                                               self.SG.CurrentDistance, self.SG.commandedPosition_mm,
+                                               self.SG.RawForceArray[0], self.SG.ForceArray[0][-1]) #closure distance (mm), jaw force (N), current position 1, current position 2, currentDistance_mm, commandedPosition_mm, RawForceArray (count),ForceArray (N)
+
             datastr = datastr + "," + ','.join(
                 [str(v) for k, v in self.buttonVal.items()]) + "," + ','.join([str(x) for x in self.AxesPos]) #for the joystick button and pos
 

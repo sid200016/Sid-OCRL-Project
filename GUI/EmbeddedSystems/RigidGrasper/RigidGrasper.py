@@ -137,6 +137,7 @@ class RigidGrasper:
         if self.useForceSensor == True:
             self.numPorts = 1
             self.ForceArray = [[] for x in range(0, self.numPorts)]
+            self.RawForceArray = [[] for x in range(0, self.numPorts)]
             self.PrevJawForce = None #list to hold the original Jaw force
             self.changeInForce = 0 #change in force relative to baseline jaw force.
 
@@ -369,7 +370,7 @@ class RigidGrasper:
             self.ReadGrasperData()
 
             jawForce_r = np.array(self.getJawChangeForce())
-            self.logger.debug("Read sensor values loop %i, jaw force in N %f"%(i,*jawPressure_r))
+            self.logger.debug("Read sensor values loop %i, jaw force in N %f"%(i,*jawForce_r))
             jawForce = jawForce_r+jawForce
             closureDistance = self.CurrentDistance + closureDistance
             self.logger.debug("Closure distance loop %i, closure distance in mm %f" % (i, closureDistance))
@@ -573,8 +574,8 @@ class RigidGrasper:
                             range(0, len_payload, 4)]  # for floats representing pressure values of each port
 
                     for count, val in enumerate(data):
-                        print(data[count])
                         ForceN = self.calcForceFromSensor(data[count])
+                        self.RawForceArray[count] = data[count]
                         self.ForceArray[count].append(ForceN)
 
                     self.logger.debug("Data for Case 0 (Force values): " + ','.join([str(x) for x in data]))

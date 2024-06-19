@@ -14,6 +14,7 @@ from enum import Enum
 
 from GUI.EmbeddedSystems.SoftGrasper.SoftGrasper import PortActions
 from GUI.EmbeddedSystems.SoftGrasper.SoftGrasper import SoftGrasper
+from GUI.EmbeddedSystems.RigidGrasper.RigidGrasper import RigidGrasper
 from GUI.EmbeddedSystems.Gantry.GantryController import Gantry as GantryController
 import GUI.EmbeddedSystems.JoyCon.JoyCon as JC
 from GUI.EmbeddedSystems.SNS.SNScontroller import SNScontroller, ControlType
@@ -225,9 +226,9 @@ class IntegratedSystem:
 
         self.grasperType = grasper_type
 
-        self.logger.info("Press 'S' to use Soft Grasper, 'R' to use Rigid Grasper. Any other input defaults to Soft Grasper.")
+        print("Press 'S' to use Soft Grasper, 'R' to use Rigid Grasper. Any other input defaults to Soft Grasper.")
         s = await aioconsole.ainput()
-        self.logger.info(s)
+        print(s)
 
         match s.upper():
             # Calibration
@@ -238,7 +239,7 @@ class IntegratedSystem:
             case _:
                 self.grasperType = GrasperType.SoftGrasper
 
-        self.logger.info("Grasper Type selected: %s"%self.grasperType)
+
 
 
         self.GC = GantryController(comport="COM4",homeSystem = False, initPos=[0,0,0])#, homeSystem = False,initPos=[0,0,0]  #initialize gantry controller
@@ -263,7 +264,7 @@ class IntegratedSystem:
 
         #setup the logger
         self.setupLogger()
-
+        self.logger.info("Grasper Type selected: %s" % self.grasperType)
 
     async def Read_Move_Hardware(self):
         self.SG.ReadGrasperData() #TODO ... To fix: need to do this at least once so that there is data on the serial line, otherwise "ReadSensorValues" will fail
@@ -322,7 +323,7 @@ class IntegratedSystem:
                     jawForce, ClosureDistance = await self.SG.ReadSensorValues(number_avg=1, loop_delay=0)
 
                 self.SG.ChangeInForce = jawForce
-                self.jawPressure = jawPressure
+                self.jawPressure = jawForce
                 self.ClosurePressure = ClosureDistance
                 self.curPos = curPos
                 await asyncio.sleep(0.001)  # nominal 50 Hz

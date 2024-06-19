@@ -280,6 +280,9 @@ class IntegratedSystem:
             self.ObjectPressureThreshold = [0.1]  # threshold above which to trigger the rumble, psi
             self.ObjectPressureScaling = 0.05
 
+            self.SNS_target_pos_m[2] = self.SNS_target_pos_m[2] + 0.021 #add 21 mm because the rigid grasper jaws are closer to the base platform than the soft grasper
+            self.SNS_object_pos_m[2] = self.SNS_object_pos_m[2] + 0.021
+
         self.SNSc = SNScontroller()
 
         #setup the logger
@@ -492,9 +495,10 @@ class IntegratedSystem:
                     grasperThreshold = self.ContactThreshold_Rigid["Force Threshold (N)"]
                     forceScaling = self.ContactThreshold_Rigid["Force Scaling"]
 
-                    grasperContact = ((jawPressure - grasperThreshold) * forceScaling[i] if jawPressure >= grasperThreshold else 0)
-                    grasperContact=[grasperContact,grasperContact,grasperContact] #repeat the same force for all three.
-                grasperContact = GrasperContactForce(*grasperContact) #grasper contact force
+                    grasperContact = ((jawPressure[0] - grasperThreshold) * forceScaling if jawPressure[0] >= grasperThreshold else 0)
+                    #repeat the same force for all three.
+
+                grasperContact = GrasperContactForce(grasperContact, grasperContact, grasperContact) #grasper contact force
 
 
 
@@ -1530,7 +1534,7 @@ class IntegratedSystem:
 
                 elif self.grasperType == GrasperType.RigidGrasper:
                     headerstr = "time_delta_s,program_mode,x_mm,y_mm,z_mm," \
-                              "current closure distance (mm), jaw force (N), current position 1, current position 2, currentDistance_mm, commandedPosition["ClosureChangeInRadius_mm"], RawForceArray (count),ForceArray (N)"
+                              "current closure distance (mm), jaw force (N), current position 1, current position 2, currentDistance_mm, commandedPosition_mm, RawForceArray (count),ForceArray (N)"
 
 
                 headerstr = headerstr + "," + ','.join(

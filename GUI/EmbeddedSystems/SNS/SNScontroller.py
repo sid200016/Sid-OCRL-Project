@@ -116,7 +116,11 @@ class SNScontroller:
                 self.controller = controller_original
                 self.perceptor = perceptor_original
 
-            case _:  # for normal or open-loop mode
+            case ControlType.OPEN_LOOP:
+                self.controller = controller_original
+                self.perceptor = perceptor_original
+
+            case _:  # for normal
                 self.controller = controller_open_loop
                 self.perceptor = perceptor_FT
 
@@ -251,7 +255,7 @@ class SNScontroller:
         gripper_position = torch.Tensor(list(grasperPos_m)).unsqueeze(dim=0)
 
 
-        if self.ControlMode == ControlType.ORIGINAL: #for the original version and the modulation
+        if self.ControlMode == ControlType.ORIGINAL or self.ControlMode == ControlType.OPEN_LOOP: #for the original version and the modulation
             commands = self.perceptor.forward(
                 gripper_position, self.object_position, targ_pos, force)
 

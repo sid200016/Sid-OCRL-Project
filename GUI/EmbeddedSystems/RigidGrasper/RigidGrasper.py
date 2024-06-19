@@ -120,7 +120,7 @@ class RigidGrasper:
         self.CurrentDistance = 0
 
         # Commanded Position for the grasper
-        self.commandedPosition_mm = 0
+        self.commandedPosition = {"ClosureChangeInRadius_mm":0}
 
         # Present Current in mA
         self.PresentCurrent = {"1": -1000000, "2": -1000000}
@@ -340,8 +340,8 @@ class RigidGrasper:
         #TODO: Limit the move so it doesn't get -ve distance -> kinda done but need better limits
         CurrentPosition, dxl_comm_result, dxl_error = self.ReadCurrentPosition()  # get current position and update member variable with the same.
 
-        self.commandedPosition_mm = np.clip(self.commandedPosition_mm + moveIncrement_mm, 0, 100)
-        M1_count, M2_count = self.GetCountFromGripperWidth(self.commandedPosition_mm)
+        self.commandedPosition["ClosureChangeInRadius_mm"] = np.clip(self.commandedPosition["ClosureChangeInRadius_mm"] + moveIncrement_mm, 0, 100)
+        M1_count, M2_count = self.GetCountFromGripperWidth(self.commandedPosition["ClosureChangeInRadius_mm"])
 
 
 
@@ -421,7 +421,7 @@ class RigidGrasper:
         return (CurrentPosition[0], CurrentPosition[1])
     def MoveGrasper(self): #close claws, assume position control
 
-        M1_count,M2_count = self.GetCountFromGripperWidth(self.commandedPosition_mm)
+        M1_count,M2_count = self.GetCountFromGripperWidth(self.commandedPosition["ClosureChangeInRadius_mm"])
         self.SetGoalPosition(goal_position1=int(M1_count))  # move towards goal position for claw 1 only
         self.SetGoalPosition(goal_position2=int(M2_count))  # move towards goal position for claw 2 only
 

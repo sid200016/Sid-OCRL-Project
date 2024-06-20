@@ -138,7 +138,7 @@ class RigidGrasper:
             self.numPorts = 1
             self.ForceArray = [[] for x in range(0, self.numPorts)]
             self.RawForceArray = [[] for x in range(0, self.numPorts)]
-            self.PrevJawForce = None #list to hold the original Jaw force
+            self.PrevJawForce = [0 for x in range(0, self.numPorts)] #list to hold the original Jaw force
             self.changeInForce = 0 #change in force relative to baseline jaw force.
 
             # Tx-Rx Information for New Protocol
@@ -596,9 +596,9 @@ class RigidGrasper:
 
             CurJawForce = [self.ForceArray[0][-1]]
             # PrevJawPress= [self.PressureArray[x][-2] for x in self.JawPos]
-            if self.PrevJawForce is None:
-                self.PrevJawForce = CurJawForce
-                self.logger.info('baseline Jaw force is ' + str(self.PrevJawForce))
+            # if self.PrevJawForce is None:
+            #     self.PrevJawForce = CurJawForce
+            #     self.logger.info('baseline Jaw force is ' + str(self.PrevJawForce))
 
             ChangeInForce = (np.array(CurJawForce) - np.array(self.PrevJawForce)).tolist()
             # return(ChangeInPressure)

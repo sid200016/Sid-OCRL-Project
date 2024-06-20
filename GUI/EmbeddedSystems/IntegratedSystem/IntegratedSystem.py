@@ -91,6 +91,8 @@ class IntegratedSystem:
         self.logger = None
         self.datalogger = None
 
+        #offset
+        self.offset_sensor={"num_samples":10, "time_s":0.020} #offset properties for the sensor
 
         #Events for determining
         self.MoveGrasperEvent = asyncio.Event()
@@ -112,6 +114,7 @@ class IntegratedSystem:
         self.finishDatalog = asyncio.Event()
         self.datalog_header = False #set to true when you've written the header for the 1st time
         self.time_0 = 0 #time for the start of the datalog
+
         #For SNS
         self.max_z_height = -0.184
         self.SNS_target_pos_m = [-0.19,-0.19,-0.184] #original -0.19,-0.24,-0.184
@@ -169,7 +172,51 @@ class IntegratedSystem:
 
 
 
+    async def zero_sensors(self):
+        self.grasperType = grasper_type
 
+        print("Enter the number of samples and the time period to average and zero the sensors, separated by a comma. \n"
+              "Enter 'D' to use the default values of %f samples, %f seconds. \n"
+              "Enter 'X' to cancel."%(self.offset_sensor["num_samples"], self.offset_sensor["time_s"]))
+        s = await aioconsole.ainput()
+        print(s)
+
+        match s.upper():
+            # Calibration
+            case "D":
+                pass
+
+            case "X":
+                return
+
+            case _:
+                # set the initial
+                numsamp, time_s = [float(x) for x in s.split(",")]
+                self.offset_sensor["num_samples"] = numsamp
+                self.offset_sensor["time_s"] = time_s
+
+
+        try:
+            jawVal, ClosureVal = await self.SG.ReadSensorValues(
+                number_avg=self.offset_sensor["num_samples"],
+                loop_delay=self.offset_sensor["time_s"])
+
+            ## Skip this temporarily
+            self.SG.PrevJawPress = jawVal  # initialize the jaw pressure or force
+
+            self.logger.info("Using: %f samples, %f seconds. \n"
+                             %(self.offset_sensor["num_samples"], self.offset_sensor["time_s"]))
+
+            if self.grasperType == GrasperType.SoftGrasper:
+                self.logger.info("jaw pressure offset (psi):" + ",".join([str(x) for x in self.SG.PrevJawPress]))
+
+            elif self.grasperType == GrasperType.RigidGrasper:
+                self.logger.info("jaw force offset: in N: %f" %(self.SG.PrevJawPress))
+
+
+        except Exception as e:
+
+            raise e
 
 
     def setupLogger(self):
@@ -295,17 +342,16 @@ class IntegratedSystem:
 
         await asyncio.sleep(0.5)
 
-        if self.grasperType == GrasperType.SoftGrasper:
-            # set the initial
-            jawPressure, ClosurePressure = await self.SG.ReadSensorValues(
-                number_avg=10,
-                loop_delay=0.020)
-
-            ## Skip this temporarily
-            #self.SG.PrevJawPress = jawPressure  # initialize the jaw pressure
-
-            self.logger.info("Initial jaw pressure is (psi):" +",".join([str(x) for x in self.SG.PrevJawPress]))
-
+        # if self.grasperType == GrasperType.SoftGrasper:
+        #     # set the initial
+        #     jawPressure, ClosurePressure = await self.SG.ReadSensorValues(
+        #         number_avg=10,
+        #         loop_delay=0.020)
+        #
+        #     ## Skip this temporarily
+        #     #self.SG.PrevJawPress = jawPressure  # initialize the jaw pressure
+        #
+        #     self.logger.info("Initial jaw pressure is (psi):" +",".join([str(x) for x in self.SG.PrevJawPress]))
 
         while True:
             if self.jcSG.ControlMode != JC.JoyConState.NORMAL: #only do constant update of position when not in joystick control mode
@@ -801,7 +847,8 @@ class IntegratedSystem:
                        "Enter D to display robot state \n" \
                        "Enter PR to enter pressure radius calibration \n" \
                        "Enter K to begin Koopman Experiments \n" \
-                       "Enter LQR to begin LQR Experiments\n"
+                       "Enter LQR to begin LQR Experiments\n" \
+                       "Enter ZS to zero the force/pressure sensors"
         self.logger.info(print_string)
         while (True):
             s = await aioconsole.ainput()
@@ -860,6 +907,10 @@ class IntegratedSystem:
 
                     await(self.setup_LQR())
                     self.jcSG.ControlMode = JC.JoyConState.LQR
+
+                case "ZS":
+
+                    await(self.zero_sensors())
 
 
                 # Default

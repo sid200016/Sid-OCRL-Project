@@ -197,7 +197,7 @@ class IntegratedSystem:
 
 
         try:
-            jawVal, ClosureVal = await self.SG.ReadSensorValues(
+            raw_jaw_sensor, jawVal, ClosureVal = await self.SG.ReadSensorValues(
                 number_avg=self.offset_sensor["num_samples"],
                 loop_delay=self.offset_sensor["time_s"])
 
@@ -363,12 +363,12 @@ class IntegratedSystem:
             if self.grasperType == GrasperType.SoftGrasper:
 
                 if self.GrasperReadAverage["Average Event"].is_set() == True: #for the case where you want to average
-                    jawPressure, ClosurePressure = await self.SG.ReadSensorValues(number_avg=self.GrasperReadAverage["Number of Loops"],
+                    raw_sensor, jawPressure, ClosurePressure = await self.SG.ReadSensorValues(number_avg=self.GrasperReadAverage["Number of Loops"],
                                                                                   loop_delay=self.GrasperReadAverage["Time Delay (s)"])
                     self.GrasperReadAverage["Average Event"].clear()
 
                 else: #default
-                    jawPressure, ClosurePressure = await self.SG.ReadSensorValues(number_avg=1, loop_delay=0)
+                    raw_sensor, jawPressure, ClosurePressure = await self.SG.ReadSensorValues(number_avg=1, loop_delay=0)
 
 
                 self.SG.ChangeInPressure = jawPressure
@@ -383,13 +383,13 @@ class IntegratedSystem:
 
             elif self.grasperType == GrasperType.RigidGrasper:
                 if self.GrasperReadAverage["Average Event"].is_set() == True:  # for the case where you want to average
-                    jawForce, ClosureDistance = await self.SG.ReadSensorValues(
+                    raw_sensor, jawForce, ClosureDistance = await self.SG.ReadSensorValues(
                         number_avg=self.GrasperReadAverage["Number of Loops"],
                         loop_delay=self.GrasperReadAverage["Time Delay (s)"])
                     self.GrasperReadAverage["Average Event"].clear()
 
                 else:  # default
-                    jawForce, ClosureDistance = await self.SG.ReadSensorValues(number_avg=1, loop_delay=0)
+                    raw_sensor, jawForce, ClosureDistance = await self.SG.ReadSensorValues(number_avg=1, loop_delay=0)
 
                 self.SG.ChangeInForce = jawForce
                 self.jawPressure = jawForce

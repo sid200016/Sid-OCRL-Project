@@ -448,7 +448,7 @@ class SoftGrasper:
         jawPressure = jawPressure/number_avg
         closurePressure = closurePressure/number_avg
 
-        return(jawPressure,closurePressure)
+        return(jawPressure, jawPressure,closurePressure) #first two arguments are the same because the rigid grasper has the 1st argument being the raw force data
 
 
 

@@ -362,6 +362,7 @@ class RigidGrasper:
             # self.logger.debug("Change in pressure: " + ','.join([str(x) for x in ChP]))
 
     async def ReadSensorValues(self,number_avg = 1, loop_delay = 0.001): #convenience function to get the pressure values
+        jaw_sensor = np.array([0])
         jawForce = np.array([0])
         closureDistance = 0
         await asyncio.sleep(0.001)
@@ -370,18 +371,27 @@ class RigidGrasper:
         for i in range(number_avg):
             self.ReadGrasperData()
 
-            jawForce_r = np.array(self.getJawChangeForce())
+            #raw sensor values
+            jaw_sensor_r = self.RawForceArray[0]
+            jaw_sensor = jaw_sensor_r + jaw_sensor
+            self.logger.debug("Read sensor values loop %i, jaw force raw %f" % (i, jaw_sensor_r))
+
+            #converted force values
+            jawForce_r = self.changeInForce
             self.logger.debug("Read sensor values loop %i, jaw force in N %f"%(i,*jawForce_r))
             jawForce = jawForce_r+jawForce
+
+            #distance values
             closureDistance = self.CurrentDistance + closureDistance
             self.logger.debug("Closure distance loop %i, closure distance in mm %f" % (i, closureDistance))
             await asyncio.sleep(loop_delay)
 
 
+        jaw_sensor = jaw_sensor/number_avg
         jawForce = jawForce/number_avg
         closureDistance = closureDistance/number_avg
 
-        return(jawForce,closureDistance)
+        return(jaw_sensor,jawForce,closureDistance)
 
     def IncrementalMove_Count(self,moveIncrement1 = 100,moveIncrement2 = 100, action1 = GrasperActions.STAY,action2 = GrasperActions.STAY): #close claws, assume position control
 
@@ -575,9 +585,10 @@ class RigidGrasper:
                             range(0, len_payload, 4)]  # for floats representing pressure values of each port
 
                     for count, val in enumerate(data):
-                        ForceN = self.calcForceFromSensor(data[count])
                         self.RawForceArray[count] = data[count]
-                        self.ForceArray[count].append(ForceN)
+                        ForceN = self.calcForceFromSensor(data[count])
+
+                        self.ForceArray[count] = ForceN
 
                     self.logger.debug("Data for Case 0 (Force values): " + ','.join([str(x) for x in data]))
 

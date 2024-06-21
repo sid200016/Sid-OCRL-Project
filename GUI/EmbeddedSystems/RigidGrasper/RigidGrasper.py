@@ -361,7 +361,7 @@ class RigidGrasper:
             # self.changeInPressure = ChP
             # self.logger.debug("Change in pressure: " + ','.join([str(x) for x in ChP]))
 
-    async def ReadSensorValues(self,number_avg = 1, loop_delay = 0.001): #convenience function to get the pressure values
+    async def ReadSensorValues(self,number_avg = 1, loop_delay = 0.001, rawVal = False): #convenience function to get the pressure values
         jaw_sensor = np.array([0])
         jawForce = np.array([0])
         closureDistance = 0
@@ -391,7 +391,11 @@ class RigidGrasper:
         jawForce = jawForce/number_avg
         closureDistance = closureDistance/number_avg
 
-        return(jaw_sensor,jawForce,closureDistance)
+        if rawVal == False: #return the force value in newtons
+            return(jawForce,closureDistance)
+
+        elif rawVal == True:
+            return(jaw_sensor,closureDistance) #return the raw averaged readings and the closure distance
 
     def IncrementalMove_Count(self,moveIncrement1 = 100,moveIncrement2 = 100, action1 = GrasperActions.STAY,action2 = GrasperActions.STAY): #close claws, assume position control
 
@@ -571,7 +575,7 @@ class RigidGrasper:
         return(Force_N)
 
     def calcForceFromSensor(self, reading):
-        Force_N = (reading-750)*44/1400
+        Force_N = (reading-1805.3)/231.29
         Force_N = np.clip(Force_N,0,40)
         return(Force_N)
 

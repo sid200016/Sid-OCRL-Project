@@ -197,9 +197,10 @@ class IntegratedSystem:
 
 
         try:
-            raw_jaw_sensor, jawVal, ClosureVal = await self.SG.ReadSensorValues(
+            jawVal, ClosureVal = await self.SG.ReadSensorValues(
                 number_avg=self.offset_sensor["num_samples"],
                 loop_delay=self.offset_sensor["time_s"])
+
 
             ## Skip this temporarily
             self.SG.PrevJawPress = jawVal  # initialize the jaw pressure or force
@@ -363,12 +364,12 @@ class IntegratedSystem:
             if self.grasperType == GrasperType.SoftGrasper:
 
                 if self.GrasperReadAverage["Average Event"].is_set() == True: #for the case where you want to average
-                    raw_sensor, jawPressure, ClosurePressure = await self.SG.ReadSensorValues(number_avg=self.GrasperReadAverage["Number of Loops"],
+                    jawPressure, ClosurePressure = await self.SG.ReadSensorValues(number_avg=self.GrasperReadAverage["Number of Loops"],
                                                                                   loop_delay=self.GrasperReadAverage["Time Delay (s)"])
                     self.GrasperReadAverage["Average Event"].clear()
 
                 else: #default
-                    raw_sensor, jawPressure, ClosurePressure = await self.SG.ReadSensorValues(number_avg=1, loop_delay=0)
+                    jawPressure, ClosurePressure = await self.SG.ReadSensorValues(number_avg=1, loop_delay=0)
 
 
                 self.SG.ChangeInPressure = jawPressure
@@ -383,13 +384,13 @@ class IntegratedSystem:
 
             elif self.grasperType == GrasperType.RigidGrasper:
                 if self.GrasperReadAverage["Average Event"].is_set() == True:  # for the case where you want to average
-                    raw_sensor, jawForce, ClosureDistance = await self.SG.ReadSensorValues(
+                    jawForce, ClosureDistance = await self.SG.ReadSensorValues(
                         number_avg=self.GrasperReadAverage["Number of Loops"],
                         loop_delay=self.GrasperReadAverage["Time Delay (s)"])
                     self.GrasperReadAverage["Average Event"].clear()
 
                 else:  # default
-                    raw_sensor, jawForce, ClosureDistance = await self.SG.ReadSensorValues(number_avg=1, loop_delay=0)
+                    jawForce, ClosureDistance = await self.SG.ReadSensorValues(number_avg=1, loop_delay=0)
 
                 self.SG.ChangeInForce = jawForce
                 self.jawPressure = jawForce

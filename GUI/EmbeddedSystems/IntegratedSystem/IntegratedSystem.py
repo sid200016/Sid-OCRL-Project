@@ -173,7 +173,7 @@ class IntegratedSystem:
 
 
     async def zero_sensors(self):
-        self.grasperType = grasper_type
+
 
         print("Enter the number of samples and the time period to average and zero the sensors, separated by a comma. \n"
               "Enter 'D' to use the default values of %f samples, %f seconds. \n"
@@ -203,16 +203,19 @@ class IntegratedSystem:
 
 
             ## Skip this temporarily
-            self.SG.PrevJawPress = jawVal  # initialize the jaw pressure or force
 
             self.logger.info("Using: %f samples, %f seconds. \n"
                              %(self.offset_sensor["num_samples"], self.offset_sensor["time_s"]))
 
             if self.grasperType == GrasperType.SoftGrasper:
+                self.SG.PrevJawPress = jawVal  # initialize the jaw pressure or force
+
                 self.logger.info("jaw pressure offset (psi):" + ",".join([str(x) for x in self.SG.PrevJawPress]))
 
             elif self.grasperType == GrasperType.RigidGrasper:
-                self.logger.info("jaw force offset: in N: %f" %(self.SG.PrevJawPress))
+                self.SG.PrevJawForce = jawVal  # initialize the jaw pressure or force
+
+                self.logger.info("jaw force offset: in N: %f" %(self.SG.PrevJawForce))
 
 
         except Exception as e:
@@ -328,8 +331,8 @@ class IntegratedSystem:
             self.ObjectPressureThreshold = [0.1]  # threshold above which to trigger the rumble, psi
             self.ObjectPressureScaling = 0.05
 
-            self.SNS_target_pos_m[2] = self.SNS_target_pos_m[2] + 0.021 #add 21 mm because the rigid grasper jaws are closer to the base platform than the soft grasper
-            self.SNS_object_pos_m[2] = self.SNS_object_pos_m[2] + 0.021
+            self.SNS_target_pos_m[2] = self.SNS_target_pos_m[2] -0.004 #add 21 mm because the rigid grasper jaws are closer to the base platform than the soft grasper
+            self.SNS_object_pos_m[2] = self.SNS_object_pos_m[2] -0.004
 
         self.SNSc = SNScontroller()
 

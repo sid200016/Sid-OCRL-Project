@@ -576,7 +576,7 @@ class RigidGrasper:
 
     def calcForceFromSensor(self, reading):
         Force_N = (reading-1805.3)/231.29
-        Force_N = np.clip(Force_N,0,40)
+        Force_N = np.clip(Force_N,-20,40)
         return(Force_N)
 
     def processData(self, protocolType=None, numBytes=None, payload=None):
@@ -592,7 +592,7 @@ class RigidGrasper:
                         self.RawForceArray[count] = data[count]
                         ForceN = self.calcForceFromSensor(data[count])
 
-                        self.ForceArray[count] = ForceN
+                        self.ForceArray[count] = [ForceN]
 
                     self.logger.debug("Data for Case 0 (Force values): " + ','.join([str(x) for x in data]))
 

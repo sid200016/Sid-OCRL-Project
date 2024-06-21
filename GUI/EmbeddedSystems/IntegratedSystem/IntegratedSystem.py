@@ -550,6 +550,7 @@ class IntegratedSystem:
 
                 grasperContact = GrasperContactForce(grasperContact, grasperContact, grasperContact) #grasper contact force
 
+                # TODO: able to control rigid grasper with SNS, but it does an initial off-center move and need to fix the prompts for the open loop SNS
 
 
                 # check if in open loop mode and if object has been grasped and we haven't transitioned to the release phase yet

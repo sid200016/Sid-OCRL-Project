@@ -644,6 +644,8 @@ class IntegratedSystem:
                     #     SNSc.lift_after_grasp_done = True #set to true to trigger the next statement
                     #     SG.commandedPosition["ClosureChangeInRadius_mm"] = 0
                     #
+                    # if self.SNS_BypassForceFeedback == True: #in open loop mode, dont reattempt
+                    #     self.SG.commandedPosition["ClosureChangeInRadius_mm"] = 0
 
                     if self.SNSc.num_grasp_attempts >= 1 and self.SNSc.motion_complete == True:
                         self.jcSG.SNS_control = False  # reset to false to give control back to the user
@@ -664,6 +666,7 @@ class IntegratedSystem:
                     await asyncio.sleep(8)
                     self.logger.debug (self.SG.commandedPosition["ClosureChangeInRadius_mm"])
                     self.logger.info("In Release Phase")
+                    self.SNSc.SNS_release_done = True
 
 
                 #----- For SNS force cap mode, because the jaws leak air when compressed a lot, the zero position changes. To temporarily address this, just open the grasper manually

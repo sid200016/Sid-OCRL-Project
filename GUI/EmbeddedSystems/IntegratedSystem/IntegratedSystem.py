@@ -644,8 +644,8 @@ class IntegratedSystem:
                     #     SNSc.lift_after_grasp_done = True #set to true to trigger the next statement
                     #     SG.commandedPosition["ClosureChangeInRadius_mm"] = 0
                     #
-                    # if self.SNS_BypassForceFeedback == True: #in open loop mode, dont reattempt
-                    #     self.SG.commandedPosition["ClosureChangeInRadius_mm"] = 0
+                    if self.SNS_BypassForceFeedback == True and self.SNSc.lift_after_release_done == True: #in open loop mode, dont reattempt
+                        self.SG.commandedPosition["ClosureChangeInRadius_mm"] = 0
 
                     if self.SNSc.num_grasp_attempts >= 1 and self.SNSc.motion_complete == True:
                         self.jcSG.SNS_control = False  # reset to false to give control back to the user

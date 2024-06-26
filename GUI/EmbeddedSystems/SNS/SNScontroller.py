@@ -91,7 +91,7 @@ class SNScontroller:
 
 
 
-    def initialize_controller(self):
+    def initialize_controller(self, reset = True):
         match self.ControlMode:
 
             case ControlType.MODULATE_OPEN_LOOP:
@@ -115,17 +115,20 @@ class SNScontroller:
             case ControlType.ORIGINAL:
                 self.controller = controller_original
                 self.perceptor = perceptor_original
+                reset = False
 
             case ControlType.OPEN_LOOP:
                 self.controller = controller_original
                 self.perceptor = perceptor_original
+                reset = False #don't reset the perceptor or the controller because otherwise does off center move
 
             case _:  # for normal
                 self.controller = controller_open_loop
                 self.perceptor = perceptor_FT
 
-        self.perceptor.reset()
-        self.controller.reset()
+        if reset == True:
+            self.perceptor.reset()
+            self.controller.reset()
 
 
     def setupLogger(self):

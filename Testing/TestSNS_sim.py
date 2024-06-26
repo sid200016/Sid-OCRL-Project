@@ -27,7 +27,7 @@ def pick_and_place():
     p.setAdditionalSearchPath("C://Users//Ravesh//BulletPhysics//bullet3//examples//pybullet//gym//pybullet_data")
 
 
-    SNSc = SNScontroller(ControlMode = ControlType.NORMAL)
+    SNSc = SNScontroller(ControlMode = ControlType.ORIGINAL)
     SNSc.initialize_controller()
 
 

@@ -874,8 +874,8 @@ class IntegratedSystem:
                 case "S":
                     self.SNSc = SNScontroller() #reinitialize each time
                     self.SNSc.initialize_controller()
-                    self.SNSc.controller.reset()
-                    self.SNSc.perceptor.reset()
+                    # self.SNSc.controller.reset() #skip resetting for open-loop
+                    # self.SNSc.perceptor.reset()
 
                     self.SNSc.first_attempt = True
                     self.jcSG.ControlMode = JC.JoyConState.PREP_SNS

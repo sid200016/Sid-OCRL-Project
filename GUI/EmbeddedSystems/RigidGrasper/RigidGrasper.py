@@ -322,17 +322,25 @@ class RigidGrasper:
         self.portHandler.closePort()
 
 
-    def GetCountFromGripperWidth(self,gripperWidth_mm,coeffs_M1=[-0.0032,-6.8731,801.91],coeffs_M2=[0.000007,-0.002,0.2001,-13.864,793.44]):
-        gW = np.clip(110-(gripperWidth_mm*2),16,110) #SNS produces a radius value. Multiply by 2 to get distance between jaws. Limit between 16 and 111 mm.
+    def GetCountFromGripperWidth(self,gripperWidth_mm,coeffs_M1=[13.671, 1392.3],coeffs_M2=[-13.763, 2230.9]):
 
-        M1_init_count = 2173 #offset corresponding to maximum gripper width
-        M2_init_count = 1463 #offset corresponding to maximum gripper width
-        M1_count = M1_init_count - (coeffs_M1[0]*(gW**2) + coeffs_M1[1]*(gW**1) + coeffs_M1[2]*(gW**0))
-        M2_count = M2_init_count + (coeffs_M2[0]*(gW**4) + coeffs_M2[1]*(gW**3) +coeffs_M2[2]*(gW**2) + coeffs_M2[3]*(gW**1) + coeffs_M2[4]*(gW**0))
+        gWL = gripperWidth_mm/2
+        gWR = gripperWidth_mm/2
+
+        M1_count = coeffs_M1[0]*gWL + coeffs_M1[1]
+        M2_count = coeffs_M2[0]*gWR + coeffs_M2[1]
+
+        # gW = np.clip(110-(gripperWidth_mm*2),16,110) #SNS produces a radius value. Multiply by 2 to get distance between jaws. Limit between 16 and 111 mm.
+        # M1_init_count = 2173 #offset corresponding to maximum gripper width
+        # M2_init_count = 1463 #offset corresponding to maximum gripper width
+        # M1_count = M1_init_count - (coeffs_M1[0]*(gW**2) + coeffs_M1[1]*(gW**1) + coeffs_M1[2]*(gW**0))
+        # M2_count = M2_init_count + (coeffs_M2[0]*(gW**4) + coeffs_M2[1]*(gW**3) +coeffs_M2[2]*(gW**2) + coeffs_M2[3]*(gW**1) + coeffs_M2[4]*(gW**0))
 
         M1_count = np.clip(M1_count,self.GoalPosition_Limits["1"][0],self.GoalPosition_Limits["1"][1])
         M2_count = np.clip(M2_count, self.GoalPosition_Limits["2"][1], self.GoalPosition_Limits["2"][0])
         return(M1_count,M2_count)
+
+    #TODO: Incremental symmetric move
 
     def IncrementalMove(self, moveIncrement_mm = 1, action1=GrasperActions.STAY,
                         action2=GrasperActions.STAY):  # close claws, assume position control

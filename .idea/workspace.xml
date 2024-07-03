@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfd83e2d-ab31-4129-8c0e-ce5b016d6614" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/FRR-Software-Interface.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/FRR-Software-Interface.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/RigidGrasper/RigidGrasper.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/RigidGrasper/RigidGrasper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/Modulation/LiftMaxPressure.svg" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/Modulation/LiftMaxPressure.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/Modulation/LiftRadius_MaxPressure.svg" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/Modulation/LiftRadius_MaxPressure.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/Modulation/MaxRadiusDuringLift.svg" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/Modulation/MaxRadiusDuringLift.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalogs/Data Analysis/Modulation/Success_Failure.svg" beforeDir="false" afterPath="$PROJECT_DIR$/datalogs/Data Analysis/Modulation/Success_Failure.svg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

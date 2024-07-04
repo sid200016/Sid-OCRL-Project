@@ -628,7 +628,11 @@ class IntegratedSystem:
                     self.SG.commandedPosition["ClosureChangeInRadius_mm"] = min(JawRadialPos_m * 1000,
                                                                            self.maxJawChangeInRadius_mm)  # limit the radial position change to prevent overinflation
                 elif self.grasperType == GrasperType.RigidGrasper:
-                    self.SG.commandedPosition["ClosureChangeInRadius_mm"] = min(JawRadialPos_m * 1000,
+                    #note logic for commanded position is slightly different than soft grasper
+                    #soft grasper uses an incremental move from the initial position.
+                    #Rigid grasper is using the absolute gripper width. So set the max distance to 85 mm
+                    #and then subtract 2x the SNS command since the SNS command in an incremental increase in radius
+                    self.SG.commandedPosition["ClosureChangeInRadius_mm"] = max(85 - 2*(JawRadialPos_m * 1000),
                                                                            self.maxJawChangeInRadius_mm)
 
                 self.logger.debug('Number of grasp attempts %i' % self.SNSc.num_grasp_attempts)

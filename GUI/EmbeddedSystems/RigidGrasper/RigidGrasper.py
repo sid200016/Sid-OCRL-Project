@@ -467,7 +467,11 @@ class RigidGrasper:
             self.CurrentDistance = self.ConvertPositionToDistance_mm(CurrentPosition["1"],CurrentPosition["2"])
 
     def ConvertPositionToDistance_mm(self, pos1, pos2):
-        return 0 #TODO: update this
+
+        d1 = 0.0752*pos1 - 106.66
+        d2 = -(0.0742*pos2 - 163.51)
+        gW = np.clip(d1 + d2, 0 ,np.inf)
+        return gW #TODO: update this
 
 
     def sendCommunicationArray(self, startDelim=None, byteList=None,

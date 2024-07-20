@@ -635,6 +635,9 @@ class IntegratedSystem:
                     self.SG.commandedPosition["ClosureChangeInRadius_mm"] = max(85 - 2*(JawRadialPos_m * 1000),
                                                                            self.maxJawChangeInRadius_mm)
 
+                    if self.SNS_BypassForceFeedback == True and self.SNSc.object_grasped_phase == True:
+                        self.SG.commandedPosition["ClosureChangeInRadius_mm"] = self.maxJawChangeInRadius_mm
+
                 self.logger.debug('Number of grasp attempts %i' % self.SNSc.num_grasp_attempts)
 
 
@@ -649,13 +652,19 @@ class IntegratedSystem:
                     #     SG.commandedPosition["ClosureChangeInRadius_mm"] = 0
                     #
                     if self.SNS_BypassForceFeedback == True and self.SNSc.lift_after_release_done == True: #in open loop mode, dont reattempt
-                        self.SG.commandedPosition["ClosureChangeInRadius_mm"] = 0
+                        if self.grasperType == GrasperType.SoftGrasper:
+                            self.SG.commandedPosition["ClosureChangeInRadius_mm"] = 0
+
+                        elif self.grasperType == GrasperType.RigidGrasper:
+                            self.SG.commandedPosition["ClosureChangeInRadius_mm"] = 85
 
                     if self.SNSc.num_grasp_attempts >= 1 and self.SNSc.motion_complete == True:
                         self.jcSG.SNS_control = False  # reset to false to give control back to the user
                         self.jcSG.ControlMode = JC.JoyConState.NORMAL
                         self.logger.info('Reset the SNS controller after motion complete')
                         self.SG.commandedPosition["ClosureChangeInRadius_mm"] = 0 #so it doesn't re-pressurize
+
+
 
                 # if in open loop mode, need to have extra delay to allow the grasp to complete
                 if (self.SNS_BypassForceFeedback == True and self.SNSc.lift_after_grasp_started == True):
@@ -666,6 +675,7 @@ class IntegratedSystem:
                             await asyncio.sleep(20)  # sleep 20 seconds to allow the grasp to complete #hopefully only triggers once
 
                     elif self.grasperType == GrasperType.RigidGrasper:
+
                         if self.SG.commandedPosition[
                             "ClosureChangeInRadius_mm"] <= self.maxJawChangeInRadius_mm:  # this should always be satisfied because the contact force only is set to a large value when the commanded change in radius is larger or equal to the commanded threshold
                             self.MoveGrasperEvent.set()  # set event to indicate to other function that it should actuate grasper

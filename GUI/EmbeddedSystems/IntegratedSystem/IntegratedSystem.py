@@ -659,10 +659,18 @@ class IntegratedSystem:
 
                 # if in open loop mode, need to have extra delay to allow the grasp to complete
                 if (self.SNS_BypassForceFeedback == True and self.SNSc.lift_after_grasp_started == True):
-                    if self.SG.commandedPosition[
-                        "ClosureChangeInRadius_mm"] >= self.maxJawChangeInRadius_mm:  # this should always be satisfied because the contact force only is set to a large value when the commanded change in radius is larger or equal to the commanded threshold
-                        self.MoveGrasperEvent.set()  # set event to indicate to other function that it should actuate grasper
-                        await asyncio.sleep(20)  # sleep 20 seconds to allow the grasp to complete #hopefully only triggers once
+                    if self.grasperType == GrasperType.SoftGrasper:
+                        if self.SG.commandedPosition[
+                            "ClosureChangeInRadius_mm"] >= self.maxJawChangeInRadius_mm:  # this should always be satisfied because the contact force only is set to a large value when the commanded change in radius is larger or equal to the commanded threshold
+                            self.MoveGrasperEvent.set()  # set event to indicate to other function that it should actuate grasper
+                            await asyncio.sleep(20)  # sleep 20 seconds to allow the grasp to complete #hopefully only triggers once
+
+                    elif self.grasperType == GrasperType.RigidGrasper:
+                        if self.SG.commandedPosition[
+                            "ClosureChangeInRadius_mm"] <= self.maxJawChangeInRadius_mm:  # this should always be satisfied because the contact force only is set to a large value when the commanded change in radius is larger or equal to the commanded threshold
+                            self.MoveGrasperEvent.set()  # set event to indicate to other function that it should actuate grasper
+                            await asyncio.sleep(20)  # sleep 20 seconds to allow the grasp to complete #hopefully only triggers once
+
 
                 if (self.SNS_BypassForceFeedback == True and self.SNSc.neuronset["release"] > 2): #to release the object
                     self.SG.commandedPosition["ClosureChangeInRadius_mm"] = 0  # need to check if this is always satisfied

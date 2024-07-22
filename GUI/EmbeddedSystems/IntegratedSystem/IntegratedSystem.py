@@ -683,7 +683,12 @@ class IntegratedSystem:
 
 
                 if (self.SNS_BypassForceFeedback == True and self.SNSc.neuronset["release"] > 2): #to release the object
-                    self.SG.commandedPosition["ClosureChangeInRadius_mm"] = 0  # need to check if this is always satisfied
+                    if self.grasperType == GrasperType.SoftGrasper:
+                        self.SG.commandedPosition["ClosureChangeInRadius_mm"] = 0  # need to check if this is always satisfied
+                    elif self.grasperType == GrasperType.RigidGrasper:
+                        self.SG.commandedPosition[
+                            "ClosureChangeInRadius_mm"] = 85  #
+                        
                     self.MoveGrasperEvent.set() #set event to indicate to other function that it should actuate grasper
                     await asyncio.sleep(8)
                     self.logger.debug (self.SG.commandedPosition["ClosureChangeInRadius_mm"])

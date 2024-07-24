@@ -239,6 +239,19 @@ class RigidGrasper:
             self.CurrentPosition[k] = dxl_present_position
 
 
+    def getPID(self):
+        for i, (k, DXL_ID) in enumerate(self.DXL_ID.items()):
+            dxl_Kp, dxl_comm_result, dxl_error = self.readByte(2, DXL_ID, 84)
+            dxl_Ki, dxl_comm_result, dxl_error = self.readByte(2, DXL_ID, 82)
+            dxl_Kd, dxl_comm_result, dxl_error = self.readByte(2, DXL_ID, 80)
+            self.logger.info("Kp:%f, Ki:%f, Kd:%f"%(dxl_Kp,dxl_Ki,dxl_Kd))
+
+    def setPID(self,Kp = 100, Ki = 0, Kd = 0):
+        for i, (k, DXL_ID) in enumerate(self.DXL_ID.items()):
+            dxl_comm_result, dxl_error = self.writeByte(2, DXL_ID, 84, Kp)
+            dxl_comm_result, dxl_error = self.writeByte(2, DXL_ID, 82, Ki)
+            dxl_comm_result, dxl_error = self.writeByte(2, DXL_ID, 80, Kd)
+
     def writeByte(self,numBytes,DXL_ID,REG_ADDR,Value):
         match numBytes:
             case 1:
@@ -683,6 +696,9 @@ if __name__ == '__main__':
     CurrentPosition, dxl_comm_result, dxl_error = RG.ReadCurrentPosition()
     print("%i,%i. In Deg: %f, %f:" % (
     CurrentPosition["1"], CurrentPosition["2"], CurrentPosition["1"] * 360 / 4096, CurrentPosition["2"] * 360 / 4096))
+    RG.setPID(Kp = 100, Ki = 10, Kd = 0)
+    RG.getPID()
+
     while  (True):
         commandedPos1, commandedPos2 = RG.IncrementalMove_Count(moveIncrement1 = 40,moveIncrement2 = 40, action1 = GrasperActions.CLOSE,action2 = GrasperActions.CLOSE)
         time.sleep(1)

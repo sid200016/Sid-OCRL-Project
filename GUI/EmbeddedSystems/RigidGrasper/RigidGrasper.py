@@ -335,7 +335,7 @@ class RigidGrasper:
         self.portHandler.closePort()
 
 
-    def GetCountFromGripperWidth(self,gripperWidth_mm,coeffs_M1=[13.671, 1392.3],coeffs_M2=[-13.763, 2230.9]):
+    def GetCountFromGripperWidth(self,gripperWidth_mm,coeffs_M1=[13.244, 1419.5],coeffs_M2=[-13.466, 2202.8]):
 
         gWL = gripperWidth_mm/2
         gWR = gripperWidth_mm/2

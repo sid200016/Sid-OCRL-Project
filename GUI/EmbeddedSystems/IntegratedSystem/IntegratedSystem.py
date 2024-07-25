@@ -334,7 +334,7 @@ class IntegratedSystem:
             self.SNS_target_pos_m[2] = self.SNS_target_pos_m[2] -0.004 #add 21 mm because the rigid grasper jaws are closer to the base platform than the soft grasper
             self.SNS_object_pos_m[2] = self.SNS_object_pos_m[2] -0.004
 
-            self.SG.setPID(Kp=100, Ki=10, Kd=0) #setup the gains
+            self.SG.setPID(Kp=100, Ki=2, Kd=0) #setup the gains
             self.SG.getPID()
 
         self.SNSc = SNScontroller()

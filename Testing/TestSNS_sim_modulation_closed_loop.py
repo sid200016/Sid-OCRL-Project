@@ -30,8 +30,8 @@ def pick_and_place():
     SNSc.ControlMode = ControlType.MODULATE_FORCE_THRESHOLD
     SNSc.initialize_controller()
     SNSc.perceptor.set_tau(0.05)
-    SNSc.perceptor.set_modulation_gain(10)
-    SNSc.perceptor.set_force_threshold(0.1)
+    SNSc.perceptor.set_modulation_gain(1)
+    SNSc.perceptor.set_force_threshold(0.05)
     SNSc.perceptor.reset()
     SNSc.controller.reset()
 
@@ -128,6 +128,19 @@ def pick_and_place():
                         "z_AxisBar": cmd_grasperPos_m.z,
                         "x_force": 50, "y_force": 500,
                         "z_force": 500, "GrasperArguments": GrasperArguments}
+
+
+
+        neuronset = SNSc.neuronset
+        if GUI_control is False and len(force_feedback_1) != 0:
+            if force_1 > 0 or force_2 > 0 or force_3 > 0:
+                pass
+
+        if SNSc.lift_after_grasp_started == True:
+            pass
+
+        if SNSc.neuronset['lift_after_grasp'] >= 10:
+            pass
 
         # ---------step the simulation----------
         gS.stepSim(usePositionControl=True, GUI_override=False, **ArgumentDict)  # pass argument dict to function

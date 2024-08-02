@@ -121,7 +121,7 @@ class IntegratedSystem:
         self.SNS_object_pos_m = [-0.0095875,0.012362,-0.18464] #[0,0,-0.184]
         self.ContactThreshold = {"Pressure Threshold (psi)":[0.010,0.020,0.029], "Pressure Scaling":[1,1,1]}
         self.ContactThreshold_Rigid = {"Force Threshold (N)":0.1, "Force Scaling":2}
-        self.maxJawChangeInRadius_mm = 26.5 #20 mm max jaw change in radius
+        self.maxJawChangeInRadius_mm = 10 #20 mm max jaw change in radius
         self.SNS_BypassForceFeedback = True
         self.SNS_grasper_tc_s = 0 #time constant for the closure muscle of the grasper
 
@@ -576,6 +576,7 @@ class IntegratedSystem:
                                                                      targetPos_m=Point(*target_position_list),
                                                                      useRealGantry=False) #update SNS
 
+                self.logger.debug("After SNS forward: %f"%JawRadialPos_m)
 
                 # ----------------- For normal mode, i.e. manually cap the grasper opening at transition from grasp to lift_after_grasp ---------------#
                 if (self.SNSc.ControlMode == ControlType.NORMAL and self.SNSc.object_grasped_phase == True):
@@ -701,7 +702,14 @@ class IntegratedSystem:
 
                 #----- For SNS force cap mode, because the jaws leak air when compressed a lot, the zero position changes. To temporarily address this, just open the grasper manually
                 if (self.SNSc.ControlMode == ControlType.FORCE_CAP and self.SNSc.neuronset["release"] > 2): #to release the object
-                    self.SG.commandedPosition["ClosureChangeInRadius_mm"] = 0  # need to check if this is always satisfied
+                    # need to check if this is always satisfied
+
+                    if self.grasperType == GrasperType.SoftGrasper:
+                        self.SG.commandedPosition["ClosureChangeInRadius_mm"] = 0  # need to check if this is always satisfied
+                    elif self.grasperType == GrasperType.RigidGrasper:
+                        self.SG.commandedPosition[
+                            "ClosureChangeInRadius_mm"] = 85  #
+
                     self.MoveGrasperEvent.set() #set event to indicate to other function that it should actuate grasper
                     if self.SNSc.SNS_release_done == False:
                         await asyncio.sleep(8)
@@ -709,6 +717,8 @@ class IntegratedSystem:
 
                     self.logger.debug (self.SG.commandedPosition["ClosureChangeInRadius_mm"])
                     self.logger.info("In Release Phase")
+
+                    #TODO: August 2nd: gets stuck here for a while, need to figure out why
 
 
 

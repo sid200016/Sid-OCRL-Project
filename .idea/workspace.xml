@@ -8,8 +8,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/FRR-Software-Interface.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/FRR-Software-Interface.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Testing/TestSNS_sim_modulation_closed_loop.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/TestSNS_sim_modulation_closed_loop.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Testing/combined.urdf" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/combined.urdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +72,7 @@
       <recent name="C:\Users\Ravesh\Desktop\Research\FRR\FRR Software Interface\FRR-Software-Interface\Testing" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.TestSNS_sim_modulation_closed_loop">
+  <component name="RunManager" selected="Python.IntegratedSystem">
     <configuration name="IntegratedSystem" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="FRR-Software-Interface" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -283,8 +282,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.TestSNS_sim_modulation_closed_loop" />
         <item itemvalue="Python.IntegratedSystem" />
+        <item itemvalue="Python.TestSNS_sim_modulation_closed_loop" />
         <item itemvalue="Python.RigidGrasper" />
         <item itemvalue="Python.TestSNS_sim" />
         <item itemvalue="Python.TestSNS_sim (1)" />
@@ -486,6 +485,11 @@
           <url>file://$PROJECT_DIR$/GUI/EmbeddedSystems/RigidGrasper/RigidGrasper.py</url>
           <line>701</line>
           <option name="timeStamp" value="350" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py</url>
+          <line>572</line>
+          <option name="timeStamp" value="351" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

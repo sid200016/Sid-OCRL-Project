@@ -1,0 +1,42 @@
+2024-08-02 16:31:59,639 - __main__ - INFO - Grasper Type selected: GrasperType.RigidGrasper
+2024-08-02 16:31:59,640 - __main__ - INFO - Enter C for calibration. 
+Enter S for SNS. 
+Enter Z to return to joystick control
+Enter H to move grasper home 
+Enter T to inflate until grasper touches 
+Enter MG to move the grasper 
+Enter M to move the gantry 
+Enter D to display robot state 
+Enter PR to enter pressure radius calibration 
+Enter K to begin Koopman Experiments 
+Enter LQR to begin LQR Experiments
+Enter ZS to zero the force/pressure sensors
+2024-08-02 16:32:02,975 - __main__ - INFO - D
+2024-08-02 16:32:02,976 - __main__ - INFO - Gantry position(mm): 0.000000 0.000000 0.000000 
+
+2024-08-02 16:32:02,977 - __main__ - INFO - Grasper commanded position (mm): 60.000000 
+
+2024-08-02 16:32:02,977 - __main__ - INFO - Grasper current position (mm): 61.574800 
+
+2024-08-02 16:32:02,977 - __main__ - INFO - Raw load cell reading: 1549.000000 
+
+2024-08-02 16:32:02,977 - __main__ - INFO - Load cell reading (N): -1.108133 
+
+2024-08-02 16:32:09,652 - __main__ - INFO - ZS
+2024-08-02 16:32:11,550 - __main__ - INFO - Using: 10.000000 samples, 0.020000 seconds. 
+
+2024-08-02 16:32:11,550 - __main__ - INFO - jaw force offset: in N: -1.110727
+2024-08-02 16:32:19,566 - __main__ - INFO - S
+2024-08-02 16:32:22,606 - __main__ - INFO - Type selected: FC
+2024-08-02 16:32:25,374 - __main__ - INFO - Force Threshold gain is: 10.000000
+2024-08-02 16:32:30,765 - __main__ - INFO - Grasper closing time constant is: 1.000000
+2024-08-02 16:32:34,909 - __main__ - INFO - Threshold (N): 0.100000
+2024-08-02 16:32:37,789 - __main__ - INFO - Scaling: 2.000000
+2024-08-02 16:32:53,612 - __main__ - INFO - x,y,z used is (mm): -8.150000, 28.000000, -192.640000
+2024-08-02 16:33:15,211 - __main__ - INFO - Return home completed
+2024-08-02 16:33:15,211 - __main__ - INFO - Beginning SNS ...
+2024-08-02 16:33:15,211 - __main__ - DEBUG - Inside SNS control
+2024-08-02 16:33:15,211 - __main__ - INFO - Z offset 0.000000
+2024-08-02 16:33:15,212 - __main__ - DEBUG - Target position in m: -0.181850 -0.218000 -0.188000
+2024-08-02 16:33:15,212 - __main__ - DEBUG - GrasperPos in m:0.008150 -0.028000 0.000000
+2024-08-02 16:33:15,212 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.192640

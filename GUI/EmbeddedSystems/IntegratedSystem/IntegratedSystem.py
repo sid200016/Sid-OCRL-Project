@@ -2018,7 +2018,7 @@ class IntegratedSystem:
                         vals = await aioconsole.ainput(
                             "Please enter the scaling for force for the jaw \n")
                         vals = float(vals)
-                        self.ContactThreshold["Pressure Scaling"] = vals
+                        self.ContactThreshold_Rigid["Force Scaling"] = vals
                 case _:
                     pass
             if self.grasperType == GrasperType.SoftGrasper:

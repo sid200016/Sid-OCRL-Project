@@ -6,7 +6,7 @@ from GUI.EmbeddedSystems.SoftGrasper.SoftGrasper import SoftGrasper
 import logging
 
 import sys
-SG  = SoftGrasper(COM_Port = 'COM7',BaudRate=460800,timeout=1,controllerProfile="New")
+SG  = SoftGrasper(COM_Port = 'COM10',BaudRate=460800,timeout=1,controllerProfile="New")
 
 logger_sys = logging.getLogger(__name__)
 ch = logging.StreamHandler(sys.stdout)  # stream handler
@@ -18,8 +18,8 @@ while (True):
     SG.PressurePorts[3].portStatus = PortActions.HOLD
     SG.PressurePorts[2].portStatus = PortActions.HOLD
     SG.PressurePorts[1].portStatus = PortActions.HOLD
-    SG.PressurePorts[0].portStatus = PortActions.HOLD
-    SG.PressurePorts[0].commandedPressure = 12
+    SG.PressurePorts[0].portStatus = PortActions.INFLATE_AND_MODULATE
+    SG.PressurePorts[0].commandedPressure = 6
 
     byteList = SG.ConstructPortCommand()
     numBytes = SG.sendCommunicationArray(byteList=byteList)

@@ -540,7 +540,7 @@ class IntegratedSystem:
                     if len(num_grasper_contact)==1: #if you have two jaws in contact, then set the third jaw to the max contact pressure
                         grasperContact[num_grasper_contact[0]] = max(grasperContact)
 
-
+                    grasperContact = GrasperContactForce(*grasperContact)
                     # if len(num_grasper_contact)== 2:
                     #     grasperContact=[max(grasperContact) for x in grasperContact] #set to max contact for all three if only one jaw is in contact
 
@@ -551,7 +551,7 @@ class IntegratedSystem:
                     grasperContact = ((jawPressure[0] - grasperThreshold) * forceScaling if jawPressure[0] >= grasperThreshold else 0)
                     #repeat the same force for all three.
 
-                grasperContact = GrasperContactForce(grasperContact, grasperContact, grasperContact) #grasper contact force
+                    grasperContact = GrasperContactForce(grasperContact, grasperContact, grasperContact) #grasper contact force
 
                 # TODO: able to control rigid grasper with SNS, but it does an initial off-center move and need to fix the prompts for the open loop SNS
 

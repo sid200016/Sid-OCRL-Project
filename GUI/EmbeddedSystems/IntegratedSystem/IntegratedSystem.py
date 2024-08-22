@@ -121,7 +121,7 @@ class IntegratedSystem:
         self.SNS_object_pos_m = [-0.0095875,0.012362,-0.18464] #[0,0,-0.184]
         self.ContactThreshold = {"Pressure Threshold (psi)":[0.010,0.020,0.029], "Pressure Scaling":[1,1,1]}
         self.ContactThreshold_Rigid = {"Force Threshold (N)":0.1, "Force Scaling":2}
-        self.maxJawChangeInRadius_mm = 10 #20 mm max jaw change in radius
+        self.maxJawChangeInRadius_mm = 30 #20 mm max jaw change in radius #TODO: need to change to 10 for rigid grasper, 30 mm for soft grasper
         self.SNS_BypassForceFeedback = True
         self.SNS_grasper_tc_s = 0 #time constant for the closure muscle of the grasper
 
@@ -1954,34 +1954,34 @@ class IntegratedSystem:
                 "Forces below this threshold are set to zero when computing feedback to the SNS\n" % (
                     self.ContactThreshold_Rigid["Force Threshold (N)"]))
 
-            match SNS_thresholds_input.upper():
+        match SNS_thresholds_input.upper():
 
-                case "N":
-                    pass
+            case "N":
+                pass
 
-                case "Y":
+            case "Y":
 
-                    if self.grasperType == GrasperType.SoftGrasper:
-                        vals = await aioconsole.ainput(
-                            "Please enter the pressure thresholds for each jaw, in psi, and separated by commas. \n")
-                        vals = [float(x) for x in vals.split(',')]
-                        self.ContactThreshold["Pressure Threshold (psi)"] = vals
+                if self.grasperType == GrasperType.SoftGrasper:
+                    vals = await aioconsole.ainput(
+                        "Please enter the pressure thresholds for each jaw, in psi, and separated by commas. \n")
+                    vals = [float(x) for x in vals.split(',')]
+                    self.ContactThreshold["Pressure Threshold (psi)"] = vals
 
-                    elif self.grasperType == GrasperType.RigidGrasper:
-                        vals = await aioconsole.ainput(
-                            "Please enter the force threshold in N \n")
-                        vals = float(vals)
-                        self.ContactThreshold_Rigid["Force Threshold (N)"] = vals
+                elif self.grasperType == GrasperType.RigidGrasper:
+                    vals = await aioconsole.ainput(
+                        "Please enter the force threshold in N \n")
+                    vals = float(vals)
+                    self.ContactThreshold_Rigid["Force Threshold (N)"] = vals
 
-                case _:
-                    pass
+            case _:
+                pass
 
-            if self.grasperType == GrasperType.SoftGrasper:
-                self.logger.info("Thresholds (psi): %f, %f, %f" % (tuple(self.ContactThreshold["Pressure Threshold (psi)"])))
+        if self.grasperType == GrasperType.SoftGrasper:
+            self.logger.info("Thresholds (psi): %f, %f, %f" % (tuple(self.ContactThreshold["Pressure Threshold (psi)"])))
 
-            elif self.grasperType == GrasperType.RigidGrasper:
-                self.logger.info(
-                    "Threshold (N): %f" % (self.ContactThreshold_Rigid["Force Threshold (N)"]))
+        elif self.grasperType == GrasperType.RigidGrasper:
+            self.logger.info(
+                "Threshold (N): %f" % (self.ContactThreshold_Rigid["Force Threshold (N)"]))
 
 
             # ------ gain inputs -------#

@@ -533,12 +533,18 @@ class IntegratedSystem:
                     grasperContact = [(x-grasperThreshold[i]) * pressureScaling[i] if x >= grasperThreshold[i] else 0 for (i, x) in
                                       enumerate(jawPressure)]
 
+                    contactNum = 1 #set this to 1 to set all three jaws to the maximum of the jaw pressure. Set to 2 to set the third jaw to the maximum of the first two.
 
-                    num_grasper_contact = np.where(np.array(grasperContact)==0)[0] #check how many are not in contact
+                    if contactNum == 1:
+                        grasperContact = [max(grasperContact) for i in grasperContact]
+
+                    ## grasper contact for two jas in contact
+                    elif contactNum == 2:
+                        num_grasper_contact = np.where(np.array(grasperContact)==0)[0] #check how many are not in contact
 
 
-                    if len(num_grasper_contact)==1: #if you have two jaws in contact, then set the third jaw to the max contact pressure
-                        grasperContact[num_grasper_contact[0]] = max(grasperContact)
+                        if len(num_grasper_contact)==1: #if you have two jaws in contact, then set the third jaw to the max contact pressure
+                            grasperContact[num_grasper_contact[0]] = max(grasperContact)
 
                     grasperContact = GrasperContactForce(*grasperContact)
                     # if len(num_grasper_contact)== 2:

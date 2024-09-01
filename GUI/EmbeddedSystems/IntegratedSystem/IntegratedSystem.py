@@ -642,8 +642,8 @@ class IntegratedSystem:
                     #soft grasper uses an incremental move from the initial position.
                     #Rigid grasper is using the absolute gripper width. So set the max distance to 85 mm
                     #and then subtract 2x the SNS command since the SNS command in an incremental increase in radius
-                    self.SG.commandedPosition["ClosureChangeInRadius_mm"] = max(85 - 2*(JawRadialPos_m * 1000),
-                                                                           self.maxJawChangeInRadius_mm)
+                    self.SG.commandedPosition["ClosureChangeInRadius_mm"] = max(52.5 - 2*(JawRadialPos_m * 1000),
+                                                                           self.maxJawChangeInRadius_mm) #limit to 45 because for the cube it takes a long time to move from 80 to 45 with large time constant. TODO: make this more elegant
 
                     if self.SNS_BypassForceFeedback == True and self.SNSc.object_grasped_phase == True:
                         self.SG.commandedPosition["ClosureChangeInRadius_mm"] = self.maxJawChangeInRadius_mm

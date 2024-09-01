@@ -132,6 +132,9 @@ class RigidGrasper:
         # SetupMotors
         self.setupComms_and_Motors()
 
+        # max displacement of jaws
+        self.max_displacement = 85 #np.inf
+
         #Force Sensor
         self.useForceSensor = useForceSensor
         if self.useForceSensor == True:
@@ -486,7 +489,7 @@ class RigidGrasper:
 
         d1 = 0.0752*pos1 - 106.66
         d2 = -(0.0742*pos2 - 163.51)
-        gW = np.clip(d1 + d2, 0 ,np.inf)
+        gW = np.clip(d1 + d2, 0 ,np.Inf)
         return gW #TODO: update this
 
 

@@ -74,6 +74,9 @@ class SoftGrasper:
         self.closureMuscle_idx = 0 #index for the closure muscle
         self.changeInPressure = [0, 0, 0] # change in pressure in psi for the three jaws
         self.maxClosurePressure_psi = 12 #maximum pressure for the closure muscle in psi
+        self.min_abs_diameter_mm = 26 #minimum absolute diameter achievable in mm
+        self.max_abs_diameter_mm = 66.16 #maximum absolute diameter achievable in mm
+
 
         #Tx-Rx Information for New Protocol
         self.startChar = ">!" #indicates start of comm
@@ -92,7 +95,7 @@ class SoftGrasper:
         self.controllerProfile = controllerProfile
 
         #Variables for keeping track of commanded position
-        self.commandedPosition = {"ClosureChangeInRadius_mm":0, "Jaw1_psi":0, "Jaw2_psi":0, "Jaw3_psi":0}
+        self.commandedPosition = {"ClosureDistance_mm":0, "Jaw1_psi":0, "Jaw2_psi":0, "Jaw3_psi":0}
 
         #For GUI real-time control
         self.isActive = False
@@ -131,12 +134,12 @@ class SoftGrasper:
         logger_soft.addHandler(ch)
         self.logger = logger_soft
 
-    def GetPressureFromPosition(self,position_mm,coeffs=[3.0274e-7,-1.9476e-5,2.3862e-4,0.0085,-0.2511,2.2551,-0.1014]):
+    def GetPressureFromPosition(self,position_mm,coeffs=[-1.8e-7,4.868e-5,-0.00542,0.3174,-10.31,175.469,-1208.25]):
         b = coeffs
         x = position_mm
-        x=min(x,30)  #limit to maximum 30 mm contraction
+        x=np.clip(x,self.min_abs_diameter_mm,self.max_abs_diameter_mm)  #limit to maximum 30 mm contraction
         pressV = b[0]*(x**6) + b[1]*(x**5) + b[2]*(x**4) + b[3]*(x**3) + b[4]*(x**2) + b[5]*(x) + b[6]*1
-        pressV = max(min(pressV,self.maxClosurePressure_psi),0)  #limit pressure
+        pressV = np.clip(pressV,0,self.maxClosurePressure_psi)  #limit pressure
         return(pressV)
     def SendPressureCommand(self,PressureVal):
         byteFval = bytearray(struct.pack("f", PressureVal))
@@ -198,22 +201,22 @@ class SoftGrasper:
             return(ChangeInPressure)
 
     def IncrementalMove(self, closureIncrement_mm = 0, jawIncrement_psi = [0,0,0]):
-        self.commandedPosition["ClosureChangeInRadius_mm"] = min(max(0,self.commandedPosition["ClosureChangeInRadius_mm"] + closureIncrement_mm),30)
-        self.logger.debug("Commanded Position in mm: "+str(self.commandedPosition["ClosureChangeInRadius_mm"] )) #for debug
+        self.commandedPosition["ClosureDistance_mm"] = self.commandedPosition["ClosureDistance_mm"] - closureIncrement_mm)
+        self.logger.debug("Commanded Position in mm: "+str(self.commandedPosition["ClosureDistance_mm"] )) #for debug
         self.commandedPosition["Jaw1_psi"] = min(max(0,self.commandedPosition["Jaw1_psi"] + jawIncrement_psi[0]),2)
         self.commandedPosition["Jaw2_psi"] = min(max(0,self.commandedPosition["Jaw2_psi"] + jawIncrement_psi[1]),2)
         self.commandedPosition["Jaw3_psi"] = min(max(0,self.commandedPosition["Jaw3_psi"] + jawIncrement_psi[2]),2)
 
     def AbsoluteMove(self, closureIncrement_mm = 0, jawIncrement_psi = [0,0,0]):
-        self.commandedPosition["ClosureChangeInRadius_mm"] = min(max(0, closureIncrement_mm),23)
-        self.logger.debug("Commanded Position in mm: "+str(self.commandedPosition["ClosureChangeInRadius_mm"] )) #for debug
+        self.commandedPosition["ClosureDistance_mm"] = min(max(0, closureIncrement_mm),23)
+        self.logger.debug("Commanded Position in mm: "+str(self.commandedPosition["ClosureDistance_mm"] )) #for debug
         self.commandedPosition["Jaw1_psi"] = min(max(0, jawIncrement_psi[0]),2)
         self.commandedPosition["Jaw2_psi"] = min(max(0,jawIncrement_psi[1]),2)
         self.commandedPosition["Jaw3_psi"] = min(max(0, jawIncrement_psi[2]),2)
 
 
     def MoveGrasper_DEPRECATED(self):
-        PVal = self.GetPressureFromPosition(self.commandedPosition["ClosureChangeInRadius_mm"])
+        PVal = self.GetPressureFromPosition(self.commandedPosition["ClosureDistance_mm"])
         self.logger.debug(PVal)
         self.SendPressureCommand(PVal)
         self.ReadPressureVals()
@@ -226,8 +229,9 @@ class SoftGrasper:
 
 
     def MoveGrasper(self):
-        PVal = self.GetPressureFromPosition(self.commandedPosition["ClosureChangeInRadius_mm"]) #get the pressure value in psi
+        PVal = self.GetPressureFromPosition(self.commandedPosition["ClosureDistance_mm"]) #get the pressure value in psi
         self.MoveGrasper_Pressure(PVal)
+
 
     def MoveGrasper_Pressure(self,PVal):
         self.logger.debug("CommandedPressure: " + str(PVal))
@@ -258,7 +262,7 @@ class SoftGrasper:
         #force_vec=[x*5 if x>0.2 else 0 for x in ChP] #threshold for contact
 
     def ReadGrasperData(self):
-        PVal = self.GetPressureFromPosition(self.commandedPosition["ClosureChangeInRadius_mm"]) #get the pressure value in psi
+        PVal = self.GetPressureFromPosition(self.commandedPosition["ClosureDistance_mm"]) #get the pressure value in psi
 
         self.logger.debug("CommandedPressure: "+str(PVal))
 

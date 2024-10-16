@@ -567,10 +567,10 @@ class IntegratedSystem:
                     # for grasping set to 20 psi. For releasing, use real pressure
                     if self.grasperType == GrasperType.SoftGrasper:
                         grasperContact = GrasperContactForce(*[0, 0, 0]) if self.SG.commandedPosition[
-                                                                                "ClosureChangeInRadius_mm"] < self.maxJawChangeInRadius_mm else GrasperContactForce(
+                                                                                "ClosureDistance_mm"] < self.maxJawChangeInRadius_mm else GrasperContactForce(
                             *[20, 20, 20])  # set contact threshold based on the position #maybe need to change this to see some change in pressure at the jaws before lifting up, or adding some delay time during inflation. Need to do the same during deflation
                     elif self.grasperType == GrasperType.RigidGrasper:
-                        grasperContact = GrasperContactForce(*[0, 0, 0]) if self.SG.commandedPosition["ClosureChangeInRadius_mm"]  < self.maxJawChangeInRadius_mm \
+                        grasperContact = GrasperContactForce(*[0, 0, 0]) if self.SG.commandedPosition["ClosureDistance_mm"]  < self.maxJawChangeInRadius_mm \
                             else GrasperContactForce(*[20, 20,20])  # set contact threshold based on the position #maybe need to change this to see some change in pressure at the jaws before lifting up, or adding some delay time during inflation. Need to do the same during deflation
 
                 #if transition to release has begun, set contact force to all zeros,
@@ -616,7 +616,7 @@ class IntegratedSystem:
 
                 # --- report for other modes what the limit of the force is when transition begins ----
                 if (self.SNSc.object_grasped_phase == True and self.SNSc.lift_after_grasp_started == True):
-                    self.logger.info("Lift after grasp started, change in radius set to %f" %self.SG.commandedPosition["ClosureChangeInRadius_mm"])
+                    self.logger.info("Lift after grasp started, change in radius set to %f" %self.SG.commandedPosition["ClosureDistance_mm"])
 
                 # --- finish
 
@@ -634,19 +634,21 @@ class IntegratedSystem:
                 self.logger.debug('SNS commanded change in radius (mm):%f' % (JawRadialPos_m * 1000))
                 self.logger.debug(','.join([k + ":" + str(v) for k, v in self.SNSc.neuronset.items()]))
 
+
                 if self.grasperType == GrasperType.SoftGrasper:
-                    self.SG.commandedPosition["ClosureChangeInRadius_mm"] = min(JawRadialPos_m * 1000,
-                                                                           self.maxJawChangeInRadius_mm)  # limit the radial position change to prevent overinflation
+                    self.SG.commandedPosition["ClosureDistance_mm"] = max(self.SG.max_abs_diameter_mm - 2 * (JawRadialPos_m * 1000),
+                                                                          self.maxJawChangeInRadius_mm)  # limit the radial position change to prevent overinflation
+
                 elif self.grasperType == GrasperType.RigidGrasper:
                     #note logic for commanded position is slightly different than soft grasper
                     #soft grasper uses an incremental move from the initial position.
                     #Rigid grasper is using the absolute gripper width. So set the max distance to 85 mm
                     #and then subtract 2x the SNS command since the SNS command in an incremental increase in radius
-                    self.SG.commandedPosition["ClosureChangeInRadius_mm"] = max(52.5 - 2*(JawRadialPos_m * 1000),
-                                                                           self.maxJawChangeInRadius_mm) #limit to 45 because for the cube it takes a long time to move from 80 to 45 with large time constant. TODO: make this more elegant
+                    self.SG.commandedPosition["ClosureDistance_mm"] = max(52.5 - 2*(JawRadialPos_m * 1000),
+                                                                           self.maxJawChangeInRadius_mm) #limit to 52.5 because for the cube it takes a long time to move from 80 to 45 with large time constant. TODO: make this more elegant
 
                     if self.SNS_BypassForceFeedback == True and self.SNSc.object_grasped_phase == True:
-                        self.SG.commandedPosition["ClosureChangeInRadius_mm"] = self.maxJawChangeInRadius_mm
+                        self.SG.commandedPosition["ClosureDistance_mm"] = self.maxJawChangeInRadius_mm
 
                 self.logger.debug('Number of grasp attempts %i' % self.SNSc.num_grasp_attempts)
 
@@ -659,20 +661,21 @@ class IntegratedSystem:
                     #     GC.goalPos = [curPos_orig.x*1000, curPos_orig.y*1000, curPos_orig.z*1000+70] #move object up
                     #     loggerR.info('Failed grasp, exceeded number of attempts')
                     #     SNSc.lift_after_grasp_done = True #set to true to trigger the next statement
-                    #     SG.commandedPosition["ClosureChangeInRadius_mm"] = 0
+                    #     SG.commandedPosition["ClosureDistance_mm"] = 0
                     #
                     if self.SNS_BypassForceFeedback == True and self.SNSc.lift_after_release_done == True: #in open loop mode, dont reattempt
                         if self.grasperType == GrasperType.SoftGrasper:
-                            self.SG.commandedPosition["ClosureChangeInRadius_mm"] = 0
+                            #self.SG.commandedPosition["ClosureDistance_mm"] = 0 #when MoveGrasper wasn't doing absolute moves
+                            self.SG.commandedPosition["ClosureDistance_mm"] = self.SG.max_abs_diameter_mm
 
                         elif self.grasperType == GrasperType.RigidGrasper:
-                            self.SG.commandedPosition["ClosureChangeInRadius_mm"] = 85
+                            self.SG.commandedPosition["ClosureDistance_mm"] = 85
 
                     if self.SNSc.num_grasp_attempts >= 1 and self.SNSc.motion_complete == True:
                         self.jcSG.SNS_control = False  # reset to false to give control back to the user
                         self.jcSG.ControlMode = JC.JoyConState.NORMAL
                         self.logger.info('Reset the SNS controller after motion complete')
-                        self.SG.commandedPosition["ClosureChangeInRadius_mm"] = 0 #so it doesn't re-pressurize
+                        self.SG.commandedPosition["ClosureDistance_mm"] = 0 #so it doesn't re-pressurize
 
 
 
@@ -680,28 +683,28 @@ class IntegratedSystem:
                 if (self.SNS_BypassForceFeedback == True and self.SNSc.lift_after_grasp_started == True):
                     if self.grasperType == GrasperType.SoftGrasper:
                         if self.SG.commandedPosition[
-                            "ClosureChangeInRadius_mm"] >= self.maxJawChangeInRadius_mm:  # this should always be satisfied because the contact force only is set to a large value when the commanded change in radius is larger or equal to the commanded threshold
+                            "ClosureDistance_mm"] <= self.maxJawChangeInRadius_mm:  # this should always be satisfied because the contact force only is set to a large value when the commanded change in radius is larger or equal to the commanded threshold
                             self.MoveGrasperEvent.set()  # set event to indicate to other function that it should actuate grasper
                             await asyncio.sleep(20)  # sleep 20 seconds to allow the grasp to complete #hopefully only triggers once
 
                     elif self.grasperType == GrasperType.RigidGrasper:
 
                         if self.SG.commandedPosition[
-                            "ClosureChangeInRadius_mm"] <= self.maxJawChangeInRadius_mm:  # this should always be satisfied because the contact force only is set to a large value when the commanded change in radius is larger or equal to the commanded threshold
+                            "ClosureDistance_mm"] <= self.maxJawChangeInRadius_mm:  # this should always be satisfied because the contact force only is set to a large value when the commanded change in radius is larger or equal to the commanded threshold
                             self.MoveGrasperEvent.set()  # set event to indicate to other function that it should actuate grasper
                             await asyncio.sleep(20)  # sleep 20 seconds to allow the grasp to complete #hopefully only triggers once
 
 
                 if (self.SNS_BypassForceFeedback == True and self.SNSc.neuronset["release"] > 2): #to release the object
                     if self.grasperType == GrasperType.SoftGrasper:
-                        self.SG.commandedPosition["ClosureChangeInRadius_mm"] = 0  # need to check if this is always satisfied
+                        self.SG.commandedPosition["ClosureDistance_mm"] = 0  # need to check if this is always satisfied
                     elif self.grasperType == GrasperType.RigidGrasper:
                         self.SG.commandedPosition[
-                            "ClosureChangeInRadius_mm"] = 85  #
+                            "ClosureDistance_mm"] = 85  #
                         
                     self.MoveGrasperEvent.set() #set event to indicate to other function that it should actuate grasper
                     await asyncio.sleep(8)
-                    self.logger.debug (self.SG.commandedPosition["ClosureChangeInRadius_mm"])
+                    self.logger.debug (self.SG.commandedPosition["ClosureDistance_mm"])
                     self.logger.info("In Release Phase")
                     self.SNSc.SNS_release_done = True
 
@@ -711,17 +714,17 @@ class IntegratedSystem:
                     # need to check if this is always satisfied
 
                     if self.grasperType == GrasperType.SoftGrasper:
-                        self.SG.commandedPosition["ClosureChangeInRadius_mm"] = 0  # need to check if this is always satisfied
+                        self.SG.commandedPosition["ClosureDistance_mm"] = self.SG.max_abs_diameter_mm  # need to check if this is always satisfied
                     elif self.grasperType == GrasperType.RigidGrasper:
                         self.SG.commandedPosition[
-                            "ClosureChangeInRadius_mm"] = 85  #
+                            "ClosureDistance_mm"] = 85  #
 
                     self.MoveGrasperEvent.set() #set event to indicate to other function that it should actuate grasper
                     if self.SNSc.SNS_release_done == False:
                         await asyncio.sleep(8)
                         self.SNSc.SNS_release_done = True
 
-                    self.logger.debug (self.SG.commandedPosition["ClosureChangeInRadius_mm"])
+                    self.logger.debug (self.SG.commandedPosition["ClosureDistance_mm"])
                     self.logger.info("In Release Phase")
 
                     #TODO: August 2nd: gets stuck here for a while, need to figure out why
@@ -828,7 +831,7 @@ class IntegratedSystem:
                     self.logger.info(
                         "Grasper closure muscle pressure at end of calibration (psi): %f" % self.ClosurePressure)  # need function to go from pressure to mm
                     self.logger.info("Grasper closure radius at end of calibration (mm): %f" % self.SG.commandedPosition[
-                        "ClosureChangeInRadius_mm"])
+                        "ClosureDistance_mm"])
                     self.logger.info("Grasper contact pressure (psi) at end of calibration: %f, %f, %f" % tuple(self.jawPressure))
 
                     #return to home
@@ -838,7 +841,7 @@ class IntegratedSystem:
                     await asyncio.sleep(15)
 
                     #open grasper
-                    self.SG.commandedPosition["ClosureChangeInRadius_mm"] = 0
+                    self.SG.commandedPosition["ClosureDistance_mm"] = 0
                     self.MoveGrasperEvent.set()
 
                     await asyncio.sleep(5)
@@ -1032,12 +1035,12 @@ class IntegratedSystem:
             case "T":
                 vals = await aioconsole.ainput(
                     "Expecting value in mm, this will be an offset")
-                self.SG.commandedPosition["ClosureChangeInRadius_mm"] = self.SG.commandedPosition["ClosureChangeInRadius_mm"] + float(vals)
+                self.SG.commandedPosition["ClosureDistance_mm"] = self.SG.commandedPosition["ClosureDistance_mm"] + float(vals)
 
             case "X":
                 vals = await aioconsole.ainput(
                     "Expecting value in mm. This is the new value for change in radial position.")
-                self.SG.commandedPosition["ClosureChangeInRadius_mm"] = float(vals)
+                self.SG.commandedPosition["ClosureDistance_mm"] = float(vals)
 
             case _:
                 self.logger.info("Neither X or T selected. Exiting. ")
@@ -1048,7 +1051,7 @@ class IntegratedSystem:
     async def resetGrasper(self, defaultMode = None):
         priorMode = self.jcSG.ControlMode
         self.jcSG.ControlMode = JC.JoyConState.RESET_GRASPER
-        self.SG.commandedPosition["ClosureChangeInRadius_mm"] = 0
+        self.SG.commandedPosition["ClosureDistance_mm"] = 0
         self.MoveGrasperEvent.set()
 
         await asyncio.sleep(5) #sleep for 5 seconds while returning home
@@ -1068,17 +1071,17 @@ class IntegratedSystem:
         self.logger.info("Gantry position(mm): %f %f %f \n" % tuple([x * 1000 for x in self.curPos]))
 
         if self.grasperType == GrasperType.SoftGrasper:
-            CommandedPressure = self.SG.GetPressureFromPosition(self.SG.commandedPosition["ClosureChangeInRadius_mm"])
+            CommandedPressure = self.SG.GetPressureFromPosition(self.SG.commandedPosition["ClosureDistance_mm"])
             self.logger.info("Grasper closure muscle commanded pressure(psi):%f \n"%CommandedPressure)
             self.logger.info(
                 "Grasper closure muscle pressure(psi): %f \n" % self.ClosurePressure)  # need function to go from pressure to mm
             self.logger.info("Grasper closure radius(mm): %f \n" % self.SG.commandedPosition[
-                "ClosureChangeInRadius_mm"])
+                "ClosureDistance_mm"])
             self.logger.info("Grasper contact pressure (psi): %f, %f, %f \n" % tuple(self.jawPressure))
 
         elif self.grasperType == GrasperType.RigidGrasper:
             CurrentPosition = self.ClosurePressure #TODO: This is always 0 -> Need to fix the other todo in rigid grasper
-            self.logger.info("Grasper commanded position (mm): %f \n"%self.SG.commandedPosition["ClosureChangeInRadius_mm"])
+            self.logger.info("Grasper commanded position (mm): %f \n"%self.SG.commandedPosition["ClosureDistance_mm"])
             self.logger.info("Grasper current position (mm): %f \n"%CurrentPosition)
             self.logger.info("Raw load cell reading: %f \n"%self.SG.RawForceArray[0])
             self.logger.info("Load cell reading (N): %f \n"%self.jawPressure)
@@ -1131,7 +1134,7 @@ class IntegratedSystem:
                     self.logger.info(
                         "Grasper closure muscle pressure at end of object touch (psi): %f" % self.ClosurePressure)  # need function to go from pressure to mm
                     self.logger.info("Grasper closure radius at end of calibration (mm): %f" % self.SG.commandedPosition[
-                        "ClosureChangeInRadius_mm"])
+                        "ClosureDistance_mm"])
                     self.logger.info("Grasper contact pressure (psi) at end of calibration: %f, %f, %f" % tuple(self.jawPressure))
 
                     #set variable
@@ -1673,13 +1676,13 @@ class IntegratedSystem:
             datastr = datastr+ "," + "%s,%f,%f,%f"%(str(self.jcSG.ControlMode),self.curPos[0]*1000, self.curPos[1]*1000, self.curPos[2]*1000)
 
             if self.grasperType == GrasperType.SoftGrasper:
-                datastr = datastr + "," + "%f,%f,%f,%f,%f,%f,%f,%f"%(self.ClosurePressure,*self.jawPressure,self.SG.commandedPosition["ClosureChangeInRadius_mm"],
+                datastr = datastr + "," + "%f,%f,%f,%f,%f,%f,%f,%f"%(self.ClosurePressure,*self.jawPressure,self.SG.commandedPosition["ClosureDistance_mm"],
                                                                 self.SG.commandedPosition["Jaw1_psi"],self.SG.commandedPosition["Jaw2_psi"],self.SG.commandedPosition["Jaw3_psi"])
             elif self.grasperType == GrasperType.RigidGrasper:
                 datastr = datastr + "," + "%f, %f, %f, %f, %f, %f, %f, %f"%(self.ClosurePressure,self.jawPressure[0],
                                                self.SG.CurrentPosition["1"], self.SG.CurrentPosition["2"],
-                                               self.SG.CurrentDistance, self.SG.commandedPosition["ClosureChangeInRadius_mm"],
-                                               self.SG.RawForceArray[0], self.SG.ForceArray[0][-1]) #closure distance (mm), jaw force (N), current position 1, current position 2, currentDistance_mm, commandedPosition["ClosureChangeInRadius_mm"], RawForceArray (count),ForceArray (N)
+                                               self.SG.CurrentDistance, self.SG.commandedPosition["ClosureDistance_mm"],
+                                               self.SG.RawForceArray[0], self.SG.ForceArray[0][-1]) #closure distance (mm), jaw force (N), current position 1, current position 2, currentDistance_mm, commandedPosition["ClosureDistance_mm"], RawForceArray (count),ForceArray (N)
 
             datastr = datastr + "," + ','.join(
                 [str(v) for k, v in self.buttonVal.items()]) + "," + ','.join([str(x) for x in self.AxesPos]) #for the joystick button and pos
@@ -1918,7 +1921,7 @@ class IntegratedSystem:
 
             case "Y":
                 await self.FreshDataEvent.wait()  # wait for fresh data
-                self.maxJawChangeInRadius_mm = self.SG.commandedPosition["ClosureChangeInRadius_mm"]
+                self.maxJawChangeInRadius_mm = self.SG.commandedPosition["ClosureDistance_mm"]
 
             case "N":
                 self.logger.info("Using default values")

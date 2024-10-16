@@ -140,7 +140,7 @@ async def softGrasperCommands(data):
     loggerR.debug("Change in radius in mm: "+str(closure_mm))
 
     if useSG == True:
-        SG.commandedPosition["ClosureChangeInRadius_mm"] = closure_mm
+        SG.commandedPosition["ClosureDistance_mm"] = closure_mm
         SG.commandedPosition["Jaw1_psi"] = 0
         SG.commandedPosition["Jaw2_psi"] = 0
         SG.commandedPosition["Jaw3_psi"] = 0

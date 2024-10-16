@@ -59,7 +59,7 @@ async def program_loop():
                     #command position is absolute move in m relative to the offset.
                     GC.goalPos = [x*1000 for x in list(commandPosition_m)]
 
-                    SG.commandedPosition["ClosureChangeInRadius_mm"] = JawRadialPos_m*1000
+                    SG.commandedPosition["ClosureDistance_mm"] = JawRadialPos_m*1000
 
                 case JC.JoyConState.CALIBRATION:
                     #Prompt to move grasper into position. When grasper is in position, press SR+ on joycon to trigger calibration start. Hit SL+ to stop calibration

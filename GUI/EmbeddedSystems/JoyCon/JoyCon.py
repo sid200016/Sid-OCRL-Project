@@ -321,11 +321,11 @@ class Joy_RigidGrasper(Joy_Gantry):
         self.SNS_control = False
 
 
-    def buttonA(self): #close right claw, assume position control
+    def buttonA(self): #close both claws
         self.grasper.IncrementalMove(moveIncrement_mm= self.grasperIncrement_mm,
                                      action1=RG.GrasperActions.CLOSE,action2=RG.GrasperActions.CLOSE)
 
-    def buttonB(self): #open right claw, assume position control
+    def buttonB(self): #open both claws
         self.grasper.IncrementalMove(moveIncrement_mm=-self.grasperIncrement_mm,
                                      action1=RG.GrasperActions.OPEN, action2=RG.GrasperActions.OPEN)
 

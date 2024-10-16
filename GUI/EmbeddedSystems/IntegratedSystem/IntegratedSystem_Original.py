@@ -235,7 +235,7 @@ class IntegratedSystem:
                     print(
                         "Grasper closure muscle pressure at end of calibration (psi): %f" % ClosurePressure)  # need function to go from pressure to mm
                     print("Grasper closure radius at end of calibration (mm): %f" % self.SG.commandedPosition[
-                        "ClosureChangeInRadius_mm"])
+                        "ClosureDistance_mm"])
                     print("Grasper contact pressure (psi) at end of calibration: %f, %f, %f" % tuple(contactPressure))
 
                     #return to home
@@ -244,7 +244,7 @@ class IntegratedSystem:
                     await asyncio.sleep(15)
 
                     #open grasper
-                    self.SG.commandedPosition["ClosureChangeInRadius_mm"] = 0
+                    self.SG.commandedPosition["ClosureDistance_mm"] = 0
                     self.SG.MoveGrasper()
 
                     await asyncio.sleep(5)

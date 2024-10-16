@@ -188,7 +188,7 @@ async def softGrasperCommands(data):
     loggerR.debug("Change in radius in mm: "+str(closure_mm))
 
     if useSG == True:
-        SG.commandedPosition["ClosureChangeInRadius_mm"] = closure_mm
+        SG.commandedPosition["ClosureDistance_mm"] = closure_mm
         SG.commandedPosition["Jaw1_psi"] = 0
         SG.commandedPosition["Jaw2_psi"] = 0
         SG.commandedPosition["Jaw3_psi"] = 0
@@ -399,7 +399,7 @@ async def program_loop():
 
                     if SNS_BypassForceFeedback == True and SNSc.neuronset['move_to_release']>=20:
                         #for grasping set to 20 psi. For releasing, use real pressure
-                        grasperContact = GrasperContactForce(*[0,0,0]) if SG.commandedPosition["ClosureChangeInRadius_mm"] <maxJawChangeInRadius_mm else GrasperContactForce(*[20,20,20]) #set contact threshold based on the position
+                        grasperContact = GrasperContactForce(*[0,0,0]) if SG.commandedPosition["ClosureDistance_mm"] <maxJawChangeInRadius_mm else GrasperContactForce(*[20,20,20]) #set contact threshold based on the position
 
 
                     commandPosition_m, JawRadialPos_m = SNSc.SNS_forward(grasperPos_m=grasperPosition,
@@ -425,7 +425,7 @@ async def program_loop():
                             (SNSc.neuronset["move_to_grasp"]>=20 or SNSc.neuronset["move_to_pre_grasp"]>=20)): #don't inflate when far from the object in z
                         JawRadialPos_m = 0
 
-                    SG.commandedPosition["ClosureChangeInRadius_mm"] = min(JawRadialPos_m * 1000,maxJawChangeInRadius_mm) #limit the radial position change to prevent overinflation
+                    SG.commandedPosition["ClosureDistance_mm"] = min(JawRadialPos_m * 1000,maxJawChangeInRadius_mm) #limit the radial position change to prevent overinflation
 
                     if SNSc.neuronset["lift_after_release"] >= 60:
                         SNSc = SNScontroller(ModulateSNS=False) #reinitialize the SNS controller
@@ -441,7 +441,7 @@ async def program_loop():
                         #     GC.goalPos = [curPos_orig.x*1000, curPos_orig.y*1000, curPos_orig.z*1000+70] #move object up
                         #     loggerR.info('Failed grasp, exceeded number of attempts')
                         #     SNSc.lift_after_grasp_done = True #set to true to trigger the next statement
-                        #     SG.commandedPosition["ClosureChangeInRadius_mm"] = 0
+                        #     SG.commandedPosition["ClosureDistance_mm"] = 0
                         #
 
                         if SNSc.num_grasp_attempts>=1 and SNSc.lift_after_release_done == True:
@@ -541,7 +541,7 @@ async def datalogFcn():
     datalogger.info(ds)
 
     # Send information to other script on current position of gantry and state of grasper
-    grasper_width = SG.commandedPosition["ClosureChangeInRadius_mm"]
+    grasper_width = SG.commandedPosition["ClosureDistance_mm"]
 
     dataDict= {'x_mm':GC.PositionArray["x"][-1], 'y_mm':GC.PositionArray["y"][-1], 'z_mm':GC.PositionArray["z"][-1], 'grasper_width_mm':grasper_width , 'closure_pressure_psi': SGPressurevals[SG.closureMuscle_idx],
                                 'jaw1_psi': SGPressurevals[SG.JawPos[0]], 'jaw2_psi': SGPressurevals[SG.JawPos[1]], 'jaw3_psi': SGPressurevals[SG.JawPos[2]]}

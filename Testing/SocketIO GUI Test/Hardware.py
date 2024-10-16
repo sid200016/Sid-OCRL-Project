@@ -66,7 +66,7 @@ async def softGrasperCommands(data):
 
     closure_mm = data['grasper_l']*20/100
     print(closure_mm)
-    SG.commandedPosition["ClosureChangeInRadius_mm"] = closure_mm
+    SG.commandedPosition["ClosureDistance_mm"] = closure_mm
     SG.commandedPosition["Jaw1_psi"] = 0
     SG.commandedPosition["Jaw2_psi"] = 0
     SG.commandedPosition["Jaw3_psi"] = 0

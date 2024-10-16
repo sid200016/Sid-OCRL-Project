@@ -95,7 +95,7 @@ class SoftGrasper:
         self.controllerProfile = controllerProfile
 
         #Variables for keeping track of commanded position
-        self.commandedPosition = {"ClosureDistance_mm":0, "Jaw1_psi":0, "Jaw2_psi":0, "Jaw3_psi":0}
+        self.commandedPosition = {"ClosureDistance_mm":self.max_abs_diameter_mm, "Jaw1_psi":0, "Jaw2_psi":0, "Jaw3_psi":0}
 
         #For GUI real-time control
         self.isActive = False
@@ -137,7 +137,7 @@ class SoftGrasper:
     def GetPressureFromPosition(self,position_mm,coeffs=[-1.8e-7,4.868e-5,-0.00542,0.3174,-10.31,175.469,-1208.25]):
         b = coeffs
         x = position_mm
-        x=np.clip(x,self.min_abs_diameter_mm,self.max_abs_diameter_mm)  #limit to maximum 30 mm contraction
+        x=np.clip(x,self.min_abs_diameter_mm,self.max_abs_diameter_mm)  #limit to maximum  mm contraction
         pressV = b[0]*(x**6) + b[1]*(x**5) + b[2]*(x**4) + b[3]*(x**3) + b[4]*(x**2) + b[5]*(x) + b[6]*1
         pressV = np.clip(pressV,0,self.maxClosurePressure_psi)  #limit pressure
         return(pressV)
@@ -201,7 +201,7 @@ class SoftGrasper:
             return(ChangeInPressure)
 
     def IncrementalMove(self, closureIncrement_mm = 0, jawIncrement_psi = [0,0,0]):
-        self.commandedPosition["ClosureDistance_mm"] = self.commandedPosition["ClosureDistance_mm"] - closureIncrement_mm)
+        self.commandedPosition["ClosureDistance_mm"] = self.commandedPosition["ClosureDistance_mm"] - closureIncrement_mm
         self.logger.debug("Commanded Position in mm: "+str(self.commandedPosition["ClosureDistance_mm"] )) #for debug
         self.commandedPosition["Jaw1_psi"] = min(max(0,self.commandedPosition["Jaw1_psi"] + jawIncrement_psi[0]),2)
         self.commandedPosition["Jaw2_psi"] = min(max(0,self.commandedPosition["Jaw2_psi"] + jawIncrement_psi[1]),2)

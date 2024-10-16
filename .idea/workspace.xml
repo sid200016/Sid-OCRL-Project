@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="bfd83e2d-ab31-4129-8c0e-ce5b016d6614" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Testing/checkSoftGrasper2_new.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/checkSoftGrasper2_new.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +70,7 @@
       <recent name="C:\Users\Ravesh\Desktop\Research\FRR\FRR Software Interface\FRR-Software-Interface\Testing" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.IntegratedSystem">
+  <component name="RunManager" selected="Python.RigidGrasper">
     <configuration name="IntegratedSystem" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="FRR-Software-Interface" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -279,11 +280,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.RigidGrasper" />
         <item itemvalue="Python.IntegratedSystem" />
         <item itemvalue="Python.checkSoftGrasper2_new" />
         <item itemvalue="Python.checkSoftGrasper_New" />
         <item itemvalue="Python.TestSNS_sim_modulation_closed_loop" />
-        <item itemvalue="Python.RigidGrasper" />
       </list>
     </recent_temporary>
   </component>

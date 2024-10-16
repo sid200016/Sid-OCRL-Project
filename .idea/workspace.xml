@@ -6,19 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="bfd83e2d-ab31-4129-8c0e-ce5b016d6614" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Deformable_Object_Tests/Hardware_SNS_Deformable.py" beforeDir="false" afterPath="$PROJECT_DIR$/Deformable_Object_Tests/Hardware_SNS_Deformable.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Deformable_Object_Tests/Hardware_SNS_Deformable_bareboneCheck.py" beforeDir="false" afterPath="$PROJECT_DIR$/Deformable_Object_Tests/Hardware_SNS_Deformable_bareboneCheck.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem_Original.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem_Original.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/JoyCon/JoyCon.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/JoyCon/JoyCon.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/RigidGrasper/RigidGrasper.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/RigidGrasper/RigidGrasper.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/EmbeddedSystems/SoftGrasper/SoftGrasper.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EmbeddedSystems/SoftGrasper/SoftGrasper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hardware.py" beforeDir="false" afterPath="$PROJECT_DIR$/Hardware.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hardware_SNS_Try.py" beforeDir="false" afterPath="$PROJECT_DIR$/Hardware_SNS_Try.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestHardwareComm.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestHardwareComm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Testing/SNS_SoftGrasperCheck.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/SNS_SoftGrasperCheck.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Testing/SNS_SoftGrasper_Calibration.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/SNS_SoftGrasper_Calibration.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Testing/SocketIO GUI Test/Hardware.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/SocketIO GUI Test/Hardware.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -488,7 +476,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py</url>
-          <line>682</line>
+          <line>684</line>
           <option name="timeStamp" value="359" />
         </line-breakpoint>
       </breakpoints>

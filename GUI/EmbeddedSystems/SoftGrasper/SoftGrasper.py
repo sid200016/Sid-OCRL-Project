@@ -134,13 +134,13 @@ class SoftGrasper:
         logger_soft.addHandler(ch)
         self.logger = logger_soft
 
-    def GetPressureFromPosition(self,position_mm,coeffs=[-0.00000016701979,
-                                                         0.00004527451,
-                                                         -0.0050554756,
-                                                         0.29735522,
-                                                         -9.7004056,
-                                                         165.84096,
-                                                         -1146.2261]):
+    def GetPressureFromPosition(self,position_mm,coeffs=[-0.0000001777329,
+                                                         0.00004792679,
+                                                         -0.005318879,
+                                                         0.3107475,
+                                                         -10.06705,
+                                                         170.9448,
+                                                         -1174.247]):
         b = coeffs
         x = position_mm
         x=np.clip(x,self.min_abs_diameter_mm,self.max_abs_diameter_mm)  #limit to maximum  mm contraction

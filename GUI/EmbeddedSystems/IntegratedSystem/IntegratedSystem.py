@@ -319,7 +319,7 @@ class IntegratedSystem:
             self.jcSG = JC.Joy_SoftGrasper(SGa=self.SG,
                                       GantryS=self.GC)  # initialize joystick control of soft grasper and gantry controller
 
-
+            self.SNS_target_pos_m[2] = self.SNS_target_pos_m[2] +0.039 #add 39 mm because the grasper is now 39 mm lower than at first to accomodate the camera
 
 
         elif self.grasperType == GrasperType.RigidGrasper:  # rigid grasper
@@ -637,7 +637,10 @@ class IntegratedSystem:
 
                 if self.grasperType == GrasperType.SoftGrasper:
                     self.SG.commandedPosition["ClosureDistance_mm"] = max(self.SG.max_abs_diameter_mm - 2 * (JawRadialPos_m * 1000),
-                                                                          self.maxJawChangeInRadius_mm)  # limit the radial position change to prevent overinflation
+                                                                        self.maxJawChangeInRadius_mm)  # limit the radial position change to prevent overinflation
+
+                    if self.SNS_BypassForceFeedback == True and self.SNSc.object_grasped_phase == True:
+                        self.SG.commandedPosition["ClosureDistance_mm"] = self.maxJawChangeInRadius_mm
 
                 elif self.grasperType == GrasperType.RigidGrasper:
                     #note logic for commanded position is slightly different than soft grasper
@@ -675,7 +678,7 @@ class IntegratedSystem:
                         self.jcSG.SNS_control = False  # reset to false to give control back to the user
                         self.jcSG.ControlMode = JC.JoyConState.NORMAL
                         self.logger.info('Reset the SNS controller after motion complete')
-                        self.SG.commandedPosition["ClosureDistance_mm"] = 0 #so it doesn't re-pressurize
+                        self.SG.commandedPosition["ClosureDistance_mm"] = 70 #so it doesn't re-pressurize
 
 
 
@@ -697,7 +700,7 @@ class IntegratedSystem:
 
                 if (self.SNS_BypassForceFeedback == True and self.SNSc.neuronset["release"] > 2): #to release the object
                     if self.grasperType == GrasperType.SoftGrasper:
-                        self.SG.commandedPosition["ClosureDistance_mm"] = 0  # need to check if this is always satisfied
+                        self.SG.commandedPosition["ClosureDistance_mm"] = self.SG.max_abs_diameter_mm  # need to check if this is always satisfied
                     elif self.grasperType == GrasperType.RigidGrasper:
                         self.SG.commandedPosition[
                             "ClosureDistance_mm"] = 85  #

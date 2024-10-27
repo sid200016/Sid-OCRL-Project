@@ -606,7 +606,7 @@ class RigidGrasper:
         return(Force_N)
 
     def calcForceFromSensor(self, reading):
-        Force_N = (reading-1805.3)/231.29
+        Force_N = (0.00361*reading-15)
         Force_N = np.clip(Force_N,-20,40)
         return(Force_N)
 

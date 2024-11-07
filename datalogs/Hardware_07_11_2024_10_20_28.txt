@@ -1,0 +1,39 @@
+2024-11-07 10:20:28,346 - __main__ - INFO - Grasper Type selected: GrasperType.RigidGrasper
+2024-11-07 10:20:28,353 - __main__ - INFO - Enter C for calibration. 
+Enter S for SNS. 
+Enter Z to return to joystick control
+Enter H to move grasper home 
+Enter T to inflate until grasper touches 
+Enter MG to move the grasper 
+Enter M to move the gantry 
+Enter D to display robot state 
+Enter PR to enter pressure radius calibration 
+Enter K to begin Koopman Experiments 
+Enter LQR to begin LQR Experiments
+Enter ZS to zero the force/pressure sensors
+2024-11-07 10:20:32,623 - __main__ - INFO - ZS
+2024-11-07 10:20:37,815 - __main__ - INFO - Using: 10.000000 samples, 0.020000 seconds. 
+
+2024-11-07 10:20:37,816 - __main__ - INFO - jaw force offset: in N: -0.161456
+2024-11-07 10:20:39,872 - __main__ - INFO - D
+2024-11-07 10:20:39,901 - __main__ - INFO - Gantry position(mm): 0.000000 0.000000 0.000000 
+
+2024-11-07 10:20:39,901 - __main__ - INFO - Grasper commanded position (mm): 60.000000 
+
+2024-11-07 10:20:39,901 - __main__ - INFO - Grasper current position (mm): 60.076800 
+
+2024-11-07 10:20:39,901 - __main__ - INFO - Raw load cell reading: 4109.000000 
+
+2024-11-07 10:20:39,902 - __main__ - INFO - Load cell reading (N): -0.005054 
+
+2024-11-07 10:20:41,262 - __main__ - INFO - D
+2024-11-07 10:20:41,263 - __main__ - INFO - Gantry position(mm): 0.000000 0.000000 0.000000 
+
+2024-11-07 10:20:41,263 - __main__ - INFO - Grasper commanded position (mm): 60.000000 
+
+2024-11-07 10:20:41,263 - __main__ - INFO - Grasper current position (mm): 60.076800 
+
+2024-11-07 10:20:41,263 - __main__ - INFO - Raw load cell reading: 4109.000000 
+
+2024-11-07 10:20:41,263 - __main__ - INFO - Load cell reading (N): -0.005054 
+

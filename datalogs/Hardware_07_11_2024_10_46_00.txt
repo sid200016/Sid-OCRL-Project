@@ -1,0 +1,31 @@
+2024-11-07 10:46:00,868 - __main__ - INFO - Grasper Type selected: GrasperType.RigidGrasper
+2024-11-07 10:46:00,869 - __main__ - INFO - Enter C for calibration. 
+Enter S for SNS. 
+Enter Z to return to joystick control
+Enter H to move grasper home 
+Enter T to inflate until grasper touches 
+Enter MG to move the grasper 
+Enter M to move the gantry 
+Enter D to display robot state 
+Enter PR to enter pressure radius calibration 
+Enter K to begin Koopman Experiments 
+Enter LQR to begin LQR Experiments
+Enter ZS to zero the force/pressure sensors
+2024-11-07 10:46:15,395 - __main__ - INFO - ZS
+2024-11-07 10:46:16,963 - __main__ - INFO - Using: 10.000000 samples, 0.020000 seconds. 
+
+2024-11-07 10:46:16,995 - __main__ - INFO - jaw force offset: in N: -0.094310
+2024-11-07 10:46:19,426 - __main__ - INFO - D
+2024-11-07 10:46:19,427 - __main__ - INFO - Gantry position(mm): 0.000000 0.000000 0.000000 
+
+2024-11-07 10:46:19,427 - __main__ - INFO - Grasper commanded position (mm): 60.000000 
+
+2024-11-07 10:46:19,427 - __main__ - INFO - Grasper current position (mm): 59.852200 
+
+2024-11-07 10:46:19,427 - __main__ - INFO - Raw load cell reading: 4129.000000 
+
+2024-11-07 10:46:19,427 - __main__ - INFO - Load cell reading (N): 0.000000 
+
+2024-11-07 10:46:22,121 - __main__ - INFO - S
+2024-11-07 10:46:23,044 - __main__ - INFO - Type selected: O
+2024-11-07 10:46:33,564 - __main__ - INFO - Max closure (mm): 35.000000

@@ -331,10 +331,12 @@ class IntegratedSystem:
             self.ObjectPressureThreshold = [0.1]  # threshold above which to trigger the rumble, psi
             self.ObjectPressureScaling = 0.05
 
-            self.SNS_target_pos_m[2] = self.SNS_target_pos_m[2] -0.004 #add 21 mm because the rigid grasper jaws are closer to the base platform than the soft grasper
+            #self.SNS_target_pos_m[2] = self.SNS_target_pos_m[2] -0.004 #add 21 mm because the rigid grasper jaws are closer to the base platform than the soft grasper
             self.SNS_object_pos_m[2] = self.SNS_object_pos_m[2] -0.004
+            self.SNS_target_pos_m[2] = self.SNS_target_pos_m[2] +0.001 #done to try without interference at release point
 
-            self.SG.setPID(Kp=100, Ki=2, Kd=0) #setup the gains
+            #self.SG.setPID(Kp=100, Ki=2, Kd=0) #setup the gains
+            self.SG.setPID(Kp=1000,Ki = 2, Kd = 0) #for the fruit
             self.SG.getPID()
 
         self.SNSc = SNScontroller()
@@ -647,7 +649,7 @@ class IntegratedSystem:
                     #soft grasper uses an incremental move from the initial position.
                     #Rigid grasper is using the absolute gripper width. So set the max distance to 85 mm
                     #and then subtract 2x the SNS command since the SNS command in an incremental increase in radius
-                    self.SG.commandedPosition["ClosureDistance_mm"] = max(52.5 - 2*(JawRadialPos_m * 1000),
+                    self.SG.commandedPosition["ClosureDistance_mm"] = max(80 - 2*(JawRadialPos_m * 1000),
                                                                            self.maxJawChangeInRadius_mm) #limit to 52.5 because for the cube it takes a long time to move from 80 to 45 with large time constant. TODO: make this more elegant
 
                     if self.SNS_BypassForceFeedback == True and self.SNSc.object_grasped_phase == True:

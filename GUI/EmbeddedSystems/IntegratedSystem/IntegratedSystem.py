@@ -486,7 +486,6 @@ class IntegratedSystem:
         # Fix logging
         # Take video of it closing and record the change in radius 3 times
 
-        #TODO: Need to integrate rigid grasper
         while (True):
             if self.jcSG.ControlMode == JC.JoyConState.USE_SNS:
                 self.logger.debug('Inside SNS control')

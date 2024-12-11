@@ -33,7 +33,7 @@ figure()
 xlabel("MTS Force (N)")
 ylabel("Pressure ([psi])")
 hold on
-
+legend()
 
 for k = 1:length(softNames)
 
@@ -42,18 +42,18 @@ for k = 1:length(softNames)
     plot(xd,yd,'r-.');
     p = polyfit(xd,yd,4);
     yfit = polyval(p,xd);
-    plot(xd,yfit,'b-','LineWidth',2,'DisplayName','Jaw 1 fit');
+    plot(xd,yfit,'b-','LineWidth',2,'DisplayName',sprintf('Jaw 1 fit exp %i',k));
     disp(sprintf("Fit for Soft experiment %i jaw 1",k));
-    disp(p)
+    disp(vpa(p,6))
     
     xd = T_soft{:,ForceNames2{k}};
     yd = T_soft{:,PressureNames2{k}};
     plot(xd,yd,'r--');
     p = polyfit(xd,yd,4);
     yfit = polyval(p,xd);
-    plot(xd,yfit,'b-','LineWidth',2,'DisplayName','Jaw 2 fit');
+    plot(xd,yfit,'b-','LineWidth',2,'DisplayName',sprintf('Jaw 2 fit exp %i',k));
     disp(sprintf("Fit for Soft experiment %i jaw 2",k));
-    disp(p)
+    disp(vpa(p,6))
 
 end
 
@@ -75,7 +75,7 @@ for k = 1:length(SensorNames1)
     yfit = polyval(p,xd);
     plot(xd,yfit,'b-','LineWidth',2,'DisplayName','Rigid fit');
     disp(sprintf("Fit for rigid experiment %i",k));
-    disp(p)
+    disp(vpa(p,6))
 
 end
 
@@ -92,15 +92,15 @@ F_fit_threshold = F_th-subs(F_fit,Pval, P_th); %the equivalent force threshold f
 eqs = [Feedback_R - subs(Feedback_S,P,P_Fit);
        Feedback_R-F_feedback ];
 
-soln = solve(eqs(1),[K_rigid])
+soln = solve(eqs(1),[K_rigid]);
 
-soln2 = solve(eqs,[K_rigid,K_soft])
+soln2 = solve(eqs,[K_rigid,K_soft]);
 
-mag_K_rigid_fn = matlabFunction(soln,'Vars',[p1 p2 p3 p4 p5 K_soft F F_th P_th] )
-mag_K_rigid = mag_K_rigid_fn(-0.0037, 0.0392, -0.1140, 0.2033, 0.0422, 100, 0.5, 0, 0)
+mag_K_rigid_fn = matlabFunction(soln,'Vars',[p1 p2 p3 p4 p5 K_soft F F_th P_th] );
+mag_K_rigid = mag_K_rigid_fn(-0.0037, 0.0392, -0.1140, 0.2033, 0.0422, 100, 0.5, 0, 0);
 
-mag_K_rigid_fn2 = matlabFunction([soln2.K_rigid,soln2.K_soft],'Vars',[p1 p2 p3 p4 p5 F_feedback F F_th P_th] )
-mag_K_rigid2 = mag_K_rigid_fn2(-0.0037, 0.0392, -0.1140, 0.2033, 0.0422, 2, 0.5, 0, 0)
+mag_K_rigid_fn2 = matlabFunction([soln2.K_rigid,soln2.K_soft],'Vars',[p1 p2 p3 p4 p5 F_feedback F F_th P_th] );
+mag_K_rigid2 = mag_K_rigid_fn2(-0.0037, 0.0392, -0.1140, 0.2033, 0.0422, 2, 0.5, 0, 0);
 
 
 

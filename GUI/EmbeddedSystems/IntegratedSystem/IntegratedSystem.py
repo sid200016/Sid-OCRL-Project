@@ -531,8 +531,15 @@ class IntegratedSystem:
                     grasperThreshold = self.ContactThreshold["Pressure Threshold (psi)"]
                     pressureScaling = self.ContactThreshold["Pressure Scaling"]
 
-                    grasperContact = [(x-grasperThreshold[i]) * pressureScaling[i] if x >= grasperThreshold[i] else 0 for (i, x) in
-                                      enumerate(jawPressure)]
+                    if self.SG.SNS_use_Force == True: # if the scaling should apply to forces instead of pressures
+                        grasperContact = self.SG.GetForceFromPosition(jawPressure,grasperThreshold) # Convert psi to newtons
+                        grasperContact = np.array([x*pressureScaling[i] for (i,x) in enumerate(grasperContact)])
+
+                    else:
+                        grasperContact = [(x-grasperThreshold[i]) * pressureScaling[i] if x >= grasperThreshold[i] else 0 for (i, x) in
+                                          enumerate(jawPressure)]
+
+
 
                     contactNum = 1 #set this to 1 to set all three jaws to the maximum of the jaw pressure. Set to 2 to set the third jaw to the maximum of the first two.
 
@@ -546,6 +553,7 @@ class IntegratedSystem:
 
                         if len(num_grasper_contact)==1: #if you have two jaws in contact, then set the third jaw to the max contact pressure
                             grasperContact[num_grasper_contact[0]] = max(grasperContact)
+
 
                     grasperContact = GrasperContactForce(*grasperContact)
                     # if len(num_grasper_contact)== 2:
@@ -1893,6 +1901,19 @@ class IntegratedSystem:
 
     async def SNS_input_ForceCap(self):
         await self.SNS_input_force_threshold_gain()
+
+        if self.grasperType == GrasperType.SoftGrasper:
+            f_y_n = await aioconsolie.ainput("Please enter 'Y' to use Forces in Newtons for the SNS closed loop. "
+                                             "Default is 'N'.")
+
+            match f_y_n.upper():
+
+                case "Y":
+                    self.SG.SNS_use_Force = True #scaling applies to forces in N
+
+                case _:
+                    self.SG.SNS_use_Force = False #scaling applies to pressures in psi
+
 
         grasper_closing_speed_response = await aioconsole.ainput("Please enter 'Y' to enter the grasper closing time constant (s), "
                                                            "or enter any other button to use the default value of %f s\n" % self.SNSc.grasper_closing_speed)

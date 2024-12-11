@@ -103,7 +103,8 @@ class SoftGrasper:
         #Max closure pressure set
         self.PressurePorts[self.closureMuscle_idx].maxPressure = self.maxClosurePressure_psi
 
-
+        #Use force in SNS feedback if true, else use pressure if false.
+        self.SG.SNS_use_Force = True
         # #------ Initialization -----#
         # if self.controllerProfile == "Legacy":
         #     self.WaitForJawsToInflate()
@@ -133,6 +134,21 @@ class SoftGrasper:
         logger_soft.addHandler(fh)
         logger_soft.addHandler(ch)
         self.logger = logger_soft
+
+    def GetForceFromPosition(self, pressure_arr,pressureThreshold = 0 ):
+
+        def calcForce(p):
+            a = 0.2403
+            b = 8.8984
+            c = -0.2158
+            d = -18.5218
+            F = a*np.exp(b*p) + c*np.exp(d*p)
+            return F
+
+        force_arr = [calcForce(p)*(p>=pressureThreshold) for p in pressure_arr]
+        return(force_arr)
+
+
 
     def GetPressureFromPosition(self,position_mm,coeffs=[-0.0000001777329,
                                                          0.00004792679,

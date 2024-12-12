@@ -1,0 +1,29 @@
+2024-12-11 18:07:12,285 - __main__ - INFO - Grasper Type selected: GrasperType.SoftGrasper
+2024-12-11 18:07:12,286 - __main__ - INFO - Enter C for calibration. 
+Enter S for SNS. 
+Enter Z to return to joystick control
+Enter H to move grasper home 
+Enter T to inflate until grasper touches 
+Enter MG to move the grasper 
+Enter M to move the gantry 
+Enter D to display robot state 
+Enter PR to enter pressure radius calibration 
+Enter K to begin Koopman Experiments 
+Enter LQR to begin LQR Experiments
+Enter ZS to zero the force/pressure sensors
+2024-12-11 18:07:16,630 - __main__ - INFO - S
+2024-12-11 18:07:18,319 - __main__ - INFO - Type selected: FC
+2024-12-11 18:07:22,571 - __main__ - INFO - Force Threshold gain is: 10.000000
+2024-12-11 18:07:26,682 - __main__ - INFO - Grasper closing time constant is: 34.000000
+2024-12-11 18:07:35,515 - __main__ - INFO - Thresholds (psi): 0.020000, 0.020000, 0.035000
+2024-12-11 18:08:07,172 - __main__ - INFO - x,y,z used is (mm): -4.587500, 24.587500, -156.640000
+2024-12-11 18:08:28,576 - __main__ - INFO - Return home completed
+2024-12-11 18:08:28,576 - __main__ - INFO - Beginning SNS ...
+2024-12-11 18:08:28,577 - __main__ - DEBUG - Inside SNS control
+2024-12-11 18:08:28,577 - __main__ - INFO - Z offset 0.000000
+2024-12-11 18:08:28,577 - __main__ - DEBUG - Target position in m: -0.185413 -0.214587 -0.145000
+2024-12-11 18:08:28,577 - __main__ - DEBUG - GrasperPos in m:0.004588 -0.024587 0.000000
+2024-12-11 18:08:28,577 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.156640
+2024-12-11 18:08:28,577 - __main__ - INFO - [[0.18876581 0.18876581 0.        ]
+ [0.         0.         0.        ]
+ [0.2003699  0.2003699  0.        ]]

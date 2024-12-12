@@ -626,6 +626,8 @@ class IntegratedSystem:
                 # --- report for other modes what the limit of the force is when transition begins ----
                 if (self.SNSc.object_grasped_phase == True and self.SNSc.lift_after_grasp_started == True):
                     self.logger.info("Lift after grasp started, change in radius set to %f" %self.SG.commandedPosition["ClosureDistance_mm"])
+                    self.logger.info("Grasper Contact:")
+                    self.logger.info(grasperContact)
 
                 # --- finish
 
@@ -1903,7 +1905,7 @@ class IntegratedSystem:
         await self.SNS_input_force_threshold_gain()
 
         if self.grasperType == GrasperType.SoftGrasper:
-            f_y_n = await aioconsolie.ainput("Please enter 'Y' to use Forces in Newtons for the SNS closed loop. "
+            f_y_n = await aioconsole.ainput("Please enter 'Y' to use Forces in Newtons for the SNS closed loop. "
                                              "Default is 'N'.")
 
             match f_y_n.upper():

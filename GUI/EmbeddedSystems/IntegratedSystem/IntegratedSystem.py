@@ -659,7 +659,7 @@ class IntegratedSystem:
                     #Rigid grasper is using the absolute gripper width. So set the max distance to 85 mm
                     #and then subtract 2x the SNS command since the SNS command in an incremental increase in radius
                     #max_dist = 65 if (self.SNSc.ControlMode == ControlType.FORCE_CAP and self.SNSc.object_grasped_phase == True) else 80 #maximum distance to open the jaws
-                    max_dist = 80
+                    max_dist = 65
                     self.SG.commandedPosition["ClosureDistance_mm"] = max(max_dist - 2*(JawRadialPos_m * 1000),
                                                                            self.maxJawChangeInRadius_mm) #limit to 52.5 because for the cube it takes a long time to move from 80 to 45 with large time constant. TODO: make this more elegant
 

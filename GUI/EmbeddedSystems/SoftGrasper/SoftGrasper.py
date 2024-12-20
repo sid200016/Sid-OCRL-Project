@@ -104,7 +104,7 @@ class SoftGrasper:
         self.PressurePorts[self.closureMuscle_idx].maxPressure = self.maxClosurePressure_psi
 
         #Use force in SNS feedback if true, else use pressure if false.
-        self.SNS_use_Force = True
+        self.SNS_use_Force = False
         # #------ Initialization -----#
         # if self.controllerProfile == "Legacy":
         #     self.WaitForJawsToInflate()

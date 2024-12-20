@@ -280,8 +280,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.IntegratedSystem" />
-        <item itemvalue="Python.RigidGrasper" />
         <item itemvalue="Python.checkSoftGrasper2_new" />
+        <item itemvalue="Python.RigidGrasper" />
         <item itemvalue="Python.checkSoftGrasper_New" />
         <item itemvalue="Python.TestSNS_sim_modulation_closed_loop" />
       </list>
@@ -487,6 +487,11 @@
           <url>file://$PROJECT_DIR$/GUI/EmbeddedSystems/SNS/SNScontroller.py</url>
           <line>301</line>
           <option name="timeStamp" value="369" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/GUI/EmbeddedSystems/IntegratedSystem/IntegratedSystem.py</url>
+          <line>577</line>
+          <option name="timeStamp" value="371" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

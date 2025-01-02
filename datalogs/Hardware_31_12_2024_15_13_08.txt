@@ -1,0 +1,18 @@
+2024-12-31 15:13:08,149 - __main__ - INFO - Grasper Type selected: GrasperType.SoftGrasper
+2024-12-31 15:13:08,150 - __main__ - INFO - Enter C for calibration. 
+Enter S for SNS. 
+Enter Z to return to joystick control
+Enter H to move grasper home 
+Enter T to inflate until grasper touches 
+Enter MG to move the grasper 
+Enter M to move the gantry 
+Enter D to display robot state 
+Enter PR to enter pressure radius calibration 
+Enter K to begin Koopman Experiments 
+Enter LQR to begin LQR Experiments
+Enter ZS to zero the force/pressure sensors
+2024-12-31 15:13:10,710 - __main__ - INFO - MG
+2024-12-31 15:13:45,597 - __main__ - INFO - MG
+2024-12-31 15:14:02,471 - __main__ - INFO - S
+2024-12-31 15:14:03,422 - __main__ - INFO - Type selected: O
+2024-12-31 15:14:05,562 - __main__ - INFO - Max closure (mm): 43.000000

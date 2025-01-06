@@ -5,6 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfd83e2d-ab31-4129-8c0e-ce5b016d6614" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/datalogs/Data Analysis/Dashboard/TestDashboard.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/FRR-Software-Interface.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/FRR-Software-Interface.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,21 +38,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Ravesh/Downloads/FRR-Software-Interface/Testing/TestSNS_sim.py&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.idesettings.debugger.python&quot;,
-    &quot;two.files.diff.last.used.file&quot;: &quot;C:/Users/Ravesh/Downloads/FRR-Software-Interface/Testing/TestSNS_sim.py&quot;,
-    &quot;two.files.diff.last.used.folder&quot;: &quot;V:/Research/FRR/FRR Soft Grasper/FRR_SoftGrasper/PyBullet Model/Gantry/controller&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/Ravesh/Downloads/FRR-Software-Interface/Testing/TestSNS_sim.py",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "two.files.diff.last.used.file": "C:/Users/Ravesh/Downloads/FRR-Software-Interface/Testing/TestSNS_sim.py",
+    "two.files.diff.last.used.folder": "V:/Research/FRR/FRR Soft Grasper/FRR_SoftGrasper/PyBullet Model/Gantry/controller"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
-      &quot;Python&quot;
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "Python"
     ]
   }
-}</component>
+}]]></component>
   <component name="PyDebuggerOptionsProvider">
     <option name="myPyQtBackend" value="pyside" />
   </component>
@@ -69,7 +72,7 @@
       <recent name="C:\Users\Ravesh\Desktop\Research\FRR\FRR Software Interface\FRR-Software-Interface\Testing" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.IntegratedSystem">
+  <component name="RunManager" selected="Python.TestDashboard">
     <configuration name="IntegratedSystem" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="FRR-Software-Interface" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -112,7 +115,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="TestSNS_sim_modulation_closed_loop" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="TestDashboard" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="FRR-Software-Interface" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -120,11 +123,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Testing" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/datalogs/Data Analysis/Dashboard" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Testing/TestSNS_sim_modulation_closed_loop.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/datalogs/Data Analysis/Dashboard/TestDashboard.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -279,11 +282,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.TestDashboard" />
         <item itemvalue="Python.IntegratedSystem" />
         <item itemvalue="Python.checkSoftGrasper2_new" />
         <item itemvalue="Python.RigidGrasper" />
         <item itemvalue="Python.checkSoftGrasper_New" />
-        <item itemvalue="Python.TestSNS_sim_modulation_closed_loop" />
       </list>
     </recent_temporary>
   </component>

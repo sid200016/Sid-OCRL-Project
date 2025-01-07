@@ -1,0 +1,26 @@
+2024-06-19 14:52:50,770 - __main__ - INFO - Grasper Type selected: GrasperType.RigidGrasper
+2024-06-19 14:52:50,771 - __main__ - INFO - Enter C for calibration. 
+Enter S for SNS. 
+Enter Z to return to joystick control
+Enter H to move grasper home 
+Enter T to inflate until grasper touches 
+Enter MG to move the grasper 
+Enter M to move the gantry 
+Enter D to display robot state 
+Enter PR to enter pressure radius calibration 
+Enter K to begin Koopman Experiments 
+Enter LQR to begin LQR Experiments
+
+2024-06-19 14:54:59,570 - __main__ - INFO - S
+2024-06-19 14:55:01,139 - __main__ - INFO - Type selected: O
+2024-06-19 14:55:04,338 - __main__ - INFO - Using default values
+2024-06-19 14:55:04,339 - __main__ - INFO - Max closure (mm): 26.500000
+2024-06-19 14:55:05,314 - __main__ - INFO - Using default values
+2024-06-19 14:55:05,314 - __main__ - INFO - x,y,z used is (mm): -9.587500, 12.362000, -163.640000
+2024-06-19 14:55:26,393 - __main__ - INFO - Return home completed
+2024-06-19 14:55:26,393 - __main__ - INFO - Beginning SNS ...
+2024-06-19 14:55:26,394 - __main__ - DEBUG - Inside SNS control
+2024-06-19 14:55:26,418 - __main__ - INFO - Z offset 0.000000
+2024-06-19 14:55:26,418 - __main__ - DEBUG - Target position in m: -0.180413 -0.202362 -0.163000
+2024-06-19 14:55:26,418 - __main__ - DEBUG - GrasperPos in m:0.009588 -0.012362 0.000000
+2024-06-19 14:55:26,418 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.163640

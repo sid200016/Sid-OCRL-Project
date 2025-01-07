@@ -1,0 +1,2026 @@
+2024-10-26 19:50:03,193 - __main__ - INFO - Grasper Type selected: GrasperType.SoftGrasper
+2024-10-26 19:50:03,194 - __main__ - INFO - Enter C for calibration. 
+Enter S for SNS. 
+Enter Z to return to joystick control
+Enter H to move grasper home 
+Enter T to inflate until grasper touches 
+Enter MG to move the grasper 
+Enter M to move the gantry 
+Enter D to display robot state 
+Enter PR to enter pressure radius calibration 
+Enter K to begin Koopman Experiments 
+Enter LQR to begin LQR Experiments
+Enter ZS to zero the force/pressure sensors
+2024-10-26 19:50:46,022 - __main__ - INFO - S
+2024-10-26 19:50:47,423 - __main__ - INFO - Type selected: O
+2024-10-26 19:51:02,626 - __main__ - INFO - Max closure (mm): 48.000000
+2024-10-26 19:51:30,138 - __main__ - INFO - x,y,z used is (mm): -4.587500, 12.587500, -141.640000
+2024-10-26 19:51:52,069 - __main__ - INFO - Return home completed
+2024-10-26 19:51:52,070 - __main__ - INFO - Beginning SNS ...
+2024-10-26 19:51:52,070 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:52,084 - __main__ - INFO - Z offset 0.000000
+2024-10-26 19:51:52,084 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:52,085 - __main__ - DEBUG - GrasperPos in m:0.004588 -0.012587 0.000000
+2024-10-26 19:51:52,085 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:52,134 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:52,135 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:52,135 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.003666
+2024-10-26 19:51:52,135 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-3.665602
+2024-10-26 19:51:52,136 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:52,136 - __main__ - DEBUG - move_to_pre_grasp:20.0,move_to_grasp:0.0,grasp:0.0,lift_after_grasp:-20.0,move_to_pre_release:0.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:52,136 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:52,149 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:52,149 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:52,149 - __main__ - DEBUG - GrasperPos in m:0.004588 -0.012587 0.000000
+2024-10-26 19:51:52,149 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:52,155 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:52,155 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:52,155 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.007185
+2024-10-26 19:51:52,156 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-7.184580
+2024-10-26 19:51:52,156 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:52,156 - __main__ - DEBUG - move_to_pre_grasp:20.0,move_to_grasp:0.0,grasp:0.0,lift_after_grasp:-20.0,move_to_pre_release:0.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:52,156 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:52,157 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:52,363 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:52,363 - __main__ - DEBUG - GrasperPos in m:0.004550 -0.012462 -0.000035
+2024-10-26 19:51:52,363 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:52,365 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:52,365 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:52,366 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.010563
+2024-10-26 19:51:52,366 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-10.562799
+2024-10-26 19:51:52,366 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:52,366 - __main__ - DEBUG - move_to_pre_grasp:20.0,move_to_grasp:0.0,grasp:0.0,lift_after_grasp:-20.0,move_to_pre_release:0.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:52,366 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:52,389 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:52,389 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:52,389 - __main__ - DEBUG - GrasperPos in m:0.004550 -0.012462 -0.000035
+2024-10-26 19:51:52,389 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:52,396 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:52,396 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:52,397 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.013806
+2024-10-26 19:51:52,397 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-13.805889
+2024-10-26 19:51:52,397 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:52,397 - __main__ - DEBUG - move_to_pre_grasp:20.0,move_to_grasp:0.0,grasp:0.0,lift_after_grasp:-20.0,move_to_pre_release:0.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:52,397 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:52,398 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:52,609 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:52,609 - __main__ - DEBUG - GrasperPos in m:0.001238 -0.003375 -0.002685
+2024-10-26 19:51:52,609 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:52,613 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:52,613 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:52,613 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.016919
+2024-10-26 19:51:52,614 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-16.919255
+2024-10-26 19:51:52,614 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:52,614 - __main__ - DEBUG - move_to_pre_grasp:20.0,move_to_grasp:0.0,grasp:0.0,lift_after_grasp:-20.0,move_to_pre_release:0.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:52,614 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:52,627 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:52,628 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:52,628 - __main__ - DEBUG - GrasperPos in m:0.001238 -0.003375 -0.002685
+2024-10-26 19:51:52,628 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:52,630 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:52,630 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:52,630 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.019908
+2024-10-26 19:51:52,630 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-19.908087
+2024-10-26 19:51:52,631 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:52,631 - __main__ - DEBUG - move_to_pre_grasp:20.0,move_to_grasp:0.0,grasp:0.0,lift_after_grasp:-20.0,move_to_pre_release:0.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:52,631 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:52,632 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:52,820 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:52,820 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.004298
+2024-10-26 19:51:52,820 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:52,823 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:52,823 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:52,823 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.022777
+2024-10-26 19:51:52,824 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-22.777366
+2024-10-26 19:51:52,824 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:52,824 - __main__ - DEBUG - move_to_pre_grasp:20.0,move_to_grasp:0.0,grasp:0.0,lift_after_grasp:-20.0,move_to_pre_release:0.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:52,824 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:52,849 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:52,849 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:52,849 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.004298
+2024-10-26 19:51:52,849 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:52,857 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:52,857 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:52,857 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.025532
+2024-10-26 19:51:52,857 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-25.531871
+2024-10-26 19:51:52,858 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:52,858 - __main__ - DEBUG - move_to_pre_grasp:20.0,move_to_grasp:0.0,grasp:0.0,lift_after_grasp:-20.0,move_to_pre_release:0.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:52,858 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:52,859 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:53,056 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:53,056 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.008850
+2024-10-26 19:51:53,056 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:53,060 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:53,060 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:53,060 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.028176
+2024-10-26 19:51:53,060 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-28.176198
+2024-10-26 19:51:53,060 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:53,061 - __main__ - DEBUG - move_to_pre_grasp:20.0,move_to_grasp:0.0,grasp:0.0,lift_after_grasp:-20.0,move_to_pre_release:0.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:53,061 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:53,065 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:53,065 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:53,066 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.008850
+2024-10-26 19:51:53,066 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:53,071 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:53,072 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:53,072 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.030715
+2024-10-26 19:51:53,072 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-30.714750
+2024-10-26 19:51:53,072 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:53,072 - __main__ - DEBUG - move_to_pre_grasp:20.0,move_to_grasp:0.0,grasp:0.0,lift_after_grasp:-20.0,move_to_pre_release:0.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:53,073 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:53,074 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:53,263 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:53,264 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.010735
+2024-10-26 19:51:53,264 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:53,268 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:53,268 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:53,268 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.033152
+2024-10-26 19:51:53,268 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-33.151761
+2024-10-26 19:51:53,268 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:53,268 - __main__ - DEBUG - move_to_pre_grasp:20.0,move_to_grasp:0.0,grasp:0.0,lift_after_grasp:-20.0,move_to_pre_release:0.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:53,268 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:53,294 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:53,294 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:53,294 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.010735
+2024-10-26 19:51:53,294 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:53,297 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:53,297 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:53,297 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.035491
+2024-10-26 19:51:53,297 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-35.491291
+2024-10-26 19:51:53,297 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:53,297 - __main__ - DEBUG - move_to_pre_grasp:20.0,move_to_grasp:0.0,grasp:0.0,lift_after_grasp:-20.0,move_to_pre_release:0.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:53,297 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:53,298 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:53,487 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:53,487 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.014440
+2024-10-26 19:51:53,487 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:53,490 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:53,490 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:53,490 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.037737
+2024-10-26 19:51:53,490 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-37.737243
+2024-10-26 19:51:53,490 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:53,490 - __main__ - DEBUG - move_to_pre_grasp:20.0,move_to_grasp:0.0,grasp:0.0,lift_after_grasp:-20.0,move_to_pre_release:0.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:53,490 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:53,492 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:53,492 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:53,492 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.014440
+2024-10-26 19:51:53,492 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:53,495 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:53,495 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:53,495 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.039893
+2024-10-26 19:51:53,495 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-39.893355
+2024-10-26 19:51:53,495 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:53,495 - __main__ - DEBUG - move_to_pre_grasp:20.0,move_to_grasp:0.0,grasp:0.0,lift_after_grasp:-20.0,move_to_pre_release:0.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:53,495 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:53,496 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:53,687 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:53,687 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.021090
+2024-10-26 19:51:53,688 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:53,691 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:53,691 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:53,691 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.041963
+2024-10-26 19:51:53,691 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-41.963220
+2024-10-26 19:51:53,692 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:53,692 - __main__ - DEBUG - move_to_pre_grasp:20.0,move_to_grasp:0.0,grasp:0.0,lift_after_grasp:-20.0,move_to_pre_release:0.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:53,692 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:53,715 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:53,715 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:53,715 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.021090
+2024-10-26 19:51:53,716 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:53,722 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:53,722 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:53,722 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.043950
+2024-10-26 19:51:53,723 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-43.950293
+2024-10-26 19:51:53,723 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:53,723 - __main__ - DEBUG - move_to_pre_grasp:20.0,move_to_grasp:0.0,grasp:0.0,lift_after_grasp:-20.0,move_to_pre_release:0.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:53,723 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:53,725 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:53,932 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:53,932 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.028910
+2024-10-26 19:51:53,932 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:53,936 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:53,936 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:53,936 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.045858
+2024-10-26 19:51:53,936 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-45.857884
+2024-10-26 19:51:53,936 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:53,936 - __main__ - DEBUG - move_to_pre_grasp:20.0,move_to_grasp:0.0,grasp:0.0,lift_after_grasp:-20.0,move_to_pre_release:0.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:53,936 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:53,960 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:53,960 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:53,960 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.028910
+2024-10-26 19:51:53,960 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:53,964 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:53,964 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:53,964 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.047689
+2024-10-26 19:51:53,964 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-47.689170
+2024-10-26 19:51:53,964 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:53,964 - __main__ - DEBUG - move_to_pre_grasp:20.0,move_to_grasp:0.0,grasp:0.0,lift_after_grasp:-20.0,move_to_pre_release:0.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:53,964 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:53,965 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:54,155 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:54,155 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.033015
+2024-10-26 19:51:54,155 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:54,158 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:54,158 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:54,159 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.049447
+2024-10-26 19:51:54,159 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-49.447205
+2024-10-26 19:51:54,159 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:54,159 - __main__ - DEBUG - move_to_pre_grasp:20.0,move_to_grasp:0.0,grasp:0.0,lift_after_grasp:-20.0,move_to_pre_release:0.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:54,159 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:54,160 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:54,161 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:54,161 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.033015
+2024-10-26 19:51:54,161 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:54,166 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:54,166 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:54,166 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.051135
+2024-10-26 19:51:54,166 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-51.134914
+2024-10-26 19:51:54,166 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:54,166 - __main__ - DEBUG - move_to_pre_grasp:20.0,move_to_grasp:0.0,grasp:0.0,lift_after_grasp:-20.0,move_to_pre_release:0.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:54,166 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:54,167 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:54,365 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:54,365 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.035002
+2024-10-26 19:51:54,365 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:54,368 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:54,368 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:54,368 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.052755
+2024-10-26 19:51:54,369 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-52.755117
+2024-10-26 19:51:54,369 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:54,369 - __main__ - DEBUG - move_to_pre_grasp:20.0,move_to_grasp:0.0,grasp:0.0,lift_after_grasp:-20.0,move_to_pre_release:0.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:54,369 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:54,389 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:54,389 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:54,389 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.035002
+2024-10-26 19:51:54,390 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:54,395 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:54,395 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:54,395 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.054311
+2024-10-26 19:51:54,396 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-54.310512
+2024-10-26 19:51:54,396 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:54,396 - __main__ - DEBUG - move_to_pre_grasp:20.0,move_to_grasp:0.0,grasp:0.0,lift_after_grasp:-20.0,move_to_pre_release:0.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:54,396 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:54,397 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:54,592 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:54,592 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.041030
+2024-10-26 19:51:54,592 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:54,595 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:54,596 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:54,596 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.055804
+2024-10-26 19:51:54,596 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-55.803694
+2024-10-26 19:51:54,596 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:54,596 - __main__ - DEBUG - move_to_pre_grasp:20.0,move_to_grasp:0.0,grasp:0.0,lift_after_grasp:-20.0,move_to_pre_release:0.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:54,596 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:54,599 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:54,599 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:54,599 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.041030
+2024-10-26 19:51:54,599 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:54,605 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:54,605 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:54,606 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.057237
+2024-10-26 19:51:54,606 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-57.237148
+2024-10-26 19:51:54,606 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:54,606 - __main__ - DEBUG - move_to_pre_grasp:20.0,move_to_grasp:0.0,grasp:0.0,lift_after_grasp:-20.0,move_to_pre_release:0.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:54,606 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:54,608 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:54,777 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:54,777 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.047905
+2024-10-26 19:51:54,777 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:54,780 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:54,780 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:54,780 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.058613
+2024-10-26 19:51:54,780 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-58.613267
+2024-10-26 19:51:54,780 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:54,780 - __main__ - DEBUG - move_to_pre_grasp:20.0,move_to_grasp:0.0,grasp:0.0,lift_after_grasp:-20.0,move_to_pre_release:0.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:54,780 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:54,796 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:54,796 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:54,797 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.047905
+2024-10-26 19:51:54,797 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:54,802 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:54,802 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:54,803 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.059934
+2024-10-26 19:51:54,803 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-59.934337
+2024-10-26 19:51:54,803 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:54,803 - __main__ - DEBUG - move_to_pre_grasp:20.0,move_to_grasp:0.0,grasp:0.0,lift_after_grasp:-20.0,move_to_pre_release:0.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:54,803 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:54,805 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:55,004 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:55,004 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.052097
+2024-10-26 19:51:55,004 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:55,006 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:55,006 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:55,006 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.061203
+2024-10-26 19:51:55,006 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-61.202563
+2024-10-26 19:51:55,006 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:55,006 - __main__ - DEBUG - move_to_pre_grasp:20.0,move_to_grasp:0.0,grasp:0.0,lift_after_grasp:-20.0,move_to_pre_release:0.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:55,007 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:55,019 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:55,019 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:55,020 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.052097
+2024-10-26 19:51:55,020 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:55,024 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:55,024 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:55,024 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.062420
+2024-10-26 19:51:55,024 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-62.420059
+2024-10-26 19:51:55,024 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:55,024 - __main__ - DEBUG - move_to_pre_grasp:20.0,move_to_grasp:0.0,grasp:0.0,lift_after_grasp:-20.0,move_to_pre_release:0.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:55,025 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:55,026 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:55,222 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:55,222 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.053588
+2024-10-26 19:51:55,222 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:55,225 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:55,225 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:55,225 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.063589
+2024-10-26 19:51:55,225 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-63.588858
+2024-10-26 19:51:55,225 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:55,225 - __main__ - DEBUG - move_to_pre_grasp:20.0,move_to_grasp:0.0,grasp:0.0,lift_after_grasp:-20.0,move_to_pre_release:0.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:55,225 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:55,275 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:55,275 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:55,275 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.053588
+2024-10-26 19:51:55,275 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:55,278 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:55,278 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:55,278 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.064711
+2024-10-26 19:51:55,278 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-64.710908
+2024-10-26 19:51:55,278 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:55,278 - __main__ - DEBUG - move_to_pre_grasp:20.0,move_to_grasp:0.0,grasp:0.0,lift_after_grasp:-20.0,move_to_pre_release:0.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:55,278 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:55,279 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:55,476 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:55,476 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.058083
+2024-10-26 19:51:55,476 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:55,479 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:55,479 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:55,479 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.065788
+2024-10-26 19:51:55,479 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-65.788068
+2024-10-26 19:51:55,479 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:55,479 - __main__ - DEBUG - move_to_pre_grasp:20.0,move_to_grasp:0.0,grasp:0.0,lift_after_grasp:-20.0,move_to_pre_release:0.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:55,479 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:55,481 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:55,481 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:55,481 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.058083
+2024-10-26 19:51:55,481 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:55,486 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:55,486 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:55,486 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.066822
+2024-10-26 19:51:55,486 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-66.822149
+2024-10-26 19:51:55,486 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:55,486 - __main__ - DEBUG - move_to_pre_grasp:20.0,move_to_grasp:0.0,grasp:0.0,lift_after_grasp:-20.0,move_to_pre_release:0.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:55,486 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:55,487 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:55,679 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:55,679 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.059440
+2024-10-26 19:51:55,679 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:55,684 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:55,684 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:55,684 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.067815
+2024-10-26 19:51:55,685 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-67.814864
+2024-10-26 19:51:55,685 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:55,685 - __main__ - DEBUG - move_to_pre_grasp:20.0,move_to_grasp:0.0,grasp:0.0,lift_after_grasp:-20.0,move_to_pre_release:0.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:55,685 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:55,703 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:55,704 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:55,704 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.059440
+2024-10-26 19:51:55,704 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:55,707 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:55,707 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:55,707 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.068768
+2024-10-26 19:51:55,707 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-68.767868
+2024-10-26 19:51:55,708 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:55,708 - __main__ - DEBUG - move_to_pre_grasp:20.0,move_to_grasp:0.0,grasp:0.0,lift_after_grasp:-20.0,move_to_pre_release:0.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:55,708 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:55,708 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:55,901 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:55,902 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.063122
+2024-10-26 19:51:55,902 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:55,904 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:55,904 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:55,904 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.071683
+2024-10-26 19:51:55,904 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-71.682751
+2024-10-26 19:51:55,904 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:55,905 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:20.0,grasp:0.0,lift_after_grasp:0.0,move_to_pre_release:-20.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:55,905 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:55,925 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:55,926 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:55,926 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.063122
+2024-10-26 19:51:55,926 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:55,930 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:55,931 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:55,931 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.074481
+2024-10-26 19:51:55,931 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-74.481040
+2024-10-26 19:51:55,931 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:55,931 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:20.0,grasp:0.0,lift_after_grasp:0.0,move_to_pre_release:-20.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:55,932 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:55,935 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:56,121 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:56,121 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.064757
+2024-10-26 19:51:56,121 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:56,124 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:56,125 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:56,125 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.077167
+2024-10-26 19:51:56,125 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-77.167399
+2024-10-26 19:51:56,125 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:56,125 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:20.0,grasp:0.0,lift_after_grasp:0.0,move_to_pre_release:-20.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:56,125 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:56,150 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:56,151 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:56,151 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.064757
+2024-10-26 19:51:56,151 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:56,157 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:56,157 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:56,157 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.079746
+2024-10-26 19:51:56,157 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-79.746298
+2024-10-26 19:51:56,157 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:56,158 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:20.0,grasp:0.0,lift_after_grasp:0.0,move_to_pre_release:-20.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:56,158 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:56,159 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:56,345 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:56,345 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.067755
+2024-10-26 19:51:56,345 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:56,347 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:56,347 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:56,347 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.082222
+2024-10-26 19:51:56,348 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-82.222044
+2024-10-26 19:51:56,348 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:56,348 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:20.0,grasp:0.0,lift_after_grasp:0.0,move_to_pre_release:-20.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:56,348 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:56,350 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:56,350 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:56,350 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.067755
+2024-10-26 19:51:56,350 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:56,356 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:56,356 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:56,356 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.084599
+2024-10-26 19:51:56,356 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-84.598765
+2024-10-26 19:51:56,356 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:56,357 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:20.0,grasp:0.0,lift_after_grasp:0.0,move_to_pre_release:-20.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:56,357 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:56,358 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:56,529 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:56,529 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.069567
+2024-10-26 19:51:56,530 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:56,534 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:56,535 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:56,535 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.086880
+2024-10-26 19:51:56,535 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-86.880408
+2024-10-26 19:51:56,535 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:56,536 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:20.0,grasp:0.0,lift_after_grasp:0.0,move_to_pre_release:-20.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:56,536 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:56,559 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:56,559 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:56,559 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.069567
+2024-10-26 19:51:56,559 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:56,563 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:56,563 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:56,563 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.089071
+2024-10-26 19:51:56,564 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-89.070790
+2024-10-26 19:51:56,564 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:56,564 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:20.0,grasp:0.0,lift_after_grasp:0.0,move_to_pre_release:-20.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:56,564 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:56,566 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:56,745 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:56,745 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.074840
+2024-10-26 19:51:56,745 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:56,748 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:56,748 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:56,748 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.091174
+2024-10-26 19:51:56,748 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-91.173559
+2024-10-26 19:51:56,748 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:56,748 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:20.0,grasp:0.0,lift_after_grasp:0.0,move_to_pre_release:-20.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:56,749 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:56,766 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:56,767 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:56,767 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.074840
+2024-10-26 19:51:56,767 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:56,770 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:56,771 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:56,771 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.093192
+2024-10-26 19:51:56,771 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-93.192212
+2024-10-26 19:51:56,771 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:56,771 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:20.0,grasp:0.0,lift_after_grasp:0.0,move_to_pre_release:-20.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:56,771 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:56,772 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:56,995 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:56,995 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.077173
+2024-10-26 19:51:56,995 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:56,998 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:56,998 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:56,998 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.095130
+2024-10-26 19:51:56,998 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-95.130123
+2024-10-26 19:51:56,999 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:56,999 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:20.0,grasp:0.0,lift_after_grasp:0.0,move_to_pre_release:-20.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:56,999 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:57,020 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:57,020 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:57,020 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.077173
+2024-10-26 19:51:57,021 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:57,024 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:57,025 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:57,025 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.096991
+2024-10-26 19:51:57,025 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-96.990518
+2024-10-26 19:51:57,025 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:57,025 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:20.0,grasp:0.0,lift_after_grasp:0.0,move_to_pre_release:-20.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:57,026 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:57,027 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:57,228 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:57,228 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.080720
+2024-10-26 19:51:57,228 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:57,234 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:57,235 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:57,235 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.098776
+2024-10-26 19:51:57,235 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-98.776489
+2024-10-26 19:51:57,235 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:57,236 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:20.0,grasp:0.0,lift_after_grasp:0.0,move_to_pre_release:-20.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:57,236 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:57,239 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:57,239 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:57,240 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.080720
+2024-10-26 19:51:57,240 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:57,247 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:57,247 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:57,247 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.100491
+2024-10-26 19:51:57,247 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-100.491039
+2024-10-26 19:51:57,248 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:57,248 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:20.0,grasp:0.0,lift_after_grasp:0.0,move_to_pre_release:-20.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:57,248 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:57,249 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:57,415 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:57,415 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.087855
+2024-10-26 19:51:57,415 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:57,418 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:57,419 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:57,419 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.102137
+2024-10-26 19:51:57,419 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-102.136992
+2024-10-26 19:51:57,419 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:57,419 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:20.0,grasp:0.0,lift_after_grasp:0.0,move_to_pre_release:-20.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:57,419 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:57,452 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:57,452 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:57,452 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.087855
+2024-10-26 19:51:57,452 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:57,455 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:57,455 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:57,455 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.103717
+2024-10-26 19:51:57,455 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-103.717111
+2024-10-26 19:51:57,455 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:57,455 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:20.0,grasp:0.0,lift_after_grasp:0.0,move_to_pre_release:-20.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:57,455 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:57,456 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:57,685 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:57,685 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.093755
+2024-10-26 19:51:57,685 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:57,689 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:57,689 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:57,689 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.105234
+2024-10-26 19:51:57,690 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-105.234027
+2024-10-26 19:51:57,690 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:57,690 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:20.0,grasp:0.0,lift_after_grasp:0.0,move_to_pre_release:-20.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:57,690 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:57,704 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:57,704 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:57,705 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.093755
+2024-10-26 19:51:57,705 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:57,709 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:57,709 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:57,709 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.106690
+2024-10-26 19:51:57,709 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-106.690265
+2024-10-26 19:51:57,709 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:57,709 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:20.0,grasp:0.0,lift_after_grasp:0.0,move_to_pre_release:-20.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:57,709 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:57,710 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:57,901 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:57,901 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.095603
+2024-10-26 19:51:57,902 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:57,906 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:57,906 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:57,906 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.108088
+2024-10-26 19:51:57,906 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-108.088255
+2024-10-26 19:51:57,907 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:57,907 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:20.0,grasp:0.0,lift_after_grasp:0.0,move_to_pre_release:-20.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:57,907 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:57,925 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:57,925 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:57,925 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.095603
+2024-10-26 19:51:57,925 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:57,928 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:57,928 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:57,928 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.109430
+2024-10-26 19:51:57,928 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-109.430328
+2024-10-26 19:51:57,928 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:57,928 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:20.0,grasp:0.0,lift_after_grasp:0.0,move_to_pre_release:-20.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:57,928 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:57,929 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:58,104 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:58,104 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.099865
+2024-10-26 19:51:58,105 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:58,108 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:58,109 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:58,109 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.110719
+2024-10-26 19:51:58,109 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-110.718720
+2024-10-26 19:51:58,109 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:58,109 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:20.0,grasp:0.0,lift_after_grasp:0.0,move_to_pre_release:-20.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:58,110 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:58,111 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:58,111 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:58,111 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.099865
+2024-10-26 19:51:58,111 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:58,114 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:58,114 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:58,114 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.111956
+2024-10-26 19:51:58,114 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-111.955561
+2024-10-26 19:51:58,114 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:58,115 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:20.0,grasp:0.0,lift_after_grasp:0.0,move_to_pre_release:-20.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:58,115 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:58,116 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:58,293 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:58,293 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.102112
+2024-10-26 19:51:58,293 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:58,297 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:58,297 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:58,298 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.113143
+2024-10-26 19:51:58,298 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-113.142930
+2024-10-26 19:51:58,298 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:58,298 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:20.0,grasp:0.0,lift_after_grasp:0.0,move_to_pre_release:-20.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:58,298 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:58,301 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:58,301 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:58,302 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.102112
+2024-10-26 19:51:58,302 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:58,309 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:58,309 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:58,309 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.114283
+2024-10-26 19:51:58,309 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-114.282809
+2024-10-26 19:51:58,310 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:58,310 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:20.0,grasp:0.0,lift_after_grasp:0.0,move_to_pre_release:-20.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:58,310 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:58,312 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:58,476 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:58,476 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.104015
+2024-10-26 19:51:58,476 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:58,478 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:58,479 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:58,479 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.115377
+2024-10-26 19:51:58,479 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-115.377091
+2024-10-26 19:51:58,479 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:58,479 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:20.0,grasp:0.0,lift_after_grasp:0.0,move_to_pre_release:-20.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:58,479 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:58,516 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:58,516 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:58,517 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.104015
+2024-10-26 19:51:58,517 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:58,526 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:58,527 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:58,527 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.116428
+2024-10-26 19:51:58,528 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-116.427615
+2024-10-26 19:51:58,528 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:58,528 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:20.0,grasp:0.0,lift_after_grasp:0.0,move_to_pre_release:-20.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:58,528 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:58,530 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:58,719 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:58,719 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.107882
+2024-10-26 19:51:58,719 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:58,722 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:58,722 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:58,723 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.117436
+2024-10-26 19:51:58,723 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-117.436111
+2024-10-26 19:51:58,723 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:58,723 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:20.0,grasp:0.0,lift_after_grasp:0.0,move_to_pre_release:-20.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:58,723 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:58,742 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:58,743 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:58,743 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.107882
+2024-10-26 19:51:58,743 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:58,749 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:58,750 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:58,750 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.118404
+2024-10-26 19:51:58,750 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-118.404269
+2024-10-26 19:51:58,750 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:58,750 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:20.0,grasp:0.0,lift_after_grasp:0.0,move_to_pre_release:-20.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:58,751 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:58,752 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:58,934 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:58,934 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.109505
+2024-10-26 19:51:58,934 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:58,937 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:58,937 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:58,937 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.119334
+2024-10-26 19:51:58,937 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-119.333699
+2024-10-26 19:51:58,937 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:58,937 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:20.0,grasp:0.0,lift_after_grasp:0.0,move_to_pre_release:-20.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:58,938 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:58,950 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:58,950 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:58,950 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.109505
+2024-10-26 19:51:58,950 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:58,955 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:58,955 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:58,955 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.120226
+2024-10-26 19:51:58,955 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-120.225944
+2024-10-26 19:51:58,955 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:58,956 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:20.0,grasp:0.0,lift_after_grasp:0.0,move_to_pre_release:-20.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:58,956 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:58,957 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:59,145 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:59,145 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.113983
+2024-10-26 19:51:59,145 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:59,148 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:59,149 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:59,149 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.121082
+2024-10-26 19:51:59,149 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-121.082500
+2024-10-26 19:51:59,149 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:59,149 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:20.0,grasp:0.0,lift_after_grasp:0.0,move_to_pre_release:-20.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:59,150 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:59,152 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:59,152 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:59,152 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.113983
+2024-10-26 19:51:59,152 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:59,155 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:59,156 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:59,156 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.121905
+2024-10-26 19:51:59,156 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-121.904790
+2024-10-26 19:51:59,156 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:59,156 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:20.0,grasp:0.0,lift_after_grasp:0.0,move_to_pre_release:-20.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:59,156 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:59,157 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:59,350 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:59,350 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.115545
+2024-10-26 19:51:59,350 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:59,354 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:59,354 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:59,354 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.122694
+2024-10-26 19:51:59,355 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-122.694194
+2024-10-26 19:51:59,355 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:59,355 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:20.0,grasp:0.0,lift_after_grasp:0.0,move_to_pre_release:-20.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:59,355 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:59,373 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:59,374 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:59,374 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.115545
+2024-10-26 19:51:59,374 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:59,380 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:59,380 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:59,381 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.123452
+2024-10-26 19:51:59,381 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-123.452023
+2024-10-26 19:51:59,381 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:59,381 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:20.0,grasp:0.0,lift_after_grasp:0.0,move_to_pre_release:-20.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:59,381 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:59,383 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:59,579 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:59,579 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.118688
+2024-10-26 19:51:59,579 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:59,583 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:59,584 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:59,584 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.124180
+2024-10-26 19:51:59,584 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-124.179542
+2024-10-26 19:51:59,584 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:59,584 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:20.0,grasp:0.0,lift_after_grasp:0.0,move_to_pre_release:-20.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:59,584 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:59,596 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:59,596 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:59,596 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.118688
+2024-10-26 19:51:59,596 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:59,599 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:59,599 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:59,599 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.124878
+2024-10-26 19:51:59,600 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-124.877952
+2024-10-26 19:51:59,600 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:59,600 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:20.0,grasp:0.0,lift_after_grasp:0.0,move_to_pre_release:-20.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:59,600 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:59,601 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:59,804 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:59,804 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.120280
+2024-10-26 19:51:59,804 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:59,807 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:59,807 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:59,807 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.125548
+2024-10-26 19:51:59,807 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-125.548437
+2024-10-26 19:51:59,807 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:59,807 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:20.0,grasp:0.0,lift_after_grasp:0.0,move_to_pre_release:-20.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:59,807 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:59,829 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:51:59,829 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:51:59,830 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.120280
+2024-10-26 19:51:59,830 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:51:59,837 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:51:59,837 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:51:59,837 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.126192
+2024-10-26 19:51:59,837 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-126.192093
+2024-10-26 19:51:59,838 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:51:59,838 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:20.0,grasp:0.0,lift_after_grasp:0.0,move_to_pre_release:-20.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:51:59,838 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:51:59,839 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:00,064 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:00,064 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.122705
+2024-10-26 19:52:00,065 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:00,069 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:52:00,069 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:52:00,069 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.126810
+2024-10-26 19:52:00,070 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-126.809999
+2024-10-26 19:52:00,070 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:52:00,070 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:20.0,grasp:0.0,lift_after_grasp:0.0,move_to_pre_release:-20.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:52:00,070 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:52:00,087 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:00,088 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:00,088 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.122705
+2024-10-26 19:52:00,088 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:00,095 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:52:00,095 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:52:00,095 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.127403
+2024-10-26 19:52:00,096 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-127.403200
+2024-10-26 19:52:00,096 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:52:00,096 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:20.0,grasp:0.0,lift_after_grasp:0.0,move_to_pre_release:-20.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:52:00,096 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:52:00,098 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:00,286 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:00,286 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.125380
+2024-10-26 19:52:00,286 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:00,289 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:52:00,290 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:52:00,290 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.127973
+2024-10-26 19:52:00,290 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-127.972677
+2024-10-26 19:52:00,290 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:52:00,290 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:20.0,grasp:0.0,lift_after_grasp:0.0,move_to_pre_release:-20.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:52:00,291 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:52:00,317 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:00,317 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:00,317 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.125380
+2024-10-26 19:52:00,317 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:00,321 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:52:00,321 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:52:00,321 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.128519
+2024-10-26 19:52:00,322 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-128.519371
+2024-10-26 19:52:00,322 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:52:00,322 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:20.0,grasp:0.0,lift_after_grasp:0.0,move_to_pre_release:-20.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:52:00,322 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:52:00,324 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:00,519 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:00,519 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.126750
+2024-10-26 19:52:00,519 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:00,523 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:52:00,524 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:52:00,524 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.129044
+2024-10-26 19:52:00,524 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-129.044190
+2024-10-26 19:52:00,524 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:52:00,524 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:20.0,grasp:0.0,lift_after_grasp:0.0,move_to_pre_release:-20.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:52:00,525 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:52:00,540 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:00,540 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:00,540 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.126750
+2024-10-26 19:52:00,540 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:00,547 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:52:00,547 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:52:00,547 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.129548
+2024-10-26 19:52:00,547 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-129.548013
+2024-10-26 19:52:00,547 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:52:00,547 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:20.0,grasp:0.0,lift_after_grasp:0.0,move_to_pre_release:-20.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:52:00,547 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:52:00,548 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:00,728 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:00,728 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.127980
+2024-10-26 19:52:00,728 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:00,732 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:52:00,732 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:52:00,732 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.130032
+2024-10-26 19:52:00,732 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-130.031690
+2024-10-26 19:52:00,732 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:52:00,732 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:20.0,grasp:0.0,lift_after_grasp:0.0,move_to_pre_release:-20.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:52:00,732 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:52:00,746 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:00,746 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:00,746 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.127980
+2024-10-26 19:52:00,746 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:00,749 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:52:00,749 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:52:00,749 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.130496
+2024-10-26 19:52:00,750 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-130.496025
+2024-10-26 19:52:00,750 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:52:00,750 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:20.0,grasp:0.0,lift_after_grasp:0.0,move_to_pre_release:-20.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:52:00,750 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:52:00,751 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:00,927 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:00,927 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.129070
+2024-10-26 19:52:00,927 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:00,930 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:52:00,930 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:52:00,930 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.130942
+2024-10-26 19:52:00,931 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-130.941793
+2024-10-26 19:52:00,931 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:52:00,931 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:20.0,grasp:0.0,lift_after_grasp:0.0,move_to_pre_release:-20.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:52:00,931 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:52:00,951 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:00,952 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:00,952 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.129070
+2024-10-26 19:52:00,952 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:00,956 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:52:00,956 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:52:00,956 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.131370
+2024-10-26 19:52:00,956 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-131.369710
+2024-10-26 19:52:00,956 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:52:00,957 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:20.0,grasp:0.0,lift_after_grasp:0.0,move_to_pre_release:-20.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:52:00,957 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:52:00,958 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:01,167 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:01,168 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.130085
+2024-10-26 19:52:01,168 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:01,170 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:52:01,170 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:52:01,170 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.131781
+2024-10-26 19:52:01,170 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-131.780520
+2024-10-26 19:52:01,170 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:52:01,170 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:20.0,grasp:0.0,lift_after_grasp:0.0,move_to_pre_release:-20.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:52:01,171 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:52:01,189 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:01,189 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:01,189 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.130085
+2024-10-26 19:52:01,190 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:01,193 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:52:01,193 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:52:01,193 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.132175
+2024-10-26 19:52:01,193 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-132.174894
+2024-10-26 19:52:01,194 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:52:01,194 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:20.0,grasp:0.0,lift_after_grasp:0.0,move_to_pre_release:-20.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:52:01,194 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:52:01,194 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:01,391 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:01,391 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.130985
+2024-10-26 19:52:01,391 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:01,394 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:52:01,395 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:52:01,395 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.132554
+2024-10-26 19:52:01,395 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-132.553503
+2024-10-26 19:52:01,395 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:52:01,395 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:20.0,grasp:0.0,lift_after_grasp:0.0,move_to_pre_release:-20.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:52:01,395 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:52:01,410 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:01,410 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:01,410 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.130985
+2024-10-26 19:52:01,410 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:01,413 - __main__ - DEBUG - After SNS forward: 0.000000
+2024-10-26 19:52:01,413 - __main__ - DEBUG - Jaw radial pos in m:0.000000
+2024-10-26 19:52:01,413 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.132917
+2024-10-26 19:52:01,413 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-132.916957
+2024-10-26 19:52:01,413 - __main__ - DEBUG - SNS commanded change in radius (mm):0.000000
+2024-10-26 19:52:01,413 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:20.0,grasp:0.0,lift_after_grasp:0.0,move_to_pre_release:-20.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:52:01,413 - __main__ - DEBUG - Number of grasp attempts 0
+2024-10-26 19:52:01,414 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:01,591 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:01,591 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.131812
+2024-10-26 19:52:01,591 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:01,594 - __main__ - DEBUG - After SNS forward: 0.001370
+2024-10-26 19:52:01,594 - __main__ - DEBUG - Jaw radial pos in m:0.001370
+2024-10-26 19:52:01,594 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.133266
+2024-10-26 19:52:01,594 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-133.265868
+2024-10-26 19:52:01,594 - __main__ - DEBUG - SNS commanded change in radius (mm):1.369864
+2024-10-26 19:52:01,594 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:0.0,grasp:60.0,lift_after_grasp:0.0,move_to_pre_release:-20.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:52:01,595 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:01,614 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:01,614 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:01,614 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.131812
+2024-10-26 19:52:01,614 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:01,617 - __main__ - DEBUG - After SNS forward: 0.002721
+2024-10-26 19:52:01,618 - __main__ - DEBUG - Jaw radial pos in m:0.002721
+2024-10-26 19:52:01,618 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.133601
+2024-10-26 19:52:01,618 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-133.600831
+2024-10-26 19:52:01,618 - __main__ - DEBUG - SNS commanded change in radius (mm):2.720962
+2024-10-26 19:52:01,618 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:0.0,grasp:60.0,lift_after_grasp:0.0,move_to_pre_release:-20.0,move_to_release:-20.0,release:-20.0,lift_after_release:0.0
+2024-10-26 19:52:01,618 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:01,619 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:01,802 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:01,802 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.132598
+2024-10-26 19:52:01,802 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:01,805 - __main__ - DEBUG - After SNS forward: 0.004054
+2024-10-26 19:52:01,805 - __main__ - INFO - Lift after grasp started, change in radius set to 60.718076
+2024-10-26 19:52:01,805 - __main__ - DEBUG - Jaw radial pos in m:0.004054
+2024-10-26 19:52:01,805 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.129922
+2024-10-26 19:52:01,806 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-129.922405
+2024-10-26 19:52:01,806 - __main__ - DEBUG - SNS commanded change in radius (mm):4.053552
+2024-10-26 19:52:01,806 - __main__ - DEBUG - move_to_pre_grasp:-20.0,move_to_grasp:-20.0,grasp:0.0,lift_after_grasp:20.0,move_to_pre_release:0.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:01,806 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:01,820 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:01,821 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:01,821 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.132598
+2024-10-26 19:52:01,821 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:01,825 - __main__ - DEBUG - After SNS forward: 0.005368
+2024-10-26 19:52:01,825 - __main__ - DEBUG - Jaw radial pos in m:0.005368
+2024-10-26 19:52:01,825 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.126391
+2024-10-26 19:52:01,825 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-126.391113
+2024-10-26 19:52:01,825 - __main__ - DEBUG - SNS commanded change in radius (mm):5.367888
+2024-10-26 19:52:01,826 - __main__ - DEBUG - move_to_pre_grasp:-20.0,move_to_grasp:-20.0,grasp:0.0,lift_after_grasp:20.0,move_to_pre_release:0.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:01,826 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:01,827 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:02,009 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:02,009 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.133233
+2024-10-26 19:52:02,009 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:02,014 - __main__ - DEBUG - After SNS forward: 0.006664
+2024-10-26 19:52:02,014 - __main__ - DEBUG - Jaw radial pos in m:0.006664
+2024-10-26 19:52:02,014 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.123001
+2024-10-26 19:52:02,014 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-123.001076
+2024-10-26 19:52:02,014 - __main__ - DEBUG - SNS commanded change in radius (mm):6.664219
+2024-10-26 19:52:02,015 - __main__ - DEBUG - move_to_pre_grasp:-20.0,move_to_grasp:-20.0,grasp:0.0,lift_after_grasp:20.0,move_to_pre_release:0.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:02,015 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:02,026 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:02,027 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:02,027 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.133233
+2024-10-26 19:52:02,027 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:02,034 - __main__ - DEBUG - After SNS forward: 0.007943
+2024-10-26 19:52:02,035 - __main__ - DEBUG - Jaw radial pos in m:0.007943
+2024-10-26 19:52:02,035 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.119747
+2024-10-26 19:52:02,035 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-119.746640
+2024-10-26 19:52:02,035 - __main__ - DEBUG - SNS commanded change in radius (mm):7.942793
+2024-10-26 19:52:02,035 - __main__ - DEBUG - move_to_pre_grasp:-20.0,move_to_grasp:-20.0,grasp:0.0,lift_after_grasp:20.0,move_to_pre_release:0.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:02,036 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:02,037 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:02,231 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:02,231 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.130725
+2024-10-26 19:52:02,231 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:02,234 - __main__ - DEBUG - After SNS forward: 0.009204
+2024-10-26 19:52:02,234 - __main__ - DEBUG - Jaw radial pos in m:0.009204
+2024-10-26 19:52:02,234 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.116622
+2024-10-26 19:52:02,234 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-116.622381
+2024-10-26 19:52:02,234 - __main__ - DEBUG - SNS commanded change in radius (mm):9.203851
+2024-10-26 19:52:02,234 - __main__ - DEBUG - move_to_pre_grasp:-20.0,move_to_grasp:0.0,grasp:-60.0,lift_after_grasp:20.0,move_to_pre_release:0.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:02,234 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:02,251 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:02,251 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:02,251 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.130725
+2024-10-26 19:52:02,251 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:02,258 - __main__ - DEBUG - After SNS forward: 0.010448
+2024-10-26 19:52:02,258 - __main__ - DEBUG - Jaw radial pos in m:0.010448
+2024-10-26 19:52:02,258 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.113623
+2024-10-26 19:52:02,258 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-113.623083
+2024-10-26 19:52:02,258 - __main__ - DEBUG - SNS commanded change in radius (mm):10.447634
+2024-10-26 19:52:02,259 - __main__ - DEBUG - move_to_pre_grasp:-20.0,move_to_grasp:0.0,grasp:-60.0,lift_after_grasp:20.0,move_to_pre_release:0.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:02,259 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:02,261 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:02,436 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:02,436 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.129218
+2024-10-26 19:52:02,436 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:02,439 - __main__ - DEBUG - After SNS forward: 0.011674
+2024-10-26 19:52:02,439 - __main__ - DEBUG - Jaw radial pos in m:0.011674
+2024-10-26 19:52:02,439 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.110744
+2024-10-26 19:52:02,439 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-110.743761
+2024-10-26 19:52:02,439 - __main__ - DEBUG - SNS commanded change in radius (mm):11.674380
+2024-10-26 19:52:02,439 - __main__ - DEBUG - move_to_pre_grasp:-20.0,move_to_grasp:0.0,grasp:-60.0,lift_after_grasp:20.0,move_to_pre_release:0.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:02,439 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:02,459 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:02,459 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:02,459 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.129218
+2024-10-26 19:52:02,459 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:02,469 - __main__ - DEBUG - After SNS forward: 0.012884
+2024-10-26 19:52:02,469 - __main__ - DEBUG - Jaw radial pos in m:0.012884
+2024-10-26 19:52:02,469 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.107980
+2024-10-26 19:52:02,470 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-107.979611
+2024-10-26 19:52:02,470 - __main__ - DEBUG - SNS commanded change in radius (mm):12.884321
+2024-10-26 19:52:02,470 - __main__ - DEBUG - move_to_pre_grasp:-20.0,move_to_grasp:0.0,grasp:-60.0,lift_after_grasp:20.0,move_to_pre_release:0.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:02,470 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:02,471 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:02,660 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:02,660 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.124930
+2024-10-26 19:52:02,660 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:02,664 - __main__ - DEBUG - After SNS forward: 0.014078
+2024-10-26 19:52:02,665 - __main__ - DEBUG - Jaw radial pos in m:0.014078
+2024-10-26 19:52:02,665 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.105326
+2024-10-26 19:52:02,665 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-105.326019
+2024-10-26 19:52:02,665 - __main__ - DEBUG - SNS commanded change in radius (mm):14.077687
+2024-10-26 19:52:02,665 - __main__ - DEBUG - move_to_pre_grasp:-20.0,move_to_grasp:0.0,grasp:-60.0,lift_after_grasp:20.0,move_to_pre_release:0.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:02,665 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:02,669 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:02,669 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:02,669 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.124930
+2024-10-26 19:52:02,669 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:02,675 - __main__ - DEBUG - After SNS forward: 0.015255
+2024-10-26 19:52:02,676 - __main__ - DEBUG - Jaw radial pos in m:0.015255
+2024-10-26 19:52:02,676 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.102779
+2024-10-26 19:52:02,676 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-102.778576
+2024-10-26 19:52:02,676 - __main__ - DEBUG - SNS commanded change in radius (mm):15.254706
+2024-10-26 19:52:02,676 - __main__ - DEBUG - move_to_pre_grasp:-20.0,move_to_grasp:0.0,grasp:-60.0,lift_after_grasp:20.0,move_to_pre_release:0.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:02,677 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:02,678 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:02,872 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:02,872 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.122942
+2024-10-26 19:52:02,872 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:02,875 - __main__ - DEBUG - After SNS forward: 0.016416
+2024-10-26 19:52:02,875 - __main__ - DEBUG - Jaw radial pos in m:0.016416
+2024-10-26 19:52:02,875 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.100333
+2024-10-26 19:52:02,876 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-100.333035
+2024-10-26 19:52:02,876 - __main__ - DEBUG - SNS commanded change in radius (mm):16.415600
+2024-10-26 19:52:02,876 - __main__ - DEBUG - move_to_pre_grasp:-20.0,move_to_grasp:0.0,grasp:-60.0,lift_after_grasp:20.0,move_to_pre_release:0.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:02,876 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:02,895 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:02,895 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:02,895 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.122942
+2024-10-26 19:52:02,895 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:02,898 - __main__ - DEBUG - After SNS forward: 0.017561
+2024-10-26 19:52:02,899 - __main__ - DEBUG - Jaw radial pos in m:0.017561
+2024-10-26 19:52:02,899 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.097985
+2024-10-26 19:52:02,899 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-97.985312
+2024-10-26 19:52:02,899 - __main__ - DEBUG - SNS commanded change in radius (mm):17.560592
+2024-10-26 19:52:02,899 - __main__ - DEBUG - move_to_pre_grasp:-20.0,move_to_grasp:0.0,grasp:-60.0,lift_after_grasp:20.0,move_to_pre_release:0.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:02,899 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:02,900 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:03,107 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:03,107 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.119735
+2024-10-26 19:52:03,107 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:03,109 - __main__ - DEBUG - After SNS forward: 0.018690
+2024-10-26 19:52:03,109 - __main__ - DEBUG - Jaw radial pos in m:0.018690
+2024-10-26 19:52:03,110 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.095731
+2024-10-26 19:52:03,110 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-95.731489
+2024-10-26 19:52:03,110 - __main__ - DEBUG - SNS commanded change in radius (mm):18.689901
+2024-10-26 19:52:03,110 - __main__ - DEBUG - move_to_pre_grasp:-20.0,move_to_grasp:0.0,grasp:-60.0,lift_after_grasp:20.0,move_to_pre_release:0.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:03,110 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:03,111 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:03,111 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:03,111 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.119735
+2024-10-26 19:52:03,111 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:03,113 - __main__ - DEBUG - After SNS forward: 0.019804
+2024-10-26 19:52:03,113 - __main__ - DEBUG - Jaw radial pos in m:0.019804
+2024-10-26 19:52:03,114 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.093568
+2024-10-26 19:52:03,114 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-93.567826
+2024-10-26 19:52:03,114 - __main__ - DEBUG - SNS commanded change in radius (mm):19.803738
+2024-10-26 19:52:03,114 - __main__ - DEBUG - move_to_pre_grasp:-20.0,move_to_grasp:0.0,grasp:-60.0,lift_after_grasp:20.0,move_to_pre_release:0.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:03,114 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:03,114 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:03,302 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:03,302 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.112680
+2024-10-26 19:52:03,302 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:03,304 - __main__ - DEBUG - After SNS forward: 0.020902
+2024-10-26 19:52:03,304 - __main__ - DEBUG - Jaw radial pos in m:0.020902
+2024-10-26 19:52:03,304 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.091491
+2024-10-26 19:52:03,305 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-91.490708
+2024-10-26 19:52:03,305 - __main__ - DEBUG - SNS commanded change in radius (mm):20.902319
+2024-10-26 19:52:03,305 - __main__ - DEBUG - move_to_pre_grasp:-20.0,move_to_grasp:0.0,grasp:-60.0,lift_after_grasp:20.0,move_to_pre_release:0.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:03,305 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:03,332 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:03,332 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:03,332 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.112680
+2024-10-26 19:52:03,332 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:03,338 - __main__ - DEBUG - After SNS forward: 0.021986
+2024-10-26 19:52:03,338 - __main__ - DEBUG - Jaw radial pos in m:0.021986
+2024-10-26 19:52:03,339 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.089497
+2024-10-26 19:52:03,339 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-89.496680
+2024-10-26 19:52:03,339 - __main__ - DEBUG - SNS commanded change in radius (mm):21.985849
+2024-10-26 19:52:03,339 - __main__ - DEBUG - move_to_pre_grasp:-20.0,move_to_grasp:0.0,grasp:-60.0,lift_after_grasp:20.0,move_to_pre_release:0.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:03,339 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:03,340 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:03,519 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:03,519 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.104895
+2024-10-26 19:52:03,519 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:03,523 - __main__ - DEBUG - After SNS forward: 0.023055
+2024-10-26 19:52:03,523 - __main__ - DEBUG - Jaw radial pos in m:0.023055
+2024-10-26 19:52:03,523 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.087582
+2024-10-26 19:52:03,523 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-87.582409
+2024-10-26 19:52:03,523 - __main__ - DEBUG - SNS commanded change in radius (mm):23.054536
+2024-10-26 19:52:03,523 - __main__ - DEBUG - move_to_pre_grasp:-20.0,move_to_grasp:0.0,grasp:-60.0,lift_after_grasp:20.0,move_to_pre_release:0.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:03,523 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:03,538 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:03,538 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:03,538 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.104895
+2024-10-26 19:52:03,539 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:03,543 - __main__ - DEBUG - After SNS forward: 0.024109
+2024-10-26 19:52:03,543 - __main__ - DEBUG - Jaw radial pos in m:0.024109
+2024-10-26 19:52:03,543 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.085745
+2024-10-26 19:52:03,543 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-85.744709
+2024-10-26 19:52:03,543 - __main__ - DEBUG - SNS commanded change in radius (mm):24.108585
+2024-10-26 19:52:03,544 - __main__ - DEBUG - move_to_pre_grasp:-20.0,move_to_grasp:0.0,grasp:-60.0,lift_after_grasp:20.0,move_to_pre_release:0.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:03,544 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:03,545 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:03,715 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:03,715 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.100810
+2024-10-26 19:52:03,715 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:03,718 - __main__ - DEBUG - After SNS forward: 0.025148
+2024-10-26 19:52:03,718 - __main__ - DEBUG - Jaw radial pos in m:0.025148
+2024-10-26 19:52:03,718 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.083981
+2024-10-26 19:52:03,718 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-83.980523
+2024-10-26 19:52:03,718 - __main__ - DEBUG - SNS commanded change in radius (mm):25.148196
+2024-10-26 19:52:03,718 - __main__ - DEBUG - move_to_pre_grasp:-20.0,move_to_grasp:0.0,grasp:-60.0,lift_after_grasp:20.0,move_to_pre_release:0.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:03,719 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:03,720 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:03,720 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:03,721 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.100810
+2024-10-26 19:52:03,721 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:03,724 - __main__ - DEBUG - After SNS forward: 0.026174
+2024-10-26 19:52:03,724 - __main__ - DEBUG - Jaw radial pos in m:0.026174
+2024-10-26 19:52:03,724 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.082287
+2024-10-26 19:52:03,724 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-82.286894
+2024-10-26 19:52:03,724 - __main__ - DEBUG - SNS commanded change in radius (mm):26.173562
+2024-10-26 19:52:03,724 - __main__ - DEBUG - move_to_pre_grasp:-20.0,move_to_grasp:0.0,grasp:-60.0,lift_after_grasp:20.0,move_to_pre_release:0.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:03,724 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:03,725 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:03,896 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:03,896 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.099785
+2024-10-26 19:52:03,896 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:03,900 - __main__ - DEBUG - After SNS forward: 0.027185
+2024-10-26 19:52:03,901 - __main__ - DEBUG - Jaw radial pos in m:0.027185
+2024-10-26 19:52:03,901 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.080661
+2024-10-26 19:52:03,901 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-80.661021
+2024-10-26 19:52:03,901 - __main__ - DEBUG - SNS commanded change in radius (mm):27.184887
+2024-10-26 19:52:03,902 - __main__ - DEBUG - move_to_pre_grasp:-20.0,move_to_grasp:0.0,grasp:-60.0,lift_after_grasp:20.0,move_to_pre_release:0.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:03,902 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:03,942 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:03,943 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:03,943 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.099785
+2024-10-26 19:52:03,943 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:03,947 - __main__ - DEBUG - After SNS forward: 0.028182
+2024-10-26 19:52:03,948 - __main__ - DEBUG - Jaw radial pos in m:0.028182
+2024-10-26 19:52:03,948 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.079100
+2024-10-26 19:52:03,948 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-79.100177
+2024-10-26 19:52:03,948 - __main__ - DEBUG - SNS commanded change in radius (mm):28.182354
+2024-10-26 19:52:03,948 - __main__ - DEBUG - move_to_pre_grasp:-20.0,move_to_grasp:0.0,grasp:-60.0,lift_after_grasp:20.0,move_to_pre_release:0.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:03,948 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:03,950 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:04,145 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:04,145 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.094885
+2024-10-26 19:52:04,145 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:04,149 - __main__ - DEBUG - After SNS forward: 0.029166
+2024-10-26 19:52:04,150 - __main__ - DEBUG - Jaw radial pos in m:0.029166
+2024-10-26 19:52:04,150 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.077602
+2024-10-26 19:52:04,150 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-77.601761
+2024-10-26 19:52:04,150 - __main__ - DEBUG - SNS commanded change in radius (mm):29.166158
+2024-10-26 19:52:04,151 - __main__ - DEBUG - move_to_pre_grasp:-20.0,move_to_grasp:0.0,grasp:-60.0,lift_after_grasp:20.0,move_to_pre_release:0.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:04,151 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:04,154 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:04,154 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:04,154 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.094885
+2024-10-26 19:52:04,155 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:04,161 - __main__ - DEBUG - After SNS forward: 0.030136
+2024-10-26 19:52:04,161 - __main__ - DEBUG - Jaw radial pos in m:0.030136
+2024-10-26 19:52:04,161 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.076163
+2024-10-26 19:52:04,162 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-76.163284
+2024-10-26 19:52:04,162 - __main__ - DEBUG - SNS commanded change in radius (mm):30.136485
+2024-10-26 19:52:04,162 - __main__ - DEBUG - move_to_pre_grasp:-20.0,move_to_grasp:0.0,grasp:-60.0,lift_after_grasp:20.0,move_to_pre_release:0.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:04,162 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:04,164 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:04,357 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:04,357 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.087945
+2024-10-26 19:52:04,357 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:04,359 - __main__ - DEBUG - After SNS forward: 0.031094
+2024-10-26 19:52:04,359 - __main__ - DEBUG - Jaw radial pos in m:0.031094
+2024-10-26 19:52:04,360 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.074782
+2024-10-26 19:52:04,360 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-74.782357
+2024-10-26 19:52:04,360 - __main__ - DEBUG - SNS commanded change in radius (mm):31.093521
+2024-10-26 19:52:04,360 - __main__ - DEBUG - move_to_pre_grasp:-20.0,move_to_grasp:0.0,grasp:-60.0,lift_after_grasp:20.0,move_to_pre_release:0.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:04,360 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:04,380 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:04,380 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:04,380 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.087945
+2024-10-26 19:52:04,380 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:04,386 - __main__ - DEBUG - After SNS forward: 0.032037
+2024-10-26 19:52:04,386 - __main__ - DEBUG - Jaw radial pos in m:0.032037
+2024-10-26 19:52:04,386 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.073457
+2024-10-26 19:52:04,387 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-73.456660
+2024-10-26 19:52:04,387 - __main__ - DEBUG - SNS commanded change in radius (mm):32.037444
+2024-10-26 19:52:04,387 - __main__ - DEBUG - move_to_pre_grasp:-20.0,move_to_grasp:0.0,grasp:-60.0,lift_after_grasp:20.0,move_to_pre_release:0.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:04,387 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:04,389 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:04,616 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:04,616 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.081920
+2024-10-26 19:52:04,616 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:04,620 - __main__ - DEBUG - After SNS forward: 0.032968
+2024-10-26 19:52:04,620 - __main__ - DEBUG - Jaw radial pos in m:0.032968
+2024-10-26 19:52:04,620 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.072184
+2024-10-26 19:52:04,620 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-72.183989
+2024-10-26 19:52:04,620 - __main__ - DEBUG - SNS commanded change in radius (mm):32.968439
+2024-10-26 19:52:04,621 - __main__ - DEBUG - move_to_pre_grasp:-20.0,move_to_grasp:0.0,grasp:-60.0,lift_after_grasp:20.0,move_to_pre_release:0.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:04,621 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:04,637 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:04,637 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:04,637 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.081920
+2024-10-26 19:52:04,638 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:04,644 - __main__ - DEBUG - After SNS forward: 0.033887
+2024-10-26 19:52:04,644 - __main__ - DEBUG - Jaw radial pos in m:0.033887
+2024-10-26 19:52:04,644 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.070962
+2024-10-26 19:52:04,644 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-70.962220
+2024-10-26 19:52:04,644 - __main__ - DEBUG - SNS commanded change in radius (mm):33.886679
+2024-10-26 19:52:04,644 - __main__ - DEBUG - move_to_pre_grasp:-20.0,move_to_grasp:0.0,grasp:-60.0,lift_after_grasp:20.0,move_to_pre_release:0.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:04,644 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:04,646 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:04,833 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:04,833 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.079930
+2024-10-26 19:52:04,833 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:04,836 - __main__ - DEBUG - After SNS forward: 0.034792
+2024-10-26 19:52:04,836 - __main__ - DEBUG - Jaw radial pos in m:0.034792
+2024-10-26 19:52:04,836 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.069789
+2024-10-26 19:52:04,837 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-69.789328
+2024-10-26 19:52:04,837 - __main__ - DEBUG - SNS commanded change in radius (mm):34.792341
+2024-10-26 19:52:04,837 - __main__ - DEBUG - move_to_pre_grasp:-20.0,move_to_grasp:0.0,grasp:-60.0,lift_after_grasp:20.0,move_to_pre_release:0.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:04,837 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:04,859 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:04,860 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:04,860 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.079930
+2024-10-26 19:52:04,860 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:04,863 - __main__ - DEBUG - After SNS forward: 0.035686
+2024-10-26 19:52:04,863 - __main__ - DEBUG - Jaw radial pos in m:0.035686
+2024-10-26 19:52:04,863 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.068663
+2024-10-26 19:52:04,863 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-68.663351
+2024-10-26 19:52:04,863 - __main__ - DEBUG - SNS commanded change in radius (mm):35.685595
+2024-10-26 19:52:04,863 - __main__ - DEBUG - move_to_pre_grasp:-20.0,move_to_grasp:0.0,grasp:-60.0,lift_after_grasp:20.0,move_to_pre_release:0.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:04,864 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:04,864 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:05,076 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:05,076 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.075860
+2024-10-26 19:52:05,076 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:05,079 - __main__ - DEBUG - After SNS forward: 0.036567
+2024-10-26 19:52:05,079 - __main__ - DEBUG - Jaw radial pos in m:0.036567
+2024-10-26 19:52:05,079 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.067582
+2024-10-26 19:52:05,079 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-67.582421
+2024-10-26 19:52:05,079 - __main__ - DEBUG - SNS commanded change in radius (mm):36.566615
+2024-10-26 19:52:05,079 - __main__ - DEBUG - move_to_pre_grasp:-20.0,move_to_grasp:0.0,grasp:-60.0,lift_after_grasp:20.0,move_to_pre_release:0.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:05,080 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:05,081 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:05,081 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:05,081 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.075860
+2024-10-26 19:52:05,081 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:05,085 - __main__ - DEBUG - After SNS forward: 0.037436
+2024-10-26 19:52:05,085 - __main__ - DEBUG - Jaw radial pos in m:0.037436
+2024-10-26 19:52:05,086 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.066545
+2024-10-26 19:52:05,086 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-66.544719
+2024-10-26 19:52:05,086 - __main__ - DEBUG - SNS commanded change in radius (mm):37.435565
+2024-10-26 19:52:05,086 - __main__ - DEBUG - move_to_pre_grasp:-20.0,move_to_grasp:0.0,grasp:-60.0,lift_after_grasp:20.0,move_to_pre_release:0.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:05,086 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:05,087 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:05,267 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:05,267 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.074292
+2024-10-26 19:52:05,267 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:05,270 - __main__ - DEBUG - After SNS forward: 0.038293
+2024-10-26 19:52:05,270 - __main__ - DEBUG - Jaw radial pos in m:0.038293
+2024-10-26 19:52:05,270 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.065549
+2024-10-26 19:52:05,270 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-65.548532
+2024-10-26 19:52:05,270 - __main__ - DEBUG - SNS commanded change in radius (mm):38.292613
+2024-10-26 19:52:05,270 - __main__ - DEBUG - move_to_pre_grasp:-20.0,move_to_grasp:0.0,grasp:-60.0,lift_after_grasp:20.0,move_to_pre_release:0.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:05,270 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:05,286 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:05,286 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:05,286 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.074292
+2024-10-26 19:52:05,287 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:05,291 - __main__ - DEBUG - After SNS forward: 0.039138
+2024-10-26 19:52:05,291 - __main__ - DEBUG - Jaw radial pos in m:0.039138
+2024-10-26 19:52:05,291 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.064592
+2024-10-26 19:52:05,291 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-64.592183
+2024-10-26 19:52:05,292 - __main__ - DEBUG - SNS commanded change in radius (mm):39.137922
+2024-10-26 19:52:05,292 - __main__ - DEBUG - move_to_pre_grasp:-20.0,move_to_grasp:0.0,grasp:-60.0,lift_after_grasp:20.0,move_to_pre_release:0.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:05,292 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:05,293 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:05,467 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:05,467 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.070795
+2024-10-26 19:52:05,467 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:05,470 - __main__ - DEBUG - After SNS forward: 0.039972
+2024-10-26 19:52:05,470 - __main__ - DEBUG - Jaw radial pos in m:0.039972
+2024-10-26 19:52:05,470 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.063674
+2024-10-26 19:52:05,470 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-63.674092
+2024-10-26 19:52:05,470 - __main__ - DEBUG - SNS commanded change in radius (mm):39.971646
+2024-10-26 19:52:05,470 - __main__ - DEBUG - move_to_pre_grasp:-20.0,move_to_grasp:0.0,grasp:-60.0,lift_after_grasp:20.0,move_to_pre_release:0.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:05,471 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:05,494 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:05,494 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:05,494 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.070795
+2024-10-26 19:52:05,494 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:05,500 - __main__ - DEBUG - After SNS forward: 0.040794
+2024-10-26 19:52:05,500 - __main__ - DEBUG - Jaw radial pos in m:0.040794
+2024-10-26 19:52:05,500 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.062793
+2024-10-26 19:52:05,500 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-62.792726
+2024-10-26 19:52:05,500 - __main__ - DEBUG - SNS commanded change in radius (mm):40.793952
+2024-10-26 19:52:05,500 - __main__ - DEBUG - move_to_pre_grasp:-20.0,move_to_grasp:0.0,grasp:-60.0,lift_after_grasp:20.0,move_to_pre_release:0.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:05,501 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:05,502 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:05,676 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:05,676 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.069398
+2024-10-26 19:52:05,676 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:05,679 - __main__ - DEBUG - After SNS forward: 0.041605
+2024-10-26 19:52:05,679 - __main__ - DEBUG - Jaw radial pos in m:0.041605
+2024-10-26 19:52:05,679 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.061947
+2024-10-26 19:52:05,679 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-61.946612
+2024-10-26 19:52:05,679 - __main__ - DEBUG - SNS commanded change in radius (mm):41.604996
+2024-10-26 19:52:05,679 - __main__ - DEBUG - move_to_pre_grasp:-20.0,move_to_grasp:0.0,grasp:-60.0,lift_after_grasp:20.0,move_to_pre_release:0.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:05,679 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:05,703 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:05,703 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:05,703 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.069398
+2024-10-26 19:52:05,703 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:05,709 - __main__ - DEBUG - After SNS forward: 0.042405
+2024-10-26 19:52:05,709 - __main__ - DEBUG - Jaw radial pos in m:0.042405
+2024-10-26 19:52:05,709 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.061134
+2024-10-26 19:52:05,709 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-61.134346
+2024-10-26 19:52:05,710 - __main__ - DEBUG - SNS commanded change in radius (mm):42.404927
+2024-10-26 19:52:05,710 - __main__ - DEBUG - move_to_pre_grasp:-20.0,move_to_grasp:0.0,grasp:-60.0,lift_after_grasp:20.0,move_to_pre_release:0.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:05,710 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:05,712 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:05,889 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:05,889 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.066165
+2024-10-26 19:52:05,889 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:05,893 - __main__ - DEBUG - After SNS forward: 0.043194
+2024-10-26 19:52:05,894 - __main__ - DEBUG - Jaw radial pos in m:0.043194
+2024-10-26 19:52:05,894 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.060355
+2024-10-26 19:52:05,894 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-60.354568
+2024-10-26 19:52:05,894 - __main__ - DEBUG - SNS commanded change in radius (mm):43.193903
+2024-10-26 19:52:05,895 - __main__ - DEBUG - move_to_pre_grasp:-20.0,move_to_grasp:0.0,grasp:-60.0,lift_after_grasp:20.0,move_to_pre_release:0.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:05,895 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:05,898 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:05,898 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:05,898 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.066165
+2024-10-26 19:52:05,898 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:05,906 - __main__ - DEBUG - After SNS forward: 0.043972
+2024-10-26 19:52:05,906 - __main__ - DEBUG - Jaw radial pos in m:0.043972
+2024-10-26 19:52:05,907 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.059606
+2024-10-26 19:52:05,907 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-59.605982
+2024-10-26 19:52:05,907 - __main__ - DEBUG - SNS commanded change in radius (mm):43.972068
+2024-10-26 19:52:05,908 - __main__ - DEBUG - move_to_pre_grasp:-20.0,move_to_grasp:0.0,grasp:-60.0,lift_after_grasp:20.0,move_to_pre_release:0.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:05,908 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:05,911 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:06,077 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:06,077 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.064958
+2024-10-26 19:52:06,077 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:06,079 - __main__ - DEBUG - After SNS forward: 0.044740
+2024-10-26 19:52:06,080 - __main__ - DEBUG - Jaw radial pos in m:0.044740
+2024-10-26 19:52:06,080 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.058887
+2024-10-26 19:52:06,080 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-58.887340
+2024-10-26 19:52:06,080 - __main__ - DEBUG - SNS commanded change in radius (mm):44.739570
+2024-10-26 19:52:06,080 - __main__ - DEBUG - move_to_pre_grasp:-20.0,move_to_grasp:0.0,grasp:-60.0,lift_after_grasp:20.0,move_to_pre_release:0.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:06,080 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:06,096 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:06,096 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:06,096 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.064958
+2024-10-26 19:52:06,096 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:06,099 - __main__ - DEBUG - After SNS forward: 0.045497
+2024-10-26 19:52:06,100 - __main__ - DEBUG - Jaw radial pos in m:0.045497
+2024-10-26 19:52:06,100 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.058197
+2024-10-26 19:52:06,100 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-58.197446
+2024-10-26 19:52:06,100 - __main__ - DEBUG - SNS commanded change in radius (mm):45.496564
+2024-10-26 19:52:06,100 - __main__ - DEBUG - move_to_pre_grasp:-20.0,move_to_grasp:0.0,grasp:-60.0,lift_after_grasp:20.0,move_to_pre_release:0.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:06,100 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:06,101 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:06,313 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:06,313 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.062270
+2024-10-26 19:52:06,313 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:06,315 - __main__ - DEBUG - After SNS forward: 0.046243
+2024-10-26 19:52:06,316 - __main__ - DEBUG - Jaw radial pos in m:0.046243
+2024-10-26 19:52:06,316 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.057535
+2024-10-26 19:52:06,316 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-57.535142
+2024-10-26 19:52:06,316 - __main__ - DEBUG - SNS commanded change in radius (mm):46.243183
+2024-10-26 19:52:06,316 - __main__ - DEBUG - move_to_pre_grasp:-20.0,move_to_grasp:0.0,grasp:-60.0,lift_after_grasp:20.0,move_to_pre_release:0.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:06,316 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:06,334 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:06,334 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:06,335 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.062270
+2024-10-26 19:52:06,335 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:06,337 - __main__ - DEBUG - After SNS forward: 0.046980
+2024-10-26 19:52:06,338 - __main__ - DEBUG - Jaw radial pos in m:0.046980
+2024-10-26 19:52:06,338 - __main__ - DEBUG - Command Position: -0.000000 -0.000000 -0.056899
+2024-10-26 19:52:06,338 - __main__ - DEBUG - SNS commanded goal position (mm):-4.587515,12.587485,-56.899335
+2024-10-26 19:52:06,338 - __main__ - DEBUG - SNS commanded change in radius (mm):46.979580
+2024-10-26 19:52:06,338 - __main__ - DEBUG - move_to_pre_grasp:-20.0,move_to_grasp:0.0,grasp:-60.0,lift_after_grasp:20.0,move_to_pre_release:0.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:06,338 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:06,339 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:06,514 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:06,514 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.060355
+2024-10-26 19:52:06,514 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:06,517 - __main__ - DEBUG - After SNS forward: 0.047706
+2024-10-26 19:52:06,517 - __main__ - DEBUG - Jaw radial pos in m:0.047706
+2024-10-26 19:52:06,517 - __main__ - DEBUG - Command Position: -0.007417 -0.002740 -0.059983
+2024-10-26 19:52:06,517 - __main__ - DEBUG - SNS commanded goal position (mm):-12.004017,9.847758,-59.983362
+2024-10-26 19:52:06,517 - __main__ - DEBUG - SNS commanded change in radius (mm):47.705881
+2024-10-26 19:52:06,517 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:-20.0,grasp:-60.0,lift_after_grasp:0.0,move_to_pre_release:20.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:06,517 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:06,538 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:06,538 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:06,538 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.060355
+2024-10-26 19:52:06,538 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:06,541 - __main__ - DEBUG - After SNS forward: 0.048422
+2024-10-26 19:52:06,541 - __main__ - DEBUG - Jaw radial pos in m:0.048422
+2024-10-26 19:52:06,541 - __main__ - DEBUG - Command Position: -0.014536 -0.005442 -0.062944
+2024-10-26 19:52:06,541 - __main__ - DEBUG - SNS commanded goal position (mm):-19.123866,7.145566,-62.944025
+2024-10-26 19:52:06,542 - __main__ - DEBUG - SNS commanded change in radius (mm):48.422240
+2024-10-26 19:52:06,542 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:-20.0,grasp:-60.0,lift_after_grasp:0.0,move_to_pre_release:20.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:06,542 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:06,542 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:06,741 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:06,741 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.058740
+2024-10-26 19:52:06,741 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:06,743 - __main__ - DEBUG - After SNS forward: 0.049129
+2024-10-26 19:52:06,743 - __main__ - DEBUG - Jaw radial pos in m:0.049129
+2024-10-26 19:52:06,743 - __main__ - DEBUG - Command Position: -0.021371 -0.008107 -0.065786
+2024-10-26 19:52:06,743 - __main__ - DEBUG - SNS commanded goal position (mm):-25.958924,4.480389,-65.786265
+2024-10-26 19:52:06,744 - __main__ - DEBUG - SNS commanded change in radius (mm):49.128786
+2024-10-26 19:52:06,744 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:-20.0,grasp:-60.0,lift_after_grasp:0.0,move_to_pre_release:20.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:06,744 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:06,759 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:06,759 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:06,759 - __main__ - DEBUG - GrasperPos in m:-0.000000 -0.000000 -0.058740
+2024-10-26 19:52:06,759 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:06,764 - __main__ - DEBUG - After SNS forward: 0.049826
+2024-10-26 19:52:06,764 - __main__ - DEBUG - Jaw radial pos in m:0.049826
+2024-10-26 19:52:06,764 - __main__ - DEBUG - Command Position: -0.027933 -0.010736 -0.068515
+2024-10-26 19:52:06,764 - __main__ - DEBUG - SNS commanded goal position (mm):-32.520576,1.851720,-68.514816
+2024-10-26 19:52:06,764 - __main__ - DEBUG - SNS commanded change in radius (mm):49.825650
+2024-10-26 19:52:06,764 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:-20.0,grasp:-60.0,lift_after_grasp:0.0,move_to_pre_release:20.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:06,764 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:06,766 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:06,933 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:06,933 - __main__ - DEBUG - GrasperPos in m:-0.000713 -0.000263 -0.057775
+2024-10-26 19:52:06,933 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:06,936 - __main__ - DEBUG - After SNS forward: 0.050513
+2024-10-26 19:52:06,936 - __main__ - DEBUG - Jaw radial pos in m:0.050513
+2024-10-26 19:52:06,936 - __main__ - DEBUG - Command Position: -0.034232 -0.013328 -0.071134
+2024-10-26 19:52:06,936 - __main__ - DEBUG - SNS commanded goal position (mm):-38.819759,-0.740948,-71.134232
+2024-10-26 19:52:06,936 - __main__ - DEBUG - SNS commanded change in radius (mm):50.512966
+2024-10-26 19:52:06,936 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:-20.0,grasp:-60.0,lift_after_grasp:0.0,move_to_pre_release:20.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:06,936 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:06,950 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:06,950 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:06,950 - __main__ - DEBUG - GrasperPos in m:-0.000713 -0.000263 -0.057775
+2024-10-26 19:52:06,951 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:06,956 - __main__ - DEBUG - After SNS forward: 0.051191
+2024-10-26 19:52:06,956 - __main__ - DEBUG - Jaw radial pos in m:0.051191
+2024-10-26 19:52:06,956 - __main__ - DEBUG - Command Position: -0.040279 -0.015886 -0.073649
+2024-10-26 19:52:06,956 - __main__ - DEBUG - SNS commanded goal position (mm):-44.866978,-3.298092,-73.648863
+2024-10-26 19:52:06,957 - __main__ - DEBUG - SNS commanded change in radius (mm):51.190872
+2024-10-26 19:52:06,957 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:-20.0,grasp:-60.0,lift_after_grasp:0.0,move_to_pre_release:20.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:06,957 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:06,959 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:07,148 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:07,148 - __main__ - DEBUG - GrasperPos in m:-0.007000 -0.002587 -0.059845
+2024-10-26 19:52:07,148 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:07,151 - __main__ - DEBUG - After SNS forward: 0.051859
+2024-10-26 19:52:07,151 - __main__ - DEBUG - Jaw radial pos in m:0.051859
+2024-10-26 19:52:07,151 - __main__ - DEBUG - Command Position: -0.046085 -0.018408 -0.076063
+2024-10-26 19:52:07,151 - __main__ - DEBUG - SNS commanded goal position (mm):-50.672306,-5.820217,-76.062910
+2024-10-26 19:52:07,152 - __main__ - DEBUG - SNS commanded change in radius (mm):51.859487
+2024-10-26 19:52:07,152 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:-20.0,grasp:-60.0,lift_after_grasp:0.0,move_to_pre_release:20.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:07,152 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:07,154 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:07,154 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:07,154 - __main__ - DEBUG - GrasperPos in m:-0.007000 -0.002587 -0.059845
+2024-10-26 19:52:07,154 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:07,159 - __main__ - DEBUG - After SNS forward: 0.052519
+2024-10-26 19:52:07,160 - __main__ - DEBUG - Jaw radial pos in m:0.052519
+2024-10-26 19:52:07,160 - __main__ - DEBUG - Command Position: -0.051658 -0.020895 -0.078380
+2024-10-26 19:52:07,160 - __main__ - DEBUG - SNS commanded goal position (mm):-56.245415,-8.307772,-78.380391
+2024-10-26 19:52:07,160 - __main__ - DEBUG - SNS commanded change in radius (mm):52.518945
+2024-10-26 19:52:07,160 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:-20.0,grasp:-60.0,lift_after_grasp:0.0,move_to_pre_release:20.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:07,160 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:07,162 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:07,358 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:07,358 - __main__ - DEBUG - GrasperPos in m:-0.010838 -0.004050 -0.061405
+2024-10-26 19:52:07,358 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:07,362 - __main__ - DEBUG - After SNS forward: 0.053169
+2024-10-26 19:52:07,363 - __main__ - DEBUG - Jaw radial pos in m:0.053169
+2024-10-26 19:52:07,363 - __main__ - DEBUG - Command Position: -0.057008 -0.023349 -0.080605
+2024-10-26 19:52:07,363 - __main__ - DEBUG - SNS commanded goal position (mm):-61.595617,-10.761278,-80.605172
+2024-10-26 19:52:07,363 - __main__ - DEBUG - SNS commanded change in radius (mm):53.169370
+2024-10-26 19:52:07,363 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:-20.0,grasp:-60.0,lift_after_grasp:0.0,move_to_pre_release:20.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:07,363 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:07,379 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:07,379 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:07,379 - __main__ - DEBUG - GrasperPos in m:-0.010838 -0.004050 -0.061405
+2024-10-26 19:52:07,379 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:07,384 - __main__ - DEBUG - After SNS forward: 0.053811
+2024-10-26 19:52:07,384 - __main__ - DEBUG - Jaw radial pos in m:0.053811
+2024-10-26 19:52:07,384 - __main__ - DEBUG - Command Position: -0.062144 -0.025769 -0.082741
+2024-10-26 19:52:07,384 - __main__ - DEBUG - SNS commanded goal position (mm):-66.731794,-13.181153,-82.740970
+2024-10-26 19:52:07,385 - __main__ - DEBUG - SNS commanded change in radius (mm):53.810880
+2024-10-26 19:52:07,385 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:-20.0,grasp:-60.0,lift_after_grasp:0.0,move_to_pre_release:20.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:07,385 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:07,386 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:07,581 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:07,581 - __main__ - DEBUG - GrasperPos in m:-0.020538 -0.007787 -0.065440
+2024-10-26 19:52:07,581 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:07,584 - __main__ - DEBUG - After SNS forward: 0.054444
+2024-10-26 19:52:07,585 - __main__ - DEBUG - Jaw radial pos in m:0.054444
+2024-10-26 19:52:07,585 - __main__ - DEBUG - Command Position: -0.067075 -0.028155 -0.084791
+2024-10-26 19:52:07,585 - __main__ - DEBUG - SNS commanded goal position (mm):-71.662529,-15.567886,-84.791325
+2024-10-26 19:52:07,585 - __main__ - DEBUG - SNS commanded change in radius (mm):54.443605
+2024-10-26 19:52:07,585 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:-20.0,grasp:-60.0,lift_after_grasp:0.0,move_to_pre_release:20.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:07,585 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:07,587 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:07,587 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:07,587 - __main__ - DEBUG - GrasperPos in m:-0.020538 -0.007787 -0.065440
+2024-10-26 19:52:07,587 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:07,590 - __main__ - DEBUG - After SNS forward: 0.055068
+2024-10-26 19:52:07,590 - __main__ - DEBUG - Jaw radial pos in m:0.055068
+2024-10-26 19:52:07,590 - __main__ - DEBUG - Command Position: -0.071809 -0.030509 -0.086760
+2024-10-26 19:52:07,591 - __main__ - DEBUG - SNS commanded goal position (mm):-76.396032,-17.921927,-86.759679
+2024-10-26 19:52:07,591 - __main__ - DEBUG - SNS commanded change in radius (mm):55.067666
+2024-10-26 19:52:07,591 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:-20.0,grasp:-60.0,lift_after_grasp:0.0,move_to_pre_release:20.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:07,591 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:07,592 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:07,763 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:07,763 - __main__ - DEBUG - GrasperPos in m:-0.029463 -0.011388 -0.069150
+2024-10-26 19:52:07,763 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:07,767 - __main__ - DEBUG - After SNS forward: 0.055683
+2024-10-26 19:52:07,768 - __main__ - DEBUG - Jaw radial pos in m:0.055683
+2024-10-26 19:52:07,768 - __main__ - DEBUG - Command Position: -0.076353 -0.032831 -0.088649
+2024-10-26 19:52:07,768 - __main__ - DEBUG - SNS commanded goal position (mm):-80.940201,-20.243722,-88.649288
+2024-10-26 19:52:07,768 - __main__ - DEBUG - SNS commanded change in radius (mm):55.683177
+2024-10-26 19:52:07,769 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:-20.0,grasp:-60.0,lift_after_grasp:0.0,move_to_pre_release:20.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:07,769 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:07,793 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:07,793 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:07,793 - __main__ - DEBUG - GrasperPos in m:-0.029463 -0.011388 -0.069150
+2024-10-26 19:52:07,793 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:07,798 - __main__ - DEBUG - After SNS forward: 0.056290
+2024-10-26 19:52:07,798 - __main__ - DEBUG - Jaw radial pos in m:0.056290
+2024-10-26 19:52:07,798 - __main__ - DEBUG - Command Position: -0.080715 -0.035121 -0.090463
+2024-10-26 19:52:07,798 - __main__ - DEBUG - SNS commanded goal position (mm):-85.302597,-22.533702,-90.463310
+2024-10-26 19:52:07,798 - __main__ - DEBUG - SNS commanded change in radius (mm):56.290258
+2024-10-26 19:52:07,798 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:-20.0,grasp:-60.0,lift_after_grasp:0.0,move_to_pre_release:20.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:07,798 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:07,799 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:08,018 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:08,018 - __main__ - DEBUG - GrasperPos in m:-0.038387 -0.015150 -0.072860
+2024-10-26 19:52:08,018 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:08,022 - __main__ - DEBUG - After SNS forward: 0.056889
+2024-10-26 19:52:08,022 - __main__ - DEBUG - Jaw radial pos in m:0.056889
+2024-10-26 19:52:08,022 - __main__ - DEBUG - Command Position: -0.084903 -0.037380 -0.092205
+2024-10-26 19:52:08,022 - __main__ - DEBUG - SNS commanded goal position (mm):-89.490494,-24.792301,-92.204779
+2024-10-26 19:52:08,022 - __main__ - DEBUG - SNS commanded change in radius (mm):56.889024
+2024-10-26 19:52:08,022 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:-20.0,grasp:-60.0,lift_after_grasp:0.0,move_to_pre_release:20.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:08,022 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:08,047 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:08,047 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:08,047 - __main__ - DEBUG - GrasperPos in m:-0.038387 -0.015150 -0.072860
+2024-10-26 19:52:08,047 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:08,050 - __main__ - DEBUG - After SNS forward: 0.057480
+2024-10-26 19:52:08,051 - __main__ - DEBUG - Jaw radial pos in m:0.057480
+2024-10-26 19:52:08,051 - __main__ - DEBUG - Command Position: -0.088923 -0.039607 -0.093877
+2024-10-26 19:52:08,051 - __main__ - DEBUG - SNS commanded goal position (mm):-93.510880,-27.019980,-93.876593
+2024-10-26 19:52:08,051 - __main__ - DEBUG - SNS commanded change in radius (mm):57.479586
+2024-10-26 19:52:08,051 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:-20.0,grasp:-60.0,lift_after_grasp:0.0,move_to_pre_release:20.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:08,051 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:08,052 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:08,275 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:08,275 - __main__ - DEBUG - GrasperPos in m:-0.049225 -0.019925 -0.077370
+2024-10-26 19:52:08,275 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:08,278 - __main__ - DEBUG - After SNS forward: 0.058062
+2024-10-26 19:52:08,278 - __main__ - DEBUG - Jaw radial pos in m:0.058062
+2024-10-26 19:52:08,278 - __main__ - DEBUG - Command Position: -0.092783 -0.041805 -0.095482
+2024-10-26 19:52:08,278 - __main__ - DEBUG - SNS commanded goal position (mm):-97.370452,-29.217141,-95.481530
+2024-10-26 19:52:08,278 - __main__ - DEBUG - SNS commanded change in radius (mm):58.062058
+2024-10-26 19:52:08,278 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:-20.0,grasp:-60.0,lift_after_grasp:0.0,move_to_pre_release:20.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:08,278 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:08,280 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:08,280 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:08,280 - __main__ - DEBUG - GrasperPos in m:-0.049225 -0.019925 -0.077370
+2024-10-26 19:52:08,280 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:08,285 - __main__ - DEBUG - After SNS forward: 0.058637
+2024-10-26 19:52:08,285 - __main__ - DEBUG - Jaw radial pos in m:0.058637
+2024-10-26 19:52:08,285 - __main__ - DEBUG - Command Position: -0.096488 -0.043972 -0.097022
+2024-10-26 19:52:08,285 - __main__ - DEBUG - SNS commanded goal position (mm):-101.075641,-31.384202,-97.022265
+2024-10-26 19:52:08,286 - __main__ - DEBUG - SNS commanded change in radius (mm):58.636550
+2024-10-26 19:52:08,286 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:-20.0,grasp:-60.0,lift_after_grasp:0.0,move_to_pre_release:20.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:08,286 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:08,286 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:08,496 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:08,496 - __main__ - DEBUG - GrasperPos in m:-0.056850 -0.023275 -0.080540
+2024-10-26 19:52:08,496 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:08,500 - __main__ - DEBUG - After SNS forward: 0.059203
+2024-10-26 19:52:08,500 - __main__ - DEBUG - Jaw radial pos in m:0.059203
+2024-10-26 19:52:08,500 - __main__ - DEBUG - Command Position: -0.100045 -0.046109 -0.098501
+2024-10-26 19:52:08,500 - __main__ - DEBUG - SNS commanded goal position (mm):-104.632615,-33.521565,-98.501377
+2024-10-26 19:52:08,500 - __main__ - DEBUG - SNS commanded change in radius (mm):59.203170
+2024-10-26 19:52:08,500 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:-20.0,grasp:-60.0,lift_after_grasp:0.0,move_to_pre_release:20.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:08,500 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:08,502 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:08,502 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:08,502 - __main__ - DEBUG - GrasperPos in m:-0.056850 -0.023275 -0.080540
+2024-10-26 19:52:08,502 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:08,505 - __main__ - DEBUG - After SNS forward: 0.059762
+2024-10-26 19:52:08,505 - __main__ - DEBUG - Jaw radial pos in m:0.059762
+2024-10-26 19:52:08,505 - __main__ - DEBUG - Command Position: -0.103460 -0.048217 -0.099921
+2024-10-26 19:52:08,506 - __main__ - DEBUG - SNS commanded goal position (mm):-108.047313,-35.629662,-99.921316
+2024-10-26 19:52:08,506 - __main__ - DEBUG - SNS commanded change in radius (mm):59.762027
+2024-10-26 19:52:08,506 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:-20.0,grasp:-60.0,lift_after_grasp:0.0,move_to_pre_release:20.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:08,506 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:08,507 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:08,703 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:08,703 - __main__ - DEBUG - GrasperPos in m:-0.061875 -0.025725 -0.082630
+2024-10-26 19:52:08,703 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:08,705 - __main__ - DEBUG - After SNS forward: 0.060313
+2024-10-26 19:52:08,706 - __main__ - DEBUG - Jaw radial pos in m:0.060313
+2024-10-26 19:52:08,706 - __main__ - DEBUG - Command Position: -0.106738 -0.050296 -0.101284
+2024-10-26 19:52:08,706 - __main__ - DEBUG - SNS commanded goal position (mm):-111.325427,-37.708896,-101.284467
+2024-10-26 19:52:08,706 - __main__ - DEBUG - SNS commanded change in radius (mm):60.313232
+2024-10-26 19:52:08,706 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:-20.0,grasp:-60.0,lift_after_grasp:0.0,move_to_pre_release:20.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:08,706 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:08,723 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:08,723 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:08,723 - __main__ - DEBUG - GrasperPos in m:-0.061875 -0.025725 -0.082630
+2024-10-26 19:52:08,723 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:08,728 - __main__ - DEBUG - After SNS forward: 0.060857
+2024-10-26 19:52:08,728 - __main__ - DEBUG - Jaw radial pos in m:0.060857
+2024-10-26 19:52:08,728 - __main__ - DEBUG - Command Position: -0.109885 -0.052347 -0.102593
+2024-10-26 19:52:08,728 - __main__ - DEBUG - SNS commanded goal position (mm):-114.472418,-39.759624,-102.593087
+2024-10-26 19:52:08,728 - __main__ - DEBUG - SNS commanded change in radius (mm):60.856886
+2024-10-26 19:52:08,729 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:-20.0,grasp:-60.0,lift_after_grasp:0.0,move_to_pre_release:20.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:08,729 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:08,730 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:08,925 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:08,926 - __main__ - DEBUG - GrasperPos in m:-0.071225 -0.030312 -0.086520
+2024-10-26 19:52:08,926 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:08,930 - __main__ - DEBUG - After SNS forward: 0.061393
+2024-10-26 19:52:08,930 - __main__ - DEBUG - Jaw radial pos in m:0.061393
+2024-10-26 19:52:08,930 - __main__ - DEBUG - Command Position: -0.112906 -0.054370 -0.103849
+2024-10-26 19:52:08,930 - __main__ - DEBUG - SNS commanded goal position (mm):-117.493524,-41.782277,-103.849366
+2024-10-26 19:52:08,931 - __main__ - DEBUG - SNS commanded change in radius (mm):61.393093
+2024-10-26 19:52:08,931 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:-20.0,grasp:-60.0,lift_after_grasp:0.0,move_to_pre_release:20.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:08,931 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:08,934 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:08,934 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:08,934 - __main__ - DEBUG - GrasperPos in m:-0.071225 -0.030312 -0.086520
+2024-10-26 19:52:08,934 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:08,938 - __main__ - DEBUG - After SNS forward: 0.061922
+2024-10-26 19:52:08,938 - __main__ - DEBUG - Jaw radial pos in m:0.061922
+2024-10-26 19:52:08,938 - __main__ - DEBUG - Command Position: -0.115806 -0.056365 -0.105055
+2024-10-26 19:52:08,939 - __main__ - DEBUG - SNS commanded goal position (mm):-120.393789,-43.777200,-105.055392
+2024-10-26 19:52:08,939 - __main__ - DEBUG - SNS commanded change in radius (mm):61.921954
+2024-10-26 19:52:08,939 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:-20.0,grasp:-60.0,lift_after_grasp:0.0,move_to_pre_release:20.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:08,939 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:08,940 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:09,112 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:09,112 - __main__ - DEBUG - GrasperPos in m:-0.079938 -0.034738 -0.090140
+2024-10-26 19:52:09,112 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:09,114 - __main__ - DEBUG - After SNS forward: 0.062444
+2024-10-26 19:52:09,115 - __main__ - DEBUG - Jaw radial pos in m:0.062444
+2024-10-26 19:52:09,115 - __main__ - DEBUG - Command Position: -0.118591 -0.058332 -0.106213
+2024-10-26 19:52:09,115 - __main__ - DEBUG - SNS commanded goal position (mm):-123.178041,-45.744809,-106.213175
+2024-10-26 19:52:09,115 - __main__ - DEBUG - SNS commanded change in radius (mm):62.443569
+2024-10-26 19:52:09,115 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:-20.0,grasp:-60.0,lift_after_grasp:0.0,move_to_pre_release:20.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:09,115 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:09,139 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:09,139 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:09,140 - __main__ - DEBUG - GrasperPos in m:-0.079938 -0.034738 -0.090140
+2024-10-26 19:52:09,140 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:09,146 - __main__ - DEBUG - After SNS forward: 0.062958
+2024-10-26 19:52:09,146 - __main__ - DEBUG - Jaw radial pos in m:0.062958
+2024-10-26 19:52:09,147 - __main__ - DEBUG - Command Position: -0.121263 -0.060273 -0.107325
+2024-10-26 19:52:09,147 - __main__ - DEBUG - SNS commanded goal position (mm):-125.850915,-47.685462,-107.324660
+2024-10-26 19:52:09,147 - __main__ - DEBUG - SNS commanded change in radius (mm):62.958039
+2024-10-26 19:52:09,147 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:-20.0,grasp:-60.0,lift_after_grasp:0.0,move_to_pre_release:20.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:09,148 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:09,150 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:09,360 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:09,360 - __main__ - DEBUG - GrasperPos in m:-0.088575 -0.039550 -0.093728
+2024-10-26 19:52:09,360 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:09,364 - __main__ - DEBUG - After SNS forward: 0.063465
+2024-10-26 19:52:09,364 - __main__ - DEBUG - Jaw radial pos in m:0.063465
+2024-10-26 19:52:09,364 - __main__ - DEBUG - Command Position: -0.123829 -0.062187 -0.108392
+2024-10-26 19:52:09,364 - __main__ - DEBUG - SNS commanded goal position (mm):-128.416887,-49.599546,-108.391680
+2024-10-26 19:52:09,365 - __main__ - DEBUG - SNS commanded change in radius (mm):63.465461
+2024-10-26 19:52:09,365 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:-20.0,grasp:-60.0,lift_after_grasp:0.0,move_to_pre_release:20.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:09,365 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:09,384 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:09,384 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:09,384 - __main__ - DEBUG - GrasperPos in m:-0.088575 -0.039550 -0.093728
+2024-10-26 19:52:09,384 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:09,388 - __main__ - DEBUG - After SNS forward: 0.063966
+2024-10-26 19:52:09,388 - __main__ - DEBUG - Jaw radial pos in m:0.063966
+2024-10-26 19:52:09,388 - __main__ - DEBUG - Command Position: -0.126293 -0.064075 -0.109416
+2024-10-26 19:52:09,388 - __main__ - DEBUG - SNS commanded goal position (mm):-130.880206,-51.487389,-109.416023
+2024-10-26 19:52:09,388 - __main__ - DEBUG - SNS commanded change in radius (mm):63.965932
+2024-10-26 19:52:09,388 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:-20.0,grasp:-60.0,lift_after_grasp:0.0,move_to_pre_release:20.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:09,389 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:09,390 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:09,583 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:09,583 - __main__ - DEBUG - GrasperPos in m:-0.098250 -0.045275 -0.097750
+2024-10-26 19:52:09,583 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:09,586 - __main__ - DEBUG - After SNS forward: 0.064460
+2024-10-26 19:52:09,587 - __main__ - DEBUG - Jaw radial pos in m:0.064460
+2024-10-26 19:52:09,587 - __main__ - DEBUG - Command Position: -0.128658 -0.065937 -0.110399
+2024-10-26 19:52:09,587 - __main__ - DEBUG - SNS commanded goal position (mm):-133.245005,-53.349378,-110.399388
+2024-10-26 19:52:09,587 - __main__ - DEBUG - SNS commanded change in radius (mm):64.459555
+2024-10-26 19:52:09,587 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:-20.0,grasp:-60.0,lift_after_grasp:0.0,move_to_pre_release:20.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:09,587 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:09,589 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:09,589 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:09,589 - __main__ - DEBUG - GrasperPos in m:-0.098250 -0.045275 -0.097750
+2024-10-26 19:52:09,589 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:09,595 - __main__ - DEBUG - After SNS forward: 0.064946
+2024-10-26 19:52:09,595 - __main__ - DEBUG - Jaw radial pos in m:0.064946
+2024-10-26 19:52:09,595 - __main__ - DEBUG - Command Position: -0.130928 -0.067773 -0.111343
+2024-10-26 19:52:09,595 - __main__ - DEBUG - SNS commanded goal position (mm):-135.515212,-55.185857,-111.343421
+2024-10-26 19:52:09,596 - __main__ - DEBUG - SNS commanded change in radius (mm):64.946406
+2024-10-26 19:52:09,596 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:-20.0,grasp:-60.0,lift_after_grasp:0.0,move_to_pre_release:20.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:09,596 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:09,598 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:09,801 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:09,801 - __main__ - DEBUG - GrasperPos in m:-0.105863 -0.049775 -0.100915
+2024-10-26 19:52:09,801 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:09,806 - __main__ - DEBUG - After SNS forward: 0.065427
+2024-10-26 19:52:09,806 - __main__ - DEBUG - Jaw radial pos in m:0.065427
+2024-10-26 19:52:09,806 - __main__ - DEBUG - Command Position: -0.133107 -0.069585 -0.112250
+2024-10-26 19:52:09,806 - __main__ - DEBUG - SNS commanded goal position (mm):-137.694596,-56.997183,-112.249687
+2024-10-26 19:52:09,806 - __main__ - DEBUG - SNS commanded change in radius (mm):65.426588
+2024-10-26 19:52:09,807 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:-20.0,grasp:-60.0,lift_after_grasp:0.0,move_to_pre_release:20.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:09,807 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:09,809 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:09,809 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:09,809 - __main__ - DEBUG - GrasperPos in m:-0.105863 -0.049775 -0.100915
+2024-10-26 19:52:09,809 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:09,814 - __main__ - DEBUG - After SNS forward: 0.065900
+2024-10-26 19:52:09,814 - __main__ - DEBUG - Jaw radial pos in m:0.065900
+2024-10-26 19:52:09,814 - __main__ - DEBUG - Command Position: -0.135199 -0.071371 -0.113120
+2024-10-26 19:52:09,814 - __main__ - DEBUG - SNS commanded goal position (mm):-139.786808,-58.783683,-113.119699
+2024-10-26 19:52:09,814 - __main__ - DEBUG - SNS commanded change in radius (mm):65.900199
+2024-10-26 19:52:09,814 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:-20.0,grasp:-60.0,lift_after_grasp:0.0,move_to_pre_release:20.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:09,815 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:09,816 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:09,983 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:09,983 - __main__ - DEBUG - GrasperPos in m:-0.109500 -0.052162 -0.102427
+2024-10-26 19:52:09,983 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:09,986 - __main__ - DEBUG - After SNS forward: 0.066367
+2024-10-26 19:52:09,987 - __main__ - DEBUG - Jaw radial pos in m:0.066367
+2024-10-26 19:52:09,987 - __main__ - DEBUG - Command Position: -0.137208 -0.073133 -0.113955
+2024-10-26 19:52:09,987 - __main__ - DEBUG - SNS commanded goal position (mm):-141.795336,-60.545730,-113.954917
+2024-10-26 19:52:09,987 - __main__ - DEBUG - SNS commanded change in radius (mm):66.367321
+2024-10-26 19:52:09,987 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:-20.0,grasp:-60.0,lift_after_grasp:0.0,move_to_pre_release:20.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:09,987 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:10,001 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:10,001 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:10,002 - __main__ - DEBUG - GrasperPos in m:-0.109500 -0.052162 -0.102427
+2024-10-26 19:52:10,002 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:10,008 - __main__ - DEBUG - After SNS forward: 0.066828
+2024-10-26 19:52:10,008 - __main__ - DEBUG - Jaw radial pos in m:0.066828
+2024-10-26 19:52:10,008 - __main__ - DEBUG - Command Position: -0.139136 -0.074871 -0.114757
+2024-10-26 19:52:10,009 - __main__ - DEBUG - SNS commanded goal position (mm):-143.723531,-62.283623,-114.756726
+2024-10-26 19:52:10,009 - __main__ - DEBUG - SNS commanded change in radius (mm):66.828042
+2024-10-26 19:52:10,009 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:-20.0,grasp:-60.0,lift_after_grasp:0.0,move_to_pre_release:20.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:10,009 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:10,010 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:10,223 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:10,223 - __main__ - DEBUG - GrasperPos in m:-0.117100 -0.057325 -0.105593
+2024-10-26 19:52:10,223 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:10,226 - __main__ - DEBUG - After SNS forward: 0.067282
+2024-10-26 19:52:10,227 - __main__ - DEBUG - Jaw radial pos in m:0.067282
+2024-10-26 19:52:10,227 - __main__ - DEBUG - Command Position: -0.140987 -0.076585 -0.115526
+2024-10-26 19:52:10,227 - __main__ - DEBUG - SNS commanded goal position (mm):-145.574598,-63.997726,-115.526460
+2024-10-26 19:52:10,227 - __main__ - DEBUG - SNS commanded change in radius (mm):67.282453
+2024-10-26 19:52:10,227 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:-20.0,grasp:-60.0,lift_after_grasp:0.0,move_to_pre_release:20.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:10,227 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:10,229 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:10,229 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:10,229 - __main__ - DEBUG - GrasperPos in m:-0.117100 -0.057325 -0.105593
+2024-10-26 19:52:10,229 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:10,235 - __main__ - DEBUG - After SNS forward: 0.067731
+2024-10-26 19:52:10,235 - __main__ - DEBUG - Jaw radial pos in m:0.067731
+2024-10-26 19:52:10,235 - __main__ - DEBUG - Command Position: -0.142764 -0.078276 -0.116265
+2024-10-26 19:52:10,235 - __main__ - DEBUG - SNS commanded goal position (mm):-147.351606,-65.688337,-116.265409
+2024-10-26 19:52:10,235 - __main__ - DEBUG - SNS commanded change in radius (mm):67.730635
+2024-10-26 19:52:10,235 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:-20.0,grasp:-60.0,lift_after_grasp:0.0,move_to_pre_release:20.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:10,236 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:10,236 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:10,419 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:10,419 - __main__ - DEBUG - GrasperPos in m:-0.125250 -0.063338 -0.108975
+2024-10-26 19:52:10,419 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:10,422 - __main__ - DEBUG - After SNS forward: 0.068173
+2024-10-26 19:52:10,423 - __main__ - DEBUG - Jaw radial pos in m:0.068173
+2024-10-26 19:52:10,423 - __main__ - DEBUG - Command Position: -0.144470 -0.079943 -0.116975
+2024-10-26 19:52:10,423 - __main__ - DEBUG - SNS commanded goal position (mm):-149.057536,-67.355792,-116.974793
+2024-10-26 19:52:10,423 - __main__ - DEBUG - SNS commanded change in radius (mm):68.172686
+2024-10-26 19:52:10,423 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:-20.0,grasp:-60.0,lift_after_grasp:0.0,move_to_pre_release:20.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:10,424 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:10,437 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:10,437 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:10,438 - __main__ - DEBUG - GrasperPos in m:-0.125250 -0.063338 -0.108975
+2024-10-26 19:52:10,438 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:10,440 - __main__ - DEBUG - After SNS forward: 0.068609
+2024-10-26 19:52:10,440 - __main__ - DEBUG - Jaw radial pos in m:0.068609
+2024-10-26 19:52:10,441 - __main__ - DEBUG - Command Position: -0.146108 -0.081588 -0.117656
+2024-10-26 19:52:10,441 - __main__ - DEBUG - SNS commanded goal position (mm):-150.695233,-69.000403,-117.655814
+2024-10-26 19:52:10,441 - __main__ - DEBUG - SNS commanded change in radius (mm):68.608671
+2024-10-26 19:52:10,441 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:-20.0,grasp:-60.0,lift_after_grasp:0.0,move_to_pre_release:20.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:10,441 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:10,442 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:10,660 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:10,660 - __main__ - DEBUG - GrasperPos in m:-0.132812 -0.069537 -0.112120
+2024-10-26 19:52:10,660 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:10,665 - __main__ - DEBUG - After SNS forward: 0.069039
+2024-10-26 19:52:10,665 - __main__ - DEBUG - Jaw radial pos in m:0.069039
+2024-10-26 19:52:10,665 - __main__ - DEBUG - Command Position: -0.147680 -0.083210 -0.118310
+2024-10-26 19:52:10,666 - __main__ - DEBUG - SNS commanded goal position (mm):-152.267425,-70.622484,-118.309580
+2024-10-26 19:52:10,666 - __main__ - DEBUG - SNS commanded change in radius (mm):69.038689
+2024-10-26 19:52:10,666 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:-20.0,grasp:-60.0,lift_after_grasp:0.0,move_to_pre_release:20.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:10,666 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:10,690 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:10,690 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:10,690 - __main__ - DEBUG - GrasperPos in m:-0.132812 -0.069537 -0.112120
+2024-10-26 19:52:10,690 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:10,696 - __main__ - DEBUG - After SNS forward: 0.069463
+2024-10-26 19:52:10,696 - __main__ - DEBUG - Jaw radial pos in m:0.069463
+2024-10-26 19:52:10,696 - __main__ - DEBUG - Command Position: -0.149189 -0.084810 -0.118937
+2024-10-26 19:52:10,696 - __main__ - DEBUG - SNS commanded goal position (mm):-153.776734,-72.222355,-118.937209
+2024-10-26 19:52:10,696 - __main__ - DEBUG - SNS commanded change in radius (mm):69.462821
+2024-10-26 19:52:10,696 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:-20.0,grasp:-60.0,lift_after_grasp:0.0,move_to_pre_release:20.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:10,697 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:10,698 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:10,905 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:10,905 - __main__ - DEBUG - GrasperPos in m:-0.137963 -0.073838 -0.114260
+2024-10-26 19:52:10,905 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:10,909 - __main__ - DEBUG - After SNS forward: 0.069881
+2024-10-26 19:52:10,910 - __main__ - DEBUG - Jaw radial pos in m:0.069881
+2024-10-26 19:52:10,910 - __main__ - DEBUG - Command Position: -0.150638 -0.086388 -0.119540
+2024-10-26 19:52:10,910 - __main__ - DEBUG - SNS commanded goal position (mm):-155.225663,-73.800306,-119.539730
+2024-10-26 19:52:10,910 - __main__ - DEBUG - SNS commanded change in radius (mm):69.881134
+2024-10-26 19:52:10,911 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:-20.0,grasp:-60.0,lift_after_grasp:0.0,move_to_pre_release:20.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:10,911 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:10,930 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:10,931 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:10,931 - __main__ - DEBUG - GrasperPos in m:-0.137963 -0.073838 -0.114260
+2024-10-26 19:52:10,931 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:10,940 - __main__ - DEBUG - After SNS forward: 0.070294
+2024-10-26 19:52:10,940 - __main__ - DEBUG - Jaw radial pos in m:0.070294
+2024-10-26 19:52:10,940 - __main__ - DEBUG - Command Position: -0.152029 -0.087944 -0.120118
+2024-10-26 19:52:10,941 - __main__ - DEBUG - SNS commanded goal position (mm):-156.616642,-75.356635,-120.118141
+2024-10-26 19:52:10,941 - __main__ - DEBUG - SNS commanded change in radius (mm):70.293717
+2024-10-26 19:52:10,941 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:-20.0,grasp:-60.0,lift_after_grasp:0.0,move_to_pre_release:20.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:10,941 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:10,946 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:11,139 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:11,139 - __main__ - DEBUG - GrasperPos in m:-0.144400 -0.079875 -0.116937
+2024-10-26 19:52:11,139 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:11,142 - __main__ - DEBUG - After SNS forward: 0.070701
+2024-10-26 19:52:11,142 - __main__ - DEBUG - Jaw radial pos in m:0.070701
+2024-10-26 19:52:11,142 - __main__ - DEBUG - Command Position: -0.153364 -0.089479 -0.120673
+2024-10-26 19:52:11,142 - __main__ - DEBUG - SNS commanded goal position (mm):-157.951980,-76.891648,-120.673418
+2024-10-26 19:52:11,142 - __main__ - DEBUG - SNS commanded change in radius (mm):70.700653
+2024-10-26 19:52:11,142 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:-20.0,grasp:-60.0,lift_after_grasp:0.0,move_to_pre_release:20.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:11,142 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:11,145 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:11,145 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:11,145 - __main__ - DEBUG - GrasperPos in m:-0.144400 -0.079875 -0.116937
+2024-10-26 19:52:11,145 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:11,148 - __main__ - DEBUG - After SNS forward: 0.071102
+2024-10-26 19:52:11,148 - __main__ - DEBUG - Jaw radial pos in m:0.071102
+2024-10-26 19:52:11,148 - __main__ - DEBUG - Command Position: -0.154646 -0.090993 -0.121206
+2024-10-26 19:52:11,148 - __main__ - DEBUG - SNS commanded goal position (mm):-159.233897,-78.405636,-121.206485
+2024-10-26 19:52:11,148 - __main__ - DEBUG - SNS commanded change in radius (mm):71.102016
+2024-10-26 19:52:11,148 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:-20.0,grasp:-60.0,lift_after_grasp:0.0,move_to_pre_release:20.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:11,148 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:11,149 - __main__ - DEBUG - Inside SNS control
+2024-10-26 19:52:11,180 - __main__ - INFO - Z
+2024-10-26 19:52:11,181 - __main__ - INFO - Setting to NORMAL mode...
+
+2024-10-26 19:52:11,347 - __main__ - DEBUG - Target position in m: -0.185413 -0.202588 -0.184000
+2024-10-26 19:52:11,347 - __main__ - DEBUG - GrasperPos in m:-0.148612 -0.084212 -0.118698
+2024-10-26 19:52:11,347 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.141640
+2024-10-26 19:52:11,350 - __main__ - DEBUG - After SNS forward: 0.071498
+2024-10-26 19:52:11,350 - __main__ - DEBUG - Jaw radial pos in m:0.071498
+2024-10-26 19:52:11,350 - __main__ - DEBUG - Command Position: -0.155877 -0.092486 -0.121718
+2024-10-26 19:52:11,350 - __main__ - DEBUG - SNS commanded goal position (mm):-160.464539,-79.898874,-121.718228
+2024-10-26 19:52:11,350 - __main__ - DEBUG - SNS commanded change in radius (mm):71.497872
+2024-10-26 19:52:11,350 - __main__ - DEBUG - move_to_pre_grasp:0.0,move_to_grasp:-20.0,grasp:-60.0,lift_after_grasp:0.0,move_to_pre_release:20.0,move_to_release:0.0,release:0.0,lift_after_release:-20.0
+2024-10-26 19:52:11,350 - __main__ - DEBUG - Number of grasp attempts 1
+2024-10-26 19:52:50,011 - __main__ - INFO - D
+2024-10-26 19:52:50,012 - __main__ - INFO - Gantry position(mm): -160.462500 -79.900000 -121.720000 
+
+2024-10-26 19:52:50,012 - __main__ - INFO - Grasper closure muscle commanded pressure(psi):6.143288 
+
+2024-10-26 19:52:50,012 - __main__ - INFO - Grasper closure muscle pressure(psi): 6.975893 
+
+2024-10-26 19:52:50,012 - __main__ - INFO - Grasper closure radius(mm): 48.000000 
+
+2024-10-26 19:52:50,012 - __main__ - INFO - Grasper contact pressure (psi): -0.002289, 0.011443, 0.020598 
+
+2024-10-26 19:52:58,388 - __main__ - INFO - D
+2024-10-26 19:52:58,409 - __main__ - INFO - Gantry position(mm): -160.462500 -79.900000 -121.720000 
+
+2024-10-26 19:52:58,409 - __main__ - INFO - Grasper closure muscle commanded pressure(psi):6.143288 
+
+2024-10-26 19:52:58,409 - __main__ - INFO - Grasper closure muscle pressure(psi): 4.126488 
+
+2024-10-26 19:52:58,409 - __main__ - INFO - Grasper closure radius(mm): 48.000000 
+
+2024-10-26 19:52:58,409 - __main__ - INFO - Grasper contact pressure (psi): -0.002289, 0.004577, 0.025176 
+
+2024-10-26 19:52:59,712 - __main__ - INFO - D
+2024-10-26 19:52:59,742 - __main__ - INFO - Gantry position(mm): -160.462500 -79.900000 -121.720000 
+
+2024-10-26 19:52:59,742 - __main__ - INFO - Grasper closure muscle commanded pressure(psi):6.143288 
+
+2024-10-26 19:52:59,742 - __main__ - INFO - Grasper closure muscle pressure(psi): 8.577968 
+
+2024-10-26 19:52:59,742 - __main__ - INFO - Grasper closure radius(mm): 48.000000 
+
+2024-10-26 19:52:59,742 - __main__ - INFO - Grasper contact pressure (psi): -0.002289, 0.004577, 0.027464 
+
+2024-10-26 19:53:00,974 - __main__ - INFO - D
+2024-10-26 19:53:00,993 - __main__ - INFO - Gantry position(mm): -160.462500 -79.900000 -121.720000 
+
+2024-10-26 19:53:00,993 - __main__ - INFO - Grasper closure muscle commanded pressure(psi):6.143288 
+
+2024-10-26 19:53:00,993 - __main__ - INFO - Grasper closure muscle pressure(psi): 4.346201 
+
+2024-10-26 19:53:00,993 - __main__ - INFO - Grasper closure radius(mm): 48.000000 
+
+2024-10-26 19:53:00,993 - __main__ - INFO - Grasper contact pressure (psi): 0.002289, 0.013732, 0.020598 
+
+2024-10-26 19:53:02,908 - __main__ - INFO - D
+2024-10-26 19:53:02,935 - __main__ - INFO - Gantry position(mm): -160.462500 -79.900000 -121.720000 
+
+2024-10-26 19:53:02,936 - __main__ - INFO - Grasper closure muscle commanded pressure(psi):6.143288 
+
+2024-10-26 19:53:02,936 - __main__ - INFO - Grasper closure muscle pressure(psi): 4.636863 
+
+2024-10-26 19:53:02,936 - __main__ - INFO - Grasper closure radius(mm): 48.000000 
+
+2024-10-26 19:53:02,936 - __main__ - INFO - Grasper contact pressure (psi): 0.002289, 0.004577, 0.020598 
+

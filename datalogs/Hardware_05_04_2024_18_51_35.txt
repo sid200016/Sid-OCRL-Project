@@ -1,0 +1,409 @@
+2024-04-05 18:51:35,887 - __main__ - INFO - Enter C for calibration. 
+Enter S for SNS. 
+Enter Z to return to joystick control
+Enter H to move grasper home 
+Enter T to inflate until grasper touches 
+Enter MG to move the grasper 
+Enter M to move the gantry 
+Enter D to display robot state 
+Enter PR to enter pressure radius calibration 
+Enter K to begin Koopman Experiments 
+
+2024-04-05 18:51:36,641 - __main__ - INFO - Initial jaw pressure is (psi):0,0,0
+2024-04-05 18:53:04,819 - __main__ - INFO - D
+2024-04-05 18:53:04,837 - __main__ - INFO - Gantry position(mm): -9.325000 12.925000 -180.180000 
+
+2024-04-05 18:53:04,837 - __main__ - INFO - Grasper closure muscle pressure(psi): -0.018309 
+
+2024-04-05 18:53:04,838 - __main__ - INFO - Grasper closure radius(mm): 0.000000 
+
+2024-04-05 18:53:04,838 - __main__ - INFO - Grasper contact pressure (psi): 0.006866, 0.011443, 0.025176 
+
+2024-04-05 18:53:09,747 - __main__ - INFO - D
+2024-04-05 18:53:09,766 - __main__ - INFO - Gantry position(mm): -9.325000 12.925000 -180.180000 
+
+2024-04-05 18:53:09,766 - __main__ - INFO - Grasper closure muscle pressure(psi): -0.013732 
+
+2024-04-05 18:53:09,766 - __main__ - INFO - Grasper closure radius(mm): 0.000000 
+
+2024-04-05 18:53:09,766 - __main__ - INFO - Grasper contact pressure (psi): -0.002289, 0.013732, 0.025176 
+
+2024-04-05 18:53:18,154 - __main__ - INFO - K
+2024-04-05 18:53:18,207 - __main__ - INFO - Logger set up ...
+2024-04-05 18:53:18,207 - __main__ - INFO - Below are the Experimental parameters....
+2024-04-05 18:53:18,207 - __main__ - INFO -            var_name  ...                                    random_sequence
+0                 x  ...  [-0.06485915919999741, -0.06485915919999741, -...
+1                 y  ...  [1.3909527521034395, 1.3909527521034395, 1.390...
+2                 z  ...  [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, ...
+3  Grasper_Pressure  ...  [9.484677616476887, 9.484677616476887, 9.48467...
+4             Jaw_1  ...  [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, ...
+5             Jaw_2  ...  [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, ...
+6             Jaw_3  ...  [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, ...
+
+[7 rows x 10 columns]
+2024-04-05 18:53:18,255 - __main__ - INFO - Enter Y to proceed, enter Z to exit
+2024-04-05 18:53:21,551 - __main__ - INFO - Original position (mm): -9.327777,12.920636,-180.180000
+2024-04-05 18:53:21,551 - __main__ - INFO - Please enter object type (rigid, elastic or soft)
+
+2024-04-05 18:53:26,706 - __main__ - INFO - Please enter object size in mm
+2024-04-05 18:53:29,371 - __main__ - INFO - Completely deflating grasper...
+2024-04-05 18:55:33,771 - __main__ - INFO - 
+2024-04-05 18:55:33,771 - __main__ - INFO - Enter C for calibration. 
+Enter S for SNS. 
+Enter Z to return to joystick control
+Enter H to move grasper home 
+Enter T to inflate until grasper touches 
+Enter MG to move the grasper 
+Enter M to move the gantry 
+Enter D to display robot state 
+Enter PR to enter pressure radius calibration 
+Enter K to begin Koopman Experiments 
+
+2024-04-05 18:55:34,090 - __main__ - INFO - 
+2024-04-05 18:55:34,090 - __main__ - INFO - Enter C for calibration. 
+Enter S for SNS. 
+Enter Z to return to joystick control
+Enter H to move grasper home 
+Enter T to inflate until grasper touches 
+Enter MG to move the grasper 
+Enter M to move the gantry 
+Enter D to display robot state 
+Enter PR to enter pressure radius calibration 
+Enter K to begin Koopman Experiments 
+
+2024-04-05 18:55:34,395 - __main__ - INFO - 
+2024-04-05 18:55:34,395 - __main__ - INFO - Enter C for calibration. 
+Enter S for SNS. 
+Enter Z to return to joystick control
+Enter H to move grasper home 
+Enter T to inflate until grasper touches 
+Enter MG to move the grasper 
+Enter M to move the gantry 
+Enter D to display robot state 
+Enter PR to enter pressure radius calibration 
+Enter K to begin Koopman Experiments 
+
+2024-04-05 18:55:34,649 - __main__ - INFO - 
+2024-04-05 18:55:34,649 - __main__ - INFO - Enter C for calibration. 
+Enter S for SNS. 
+Enter Z to return to joystick control
+Enter H to move grasper home 
+Enter T to inflate until grasper touches 
+Enter MG to move the grasper 
+Enter M to move the gantry 
+Enter D to display robot state 
+Enter PR to enter pressure radius calibration 
+Enter K to begin Koopman Experiments 
+
+2024-04-05 18:55:34,844 - __main__ - INFO - 
+2024-04-05 18:55:34,844 - __main__ - INFO - Enter C for calibration. 
+Enter S for SNS. 
+Enter Z to return to joystick control
+Enter H to move grasper home 
+Enter T to inflate until grasper touches 
+Enter MG to move the grasper 
+Enter M to move the gantry 
+Enter D to display robot state 
+Enter PR to enter pressure radius calibration 
+Enter K to begin Koopman Experiments 
+
+2024-04-05 18:55:35,042 - __main__ - INFO - 
+2024-04-05 18:55:35,042 - __main__ - INFO - Enter C for calibration. 
+Enter S for SNS. 
+Enter Z to return to joystick control
+Enter H to move grasper home 
+Enter T to inflate until grasper touches 
+Enter MG to move the grasper 
+Enter M to move the gantry 
+Enter D to display robot state 
+Enter PR to enter pressure radius calibration 
+Enter K to begin Koopman Experiments 
+
+2024-04-05 18:55:35,236 - __main__ - INFO - 
+2024-04-05 18:55:35,236 - __main__ - INFO - Enter C for calibration. 
+Enter S for SNS. 
+Enter Z to return to joystick control
+Enter H to move grasper home 
+Enter T to inflate until grasper touches 
+Enter MG to move the grasper 
+Enter M to move the gantry 
+Enter D to display robot state 
+Enter PR to enter pressure radius calibration 
+Enter K to begin Koopman Experiments 
+
+2024-04-05 18:55:35,418 - __main__ - INFO - 
+2024-04-05 18:55:35,418 - __main__ - INFO - Enter C for calibration. 
+Enter S for SNS. 
+Enter Z to return to joystick control
+Enter H to move grasper home 
+Enter T to inflate until grasper touches 
+Enter MG to move the grasper 
+Enter M to move the gantry 
+Enter D to display robot state 
+Enter PR to enter pressure radius calibration 
+Enter K to begin Koopman Experiments 
+
+2024-04-05 18:55:35,586 - __main__ - INFO - 
+2024-04-05 18:55:35,586 - __main__ - INFO - Enter C for calibration. 
+Enter S for SNS. 
+Enter Z to return to joystick control
+Enter H to move grasper home 
+Enter T to inflate until grasper touches 
+Enter MG to move the grasper 
+Enter M to move the gantry 
+Enter D to display robot state 
+Enter PR to enter pressure radius calibration 
+Enter K to begin Koopman Experiments 
+
+2024-04-05 18:55:35,757 - __main__ - INFO - 
+2024-04-05 18:55:35,757 - __main__ - INFO - Enter C for calibration. 
+Enter S for SNS. 
+Enter Z to return to joystick control
+Enter H to move grasper home 
+Enter T to inflate until grasper touches 
+Enter MG to move the grasper 
+Enter M to move the gantry 
+Enter D to display robot state 
+Enter PR to enter pressure radius calibration 
+Enter K to begin Koopman Experiments 
+
+2024-04-05 18:55:35,925 - __main__ - INFO - 
+2024-04-05 18:55:35,925 - __main__ - INFO - Enter C for calibration. 
+Enter S for SNS. 
+Enter Z to return to joystick control
+Enter H to move grasper home 
+Enter T to inflate until grasper touches 
+Enter MG to move the grasper 
+Enter M to move the gantry 
+Enter D to display robot state 
+Enter PR to enter pressure radius calibration 
+Enter K to begin Koopman Experiments 
+
+2024-04-05 18:55:36,149 - __main__ - INFO - 
+2024-04-05 18:55:36,149 - __main__ - INFO - Enter C for calibration. 
+Enter S for SNS. 
+Enter Z to return to joystick control
+Enter H to move grasper home 
+Enter T to inflate until grasper touches 
+Enter MG to move the grasper 
+Enter M to move the gantry 
+Enter D to display robot state 
+Enter PR to enter pressure radius calibration 
+Enter K to begin Koopman Experiments 
+
+2024-04-05 18:55:36,365 - __main__ - INFO - 
+2024-04-05 18:55:36,366 - __main__ - INFO - Enter C for calibration. 
+Enter S for SNS. 
+Enter Z to return to joystick control
+Enter H to move grasper home 
+Enter T to inflate until grasper touches 
+Enter MG to move the grasper 
+Enter M to move the gantry 
+Enter D to display robot state 
+Enter PR to enter pressure radius calibration 
+Enter K to begin Koopman Experiments 
+
+2024-04-05 18:55:36,595 - __main__ - INFO - 
+2024-04-05 18:55:36,596 - __main__ - INFO - Enter C for calibration. 
+Enter S for SNS. 
+Enter Z to return to joystick control
+Enter H to move grasper home 
+Enter T to inflate until grasper touches 
+Enter MG to move the grasper 
+Enter M to move the gantry 
+Enter D to display robot state 
+Enter PR to enter pressure radius calibration 
+Enter K to begin Koopman Experiments 
+
+2024-04-05 18:55:36,968 - __main__ - INFO - 
+2024-04-05 18:55:36,968 - __main__ - INFO - Enter C for calibration. 
+Enter S for SNS. 
+Enter Z to return to joystick control
+Enter H to move grasper home 
+Enter T to inflate until grasper touches 
+Enter MG to move the grasper 
+Enter M to move the gantry 
+Enter D to display robot state 
+Enter PR to enter pressure radius calibration 
+Enter K to begin Koopman Experiments 
+
+2024-04-05 18:55:37,336 - __main__ - INFO - 
+2024-04-05 18:55:37,336 - __main__ - INFO - Enter C for calibration. 
+Enter S for SNS. 
+Enter Z to return to joystick control
+Enter H to move grasper home 
+Enter T to inflate until grasper touches 
+Enter MG to move the grasper 
+Enter M to move the gantry 
+Enter D to display robot state 
+Enter PR to enter pressure radius calibration 
+Enter K to begin Koopman Experiments 
+
+2024-04-05 18:55:37,706 - __main__ - INFO - 
+2024-04-05 18:55:37,706 - __main__ - INFO - Enter C for calibration. 
+Enter S for SNS. 
+Enter Z to return to joystick control
+Enter H to move grasper home 
+Enter T to inflate until grasper touches 
+Enter MG to move the grasper 
+Enter M to move the gantry 
+Enter D to display robot state 
+Enter PR to enter pressure radius calibration 
+Enter K to begin Koopman Experiments 
+
+2024-04-05 18:55:38,123 - __main__ - INFO - 
+2024-04-05 18:55:38,123 - __main__ - INFO - Enter C for calibration. 
+Enter S for SNS. 
+Enter Z to return to joystick control
+Enter H to move grasper home 
+Enter T to inflate until grasper touches 
+Enter MG to move the grasper 
+Enter M to move the gantry 
+Enter D to display robot state 
+Enter PR to enter pressure radius calibration 
+Enter K to begin Koopman Experiments 
+
+2024-04-05 18:55:38,532 - __main__ - INFO - 
+2024-04-05 18:55:38,532 - __main__ - INFO - Enter C for calibration. 
+Enter S for SNS. 
+Enter Z to return to joystick control
+Enter H to move grasper home 
+Enter T to inflate until grasper touches 
+Enter MG to move the grasper 
+Enter M to move the gantry 
+Enter D to display robot state 
+Enter PR to enter pressure radius calibration 
+Enter K to begin Koopman Experiments 
+
+2024-04-05 18:55:38,887 - __main__ - INFO - 
+2024-04-05 18:55:38,887 - __main__ - INFO - Enter C for calibration. 
+Enter S for SNS. 
+Enter Z to return to joystick control
+Enter H to move grasper home 
+Enter T to inflate until grasper touches 
+Enter MG to move the grasper 
+Enter M to move the gantry 
+Enter D to display robot state 
+Enter PR to enter pressure radius calibration 
+Enter K to begin Koopman Experiments 
+
+2024-04-05 18:55:39,346 - __main__ - INFO - 
+2024-04-05 18:55:39,346 - __main__ - INFO - Enter C for calibration. 
+Enter S for SNS. 
+Enter Z to return to joystick control
+Enter H to move grasper home 
+Enter T to inflate until grasper touches 
+Enter MG to move the grasper 
+Enter M to move the gantry 
+Enter D to display robot state 
+Enter PR to enter pressure radius calibration 
+Enter K to begin Koopman Experiments 
+
+2024-04-05 18:55:39,762 - __main__ - INFO - 
+2024-04-05 18:55:39,762 - __main__ - INFO - Enter C for calibration. 
+Enter S for SNS. 
+Enter Z to return to joystick control
+Enter H to move grasper home 
+Enter T to inflate until grasper touches 
+Enter MG to move the grasper 
+Enter M to move the gantry 
+Enter D to display robot state 
+Enter PR to enter pressure radius calibration 
+Enter K to begin Koopman Experiments 
+
+2024-04-05 18:55:40,178 - __main__ - INFO - 
+2024-04-05 18:55:40,178 - __main__ - INFO - Enter C for calibration. 
+Enter S for SNS. 
+Enter Z to return to joystick control
+Enter H to move grasper home 
+Enter T to inflate until grasper touches 
+Enter MG to move the grasper 
+Enter M to move the gantry 
+Enter D to display robot state 
+Enter PR to enter pressure radius calibration 
+Enter K to begin Koopman Experiments 
+
+2024-04-05 18:55:40,591 - __main__ - INFO - 
+2024-04-05 18:55:40,591 - __main__ - INFO - Enter C for calibration. 
+Enter S for SNS. 
+Enter Z to return to joystick control
+Enter H to move grasper home 
+Enter T to inflate until grasper touches 
+Enter MG to move the grasper 
+Enter M to move the gantry 
+Enter D to display robot state 
+Enter PR to enter pressure radius calibration 
+Enter K to begin Koopman Experiments 
+
+2024-04-05 18:55:40,943 - __main__ - INFO - 
+2024-04-05 18:55:40,943 - __main__ - INFO - Enter C for calibration. 
+Enter S for SNS. 
+Enter Z to return to joystick control
+Enter H to move grasper home 
+Enter T to inflate until grasper touches 
+Enter MG to move the grasper 
+Enter M to move the gantry 
+Enter D to display robot state 
+Enter PR to enter pressure radius calibration 
+Enter K to begin Koopman Experiments 
+
+2024-04-05 18:55:41,300 - __main__ - INFO - 
+2024-04-05 18:55:41,300 - __main__ - INFO - Enter C for calibration. 
+Enter S for SNS. 
+Enter Z to return to joystick control
+Enter H to move grasper home 
+Enter T to inflate until grasper touches 
+Enter MG to move the grasper 
+Enter M to move the gantry 
+Enter D to display robot state 
+Enter PR to enter pressure radius calibration 
+Enter K to begin Koopman Experiments 
+
+2024-04-05 18:55:41,693 - __main__ - INFO - 
+2024-04-05 18:55:41,693 - __main__ - INFO - Enter C for calibration. 
+Enter S for SNS. 
+Enter Z to return to joystick control
+Enter H to move grasper home 
+Enter T to inflate until grasper touches 
+Enter MG to move the grasper 
+Enter M to move the gantry 
+Enter D to display robot state 
+Enter PR to enter pressure radius calibration 
+Enter K to begin Koopman Experiments 
+
+2024-04-05 18:55:41,995 - __main__ - INFO - 
+2024-04-05 18:55:41,995 - __main__ - INFO - Enter C for calibration. 
+Enter S for SNS. 
+Enter Z to return to joystick control
+Enter H to move grasper home 
+Enter T to inflate until grasper touches 
+Enter MG to move the grasper 
+Enter M to move the gantry 
+Enter D to display robot state 
+Enter PR to enter pressure radius calibration 
+Enter K to begin Koopman Experiments 
+
+2024-04-05 18:55:42,251 - __main__ - INFO - 
+2024-04-05 18:55:42,251 - __main__ - INFO - Enter C for calibration. 
+Enter S for SNS. 
+Enter Z to return to joystick control
+Enter H to move grasper home 
+Enter T to inflate until grasper touches 
+Enter MG to move the grasper 
+Enter M to move the gantry 
+Enter D to display robot state 
+Enter PR to enter pressure radius calibration 
+Enter K to begin Koopman Experiments 
+
+2024-04-05 18:55:42,557 - __main__ - INFO - 
+2024-04-05 18:55:42,557 - __main__ - INFO - Enter C for calibration. 
+Enter S for SNS. 
+Enter Z to return to joystick control
+Enter H to move grasper home 
+Enter T to inflate until grasper touches 
+Enter MG to move the grasper 
+Enter M to move the gantry 
+Enter D to display robot state 
+Enter PR to enter pressure radius calibration 
+Enter K to begin Koopman Experiments 
+

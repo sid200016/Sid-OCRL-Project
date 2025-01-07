@@ -1,0 +1,92 @@
+2024-06-19 12:39:20,186 - __main__ - INFO - Grasper Type selected: GrasperType.RigidGrasper
+2024-06-19 12:39:20,187 - __main__ - INFO - Enter C for calibration. 
+Enter S for SNS. 
+Enter Z to return to joystick control
+Enter H to move grasper home 
+Enter T to inflate until grasper touches 
+Enter MG to move the grasper 
+Enter M to move the gantry 
+Enter D to display robot state 
+Enter PR to enter pressure radius calibration 
+Enter K to begin Koopman Experiments 
+Enter LQR to begin LQR Experiments
+
+2024-06-19 12:39:54,122 - __main__ - INFO - D
+2024-06-19 12:39:54,122 - __main__ - INFO - Gantry position(mm): 0.000000 0.000000 0.000000 
+
+2024-06-19 12:39:54,122 - __main__ - INFO - Grasper commanded position (mm): 0.000000 
+
+2024-06-19 12:39:54,123 - __main__ - INFO - Grasper current position (mm): 0.000000 
+
+2024-06-19 12:39:54,123 - __main__ - INFO - Raw load cell reading: 1564.000000 
+
+2024-06-19 12:39:54,123 - __main__ - INFO - Load cell reading (N): -0.880000 
+
+2024-06-19 12:39:56,713 - __main__ - INFO - D
+2024-06-19 12:39:56,713 - __main__ - INFO - Gantry position(mm): 0.000000 0.000000 0.000000 
+
+2024-06-19 12:39:56,713 - __main__ - INFO - Grasper commanded position (mm): 0.000000 
+
+2024-06-19 12:39:56,714 - __main__ - INFO - Grasper current position (mm): 0.000000 
+
+2024-06-19 12:39:56,714 - __main__ - INFO - Raw load cell reading: 1564.000000 
+
+2024-06-19 12:39:56,714 - __main__ - INFO - Load cell reading (N): -0.880000 
+
+2024-06-19 12:39:57,577 - __main__ - INFO - D
+2024-06-19 12:39:57,578 - __main__ - INFO - Gantry position(mm): 0.000000 0.000000 0.000000 
+
+2024-06-19 12:39:57,578 - __main__ - INFO - Grasper commanded position (mm): 0.000000 
+
+2024-06-19 12:39:57,578 - __main__ - INFO - Grasper current position (mm): 0.000000 
+
+2024-06-19 12:39:57,578 - __main__ - INFO - Raw load cell reading: 1564.000000 
+
+2024-06-19 12:39:57,578 - __main__ - INFO - Load cell reading (N): -0.880000 
+
+2024-06-19 12:40:13,726 - __main__ - INFO - D
+2024-06-19 12:40:13,753 - __main__ - INFO - Gantry position(mm): 0.000000 0.000000 0.000000 
+
+2024-06-19 12:40:13,753 - __main__ - INFO - Grasper commanded position (mm): 0.000000 
+
+2024-06-19 12:40:13,754 - __main__ - INFO - Grasper current position (mm): 0.000000 
+
+2024-06-19 12:40:13,754 - __main__ - INFO - Raw load cell reading: 1610.000000 
+
+2024-06-19 12:40:13,754 - __main__ - INFO - Load cell reading (N): 0.565714 
+
+2024-06-19 12:40:14,840 - __main__ - INFO - D
+2024-06-19 12:40:14,840 - __main__ - INFO - Gantry position(mm): 0.000000 0.000000 0.000000 
+
+2024-06-19 12:40:14,841 - __main__ - INFO - Grasper commanded position (mm): 0.000000 
+
+2024-06-19 12:40:14,841 - __main__ - INFO - Grasper current position (mm): 0.000000 
+
+2024-06-19 12:40:14,841 - __main__ - INFO - Raw load cell reading: 1610.000000 
+
+2024-06-19 12:40:14,841 - __main__ - INFO - Load cell reading (N): 0.565714 
+
+2024-06-19 12:40:16,152 - __main__ - INFO - D
+2024-06-19 12:40:16,153 - __main__ - INFO - Gantry position(mm): 0.000000 0.000000 0.000000 
+
+2024-06-19 12:40:16,153 - __main__ - INFO - Grasper commanded position (mm): 0.000000 
+
+2024-06-19 12:40:16,153 - __main__ - INFO - Grasper current position (mm): 0.000000 
+
+2024-06-19 12:40:16,153 - __main__ - INFO - Raw load cell reading: 1610.000000 
+
+2024-06-19 12:40:16,153 - __main__ - INFO - Load cell reading (N): 0.565714 
+
+2024-06-19 12:40:46,197 - __main__ - INFO - S
+2024-06-19 12:40:52,085 - __main__ - INFO - Type selected: O
+2024-06-19 12:40:57,381 - __main__ - INFO - Using default values
+2024-06-19 12:40:57,382 - __main__ - INFO - Max closure (mm): 26.500000
+2024-06-19 12:41:00,142 - __main__ - INFO - Using default values
+2024-06-19 12:41:00,142 - __main__ - INFO - x,y,z used is (mm): -9.587500, 12.362000, -184.640000
+2024-06-19 12:41:23,795 - __main__ - INFO - Return home completed
+2024-06-19 12:41:23,795 - __main__ - INFO - Beginning SNS ...
+2024-06-19 12:41:23,795 - __main__ - DEBUG - Inside SNS control
+2024-06-19 12:41:23,796 - __main__ - INFO - Z offset 0.000000
+2024-06-19 12:41:23,796 - __main__ - DEBUG - Target position in m: -0.180413 -0.202362 -0.184000
+2024-06-19 12:41:23,796 - __main__ - DEBUG - GrasperPos in m:0.009588 -0.012362 0.000000
+2024-06-19 12:41:23,796 - __main__ - DEBUG - ObjectPos in m:0.000000 0.000000 -0.184640

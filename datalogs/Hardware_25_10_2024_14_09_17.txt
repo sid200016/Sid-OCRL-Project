@@ -1,0 +1,35 @@
+2024-10-25 14:09:17,990 - __main__ - INFO - Grasper Type selected: GrasperType.SoftGrasper
+2024-10-25 14:09:17,992 - __main__ - INFO - Enter C for calibration. 
+Enter S for SNS. 
+Enter Z to return to joystick control
+Enter H to move grasper home 
+Enter T to inflate until grasper touches 
+Enter MG to move the grasper 
+Enter M to move the gantry 
+Enter D to display robot state 
+Enter PR to enter pressure radius calibration 
+Enter K to begin Koopman Experiments 
+Enter LQR to begin LQR Experiments
+Enter ZS to zero the force/pressure sensors
+2024-10-25 14:10:48,289 - __main__ - INFO - D
+2024-10-25 14:10:48,325 - __main__ - INFO - Gantry position(mm): -4.837500 23.362500 0.000000 
+
+2024-10-25 14:10:48,326 - __main__ - INFO - Grasper closure muscle commanded pressure(psi):0.000000 
+
+2024-10-25 14:10:48,326 - __main__ - INFO - Grasper closure muscle pressure(psi): -0.011443 
+
+2024-10-25 14:10:48,326 - __main__ - INFO - Grasper closure radius(mm): 66.160000 
+
+2024-10-25 14:10:48,326 - __main__ - INFO - Grasper contact pressure (psi): 0.029753, 0.013732, 0.020598 
+
+2024-10-25 14:13:20,468 - __main__ - INFO - D
+2024-10-25 14:13:20,484 - __main__ - INFO - Gantry position(mm): -4.837500 23.362500 -133.980000 
+
+2024-10-25 14:13:20,484 - __main__ - INFO - Grasper closure muscle commanded pressure(psi):0.000000 
+
+2024-10-25 14:13:20,484 - __main__ - INFO - Grasper closure muscle pressure(psi): -0.013732 
+
+2024-10-25 14:13:20,484 - __main__ - INFO - Grasper closure radius(mm): 66.160000 
+
+2024-10-25 14:13:20,484 - __main__ - INFO - Grasper contact pressure (psi): 0.032042, 0.011443, 0.025176 
+

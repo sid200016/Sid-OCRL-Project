@@ -1,0 +1,236 @@
+2024-07-24 15:01:13,861 - __main__ - INFO - Grasper Type selected: GrasperType.RigidGrasper
+2024-07-24 15:01:13,862 - __main__ - INFO - Enter C for calibration. 
+Enter S for SNS. 
+Enter Z to return to joystick control
+Enter H to move grasper home 
+Enter T to inflate until grasper touches 
+Enter MG to move the grasper 
+Enter M to move the gantry 
+Enter D to display robot state 
+Enter PR to enter pressure radius calibration 
+Enter K to begin Koopman Experiments 
+Enter LQR to begin LQR Experiments
+Enter ZS to zero the force/pressure sensors
+2024-07-24 15:01:54,921 - __main__ - INFO - D
+2024-07-24 15:01:54,962 - __main__ - INFO - Gantry position(mm): 0.000000 0.000000 0.000000 
+
+2024-07-24 15:01:54,963 - __main__ - INFO - Grasper commanded position (mm): 60.000000 
+
+2024-07-24 15:01:54,963 - __main__ - INFO - Grasper current position (mm): 59.927400 
+
+2024-07-24 15:01:54,964 - __main__ - INFO - Raw load cell reading: 1469.000000 
+
+2024-07-24 15:01:54,964 - __main__ - INFO - Load cell reading (N): -1.454019 
+
+2024-07-24 15:02:04,737 - __main__ - INFO - MG
+2024-07-24 15:02:11,681 - __main__ - INFO - D
+2024-07-24 15:02:11,681 - __main__ - INFO - Gantry position(mm): 0.000000 0.000000 0.000000 
+
+2024-07-24 15:02:11,681 - __main__ - INFO - Grasper commanded position (mm): 15.960000 
+
+2024-07-24 15:02:11,681 - __main__ - INFO - Grasper current position (mm): 12.718000 
+
+2024-07-24 15:02:11,681 - __main__ - INFO - Raw load cell reading: 1469.000000 
+
+2024-07-24 15:02:11,681 - __main__ - INFO - Load cell reading (N): -1.454019 
+
+2024-07-24 15:02:17,832 - __main__ - INFO - D
+2024-07-24 15:02:17,857 - __main__ - INFO - Gantry position(mm): 0.000000 0.000000 0.000000 
+
+2024-07-24 15:02:17,857 - __main__ - INFO - Grasper commanded position (mm): 15.960000 
+
+2024-07-24 15:02:17,857 - __main__ - INFO - Grasper current position (mm): 15.334000 
+
+2024-07-24 15:02:17,857 - __main__ - INFO - Raw load cell reading: 1470.000000 
+
+2024-07-24 15:02:17,857 - __main__ - INFO - Load cell reading (N): -1.449695 
+
+2024-07-24 15:02:19,472 - __main__ - INFO - D
+2024-07-24 15:02:19,472 - __main__ - INFO - Gantry position(mm): 0.000000 0.000000 0.000000 
+
+2024-07-24 15:02:19,472 - __main__ - INFO - Grasper commanded position (mm): 15.960000 
+
+2024-07-24 15:02:19,472 - __main__ - INFO - Grasper current position (mm): 15.782200 
+
+2024-07-24 15:02:19,472 - __main__ - INFO - Raw load cell reading: 1469.000000 
+
+2024-07-24 15:02:19,472 - __main__ - INFO - Load cell reading (N): -1.454019 
+
+2024-07-24 15:02:20,832 - __main__ - INFO - D
+2024-07-24 15:02:20,832 - __main__ - INFO - Gantry position(mm): 0.000000 0.000000 0.000000 
+
+2024-07-24 15:02:20,832 - __main__ - INFO - Grasper commanded position (mm): 15.960000 
+
+2024-07-24 15:02:20,833 - __main__ - INFO - Grasper current position (mm): 15.931600 
+
+2024-07-24 15:02:20,833 - __main__ - INFO - Raw load cell reading: 1469.000000 
+
+2024-07-24 15:02:20,833 - __main__ - INFO - Load cell reading (N): -1.454019 
+
+2024-07-24 15:02:22,128 - __main__ - INFO - D
+2024-07-24 15:02:22,128 - __main__ - INFO - Gantry position(mm): 0.000000 0.000000 0.000000 
+
+2024-07-24 15:02:22,128 - __main__ - INFO - Grasper commanded position (mm): 15.960000 
+
+2024-07-24 15:02:22,128 - __main__ - INFO - Grasper current position (mm): 15.857400 
+
+2024-07-24 15:02:22,128 - __main__ - INFO - Raw load cell reading: 1469.000000 
+
+2024-07-24 15:02:22,128 - __main__ - INFO - Load cell reading (N): -1.454019 
+
+2024-07-24 15:02:23,376 - __main__ - INFO - D
+2024-07-24 15:02:23,376 - __main__ - INFO - Gantry position(mm): 0.000000 0.000000 0.000000 
+
+2024-07-24 15:02:23,376 - __main__ - INFO - Grasper commanded position (mm): 15.960000 
+
+2024-07-24 15:02:23,376 - __main__ - INFO - Grasper current position (mm): 16.005800 
+
+2024-07-24 15:02:23,376 - __main__ - INFO - Raw load cell reading: 1469.000000 
+
+2024-07-24 15:02:23,376 - __main__ - INFO - Load cell reading (N): -1.454019 
+
+2024-07-24 15:02:35,343 - __main__ - INFO - MG
+2024-07-24 15:02:49,103 - __main__ - INFO - D
+2024-07-24 15:02:49,103 - __main__ - INFO - Gantry position(mm): 0.000000 0.000000 0.000000 
+
+2024-07-24 15:02:49,103 - __main__ - INFO - Grasper commanded position (mm): 25.000000 
+
+2024-07-24 15:02:49,103 - __main__ - INFO - Grasper current position (mm): 25.268600 
+
+2024-07-24 15:02:49,103 - __main__ - INFO - Raw load cell reading: 1470.000000 
+
+2024-07-24 15:02:49,103 - __main__ - INFO - Load cell reading (N): -1.449695 
+
+2024-07-24 15:02:51,125 - __main__ - INFO - D
+2024-07-24 15:02:51,151 - __main__ - INFO - Gantry position(mm): 0.000000 0.000000 0.000000 
+
+2024-07-24 15:02:51,151 - __main__ - INFO - Grasper commanded position (mm): 25.000000 
+
+2024-07-24 15:02:51,151 - __main__ - INFO - Grasper current position (mm): 25.268600 
+
+2024-07-24 15:02:51,151 - __main__ - INFO - Raw load cell reading: 1470.000000 
+
+2024-07-24 15:02:51,151 - __main__ - INFO - Load cell reading (N): -1.449695 
+
+2024-07-24 15:02:52,046 - __main__ - INFO - D
+2024-07-24 15:02:52,047 - __main__ - INFO - Gantry position(mm): 0.000000 0.000000 0.000000 
+
+2024-07-24 15:02:52,047 - __main__ - INFO - Grasper commanded position (mm): 25.000000 
+
+2024-07-24 15:02:52,047 - __main__ - INFO - Grasper current position (mm): 25.268600 
+
+2024-07-24 15:02:52,047 - __main__ - INFO - Raw load cell reading: 1470.000000 
+
+2024-07-24 15:02:52,047 - __main__ - INFO - Load cell reading (N): -1.449695 
+
+2024-07-24 15:03:07,757 - __main__ - INFO - MG
+2024-07-24 15:03:14,380 - __main__ - INFO - D
+2024-07-24 15:03:14,381 - __main__ - INFO - Gantry position(mm): 0.000000 0.000000 0.000000 
+
+2024-07-24 15:03:14,381 - __main__ - INFO - Grasper commanded position (mm): 15.000000 
+
+2024-07-24 15:03:14,381 - __main__ - INFO - Grasper current position (mm): 17.048600 
+
+2024-07-24 15:03:14,381 - __main__ - INFO - Raw load cell reading: 1470.000000 
+
+2024-07-24 15:03:14,381 - __main__ - INFO - Load cell reading (N): -1.449695 
+
+2024-07-24 15:03:15,868 - __main__ - INFO - D
+2024-07-24 15:03:15,869 - __main__ - INFO - Gantry position(mm): 0.000000 0.000000 0.000000 
+
+2024-07-24 15:03:15,869 - __main__ - INFO - Grasper commanded position (mm): 15.000000 
+
+2024-07-24 15:03:15,869 - __main__ - INFO - Grasper current position (mm): 16.452000 
+
+2024-07-24 15:03:15,869 - __main__ - INFO - Raw load cell reading: 1470.000000 
+
+2024-07-24 15:03:15,869 - __main__ - INFO - Load cell reading (N): -1.449695 
+
+2024-07-24 15:03:16,797 - __main__ - INFO - D
+2024-07-24 15:03:16,797 - __main__ - INFO - Gantry position(mm): 0.000000 0.000000 0.000000 
+
+2024-07-24 15:03:16,797 - __main__ - INFO - Grasper commanded position (mm): 15.000000 
+
+2024-07-24 15:03:16,797 - __main__ - INFO - Grasper current position (mm): 15.929600 
+
+2024-07-24 15:03:16,797 - __main__ - INFO - Raw load cell reading: 1470.000000 
+
+2024-07-24 15:03:16,797 - __main__ - INFO - Load cell reading (N): -1.449695 
+
+2024-07-24 15:03:17,644 - __main__ - INFO - D
+2024-07-24 15:03:17,644 - __main__ - INFO - Gantry position(mm): 0.000000 0.000000 0.000000 
+
+2024-07-24 15:03:17,645 - __main__ - INFO - Grasper commanded position (mm): 15.000000 
+
+2024-07-24 15:03:17,645 - __main__ - INFO - Grasper current position (mm): 15.854400 
+
+2024-07-24 15:03:17,645 - __main__ - INFO - Raw load cell reading: 1470.000000 
+
+2024-07-24 15:03:17,645 - __main__ - INFO - Load cell reading (N): -1.449695 
+
+2024-07-24 15:03:18,572 - __main__ - INFO - D
+2024-07-24 15:03:18,572 - __main__ - INFO - Gantry position(mm): 0.000000 0.000000 0.000000 
+
+2024-07-24 15:03:18,573 - __main__ - INFO - Grasper commanded position (mm): 15.000000 
+
+2024-07-24 15:03:18,573 - __main__ - INFO - Grasper current position (mm): 15.629800 
+
+2024-07-24 15:03:18,573 - __main__ - INFO - Raw load cell reading: 1470.000000 
+
+2024-07-24 15:03:18,573 - __main__ - INFO - Load cell reading (N): -1.449695 
+
+2024-07-24 15:03:19,452 - __main__ - INFO - D
+2024-07-24 15:03:19,452 - __main__ - INFO - Gantry position(mm): 0.000000 0.000000 0.000000 
+
+2024-07-24 15:03:19,452 - __main__ - INFO - Grasper commanded position (mm): 15.000000 
+
+2024-07-24 15:03:19,452 - __main__ - INFO - Grasper current position (mm): 15.332000 
+
+2024-07-24 15:03:19,452 - __main__ - INFO - Raw load cell reading: 1470.000000 
+
+2024-07-24 15:03:19,452 - __main__ - INFO - Load cell reading (N): -1.449695 
+
+2024-07-24 15:03:20,333 - __main__ - INFO - D
+2024-07-24 15:03:20,333 - __main__ - INFO - Gantry position(mm): 0.000000 0.000000 0.000000 
+
+2024-07-24 15:03:20,333 - __main__ - INFO - Grasper commanded position (mm): 15.000000 
+
+2024-07-24 15:03:20,333 - __main__ - INFO - Grasper current position (mm): 15.257800 
+
+2024-07-24 15:03:20,333 - __main__ - INFO - Raw load cell reading: 1470.000000 
+
+2024-07-24 15:03:20,334 - __main__ - INFO - Load cell reading (N): -1.449695 
+
+2024-07-24 15:03:21,228 - __main__ - INFO - D
+2024-07-24 15:03:21,229 - __main__ - INFO - Gantry position(mm): 0.000000 0.000000 0.000000 
+
+2024-07-24 15:03:21,229 - __main__ - INFO - Grasper commanded position (mm): 15.000000 
+
+2024-07-24 15:03:21,229 - __main__ - INFO - Grasper current position (mm): 15.257800 
+
+2024-07-24 15:03:21,229 - __main__ - INFO - Raw load cell reading: 1470.000000 
+
+2024-07-24 15:03:21,229 - __main__ - INFO - Load cell reading (N): -1.449695 
+
+2024-07-24 15:03:22,124 - __main__ - INFO - D
+2024-07-24 15:03:22,125 - __main__ - INFO - Gantry position(mm): 0.000000 0.000000 0.000000 
+
+2024-07-24 15:03:22,125 - __main__ - INFO - Grasper commanded position (mm): 15.000000 
+
+2024-07-24 15:03:22,125 - __main__ - INFO - Grasper current position (mm): 15.183600 
+
+2024-07-24 15:03:22,125 - __main__ - INFO - Raw load cell reading: 1470.000000 
+
+2024-07-24 15:03:22,125 - __main__ - INFO - Load cell reading (N): -1.449695 
+
+2024-07-24 15:03:23,100 - __main__ - INFO - D
+2024-07-24 15:03:23,100 - __main__ - INFO - Gantry position(mm): 0.000000 0.000000 0.000000 
+
+2024-07-24 15:03:23,100 - __main__ - INFO - Grasper commanded position (mm): 15.000000 
+
+2024-07-24 15:03:23,101 - __main__ - INFO - Grasper current position (mm): 15.183600 
+
+2024-07-24 15:03:23,101 - __main__ - INFO - Raw load cell reading: 1470.000000 
+
+2024-07-24 15:03:23,101 - __main__ - INFO - Load cell reading (N): -1.449695 
+

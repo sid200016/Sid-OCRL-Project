@@ -1,0 +1,93 @@
+2024-10-14 14:59:42,135 - __main__ - INFO - Grasper Type selected: GrasperType.RigidGrasper
+2024-10-14 14:59:42,136 - __main__ - INFO - Enter C for calibration. 
+Enter S for SNS. 
+Enter Z to return to joystick control
+Enter H to move grasper home 
+Enter T to inflate until grasper touches 
+Enter MG to move the grasper 
+Enter M to move the gantry 
+Enter D to display robot state 
+Enter PR to enter pressure radius calibration 
+Enter K to begin Koopman Experiments 
+Enter LQR to begin LQR Experiments
+Enter ZS to zero the force/pressure sensors
+2024-10-14 14:59:48,502 - __main__ - INFO - MG
+2024-10-14 14:59:55,301 - __main__ - INFO - Neither X or T selected. Exiting. 
+2024-10-14 15:00:03,502 - __main__ - INFO - MG
+2024-10-14 15:02:44,735 - __main__ - INFO - D
+2024-10-14 15:02:44,764 - __main__ - INFO - Gantry position(mm): 0.000000 0.000000 0.000000 
+
+2024-10-14 15:02:44,764 - __main__ - INFO - Grasper commanded position (mm): 18.280600 
+
+2024-10-14 15:02:44,764 - __main__ - INFO - Grasper current position (mm): 23.117800 
+
+2024-10-14 15:02:44,764 - __main__ - INFO - Raw load cell reading: 1022.000000 
+
+2024-10-14 15:02:44,764 - __main__ - INFO - Load cell reading (N): -3.386657 
+
+2024-10-14 15:02:46,267 - __main__ - INFO - D
+2024-10-14 15:02:46,300 - __main__ - INFO - Gantry position(mm): 0.000000 0.000000 0.000000 
+
+2024-10-14 15:02:46,300 - __main__ - INFO - Grasper commanded position (mm): 18.280600 
+
+2024-10-14 15:02:46,300 - __main__ - INFO - Grasper current position (mm): 22.444000 
+
+2024-10-14 15:02:46,300 - __main__ - INFO - Raw load cell reading: 1023.000000 
+
+2024-10-14 15:02:46,300 - __main__ - INFO - Load cell reading (N): -3.382334 
+
+2024-10-14 15:02:47,178 - __main__ - INFO - D
+2024-10-14 15:02:47,179 - __main__ - INFO - Gantry position(mm): 0.000000 0.000000 0.000000 
+
+2024-10-14 15:02:47,179 - __main__ - INFO - Grasper commanded position (mm): 18.280600 
+
+2024-10-14 15:02:47,179 - __main__ - INFO - Grasper current position (mm): 22.445000 
+
+2024-10-14 15:02:47,179 - __main__ - INFO - Raw load cell reading: 1023.000000 
+
+2024-10-14 15:02:47,179 - __main__ - INFO - Load cell reading (N): -3.382334 
+
+2024-10-14 15:02:47,994 - __main__ - INFO - D
+2024-10-14 15:02:47,994 - __main__ - INFO - Gantry position(mm): 0.000000 0.000000 0.000000 
+
+2024-10-14 15:02:47,994 - __main__ - INFO - Grasper commanded position (mm): 18.280600 
+
+2024-10-14 15:02:47,994 - __main__ - INFO - Grasper current position (mm): 21.543600 
+
+2024-10-14 15:02:47,995 - __main__ - INFO - Raw load cell reading: 1023.000000 
+
+2024-10-14 15:02:47,995 - __main__ - INFO - Load cell reading (N): -3.382334 
+
+2024-10-14 15:02:48,827 - __main__ - INFO - D
+2024-10-14 15:02:48,827 - __main__ - INFO - Gantry position(mm): 0.000000 0.000000 0.000000 
+
+2024-10-14 15:02:48,827 - __main__ - INFO - Grasper commanded position (mm): 18.280600 
+
+2024-10-14 15:02:48,827 - __main__ - INFO - Grasper current position (mm): 21.542600 
+
+2024-10-14 15:02:48,827 - __main__ - INFO - Raw load cell reading: 1019.000000 
+
+2024-10-14 15:02:48,828 - __main__ - INFO - Load cell reading (N): -3.399628 
+
+2024-10-14 15:02:49,706 - __main__ - INFO - D
+2024-10-14 15:02:49,707 - __main__ - INFO - Gantry position(mm): 0.000000 0.000000 0.000000 
+
+2024-10-14 15:02:49,707 - __main__ - INFO - Grasper commanded position (mm): 18.280600 
+
+2024-10-14 15:02:49,707 - __main__ - INFO - Grasper current position (mm): 21.317000 
+
+2024-10-14 15:02:49,707 - __main__ - INFO - Raw load cell reading: 1021.000000 
+
+2024-10-14 15:02:49,707 - __main__ - INFO - Load cell reading (N): -3.390981 
+
+2024-10-14 15:02:55,534 - __main__ - INFO - D
+2024-10-14 15:02:55,534 - __main__ - INFO - Gantry position(mm): 0.000000 0.000000 0.000000 
+
+2024-10-14 15:02:55,534 - __main__ - INFO - Grasper commanded position (mm): 18.280600 
+
+2024-10-14 15:02:55,534 - __main__ - INFO - Grasper current position (mm): 20.420600 
+
+2024-10-14 15:02:55,534 - __main__ - INFO - Raw load cell reading: 1022.000000 
+
+2024-10-14 15:02:55,534 - __main__ - INFO - Load cell reading (N): -3.386657 
+

@@ -1,0 +1,458 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "my_sim"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_executable",
+			"link_directories",
+			"target_link_libraries",
+			"include_directories"
+		],
+		"files" : 
+		[
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 49,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 36,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 52,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 10,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 11,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 12,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 13,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 14,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 15,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 16,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 17,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 18,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 19,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 20,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 21,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 22,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 23,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 24,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 25,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 26,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 27,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 28,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 29,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 30,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 31,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 32,
+				"parent" : 0
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-std=gnu++17"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 4,
+					"path" : "/home/siddarth/FRR-Software-Interface/Project_CPP/../tiny-differentiable-simulator/src"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/siddarth/FRR-Software-Interface/Project_CPP/../tiny-differentiable-simulator/examples"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "/home/siddarth/FRR-Software-Interface/Project_CPP/../tiny-differentiable-simulator/src/math"
+				},
+				{
+					"backtrace" : 7,
+					"path" : "/home/siddarth/FRR-Software-Interface/Project_CPP/../tiny-differentiable-simulator/src/dynamics"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "/home/siddarth/FRR-Software-Interface/Project_CPP/../tiny-differentiable-simulator/src/urdf"
+				},
+				{
+					"backtrace" : 9,
+					"path" : "/home/siddarth/FRR-Software-Interface/Project_CPP/../tiny-differentiable-simulator/src/utils"
+				},
+				{
+					"backtrace" : 10,
+					"path" : "/home/siddarth/FRR-Software-Interface/Project_CPP/../tiny-differentiable-simulator/src/utils/cuda"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "/home/siddarth/FRR-Software-Interface/Project_CPP/../tiny-differentiable-simulator/src/utils/sdf_to_mesh"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "/home/siddarth/FRR-Software-Interface/Project_CPP/../tiny-differentiable-simulator/src/visualizer/meshcat"
+				},
+				{
+					"backtrace" : 13,
+					"path" : "/home/siddarth/FRR-Software-Interface/Project_CPP/../tiny-differentiable-simulator/src/visualizer/opengl"
+				},
+				{
+					"backtrace" : 14,
+					"path" : "/home/siddarth/FRR-Software-Interface/Project_CPP/../tiny-differentiable-simulator/src/visualizer/pybullet"
+				},
+				{
+					"backtrace" : 15,
+					"path" : "/home/siddarth/FRR-Software-Interface/Project_CPP/../tiny-differentiable-simulator/src/visualizer/tinyrenderer"
+				},
+				{
+					"backtrace" : 16,
+					"path" : "/home/siddarth/FRR-Software-Interface/Project_CPP/../tiny-differentiable-simulator/third_party"
+				},
+				{
+					"backtrace" : 17,
+					"path" : "/home/siddarth/FRR-Software-Interface/Project_CPP/../tiny-differentiable-simulator/third_party/tinyobjloader"
+				},
+				{
+					"backtrace" : 18,
+					"path" : "/home/siddarth/FRR-Software-Interface/Project_CPP/../tiny-differentiable-simulator/third_party/eigen3"
+				},
+				{
+					"backtrace" : 19,
+					"path" : "/home/siddarth/FRR-Software-Interface/Project_CPP/../tiny-differentiable-simulator/third_party/tinyxml2/include"
+				},
+				{
+					"backtrace" : 20,
+					"path" : "/home/siddarth/FRR-Software-Interface/Project_CPP/../tiny-differentiable-simulator/third_party/cpp_base64/include/cpp_base64"
+				},
+				{
+					"backtrace" : 21,
+					"path" : "/home/siddarth/FRR-Software-Interface/Project_CPP/../tiny-differentiable-simulator/third_party/zeromq/include"
+				},
+				{
+					"backtrace" : 22,
+					"path" : "/home/siddarth/FRR-Software-Interface/Project_CPP/../tiny-differentiable-simulator/third_party/zeromq/include_linux"
+				},
+				{
+					"backtrace" : 23,
+					"path" : "/home/siddarth/FRR-Software-Interface/Project_CPP/../tiny-differentiable-simulator/third_party/dear_imgui"
+				},
+				{
+					"backtrace" : 24,
+					"path" : "/home/siddarth/FRR-Software-Interface/Project_CPP/../tiny-differentiable-simulator/third_party/dear_imgui/opengl3"
+				},
+				{
+					"backtrace" : 25,
+					"path" : "/home/siddarth/FRR-Software-Interface/Project_CPP/../tiny-differentiable-simulator/third_party/gtest/include"
+				},
+				{
+					"backtrace" : 26,
+					"path" : "/home/siddarth/FRR-Software-Interface/Project_CPP/../tiny-differentiable-simulator/third_party/crossguid/crossguid"
+				}
+			],
+			"language" : "CXX",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					1
+				],
+				"standard" : "17"
+			},
+			"sourceIndexes" : 
+			[
+				0
+			]
+		}
+	],
+	"id" : "my_sim::@6890427a1f51a3e7e1df",
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"backtrace" : 2,
+				"fragment" : "-L/home/siddarth/FRR-Software-Interface/Project_CPP/../tiny-differentiable-simulator/build/rbdl",
+				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-L/home/siddarth/FRR-Software-Interface/Project_CPP/../tiny-differentiable-simulator/build/python",
+				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-L/home/siddarth/FRR-Software-Interface/Project_CPP/../tiny-differentiable-simulator/build/cpp_base64",
+				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-L/home/siddarth/FRR-Software-Interface/Project_CPP/../tiny-differentiable-simulator/build/zeromq",
+				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-L/home/siddarth/FRR-Software-Interface/Project_CPP/../tiny-differentiable-simulator/build/dear_imgui",
+				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-L/home/siddarth/FRR-Software-Interface/Project_CPP/../tiny-differentiable-simulator/build/gtest",
+				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-L/home/siddarth/FRR-Software-Interface/Project_CPP/../tiny-differentiable-simulator/build/crossguid",
+				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-L/home/siddarth/FRR-Software-Interface/Project_CPP/../tiny-differentiable-simulator/build/tinyxml2",
+				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-L/home/siddarth/FRR-Software-Interface/Project_CPP/../tiny-differentiable-simulator/build/opengl",
+				"role" : "libraryPath"
+			},
+			{
+				"fragment" : "-Wl,-rpath,/home/siddarth/FRR-Software-Interface/Project_CPP/../tiny-differentiable-simulator/build/rbdl:/home/siddarth/FRR-Software-Interface/Project_CPP/../tiny-differentiable-simulator/build/python:/home/siddarth/FRR-Software-Interface/Project_CPP/../tiny-differentiable-simulator/build/cpp_base64:/home/siddarth/FRR-Software-Interface/Project_CPP/../tiny-differentiable-simulator/build/zeromq:/home/siddarth/FRR-Software-Interface/Project_CPP/../tiny-differentiable-simulator/build/dear_imgui:/home/siddarth/FRR-Software-Interface/Project_CPP/../tiny-differentiable-simulator/build/gtest:/home/siddarth/FRR-Software-Interface/Project_CPP/../tiny-differentiable-simulator/build/crossguid:/home/siddarth/FRR-Software-Interface/Project_CPP/../tiny-differentiable-simulator/build/tinyxml2:/home/siddarth/FRR-Software-Interface/Project_CPP/../tiny-differentiable-simulator/build/opengl",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "-lrbdl-static",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "-lrbdl-urdfreader",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "-lpytinydiffsim_dual",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "-lpytinydiffsim",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "-lpytinyopengl3",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "-lcpp_base64",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "-lzmq",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "-ldear_imgui",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "-lgtest",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "-lgtestmain",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "-lcrossguid",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "-ltinyxml2",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "-lopengl_window",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "-ldl",
+				"role" : "libraries"
+			}
+		],
+		"language" : "CXX"
+	},
+	"name" : "my_sim",
+	"nameOnDisk" : "my_sim",
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "main.cpp",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "EXECUTABLE"
+}

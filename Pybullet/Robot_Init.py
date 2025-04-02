@@ -5,14 +5,22 @@ import numpy as np
 import autograd.numpy as anp
 from autograd import jacobian
 import sympy as sy
-from sympy.utilities.codegen import codegen   
+from sympy.utilities.codegen import codegen  
+import pytinydiffsim as pd 
+import pytinyopengl3 as gl
+import pytinydiffsim_dual
+import meshcat  
+import meshcat_utils_dp
+#from pytinydiffsim import urdf_utils_pb
 
 class Robot:
     def __init__(self, joint_angles_init, path):
+        self.vizpath = "robot_arm_3/meshes/"
+        #p.connect(p.DIRECT)
+        print("init")
         self.joint_angles_home = joint_angles_init
         self.path = path
         self.joint_init_positions = joint_angles_init
-        
         physicsClient = p.connect(p.GUI)
         p.setAdditionalSearchPath(pybullet_data.getDataPath()) #used by loadURDF
         p.setGravity(0,0,-10)
@@ -22,6 +30,59 @@ class Robot:
         self.robot_id = p.loadURDF(self.path,robotStartPos, robotStartOrientation)
         for joint_index in range(len(self.joint_init_positions)):
             p.resetJointState(self.robot_id, joint_index, self.joint_init_positions[joint_index])
+    def step_sim(selfx):
+        while True:
+            p.stepSimulation()
+            time.sleep(1/240)
+
+    def visualize(self):
+        
+        world = pd.TinyWorld()
+        world.friction = 1.0
+        mb_solver = pd.TinyMultiBodyConstraintSolver()
+
+        vis = meshcat.Visualizer(zmq_url='tcp://127.0.0.1:6000')
+        #vis.delete()
+
+        urdf_parser = pd.TinyUrdfParser()
+
+        #plane_urdf_data = urdf_parser.load_urdf("robot_arm_3/urdf/plane_implicit.urdf", False)
+        #plane2vis = meshcat_utils_dp.convert_visuals(plane_urdf_data, "../../data/checker_purple.png", vis, "../../data/")
+        plane_mb = pd.TinyMultiBody(False)
+        plane2mb = pd.UrdfToMultiBody2()
+        #res = plane2mb.convert2(plane_urdf_data, world, plane_mb)
+        
+        urdf_data = urdf_parser.load_urdf(self.path, True) 
+        print("robot_name=",urdf_data.robot_name)
+        b2vis = meshcat_utils_dp.convert_visuals(urdf_data, "", vis, self.vizpath)
+        is_floating=False
+        mb = pd.TinyMultiBody(is_floating)
+        urdf2mb = pd.UrdfToMultiBody2()
+        res = urdf2mb.convert2(urdf_data, world, mb)
+        #urdf2mb.convert_visuals = True
+        #mb.set_position(pd.Vector3(0,0,1))
+        #mb.set_orientation(pd.Quaternion(0.0, 0.0, 0.0, 1.0))
+        print(len(mb.links))
+        q = mb.q  # get current state
+        base_pos_or = [0, 0, 0, 0, 0, 0, 1]
+        for i in range(len(base_pos_or)):
+            q[i] = base_pos_or[i]
+        
+# Set joints (skip first 7 base pose entries)
+
+        for i, angle in enumerate(self.joint_init_positions):
+            q[7 + i] = angle
+
+        mb.set_q(q) 
+        mb.set_qd([0] * len(mb.qd))
+        meshcat_utils_dp.sync_visual_transforms(mb, b2vis, vis)
+    def render(self):
+        print("rendering")
+        sim_spacing = 2
+        obs_dim = 0
+        self.viz.sync_visual_transforms(self.instances, self.mb.visual_transforms(), obs_dim, sim_spacing)
+        self.viz.render()
+        print("complete")
 
     def getR_xT_x(self, q, p):
         R = sy.Matrix([[1, 0, 0],[0, sy.cos(q), -sy.sin(q)], [0, sy.sin(q), sy.cos(q)]])
@@ -93,10 +154,8 @@ class Robot:
             joint_angles.append(joint_angle)
 
         return joint_angles
-    def step_sim(selfx):
-        while True:
-            p.stepSimulation()
-            time.sleep(1/240)
+    def step(self, control_inputs):
+        pd.simulate(self.world, self.mb, control_inputs)
     def computeM_N(self):
         #Define Parameters:
         q1, q2, q3, q4, q5, q6 = sy.symbols('q1 q2 q3 q4 q5 q6')

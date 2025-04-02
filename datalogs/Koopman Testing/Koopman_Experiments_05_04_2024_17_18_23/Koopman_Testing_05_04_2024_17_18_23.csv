@@ -1,2 +1,0 @@
-2024-04-05 17:18:23,282,__main___datalog_Koopman,INFO,Commanded pressure (psi),Measured Pressure closure (psi),Measured Pressure Jaw 1 (psi),Measured Pressure Jaw 2 (psi),Measured Pressure Jaw 3 (psi),Time Stamp,Pressure Capture Event
-2024-04-05 17:18:35,102,__main___datalog_Koopman,INFO,Datalog_time,time_delta_s, object_class, object_size, program_mode,x_mm,y_mm,z_mm,P_closure_psi,P_jaw1_psi,P_jaw2_psi,P_jaw3_psi,commanded_radius_mm, commanded_P_jaw1_psi, commanded_P_jaw2_psi, commanded_P_jaw3_psi,commanded_x_mm, commanded_y_mm,commanded_z_mm

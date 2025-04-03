@@ -33,7 +33,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="base_link.stl" />
+          filename="base_link.obj" />
       </geometry>
       <material
         name="">
@@ -47,7 +47,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="base_link.stl" />
+          filename="base_link.obj" />
       </geometry>
     </collision>
   </link>
@@ -73,7 +73,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="l1.stl" />
+          filename="l1.obj" />
       </geometry>
       <material
         name="">
@@ -87,7 +87,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="l1.stl" />
+          filename="l1.obj" />
       </geometry>
     </collision>
   </link>
@@ -126,7 +126,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="l2.stl" />
+          filename="l2.obj" />
       </geometry>
       <material
         name="">
@@ -140,7 +140,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="l2.stl" />
+          filename="l2.obj" />
       </geometry>
     </collision>
   </link>
@@ -179,7 +179,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="l3.stl" />
+          filename="l3.obj" />
       </geometry>
       <material
         name="">
@@ -193,7 +193,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="l3.stl" />
+          filename="l3.obj" />
       </geometry>
     </collision>
   </link>
@@ -237,7 +237,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="l4.stl" />
+          filename="l4.obj" />
       </geometry>
       <material
         name="">
@@ -251,7 +251,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="l4.stl" />
+          filename="l4.obj" />
       </geometry>
     </collision>
   </link>
@@ -290,7 +290,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="l5.stl" />
+          filename="l5.obj" />
       </geometry>
       <material
         name="">
@@ -304,7 +304,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="l5.stl" />
+          filename="l5.obj" />
       </geometry>
     </collision>
   </link>
@@ -343,7 +343,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="l6.stl" />
+          filename="l6.obj" />
       </geometry>
       <material
         name="">
@@ -357,7 +357,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="l6.stl" />
+          filename="l6.obj" />
       </geometry>
     </collision>
   </link>
@@ -396,7 +396,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="end_eff.stl" />
+          filename="end_eff.obj" />
       </geometry>
       <material
         name="">
@@ -410,7 +410,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="end_eff.stl" />
+          filename="end_eff.obj" />
       </geometry>
     </collision>
   </link>
